@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<section id="primary">
+  <p class="section-label">Tag</p>
+
+  <article class="page-shell">
+    <header class="page-header">
+      <h1>{{ page.title }}</h1>
+      <p class="intro-note">{{ site.tags[page.tag].size }} post{% if site.tags[page.tag].size != 1 %}s{% endif %} tagged <strong>{{ page.tag }}</strong>.</p>
+    </header>
+
+    <ul class="archive-list">
+      {% assign posts = site.tags[page.tag] | sort: "date" | reverse %}
+      {% for item in posts %}
+        <li>
+          <span class="archive-date">{{ item.date | date: "%d %b %Y" }}</span>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+
+{% include sidebar.html %}

@@ -1,0 +1,13 @@
+- label: /about
+  url: /about/
+- label: /blog
+  url: /blog/
+- label: /work
+  url: /work/
+- label: /fun
+  url: /fun/
+- label: /disclaimer
+  url: /disclaimer/
+- label: /TIL
+  url: /TIL/
+

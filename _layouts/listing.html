@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<section id="primary">
+  <p class="section-label">{{ page.title }}</p>
+
+  <article class="page-shell">
+    {% if page.intro %}
+      <p class="intro-note">{{ page.intro }}</p>
+    {% endif %}
+
+    {% assign current_year = "" %}
+    {% for item in site.posts %}
+      {% assign post_year = item.date | date: "%Y" %}
+      {% if post_year != current_year %}
+        {% assign current_year = post_year %}
+        <p class="year-marker">{{ current_year }}</p>
+      {% endif %}
+      <div class="post-row">
+        <span class="post-date">{{ item.date | date: "%-d %b %Y" }}</span>
+        <span class="post-sep">&raquo;</span>
+        <span class="post-main">
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </span>
+      </div>
+    {% endfor %}
+  </article>
+</section>
+
+{% include sidebar.html %}

@@ -1,0 +1,19 @@
+<header id="bighead">
+  <div id="h1-nav-wrapper">
+    <h1><a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    <p class="tagline">{{ site.description }}</p>
+
+    <nav id="site-nav" aria-label="Primary">
+      <ul>
+        {% for item in site.data.navigation %}
+          {% assign current_url = page.url | replace: 'index.html', '' %}
+          <li>
+            <a{% if current_url == item.url %} class="is-active"{% endif %} href="{{ item.url | relative_url }}">
+              {{ item.label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
