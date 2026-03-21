@@ -254,17 +254,20 @@ th {
 
 .mobile-menu-toggle {
   min-height: 2.75rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0 0.2rem 0.45rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: #fff;
-  font-size: 0.84rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+  text-underline-offset: 0.22rem;
 }
 
 .mobile-menu-toggle:hover {
-  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .tagline {
@@ -957,9 +960,10 @@ th {
 
   .mobile-menu-panel {
     display: block;
-    margin-top: 0.85rem;
-    padding-top: 0.95rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    margin-top: 0.72rem;
+    padding-top: 0.78rem;
+    padding-bottom: 0.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
   }
 
   .mobile-menu-panel[hidden] {
@@ -967,22 +971,22 @@ th {
   }
 
   .mobile-menu-tagline {
-    margin: 0 0 1rem 0;
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 0.94rem;
-    line-height: 1.55;
+    margin: 0 0 0.9rem 0;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 0.92rem;
+    line-height: 1.5;
   }
 
   .mobile-menu-section + .mobile-menu-section {
-    margin-top: 1rem;
+    margin-top: 0.82rem;
   }
 
   .mobile-menu-section-label {
-    margin: 0 0 0.5rem 0;
-    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 0.3rem 0;
+    color: rgba(255, 255, 255, 0.58);
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
   }
 
@@ -990,8 +994,11 @@ th {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: grid;
-    gap: 0.45rem;
+    display: block;
+  }
+
+  .mobile-menu-primary li {
+    margin: 0;
   }
 
   .mobile-menu-primary a,
@@ -999,34 +1006,54 @@ th {
   .mobile-menu-external-link {
     display: flex;
     align-items: center;
-    min-height: 2.75rem;
-    padding: 0.62rem 0.78rem;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    gap: 0.38rem;
+    min-height: 0;
+    padding: 0.74rem 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     color: #fff;
-    font-size: 0.94rem;
-    font-weight: 500;
+    font-size: 0.93rem;
+    font-weight: 400;
     text-decoration: none;
     line-height: 1.25;
   }
 
+  .mobile-menu-primary a:visited,
+  .mobile-menu-bio-link:visited,
+  .mobile-menu-external-link:visited {
+    color: #fff;
+  }
+
+  .mobile-menu-external-icon {
+    width: 0.84rem;
+    height: 0.84rem;
+    flex-shrink: 0;
+    opacity: 0.82;
+    transform: translateY(0.01em);
+  }
+
   .mobile-menu-primary a.is-active {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.18);
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.26);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.55);
+    text-underline-offset: 0.18rem;
   }
 
   .mobile-menu-primary a:hover,
   .mobile-menu-bio-link:hover,
   .mobile-menu-external-link:hover {
-    background: rgba(255, 255, 255, 0.16);
-    color: #fff;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.82);
   }
 
   .mobile-menu-external {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
+    display: block;
+    gap: 0;
   }
 
   #secondary {
@@ -1143,12 +1170,12 @@ th {
   }
 
   .mobile-menu-panel {
-    margin-top: 0.75rem;
-    padding-top: 0.85rem;
+    margin-top: 0.68rem;
+    padding-top: 0.74rem;
   }
 
   .mobile-menu-tagline {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
   .post-row {
@@ -1217,11 +1244,5 @@ th {
   .footer-bottom {
     flex-direction: column;
     gap: 0.25rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .mobile-menu-external {
-    grid-template-columns: 1fr;
   }
 }
