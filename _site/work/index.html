@@ -351,7 +351,6 @@
         const setMenuState = (isOpen) => {
           menuButton.setAttribute('aria-expanded', String(isOpen));
           menuPanel.hidden = !isOpen;
-          document.body.classList.toggle('mobile-menu-open', isOpen);
         };
 
         const closeMenu = () => setMenuState(false);

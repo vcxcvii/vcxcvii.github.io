@@ -39,10 +39,6 @@ body {
   overflow-wrap: break-word;
 }
 
-body.mobile-menu-open {
-  overflow: hidden;
-}
-
 a {
   color: var(--color-link);
   text-decoration: underline;
@@ -932,12 +928,6 @@ th {
   #secondary {
     width: auto;
     max-width: none;
-  }
-
-  #bighead {
-    position: sticky;
-    top: 0;
-    z-index: 20;
   }
 
   #h1-nav-wrapper {
