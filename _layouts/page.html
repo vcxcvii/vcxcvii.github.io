@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<section id="primary">
+  <p class="section-label">{{ page.title }}</p>
+
+  <article class="page-shell">
+    <header class="page-header">
+      <h1>{{ page.title }}</h1>
+      {% if page.intro %}
+        <p class="intro-note">{{ page.intro }}</p>
+      {% endif %}
+    </header>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+  </article>
+</section>
+
+{% include sidebar.html %}
