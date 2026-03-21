@@ -153,9 +153,12 @@ th {
 /* ─── Layout ──────────────────────────────────── */
 
 #wrapper,
-#site-footer .footer-inner {
-  width: min(var(--page-width), calc(100vw - 2rem));
+#site-footer .footer-inner,
+#h1-nav-wrapper {
+  max-width: var(--page-width);
   margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 #bighead {
@@ -168,9 +171,8 @@ th {
 }
 
 #h1-nav-wrapper {
-  width: min(var(--page-width), calc(100vw - 2rem));
-  margin: 0 auto;
-  padding: 1.75rem 0 1.25rem;
+  padding-top: 1.75rem;
+  padding-bottom: 1.25rem;
 }
 
 #h1-nav-wrapper h1 {
@@ -582,23 +584,48 @@ th {
   }
 
   #h1-nav-wrapper {
-    padding: 1.25rem 0 1rem;
+    padding-top: 1rem;
+    padding-bottom: 0.9rem;
   }
 
   #wrapper {
-    padding-top: 1.75rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
   }
 
-  .entry-title,
+  /* Nav: larger touch targets */
+  #site-nav a {
+    padding: 0.35rem 0.5rem;
+  }
+
+  /* Post rows: stack date above title */
+  .post-row {
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-sep {
+    display: none;
+  }
+
+  .post-date {
+    font-size: 0.78rem;
+    min-width: auto;
+  }
+
+  .post-main {
+    font-size: 1rem;
+  }
+
+  /* Page/entry headings */
   .page-header h1,
   .entry-header h1 {
     font-size: 1.4rem;
   }
 
-  .blog-mixed-list-year {
-    font-size: 1.05rem;
-  }
-
+  /* Archive list: stack date */
   .archive-list li {
     flex-direction: column;
     gap: 0.15rem;
@@ -606,5 +633,11 @@ th {
 
   .archive-date {
     min-width: auto;
+  }
+
+  /* Footer: stack bottom row */
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.25rem;
   }
 }
