@@ -33,6 +33,7 @@ body {
   color: var(--color-text);
   font-family: Helvetica, Arial, sans-serif;
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -132,9 +133,12 @@ hr {
 }
 
 table {
+  display: block;
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 th, td {
@@ -304,8 +308,18 @@ th {
 }
 
 .date-and-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
   font-size: 0.8rem;
   color: var(--color-text-muted);
+}
+
+.entry-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 /* ─── Tag Links ───────────────────────────────── */
@@ -332,8 +346,8 @@ th {
   font-weight: 400;
   color: #fff;
   background: linear-gradient(to bottom, var(--gradient-start) 0%, var(--gradient-mid) 49%, var(--gradient-end) 100%);
-  white-space: nowrap;
-  margin-left: 0.15rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .tag-link:visited {
@@ -411,6 +425,18 @@ th {
   margin: 1.25rem 0 0.4rem 0;
   font-size: 1rem;
   font-weight: 600;
+}
+
+.prose,
+.intro-note,
+.tagline,
+.post-main,
+.archive-list a,
+.side-block p,
+.side-block a,
+.footer-top span,
+.footer-bottom span {
+  overflow-wrap: anywhere;
 }
 
 /* ─── Archive List ────────────────────────────── */
@@ -491,7 +517,8 @@ th {
 }
 
 #site-footer .footer-inner {
-  padding: 1.25rem 0 2rem;
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
   border-top: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
@@ -543,9 +570,22 @@ th {
     max-width: none;
   }
   #secondary {
-    border-top: 1px solid var(--color-border);
-    padding-top: 2rem;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 0;
+  }
+  .side-block {
+    margin-bottom: 0;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: #fff;
+  }
+  .side-block:last-child {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
   }
 }
 @media (max-width: 640px) {
@@ -556,17 +596,44 @@ th {
     padding-top: 1rem;
     padding-bottom: 0.9rem;
   }
+  #h1-nav-wrapper h1 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+  .tagline {
+    max-width: 32ch;
+    margin-bottom: 1rem;
+  }
   #wrapper {
     padding-top: 1.5rem;
     padding-bottom: 2rem;
   }
-  /* Nav: larger touch targets */
-  #site-nav a {
-    padding: 0.35rem 0.5rem;
+  #site-nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
   }
-  /* Post rows: stack date above title */
+  #site-nav li {
+    min-width: 0;
+  }
+  #site-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 2.6rem;
+    width: 100%;
+    padding: 0.45rem 0.65rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  #site-nav a.is-active {
+    border-radius: 8px;
+    padding: 0.45rem 0.65rem;
+  }
   .post-row {
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.1rem;
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--color-border);
@@ -586,15 +653,36 @@ th {
   .entry-header h1 {
     font-size: 1.4rem;
   }
-  /* Archive list: stack date */
   .archive-list li {
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.15rem;
   }
   .archive-date {
     min-width: auto;
   }
-  /* Footer: stack bottom row */
+  #secondary {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding-top: 1.25rem;
+  }
+  .side-block {
+    padding: 0.95rem;
+  }
+  .page-header,
+  .entry-header {
+    margin-bottom: 1.35rem;
+    padding-bottom: 1rem;
+  }
+  blockquote,
+  pre {
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
+  }
+  th,
+  td {
+    padding: 0.45rem 0.6rem;
+  }
   .footer-bottom {
     flex-direction: column;
     gap: 0.25rem;
