@@ -5,9 +5,58 @@
   </head>
   <body>
     {% include nav.html %}
-    <main id="wrapper">
+    <main id="wrapper"{% if page.wrapper_class %} class="{{ page.wrapper_class }}"{% endif %}>
       {{ content }}
     </main>
     {% include footer.html %}
+    <script>
+      (function () {
+        const menuButton = document.querySelector('[data-mobile-menu-toggle]');
+        const menuPanel = document.querySelector('[data-mobile-menu-panel]');
+
+        if (!menuButton || !menuPanel) return;
+
+        const setMenuState = (isOpen) => {
+          menuButton.setAttribute('aria-expanded', String(isOpen));
+          menuPanel.hidden = !isOpen;
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+        };
+
+        const closeMenu = () => setMenuState(false);
+        const toggleMenu = () => {
+          const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+          setMenuState(!isOpen);
+        };
+
+        setMenuState(false);
+
+        menuButton.addEventListener('click', toggleMenu);
+
+        menuPanel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+
+        document.addEventListener('click', (event) => {
+          if (menuPanel.hidden) return;
+          if (menuPanel.contains(event.target) || menuButton.contains(event.target)) return;
+          closeMenu();
+        });
+
+        const desktopQuery = window.matchMedia('(min-width: 861px)');
+        const handleDesktopChange = (event) => {
+          if (event.matches) closeMenu();
+        };
+
+        if (desktopQuery.addEventListener) {
+          desktopQuery.addEventListener('change', handleDesktopChange);
+        } else if (desktopQuery.addListener) {
+          desktopQuery.addListener(handleDesktopChange);
+        }
+      }());
+    </script>
   </body>
 </html>

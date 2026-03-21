@@ -1,30 +1,25 @@
 ---
 layout: default
 ---
-<section id="primary">
-  <p class="section-label">{{ page.section_name | default: "Entry" }}</p>
-
+<section id="primary" class="entry-primary">
   <article class="entry-shell">
     <header class="entry-header">
       <h1>{{ page.title }}</h1>
-      <p class="date-and-tags">
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
-        {% if page.tags and page.tags.size > 0 %}
-          <span aria-hidden="true">/</span>
-          <span class="entry-tag-list" aria-label="Tags">
-            {% for tag in page.tags %}
-              {% assign tag_slug = tag | slugify %}
-              <a class="tag-link" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">#{{ tag }}</a>
-            {% endfor %}
-          </span>
-        {% endif %}
+      <p class="entry-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %b %Y" }}</time>
       </p>
+      {% if page.tags and page.tags.size > 0 %}
+        <p class="entry-tags" aria-label="Tags">
+          {% for tag in page.tags %}
+            {% assign tag_slug = tag | slugify %}
+            <a class="tag-link" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">#{{ tag }}</a>
+          {% endfor %}
+        </p>
+      {% endif %}
     </header>
 
-    <div class="prose">
+    <div class="prose entry-prose">
       {{ content }}
     </div>
   </article>
 </section>
-
-{% include sidebar.html %}

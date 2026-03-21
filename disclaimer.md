@@ -1,6 +1,6 @@
 ---
 title: Disclaimer
-intro: The short version of how to read the material on this site.
+intro: Because the world takes things too literally these days
 ---
 ## Website Disclaimer
 

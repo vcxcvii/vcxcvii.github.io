@@ -4,7 +4,7 @@ This repo is scaffolded as a custom Jekyll site with:
 
 - a Simon Willison-inspired light theme
 - a homepage that acts as the main writing feed
-- standalone pages like `/about`, `/work`, `/fun`, `/disclaimer`, and `/TIL`
+- standalone pages like `/about`, `/work`, `/fun`, and `/disclaimer`
 - blog posts in `_posts/` that publish to root-level slugs
 
 ## Run locally
@@ -74,7 +74,6 @@ about.md
 work/index.md
 fun/index.md
 disclaimer.md
-TIL/index.md
 ```
 
 The homepage is `index.md`, and the blog archive is `blog/index.md`.
