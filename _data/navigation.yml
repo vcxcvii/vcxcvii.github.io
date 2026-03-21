@@ -1,13 +1,12 @@
 - label: /about
   url: /about/
-- label: /blog
-  url: /blog/
 - label: /work
   url: /work/
 - label: /fun
   url: /fun/
+- label: /blogs
+  url: /blog/
 - label: /disclaimer
   url: /disclaimer/
-- label: /TIL
-  url: /TIL/
-
+- label: /tags
+  url: /tags/

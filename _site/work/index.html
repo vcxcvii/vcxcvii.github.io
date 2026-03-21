@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work | VC's Notes</title>
 <meta name="description" content="Roles, responsibilities, and selected consulting work.">
+<link rel="preload" href="/assets/css/style.css" as="style">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
@@ -12,61 +13,192 @@
   <body>
     <header id="bighead">
   <div id="h1-nav-wrapper">
-    <h1><a class="site-title" href="/">VC's Notes</a></h1>
-    <p class="tagline">Notes on GTM, product marketing, management, and side quests.</p>
+    <div class="header-topbar">
+      <h1>
+        <a class="site-title" href="/">
+          <svg class="site-title-mark" viewBox="0 0 18 28" aria-hidden="true" focusable="false">
+            <path d="M14 2.5 4.75 25.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          </svg>
+          <span class="site-title-text">VC's Notes</span>
+        </a>
+      </h1>
 
-    <nav id="site-nav" aria-label="Primary">
-      <ul>
-        
+      <button
+        class="mobile-menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu-panel"
+        data-mobile-menu-toggle
+      >
+        Menu
+      </button>
+    </div>
+    <p class="tagline">Notes on GTM, marketing, career and other side quests</p>
+
+    <div class="nav-row">
+      <nav id="site-nav" aria-label="Primary">
+        <ul>
           
-          <li>
-            <a href="/about/">
-              /about
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/about/">
+                /about
+              </a>
+            </li>
           
-          <li>
-            <a href="/blog/">
-              /blog
-            </a>
-          </li>
-        
+            
+            <li>
+              <a class="is-active" href="/work/">
+                /work
+              </a>
+            </li>
           
-          <li>
-            <a class="is-active" href="/work/">
-              /work
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/fun/">
+                /fun
+              </a>
+            </li>
           
-          <li>
-            <a href="/fun/">
-              /fun
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/blog/">
+                /blogs
+              </a>
+            </li>
           
-          <li>
-            <a href="/disclaimer/">
-              /disclaimer
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/disclaimer/">
+                /disclaimer
+              </a>
+            </li>
           
-          <li>
-            <a href="/TIL/">
-              /TIL
-            </a>
-          </li>
-        
-      </ul>
-    </nav>
+            
+            <li>
+              <a href="/tags/">
+                /tags
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="header-link-button"
+          href="https://github.com/vcxcvii"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View my GitHub"
+        >
+          <svg class="header-link-button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.35-3.88-1.35-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.69 1.25 3.35.95.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.16 1.18a10.96 10.96 0 0 1 5.76 0c2.19-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.67.41.35.77 1.03.77 2.08 0 1.5-.01 2.7-.01 3.07 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+
+        <a
+          class="header-link-button"
+          href="https://www.linkedin.com/in/varunchoraria/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Connect with me on LinkedIn"
+        >
+          <svg class="header-link-button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.05-1.86-3.05-1.87 0-2.16 1.46-2.16 2.95v5.67H9.31V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.61 0 4.28 2.38 4.28 5.48v6.27zM5.29 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.07 20.45H3.51V9h3.56v11.45z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mobile-menu-panel" id="mobile-menu-panel" data-mobile-menu-panel hidden>
+      <p class="mobile-menu-tagline">Notes on GTM, marketing, career and other side quests</p>
+
+      <div class="mobile-menu-section">
+        <p class="mobile-menu-section-label">Explore</p>
+        <nav class="mobile-menu-primary" aria-label="Mobile Primary">
+          <ul>
+            
+              
+              <li>
+                <a href="/about/">
+                  /about
+                </a>
+              </li>
+            
+              
+              <li>
+                <a class="is-active" href="/work/">
+                  /work
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/fun/">
+                  /fun
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/blog/">
+                  /blogs
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/disclaimer/">
+                  /disclaimer
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/tags/">
+                  /tags
+                </a>
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+
+      <div class="mobile-menu-section">
+        <p class="mobile-menu-section-label">About</p>
+        <a class="mobile-menu-bio-link" href="/about/">Read full bio</a>
+      </div>
+
+      <div class="mobile-menu-section">
+        <p class="mobile-menu-section-label">Elsewhere</p>
+        <div class="mobile-menu-external">
+          <a
+            class="mobile-menu-external-link"
+            href="https://github.com/vcxcvii"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            class="mobile-menu-external-link"
+            href="https://www.linkedin.com/in/varunchoraria/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-    <main id="wrapper">
-      <section id="primary">
+    <main id="wrapper" class="wrapper-work">
+      <section id="primary" class="work-page">
   <p class="section-label">Work</p>
 
   <article class="page-shell">
@@ -78,31 +210,29 @@
     </header>
 
     <div class="prose">
-      <p><strong>Note:</strong> Always open to interesting opportunities across the world. With respect to professional engagements, <a href="https://www.linkedin.com/in/varunchoraria/">LinkedIn</a> is the best way to reach me.</p>
+      <p>Always open to interesting opportunities across the world. With respect to professional engagements, <a href="https://www.linkedin.com/in/varunchoraria/">LinkedIn</a> is the best way to reach me.</p>
 
 <h2 id="current">Current</h2>
 
-<h2 id="senior-manager---marketing-2026---present">Senior Manager - Marketing (2026 - present)</h2>
+<h3 id="senior-manager---marketing">Senior Manager - Marketing</h3>
 
-<p><a href="https://gtmbuddy.ai/">GTM Buddy</a></p>
+<p><strong>2026-present</strong> · <a href="https://gtmbuddy.ai/">GTM Buddy</a></p>
 
-<ol>
+<ul>
   <li>Responsible for new category creation - Revenue Activation</li>
   <li>Leading a team of 3 - design, data ops, and demand generation</li>
   <li>Responsible for messaging, positioning, product launches, and sales enablement</li>
   <li>Doubling down on making the marketing function AI-first in every workflow</li>
   <li>Own the success of the entire GTM motion, pipeline, win rates, and share of voice</li>
-</ol>
-
-<hr />
+</ul>
 
 <h2 id="past">Past</h2>
 
-<h2 id="lead-product-marketing-2024-2026">Lead, Product Marketing (2024-2026)</h2>
+<h3 id="lead-product-marketing">Lead, Product Marketing</h3>
 
-<p><a href="https://www.freshworks.com/">Freshworks Inc</a> (<a href="https://g.co/kgs/iHGNbLU">FRSH</a>)</p>
+<p><strong>2024-2026</strong> · <a href="https://www.freshworks.com/">Freshworks Inc</a> (<a href="https://g.co/kgs/iHGNbLU">FRSH</a>)</p>
 
-<ol>
+<ul>
   <li>Setup PLG expansion campaigns and drove $XXX,XXX expansion ARR in ~8 months</li>
   <li>Helped build the CX PLG charter for 2025</li>
   <li>Championed the purchase of ChatGPT and built a custom GPT, Freddy Sidekick, for PMMs. The goal was faster first drafts and leveling the playing field across writing skills and data analysis for all 40 team members.</li>
@@ -111,25 +241,23 @@
   <li>Shared multiple recommendations and wireframes to improve product onboarding and adoption for both CRM and CX products. Influenced roadmap items for 2025.</li>
   <li>Strategy plus execution of the Freddy AI Agent Q3-Q4 2024 holiday campaign</li>
   <li>Won Mid Tier Connect 2025 Award for impactful contributions in PLG</li>
-</ol>
+</ul>
 
-<hr />
+<h3 id="sr-associate-product-marketing">Sr. Associate, Product Marketing</h3>
 
-<h2 id="sr-associate-product-marketing-2019-2024">Sr. Associate, Product Marketing (2019-2024)</h2>
+<p><strong>2019-2024</strong> · <a href="https://vymo.com/">Vymo Inc</a></p>
 
-<p><a href="https://vymo.com/">Vymo Inc</a></p>
+<h4 id="growth-marketing-2019">Growth Marketing, 2019</h4>
 
-<p><strong>Growth Marketing, 2019</strong></p>
-
-<ol>
+<ul>
   <li>Started off as a Growth Marketer in 2019, out of college. Led NPS campaigns across G2 Crowd, leading to a 4.8/5 rating and 50+ reviews in 3 months</li>
   <li>Ghostwriting for the co-founder and CTO on Forbes Technical Council blog / forum</li>
   <li>Built a no-code app using Glide and Zapier to capture and assign leads at event booths, ensuring automatic lead assignment in under 24 hours with automated follow-up</li>
-</ol>
+</ul>
 
-<p><strong>Product Marketing, APAC, 2020-2022</strong></p>
+<h4 id="product-marketing-apac-2020-2022">Product Marketing, APAC, 2020-2022</h4>
 
-<ol>
+<ul>
   <li>Founding team member of the product marketing function</li>
   <li>Led packaging, messaging, and positioning for all BFSI verticals</li>
   <li>Helped launch Vymo Coach and Vymo Distribution Cloud</li>
@@ -137,74 +265,68 @@
   <li>Evaluated sales enablement tools, helped decide on purchasing GTM Buddy, became the admin, and led sales enablement efforts after that</li>
   <li>Won peer award for exceptional work and contributions</li>
   <li>Promoted with Outstanding Rating by the VP of Product Marketing and GTM</li>
-</ol>
+</ul>
 
-<p><strong>Product Marketing, USA + Canada, 2022-2024</strong></p>
+<h4 id="product-marketing-usa--canada-2022-2024">Product Marketing, USA + Canada, 2022-2024</h4>
 
-<ol>
+<ul>
   <li>Relocated to Chicago, IL to support new market entry, ramp up a team of 20+ sales folks, and lead product marketing efforts for the geo</li>
   <li>Helped launch Vymo in the market for the insurance vertical</li>
   <li>Led multiple training sessions, solution packaging, and rip-and-replace campaigns</li>
-</ol>
+</ul>
 
-<hr />
+<h3 id="co-founder-and-ceo-wisewords-interactive-studio">Co-founder and CEO, WiseWords Interactive Studio</h3>
 
-<h2 id="co-founder-and-ceo-wisewords-interactive-studio-2016-2019">Co-founder and CEO, WiseWords Interactive Studio (2016-2019)</h2>
+<p><strong>2016-2019</strong> · <a href="https://web.archive.org/web/20180826201555/https://wisewordspro.com/">Wayback Machine - Website</a></p>
 
-<p><a href="https://web.archive.org/web/20180826201555/https://wisewordspro.com/">Wayback Machine - Website</a></p>
-
-<ol>
+<ul>
   <li>Student founder at 19. Freelanced on Fiverr initially to financially support myself. Saved money and co-founded my first LLP, WiseWordsPro Digital Solutions LLP. We offered website design, SEO, and content writing services.</li>
   <li>As the brand grew, WiseWordsPro LLP became WiseWords Creative Studio Pvt Ltd, serving enterprise brands with added services like video production and graphic design</li>
   <li>Worked with 25+ brands. Wound down operations in 2023.</li>
-</ol>
-
-<hr />
+</ul>
 
 <h2 id="consulting-engagements">Consulting Engagements</h2>
 
-<p>Multiple engagements:</p>
-
-<ol>
+<ul>
   <li><strong>Canada, Series D client:</strong> Created a “SalesBuddy” content repository on Notion, used by 200+ reps with &gt;95% adoption</li>
   <li><strong>Series A client:</strong> Led positioning, messaging, and cold outreach for key use-cases directly impacting 2 enterprise logo wins</li>
   <li><strong>Series A client:</strong> Launched AI products, led tier-1 competitive messaging, and drove website conversions via blogs and product pages</li>
   <li><strong>Series A client:</strong> Helped set up the cold outbound motion for the email channel</li>
-</ol>
+</ul>
 
     </div>
   </article>
 </section>
 
-<aside id="secondary">
+
+  <aside id="secondary">
   <section class="side-block">
     <h3>About</h3>
-    <p>Varun Choraria writes about GTM, product marketing, management, and career growth.</p>
-    <p>Currently Senior Manager, Marketing at <a href="https://gtmbuddy.ai/">GTM Buddy</a>.</p>
-    <p><a href="/about/">More about me</a></p>
+    <p>Varun Choraria (VC) is an author, ex-founder of WiseWords Creative and speaker. Hobbies include: martial arts, bodybuilding, cycling and films.</p>
+    <p>Currently, VC is the Senior Manager, Marketing at <a href="https://gtmbuddy.ai/">GTM Buddy</a> (Series A).</p>
+    <p><a href="/about/">Read full bio</a></p>
   </section>
 
   <section class="side-block">
     <h3>Sections</h3>
     <ul>
-      <li><a href="/blog/">Blog archive</a></li>
+      <li><a href="/blog/">Blog Archive</a></li>
       <li><a href="/tags/">Tags</a></li>
-      <li><a href="/work/">Work</a></li>
-      <li><a href="/fun/">Fun</a></li>
-      <li><a href="/TIL/">TIL</a></li>
-      <li><a href="/disclaimer/">Disclaimer</a></li>
     </ul>
   </section>
 
   <section class="side-block">
     <h3>Elsewhere</h3>
     <ul>
+      <li><a href="https://github.com/vcxcvii">Github</a></li>
       <li><a href="https://www.linkedin.com/in/varunchoraria/">LinkedIn</a></li>
-      <li><a href="https://letterboxd.com/vcxcvii/films/">Movie recos</a></li>
-      <li><a href="https://www.youtube.com/@theedgepodcastforchros3212">The Edge Podcast</a></li>
+      <li><a href="https://letterboxd.com/vcxcvii/films/">Movie Recommendations</a></li>
+      <li><a href="https://www.youtube.com/@theedgepodcastforchros3212">The Edge Podcast for CHROs</a></li>
+      <li><a href="https://www.youtube.com/@varunchoraria607/playlists">All talks</a></li>
     </ul>
   </section>
 </aside>
+
 
 
     </main>
@@ -219,5 +341,54 @@
   </div>
 </footer>
 
+    <script>
+      (function () {
+        const menuButton = document.querySelector('[data-mobile-menu-toggle]');
+        const menuPanel = document.querySelector('[data-mobile-menu-panel]');
+
+        if (!menuButton || !menuPanel) return;
+
+        const setMenuState = (isOpen) => {
+          menuButton.setAttribute('aria-expanded', String(isOpen));
+          menuPanel.hidden = !isOpen;
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+        };
+
+        const closeMenu = () => setMenuState(false);
+        const toggleMenu = () => {
+          const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+          setMenuState(!isOpen);
+        };
+
+        setMenuState(false);
+
+        menuButton.addEventListener('click', toggleMenu);
+
+        menuPanel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+
+        document.addEventListener('click', (event) => {
+          if (menuPanel.hidden) return;
+          if (menuPanel.contains(event.target) || menuButton.contains(event.target)) return;
+          closeMenu();
+        });
+
+        const desktopQuery = window.matchMedia('(min-width: 861px)');
+        const handleDesktopChange = (event) => {
+          if (event.matches) closeMenu();
+        };
+
+        if (desktopQuery.addEventListener) {
+          desktopQuery.addEventListener('change', handleDesktopChange);
+        } else if (desktopQuery.addListener) {
+          desktopQuery.addListener(handleDesktopChange);
+        }
+      }());
+    </script>
   </body>
 </html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What your career path eventually comes down to | VC's Notes</title>
 <meta name="description" content="Career durability compounds when curiosity, craftsmanship, and long-term bets start mattering more than title-chasing.">
+<link rel="preload" href="/assets/css/style.css" as="style">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
@@ -12,84 +13,212 @@
   <body>
     <header id="bighead">
   <div id="h1-nav-wrapper">
-    <h1><a class="site-title" href="/">VC's Notes</a></h1>
-    <p class="tagline">Notes on GTM, product marketing, management, and side quests.</p>
+    <div class="header-topbar">
+      <h1>
+        <a class="site-title" href="/">
+          <svg class="site-title-mark" viewBox="0 0 18 28" aria-hidden="true" focusable="false">
+            <path d="M14 2.5 4.75 25.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+          </svg>
+          <span class="site-title-text">VC's Notes</span>
+        </a>
+      </h1>
 
-    <nav id="site-nav" aria-label="Primary">
-      <ul>
-        
+      <button
+        class="mobile-menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu-panel"
+        data-mobile-menu-toggle
+      >
+        Menu
+      </button>
+    </div>
+    <p class="tagline">Notes on GTM, marketing, career and other side quests</p>
+
+    <div class="nav-row">
+      <nav id="site-nav" aria-label="Primary">
+        <ul>
           
-          <li>
-            <a href="/about/">
-              /about
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/about/">
+                /about
+              </a>
+            </li>
           
-          <li>
-            <a href="/blog/">
-              /blog
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/work/">
+                /work
+              </a>
+            </li>
           
-          <li>
-            <a href="/work/">
-              /work
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/fun/">
+                /fun
+              </a>
+            </li>
           
-          <li>
-            <a href="/fun/">
-              /fun
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/blog/">
+                /blogs
+              </a>
+            </li>
           
-          <li>
-            <a href="/disclaimer/">
-              /disclaimer
-            </a>
-          </li>
-        
+            
+            <li>
+              <a href="/disclaimer/">
+                /disclaimer
+              </a>
+            </li>
           
-          <li>
-            <a href="/TIL/">
-              /TIL
-            </a>
-          </li>
-        
-      </ul>
-    </nav>
+            
+            <li>
+              <a href="/tags/">
+                /tags
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="header-link-button"
+          href="https://github.com/vcxcvii"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View my GitHub"
+        >
+          <svg class="header-link-button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.2-.02-2.18-3.2.7-3.88-1.35-3.88-1.35-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.69 1.25 3.35.95.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.16 1.18a10.96 10.96 0 0 1 5.76 0c2.19-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.67.41.35.77 1.03.77 2.08 0 1.5-.01 2.7-.01 3.07 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+
+        <a
+          class="header-link-button"
+          href="https://www.linkedin.com/in/varunchoraria/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Connect with me on LinkedIn"
+        >
+          <svg class="header-link-button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.05-1.86-3.05-1.87 0-2.16 1.46-2.16 2.95v5.67H9.31V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.61 0 4.28 2.38 4.28 5.48v6.27zM5.29 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.07 20.45H3.51V9h3.56v11.45z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mobile-menu-panel" id="mobile-menu-panel" data-mobile-menu-panel hidden>
+      <p class="mobile-menu-tagline">Notes on GTM, marketing, career and other side quests</p>
+
+      <div class="mobile-menu-section">
+        <p class="mobile-menu-section-label">Explore</p>
+        <nav class="mobile-menu-primary" aria-label="Mobile Primary">
+          <ul>
+            
+              
+              <li>
+                <a href="/about/">
+                  /about
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/work/">
+                  /work
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/fun/">
+                  /fun
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/blog/">
+                  /blogs
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/disclaimer/">
+                  /disclaimer
+                </a>
+              </li>
+            
+              
+              <li>
+                <a href="/tags/">
+                  /tags
+                </a>
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+
+      <div class="mobile-menu-section">
+        <p class="mobile-menu-section-label">About</p>
+        <a class="mobile-menu-bio-link" href="/about/">Read full bio</a>
+      </div>
+
+      <div class="mobile-menu-section">
+        <p class="mobile-menu-section-label">Elsewhere</p>
+        <div class="mobile-menu-external">
+          <a
+            class="mobile-menu-external-link"
+            href="https://github.com/vcxcvii"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            class="mobile-menu-external-link"
+            href="https://www.linkedin.com/in/varunchoraria/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
     <main id="wrapper">
-      <section id="primary">
-  <p class="section-label">Entry</p>
-
+      <section id="primary" class="entry-primary">
   <article class="entry-shell">
     <header class="entry-header">
       <h1>What your career path eventually comes down to</h1>
-      <p class="date-and-tags">
-        <time datetime="2025-03-08T00:00:00+05:30">8 March 2025</time>
-        
-          <span aria-hidden="true">/</span>
-          <span class="entry-tag-list" aria-label="Tags">
-            
-              
-              <a class="tag-link" href="/tags/career/">#career</a>
-            
-              
-              <a class="tag-link" href="/tags/strategy/">#strategy</a>
-            
-          </span>
-        
+      <p class="entry-meta">
+        <time datetime="2025-03-08T00:00:00+05:30">8 Mar 2025</time>
       </p>
+      
+        <p class="entry-tags" aria-label="Tags">
+          
+            
+            <a class="tag-link" href="/tags/career/">#career</a>
+          
+            
+            <a class="tag-link" href="/tags/strategy/">#strategy</a>
+          
+        </p>
+      
     </header>
 
-    <div class="prose">
+    <div class="prose entry-prose">
       <p>I’ve spent most of the last 6 years trying to find the answer. Along the way, I’ve seen a pretty clear difference between the low and the top performers.</p>
 
 <p><strong>Low performers:</strong></p>
@@ -139,37 +268,6 @@
   </article>
 </section>
 
-<aside id="secondary">
-  <section class="side-block">
-    <h3>About</h3>
-    <p>Varun Choraria writes about GTM, product marketing, management, and career growth.</p>
-    <p>Currently Senior Manager, Marketing at <a href="https://gtmbuddy.ai/">GTM Buddy</a>.</p>
-    <p><a href="/about/">More about me</a></p>
-  </section>
-
-  <section class="side-block">
-    <h3>Sections</h3>
-    <ul>
-      <li><a href="/blog/">Blog archive</a></li>
-      <li><a href="/tags/">Tags</a></li>
-      <li><a href="/work/">Work</a></li>
-      <li><a href="/fun/">Fun</a></li>
-      <li><a href="/TIL/">TIL</a></li>
-      <li><a href="/disclaimer/">Disclaimer</a></li>
-    </ul>
-  </section>
-
-  <section class="side-block">
-    <h3>Elsewhere</h3>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/varunchoraria/">LinkedIn</a></li>
-      <li><a href="https://letterboxd.com/vcxcvii/films/">Movie recos</a></li>
-      <li><a href="https://www.youtube.com/@theedgepodcastforchros3212">The Edge Podcast</a></li>
-    </ul>
-  </section>
-</aside>
-
-
     </main>
     <footer id="site-footer">
   <div class="footer-inner">
@@ -182,5 +280,54 @@
   </div>
 </footer>
 
+    <script>
+      (function () {
+        const menuButton = document.querySelector('[data-mobile-menu-toggle]');
+        const menuPanel = document.querySelector('[data-mobile-menu-panel]');
+
+        if (!menuButton || !menuPanel) return;
+
+        const setMenuState = (isOpen) => {
+          menuButton.setAttribute('aria-expanded', String(isOpen));
+          menuPanel.hidden = !isOpen;
+          document.body.classList.toggle('mobile-menu-open', isOpen);
+        };
+
+        const closeMenu = () => setMenuState(false);
+        const toggleMenu = () => {
+          const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+          setMenuState(!isOpen);
+        };
+
+        setMenuState(false);
+
+        menuButton.addEventListener('click', toggleMenu);
+
+        menuPanel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+
+        document.addEventListener('click', (event) => {
+          if (menuPanel.hidden) return;
+          if (menuPanel.contains(event.target) || menuButton.contains(event.target)) return;
+          closeMenu();
+        });
+
+        const desktopQuery = window.matchMedia('(min-width: 861px)');
+        const handleDesktopChange = (event) => {
+          if (event.matches) closeMenu();
+        };
+
+        if (desktopQuery.addEventListener) {
+          desktopQuery.addEventListener('change', handleDesktopChange);
+        } else if (desktopQuery.addListener) {
+          desktopQuery.addListener(handleDesktopChange);
+        }
+      }());
+    </script>
   </body>
 </html>

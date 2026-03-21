@@ -1,5 +1,5 @@
 ---
 layout: listing
 title: Blog
-intro: Archive of all published entries from VC's Notes.
+intro: Archive of all published notes from VC's Notes.
 ---

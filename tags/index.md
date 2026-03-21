@@ -2,6 +2,8 @@
 layout: page
 title: Tags
 intro: Browse posts by topic.
+page_class: tags-page
+no_sidebar: true
 ---
 <ul class="tag-index">
 {% assign sorted_tags = site.tags | sort %}

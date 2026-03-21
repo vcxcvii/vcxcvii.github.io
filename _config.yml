@@ -1,11 +1,14 @@
 title: VC's Notes
-description: Notes on GTM, product marketing, management, and side quests.
+description: Notes on GTM, marketing, career and other side quests
 url: "https://varunchoraria.com"
 baseurl: ""
 timezone: Asia/Kolkata
 markdown: kramdown
 highlighter: rouge
 permalink: /:slug/
+sass:
+  style: compressed
+  sourcemap: never
 exclude:
   - README.md
   - Gemfile
@@ -22,4 +25,4 @@ defaults:
       type: "posts"
     values:
       layout: entry
-      section_name: Entry
+      section_name: Note
