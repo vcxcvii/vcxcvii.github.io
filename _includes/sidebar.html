@@ -23,12 +23,3 @@
     </ul>
   </section>
 </aside>
-
-<section class="side-block mobile-side-block" aria-labelledby="mobile-elsewhere-heading">
-  <h3 id="mobile-elsewhere-heading">Elsewhere</h3>
-  <ul class="mobile-side-links">
-    {% for link in site.data.elsewhere %}
-      <li><a href="{{ link.url }}">{{ link.label }}</a></li>
-    {% endfor %}
-  </ul>
-</section>
