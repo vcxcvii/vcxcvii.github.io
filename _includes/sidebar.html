@@ -17,11 +17,18 @@
   <section class="side-block">
     <h3>Elsewhere</h3>
     <ul>
-      <li><a href="https://github.com/vcxcvii">Github</a></li>
-      <li><a href="https://www.linkedin.com/in/varunchoraria/">LinkedIn</a></li>
-      <li><a href="https://letterboxd.com/vcxcvii/films/">Movie Recommendations</a></li>
-      <li><a href="https://www.youtube.com/@theedgepodcastforchros3212">The Edge Podcast for CHROs</a></li>
-      <li><a href="https://www.youtube.com/@varunchoraria607/playlists">All talks</a></li>
+      {% for link in site.data.elsewhere %}
+        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
     </ul>
   </section>
 </aside>
+
+<section class="side-block mobile-side-block" aria-labelledby="mobile-elsewhere-heading">
+  <h3 id="mobile-elsewhere-heading">Elsewhere</h3>
+  <ul class="mobile-side-links">
+    {% for link in site.data.elsewhere %}
+      <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
