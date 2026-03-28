@@ -9,6 +9,7 @@
   --color-link: rgb(37, 96, 186);
   --color-link-visited: #636;
   --color-border: #e5e7eb;
+  --color-divider: #c4ccd7;
   --color-border-dark: #9ca3af;
   --color-code-bg: #f3f4f6;
   --color-accent: rgb(37, 96, 186);
@@ -33,6 +34,7 @@
     --color-link: #8eb8ff;
     --color-link-visited: #d1b2ff;
     --color-border: #2a3440;
+    --color-divider: #56677d;
     --color-border-dark: #415064;
     --color-code-bg: #151c24;
     --color-accent: #8eb8ff;
@@ -119,7 +121,7 @@ em {
 
 h1, h2, h3, h4 {
   font-family: var(--font-sans);
-  font-weight: 400;
+  font-weight: 700;
   color: var(--color-text);
 }
 
@@ -170,7 +172,7 @@ pre code {
 
 hr {
   border: 0;
-  border-top: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-divider);
   margin: 2rem 0;
 }
 
@@ -434,7 +436,7 @@ th {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-divider);
   padding-top: 1rem;
 }
 
@@ -550,7 +552,7 @@ th {
   gap: 0.75rem;
   min-width: 0;
   padding: 0.9rem 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-divider);
 }
 
 .tag-count {
@@ -571,7 +573,7 @@ th {
 .entry-header {
   margin-bottom: 1.75rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-divider);
 }
 
 .page-header h1,
@@ -579,7 +581,7 @@ th {
   margin: 0 0 0.5rem 0;
   font-size: 1.75rem;
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .wrapper-work {
@@ -745,7 +747,7 @@ th {
 .prose h4 {
   margin: 1.25rem 0 0.4rem 0;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .prose li + li {
@@ -816,7 +818,7 @@ th {
   align-items: baseline;
   gap: 1rem;
   padding: 0.6rem 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-divider);
 }
 
 .archive-date {
@@ -836,7 +838,7 @@ th {
 .side-block {
   padding-bottom: 1.25rem;
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-divider);
 }
 
 .side-block:last-child {
@@ -886,7 +888,7 @@ th {
 #site-footer .footer-inner {
   padding-top: 1.25rem;
   padding-bottom: 2rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-divider);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -991,7 +993,7 @@ th {
     margin-top: 0.6rem;
     padding-top: 0.62rem;
     padding-bottom: 0.1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-top: 1px solid rgba(255, 255, 255, 0.24);
   }
 
   .mobile-menu-panel[hidden] {
@@ -1039,7 +1041,7 @@ th {
     border-radius: 0;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
     color: #fff;
     font-size: 0.9rem;
     font-weight: 400;
@@ -1062,7 +1064,7 @@ th {
 
   .mobile-menu-primary a.is-active {
     background: transparent;
-    border-color: rgba(255, 255, 255, 0.26);
+    border-color: rgba(255, 255, 255, 0.36);
     color: #fff;
     font-weight: 700;
     text-decoration: underline;
