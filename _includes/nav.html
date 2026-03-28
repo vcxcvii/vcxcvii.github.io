@@ -1,4 +1,5 @@
 <header id="bighead">
+  {% assign current_url = page.url | replace: 'index.html', '' %}
   <div id="h1-nav-wrapper">
     <div class="header-topbar">
       <h1>
@@ -26,7 +27,6 @@
       <nav id="site-nav" aria-label="Primary">
         <ul>
           {% for item in site.data.navigation %}
-            {% assign current_url = page.url | replace: 'index.html', '' %}
             <li>
               <a{% if current_url == item.url %} class="is-active"{% endif %} href="{{ item.url | relative_url }}">
                 {{ item.label }}
@@ -73,7 +73,6 @@
         <nav class="mobile-menu-primary" aria-label="Mobile Primary">
           <ul>
             {% for item in site.data.navigation %}
-              {% assign current_url = page.url | replace: 'index.html', '' %}
               <li>
                 <a{% if current_url == item.url %} class="is-active"{% endif %} href="{{ item.url | relative_url }}">
                   {{ item.label }}

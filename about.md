@@ -2,6 +2,7 @@
 title: About
 intro: Background, current focus, and where my work has taken me so far.
 page_class: about-page
+hide_about_sidebar: true
 ---
 <div class="about-portrait-wrap">
   <img class="about-portrait" src="{{ '/assets/images/varun-choraria-about.jpeg' | relative_url }}" alt="Portrait of Varun Choraria">

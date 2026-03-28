@@ -2,7 +2,10 @@
 layout: default
 ---
 <section id="primary"{% if page.page_class %} class="{{ page.page_class }}"{% endif %}>
-  <p class="section-label">{{ page.title }}</p>
+  {% assign page_eyebrow = page.eyebrow | default: page.section_label %}
+  {% if page_eyebrow %}
+    <p class="section-label">{{ page_eyebrow }}</p>
+  {% endif %}
 
   <article class="page-shell">
     <header class="page-header">
