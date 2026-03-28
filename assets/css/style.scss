@@ -231,7 +231,6 @@ th {
 #site-nav a:focus-visible,
 .header-link-button:focus-visible,
 .mobile-menu-primary a:focus-visible,
-.mobile-menu-bio-link:focus-visible,
 .mobile-menu-external-link:focus-visible {
   outline-color: rgba(255, 255, 255, 0.92);
 }
@@ -1004,7 +1003,6 @@ th {
   }
 
   .mobile-menu-primary a,
-  .mobile-menu-bio-link,
   .mobile-menu-external-link {
     display: flex;
     align-items: center;
@@ -1023,7 +1021,6 @@ th {
   }
 
   .mobile-menu-primary a:visited,
-  .mobile-menu-bio-link:visited,
   .mobile-menu-external-link:visited {
     color: #fff;
   }
@@ -1047,7 +1044,6 @@ th {
   }
 
   .mobile-menu-primary a:hover,
-  .mobile-menu-bio-link:hover,
   .mobile-menu-external-link:hover {
     background: transparent;
     color: rgba(255, 255, 255, 0.82);
