@@ -1,6 +1,7 @@
 ---
 ---
 :root {
+  color-scheme: light;
   --color-bg: #fafaf8;
   --color-surface: #f2f2ee;
   --color-text: #1c1c1e;
@@ -11,6 +12,8 @@
   --color-border-dark: #9ca3af;
   --color-code-bg: #f3f4f6;
   --color-accent: rgb(37, 96, 186);
+  --color-blockquote-bg: rgba(37, 99, 235, 0.04);
+  --color-entry-meta: #a3a3a3;
   --gradient-start: rgb(84, 139, 214);
   --gradient-mid: rgb(37, 96, 186);
   --gradient-end: rgb(24, 63, 136);
@@ -20,6 +23,27 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-bg: #10151b;
+    --color-surface: #161d25;
+    --color-text: #e7edf4;
+    --color-text-muted: #a9b4c1;
+    --color-link: #8eb8ff;
+    --color-link-visited: #d1b2ff;
+    --color-border: #2a3440;
+    --color-border-dark: #415064;
+    --color-code-bg: #151c24;
+    --color-accent: #8eb8ff;
+    --color-blockquote-bg: rgba(142, 184, 255, 0.12);
+    --color-entry-meta: #8c97a6;
+    --gradient-start: rgb(40, 82, 144);
+    --gradient-mid: rgb(22, 57, 108);
+    --gradient-end: rgb(9, 30, 67);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -27,6 +51,7 @@
 html {
   font-size: 17px;
   -webkit-text-size-adjust: 100%;
+  background: var(--color-bg);
 }
 
 body {
@@ -110,7 +135,7 @@ blockquote {
   margin: 1.5rem 0;
   padding: 0.75rem 1.25rem;
   border-left: 3px solid var(--color-accent);
-  background: rgba(37, 99, 235, 0.04);
+  background: var(--color-blockquote-bg);
   border-radius: 0 4px 4px 0;
 }
 
@@ -691,7 +716,7 @@ th {
 
 .entry-meta {
   margin: 0 0 0.7rem 0;
-  color: #a3a3a3;
+  color: var(--color-entry-meta);
   font-size: 0.98rem;
   line-height: 1.35;
 }

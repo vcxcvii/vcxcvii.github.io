@@ -1,10 +1,12 @@
 <aside id="secondary">
-  <section class="side-block">
-    <h3>About</h3>
-    <p>Varun Choraria (VC) is an author, ex-founder of WiseWords Creative and speaker. Hobbies include: martial arts, bodybuilding, cycling and films.</p>
-    <p>Currently, VC is the Senior Manager, Marketing at <a href="https://gtmbuddy.ai/">GTM Buddy</a> (Series A).</p>
-    <p><a href="{{ '/about/' | relative_url }}">Read full bio</a></p>
-  </section>
+  {% unless page.hide_about_sidebar %}
+    <section class="side-block">
+      <h3>About</h3>
+      <p>Varun Choraria (VC) is an author, ex-founder of WiseWords Creative and speaker. Hobbies include: martial arts, bodybuilding, cycling and films.</p>
+      <p>Currently, VC is the Senior Manager, Marketing at <a href="https://gtmbuddy.ai/">GTM Buddy</a> (Series A).</p>
+      <p><a href="{{ '/about/' | relative_url }}">Read full bio</a></p>
+    </section>
+  {% endunless %}
 
   <section class="side-block">
     <h3>Sections</h3>
@@ -18,7 +20,9 @@
     <h3>Elsewhere</h3>
     <ul>
       {% for link in site.data.elsewhere %}
-        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        <li>
+          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+        </li>
       {% endfor %}
     </ul>
   </section>
