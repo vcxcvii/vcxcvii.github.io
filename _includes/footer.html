@@ -1,7 +1,16 @@
 <script>
   (function() {
+    function updateLabels(isDark) {
+      document.querySelectorAll('[data-theme-label]').forEach(function(el) {
+        el.textContent = isDark ? 'Light mode' : 'Dark mode';
+      });
+    }
+
     var btns = document.querySelectorAll('[data-theme-toggle]');
     if (!btns.length) return;
+
+    updateLabels(document.documentElement.getAttribute('data-theme') === 'dark');
+
     btns.forEach(function(btn) {
       btn.addEventListener('click', function() {
         var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -12,6 +21,7 @@
           document.documentElement.setAttribute('data-theme', 'dark');
           localStorage.setItem('theme', 'dark');
         }
+        updateLabels(!isDark);
       });
     });
   })();
