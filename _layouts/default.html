@@ -29,7 +29,17 @@
 
         setMenuState(false);
 
-        menuButton.addEventListener('click', toggleMenu);
+        let didPointerToggle = false;
+        menuButton.addEventListener('pointerdown', (e) => {
+          if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+            didPointerToggle = true;
+            toggleMenu();
+          }
+        });
+        menuButton.addEventListener('click', () => {
+          if (didPointerToggle) { didPointerToggle = false; return; }
+          toggleMenu();
+        });
 
         menuPanel.querySelectorAll('a').forEach((link) => {
           link.addEventListener('click', closeMenu);
