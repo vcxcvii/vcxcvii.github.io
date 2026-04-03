@@ -1133,7 +1133,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
     border: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.24);
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 400;
     text-decoration: none;
     line-height: 1.25;
@@ -1284,7 +1284,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 375px) {
   html {
     font-size: 16px;
   }
