@@ -206,6 +206,8 @@ th {
 }
 
 #bighead {
+  position: relative;
+  z-index: 10;
   background: linear-gradient(
     to bottom,
     var(--gradient-start) 0%,
