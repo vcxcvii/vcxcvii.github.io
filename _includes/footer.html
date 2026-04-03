@@ -1,3 +1,22 @@
+<script>
+  (function() {
+    var btns = document.querySelectorAll('[data-theme-toggle]');
+    if (!btns.length) return;
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    });
+  })();
+</script>
+
 <footer id="site-footer">
   <div class="footer-inner">
     <div class="footer-top">
