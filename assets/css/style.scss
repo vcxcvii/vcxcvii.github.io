@@ -1218,7 +1218,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   #primary.tag-archive-page .prose,
   .entry-prose {
     font-size: 1rem;
-    line-height: 1.64;
+    line-height: 1.5;
+    text-align: left;
   }
 
   .prose p,
