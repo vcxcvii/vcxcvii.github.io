@@ -1,5 +1,5 @@
 ---
 layout: listing
-title: Blog
-intro: Archive of all published notes from VC's Notes.
+title: Notes
+intro: Writing on marketing, strategy, and whatever else is worth saying.
 ---
