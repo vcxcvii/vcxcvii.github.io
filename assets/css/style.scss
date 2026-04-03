@@ -289,6 +289,8 @@ th {
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: underline;
+  touch-action: manipulation;
+  cursor: pointer;
   text-decoration-color: rgba(255, 255, 255, 0.55);
   text-underline-offset: 0.22rem;
 }
@@ -1124,7 +1126,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
     display: flex;
     align-items: center;
     gap: 0.34rem;
-    min-height: 0;
+    min-height: 2.75rem;
     padding: 0.62rem 0;
     border-radius: 0;
     background: transparent;
@@ -1135,6 +1137,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
     font-weight: 400;
     text-decoration: none;
     line-height: 1.25;
+    touch-action: manipulation;
+    cursor: pointer;
   }
 
   .mobile-menu-primary a:visited,
