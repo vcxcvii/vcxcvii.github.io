@@ -111,6 +111,12 @@ The marketing team works out of GitHub. We forked skills from marketing-skills.c
 
 You don't necessarily have to start from scratch every time.
 
+![Skills taxonomy overview — how all skills relate to the shared product-marketing-context foundation](/assets/images/posts/skills-taxonomy.png)
+
+![Shared context files read by every skill automatically](/assets/images/posts/skills-shared-context.png)
+
+![CRO skills in the repository — page-cro, form-cro, signup-flow-cro, and more](/assets/images/posts/skills-cro.png)
+
 I constantly maintain this repository and ship skill and workflow updates every week. I also do a virtual lunch-and-learn with the team on how I'm using it, and how I would if I were in their seat.
 
 Change management must be led from the front.
@@ -118,6 +124,10 @@ Change management must be led from the front.
 ### Workflows
 
 We use SwanAI for automating GTM workflows from Slack — deanonymizing website visitors, crafting personalized hyper-contextual outreach messages (automating SDR work), account research, deal and pipeline reviews, sending data to CRM, and much more. We do a lot of "Vibe GTM" and prompt our way through ensuring GTM runs smooth.
+
+![SwanAI — Tiered Cadence & Speed Matching workflow](/assets/images/posts/swanai-cadence.png)
+
+![SwanAI — GTM playbooks running from Slack](/assets/images/posts/swanai-workflows.png)
 
 ---
 
