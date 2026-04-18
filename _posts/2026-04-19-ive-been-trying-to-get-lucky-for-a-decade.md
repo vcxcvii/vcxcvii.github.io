@@ -1,21 +1,17 @@
 ---
 title: I've been trying to get lucky for a decade. Here's what I learnt.
 date: 2026-04-19 00:00:00 +0530
-description: Luck matters more than most people want to admit, but careers still compound around judgment, visibility, persistence, and the discipline to stay in the game long enough for luck to find you.
+description: Luck is taboo, careers are probabilistic, and the only way to improve your odds is through a stubborn mix of doing, telling, persistence, and compounding your edge.
 tags:
   - career
   - strategy
   - leadership
 ---
-I've spent the better part of a decade trying to get lucky in my career.
+I think one of the things I have a perpetual obsession with is career optimization. It feels a lot like poker. There is no magic playbook, or a clean meritocratic path to it, at least not anymore.
 
-Career optimization has always felt a little like poker to me. There is no magic playbook. There is no clean meritocracy either, at least not anymore. There is judgment, timing, variance, reputation, positioning, and a hundred invisible variables that only make sense in hindsight.
+Luck is taboo, though, and it takes a certain level of maturity to come to terms with it, because it is the variable that never really leaves the equation of career and life.
 
-Luck is uncomfortable to talk about because it sounds like you're discounting hard work. It sounds unserious, almost lazy. But if you've worked long enough, you eventually notice that luck is one of the most persistent variables in the equation of career and life.
-
-At some point, I stopped obsessing over the perfect move and became more interested in a better question: how do you improve your odds?
-
-That question has shaped a lot of how I think now.
+So instead of learning the next AI tool or chasing the next gig for a 5000% hike, why not focus on improving your odds?
 
 <!--more-->
 
@@ -23,76 +19,56 @@ That question has shaped a lot of how I think now.
 
 ## Do, tell, or both?
 
-I'm a fan of mental models because they give you waypoints when the road itself is unclear.
+I'm a fan of mental models. In a highly unpredictable world, even an NPC needs waypoints and checkpoints to find the most efficient path to the destination.
 
-One of the models I've come to respect most, especially after becoming a manager, is this: doing and telling have to coexist.
+One mental model I've come to really respect ever since I became a manager is doing and telling at a 50:50 split. I've seldom seen only talkers or only doers succeed for very long, but a combination of both almost always does.
 
-I've rarely seen only talkers succeed for long. Eventually, people catch up to the gap between image and substance. But I've also rarely seen only doers get the outcomes they deserve. A lot of brilliant people quietly produce great work for years and still remain oddly invisible to the people who could change the shape of their careers.
+So if you were to plot "Do" and "Tell" on an X-Y axis, the slope of it is luck: the right amount of doing combined with the right amount of telling. That's how you create any sort of luck, whether it is getting hired from shitposting on X or LinkedIn, bypassing the snake pit of HRs to talk to hiring managers directly about a job, or getting paying users. The list goes on.
 
-The people who seem to create luck most consistently do both.
+In my world, doing and telling has gotten me some pretty interesting roles to work in. The latest one involves managing a team and helping build a product category. So if I look back at the career bets I made:
 
-Doing creates substance. Telling creates surface area.
+- job #1: Series C startup -> founding product marketing team member -> scaled it across India and the US. First touch with enablement, no-code tools, design, and product.
+- job #2: IPO company -> started the PLG motion -> scaled it to half a million dollars -> learnt the nuances of scale and company politics.
+- job #3: Series A startup -> helping build category -> managing a team -> increasing ACV, win rates, pipeline volume and quality, and founder brand.
 
-What took me a while to understand is that "telling" doesn't always mean posting on the internet five times a day or performing expertise for strangers. Sometimes it means sending the right note at the right time. Sometimes it means making your manager aware of the business impact of your work. Sometimes it means showing a hiring manager what you've already built instead of waiting for HR to process your resume. Sometimes it means documenting a project so clearly that it keeps compounding long after the project is over.
-
-That's how luck gets engineered. Not in one dramatic stroke, but through repeated acts of making real work visible.
-
-In my own career, that pattern has shown up again and again. Doing and telling has gotten me some very interesting roles. Most recently, it has led to managing a team and helping build a product category.
-
-If I look back at the bets I made, they don't look extraordinary in isolation. One role put me in a Series C startup as a founding product marketing team member, where I got my first real exposure to enablement, no-code tools, design, and product, and then had the chance to scale that function across India and the US. Another role took me into an IPO company, where I helped start the PLG motion and scale it to half a million dollars, while also learning the less glamorous realities of scale and company politics. And now I'm at a Series A startup, helping build category, managing a team, and working on the levers that actually move a business: ACV, win rates, pipeline volume and quality, and founder brand.
-
-None of that came from "posting consistently" in the internet-guru sense of the phrase. I've actually posted very little online. But I have done a lot of doing and telling internally. I've made work legible. I've made outcomes legible. And more often than not, that has pulled me into whispered roles, the kind that never really make it to a public job board.
-
-That, I think, is worth saying out loud because a lot of ambitious people quietly assume they're losing because they are not charismatic enough, visible enough, or social enough. I don't think that's true. You do not need to become a full-time internet personality to increase the surface area of luck in your life. But you do have to stop assuming that good work speaks for itself.
+The point of telling you this is simple: I've never posted much online, but I do a lot of doing and telling internally, and that has helped me get into whispered roles, the kind that don't really have job postings. So you do not necessarily have to be a social butterfly to increase the slope, or the surface area, of luck in your life.
 
 ---
 
 ## What's after luck?
 
-For a long time, I thought luck and discipline were almost opposites. Now I think they are more entangled than that.
+Destiny.
 
-Luck is probabilistic by nature. But repeated bets eventually harden into a pattern. Over time, the market starts forming a view of who you are, what you are unusually good at, what kinds of problems seem to follow you, and what rooms it can place you in. A lot of what looks like destiny from the outside is really just compounding in disguise.
+Luck is inherently probabilistic in nature, but let's face it: gambling takes a lot of energy, and over time your risk appetite reduces as you grow older. There is a short window to make anything meaningful happen before your destiny becomes clear to yourself and to the market.
 
-That is why I've become increasingly suspicious of optimizing only for short-term gains.
+So how do you become what you are destined for?
 
-If you're building a career, job hopping purely for compensation can make you richer in the short term and thinner in the long term. If you're building a business, pivoting too often can create the same effect. You keep moving, but you don't stay with anything long enough for depth, reputation, or asymmetry to accumulate.
+1. To begin with, don't necessarily job hop for hikes. Or if you're running a business, don't make pivots a habit. Asymmetrical bets have asymmetrical rewards, and the common denominator is persistence. Persistence to your craft, to yourself, and then to the company you work for, aka tenure. Become unbelievably good at what you do, create side projects, and make sure you have more than 10 all-weather industry friends. It's easier to make friends than people think. Ask good questions and make keen observations. That's one of the fastest ways to earn respect and credibility with senior folks.
 
-The common denominator behind outsized outcomes is usually persistence. Persistence to your craft, to your standards, and then to the mission you're working on. Not blind loyalty. Not martyrdom. Just the willingness to stay with something long enough to become undeniable at it.
+2. There is no substitute for action. There is a lot of grey area here, but let me condense it: action is both art and science.
 
-That includes the less glamorous forms of compounding too. Side projects. Taste. Pattern recognition. Follow-through. Friendships that survive market cycles. I genuinely think everyone should have at least 10 all-weather industry friends. Not because networking is some cynical game, but because people remember how you think, what you care about, and what kind of energy you bring to hard problems. The easiest way I've found to earn respect from senior people is still embarrassingly simple: ask good questions and make sharp observations.
+   1. Art, because you have to develop taste, bring polish to your deliverables, avoid bringing one option and instead always present alternatives with trade-offs, follow through without being chased, and spot purple cows, which is just another way of saying spot what others miss.
+   2. Science, because the boring questions still decide a lot. Did you do what you said you would do? How do you correct yourself when you're wrong? Why go with tool X instead of Y? How will you automate this and do it better next time?
 
-There is also no substitute for action, though even that took me some time to understand properly.
-
-Action is both art and science. The art is taste. It is knowing how to bring polish to your work, how to present real alternatives instead of one lazy recommendation, how to close loops without being chased, and how to spot what others miss. The science is less glamorous but just as decisive. Did you do what you said you would do? How do you correct yourself when you're wrong? Why choose tool X over tool Y? How do you build a system so the next version is better than the last?
-
-I've come to believe that work ethic is still the single biggest lever most people can pull. Not because effort is always rewarded immediately. Usually it isn't. But because serious effort changes the quality of your judgment, and judgment is what eventually makes luck useful when it does arrive.
-
-Maybe that is the real relationship between luck and discipline. Luck opens the door. Discipline is what allows you to recognize the room and stay in it.
+Your work ethic is the single biggest lever you can pull that determines your destiny. Work for the love of work, and the rewards will come in due time.
 
 ---
 
-## Work-life balance, money, access to the right people, and the rest of the story we tell ourselves
+## Work-life balance, not having money, not having access to the right people, and other BS
 
-As I've gotten older, I've also become more careful about how people talk about constraints.
+Here's what I tell, train, and coach my own team on:
 
-Everyone has them. Some are real. Some are brutal. Some are temporary. Some become convenient explanations for why we haven't developed an edge.
+Everyone has constraints. But like players on a sports team, you have to do a lot of painful soul-searching to find your superpower, or your edge. I often ask this in interviews too: "What's your superpower?" It could be anything, making the best pancakes, knowing exactly how a rotor works, literally anything.
 
-I ask people in interviews, "What's your superpower?"
+It's a real signal on obsession, depth, and something a person spends serious self-directed time on. Those are transferable skills.
 
-It sounds light, but I'm not really looking for a clever answer. It could be anything. Making the best pancakes. Knowing exactly how a rotor works. Literally anything. What I'm trying to understand is whether a person has ever been obsessed enough with something to spend serious, self-directed time getting good at it. Obsession, depth, and self-direction travel well. They show up everywhere.
+My team, a designer and a GTM Engineer, are getting quite skilled at adjacent skills because of AI. [I wrote about that here](https://www.varunchoraria.com/imposter-syndrome-as-a-first-time-manager/). I'm quite big on them building their personal brands and doing a lot of do and tell on the internet. Here's how I'm coaching them:
 
-I think about that a lot when I coach my own team. A designer and a GTM Engineer on my team are both getting stronger at adjacent skills because of AI. [I wrote about that here](https://www.varunchoraria.com/imposter-syndrome-as-a-first-time-manager/). More than the tools themselves, what interests me is the habit this creates: they are becoming people who can move across the boundary of their original job description without waiting for permission.
+- Document every single project you shipped through the lens of the business problem you solved. Context is shared transparently with them, and I weigh managerial and project decisions openly in team calls. Nothing meaningful sits on the other side of the boundary. Everyone is an equitable stakeholder.
+- If documenting is a pain because time on weekdays is scarce, literally open drafts in Gmail and write bullet points. Or maintain a brag doc that you update weekly.
+- Take real screenshots of what you built, the constraints you encountered using your toolsets across projects, and introspect hard on what worked and what didn't. Identify patterns over time and take strategic calls every quarter: retire a tool, redefine a process, or establish a different way of communicating with stakeholders.
+- The only true way to grow is to compound. All other growth is incremental and linear. Flatlined careers are dead careers. So compounding is easy, at least in theory: self-review and introspection.
 
-So a lot of my coaching is really about making that growth visible to themselves.
+You don't need access to specific people, an executive coach, the right computer, or the right tools. Work-life balance is a great fever dream but with no meaningful implications.
 
-Document the projects you shipped through the lens of the business problem you solved. If weekdays are packed, open a Gmail draft and dump bullet points into it. Keep a brag doc. Take screenshots of what you built and the constraints you ran into. Revisit them later, not just to admire the work, but to ask harder questions. What worked? What broke? Which tools held up? Which patterns keep repeating? What should be retired? What should become process? What should become instinct?
-
-That is what compounding actually looks like in real life. Not some grand reinvention. Mostly just disciplined self-review over a long enough time horizon.
-
-I'm not saying money, access, or work-life balance do not matter. They do. I am saying that people often overestimate how much the absence of perfect conditions explains a flatlined career.
-
-You do not need a specific circle, an executive coach, a better laptop, or the perfect tool stack before you can start building signal. You do not need the perfect curriculum either. God knows I've spent a lot of time over the last decade curating one for myself.
-
-But you're not a professor. You're a doer.
-
-And most of the time, it makes more sense to solve the problem in front of you, document what you learnt, and stay in that loop long enough for luck to notice.
+You don't even need the right curriculum. Lord knows I've spent a lot of time curating one for myself over the past decade. But you're no professor. You're a doer. It makes more sense to tactfully solve the problem in front of you and learn from it.
