@@ -38,6 +38,8 @@ I joined [Freshworks](https://www.freshworks.com/) after Vymo. I took up the job
 
 Not many side quests here, work kept me incredibly occupied. I did speak at another marketing conference about setting up PLG motions, and did some consulting work.
 
+---
+
 ## Now
 
 I'm with [GTM Buddy](https://gtmbuddy.ai/) (Series A), where I'm helping create the Revenue Activation category and managing the marketing team.
@@ -45,6 +47,8 @@ I'm with [GTM Buddy](https://gtmbuddy.ai/) (Series A), where I'm helping create 
 I was one of their earliest customers, and have been a spectator to their growth over the years. I've always been passionate about products that help sales, so this configuration was a natural next step for me.
 
 On the side, I'm learning everything Agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents.
+
+---
 
 ## What I'm into besides work
 
