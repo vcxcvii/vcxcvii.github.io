@@ -20,6 +20,8 @@ YouTube promos:
 - [#2](https://youtu.be/bqNYRDoU2_4?si=wiG4hk7OmuxzGdkE)
 - [#3](https://youtu.be/4lSpcp8-U8E?si=gb3w2DbONw7HinYi)
 
+---
+
 ## Speaking
 
 ### Product Marketing
@@ -37,6 +39,8 @@ YouTube promos:
 ### Judging
 
 - [Startup event at BIT](https://youtu.be/oQzBJCKSmFU?si=-IwDf1unhDOdn0Oo)
+
+---
 
 ## Podcast
 
