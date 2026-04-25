@@ -18,6 +18,8 @@ Inspired by [Uses This](https://usesthis.com/), this page documents the tools an
 - **Apple HomePod mini:** Terrific speaker.
 - **Logitech MX Master 3S, MX Keys, and palm rest:** The best keyboard and mouse combo. Expensive, but I can type the fastest on it.
 
+---
+
 ## Software
 
 - **Apple Books and Kindle:** Apple Books because I used to pirate ebooks out of Library Genesis until it shut down. I then bought a Kindle subscription.
@@ -47,7 +49,9 @@ Inspired by [Uses This](https://usesthis.com/), this page documents the tools an
 - **[Mole](https://github.com/tw93/mole):** Combines CleanMyMac, AppCleaner, DaisyDisk, and iStat Menus in a single binary. I run this via terminal.
 - **[OpenCode](https://opencode.ai/):** Backup for when I run out of rate limits. I use Ollama, Qwen, MiniMax, and other models.
 
+---
+
 ## Other
 
-- **Furniture:** Medium-quality stuff, but it is super portable, cost-effective, and functional.
+- **Furniture (Ikea):** Medium-quality stuff, but it is super portable, cost-effective, and functional.
 - **Under Armour:** 95% of my wardrobe is from UA. Expensive, but insanely functional. It does not fade or tear easily, and even the athleisure looks classy and comfortable in formal settings.
