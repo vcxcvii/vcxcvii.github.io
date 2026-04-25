@@ -6,7 +6,6 @@ tags:
   - management
   - leadership
   - strategy
-  - ai
 ---
 We work with a bunch of vendors as a company of 44 people. As a manager, I have two choices:
 
