@@ -9,7 +9,10 @@ This repo is scaffolded as a custom Jekyll site with:
 
 ## Run locally
 
+This repo is tested with Ruby `3.2.2` (see `.ruby-version`).
+
 ```bash
+rbenv local 3.2.2
 bundle install
 bundle exec jekyll serve
 ```
