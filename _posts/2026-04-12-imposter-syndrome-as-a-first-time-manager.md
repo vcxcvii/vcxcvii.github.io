@@ -111,6 +111,8 @@ The marketing team works out of GitHub. We forked skills from marketing-skills.c
 
 You don't necessarily have to start from scratch every time.
 
+![GTM Buddy marketing skills repository README overview](/assets/images/posts/skills-repository-readme.png)
+
 ![Skills taxonomy overview — how all skills relate to the shared product-marketing-context foundation](/assets/images/posts/skills-taxonomy.png)
 
 ![Shared context files read by every skill automatically](/assets/images/posts/skills-shared-context.png)
