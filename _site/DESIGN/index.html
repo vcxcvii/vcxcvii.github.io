@@ -15,8 +15,8 @@
     if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
   })();
 </script>
-<title>Fun | VC's Notes</title>
-<meta name="description" content="Side quests, writing, speaking, and the non-work parts that still matter.">
+<title>VC's Notes</title>
+<meta name="description" content="A celestial design system for personal brands — bold, warm, and built for readability across light and dark space.">
 <link rel="preload" href="/assets/css/style.css?v=dev" as="style">
 <link rel="stylesheet" href="/assets/css/style.css?v=dev">
 <link rel="icon" href="/assets/favicon.svg?v=dev" type="image/svg+xml">
@@ -73,7 +73,7 @@
             </li>
           
             <li>
-              <a class="is-active" href="/fun/">
+              <a href="/fun/">
                 /fun
               </a>
             </li>
@@ -158,7 +158,7 @@
               </li>
             
               <li>
-                <a class="is-active" href="/fun/">
+                <a href="/fun/">
                   /fun
                 </a>
               </li>
@@ -264,79 +264,326 @@
 
   <article class="page-shell">
     <header class="page-header">
-      <h1>Fun</h1>
-      
-        <p class="intro-note">Side quests, writing, speaking, and the non-work parts that still matter.</p>
+      <h1></h1>
       
     </header>
 
     <div class="prose">
-      <h2 id="book">Book</h2>
+      <h2 id="overview">Overview</h2>
 
-<h3 id="miracle-preneuring-why-anyone-can-and-should-be-an-entrepreneur">Miracle-preneuring: Why anyone can and should be an entrepreneur</h3>
+<p><strong>Mission: Make personal brands shine like stars.</strong></p>
 
-<p><strong>2016</strong></p>
+<p>STARLIGHT is a design system for Varun Choraria’s personal site (varunchoraria.com). It marries the warmth of a personal blog with the boldness of the Orion Athletics brand identity — high-contrast blues against warm neutrals, with a peachy accent that adds humanity.</p>
 
-<p>Available on <a href="https://www.amazon.com/Miracle-preneuring-Why-anyone-should-entrepreneur-ebook/dp/B01IT0WN5C?sr=8-1">Amazon</a>, <a href="https://books.apple.com/us/book/miracle-preneuring/id1137891452">Apple Books</a>, and <a href="https://www.ebay.com/itm/395268053664">eBay</a>.</p>
+<p>The system supports light and dark modes via CSS custom properties on <code class="language-plaintext highlighter-rouge">html[data-theme="dark"]</code>. Light is the default; dark is opt-in via localStorage.</p>
 
-<p>Wrote, edited, and self-published across platforms. Worked with PR for distribution across 50+ outlets including Forbes, Entrepreneur, and Morning Star. Officially launched at Cafe Coffee Day HQ in Bangalore.</p>
+<hr />
 
-<p>YouTube promos:</p>
+<h2 id="colors">Colors</h2>
 
+<p>Colors are named after celestial bodies. Each maps to a specific role in the UI.</p>
+
+<h3 id="light-mode">Light Mode</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Planet</th>
+      <th>Role</th>
+      <th>Hex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">neptune</code></td>
+      <td>Neptune</td>
+      <td>Primary accent, links, interactive elements</td>
+      <td><code class="language-plaintext highlighter-rouge">#0796D7</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uranus</code></td>
+      <td>Uranus</td>
+      <td>Secondary accent (dark mode links)</td>
+      <td><code class="language-plaintext highlighter-rouge">#8DC8EF</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">midnight</code></td>
+      <td>Midnight / deep space</td>
+      <td>Visited links, header gradient mid-point</td>
+      <td><code class="language-plaintext highlighter-rouge">#024C7B</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">venus</code></td>
+      <td>Venus</td>
+      <td>Page background — warm cream, softer than white</td>
+      <td><code class="language-plaintext highlighter-rouge">#EDEAE5</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">terra</code></td>
+      <td>Terra (Earth)</td>
+      <td>Surface / card backgrounds</td>
+      <td><code class="language-plaintext highlighter-rouge">#DCD8D2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mercury</code></td>
+      <td>Mercury</td>
+      <td>Borders, dividers</td>
+      <td><code class="language-plaintext highlighter-rouge">#D2D3CC</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mars</code></td>
+      <td>Mars</td>
+      <td>Blockquote background — warm peach highlight</td>
+      <td><code class="language-plaintext highlighter-rouge">#FFE8DE</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">star</code></td>
+      <td>Star</td>
+      <td>Code block backgrounds</td>
+      <td><code class="language-plaintext highlighter-rouge">#E3E6EB</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">void</code></td>
+      <td>Void / outer space</td>
+      <td>Body text, dark mode foundation</td>
+      <td><code class="language-plaintext highlighter-rouge">#08080C</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Why planets?</strong> The palette orbits around Neptune (a vibrant cyan-blue) as the gravitational center. Venus provides warmth like its cloudy atmosphere. Mars adds a subtle red-peach accent for highlights. Void replaces pure black with a near-black that feels deep without being harsh.</p>
+
+<h3 id="dark-mode">Dark Mode</h3>
+
+<p>Dark mode inverts the void: the background is <code class="language-plaintext highlighter-rouge">void-dark</code> (<code class="language-plaintext highlighter-rouge">#0F1A24</code>) — a dark navy that carries more depth than pure black. Text becomes <code class="language-plaintext highlighter-rouge">venus</code> (warm cream). Links switch to <code class="language-plaintext highlighter-rouge">uranus</code> (Sky Blue) for readability against the dark. Blockquotes use a navy-tinted overlay instead of Mars.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Role</th>
+      <th>Light</th>
+      <th>Dark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--color-bg</code></td>
+      <td>Background</td>
+      <td>Venus <code class="language-plaintext highlighter-rouge">#EDEAE5</code></td>
+      <td>Void-dark <code class="language-plaintext highlighter-rouge">#0F1A24</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--color-surface</code></td>
+      <td>Surface</td>
+      <td>Terra <code class="language-plaintext highlighter-rouge">#DCD8D2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">#16232E</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--color-text</code></td>
+      <td>Body text</td>
+      <td>Void <code class="language-plaintext highlighter-rouge">#08080C</code></td>
+      <td><code class="language-plaintext highlighter-rouge">#E0E7ED</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--color-link</code></td>
+      <td>Links</td>
+      <td>Neptune <code class="language-plaintext highlighter-rouge">#0796D7</code></td>
+      <td>Uranus <code class="language-plaintext highlighter-rouge">#8DC8EF</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--color-accent</code></td>
+      <td>Accents</td>
+      <td>Neptune <code class="language-plaintext highlighter-rouge">#0796D7</code></td>
+      <td>Uranus <code class="language-plaintext highlighter-rouge">#8DC8EF</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--color-blockquote-bg</code></td>
+      <td>Blockquote bg</td>
+      <td>Mars <code class="language-plaintext highlighter-rouge">#FFE8DE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">rgba(2, 76, 123, 0.25)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="typography">Typography</h2>
+
+<p><strong>Primary font: Inter</strong> — clean, highly readable at all sizes, with excellent hinting for screens. Served from Google Fonts with <code class="language-plaintext highlighter-rouge">opsz</code> axis for optical sizing.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Size</th>
+      <th>Weight</th>
+      <th>Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">h1</code></td>
+      <td>1.75rem (29.75px)</td>
+      <td>700</td>
+      <td>Page / entry titles</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">h2</code></td>
+      <td>1.3rem (22.1px)</td>
+      <td>700</td>
+      <td>Section headings</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">h3</code></td>
+      <td>1.1rem (18.7px)</td>
+      <td>700</td>
+      <td>Subsection headings</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">h4</code></td>
+      <td>1rem (17px)</td>
+      <td>700</td>
+      <td>Minor headings</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">body</code></td>
+      <td>1rem (17px)</td>
+      <td>400</td>
+      <td>Paragraph text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">body-sm</code></td>
+      <td>0.875rem</td>
+      <td>400</td>
+      <td>Sidebar, footer</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">label</code></td>
+      <td>0.75rem</td>
+      <td>700 + 0.08em spacing</td>
+      <td>Section labels, year markers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">date</code></td>
+      <td>0.82rem</td>
+      <td>400 (tabular nums)</td>
+      <td>Post dates, archive dates</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mono</code></td>
+      <td>0.88em</td>
+      <td>400</td>
+      <td>Code, pre blocks</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Body text line-height is 1.45. Prose (entries) uses 1.5 with justified alignment on desktop, left-aligned on mobile.</p>
+
+<hr />
+
+<h2 id="layout">Layout</h2>
+
+<p><strong>Page width:</strong> 960px max, centered via auto margins.</p>
+
+<p><strong>Gutter:</strong> <code class="language-plaintext highlighter-rouge">clamp(1rem, 4vw, 1.375rem)</code> with safe-area-inset fallback for notched devices.</p>
+
+<p><strong>Grid:</strong> Two-column layout on desktop (primary + sidebar, 560px + 230px). Sidebar hides at 860px breakpoint. Single column below that.</p>
+
+<p><strong>Sections spacing:</strong></p>
 <ul>
-  <li><a href="https://youtu.be/mG9VlVG0J64?si=Nz8zA0Fhi9nZFx5u">#1</a></li>
-  <li><a href="https://youtu.be/bqNYRDoU2_4?si=wiG4hk7OmuxzGdkE">#2</a></li>
-  <li><a href="https://youtu.be/4lSpcp8-U8E?si=gb3w2DbONw7HinYi">#3</a></li>
+  <li>Between major sections: 2.5rem (40px)</li>
+  <li>Between paragraphs: 1rem (17px)</li>
+  <li>Between list items: 0.3rem (5px)</li>
 </ul>
 
 <hr />
 
-<h2 id="speaking">Speaking</h2>
+<h2 id="elevation--depth">Elevation &amp; Depth</h2>
 
-<h3 id="product-marketing">Product Marketing</h3>
-
-<ul>
-  <li><a href="https://www.youtube.com/watch?v=EG65TZ_Itz4&amp;t=647s">(Wynter) Building a Cohesive Powerhouse for B2B Enterprise SaaS</a></li>
-  <li><a href="https://www.youtube.com/watch?v=yNDnIpA3WYA">GTM-101 For B2B Startups — AIC Prestige, AIM, Niti Aayog, Microsoft For Startups</a></li>
-  <li><a href="https://youtu.be/KWClyMaIC20?si=3zI4DlLa2xUmoRlp">Growth hacking product marketing</a></li>
-  <li>Product Marketing Alliance: “What Good Looks Like: The Research Inputs Behind High-Performing PLG Funnels” at the Customer &amp; Market Research Summit</li>
-</ul>
-
-<h3 id="career">Career</h3>
+<p>Depth comes from color contrast and the header gradient, not from box-shadows. The site uses a flat aesthetic with a single elevation layer:</p>
 
 <ul>
-  <li><a href="https://www.youtube.com/watch?v=enSvK4A01JA&amp;t=2950s">Artha Series E3 — Career Frameworks at Jai Hind College, Mumbai</a></li>
-  <li><a href="https://www.youtube.com/watch?v=A0a-WjeKr5E&amp;list=PL8UKaHt0PXy4dpqYDpzHxpQ00nDdc45ZA">Keynote at BIT</a></li>
-</ul>
-
-<h3 id="judging">Judging</h3>
-
-<ul>
-  <li><a href="https://youtu.be/oQzBJCKSmFU?si=-IwDf1unhDOdn0Oo">Startup event at BIT</a></li>
+  <li><strong>Header:</strong> Full-width gradient strip — Neptune → Midnight → Void</li>
+  <li><strong>Content:</strong> Flush on background, separated by the header above and a border-top footer below</li>
+  <li><strong>Active nav state:</strong> Pill with gradient background (same as header) on light mode</li>
 </ul>
 
 <hr />
 
-<h2 id="podcast">Podcast</h2>
+<h2 id="shapes">Shapes</h2>
 
-<h3 id="the-edge-podcast-for-chros"><a href="https://www.youtube.com/@theedgepodcastforchros3212">The Edge Podcast for CHROs</a></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Value</th>
+      <th>Where</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sm</code></td>
+      <td>3px</td>
+      <td>Inline code, border corners</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">md</code></td>
+      <td>4px</td>
+      <td>Blockquote, table cells</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lg</code></td>
+      <td>6px</td>
+      <td>Pre blocks, code blocks</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pill</code></td>
+      <td>999px</td>
+      <td>Tag pills, nav links, theme toggle</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><strong>2021</strong> — co-hosted two seasons exploring the future of work, with guests from GoJek, Infosys, Oracle, MetLife, Ather, Razorpay, Doist, and others.</p>
+<p>Blockquote has an asymmetrical shape: rounded right corners (<code class="language-plaintext highlighter-rouge">4px</code>) with a sharp left edge where the 3px accent border sits.</p>
 
-<p><strong>Season 1</strong> focused on return to work and remote work — <a href="https://www.youtube.com/playlist?list=PL8OJ-OTWd9gLyxP9ezKm1TBWWsvYHj2Ov">full playlist</a></p>
+<hr />
 
-<p><strong>Season 2</strong> focused on deep dives into specific topics like compensation — <a href="https://www.youtube.com/playlist?list=PL8OJ-OTWd9gK_fWVv0-ixaCBGXWI8e6Cw">full playlist</a></p>
+<h2 id="components">Components</h2>
 
-<p>Three formats: seasonal themes, quick takes (<a href="https://www.youtube.com/playlist?list=PL8OJ-OTWd9gJux_Y8no_EDXz9VNT_Qzyt">playlist</a>), and Seeing Beyond — futuristic trends (<a href="https://www.youtube.com/playlist?list=PL8OJ-OTWd9gIWqCTeV0k7vBvZPEfQgYu-">playlist</a>).</p>
+<h3 id="tag-pill">Tag Pill</h3>
+<p>Small inline chip identifying post categories. Neptune background, white text, pill-shaped. On hover: 0.85 opacity.</p>
 
-<h3 id="moneycontrol">Moneycontrol</h3>
+<h3 id="blockquote">Blockquote</h3>
+<p>Warm peach (Mars) background with a 3px Neptune left border. Rounded right corners. Used for emphasis and pull quotes. Dark mode switches to a navy-tinted overlay with Uranus border.</p>
+
+<h3 id="code-inline--code-block">Code Inline / Code Block</h3>
+<p>Light grey (Star) background with Mercury border. Inline code gets 3px rounding; blocks get 6px. Monospace font stack with <code class="language-plaintext highlighter-rouge">SFMono-Regular</code> as preferred.</p>
+
+<h3 id="nav-link">Nav Link</h3>
+<p>White text at 85% opacity on the dark header. On hover: white bg at 15% opacity with full white text. Active page: gradient-filled pill matching the header.</p>
+
+<h3 id="theme-toggle">Theme Toggle</h3>
+<p>Round button in the header. Sun/moon icon swap. Wraps in a row variant for the mobile menu.</p>
+
+<h3 id="site-title">Site Title</h3>
+<p>“VC’s Notes” in white, 1.35rem, bold. Includes a small terminal-mark SVG icon. On hover: fades to 80% opacity.</p>
+
+<hr />
+
+<h2 id="dos-and-donts">Do’s and Don’ts</h2>
 
 <ul>
-  <li><a href="https://www.moneycontrol.com/news/business/a-guide-to-how-organisations-need-to-reset-people-practices-for-new-normal-6929301.html">A guide to how organisations need to reset people practices for “new normal”</a></li>
-  <li><a href="https://www-moneycontrol-com.cdn.ampproject.org/c/s/www.moneycontrol.com/news/trends/features-2/6-things-everyone-needs-to-learn-about-product-management-6783491.html/amp">Future of work: 6 things everyone needs to know about product management</a></li>
-  <li><a href="https://www.moneycontrol.com/news/business/here-are-5-signs-that-creator-economy-has-arrived-in-india-6663691.html">5 signs that the creator economy has arrived in India</a></li>
-  <li><a href="https://www.moneycontrol.com/news/business/when-you-go-fully-remote-terms-and-conditions-apply-6532991.html">When you go fully remote, terms and conditions apply</a></li>
-  <li><a href="https://www.moneycontrol.com/news/business/the-varied-shades-of-remote-work-6435401.html">The varied shades of remote work</a></li>
+  <li><strong>Do</strong> use Neptune for all interactive elements — links, hover states, focus outlines</li>
+  <li><strong>Do</strong> use Venus as the default page background for a warm reading experience</li>
+  <li><strong>Do</strong> use Mars for blockquotes — the peachy warmth contrasts nicely with Neptune’s cool blue</li>
+  <li><strong>Don’t</strong> apply box-shadows — the design is intentionally flat</li>
+  <li><strong>Don’t</strong> use pure black (<code class="language-plaintext highlighter-rouge">#000</code>) — use Void (<code class="language-plaintext highlighter-rouge">#08080C</code>) or Void-dark (<code class="language-plaintext highlighter-rouge">#0F1A24</code>) instead</li>
+  <li><strong>Don’t</strong> add new colors outside the planet palette without adding a corresponding CSS variable and documenting it here</li>
+  <li><strong>Do</strong> maintain WCAG AA contrast (4.5:1) for all text-on-background combinations</li>
+  <li><strong>Do</strong> refer to color tokens by their planet names in design discussions (“make this Neptune” not “make this #0796D7”)</li>
 </ul>
 
     </div>
