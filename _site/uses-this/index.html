@@ -5,13 +5,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#10151b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f8f9fa">
+<script>
+  (function() {
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  })();
+</script>
 <title>Uses This | VC's Notes</title>
 <meta name="description" content="A running list of the hardware, software, and everyday gear I rely on.">
 <link rel="preload" href="/assets/css/style.css?v=dev" as="style">
 <link rel="stylesheet" href="/assets/css/style.css?v=dev">
 <link rel="icon" href="/assets/favicon.svg?v=dev" type="image/svg+xml">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S0VEY2SVJ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S0VEY2SVJ3');
+</script>
 
   </head>
   <body>
@@ -64,19 +77,7 @@
           
             <li>
               <a href="/blog/">
-                /blogs
-              </a>
-            </li>
-          
-            <li>
-              <a href="/disclaimer/">
-                /disclaimer
-              </a>
-            </li>
-          
-            <li>
-              <a href="/tags/">
-                /tags
+                /notes
               </a>
             </li>
           
@@ -90,6 +91,21 @@
       </nav>
 
       <div class="header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+          data-theme-toggle
+        >
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" fill="currentColor"/>
+            <path fill="currentColor" d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+
         <a
           class="header-link-button"
           href="https://github.com/vcxcvii"
@@ -146,19 +162,7 @@
             
               <li>
                 <a href="/blog/">
-                  /blogs
-                </a>
-              </li>
-            
-              <li>
-                <a href="/disclaimer/">
-                  /disclaimer
-                </a>
-              </li>
-            
-              <li>
-                <a href="/tags/">
-                  /tags
+                  /notes
                 </a>
               </li>
             
@@ -168,6 +172,17 @@
                 </a>
               </li>
             
+          </ul>
+        </nav>
+      </div>
+
+      <div class="mobile-menu-section">
+        <p class="mobile-menu-section-label">Sections</p>
+        <nav class="mobile-menu-primary" aria-label="Mobile Sections">
+          <ul>
+            <li><a href="/tags/">/tags</a></li>
+            <li><a href="/archive/">/archive</a></li>
+            <li><a href="/disclaimer/">/disclaimer</a></li>
           </ul>
         </nav>
       </div>
@@ -217,6 +232,24 @@
           
         </div>
       </div>
+
+      <div class="mobile-menu-section mobile-theme-row">
+        <button
+          class="theme-toggle theme-toggle-mobile"
+          type="button"
+          aria-label="Toggle dark mode"
+          data-theme-toggle
+        >
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" fill="currentColor"/>
+            <path fill="currentColor" d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <span class="theme-toggle-label" data-theme-label>Dark mode</span>
+        </button>
+      </div>
     </div>
   </div>
 </header>
@@ -235,56 +268,62 @@
     </header>
 
     <div class="prose">
-      <p>Inspired by <a href="https://usesthis.com/">Uses This</a>, I’m creating this page to document the tools and software I use to get things done.</p>
+      <p>Inspired by <a href="https://usesthis.com/">Uses This</a>, this page documents the tools and software I use to get things done.</p>
 
 <h2 id="hardware">Hardware</h2>
 
 <ul>
-  <li><strong>MacBook Air, 13-inch, M2 chip, 8 GB RAM, 256 GB storage:</strong> Personal computer, and still a beast even in 2026.</li>
-  <li><strong>MacBook Air, 13-inch, M4 chip, 24 GB RAM, 512 GB storage:</strong> Work laptop. It’s a beast for sure, but for some reason starts lagging badly on Zoom calls longer than 30 minutes. Turns out that’s because the computer doesn’t have active cooling. The keyboard travel isn’t as good as my M2 Air. Performance-wise, this is a huge level up for sure.</li>
-  <li><strong>Samsung M8 Monitor:</strong> This is my monitor and TV. Easily one of the best purchases I’ve made.</li>
-  <li><strong>Apple Watch SE:</strong> Got this in 2022, still runs pretty well. I use it to log my workouts. Funnily enough, not to see the time.</li>
+  <li><strong>MacBook Air, 13-inch, M2, 8 GB RAM, 256 GB storage:</strong> Personal computer, and still a beast even in 2026.</li>
+  <li><strong>MacBook Air, 13-inch, M4, 24 GB RAM, 512 GB storage:</strong> Work laptop. It is a beast for sure, but for some reason starts lagging badly on Zoom calls longer than 30 minutes. Turns out that is because it does not have active cooling. The keyboard travel is not as good as my M2 Air. Performance-wise though, this is a huge level up.</li>
+  <li><strong>Samsung M8 Monitor:</strong> My monitor and TV. Easily one of the best purchases I have made.</li>
+  <li><strong>Apple Watch SE:</strong> Got this in 2022 and it still runs pretty well. I use it to log my workouts. Funnily enough, not to see the time.</li>
   <li><strong>iPhone 16 Pro Max:</strong> Got the base model, and it runs really well. The titanium body is a huge plus.</li>
-  <li><strong>AirPods Pro 2:</strong> Got this in 2022. It’s terrific and has survived a thousand falls, not kidding.</li>
-  <li><strong>iPad Air, M1 chip, 11-inch:</strong> Used to be a replacement for a TV in 2022 when I lived alone abroad. In 2026, it continues to be a glorified Kindle and TV. I have the Apple Pencil too, but I rarely use it.</li>
+  <li><strong>AirPods Pro 2:</strong> Got this in 2022. It is terrific and has survived a thousand falls, not kidding.</li>
+  <li><strong>iPad Air, M1, 11-inch:</strong> Used to be a replacement for a TV in 2022 when I lived alone abroad. In 2026, it continues to be a glorified Kindle and TV. I have the Apple Pencil too, but I rarely use it.</li>
   <li><strong>Apple HomePod mini:</strong> Terrific speaker.</li>
-  <li><strong>Logitech MX Master 3S mouse, MX Keys, and palm rest:</strong> The best keyboard and mouse combo. Expensive, but I can type the fastest on it.</li>
+  <li><strong>Logitech MX Master 3S, MX Keys, and palm rest:</strong> The best keyboard and mouse combo. Expensive, but I can type the fastest on it.</li>
 </ul>
+
+<hr />
 
 <h2 id="software">Software</h2>
 
 <ul>
-  <li><strong>Apple Books + Kindle:</strong> Apple Books because I used to pirate ebooks out of Library Genesis until it shut down. I then bought a Kindle subscription.</li>
-  <li><strong>Google Chrome:</strong> Daily driver. I’ve tried Comet, Dia, Helium, Safari, and more. Nothing beats the portability and reliability of Chrome.</li>
-  <li><strong>Claude, Codex:</strong> I’m a huge terminal guy. I use all my AI models from there.</li>
+  <li><strong>Apple Books and Kindle:</strong> Apple Books because I used to pirate ebooks out of Library Genesis until it shut down. I then bought a Kindle subscription.</li>
+  <li><strong>Google Chrome:</strong> Daily driver. I have tried Comet, Dia, Helium, Safari, and others. Nothing beats the portability and reliability of Chrome.</li>
+  <li><strong>Claude and Codex:</strong> I am a huge terminal guy, so I use most AI models from there.</li>
   <li><strong>CodexBar:</strong> Helps me monitor my Codex and Claude code usage from my menu bar.</li>
-  <li><strong>Obsidian:</strong> This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years now. I sync everything via iCloud.</li>
+  <li><strong>Obsidian:</strong> This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud.</li>
   <li><strong>Quartr:</strong> To listen to earnings calls.</li>
-  <li><strong>Passwords, Apple Podcasts, Apple Music:</strong> I pay for Apple One, and their suite is unparalleled.</li>
+  <li><strong>Passwords, Apple Podcasts, and Apple Music:</strong> I pay for Apple One, and their suite is unparalleled.</li>
   <li><strong>Perplexity:</strong> Got it free for a year via Airtel.</li>
   <li><strong>Letterboxd:</strong> Huge movie buff, so I catalog my movies there.</li>
-  <li><strong>YouTube Premium:</strong> Highest-ROI subscription ever.</li>
-  <li><strong>Apple TV, Netflix, Jio Hotstar, Mubi:</strong> For movies and TV shows.</li>
-  <li><strong>GitHub, GitHub Pages, Jekyll:</strong> My website is hosted via these. It’s free.</li>
-  <li><strong>Slack, Zoom, Google Workspace:</strong> Irreplaceable, and for office comms.</li>
+  <li><strong>YouTube Premium:</strong> Highest ROI subscription ever.</li>
+  <li><strong>Apple TV, Netflix, JioHotstar, and Mubi:</strong> For movies and TV shows.</li>
+  <li><strong>GitHub, GitHub Pages, and Jekyll:</strong> My website is hosted on these. It is free.</li>
+  <li><strong>Slack, Zoom, and Google Workspace:</strong> Irreplaceable for office comms.</li>
   <li><strong>Base44:</strong> Vibe coding landing pages.</li>
   <li><strong>SwanAI:</strong> Automating GTM workflows, lead scoring, lead distribution, and automated outreach.</li>
-  <li><strong>Clay, Apollo, KitAI:</strong> Scraping and enrichment.</li>
-  <li><strong>Podpitch:</strong> To get my founder featured on podcasts and help with podcast distribution.</li>
+  <li><strong>Clay, Apollo, and KitAI:</strong> Scraping and enrichment.</li>
+  <li><strong>Podpitch:</strong> To get my founder featured on podcasts and handle podcast distribution.</li>
   <li><strong>HubSpot:</strong> CRM and social media scheduling.</li>
   <li><strong>Figma:</strong> Designing. Daily driver for 7+ years now.</li>
   <li><strong>Webflow:</strong> Website builder and hosting.</li>
   <li><strong>Veed:</strong> Video editing and recording.</li>
-  <li><strong>Screen Studio:</strong> To create GIFs and quick video recordings.</li>
-  <li><strong>Google Analytics, Google Tag Manager, Google Search Console, Semrush:</strong> Website traffic, tagging, SEO, AEO, and GEO.</li>
-  <li><strong>MCPs and skills:</strong> Playwright, marketing-skills.com, skills.sh, GA4, GSC, and Figma MCP.</li>
+  <li><strong>Screen Studio:</strong> To create GIFs and do quick video recording.</li>
+  <li><strong>Google Analytics, Google Tag Manager, Google Search Console, and Semrush:</strong> Website traffic, tagging, SEO, AEO, and GEO.</li>
+  <li><strong>MCPs and skills:</strong> Playwright, marketing-skills.com, skills.sh, GA4, GSC, and the Figma MCP.</li>
+  <li><strong><a href="https://github.com/tw93/mole">Mole</a>:</strong> Combines CleanMyMac, AppCleaner, DaisyDisk, and iStat Menus in a single binary. I run this via terminal.</li>
+  <li><strong><a href="https://opencode.ai/">OpenCode</a>:</strong> Backup for when I run out of rate limits. I use Ollama, Qwen, MiniMax, and other models.</li>
 </ul>
+
+<hr />
 
 <h2 id="other">Other</h2>
 
 <ul>
-  <li><strong>Furniture:</strong> Medium-quality stuff, but it’s super portable, cost-effective, and functional.</li>
-  <li><strong>Under Armour:</strong> 95% of my wardrobe is from UA. Expensive, but insanely functional. It doesn’t fade or tear easily, and even athleisure looks classy and comfy in formal settings.</li>
+  <li><strong>Furniture (Ikea):</strong> Medium-quality stuff, but it is super portable, cost-effective, and functional.</li>
+  <li><strong>Under Armour:</strong> 95% of my wardrobe is from UA. Expensive, but insanely functional. It does not fade or tear easily, and even the athleisure looks classy and comfortable in formal settings.</li>
 </ul>
 
     </div>
@@ -305,8 +344,9 @@
   <section class="side-block">
     <h3>Sections</h3>
     <ul>
-      <li><a href="/blog/">Blog Archive</a></li>
       <li><a href="/tags/">Tags</a></li>
+      <li><a href="/archive/">Archive</a></li>
+      <li><a href="/disclaimer/">Disclaimer</a></li>
     </ul>
   </section>
 
@@ -333,7 +373,36 @@
 
 
     </main>
-    <footer id="site-footer">
+    <script>
+  (() => {
+    const updateLabels = (isDark) => {
+      document.querySelectorAll('[data-theme-label]').forEach((el) => {
+        el.textContent = isDark ? 'Light mode' : 'Dark mode';
+      });
+    };
+
+    const btns = document.querySelectorAll('[data-theme-toggle]');
+    if (!btns.length) return;
+
+    updateLabels(document.documentElement.getAttribute('data-theme') === 'dark');
+
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        }
+        updateLabels(!isDark);
+      });
+    });
+  })();
+</script>
+
+<footer id="site-footer">
   <div class="footer-inner">
     <div class="footer-top">
       <span>&copy; 2026 VC's Notes &nbsp;|&nbsp; <a href="/disclaimer/" class="footer-disclaimer">Disclaimer</a></span>
@@ -364,7 +433,17 @@
 
         setMenuState(false);
 
-        menuButton.addEventListener('click', toggleMenu);
+        let didPointerToggle = false;
+        menuButton.addEventListener('pointerdown', (e) => {
+          if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+            didPointerToggle = true;
+            toggleMenu();
+          }
+        });
+        menuButton.addEventListener('click', () => {
+          if (didPointerToggle) { didPointerToggle = false; return; }
+          toggleMenu();
+        });
 
         menuPanel.querySelectorAll('a').forEach((link) => {
           link.addEventListener('click', closeMenu);
