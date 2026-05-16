@@ -3,18 +3,18 @@ name: STARLIGHT
 description: A celestial design system for personal brands — bold, warm, and built for readability across light and dark space.
 
 colors:
-  neptune: "#0796D7"
-  uranus: "#8DC8EF"
-  midnight: "#024C7B"
-  venus: "#EDEAE5"
-  terra: "#DCD8D2"
-  mercury: "#D2D3CC"
-  mars: "#FFE8DE"
-  star: "#E3E6EB"
+  hd189733b: "#0796D7"
+  gj504b: "#8DC8EF"
+  tres2b: "#024C7B"
+  proxima-b: "#EDEAE5"
+  kepler22b: "#DCD8D2"
+  kepler186f: "#D2D3CC"
+  cancri55e: "#FFE8DE"
+  pegasi51b: "#E3E6EB"
   void: "#08080C"
   void-dark: "#0F1A24"
-  neptune-dark: "#0796D7"
-  uranus-dark: "#8DC8EF"
+  hd189733b-dark: "#0796D7"
+  gj504b-dark: "#8DC8EF"
 
 typography:
   h1:
@@ -73,37 +73,37 @@ spacing:
 
 components:
   tag-pill:
-    backgroundColor: "{colors.neptune}"
-    textColor: "{colors.neptune-dark-text}"
+    backgroundColor: "{colors.hd189733b}"
+    textColor: "{colors.void}"
     rounded: "{rounded.pill}"
     padding: "0.16rem 0.55rem"
     fontSize: 0.75rem
     hoverOpacity: 0.85
   tag-pill-dark:
-    backgroundColor: "{colors.neptune}"
+    backgroundColor: "{colors.hd189733b}"
     textColor: "#FFFFFF"
     rounded: "{rounded.pill}"
     padding: "0.16rem 0.55rem"
     fontSize: 0.75rem
   blockquote:
-    backgroundColor: "{colors.mars}"
-    borderColor: "{colors.neptune}"
+    backgroundColor: "{colors.cancri55e}"
+    borderColor: "{colors.hd189733b}"
     borderWidth: 3px
     rounded: "{rounded.md}"
     padding: "0.75rem 1.25rem"
   blockquote-dark:
     backgroundColor: "rgba(2, 76, 123, 0.25)"
-    borderColor: "{colors.uranus-dark}"
+    borderColor: "{colors.gj504b-dark}"
     borderWidth: 3px
     padding: "0.75rem 1.25rem"
   code-inline:
-    backgroundColor: "{colors.star}"
-    borderColor: "{colors.mercury}"
+    backgroundColor: "{colors.pegasi51b}"
+    borderColor: "{colors.kepler186f}"
     rounded: "{rounded.sm}"
     padding: "0.15rem 0.35rem"
   code-block:
-    backgroundColor: "{colors.star}"
-    borderColor: "{colors.mercury}"
+    backgroundColor: "{colors.pegasi51b}"
+    borderColor: "{colors.kepler186f}"
     rounded: "{rounded.lg}"
     padding: "1rem 1.25rem"
   nav-link:
@@ -113,24 +113,24 @@ components:
     rounded: "{rounded.pill}"
     padding: "0.2rem 0.55rem"
   nav-link-active:
-    backgroundGradientStart: "{colors.neptune}"
-    backgroundGradientMid: "{colors.midnight}"
+    backgroundGradientStart: "{colors.hd189733b}"
+    backgroundGradientMid: "{colors.tres2b}"
     backgroundGradientEnd: "{colors.void}"
     textColor: "#FFFFFF"
     rounded: "{rounded.pill}"
     padding: "0.2rem 0.55rem"
   nav-link-active-dark:
-    backgroundGradientStart: "{colors.neptune}"
-    backgroundGradientMid: "{colors.midnight}"
+    backgroundGradientStart: "{colors.hd189733b}"
+    backgroundGradientMid: "{colors.tres2b}"
     backgroundGradientEnd: "{colors.void-dark}"
     textColor: "#FFFFFF"
   header-gradient:
-    gradientStart: "{colors.neptune}"
-    gradientMid: "{colors.midnight}"
+    gradientStart: "{colors.hd189733b}"
+    gradientMid: "{colors.tres2b}"
     gradientEnd: "{colors.void}"
   header-gradient-dark:
-    gradientStart: "{colors.neptune}"
-    gradientMid: "{colors.midnight}"
+    gradientStart: "{colors.hd189733b}"
+    gradientMid: "{colors.tres2b}"
     gradientEnd: "{colors.void-dark}"
   theme-toggle:
     backgroundColor: "rgba(255, 255, 255, 0.08)"
@@ -157,36 +157,36 @@ The system supports light and dark modes via CSS custom properties on `html[data
 
 ## Colors
 
-Colors are named after celestial bodies. Each maps to a specific role in the UI.
+Colors are named after exoplanets. Each maps to a specific role in the UI.
 
 ### Light Mode
 
-| Token | Planet | Role | Hex |
-|-------|--------|------|-----|
-| `neptune` | Neptune | Primary accent, links, interactive elements | `#0796D7` |
-| `uranus` | Uranus | Secondary accent (dark mode links) | `#8DC8EF` |
-| `midnight` | Midnight / deep space | Visited links, header gradient mid-point | `#024C7B` |
-| `venus` | Venus | Page background — warm cream, softer than white | `#EDEAE5` |
-| `terra` | Terra (Earth) | Surface / card backgrounds | `#DCD8D2` |
-| `mercury` | Mercury | Borders, dividers | `#D2D3CC` |
-| `mars` | Mars | Blockquote background — warm peach highlight | `#FFE8DE` |
-| `star` | Star | Code block backgrounds | `#E3E6EB` |
-| `void` | Void / outer space | Body text, dark mode foundation | `#08080C` |
+| Token | Exoplanet | Role | Hex |
+|-------|-----------|------|-----|
+| `hd189733b` | HD 189733b | Primary accent, links, interactive elements — the deep blue exoplanet | `#0796D7` |
+| `gj504b` | GJ 504b | Secondary accent (dark mode links) — pale blue directly imaged | `#8DC8EF` |
+| `tres2b` | TrES-2b | Deep navy, visited links — the darkest exoplanet known | `#024C7B` |
+| `proxima-b` | Proxima b | Page background — warm cream, closest exoplanet to Earth | `#EDEAE5` |
+| `kepler22b` | Kepler-22b | Surface / card backgrounds — first confirmed in habitable zone | `#DCD8D2` |
+| `kepler186f` | Kepler-186f | Borders, dividers — first Earth-size exoplanet | `#D2D3CC` |
+| `cancri55e` | 55 Cancri e | Blockquote background — hot glowing super-Earth, peachy glow | `#FFE8DE` |
+| `pegasi51b` | 51 Pegasi b | Code block backgrounds — the first exoplanet discovered | `#E3E6EB` |
+| `void` | Void | Body text, dark mode foundation — deep space | `#08080C` |
 
-**Why planets?** The palette orbits around Neptune (a vibrant cyan-blue) as the gravitational center. Venus provides warmth like its cloudy atmosphere. Mars adds a subtle red-peach accent for highlights. Void replaces pure black with a near-black that feels deep without being harsh.
+**Why exoplanets?** The palette orbits around HD 189733b (vibrant cyan-blue) as the gravitational center — a real exoplanet whose deep blue atmosphere inspired the brand. Proxima b warms like our nearest stellar neighbour. 55 Cancri e's glowing surface adds a subtle red-peach accent. Void replaces pure black with a near-black that feels deep without being harsh.
 
 ### Dark Mode
 
-Dark mode inverts the void: the background is `void-dark` (`#0F1A24`) — a dark navy that carries more depth than pure black. Text becomes `venus` (warm cream). Links switch to `uranus` (Sky Blue) for readability against the dark. Blockquotes use a navy-tinted overlay instead of Mars.
+Dark mode inverts the void: the background is `void-dark` (`#0F1A24`) — a dark navy that carries more depth than pure black. Text becomes `proxima-b` (warm cream). Links switch to `gj504b` (Sky Blue) for readability against the dark. Blockquotes use a navy-tinted overlay instead of 55 Cancri e.
 
 | Token | Role | Light | Dark |
 |-------|------|-------|------|
-| `--color-bg` | Background | Venus `#EDEAE5` | Void-dark `#0F1A24` |
-| `--color-surface` | Surface | Terra `#DCD8D2` | `#16232E` |
+| `--color-bg` | Background | Proxima b `#EDEAE5` | Void-dark `#0F1A24` |
+| `--color-surface` | Surface | Kepler-22b `#DCD8D2` | `#16232E` |
 | `--color-text` | Body text | Void `#08080C` | `#E0E7ED` |
-| `--color-link` | Links | Neptune `#0796D7` | Uranus `#8DC8EF` |
-| `--color-accent` | Accents | Neptune `#0796D7` | Uranus `#8DC8EF` |
-| `--color-blockquote-bg` | Blockquote bg | Mars `#FFE8DE` | `rgba(2, 76, 123, 0.25)` |
+| `--color-link` | Links | HD 189733b `#0796D7` | GJ 504b `#8DC8EF` |
+| `--color-accent` | Accents | HD 189733b `#0796D7` | GJ 504b `#8DC8EF` |
+| `--color-blockquote-bg` | Blockquote bg | 55 Cancri e `#FFE8DE` | `rgba(2, 76, 123, 0.25)` |
 
 ---
 
@@ -229,7 +229,7 @@ Body text line-height is 1.45. Prose (entries) uses 1.5 with justified alignment
 
 Depth comes from color contrast and the header gradient, not from box-shadows. The site uses a flat aesthetic with a single elevation layer:
 
-- **Header:** Full-width gradient strip — Neptune → Midnight → Void
+- **Header:** Full-width gradient strip — HD 189733b → TrES-2b → Void
 - **Content:** Flush on background, separated by the header above and a border-top footer below
 - **Active nav state:** Pill with gradient background (same as header) on light mode
 
@@ -251,13 +251,13 @@ Blockquote has an asymmetrical shape: rounded right corners (`4px`) with a sharp
 ## Components
 
 ### Tag Pill
-Small inline chip identifying post categories. Neptune background, white text, pill-shaped. On hover: 0.85 opacity.
+Small inline chip identifying post categories. HD 189733b background, white text, pill-shaped. On hover: 0.85 opacity.
 
 ### Blockquote
-Warm peach (Mars) background with a 3px Neptune left border. Rounded right corners. Used for emphasis and pull quotes. Dark mode switches to a navy-tinted overlay with Uranus border.
+Warm peach (55 Cancri e) background with a 3px HD 189733b left border. Rounded right corners. Used for emphasis and pull quotes. Dark mode switches to a navy-tinted overlay with GJ 504b border.
 
 ### Code Inline / Code Block
-Light grey (Star) background with Mercury border. Inline code gets 3px rounding; blocks get 6px. Monospace font stack with `SFMono-Regular` as preferred.
+Light grey (51 Pegasi b) background with Kepler-186f border. Inline code gets 3px rounding; blocks get 6px. Monospace font stack with `SFMono-Regular` as preferred.
 
 ### Nav Link
 White text at 85% opacity on the dark header. On hover: white bg at 15% opacity with full white text. Active page: gradient-filled pill matching the header.
@@ -272,11 +272,11 @@ Round button in the header. Sun/moon icon swap. Wraps in a row variant for the m
 
 ## Do's and Don'ts
 
-- **Do** use Neptune for all interactive elements — links, hover states, focus outlines
-- **Do** use Venus as the default page background for a warm reading experience
-- **Do** use Mars for blockquotes — the peachy warmth contrasts nicely with Neptune's cool blue
+- **Do** use HD 189733b for all interactive elements — links, hover states, focus outlines
+- **Do** use Proxima b as the default page background for a warm reading experience
+- **Do** use 55 Cancri e for blockquotes — the peachy warmth contrasts nicely with HD 189733b's cool blue
 - **Don't** apply box-shadows — the design is intentionally flat
 - **Don't** use pure black (`#000`) — use Void (`#08080C`) or Void-dark (`#0F1A24`) instead
-- **Don't** add new colors outside the planet palette without adding a corresponding CSS variable and documenting it here
+- **Don't** add new colors outside the exoplanet palette without adding a corresponding CSS variable and documenting it here
 - **Do** maintain WCAG AA contrast (4.5:1) for all text-on-background combinations
-- **Do** refer to color tokens by their planet names in design discussions ("make this Neptune" not "make this #0796D7")
+- **Do** refer to color tokens by their exoplanet names in design discussions ("make this HD 189733b" not "make this #0796D7")
