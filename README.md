@@ -1,15 +1,75 @@
-# VC's Notes on Jekyll + GitHub Pages
+```
 
-This repo is scaffolded as a custom Jekyll site with:
 
-- a Simon Willison-inspired light theme
-- a homepage that acts as the main writing feed
-- standalone pages like `/about`, `/work`, `/fun`, and `/disclaimer`
-- blog posts in `_posts/` that publish to root-level slugs
+     ███████  █████  ██████  ██      ██ ██████   ██   ██ ████████
+     ██      ██   ██ ██   ██ ██      ██ ██   ██  ██   ██    ██
+     ███████ ███████ ██████  ██      ██ ██████   ███████    ██
+          ██ ██   ██ ██   ██ ██      ██ ██   ██  ██   ██    ██
+     ███████ ██   ██ ██████  ███████ ██ ██   ██  ██   ██    ██
 
-## Run locally
+```
 
-This repo is tested with Ruby `3.2.2` (see `.ruby-version`).
+# VC's Notes — A Personal Brand, Managed by AI
+
+This is [Varun Choraria](https://varunchoraria.com)'s personal website —
+a Jekyll blog about GTM, marketing, career, and other side quests.
+
+What makes this site different? **An AI agent is my web manager.**
+
+Every design decision, color token, and layout rule is codified in
+[`DESIGN.md`](DESIGN.md) — a machine-readable design system that lets
+the AI understand and maintain the visual identity with precision.
+Colors aren't "that blue" — they're **Neptune**. The background isn't
+"off-white" — it's **Venus**.
+
+---
+
+## STARLIGHT Design System
+
+The site runs on **[STARLIGHT](DESIGN.md)** — a celestial design system
+inspired by the Orion Athletics brand identity. High-contrast blues
+against warm neutrals, with a peachy accent that adds humanity.
+
+### Planet Palette
+
+| Token  | Planet      | Hex       | Role |
+|--------|-------------|-----------|------|
+| Neptune | Neptune     | `#0796D7` | Primary accent, links |
+| Uranus  | Uranus      | `#8DC8EF` | Dark mode links |
+| Midnight | Midnight   | `#024C7B` | Deep navy, visited links |
+| Venus   | Venus       | `#EDEAE5` | Warm page background |
+| Terra   | Terra (Earth) | `#DCD8D2` | Surface / cards |
+| Mercury | Mercury     | `#D2D3CC` | Borders, dividers |
+| Mars    | Mars        | `#FFE8DE` | Blockquote highlight |
+| Star    | Star        | `#E3E6EB` | Code blocks |
+| Void    | Void         | `#08080C` | Text, deep space |
+
+The full system — typography, spacing, components, light & dark mode
+tokens — lives in [`DESIGN.md`](DESIGN.md), following the
+[google-labs-code/design.md](https://github.com/google-labs-code/design.md)
+specification. This means a coding agent can read it, understand the
+visual language, and make design-accurate changes without hand-holding.
+
+### How AI Manages This Site
+
+1. **DESIGN.md is the source of truth.** Before touching any CSS, the AI
+   reads the design system to understand colors, typography, layout rules,
+   and component specs.
+2. **Colors are referenced by planet name.** "Make this Neptune" maps
+   directly to `#0796D7` in the design tokens.
+3. **The agent validates against the system.** New colors can't be introduced
+   without adding a planet token. Box-shadows are forbidden. Every change
+   must pass WCAG AA contrast checks.
+4. **Design discussions happen in design terms.** The human says "that
+   blockquote needs more warmth" — the AI knows to pull in Mars.
+5. **The system evolves in lockstep.** When the design changes,
+   `DESIGN.md` gets updated first, then the CSS follows.
+
+---
+
+## Run Locally
+
+Tested with Ruby `3.2.2` (see `.ruby-version`).
 
 ```bash
 rbenv local 3.2.2
@@ -17,24 +77,19 @@ bundle install
 bundle exec jekyll serve
 ```
 
-If you do not want Bundler yet, the global Jekyll install also works:
+Without Bundler:
 
 ```bash
 jekyll serve
 ```
 
-## How to create content
+---
 
-### 1. Normal pages
+## How to Create Content
+
+### Pages
 
 Create a Markdown file in the repo root:
-
-```text
-about.md
-disclaimer.md
-```
-
-Example:
 
 ```md
 ---
@@ -45,15 +100,9 @@ intro: A short explanation of who you are.
 Your page content here.
 ```
 
-### 2. Blog posts
+### Blog Posts
 
 Create a file in `_posts/`:
-
-```text
-_posts/2026-03-22-my-post.md
-```
-
-Example:
 
 ```md
 ---
@@ -66,11 +115,11 @@ tags:
 Post body here.
 ```
 
-These appear on the homepage and on `/blog/`.
+Posts appear on the homepage and at `/{slug}/`.
 
-### 3. Static pages
+### Static Pages
 
-Edit the existing page files:
+Existing page files:
 
 ```text
 about.md
@@ -79,24 +128,41 @@ fun/index.md
 disclaimer.md
 ```
 
-The homepage is `index.md`, and the blog archive is `blog/index.md`.
+---
 
-## GitHub Pages publish steps
+## Deploy
 
-1. Create a GitHub repo.
-2. If you want the site at the root domain, use `yourusername.github.io`.
-3. If you use a normal repo, set `baseurl: "/repo-name"` in `_config.yml`.
-4. Add the remote and push:
+This site is hosted on **GitHub Pages** with a custom domain (varunchoraria.com).
+Push to `main` and GitHub Actions handles the rest:
 
 ```bash
-git remote add origin git@github.com:yourusername/your-repo.git
 git add .
-git commit -m "Initial site scaffold"
-git push -u origin main
+git commit -m "what changed"
+git push
 ```
 
-5. In GitHub, open `Settings > Pages` and make sure the source is `GitHub Actions`.
+---
 
-## Design note
+## Architecture
 
-The theme is intentionally inspired by the light-theme structure of simonwillison.net: a serif site title, sans-serif body, purple accent band, and a two-column weblog layout.
+```
+├── _config.yml          # Jekyll config (permalink: /:slug/)
+├── _includes/           # head, footer, nav partials
+├── _layouts/            # page, entry, default layouts
+├── _posts/              # blog post markdown files
+├── assets/
+│   └── css/
+│       └── style.scss   # Single stylesheet with CSS custom properties
+├── DESIGN.md            ★ Machine-readable design system
+├── about.md
+├── work/
+│   └── index.md
+├── fun/
+│   └── index.md
+└── blog/
+    └── index.md
+```
+
+The entire visual identity flows from the CSS custom properties defined
+at the top of `style.scss`. Light and dark themes are toggled via the
+`data-theme` attribute on `<html>`, persisted in `localStorage`.
