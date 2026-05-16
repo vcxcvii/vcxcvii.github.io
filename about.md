@@ -10,6 +10,18 @@ hide_about_sidebar: true
 
 I'm a marketing professional and I've worked in the B2B SaaS space for about a decade now. I'm also a speaker, author, ex-host of a podcast, bodybuilder, and martial artist. I moonlight as a cat dad.
 
+---
+
+## Now
+
+I'm with [GTM Buddy](https://gtmbuddy.ai/) (Series A), where I'm helping create the Revenue Activation category and managing the marketing team.
+
+I was one of their earliest customers, and have been a spectator to their growth over the years. I've always been passionate about products that help sales, so this configuration was a natural next step for me.
+
+On the side, I'm learning everything Agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents.
+
+---
+
 ## What I've done
 
 ### Uni days
@@ -37,16 +49,6 @@ One side quest I took up was running my CHRO podcast during the COVID years. I s
 I joined [Freshworks](https://www.freshworks.com/) after Vymo. I took up the job because I wanted to explore something net new. I also wanted to see how things worked at scale. I picked up the PLG charter and set up the new business and expansion PLG motion from scratch, opening up a whole new revenue channel with $0 marketing spend.
 
 Not many side quests here, work kept me incredibly occupied. I did speak at another marketing conference about setting up PLG motions, and did some consulting work.
-
----
-
-## Now
-
-I'm with [GTM Buddy](https://gtmbuddy.ai/) (Series A), where I'm helping create the Revenue Activation category and managing the marketing team.
-
-I was one of their earliest customers, and have been a spectator to their growth over the years. I've always been passionate about products that help sales, so this configuration was a natural next step for me.
-
-On the side, I'm learning everything Agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents.
 
 ---
 
