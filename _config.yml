@@ -10,6 +10,7 @@ sass:
   style: compressed
   sourcemap: never
 exclude:
+  - DESIGN.md
   - README.md
   - Gemfile
   - Gemfile.lock
