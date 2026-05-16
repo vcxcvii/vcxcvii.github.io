@@ -7,6 +7,8 @@ wrapper_class: wrapper-work
 ---
 Always open to interesting opportunities across the world. With respect to professional engagements, [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me.
 
+---
+
 ## Current
 
 ### Senior Manager - Marketing
@@ -18,6 +20,8 @@ Always open to interesting opportunities across the world. With respect to profe
 - Responsible for messaging, positioning, product launches, and sales enablement
 - Doubling down on making the marketing function AI-first in every workflow
 - Own the success of the entire GTM motion, pipeline, win rates, and share of voice
+
+---
 
 ## Past
 
@@ -67,6 +71,8 @@ Always open to interesting opportunities across the world. With respect to profe
 - Student founder at 19. Freelanced on Fiverr initially to financially support myself. Saved money and co-founded my first LLP, WiseWordsPro Digital Solutions LLP. We offered website design, SEO, and content writing services.
 - As the brand grew, WiseWordsPro LLP became WiseWords Creative Studio Pvt Ltd, serving enterprise brands with added services like video production and graphic design
 - Worked with 25+ brands. Wound down operations in 2023.
+
+---
 
 ## Consulting Engagements
 
