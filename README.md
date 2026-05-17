@@ -1,9 +1,10 @@
-<pre style="font-family: monospace; font-weight: bold; font-size: 14px; line-height: 1.15; background: transparent; border: none; padding: 0; margin: 0 0 1em 0;">
-<span style="color: #0796D7;"> ____ _____  _    ____  _     ___ ____ _   _ _____</span>
-<span style="color: #0796D7;">/ ___|_   _|/ \  |  _ \| |   |_ _/ ___| | | |_   _|</span>
-<span style="color: #0588c4;">\___ \ | | / _ \ | |_) | |    | | |  _| |_| | | |</span>
-<span style="color: #0377ae;"> ___) || |/ ___ \|  _ <| |___ | | |_| |  _  | | |</span>
-<span style="color: #024c7b;">|____/ |_/_/   \_\_| \_\_____|___\____|_| |_| |_|</span>
+<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:800;font-size:12px;line-height:1.08;background:transparent;border:none;padding:0;margin:0 0 1em 0;letter-spacing:0;">
+<span style="color:#0796D7;"> __   ______     __        _______ ____ </span>
+<span style="color:#8DC8EF;"> \ \ / / ___|    \ \      / / ____| __ )</span>
+<span style="color:#FFE8DE;">  \ V / |         \ \ /\ / /|  _| |  _ \</span>
+<span style="color:#024C7B;">   | || |___       \ V  V / | |___| |_) |</span>
+<span style="color:#0F1A24;">   |_| \____|       \_/\_/  |_____|____/ </span>
+<span style="color:#0796D7;">          V C ' S   W E B S I T E</span>
 </pre>
 
 # VC's Notes — A Personal Brand, Managed by AI
