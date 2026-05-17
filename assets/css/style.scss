@@ -1606,26 +1606,59 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 .ascii-logo {
   margin: 0 0 1rem 0;
   padding: 0.75rem;
-  font-size: 0.38rem;
-  line-height: 1.12;
+  font-size: clamp(0.46rem, 1.55vw, 0.62rem);
+  line-height: 1.08;
   color: var(--color-accent);
-  overflow: hidden;
+  overflow-x: auto;
   background: var(--color-code-bg);
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  text-align: center;
+  text-align: left;
   display: flex;
   justify-content: center;
 }
 
+.ascii-logo .ascii-art {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  color: transparent;
+  font-weight: 800;
+  letter-spacing: 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 0 14px rgba(7, 150, 215, 0.18);
+}
+
+.ascii-art-retro {
+  background-image: linear-gradient(
+    180deg,
+    var(--color-link) 0%,
+    var(--color-blockquote-bg) 32%,
+    var(--color-accent) 64%,
+    var(--color-link-visited) 100%
+  );
+}
+
+.ascii-art-starlight {
+  background-image: linear-gradient(
+    180deg,
+    #0796d7 0%,
+    #8dc8ef 28%,
+    #ffe8de 52%,
+    #024c7b 78%,
+    var(--color-text) 100%
+  );
+}
+
 .ascii-logo-vc {
-  font-size: 0.55rem;
-  line-height: 1.25;
+  font-size: clamp(0.44rem, 1.5vw, 0.6rem);
+  line-height: 1.08;
 }
 
 .ascii-logo-gods {
-  font-size: 0.5rem;
-  line-height: 1.15;
+  font-size: clamp(0.44rem, 1.5vw, 0.6rem);
+  line-height: 1.08;
 }
 
 .project-body p {
