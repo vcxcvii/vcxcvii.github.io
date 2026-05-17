@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<section id="primary" class="side-quests-page">
+  <div class="stack-bar" id="stack-bar">
+    <span class="stack-bar-label">Stack</span>
+    <span class="stack-badge">Claude Code</span>
+    <span class="stack-badge">Codex</span>
+    <span class="stack-badge">Cursor</span>
+    <span class="stack-badge">OpenCode</span>
+    <span class="stack-badge">Superset</span>
+    <span class="stack-badge">Antigravity</span>
+    <span class="stack-badge">MCPs</span>
+    <span class="stack-badge">GitHub</span>
+    <span class="stack-badge">Bun</span>
+    <span class="stack-badge">Jekyll</span>
+  </div>
+
+  <article class="page-shell">
+    <header class="page-header">
+      <h1>{{ page.title }}</h1>
+      {% if page.intro %}
+        <p class="intro-note">{{ page.intro }}</p>
+      {% endif %}
+    </header>
+
+    <div class="prose side-quests-prose">
+      {{ content }}
+    </div>
+  </article>
+</section>
