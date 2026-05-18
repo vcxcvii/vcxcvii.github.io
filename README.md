@@ -1,10 +1,10 @@
-<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:800;font-size:12px;line-height:1.08;background:transparent;border:none;padding:0;margin:0 0 1em 0;letter-spacing:0;">
-<span style="color:#0796D7;"> __   ______     __        _______ ____ </span>
-<span style="color:#8DC8EF;"> \ \ / / ___|    \ \      / / ____| __ )</span>
-<span style="color:#FFE8DE;">  \ V / |         \ \ /\ / /|  _| |  _ \</span>
-<span style="color:#024C7B;">   | || |___       \ V  V / | |___| |_) |</span>
-<span style="color:#0F1A24;">   |_| \____|       \_/\_/  |_____|____/ </span>
-<span style="color:#0796D7;">          V C ' S   W E B S I T E</span>
+<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:800;font-size:12px;line-height:1.02;background:transparent;border:none;padding:0;margin:0 0 1em 0;letter-spacing:0;">
+<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">  ████  </span> <span style="color:#2D8CFF;"> ██████</span> <span style="color:#2D8CFF;"> ██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FFFFFF;">█ █ █▀▀   █▀ ▄▀   █ █ █▀▀ █▄▄</span>
+<span style="color:#7A7A7A;">▀▄▀ █▄▄   ▄█ █▄   ▀▄▀ █▄▄ █▄█</span>
 </pre>
 
 # VC's Notes — A Personal Brand, Managed by AI
