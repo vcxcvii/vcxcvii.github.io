@@ -18,11 +18,12 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
       </span>
     </summary>
     <div class="project-body">
-      <pre class="ascii-logo"><span class="ascii-art ascii-art-retro">  ___ _____ __  __    __  __ _  _______
- / __|_   _|  \/  |  |  \/  | |/ /_   _|
-| (_ | | | | |\/| |  | |\/| | ' /  | |
- \___| |_| |_|  |_|  |_|  |_|_|\_\ |_|
-       M A R K E T I N G   S K I L L S</span></pre>
+      <pre class="ascii-logo"><span class="ascii-art ascii-art-retro"><span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">  ████  </span> <span style="color:#2D8CFF;"> ██████</span> <span style="color:#2D8CFF;"> ██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FFFFFF;">█▀█ █▀█ █▀█ █▄▀ █▀▀ ▀█▀ █ █▄ █ █▀▀</span>
+<span style="color:#7A7A7A;"> █  █ █ █▀█ █ █ ██▄  █  █ █ ▀█ █▄█</span></span></pre>
 
       <p>I built 43 marketing skills for Claude Code and Codex, purpose-built for GTM Buddy. Every skill reads the same shared positioning context, so every output — a competitor profile, a cold email, an SEO audit — comes out on-brand without re-briefing the agent each time.</p>
 
@@ -71,11 +72,12 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
       </span>
     </summary>
     <div class="project-body">
-      <pre class="ascii-logo"><span class="ascii-art ascii-art-retro">  ___ _____ __  __    ___   ___
- / __|_   _|  \/  |  |   \ | __|
-| (_ | | | | |\/| |  | |) || _|
- \___| |_| |_|  |_|  |___/ |___|
-       D E S I G N  +  E N G</span></pre>
+      <pre class="ascii-logo"><span class="ascii-art ascii-art-retro"><span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">  ████  </span> <span style="color:#2D8CFF;"> ██████</span> <span style="color:#2D8CFF;"> ██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FFFFFF;">█▀▄ █▀▀ █▀ █ █▀▀ █▄ █   █▀▀ █▄ █ █▀▀</span>
+<span style="color:#7A7A7A;">█▄▀ ██▄ ▄█ █ █▄█ █ ▀█   ██▄ █ ▀█ █▄█</span></span></pre>
 
       <p>I built a reusable agent workspace for building GTM Buddy web pages. Clone it, open it, and ship work that is on-brand, responsive, and production-ready — without briefing the agent each time. 37 skills across three layers: Design × Ship, Engineering, and QA.</p>
 
@@ -124,11 +126,12 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
       </span>
     </summary>
     <div class="project-body">
-      <pre class="ascii-logo"><span class="ascii-art ascii-art-retro">  ___ _____ __  __     ___ ___  ___
- / __|_   _|  \/  |   / __|   \| _ \
-| (_ | | | | |\/| |   \__ \ |) |   /
- \___| |_| |_|  |_|   |___/___/|_|_\
-       R E V E N U E   O U T R E A C H</span></pre>
+      <pre class="ascii-logo"><span class="ascii-art ascii-art-retro"><span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">  ████  </span> <span style="color:#2D8CFF;"> ██████</span> <span style="color:#2D8CFF;"> ██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FFFFFF;">█▀█ █▀▀ █ █ █▀▀ █▄ █ █ █ █▀▀</span>
+<span style="color:#7A7A7A;">█▀▄ ██▄ ▀▄▀ ██▄ █ ▀█ █▄█ ██▄</span></span></pre>
 
       <p>I created 5 Claude Code skills that give a new SDR ready-to-use outreach for any prospect, persona, or situation. Describe your prospect, mention any trigger event (funding round, layoffs, competitive tool), and the right skill fires automatically: cold call script, LinkedIn message, email sequence, or competitive displacement copy — all in GTM Buddy's Revenue Activation framing.</p>
 
@@ -181,12 +184,12 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
       </span>
     </summary>
     <div class="project-body">
-      <pre class="ascii-logo ascii-logo-vc"><span class="ascii-art ascii-art-starlight"> __   ______     __        _______ ____
- \ \ / / ___|    \ \      / / ____| __ )
-  \ V / |         \ \ /\ / /|  _| |  _ \
-   | || |___       \ V  V / | |___| |_) |
-   |_| \____|       \_/\_/  |_____|____/
-          V C ' S   W E B S I T E</span></pre>
+      <pre class="ascii-logo ascii-logo-vc"><span class="ascii-art ascii-art-starlight"><span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">  ████  </span> <span style="color:#2D8CFF;"> ██████</span> <span style="color:#2D8CFF;"> ██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FFFFFF;">█ █ █▀▀   █▀ ▄▀   █ █ █▀▀ █▄▄</span>
+<span style="color:#7A7A7A;">▀▄▀ █▄▄   ▄█ █▄   ▀▄▀ █▄▄ █▄█</span></span></pre>
 
       <p>This is my personal website — a Jekyll static site built on the STARLIGHT design system with cosmic color tokens and AI-managed workflows. Hosted at <a href="https://www.varunchoraria.com" target="_blank" rel="noopener noreferrer">varunchoraria.com</a>.</p>
 
@@ -236,12 +239,12 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
       </span>
     </summary>
     <div class="project-body">
-      <pre class="ascii-logo ascii-logo-gods"><span class="ascii-art ascii-art-retro">   .-==[  (@)  ]==-.
-  ___  ___  ___  ___   ___  _  _ ___
- / __|/ _ \|   \| __| | __|\ \/ / __|
-| (_ | (_) | |) |__ \ | _|  \  /| _|
- \___|\___/|___/|___/ |___|  \/ |___|
-       V E D I C   T E R M I N A L</span></pre>
+      <pre class="ascii-logo ascii-logo-gods"><span class="ascii-art ascii-art-retro"><span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">  ████  </span> <span style="color:#2D8CFF;"> ██████</span> <span style="color:#2D8CFF;"> ██████</span>
+<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
+<span style="color:#FFFFFF;">█▀▀ █▀█ █▀▄ █▀ ▄▀   █▀▀ █▄█ █▀▀</span>
+<span style="color:#7A7A7A;">█▄█ █▄█ █▄▀ ▄█ █▄   ██▄  █  ██▄</span></span></pre>
 
       <p>I built a Vedic astrology prediction system that cross-verifies across 16+ astrological systems before surfacing any answer. Terminal-native, personalized to one user.</p>
 
