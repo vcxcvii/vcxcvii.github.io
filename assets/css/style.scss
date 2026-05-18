@@ -1605,12 +1605,12 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 .ascii-logo {
   margin: 0 0 1rem 0;
-  padding: 0.75rem;
-  font-size: clamp(0.46rem, 1.55vw, 0.62rem);
-  line-height: 1.08;
+  padding: 1rem 1.1rem;
+  font-size: 1rem;
+  line-height: 0.86;
   color: var(--color-accent);
   overflow-x: auto;
-  background: var(--color-code-bg);
+  background: #050505;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   text-align: left;
@@ -1622,43 +1622,29 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   display: block;
   width: max-content;
   max-width: 100%;
-  color: transparent;
+  color: #ff7a45;
   font-weight: 800;
   letter-spacing: 0;
-  background-clip: text;
-  -webkit-background-clip: text;
-  text-shadow: 0 0 14px rgba(7, 150, 215, 0.18);
+  text-shadow: 3px 3px 0 #ff334f, 6px 6px 0 #ff9b22;
 }
 
 .ascii-art-retro {
-  background-image: linear-gradient(
-    180deg,
-    var(--color-link) 0%,
-    var(--color-blockquote-bg) 32%,
-    var(--color-accent) 64%,
-    var(--color-link-visited) 100%
-  );
+  color: #ff7a45;
 }
 
 .ascii-art-starlight {
-  background-image: linear-gradient(
-    180deg,
-    #0796d7 0%,
-    #8dc8ef 28%,
-    #ffe8de 52%,
-    #024c7b 78%,
-    var(--color-text) 100%
-  );
+  color: #0796d7;
+  text-shadow: 3px 3px 0 #ffe8de, 6px 6px 0 #024c7b;
 }
 
 .ascii-logo-vc {
-  font-size: clamp(0.44rem, 1.5vw, 0.6rem);
-  line-height: 1.08;
+  font-size: 1.15rem;
+  line-height: 0.86;
 }
 
 .ascii-logo-gods {
-  font-size: clamp(0.44rem, 1.5vw, 0.6rem);
-  line-height: 1.08;
+  font-size: 1.15rem;
+  line-height: 0.86;
 }
 
 .project-body p {

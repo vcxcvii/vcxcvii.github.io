@@ -1,10 +1,9 @@
-<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:800;font-size:12px;line-height:1.02;background:transparent;border:none;padding:0;margin:0 0 1em 0;letter-spacing:0;">
-<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
-<span style="color:#FF2A2A;">██████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
-<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">  ████  </span> <span style="color:#2D8CFF;"> ██████</span> <span style="color:#2D8CFF;"> ██████</span>
-<span style="color:#FF2A2A;">  ████</span> <span style="color:#18C964;">████████</span> <span style="color:#2D8CFF;">██████</span> <span style="color:#2D8CFF;">██████</span>
-<span style="color:#FFFFFF;">█ █ █▀▀   █▀ ▄▀   █ █ █▀▀ █▄▄</span>
-<span style="color:#7A7A7A;">▀▄▀ █▄▄   ▄█ █▄   ▀▄▀ █▄▄ █▄█</span>
+<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:900;font-size:20px;line-height:.86;background:#050505;border:none;padding:16px 18px;margin:0 0 1em 0;width:max-content;max-width:100%;overflow:auto;letter-spacing:0;">
+<span style="color:#0796D7;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">█   █  ███</span>
+<span style="color:#168ED0;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">█   █ █   </span>
+<span style="color:#2B86C2;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">█   █ █   </span>
+<span style="color:#0B74B1;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;"> █ █  █   </span>
+<span style="color:#024C7B;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">  █    ███</span>
 </pre>
 
 # VC's Notes — A Personal Brand, Managed by AI
