@@ -26,10 +26,10 @@ Inspired by [Uses This](https://usesthis.com/), this page documents the tools an
 - **Google Chrome:** Daily driver. I have tried Comet, Dia, Helium, Safari, and others. Nothing beats the portability and reliability of Chrome.
 - **Claude and Codex:** I am a huge terminal guy, so I use most AI models from there.
 - **[Cursor](https://cursor.com/):** AI-first code editor. I use it for longer-form coding sessions where I want a full IDE experience alongside my terminal agents.
-- **[cmux](https://github.com/manaflow-ai/cmux):** Native macOS terminal for managing multiple AI coding agent sessions. Vertical tabs and notifications for Claude Code and Codex — makes running parallel agents much less chaotic.
-- **CodexBar:** Helps me monitor my Codex and Claude code usage from my menu bar.
-- **Obsidian:** This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud.
-- **Quartr:** To listen to earnings calls.
+- **[cmux](https://github.com/manaflow-ai/cmux):** Native Mac terminal is good, but I like vertical tabs + lightweight ADE capabilities.
+- **[CodexBar](https://github.com/steipete/codexbar):** Helps me monitor my Codex and Claude code usage from my menu bar.
+- **[Obsidian](https://obsidian.md/):** This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud.
+- **[Quartr](https://quartr.com/):** To listen to earnings calls.
 - **Passwords, Apple Podcasts, and Apple Music:** I pay for Apple One, and their suite is unparalleled.
 - **Perplexity:** Got it free for a year via Airtel.
 - **Letterboxd:** Huge movie buff, so I catalog my movies there.
@@ -38,14 +38,14 @@ Inspired by [Uses This](https://usesthis.com/), this page documents the tools an
 - **GitHub, GitHub Pages, and Jekyll:** My website is hosted on these. It is free.
 - **Slack, Zoom, and Google Workspace:** Irreplaceable for office comms.
 - **Base44:** Vibe coding landing pages.
-- **SwanAI:** Automating GTM workflows, lead scoring, lead distribution, and automated outreach.
+- **[SwanAI](https://www.getswan.com/):** Automating GTM workflows, lead scoring, lead distribution, and automated outreach.
 - **Clay, Apollo, and KitAI:** Scraping and enrichment.
-- **Podpitch:** To get my founder featured on podcasts and handle podcast distribution.
+- **[Podpitch](https://podpitch.com/):** To get my founder featured on podcasts and handle podcast distribution.
 - **HubSpot:** CRM and social media scheduling.
 - **Figma:** Designing. Daily driver for 7+ years now.
 - **Webflow:** Website builder and hosting.
 - **Veed:** Video editing and recording.
-- **Screen Studio:** To create GIFs and do quick video recording.
+- **[Screen Studio](https://screen.studio/):** To create GIFs and do quick video recording.
 - **Google Analytics, Google Tag Manager, Google Search Console, and Semrush:** Website traffic, tagging, SEO, AEO, and GEO.
 - **MCPs and skills:** Playwright, marketing-skills.com, skills.sh, GA4, GSC, and the Figma MCP.
 - **[Mole](https://github.com/tw93/mole):** Combines CleanMyMac, AppCleaner, DaisyDisk, and iStat Menus in a single binary. I run this via terminal.
