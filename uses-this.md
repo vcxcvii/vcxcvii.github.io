@@ -25,6 +25,8 @@ Inspired by [Uses This](https://usesthis.com/), this page documents the tools an
 - **Apple Books and Kindle:** Apple Books because I used to pirate ebooks out of Library Genesis until it shut down. I then bought a Kindle subscription.
 - **Google Chrome:** Daily driver. I have tried Comet, Dia, Helium, Safari, and others. Nothing beats the portability and reliability of Chrome.
 - **Claude and Codex:** I am a huge terminal guy, so I use most AI models from there.
+- **[Cursor](https://cursor.com/):** AI-first code editor. I use it for longer-form coding sessions where I want a full IDE experience alongside my terminal agents.
+- **[cmux](https://github.com/manaflow-ai/cmux):** Native macOS terminal for managing multiple AI coding agent sessions. Vertical tabs and notifications for Claude Code and Codex — makes running parallel agents much less chaotic.
 - **CodexBar:** Helps me monitor my Codex and Claude code usage from my menu bar.
 - **Obsidian:** This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud.
 - **Quartr:** To listen to earnings calls.
