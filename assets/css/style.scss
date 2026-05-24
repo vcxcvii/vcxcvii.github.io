@@ -5,7 +5,7 @@
   --color-bg: #edeae5;
   --color-surface: #dcd8d2;
   --color-text: #08080c;
-  --color-text-muted: #7a7d7a;
+  --color-text-muted: #606360;
   --color-link: #0796d7;
   --color-link-visited: #024c7b;
   --color-border: #d2d3cc;
@@ -233,7 +233,7 @@ th {
   gap: 1rem;
 }
 
-#h1-nav-wrapper h1 {
+#h1-nav-wrapper .site-title-wrap {
   margin: 0 0 0.15rem 0;
   font-size: 1.35rem;
   font-weight: 700;
@@ -1101,7 +1101,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
     padding-bottom: 0.68rem;
   }
 
-  #h1-nav-wrapper h1 {
+  #h1-nav-wrapper .site-title-wrap {
     margin-bottom: 0;
     font-size: 1.22rem;
   }
@@ -1335,7 +1335,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
     font-size: 16px;
   }
 
-  #h1-nav-wrapper h1 {
+  #h1-nav-wrapper .site-title-wrap {
     font-size: 1.16rem;
     line-height: 1.1;
   }
