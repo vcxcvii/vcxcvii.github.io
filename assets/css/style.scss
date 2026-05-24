@@ -6,7 +6,7 @@
   --color-surface: #dcd8d2;
   --color-text: #08080c;
   --color-text-muted: #606360;
-  --color-link: #0796d7;
+  --color-link: #005d9e;
   --color-link-visited: #024c7b;
   --color-border: #d2d3cc;
   --color-divider: #d2d3cc;
@@ -14,11 +14,11 @@
   --color-code-bg: #e3e6eb;
   --color-accent: #0796d7;
   --color-blockquote-bg: #ffe8de;
-  --color-entry-meta: #9a9c97;
+  --color-entry-meta: #606360;
   --gradient-start: #0796d7;
   --gradient-mid: #024c7b;
   --gradient-end: #08080c;
-  --color-tag-bg: #0796d7;
+  --color-tag-bg: #005b96;
   --color-tag-text: #fff;
   --page-width: 960px;
   --page-gutter: clamp(1rem, 4vw, 1.375rem);
@@ -44,7 +44,7 @@ html[data-theme="dark"] {
   --gradient-start: #0796d7;
   --gradient-mid: #024c7b;
   --gradient-end: #0f1a24;
-  --color-tag-bg: #0796d7;
+  --color-tag-bg: #005b96;
   --color-tag-text: #fff;
 }
 
@@ -982,7 +982,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   padding-bottom: 0;
 }
 
-.side-block h3 {
+.side-block h2 {
   margin: 0 0 0.65rem 0;
   font-size: 0.68rem;
   font-weight: 700;
