@@ -18,6 +18,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
+collections:
+  til:
+    output: true
+    permalink: /til/:slug/
+
 defaults:
   - scope:
       path: ""
@@ -30,3 +35,9 @@ defaults:
     values:
       layout: entry
       section_name: Note
+  - scope:
+      path: ""
+      type: "til"
+    values:
+      layout: entry
+      section_name: TIL

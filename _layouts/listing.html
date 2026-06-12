@@ -8,8 +8,13 @@ layout: default
       {% if page.intro %}<p class="intro-note">{{ page.intro }}</p>{% endif %}
     </header>
 
+    {% if page.collection_name %}
+      {% assign items = site[page.collection_name] | sort: "date" | reverse %}
+    {% else %}
+      {% assign items = site.posts %}
+    {% endif %}
     {% assign current_year = "" %}
-    {% for item in site.posts %}
+    {% for item in items %}
       {% assign post_year = item.date | date: "%Y" %}
       {% if post_year != current_year %}
         {% assign current_year = post_year %}

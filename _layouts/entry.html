@@ -23,8 +23,9 @@ layout: default
     </div>
 
     {% if page.tags and page.tags.size > 0 %}
+      {% assign pool = site.posts | concat: site.til | sort: "date" | reverse %}
       {% assign related = "" | split: "" %}
-      {% for post in site.posts %}
+      {% for post in pool %}
         {% unless post.url == page.url %}
           {% assign matched = false %}
           {% for tag in page.tags %}
@@ -44,7 +45,7 @@ layout: default
           <ul class="also-read-list">
             {% for post in related limit: 3 %}
               <li class="also-read-item">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                {% if post.collection == "til" %}<span class="til-prefix">til:</span> {% endif %}<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                 <span class="also-read-date">{{ post.date | date: "%-d %b %Y" }}</span>
               </li>
             {% endfor %}
