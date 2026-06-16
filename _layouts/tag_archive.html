@@ -5,14 +5,7 @@ layout: default
   <p class="section-label">Tag</p>
 
   {% assign none = "" | split: "" %}
-  {% assign tagged_posts = site.tags[page.tag] | default: none %}
-  {% assign tagged_til = none %}
-  {% for doc in site.til %}
-    {% if doc.tags contains page.tag %}
-      {% assign tagged_til = tagged_til | push: doc %}
-    {% endif %}
-  {% endfor %}
-  {% assign tagged = tagged_posts | concat: tagged_til | sort: "date" | reverse %}
+  {% assign tagged = site.tags[page.tag] | default: none | sort: "date" | reverse %}
 
   <article class="page-shell">
     <header class="page-header">
@@ -24,7 +17,7 @@ layout: default
       {% for item in tagged %}
         <li>
           <span class="archive-date">{{ item.date | date: "%d %b %Y" }}</span>
-          {% if item.collection == "til" %}<span class="til-prefix">til:</span> {% endif %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
         </li>
       {% endfor %}
     </ul>

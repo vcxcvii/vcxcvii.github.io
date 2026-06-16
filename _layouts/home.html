@@ -4,7 +4,7 @@ layout: default
 <section id="primary">
   <h1 class="section-label">Latest</h1>
 
-  {% assign stream = site.posts | concat: site.til | sort: "date" | reverse %}
+  {% assign stream = site.posts | sort: "date" | reverse %}
   {% assign current_year = "" %}
   {% for post in stream %}
     {% assign post_year = post.date | date: "%Y" %}
@@ -16,7 +16,7 @@ layout: default
       <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
       <span class="post-sep">&raquo;</span>
       <span class="post-main">
-        {% if post.collection == "til" %}<span class="til-prefix">til:</span> {% else %}<span class="til-prefix">notes:</span> {% endif %}<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </span>
     </div>
   {% endfor %}
