@@ -1,6 +1,10 @@
 ---
 title: Killed By Google
 date: 2026-06-16 00:00:00 +0530
+tags:
+  - career
+  - strategy
+  - ai
 ---
 
 I first came across [killed by google](https://killedbygoogle.com/) and was honestly quite blown. I suppose the startup myth is real: your instinct is right 95% of the time, but your ideas are wrong probably 80% of the time.
@@ -58,5 +62,4 @@ So, you can do a couple of things:
 ----
 
 It's not hard to do meaningful work, but it's not easy either. 
-
 
