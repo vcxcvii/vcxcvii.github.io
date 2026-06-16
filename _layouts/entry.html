@@ -39,6 +39,14 @@ layout: default
         {% endunless %}
       {% endfor %}
 
+      {% if related.size == 0 %}
+        {% for post in pool %}
+          {% unless post.url == page.url %}
+            {% assign related = related | push: post %}
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+
       {% if related.size > 0 %}
         <aside class="also-read">
           <h2 class="also-read-heading">Also read</h2>
