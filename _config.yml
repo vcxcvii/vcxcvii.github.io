@@ -8,6 +8,7 @@ highlighter: rouge
 permalink: /:slug/
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 
 sass:
   style: compressed
