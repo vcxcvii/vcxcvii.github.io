@@ -24,7 +24,7 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
 █   █    █    █   █
  ███     █    █   █</span></pre>
 
-      <p>I built 43 marketing skills for Claude Code and Codex, purpose-built for GTM Buddy. Every skill reads the same shared positioning context, so every output — a competitor profile, a cold email, an SEO audit — comes out on-brand without re-briefing the agent each time.</p>
+      <p>I built 55+ marketing skills for Claude Code and Codex, purpose-built for GTM Buddy. Every skill reads the same shared positioning context, so every output — a competitor profile, a cold email, an SEO audit — comes out on-brand without re-briefing the agent each time.</p>
 
       <div class="project-section">
         <h4>How I built it</h4>
@@ -35,7 +35,7 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
       <div class="project-section">
         <h4>Features</h4>
         <ul>
-          <li>43 skills across the full marketing spectrum (SEO, CRO, copy, ads, analytics, email, social, research, pricing, launch, RevOps, ASO)</li>
+          <li>55+ skills across the full marketing spectrum (SEO, CRO, copy, ads, analytics, email, social, research, pricing, launch, RevOps, ASO)</li>
           <li>Shared context layer — skills read Revenue Activation ontology, content governance, keyword universe automatically</li>
           <li>Skill auto-orchestration — running one skill triggers related skills automatically</li>
           <li>Dual agent support — works in both Claude Code and Codex</li>
@@ -55,9 +55,6 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
         </ul>
       </div>
 
-      <p class="project-footer">
-        <a href="https://github.com/GTM-Buddy-Marketing/gtm-buddy-marketing-skills" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-      </p>
     </div>
   </details>
 
@@ -108,9 +105,6 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
         </ul>
       </div>
 
-      <p class="project-footer">
-        <a href="https://github.com/GTM-Buddy-Marketing/gtm-buddy-design-engg" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-      </p>
     </div>
   </details>
 
@@ -160,9 +154,6 @@ intro: "Built with AI — projects, tools, and rabbit holes. Everything here was
         </ul>
       </div>
 
-      <p class="project-footer">
-        <a href="https://github.com/GTM-Buddy-Marketing/gtm-skills" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-      </p>
     </div>
   </details>
 </section>
