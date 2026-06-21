@@ -11,15 +11,20 @@ Always open to interesting opportunities across the world. With respect to profe
 
 ## Current
 
-### Senior Manager - Marketing
+### Senior Manager, Marketing
 
 **2026-present** · [GTM Buddy](https://gtmbuddy.ai/)
 
-- Responsible for new category creation - Revenue Activation
-- Leading a team of 3 - design, data ops, and demand generation
-- Responsible for messaging, positioning, product launches, and sales enablement
-- Doubling down on making the marketing function AI-first in every workflow
-- Own the success of the entire GTM motion, pipeline, win rates, and share of voice
+- Took over marketing at a Series A B2B SaaS startup — led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a $XXX,XXX budget, delivering $X,XXX,XXX+ in active pipeline
+- Transformed the team to AI-first operations by integrating GitHub, Cursor, Claude, Codex, and Swan into daily workflows — dramatically improved shipping velocity and built internal tools that automated sales signal detection, account research, and meeting prep
+- Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution — became the single source of truth for investors and leadership
+- Created and filed a trademark for Revenue Activation — a new market category at the intersection of revenue operations and customer activation
+- Launched Nucleus (new product) end-to-end: owned positioning, messaging, sales enablement, and go-to-market strategy — secured 20 customers in alpha
+- Redesigned the company website and brand identity — website became the #1 lead generation channel with a significant increase in branded search traffic
+- Built automated GTM workflows via Swan: website deanonymization → automated AE first-touch, pipeline health monitoring on Slack, customer sentiment/testimonial engine, and account research/meeting prep automation
+- Founded the SDR motion from scratch — generated 2 qualified meetings within the first month
+- Managed founder brand: orchestrated 35+ podcast appearances in one quarter (800K+ combined views), grew LinkedIn to 200K+ impressions, and secured a Forbes feature placement
+- Drove 9 qualified leads through AEO/GEO (AI search optimization) — positioned the company in AI-generated answers across ChatGPT, Perplexity, and Claude
 
 ---
 
