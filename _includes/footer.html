@@ -1,31 +1,4 @@
-<script>
-  (() => {
-    const updateLabels = (isDark) => {
-      document.querySelectorAll('[data-theme-label]').forEach((el) => {
-        el.textContent = isDark ? 'Light mode' : 'Dark mode';
-      });
-    };
-
-    const btns = document.querySelectorAll('[data-theme-toggle]');
-    if (!btns.length) return;
-
-    updateLabels(document.documentElement.getAttribute('data-theme') === 'dark');
-
-    btns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (isDark) {
-          document.documentElement.removeAttribute('data-theme');
-          localStorage.setItem('theme', 'light');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-        }
-        updateLabels(!isDark);
-      });
-    });
-  })();
-</script>
+<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
 
 <footer id="site-footer">
   <div class="footer-inner">
@@ -33,7 +6,7 @@
       <span>&copy; {{ site.time | date: "%Y" }} {{ site.title }} &nbsp;|&nbsp; <a href="{{ '/disclaimer/' | relative_url }}" class="footer-disclaimer">Disclaimer</a></span>
     </div>
     <div class="footer-bottom">
-      <span>This website is proudly maintained by AI &mdash; Claude and Codex. Built with <a href="https://jekyllrb.com">Jekyll</a> and hosted on <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      <span>This website is proudly maintained by AI — Claude and Codex. Built with <a href="https://jekyllrb.com">Jekyll</a> and hosted on <a href="https://pages.github.com">GitHub Pages</a>.</span>
     </div>
   </div>
 </footer>

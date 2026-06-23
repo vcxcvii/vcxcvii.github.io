@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<section id="primary"{% if page.page_class %} class="{{ page.page_class }}"{% endif %}>
+<section id="primary"{% if page.page_class %} class="{{ page.page_class | escape }}"{% endif %}>
   {% assign page_eyebrow = page.eyebrow | default: page.section_label %}
   {% if page_eyebrow %}
     <p class="section-label">{{ page_eyebrow }}</p>
