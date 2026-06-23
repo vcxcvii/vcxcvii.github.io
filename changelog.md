@@ -22,6 +22,8 @@ Added `robots.txt` (was missing entirely) and `llms.txt` — a structured, AI-re
 
 Added "Meet with VC" to the header nav on both desktop (avatar pill next to LinkedIn) and mobile (dedicated Connect section in the hamburger menu with a full-width button).
 
+Removed dark mode entirely. The site is now permanently light. Stripped the theme toggle from the header and mobile menu, deleted the theme-toggle JS, removed the localStorage FOUC script from the `<head>`, simplified the CSP (no more inline script hash needed), and removed all `html[data-theme="dark"]` CSS blocks. Updated DESIGN.md to reflect the light-only system.
+
 ---
 
 ### 21 June 2026

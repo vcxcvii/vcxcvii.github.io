@@ -1,6 +1,6 @@
 ---
 name: STARLIGHT
-description: A celestial design system for personal brands — bold, warm, and built for readability across light and dark space.
+description: A celestial design system for personal brands — bold, warm, and built for readability.
 
 colors:
   hd189733b: "#0796D7"
@@ -12,9 +12,6 @@ colors:
   cancri55e: "#FFE8DE"
   pegasi51b: "#E3E6EB"
   void: "#08080C"
-  void-dark: "#0F1A24"
-  hd189733b-dark: "#0796D7"
-  gj504b-dark: "#8DC8EF"
 
 typography:
   h1:
@@ -79,22 +76,11 @@ components:
     padding: "0.16rem 0.55rem"
     fontSize: 0.75rem
     hoverOpacity: 0.85
-  tag-pill-dark:
-    backgroundColor: "{colors.hd189733b}"
-    textColor: "#FFFFFF"
-    rounded: "{rounded.pill}"
-    padding: "0.16rem 0.55rem"
-    fontSize: 0.75rem
   blockquote:
     backgroundColor: "{colors.cancri55e}"
     borderColor: "{colors.hd189733b}"
     borderWidth: 3px
     rounded: "{rounded.md}"
-    padding: "0.75rem 1.25rem"
-  blockquote-dark:
-    backgroundColor: "rgba(2, 76, 123, 0.25)"
-    borderColor: "{colors.gj504b-dark}"
-    borderWidth: 3px
     padding: "0.75rem 1.25rem"
   code-inline:
     backgroundColor: "{colors.pegasi51b}"
@@ -119,25 +105,10 @@ components:
     textColor: "#FFFFFF"
     rounded: "{rounded.pill}"
     padding: "0.2rem 0.55rem"
-  nav-link-active-dark:
-    backgroundGradientStart: "{colors.hd189733b}"
-    backgroundGradientMid: "{colors.tres2b}"
-    backgroundGradientEnd: "{colors.void-dark}"
-    textColor: "#FFFFFF"
   header-gradient:
     gradientStart: "{colors.hd189733b}"
     gradientMid: "{colors.tres2b}"
     gradientEnd: "{colors.void}"
-  header-gradient-dark:
-    gradientStart: "{colors.hd189733b}"
-    gradientMid: "{colors.tres2b}"
-    gradientEnd: "{colors.void-dark}"
-  theme-toggle:
-    backgroundColor: "rgba(255, 255, 255, 0.08)"
-    borderColor: "rgba(255, 255, 255, 0.22)"
-    rounded: "{rounded.pill}"
-    textColor: "#FFFFFF"
-    size: "1.9rem"
   site-title:
     textColor: "#FFFFFF"
     fontWeight: 700
@@ -149,9 +120,7 @@ components:
 
 **Mission: Make personal brands shine like stars.**
 
-STARLIGHT is a design system for Varun Choraria's personal site (varunchoraria.com). It marries the warmth of a personal blog with the boldness of the Orion Athletics brand identity — high-contrast blues against warm neutrals, with a peachy accent that adds humanity.
-
-The system supports light and dark modes via CSS custom properties on `html[data-theme="dark"]`. Light is the default; dark is opt-in via localStorage.
+STARLIGHT is the design system for varunchoraria.com. It marries the warmth of a personal blog with the boldness of bold blues against warm neutrals, with a peachy accent that adds humanity. The site is permanently light mode — clean, fast, no toggle overhead.
 
 ---
 
@@ -159,54 +128,63 @@ The system supports light and dark modes via CSS custom properties on `html[data
 
 Colors are named after exoplanets. Each maps to a specific role in the UI.
 
-### Light Mode
-
 | Token | Exoplanet | Role | Hex |
 |-------|-----------|------|-----|
-| `hd189733b` | HD 189733b | Primary accent, links, interactive elements — the deep blue exoplanet | `#0796D7` |
-| `gj504b` | GJ 504b | Secondary accent (dark mode links) — pale blue directly imaged | `#8DC8EF` |
-| `tres2b` | TrES-2b | Deep navy, visited links — the darkest exoplanet known | `#024C7B` |
-| `proxima-b` | Proxima b | Page background — warm cream, closest exoplanet to Earth | `#EDEAE5` |
-| `kepler22b` | Kepler-22b | Surface / card backgrounds — first confirmed in habitable zone | `#DCD8D2` |
-| `kepler186f` | Kepler-186f | Borders, dividers — first Earth-size exoplanet | `#D2D3CC` |
-| `cancri55e` | 55 Cancri e | Blockquote background — hot glowing super-Earth, peachy glow | `#FFE8DE` |
-| `pegasi51b` | 51 Pegasi b | Code block backgrounds — the first exoplanet discovered | `#E3E6EB` |
-| `void` | Void | Body text, dark mode foundation — deep space | `#08080C` |
+| `hd189733b` | HD 189733b | Primary accent, links, interactive elements | `#0796D7` |
+| `gj504b` | GJ 504b | Secondary accent (focus rings, highlights) | `#8DC8EF` |
+| `tres2b` | TrES-2b | Deep navy, visited links | `#024C7B` |
+| `proxima-b` | Proxima b | Page background — warm cream | `#EDEAE5` |
+| `kepler22b` | Kepler-22b | Surface / card backgrounds | `#DCD8D2` |
+| `kepler186f` | Kepler-186f | Borders, dividers | `#D2D3CC` |
+| `cancri55e` | 55 Cancri e | Blockquote background — peachy glow | `#FFE8DE` |
+| `pegasi51b` | 51 Pegasi b | Code block backgrounds | `#E3E6EB` |
+| `void` | Void | Body text — deep space near-black | `#08080C` |
 
 **Why exoplanets?** The palette orbits around HD 189733b (vibrant cyan-blue) as the gravitational center — a real exoplanet whose deep blue atmosphere inspired the brand. Proxima b warms like our nearest stellar neighbour. 55 Cancri e's glowing surface adds a subtle red-peach accent. Void replaces pure black with a near-black that feels deep without being harsh.
 
-### Dark Mode
+---
 
-Dark mode inverts the void: the background is `void-dark` (`#0F1A24`) — a dark navy that carries more depth than pure black. Text becomes `proxima-b` (warm cream). Links switch to `gj504b` (Sky Blue) for readability against the dark. Blockquotes use a navy-tinted overlay instead of 55 Cancri e.
+## CSS Custom Properties
 
-| Token | Role | Light | Dark |
-|-------|------|-------|------|
-| `--color-bg` | Background | Proxima b `#EDEAE5` | Void-dark `#0F1A24` |
-| `--color-surface` | Surface | Kepler-22b `#DCD8D2` | `#16232E` |
-| `--color-text` | Body text | Void `#08080C` | `#E0E7ED` |
-| `--color-link` | Links | HD 189733b `#0796D7` | GJ 504b `#8DC8EF` |
-| `--color-accent` | Accents | HD 189733b `#0796D7` | GJ 504b `#8DC8EF` |
-| `--color-blockquote-bg` | Blockquote bg | 55 Cancri e `#FFE8DE` | `rgba(2, 76, 123, 0.25)` |
+```css
+:root {
+  --color-bg:           #edeae5;   /* proxima-b */
+  --color-surface:      #dcd8d2;   /* kepler22b */
+  --color-text:         #08080c;   /* void */
+  --color-text-muted:   #606360;
+  --color-link:         #005d9e;
+  --color-link-visited: #024c7b;   /* tres2b */
+  --color-border:       #d2d3cc;   /* kepler186f */
+  --color-divider:      #d2d3cc;
+  --color-border-dark:  #9ea09b;
+  --color-code-bg:      #e3e6eb;   /* pegasi51b */
+  --color-accent:       #0796d7;   /* hd189733b */
+  --color-blockquote-bg:#ffe8de;   /* cancri55e */
+  --gradient-start:     #0796d7;
+  --gradient-mid:       #024c7b;
+  --gradient-end:       #08080c;
+}
+```
 
 ---
 
 ## Typography
 
-**Primary font: Inter** — clean, highly readable at all sizes, with excellent hinting for screens. Served from Google Fonts with `opsz` axis for optical sizing.
+**Primary font: Inter** — clean, highly readable at all sizes. Served from Google Fonts with `opsz` axis for optical sizing.
 
 | Token | Size | Weight | Use |
 |-------|------|--------|-----|
-| `h1` | 1.75rem (29.75px) | 700 | Page / entry titles |
-| `h2` | 1.3rem (22.1px) | 700 | Section headings |
-| `h3` | 1.1rem (18.7px) | 700 | Subsection headings |
-| `h4` | 1rem (17px) | 700 | Minor headings |
-| `body` | 1rem (17px) | 400 | Paragraph text |
+| `h1` | 1.75rem | 700 | Page / entry titles |
+| `h2` | 1.3rem | 700 | Section headings |
+| `h3` | 1.1rem | 700 | Subsection headings |
+| `h4` | 1rem | 700 | Minor headings |
+| `body` | 1rem | 400 | Paragraph text |
 | `body-sm` | 0.875rem | 400 | Sidebar, footer |
 | `label` | 0.75rem | 700 + 0.08em spacing | Section labels, year markers |
-| `date` | 0.82rem | 400 (tabular nums) | Post dates, archive dates |
+| `date` | 0.82rem | 400 (tabular nums) | Post dates |
 | `mono` | 0.88em | 400 | Code, pre blocks |
 
-Body text line-height is 1.45. Prose (entries) uses 1.5 with justified alignment on desktop, left-aligned on mobile.
+Body text line-height is 1.45. Prose uses 1.5 with justified alignment on desktop, left-aligned on mobile.
 
 ---
 
@@ -218,20 +196,17 @@ Body text line-height is 1.45. Prose (entries) uses 1.5 with justified alignment
 
 **Grid:** Two-column layout on desktop (primary + sidebar, 560px + 230px). Sidebar hides at 860px breakpoint. Single column below that.
 
-**Sections spacing:**
-- Between major sections: 2.5rem (40px)
-- Between paragraphs: 1rem (17px)
-- Between list items: 0.3rem (5px)
+**Section spacing:** 2.5rem between major sections, 1rem between paragraphs.
 
 ---
 
 ## Elevation & Depth
 
-Depth comes from color contrast and the header gradient, not from box-shadows. The site uses a flat aesthetic with a single elevation layer:
+Depth comes from color contrast and the header gradient, not box-shadows. The site uses a flat aesthetic:
 
 - **Header:** Full-width gradient strip — HD 189733b → TrES-2b → Void
 - **Content:** Flush on background, separated by the header above and a border-top footer below
-- **Active nav state:** Pill with gradient background (same as header) on light mode
+- **Active nav state:** Pill with gradient background matching the header
 
 ---
 
@@ -239,34 +214,32 @@ Depth comes from color contrast and the header gradient, not from box-shadows. T
 
 | Token | Value | Where |
 |-------|-------|-------|
-| `sm` | 3px | Inline code, border corners |
+| `sm` | 3px | Inline code |
 | `md` | 4px | Blockquote, table cells |
-| `lg` | 6px | Pre blocks, code blocks |
-| `pill` | 999px | Tag pills, nav links, theme toggle |
-
-Blockquote has an asymmetrical shape: rounded right corners (`4px`) with a sharp left edge where the 3px accent border sits.
+| `lg` | 6px | Pre / code blocks |
+| `pill` | 999px | Tag pills, nav links, header action buttons |
 
 ---
 
 ## Components
 
 ### Tag Pill
-Small inline chip identifying post categories. HD 189733b background, white text, pill-shaped. On hover: 0.85 opacity.
+Small inline chip for post categories. HD 189733b background, white text, pill-shaped. On hover: 0.85 opacity.
 
 ### Blockquote
-Warm peach (55 Cancri e) background with a 3px HD 189733b left border. Rounded right corners. Used for emphasis and pull quotes. Dark mode switches to a navy-tinted overlay with GJ 504b border.
+Warm peach (55 Cancri e) background with a 3px HD 189733b left border. Rounded right corners.
 
 ### Code Inline / Code Block
-Light grey (51 Pegasi b) background with Kepler-186f border. Inline code gets 3px rounding; blocks get 6px. Monospace font stack with `SFMono-Regular` as preferred.
+Light grey (51 Pegasi b) background with Kepler-186f border. Inline code: 3px rounding. Blocks: 6px. Monospace font stack.
 
 ### Nav Link
-White text at 85% opacity on the dark header. On hover: white bg at 15% opacity with full white text. Active page: gradient-filled pill matching the header.
+White text at 85% opacity on the dark header. On hover: white bg at 15% opacity. Active page: gradient-filled pill matching the header.
 
-### Theme Toggle
-Round button in the header. Sun/moon icon swap. Wraps in a row variant for the mobile menu.
+### Header Action Buttons
+GitHub, LinkedIn, and Meet with VC appear as pill buttons in the header. Same ghost style: white border at 22% opacity, white bg at 8%, white text.
 
 ### Site Title
-"VC's Notes" in white, 1.35rem, bold. Includes a small terminal-mark SVG icon. On hover: fades to 80% opacity.
+"VC" in white, 1.35rem, bold. Includes a small SVG mark. On hover: fades to 80% opacity.
 
 ---
 
@@ -274,9 +247,9 @@ Round button in the header. Sun/moon icon swap. Wraps in a row variant for the m
 
 - **Do** use HD 189733b for all interactive elements — links, hover states, focus outlines
 - **Do** use Proxima b as the default page background for a warm reading experience
-- **Do** use 55 Cancri e for blockquotes — the peachy warmth contrasts nicely with HD 189733b's cool blue
+- **Do** use 55 Cancri e for blockquotes — the peachy warmth contrasts with HD 189733b's cool blue
 - **Don't** apply box-shadows — the design is intentionally flat
-- **Don't** use pure black (`#000`) — use Void (`#08080C`) or Void-dark (`#0F1A24`) instead
-- **Don't** add new colors outside the exoplanet palette without adding a corresponding CSS variable and documenting it here
+- **Don't** use pure black (`#000`) — use Void (`#08080C`) instead
+- **Don't** add new colors outside the exoplanet palette without adding a CSS variable and documenting it here
 - **Do** maintain WCAG AA contrast (4.5:1) for all text-on-background combinations
-- **Do** refer to color tokens by their exoplanet names in design discussions ("make this HD 189733b" not "make this #0796D7")
+- **Do** refer to color tokens by exoplanet names in design discussions

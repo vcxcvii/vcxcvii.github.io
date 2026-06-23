@@ -26,27 +26,6 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
-html[data-theme="dark"] {
-  color-scheme: dark;
-  --color-bg: #0f1a24;
-  --color-surface: #16232e;
-  --color-text: #e0e7ed;
-  --color-text-muted: #9aacbe;
-  --color-link: #8dc8ef;
-  --color-link-visited: #b08ad0;
-  --color-border: #1e2f3e;
-  --color-divider: #2a3f52;
-  --color-border-dark: #3d4f62;
-  --color-code-bg: #111a22;
-  --color-accent: #8dc8ef;
-  --color-blockquote-bg: rgba(2, 76, 123, 0.25);
-  --color-entry-meta: #8a9aaa;
-  --gradient-start: #0796d7;
-  --gradient-mid: #024c7b;
-  --gradient-end: #0f1a24;
-  --color-tag-bg: #005b96;
-  --color-tag-text: #fff;
-}
 
 * {
   box-sizing: border-box;
@@ -405,69 +384,6 @@ th {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.9rem;
-  height: 1.9rem;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.theme-toggle svg {
-  width: 0.95rem;
-  height: 0.95rem;
-  flex-shrink: 0;
-}
-
-.theme-toggle .icon-sun { display: none; }
-.theme-toggle .icon-moon { display: block; }
-
-html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
-html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-
-.theme-toggle-mobile {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  width: auto;
-  height: auto;
-  padding: 0.62rem 0;
-  border-radius: 0;
-  border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
-  background: transparent;
-  font-size: 0.9rem;
-  font-weight: 400;
-}
-
-.theme-toggle-mobile:hover {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.theme-toggle-mobile svg {
-  width: 0.9rem;
-  height: 0.9rem;
-}
-
-.theme-toggle-label {
-  line-height: 1.25;
-}
-
-.mobile-theme-row {
-  margin-top: 0;
-}
 
 #wrapper {
   flex: 1;
