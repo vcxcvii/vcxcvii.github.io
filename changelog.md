@@ -10,11 +10,17 @@ A running log of what changed on this site and why. The goal is to be honest abo
 
 ### 23 June 2026
 
-**Ask AI footer + Security hardening**
+**Ask AI footer + Security hardening + Performance pass**
 
 Added the "Ask AI" section that now sits above the footer on every page. Buttons link to ChatGPT, Claude, and Perplexity with a prefilled question about me, and a fourth button books time directly via Cal.com. The thinking: AI is increasingly the first place people look someone up. Meeting them there felt more useful than a contact form.
 
 Security audit run against the OWASP Top 10 and patched airtight: extracted all inline JavaScript into external files so a real Content Security Policy (CSP) could be enforced without `unsafe-inline`, added `Referrer-Policy`, moved `webrick` to dev-only dependency, added `| escape` filters on all Liquid class attribute interpolations.
+
+Lighthouse audit and fixes: accessibility hit 100 (was 95) by fixing a colour contrast failure on the Ask AI subtext and a label mismatch on the Meet with VC button. Resized the avatar image from 724×724px (104KB) to 96×96px (2.8KB) for its 28px display slot.
+
+Added `robots.txt` (was missing entirely) and `llms.txt` — a structured, AI-readable summary of the site covering writing, work, the book, speaking, and the podcast. The thinking: if AI systems are how people discover you, give them a clean signal.
+
+Added "Meet with VC" to the header nav on both desktop (avatar pill next to LinkedIn) and mobile (dedicated Connect section in the hamburger menu with a full-width button).
 
 ---
 
