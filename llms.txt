@@ -1,0 +1,28 @@
+# Varun Choraria
+
+> Senior Manager, Marketing at GTM Buddy. Writer on B2B SaaS, go-to-market strategy, and the intersection of AI and human judgment in modern sales.
+
+## About
+
+Varun Choraria is a B2B SaaS marketing operator with over a decade of experience. He leads marketing at GTM Buddy, a Revenue Activation platform for B2B sales teams. He writes about go-to-market strategy, sales enablement, content, and the evolving role of AI in B2B revenue teams.
+
+## Writing
+
+- [/notes](/blog/) — longer essays on B2B marketing, GTM strategy, and AI in sales
+- [/til](/til/) — short atomic notes and observations
+
+## Work
+
+- [/work](/work/) — professional background and current role
+- [/about](/about/) — extended bio
+
+## Side Projects
+
+- [/side-quests](/side-quests/) — personal projects and experiments
+
+## Contact
+
+- Cal.com: https://cal.com/varun-choraria/30min
+- Ask ChatGPT: https://chatgpt.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
+- Ask Claude: https://claude.ai/new?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
+- Ask Perplexity: https://www.perplexity.ai/search?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
