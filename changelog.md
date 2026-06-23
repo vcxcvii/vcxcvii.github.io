@@ -10,27 +10,31 @@ A running log of what changed on this site and why. The goal is to be honest abo
 
 ### 23 June 2026
 
-**Ask AI footer + Security hardening + Performance pass**
+**Ask AI buttons, Meet with VC, light mode only, and a bunch of fixes**
 
-Added the "Ask AI" section that now sits above the footer on every page. Buttons link to ChatGPT, Claude, and Perplexity with a prefilled question about me, and a fourth button books time directly via Cal.com. The thinking: AI is increasingly the first place people look someone up. Meeting them there felt more useful than a contact form.
+A lot landed today.
 
-Security audit run against the OWASP Top 10 and patched airtight: extracted all inline JavaScript into external files so a real Content Security Policy (CSP) could be enforced without `unsafe-inline`, added `Referrer-Policy`, moved `webrick` to dev-only dependency, added `| escape` filters on all Liquid class attribute interpolations.
+**Ask an AI about me** — Added a section above the footer on every page with buttons to ask ChatGPT, Claude, or Perplexity who I am and what I write about. The question is pre-filled, so it's one click. AI is increasingly how people discover and research other people. Meeting visitors there felt more useful than a contact form.
 
-Lighthouse audit and fixes: accessibility hit 100 (was 95) by fixing a colour contrast failure on the Ask AI subtext and a label mismatch on the Meet with VC button. Resized the avatar image from 724×724px (104KB) to 96×96px (2.8KB) for its 28px display slot.
+**Meet with VC — now in the nav too** — The "Meet with VC" booking button (which links to a 30-minute Cal.com slot) is now in the top navigation on every page, on both desktop and mobile. Previously it only appeared in the Ask AI section at the bottom.
 
-Added `robots.txt` (was missing entirely) and `llms.txt` — a structured, AI-readable summary of the site covering writing, work, the book, speaking, and the podcast. The thinking: if AI systems are how people discover you, give them a clean signal.
+**Light mode only** — Removed the dark/light mode toggle. The site is permanently light now. Simpler, fewer things to maintain, one less decision for visitors. If you were using dark mode on this site, it just won't exist anymore.
 
-Added "Meet with VC" to the header nav on both desktop (avatar pill next to LinkedIn) and mobile (dedicated Connect section in the hamburger menu with a full-width button).
+**Accessibility: perfect score** — Google Lighthouse flags accessibility issues. Two came up: a line of text that was slightly too faint against its background (just barely below the readability threshold), and a button that said "Meet with VC" on screen but something different to screen readers. Both fixed. The site now scores 100 out of 100 for accessibility.
 
-Removed dark mode entirely. The site is now permanently light. Stripped the theme toggle from the header and mobile menu, deleted the theme-toggle JS, removed the localStorage FOUC script from the `<head>`, simplified the CSP (no more inline script hash needed), and removed all `html[data-theme="dark"]` CSS blocks. Updated DESIGN.md to reflect the light-only system.
+**Photos and file sizes** — The small circular photo used in the "Meet with VC" button was 104KB. The display size is 28 pixels wide. Resized it to under 3KB. Same quality, 37x smaller.
+
+**Search and AI indexing** — Added a `robots.txt` file, which tells search engines how to crawl the site. It was missing entirely. Also added an `llms.txt` file — a plain-text summary of the site that AI systems can read when someone asks about me. It covers writing, work, the book, speaking, and the podcast.
+
+**Security** — Moved all JavaScript into separate files (rather than embedded in the page), set a stricter policy on what scripts the site is allowed to run, and added a few other under-the-hood protections.
 
 ---
 
 ### 21 June 2026
 
-**Profile and side-quests updates**
+**About page and side-quests update**
 
-Expanded the GTM Buddy section on /about with current role and resume detail. Updated skill count to 55+, removed stale GitHub links from internal projects on /side-quests.
+Filled out the GTM Buddy section on [/about](/about/) with more detail about what I actually do there. Updated the skills count. Removed dead links from a few internal projects on [/side-quests](/side-quests/) that were pointing to old GitHub repos.
 
 ---
 
@@ -38,31 +42,31 @@ Expanded the GTM Buddy section on /about with current role and resume detail. Up
 
 **Two new posts + RSS feed**
 
-Published [Who owns what?](/who-owns-what/) and [Too much parenting, too little adulting](/too-much-parenting-too-little-adulting/). Also wired up an RSS feed via `jekyll-feed` — should have been there from day one.
+Published [Who owns what?](/who-owns-what/) and [Too much parenting, too little adulting](/too-much-parenting-too-little-adulting/). Also set up an RSS feed — the standard way for people to subscribe to a blog. Should have been there from day one.
 
 ---
 
 ### 16 June 2026
 
-**Fixes and a new post**
+**New post + small fixes**
 
-Published [Killed by Google](/killed-by-google/). Fixed mobile social icons that were misaligned. Added fallback logic so "Also Read" shows recent posts when no tag matches exist. Made tags required on all posts to prevent future indexing gaps.
+Published [Killed by Google](/killed-by-google/). Fixed the social icons on mobile that were sitting out of line. Made the "Also Read" section smarter — it now shows recent posts when there are no posts in the same category, instead of showing nothing.
 
 ---
 
 ### 12 June 2026
 
-**New sections: /til and /api**
+**Two new sections: /til and a live API**
 
-Added a `/til` section for short, atomic notes. Added `/api/latest.json` so my GitHub profile README can stay in sync with the latest post automatically without manual updates. Added a `notes:` prefix to the homepage stream to visually separate short notes from longer essays.
+Added [/til](/til/) for short notes — things I learn and want to remember, published as they happen rather than saved up for a long essay. Added a live JSON endpoint at `/api/latest.json` so my GitHub profile can automatically show the latest post without me having to update it manually.
 
 ---
 
 ### 24 May 2026
 
-**Lighthouse pass + /uses-this refresh**
+**Performance fixes + /uses-this refresh**
 
-Ran a full Lighthouse audit and fixed the remaining accessibility and performance failures. Updated /uses-this with tools I actually use now: CodexBar, Obsidian, Quartr, SwanAI, Podpitch, Screen Studio, Cursor, cmux.
+Ran a full site audit and fixed everything flagged. Updated [/uses-this](/uses-this/) to reflect what I actually use now: Obsidian, Cursor, Screen Studio, Quartr, and a few others that weren't there before.
 
 ---
 
@@ -70,14 +74,14 @@ Ran a full Lighthouse audit and fixed the remaining accessibility and performanc
 
 **Side-quests visual refresh**
 
-Replaced the project logos with pixel-art wordmarks in a retro amber palette. The side-quests page was feeling flat; this gives each project a little more character without breaking the minimal overall design.
+The project cards on [/side-quests](/side-quests/) were feeling flat. Replaced the logos with pixel-art style wordmarks in a warm amber palette. Same information, more character.
 
 ---
 
 ### 17 May 2026
 
-**Launch infrastructure**
+**Built from scratch and launched**
 
-Set up GitHub Actions to automatically build and deploy the site to GitHub Pages on every push. Before this, deploys were manual. Also introduced the STARLIGHT design system (the custom color palette the site runs on), updated the favicon to a 4-point star, and cleaned up the repo to stop tracking build artifacts.
+Rebuilt the site from scratch — moved from Jekyll's default theme to a fully custom design I call STARLIGHT (warm neutrals, deep blues, the same colour palette across everything). Set up automatic deploys so every change goes live as soon as it's pushed. Updated the favicon to a four-point star.
 
-This was the rebuild from scratch: moved from Jekyll's default theme to a fully custom layout built around STARLIGHT.
+This is the version of the site that exists now.
