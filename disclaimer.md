@@ -4,7 +4,7 @@ intro: Because the world takes things too literally these days
 ---
 ## Website Disclaimer
 
-Last Updated: January 31, 2026
+Last Updated: June 25, 2026
 
 ### General Disclaimer
 
