@@ -26,6 +26,10 @@ This website may contain links to external websites that are not provided or mai
 
 I reserve the right to modify this disclaimer at any time without notice. By using this website, you agree to the current version of this disclaimer.
 
+### Analytics & Tracking
+
+This website uses Microsoft Clarity to understand how visitors use and interact with it — including behavioral metrics, heatmaps, and session replays. This data is used solely to improve the site. Website usage data is captured using first and third-party cookies and other tracking technologies. By using this site, you agree to data collection by me and Microsoft. For more information on how Microsoft collects and uses your data, visit the [Microsoft Privacy Statement](https://www.microsoft.com/privacy/privacystatement).
+
 ### Contact Information
 
 If you have any questions about this disclaimer, please contact me through the appropriate channels provided on this website.
