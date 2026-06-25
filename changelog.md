@@ -8,6 +8,20 @@ A running log of what changed on this site and why. The goal is to be honest abo
 
 ---
 
+### 25 June 2026
+
+**Analytics stack: GA4, Google Search Console, and Microsoft Clarity**
+
+Three tracking integrations that should have been in place earlier.
+
+**Google Analytics 4** — Standard event tracking, traffic sources, and pageviews. The main reason to have this is to see which pages people actually read, not which ones I think they read.
+
+**Google Search Console** — Verified domain ownership with Google. This lets me see which search queries surface the site, what positions the pages rank at, and whether Google is indexing everything correctly. Useful signal for knowing if the writing is actually findable.
+
+**Microsoft Clarity** — Session replay and heatmaps. More granular than GA4 — you can watch actual visitor sessions, see where people click, and spot where they drop off. Also added the required privacy disclosures to the footer and the disclaimer page.
+
+---
+
 ### 23 June 2026
 
 **Ask AI buttons, Meet with VC, light mode only, and a bunch of fixes**
