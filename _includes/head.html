@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://www.google-analytics.com; font-src 'self'; connect-src https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms; style-src 'self'; img-src 'self' data: https://www.google-analytics.com https://www.clarity.ms; font-src 'self'; connect-src https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.clarity.ms https://e.clarity.ms; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="theme-color" content="#0796D7">
 <meta name="google-site-verification" content="v48CxEycPMCjgwT_ovhFQKTQIt0tdSIvaFsj4oFuMec">
 <link rel="apple-touch-icon" href="{{ '/assets/favicon.svg' | relative_url }}?v={{ asset_version }}" sizes="any">
@@ -31,3 +31,4 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0VEY2SVJ3"></script>
 <script src="{{ '/assets/js/analytics.js' | relative_url }}?v={{ asset_version }}" defer></script>
+<script src="{{ '/assets/js/clarity.js' | relative_url }}?v={{ asset_version }}" defer></script>
