@@ -14,14 +14,15 @@ For the purpose of this field note, let's stick to some 101s.
 
 CIRCLES is a helpful framework to bring a rounded thinking hat to the table and actually ask good, focused questions. I first read this in [cracking the PM interview](https://www.crackingthepminterview.com/).
 
-| C   | comprehend the situation    | clarify what's within scope and out of scope for the problem statement. eg: business goal, constraints                                                                                                                                                  |
-| --- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| I   | identify the customer       | figure out how to segment the customers. low hanging fruit will always be the biggest customer segment with the largest gap. list down firmographics, demographics, technographics - get your fact sheet in place about the customer's day in the life. |
-| R   | report the customer's needs | list all their needs (not wants) in the order of priority. [I wrote a helpful mental model here](https://www.varunchoraria.com/problems-tell-you-what-to-fix-pain-points-tell-you-why-it-matters/).                                                     |
-| C   | cut through prioritization  | narrow the problem surface. from the prioritized needs, pick the highest-impact, most-urgent ones to address — don't try to solve everything at once.                                                                                                   |
-| L   | list down solutions         | generate 3-5 solutions per prioritized need                                                                                                                                                                                                             |
-| E   | evaluate tradeoffs          | this needs to happen across 3 axes - implementation complexity, user impact, cost / benefit                                                                                                                                                             |
-| S   | summarize                   | this is where you need to COMMIT. it's fair to be opinionated here, because you need to pick a solution and defend it. In the age of agentic AI, we're all compensated for context and judgement.                                                       |
+| | Step | Description |
+|---|---|---|
+| **C** | comprehend the situation | clarify what's within scope and out of scope for the problem statement. eg: business goal, constraints |
+| **I** | identify the customer | figure out how to segment the customers. low hanging fruit will always be the biggest customer segment with the largest gap. list down firmographics, demographics, technographics - get your fact sheet in place about the customer's day in the life. |
+| **R** | report the customer's needs | list all their needs (not wants) in the order of priority. [I wrote a helpful mental model here](https://www.varunchoraria.com/problems-tell-you-what-to-fix-pain-points-tell-you-why-it-matters/). |
+| **C** | cut through prioritization | narrow the problem surface. from the prioritized needs, pick the highest-impact, most-urgent ones to address — don't try to solve everything at once. |
+| **L** | list down solutions | generate 3-5 solutions per prioritized need |
+| **E** | evaluate tradeoffs | this needs to happen across 3 axes - implementation complexity, user impact, cost / benefit |
+| **S** | summarize | this is where you need to COMMIT. it's fair to be opinionated here, because you need to pick a solution and defend it. In the age of agentic AI, we're all compensated for context and judgement. |
 
 <!--more-->
 
