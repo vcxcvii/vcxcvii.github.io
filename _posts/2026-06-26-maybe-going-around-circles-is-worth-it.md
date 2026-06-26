@@ -23,6 +23,7 @@ CIRCLES is a helpful framework to bring a rounded thinking hat to the table and 
 | **L** | list down solutions | generate 3-5 solutions per prioritized need |
 | **E** | evaluate tradeoffs | this needs to happen across 3 axes - implementation complexity, user impact, cost / benefit |
 | **S** | summarize | this is where you need to COMMIT. it's fair to be opinionated here, because you need to pick a solution and defend it. In the age of agentic AI, we're all compensated for context and judgement. |
+{:.fixed-cols}
 
 <!--more-->
 

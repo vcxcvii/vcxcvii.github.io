@@ -178,6 +178,16 @@ th {
   font-weight: 600;
 }
 
+table.fixed-cols {
+  table-layout: fixed;
+}
+
+table.fixed-cols th:nth-child(1),
+table.fixed-cols td:nth-child(1) { width: 2rem; text-align: center; }
+
+table.fixed-cols th:nth-child(2),
+table.fixed-cols td:nth-child(2) { width: 28%; }
+
 /* ─── Layout ──────────────────────────────────── */
 
 #wrapper,
