@@ -1,4 +1,6 @@
 ---
+layout: none
+permalink: /design.md
 name: STARLIGHT
 description: A celestial design system for personal brands — bold, warm, and built for readability.
 
