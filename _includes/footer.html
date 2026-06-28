@@ -42,16 +42,20 @@
       </div>
 
       <div class="footer-col">
+        <p class="footer-col-label">Elsewhere</p>
+        <ul class="footer-links">
+          {% for link in site.data.elsewhere %}
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="footer-col">
         <p class="footer-col-label">Connect</p>
         <ul class="footer-links">
           <li><a href="https://www.linkedin.com/in/varunchoraria/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           <li><a href="https://cal.com/varun-choraria/30min" target="_blank" rel="noopener noreferrer">Book 30 min</a></li>
-          {% for link in site.data.elsewhere %}
-          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a></li>
-          {% endfor %}
-          <li><a href="{{ '/changelog/' | relative_url }}">Changelog</a></li>
-          <li><a href="{{ '/disclaimer/' | relative_url }}">Disclaimer</a></li>
         </ul>
       </div>
 
