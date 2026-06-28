@@ -32,7 +32,7 @@ no_sidebar: true
       "name": "How do I connect my AI agent to this site via MCP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You need an MCP-compatible client like Claude Desktop or Cursor. Add the WebMCP bridge to your client config, then ask your agent to generate a token for varunchoraria.com, and paste the token into the widget on the bottom-right of this page."
+        "text": "Add the MCP server URL to your AI client config. For Claude Code run: claude mcp add --transport http varunchoraria https://varunchoraria-mcp.vercel.app. For Claude Desktop or Cursor, add the URL to your MCP settings JSON."
       }
     },
     {
@@ -47,58 +47,123 @@ no_sidebar: true
 }
 </script>
 
-<p class="intro-note mcp-intro">This site supports the <a href="https://github.com/jasonjmcghee/WebMCP" target="_blank" rel="noopener">Model Context Protocol (MCP)</a> — a standard that lets AI agents read and search websites directly. If you use Claude Desktop, Cursor, or another MCP-compatible client, you can connect it here and ask your agent questions about anything I've written.</p>
+<p class="intro-note mcp-intro">This site exposes a live <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP server</a> — add one URL to your AI client and your agent can read, search, and reference everything I've written. No plugins, no copy-pasting.</p>
 
-<h2>What is this?</h2>
+<h2>Connect in 30 seconds</h2>
 
-<p>MCP is an open standard that lets AI assistants access external tools and data sources — including websites. Once you connect your agent to this site, it can browse my writing, look up specific posts, and search across all my notes on B2B marketing, GTM strategy, sales enablement, and career — without you having to copy-paste anything.</p>
+<p>Pick your client:</p>
 
-<p>For example, once connected you could ask your agent:</p>
+<div class="mcp-tabs">
+  <div class="mcp-tab-group">
+    <button class="mcp-tab active" data-tab="claude-code">Claude Code</button>
+    <button class="mcp-tab" data-tab="claude-desktop">Claude Desktop</button>
+    <button class="mcp-tab" data-tab="cursor">Cursor</button>
+    <button class="mcp-tab" data-tab="other">Other</button>
+  </div>
+
+  <div class="mcp-tab-content active" id="tab-claude-code">
+    <p>Run this in your terminal:</p>
+    <pre><code>claude mcp add --transport http varunchoraria https://varunchoraria-mcp.vercel.app</code></pre>
+    <p>That's it. Restart Claude Code and ask it anything about my writing.</p>
+  </div>
+
+  <div class="mcp-tab-content" id="tab-claude-desktop">
+    <p>Open <strong>Settings → Developer → Edit Config</strong> and add:</p>
+    <pre><code>{
+  "mcpServers": {
+    "varunchoraria": {
+      "type": "http",
+      "url": "https://varunchoraria-mcp.vercel.app"
+    }
+  }
+}</code></pre>
+    <p>Restart Claude Desktop after saving.</p>
+  </div>
+
+  <div class="mcp-tab-content" id="tab-cursor">
+    <p>Go to <strong>Settings → MCP</strong> and add a new server, or edit <code>.cursor/mcp.json</code>:</p>
+    <pre><code>{
+  "mcpServers": {
+    "varunchoraria": {
+      "type": "http",
+      "url": "https://varunchoraria-mcp.vercel.app"
+    }
+  }
+}</code></pre>
+  </div>
+
+  <div class="mcp-tab-content" id="tab-other">
+    <p>Any MCP-compatible client that supports HTTP transport works. Point it at:</p>
+    <pre><code>https://varunchoraria-mcp.vercel.app</code></pre>
+    <p>Transport: <strong>Streamable HTTP</strong> (MCP spec 2024-11-05).</p>
+  </div>
+</div>
+
+<h2>What you can ask</h2>
+
+<p>Once connected, try:</p>
 <ul>
   <li><em>"What has Varun written about imposter syndrome?"</em></li>
-  <li><em>"Summarise his notes on GTM strategy"</em></li>
-  <li><em>"Find posts tagged 'career' and pull the key takeaways"</em></li>
+  <li><em>"Summarise his notes on GTM strategy."</em></li>
+  <li><em>"Find posts tagged 'career' and pull the key takeaways."</em></li>
+  <li><em>"What's his most recent post about?"</em></li>
 </ul>
 
 <h2>Available tools</h2>
 
-<p>Four tools are exposed to your agent once connected:</p>
 <ul>
+  <li><strong>get_site_info</strong> — background, topics, contact links</li>
   <li><strong>list_posts</strong> — all notes with titles, dates, and tags</li>
   <li><strong>get_post</strong> — full text of any note by slug</li>
   <li><strong>search_posts</strong> — keyword search across all notes</li>
-  <li><strong>get_site_info</strong> — about me, topics I cover, and links</li>
 </ul>
-
-<h2>How to connect</h2>
-
-<p>You need an MCP-compatible client (Claude Desktop or Cursor work well). Setup takes about two minutes.</p>
-
-<ol>
-  <li>
-    <strong>Add the WebMCP bridge to your MCP client</strong><br>
-    In Claude Desktop: <em>Settings → Developer → Edit Config</em>, then add:
-    <pre><code>{
-  "mcpServers": {
-    "webmcp": {
-      "command": "npx",
-      "args": ["-y", "@jason.today/webmcp@latest", "--mcp"]
-    }
-  }
-}</code></pre>
-    Restart Claude Desktop after saving.
-  </li>
-  <li>
-    <strong>Generate a token</strong><br>
-    Ask your agent: <em>"Make a webmcp token for varunchoraria.com"</em>
-  </li>
-  <li>
-    <strong>Paste the token here</strong><br>
-    Click the blue widget in the bottom-right corner of this page and paste your token. Your agent can now read this site.
-  </li>
-</ol>
 
 <h2>Why MCP?</h2>
 
-<p>Most AI assistants have a knowledge cutoff and don't know what I've written recently. MCP solves this by giving your agent live, direct access — no RAG pipeline, no copy-pasting, no stale embeddings. If you're researching B2B marketing or GTM strategy and already use an AI agent in your workflow, this is the fastest way to pull in my writing as context.</p>
+<p>Most AI assistants have a knowledge cutoff and don't index personal sites. MCP gives your agent live access — no RAG pipeline, no copy-pasting. If you're doing research on B2B marketing or GTM strategy and already use an AI agent, this is the fastest way to pull my writing in as context.</p>
 
+<style>
+.mcp-tab-group {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+.mcp-tab {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background: #f5f5f5;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+  font-size: 0.9em;
+}
+.mcp-tab.active {
+  background: #fff;
+  border-bottom: 1px solid #fff;
+  font-weight: 600;
+}
+.mcp-tab-content {
+  display: none;
+  border: 1px solid #ccc;
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 4px;
+  background: #fff;
+}
+.mcp-tab-content.active {
+  display: block;
+}
+</style>
+
+<script>
+(function () {
+  document.querySelectorAll('.mcp-tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.mcp-tab').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('.mcp-tab-content').forEach(function (c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+})();
+</script>
