@@ -1,6 +1,7 @@
 ---
 title: Changelog
 description: A running log of what changed on this site and why.
+intro: Every update to varunchoraria.com — what changed, what shipped, and the reasoning behind it.
 no_sidebar: true
 mcp: true
 ---
