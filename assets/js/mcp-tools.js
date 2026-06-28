@@ -1,5 +1,22 @@
 (function() {
-  var mcp = new WebMCP({ color: '#0796d7' });
+  var mcp = new WebMCP({ color: 'transparent', size: '32px' });
+
+  // Replace plain square with site favicon
+  requestAnimationFrame(function () {
+    var trigger = document.querySelector('.webmcp-trigger');
+    if (!trigger) return;
+    trigger.style.backgroundColor = 'transparent';
+    trigger.style.boxShadow = 'none';
+    var img = document.createElement('img');
+    img.src = '/assets/favicon.svg';
+    img.width = 32;
+    img.height = 32;
+    img.alt = 'Connect via MCP';
+    img.style.display = 'block';
+    img.style.borderRadius = '4px';
+    img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
+    trigger.appendChild(img);
+  });
 
   mcp.registerTool(
     'get_site_info',

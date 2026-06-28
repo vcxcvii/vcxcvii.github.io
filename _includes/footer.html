@@ -32,9 +32,12 @@
       <div class="footer-col">
         <p class="footer-col-label">Explore</p>
         <ul class="footer-links">
-          {% for item in site.data.navigation %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
-          {% endfor %}
+          <li><a href="{{ '/about/' | relative_url }}">/about</a></li>
+          <li><a href="{{ '/work/' | relative_url }}">/work</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">/notes</a></li>
+          <li><a href="{{ '/fun/' | relative_url }}">/fun</a></li>
+          <li><a href="{{ '/side-quests/' | relative_url }}">/side-quests</a></li>
+          <li><a href="{{ '/uses-this/' | relative_url }}">/uses-this</a></li>
           <li><a href="{{ '/tags/' | relative_url }}">/tags</a></li>
           <li><a href="{{ '/archive/' | relative_url }}">/archive</a></li>
         </ul>
@@ -52,7 +55,7 @@
       </div>
 
       <div class="footer-col">
-        <p class="footer-col-label">Subscribe &amp; follow</p>
+        <p class="footer-col-label">Subscribe</p>
         <ul class="footer-links">
           <li><a href="{{ '/feed/' | relative_url }}">RSS feed</a></li>
           <li><a href="{{ '/mcp/' | relative_url }}">Connect via MCP</a></li>
