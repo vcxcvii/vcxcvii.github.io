@@ -1447,6 +1447,13 @@ table.fixed-cols td:nth-child(2) { width: 28%; }
 
 }
 
+@media (max-width: 540px) {
+  .footer-nav {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* ─── MCP Nudge ───────────────────────────────── */
 
 #mcp-nudge {
