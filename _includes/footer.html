@@ -32,12 +32,12 @@
       <div class="footer-col">
         <p class="footer-col-label">Explore</p>
         <ul class="footer-links">
-          <li><a href="{{ '/about/' | relative_url }}">/about</a></li>
-          <li><a href="{{ '/work/' | relative_url }}">/work</a></li>
-          <li><a href="{{ '/blog/' | relative_url }}">/notes</a></li>
-          <li><a href="{{ '/fun/' | relative_url }}">/fun</a></li>
-          <li><a href="{{ '/side-quests/' | relative_url }}">/side-quests</a></li>
-          <li><a href="{{ '/uses-this/' | relative_url }}">/uses-this</a></li>
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/work/' | relative_url }}">Work</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Notes</a></li>
+          <li><a href="{{ '/fun/' | relative_url }}">Fun</a></li>
+          <li><a href="{{ '/side-quests/' | relative_url }}">Side quests</a></li>
+          <li><a href="{{ '/uses-this/' | relative_url }}">Uses this</a></li>
         </ul>
       </div>
 
@@ -47,8 +47,11 @@
           <li><a href="https://www.linkedin.com/in/varunchoraria/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           <li><a href="https://cal.com/varun-choraria/30min" target="_blank" rel="noopener noreferrer">Book 30 min</a></li>
-          <li><a href="{{ '/changelog/' | relative_url }}">/changelog</a></li>
-          <li><a href="{{ '/disclaimer/' | relative_url }}">/disclaimer</a></li>
+          {% for link in site.data.elsewhere %}
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a></li>
+          {% endfor %}
+          <li><a href="{{ '/changelog/' | relative_url }}">Changelog</a></li>
+          <li><a href="{{ '/disclaimer/' | relative_url }}">Disclaimer</a></li>
         </ul>
       </div>
 
