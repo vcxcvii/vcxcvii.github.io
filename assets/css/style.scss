@@ -1454,17 +1454,16 @@ table.fixed-cols td:nth-child(2) { width: 28%; }
 
 #mcp-nudge {
   position: fixed;
-  bottom: 68px;
+  bottom: 62px;
   right: 20px;
   z-index: 9998;
-  width: 230px;
+  width: 220px;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 0.65rem 0.75rem 0.65rem 0.75rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 4px;
+  padding: 0.6rem 2rem 0.6rem 0.7rem;
   font-size: 0.78rem;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--color-text-muted);
 }
 
