@@ -11,13 +11,25 @@ A running log of what changed on this site and why. The goal is to be honest abo
 
 ### 28 June 2026
 
-**MCP page and RSS feed page**
+**MCP server, QA agent, security cleanup, and README rewrites**
 
-Two new utility pages.
+A lot happened today.
 
-**Connect via MCP — [/mcp/](/mcp/)** — This site now supports the [Model Context Protocol](https://github.com/jasonjmcghee/WebMCP), an open standard that lets AI agents read websites directly. If you use Claude Desktop or Cursor, you can connect your agent to this site and ask it to search or summarise anything I've written. Four tools are exposed: list all posts, get a specific post by slug, search by keyword, and pull site info. Setup takes about two minutes — instructions are on the page.
+**Live MCP server — [/mcp/](/mcp/)** — The site now runs a proper [Model Context Protocol](https://modelcontextprotocol.io) server, not just a page explaining what MCP is. Any MCP-compatible AI client — Claude Code, Claude Desktop, Cursor, or Codex CLI — can connect to it with one URL and read everything on the site directly. Not from training data. From the actual live content.
+
+Six tools are exposed: pull site info, list all posts, get any post by slug, list all pages, get any page, and search across everything. The server is hosted on Vercel and fetches from `/api/site.json` — a Jekyll-generated file that updates automatically every time new content is pushed. Add `mcp: true` to any page's frontmatter and it gets indexed on the next push. No manual steps.
+
+The [/mcp/](/mcp/) page was redesigned from scratch. It used to require users to install a local npm bridge, generate a token, and paste it into a widget. Replaced that with a tabbed interface — pick your client, copy one snippet, done. Tabs for Claude Code, Claude Desktop, Cursor, Codex CLI, ChatGPT (with an honest note that it doesn't support MCP yet), and a generic option. Every code block has its own copy button.
+
+The page also explains how this differs from the "Ask Claude / Ask ChatGPT" buttons elsewhere on the site. Those open a chatbot with a pre-typed query — the AI draws on training data. MCP is different: it gives your local agent live read access to the actual content here, which matters when you want recent posts or want to use my writing as real context in a workflow rather than just a chat.
+
+**Pre-push QA agent** — A script now runs automatically before every `git push`. It checks every changed file against four criteria: SEO (title, description, character limits), AEO (word count, heading structure, tags — things that help AI agents parse and cite content correctly), design compliance (layout, intro field, date format), and MCP compliance (new pages flagged if they're not indexed). It also blocks any push that includes a CSV, SQL, .env, or other non-site file — more on why below. Errors block the push. Warnings go through but are logged.
+
+**Security: sensitive data removed** — A HubSpot data export (`hubspot_time_to_first_meeting_last_6_months.csv`) was accidentally committed to this public repo during a Claude Code session where the file landed in the wrong directory. It contained deal names, pipeline data, and contact email addresses from GTM Buddy's CRM. The file was removed from the repo and purged from the entire git history so it no longer exists in any commit. The pre-push hook now blocks this class of mistake going forward.
 
 **RSS feed page — [/feed/](/feed/)** — The site has had an RSS feed since June 20 but no dedicated page explaining it. Fixed that. The page covers the feed URL, how to subscribe, and a short list of RSS readers worth trying. I use [NetNewsWire](https://netnewswire.com/) — free, open-source, Mac and iOS.
+
+**README updates** — The site's GitHub README and my GitHub profile README were both rewritten in plain English to reflect what the site actually is now: an AI-managed personal site with a live MCP server, a QA gate, and a machine-readable design system.
 
 ---
 
