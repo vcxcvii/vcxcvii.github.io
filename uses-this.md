@@ -3,6 +3,7 @@ title: Uses This
 intro: A running list of the hardware, software, and everyday gear I rely on.
 permalink: /uses-this/
 page_class: uses-page
+mcp: true
 ---
 Inspired by [Uses This](https://usesthis.com/), this page documents the tools and software I use to get things done.
 

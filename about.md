@@ -3,6 +3,7 @@ title: About
 intro: Marketing operator in B2B SaaS, speaker, author, podcast host, and lifelong side-quest enthusiast.
 page_class: about-page
 hide_about_sidebar: true
+mcp: true
 ---
 <div class="about-portrait-wrap">
   <img class="about-portrait" src="{{ '/assets/images/varun-choraria-about.jpeg' | relative_url }}" alt="Portrait of Varun Choraria" width="724" height="1086" fetchpriority="high" loading="eager">

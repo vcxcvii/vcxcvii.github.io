@@ -2,6 +2,7 @@
 title: Changelog
 description: A running log of what changed on this site and why.
 no_sidebar: true
+mcp: true
 ---
 
 A running log of what changed on this site and why. The goal is to be honest about the decisions behind how this site evolves.

@@ -3,6 +3,7 @@ layout: page
 title: Work
 intro: Roles, responsibilities, and selected consulting work.
 page_class: work-page
+mcp: true
 wrapper_class: wrapper-work
 ---
 Always open to interesting opportunities across the world. With respect to professional engagements, [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me.

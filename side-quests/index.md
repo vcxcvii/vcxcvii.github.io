@@ -2,6 +2,7 @@
 layout: side-quests
 title: Side Quests
 intro: "Built with AI — projects, tools, and rabbit holes. Everything here was built on Claude Code, Codex, or OpenCode. Most started as weekend curiosity. A few became things I use every day."
+mcp: true
 ---
 
 <section class="projects-category">

@@ -2,6 +2,7 @@
 layout: page
 title: Fun
 intro: Side quests, writing, speaking, and the non-work parts that still matter.
+mcp: true
 ---
 
 ## Book
