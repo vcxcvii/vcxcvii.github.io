@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Connect via MCP
-description: Connect your AI agent to varunchoraria.com using the Model Context Protocol. One URL, any MCP-compatible client — Claude, Cursor, Codex, and more.
+description: This site exposes a live MCP server so AI agents can read and search everything Varun Choraria has written — posts, pages, work history, and more. One URL, any compatible client.
 permalink: /mcp/
 no_sidebar: true
 ---
@@ -16,7 +16,15 @@ no_sidebar: true
       "name": "What is MCP and why does this site support it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "MCP (Model Context Protocol) is an open standard that lets AI assistants access external tools and data sources in real time. This site exposes an MCP server so any compatible AI client can read and search everything Varun Choraria has written — live, not from training data."
+        "text": "MCP (Model Context Protocol) is an open standard that lets AI agents access external data sources in real time. This site exposes an MCP server so tools like Claude Code and Cursor can read and search everything here — live, not from training data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from clicking Ask Claude or Ask ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Those buttons open a chatbot with a pre-typed query. The AI draws on training data — which may be months old and won't include recent posts. MCP gives your local AI agent direct read access to the actual content on this site, updated every time a new post or page goes live."
       }
     },
     {
@@ -24,7 +32,7 @@ no_sidebar: true
       "name": "What can the AI access?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "All blog posts and notes (titles, dates, tags, full text), plus site pages: About, Work history, Uses This, Side Quests, Fun, and Changelog. Six tools are available: get_site_info, list_posts, get_post, list_pages, get_page, and search."
+        "text": "All blog posts and notes with full text, plus site pages including About, Work history, Uses This, Side Quests, Fun, and Changelog. Six tools: get_site_info, list_posts, get_post, list_pages, get_page, and search."
       }
     },
     {
@@ -33,6 +41,14 @@ no_sidebar: true
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Add the MCP server URL to your AI client. For Claude Code: claude mcp add --transport http varunchoraria https://varunchoraria-mcpvercelapp.vercel.app. For Claude Desktop or Cursor, add the URL to your mcpServers config JSON."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does ChatGPT support MCP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet via the web interface. OpenAI's Codex CLI does support MCP. Check the Codex tab on this page for setup instructions."
       }
     }
   ]
@@ -44,7 +60,7 @@ no_sidebar: true
 <div class="mcp-hero">
   <div class="mcp-url-row">
     <code class="mcp-url-text" id="mcp-url">https://varunchoraria-mcpvercelapp.vercel.app</code>
-    <button class="mcp-copy-btn" id="mcp-copy" onclick="copyUrl()" aria-label="Copy MCP server URL">Copy</button>
+    <button type="button" class="mcp-copy-btn" id="mcp-copy" aria-label="Copy MCP server URL">Copy</button>
   </div>
   <p class="mcp-url-hint">Paste this URL into any MCP-compatible AI client.</p>
 </div>
@@ -52,98 +68,114 @@ no_sidebar: true
 <h2>Connect by client</h2>
 
 <div class="mcp-tabs" role="tablist">
-  <button class="mcp-tab active" role="tab" aria-selected="true" data-tab="claude-code">Claude Code</button>
-  <button class="mcp-tab" role="tab" aria-selected="false" data-tab="claude-desktop">Claude Desktop</button>
-  <button class="mcp-tab" role="tab" aria-selected="false" data-tab="cursor">Cursor</button>
-  <button class="mcp-tab" role="tab" aria-selected="false" data-tab="codex">Codex CLI</button>
-  <button class="mcp-tab" role="tab" aria-selected="false" data-tab="chatgpt">ChatGPT</button>
-  <button class="mcp-tab" role="tab" aria-selected="false" data-tab="other">Other</button>
+  <button type="button" class="mcp-tab active" role="tab" aria-selected="true"  aria-controls="panel-claude-code"    id="tab-claude-code">Claude Code</button>
+  <button type="button" class="mcp-tab"        role="tab" aria-selected="false" aria-controls="panel-claude-desktop" id="tab-claude-desktop">Claude Desktop</button>
+  <button type="button" class="mcp-tab"        role="tab" aria-selected="false" aria-controls="panel-cursor"         id="tab-cursor">Cursor</button>
+  <button type="button" class="mcp-tab"        role="tab" aria-selected="false" aria-controls="panel-codex"          id="tab-codex">Codex CLI</button>
+  <button type="button" class="mcp-tab"        role="tab" aria-selected="false" aria-controls="panel-chatgpt"        id="tab-chatgpt">ChatGPT</button>
+  <button type="button" class="mcp-tab"        role="tab" aria-selected="false" aria-controls="panel-other"          id="tab-other">Other</button>
 </div>
 
 <div class="mcp-panels">
 
-  <div class="mcp-panel active" id="panel-claude-code" role="tabpanel">
+  <div class="mcp-panel active" id="panel-claude-code" role="tabpanel" aria-labelledby="tab-claude-code">
     <p>Run this once in your terminal:</p>
     <div class="code-copy-wrap">
-      <pre><code>claude mcp add --transport http varunchoraria https://varunchoraria-mcpvercelapp.vercel.app</code></pre>
-      <button class="snippet-copy" onclick="copySnippet(this)" aria-label="Copy command">Copy</button>
+      <pre><code id="snip-0">claude mcp add --transport http varunchoraria https://varunchoraria-mcpvercelapp.vercel.app</code></pre>
+      <button type="button" class="snippet-copy" data-snip="snip-0">Copy</button>
     </div>
     <p class="step-note">Done. Open a new Claude Code session and ask anything.</p>
   </div>
 
-  <div class="mcp-panel" id="panel-claude-desktop" role="tabpanel">
+  <div class="mcp-panel" id="panel-claude-desktop" role="tabpanel" aria-labelledby="tab-claude-desktop">
     <p>Open <strong>Settings → Developer → Edit Config</strong> and add inside <code>mcpServers</code>:</p>
     <div class="code-copy-wrap">
-      <pre><code>"varunchoraria": {
+      <pre><code id="snip-1">"varunchoraria": {
   "type": "http",
   "url": "https://varunchoraria-mcpvercelapp.vercel.app"
 }</code></pre>
-      <button class="snippet-copy" onclick="copySnippet(this)" aria-label="Copy config">Copy</button>
+      <button type="button" class="snippet-copy" data-snip="snip-1">Copy</button>
     </div>
     <p class="step-note">Restart Claude Desktop after saving.</p>
   </div>
 
-  <div class="mcp-panel" id="panel-cursor" role="tabpanel">
+  <div class="mcp-panel" id="panel-cursor" role="tabpanel" aria-labelledby="tab-cursor">
     <p>Go to <strong>Settings → MCP</strong> and add a new server, or edit <code>.cursor/mcp.json</code>:</p>
     <div class="code-copy-wrap">
-      <pre><code>"varunchoraria": {
+      <pre><code id="snip-2">"varunchoraria": {
   "type": "http",
   "url": "https://varunchoraria-mcpvercelapp.vercel.app"
 }</code></pre>
-      <button class="snippet-copy" onclick="copySnippet(this)" aria-label="Copy config">Copy</button>
+      <button type="button" class="snippet-copy" data-snip="snip-2">Copy</button>
     </div>
     <p class="step-note">Reload Cursor after saving.</p>
   </div>
 
-  <div class="mcp-panel" id="panel-codex" role="tabpanel">
+  <div class="mcp-panel" id="panel-codex" role="tabpanel" aria-labelledby="tab-codex">
     <p>Add to <code>~/.codex/config.yaml</code>:</p>
     <div class="code-copy-wrap">
-      <pre><code>mcpServers:
+      <pre><code id="snip-3">mcpServers:
   varunchoraria:
     type: http
     url: https://varunchoraria-mcpvercelapp.vercel.app</code></pre>
-      <button class="snippet-copy" onclick="copySnippet(this)" aria-label="Copy config">Copy</button>
+      <button type="button" class="snippet-copy" data-snip="snip-3">Copy</button>
     </div>
     <p class="step-note">No restart needed — Codex CLI picks it up on next run.</p>
   </div>
 
-  <div class="mcp-panel" id="panel-chatgpt" role="tabpanel">
-    <p>ChatGPT's web interface doesn't support MCP yet. A few options in the meantime:</p>
+  <div class="mcp-panel" id="panel-chatgpt" role="tabpanel" aria-labelledby="tab-chatgpt">
+    <p>ChatGPT's web interface doesn't support MCP yet. Options:</p>
     <ul>
-      <li><strong>Use Codex CLI</strong> — OpenAI's terminal tool does support MCP. See the Codex tab above.</li>
-      <li><strong>Use Claude or Cursor</strong> — both work with this server today.</li>
-      <li><strong>Manual context</strong> — visit <a href="/blog/">the writing archive</a>, copy what's relevant, paste into ChatGPT.</li>
+      <li><strong>Codex CLI</strong> — OpenAI's terminal tool does support MCP. See the Codex tab above.</li>
+      <li><strong>Claude Code or Cursor</strong> — both work with this server today.</li>
+      <li><strong>Manual</strong> — copy a post from <a href="/blog/">the archive</a> and paste it into ChatGPT as context.</li>
     </ul>
-    <p class="step-note">MCP support in ChatGPT is on the roadmap. Check back here when it lands.</p>
+    <p class="step-note">MCP in ChatGPT is on OpenAI's roadmap. Check back when it ships.</p>
   </div>
 
-  <div class="mcp-panel" id="panel-other" role="tabpanel">
+  <div class="mcp-panel" id="panel-other" role="tabpanel" aria-labelledby="tab-other">
     <p>Any MCP-compatible client that supports HTTP transport works. Point it at:</p>
     <div class="code-copy-wrap">
-      <pre><code>https://varunchoraria-mcpvercelapp.vercel.app</code></pre>
-      <button class="snippet-copy" onclick="copySnippet(this)" aria-label="Copy URL">Copy</button>
+      <pre><code id="snip-4">https://varunchoraria-mcpvercelapp.vercel.app</code></pre>
+      <button type="button" class="snippet-copy" data-snip="snip-4">Copy</button>
     </div>
     <p class="step-note">Transport: HTTP (MCP spec 2024-11-05). No auth required.</p>
   </div>
 
 </div>
 
-<h2>What to ask</h2>
+<h2>What to ask once connected</h2>
 
 <ul class="mcp-prompts">
-  <li><em>"What has Varun written about imposter syndrome?"</em></li>
-  <li><em>"Summarise his GTM strategy notes."</em></li>
-  <li><em>"What does he use for hardware and software?"</em></li>
-  <li><em>"What's his work history?"</em></li>
-  <li><em>"What side projects has he built?"</em></li>
+  <li><em>"What's Varun's take on AI-first GTM strategy?"</em></li>
+  <li><em>"Summarise his notes on management and team leadership."</em></li>
+  <li><em>"What tools and software does he use day to day?"</em></li>
+  <li><em>"What's his most recent post about?"</em></li>
+  <li><em>"What side projects has he shipped with AI?"</em></li>
 </ul>
+
+<h2>How this is different from Ask Claude / Ask ChatGPT</h2>
+
+<p>The "Ask Claude" and "Ask ChatGPT" buttons on this site open a web chatbot with a pre-typed query. That's useful for a quick introduction — but those AIs draw on training data, which has a cutoff date and doesn't include recent posts or pages added after their last training run.</p>
+
+<p>MCP is for a different use case. When you wire up an AI agent in Cursor or Claude Code, it gets live read access to everything on this site — content published today included. Instead of the AI guessing at what I've written, it reads the actual text directly. The result is more accurate, more recent, and fully cited.</p>
+
+<p>Use the chatbot buttons for discovery. Use MCP when you're doing real work — building something, writing a brief, doing research — and want my writing as active context in your workflow, not a vague memory from training.</p>
+
+<h2>Why this exists</h2>
+
+<p>Personal websites are dark matter to AI. Most models have a knowledge cutoff, don't index small personal sites deeply, and go stale fast. Ask a chatbot what I've written about B2B go-to-market strategy and it'll give you a generic answer — not the specific frameworks and cases I've actually published.</p>
+
+<p>MCP is the protocol that fixes this. By running a small server that speaks MCP, any compatible AI agent can access what's here in real time. No copy-pasting, no RAG pipeline, no stale embeddings. The content updates automatically whenever I push new writing — the server always reads from the live site.</p>
+
+<p>This is also an experiment. I'm interested in what it looks like when a personal site becomes a first-class data source for AI agents, not just a URL to paste into a chat window.</p>
 
 <h2>What the AI can access</h2>
 
 <div class="mcp-tools-grid">
   <div class="mcp-tool">
     <strong>get_site_info</strong>
-    <span>Bio, topics, contact links</span>
+    <span>Bio, role, topics, contact links</span>
   </div>
   <div class="mcp-tool">
     <strong>list_posts</strong>
@@ -151,7 +183,7 @@ no_sidebar: true
   </div>
   <div class="mcp-tool">
     <strong>get_post</strong>
-    <span>Full text of any post</span>
+    <span>Full text of any post by slug</span>
   </div>
   <div class="mcp-tool">
     <strong>list_pages</strong>
@@ -221,12 +253,13 @@ no_sidebar: true
   color: var(--color-text-muted);
 }
 
-/* Tabs */
 .mcp-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
   margin-bottom: -1px;
+  position: relative;
+  z-index: 1;
 }
 
 .mcp-tab {
@@ -241,8 +274,9 @@ no_sidebar: true
   min-height: 36px;
   transition: background 0.1s, color 0.1s;
   white-space: nowrap;
+  text-decoration: none;
 }
-.mcp-tab:hover { color: var(--color-text); }
+.mcp-tab:hover { color: var(--color-text); background: var(--color-bg); }
 .mcp-tab.active {
   background: var(--color-bg);
   color: var(--color-text);
@@ -250,30 +284,30 @@ no_sidebar: true
   border-bottom: 1px solid var(--color-bg);
 }
 
-/* Panels */
 .mcp-panels {
   border: 1px solid var(--color-border);
   border-radius: 0 5px 5px 5px;
   padding: 1.25rem 1.375rem;
   margin-bottom: 2rem;
   background: var(--color-bg);
+  position: relative;
+  z-index: 0;
 }
 
 .mcp-panel { display: none; }
 .mcp-panel.active { display: block; }
-.mcp-panel > p:first-child { margin-top: 0; }
-.mcp-panel > p:last-child { margin-bottom: 0; }
+.mcp-panel > p:first-child,
+.mcp-panel > ul:first-child { margin-top: 0; }
+.mcp-panel > p:last-child,
+.mcp-panel > ul:last-child { margin-bottom: 0; }
 
-/* Code + copy button */
-.code-copy-wrap {
-  position: relative;
-}
+.code-copy-wrap { position: relative; }
 
 .code-copy-wrap pre {
   margin: 0.5rem 0 0.25rem;
   background: var(--color-code-bg);
   border-radius: 5px;
-  padding: 0.75rem 3rem 0.75rem 0.875rem;
+  padding: 0.75rem 3.5rem 0.75rem 0.875rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -281,6 +315,8 @@ no_sidebar: true
 .code-copy-wrap pre code {
   font-size: 0.8rem;
   white-space: pre;
+  background: none;
+  padding: 0;
 }
 
 .snippet-copy {
@@ -295,6 +331,7 @@ no_sidebar: true
   cursor: pointer;
   color: var(--color-text-muted);
   transition: color 0.15s;
+  white-space: nowrap;
 }
 .snippet-copy:hover { color: var(--color-text); }
 .snippet-copy.copied { color: #2c8a4a; border-color: #2c8a4a; }
@@ -302,10 +339,9 @@ no_sidebar: true
 .step-note {
   font-size: 0.85rem;
   color: var(--color-text-muted);
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 0;
 }
 
-/* Prompts */
 .mcp-prompts {
   list-style: none;
   padding: 0;
@@ -321,10 +357,9 @@ no_sidebar: true
   font-size: 0.9rem;
 }
 
-/* Tools grid */
 .mcp-tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 0.75rem;
   margin-bottom: 2rem;
 }
@@ -335,11 +370,10 @@ no_sidebar: true
   padding: 0.75rem 0.875rem;
   background: var(--color-surface);
   border-radius: 5px;
-  font-size: 0.88rem;
 }
 .mcp-tool strong {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-accent);
 }
 .mcp-tool span {
@@ -347,47 +381,68 @@ no_sidebar: true
   font-size: 0.82rem;
 }
 
-/* Mobile */
 @media (max-width: 540px) {
   .mcp-url-text { font-size: 0.72rem; }
-  .mcp-tab { font-size: 0.8rem; padding: 0.4rem 0.7rem; }
+  .mcp-tab { font-size: 0.78rem; padding: 0.4rem 0.65rem; }
   .mcp-panels { padding: 1rem; }
   .mcp-tools-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 
 <script>
-function copyUrl() {
-  var url = document.getElementById('mcp-url').textContent;
-  navigator.clipboard.writeText(url).then(function () {
-    var btn = document.getElementById('mcp-copy');
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
+document.addEventListener('DOMContentLoaded', function () {
 
-function copySnippet(btn) {
-  var code = btn.previousElementSibling.querySelector('code').textContent;
-  navigator.clipboard.writeText(code).then(function () {
-    btn.textContent = 'Copied!';
-    btn.classList.add('copied');
-    setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-  });
-}
+  // Tab switching
+  var tabs   = document.querySelectorAll('.mcp-tab');
+  var panels = document.querySelectorAll('.mcp-panel');
 
-(function () {
-  document.querySelectorAll('.mcp-tab').forEach(function (tab) {
+  tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      document.querySelectorAll('.mcp-tab').forEach(function (t) {
+      tabs.forEach(function (t) {
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
       });
-      document.querySelectorAll('.mcp-panel').forEach(function (p) { p.classList.remove('active'); });
+      panels.forEach(function (p) { p.classList.remove('active'); });
+
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
-      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      var target = document.getElementById(tab.getAttribute('aria-controls'));
+      if (target) target.classList.add('active');
     });
   });
-})();
+
+  // Copy URL button
+  var copyBtn = document.getElementById('mcp-copy');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var url = document.getElementById('mcp-url').textContent.trim();
+      navigator.clipboard.writeText(url).then(function () {
+        copyBtn.textContent = 'Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(function () {
+          copyBtn.textContent = 'Copy';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  }
+
+  // Snippet copy buttons
+  document.querySelectorAll('.snippet-copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var snipId = btn.getAttribute('data-snip');
+      var code   = document.getElementById(snipId);
+      if (!code) return;
+      navigator.clipboard.writeText(code.textContent.trim()).then(function () {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  });
+
+});
 </script>
