@@ -65,6 +65,26 @@ no_sidebar: true
   <p class="mcp-url-hint">Paste this URL into any MCP-compatible AI client.</p>
 </div>
 
+<h2>See it in action</h2>
+
+<p>These are real Claude Code sessions using the MCP server — no copy-pasting, no manual context.</p>
+
+<div class="mcp-demos">
+  <figure class="mcp-demo">
+    <a href="/assets/images/mcp-demo-career-insights.png" target="_blank" rel="noopener">
+      <img src="/assets/images/mcp-demo-career-insights.png" alt="Claude Code using the varunchoraria MCP server to pull the top 3 insights from career blog posts" loading="lazy" width="1312" height="856">
+    </a>
+    <figcaption>Asked: <em>"Use varunchoraria MCP and tell me the top 3 insights across his career blog posts."</em> Claude fetched the posts directly and synthesised three sharp takeaways — including "Luck = Do × Tell (50:50)" from <a href="/ive-been-trying-to-get-lucky-for-a-decade/">I've been trying to get lucky for a decade</a>.</figcaption>
+  </figure>
+
+  <figure class="mcp-demo">
+    <a href="/assets/images/mcp-demo-career-trajectory.png" target="_blank" rel="noopener">
+      <img src="/assets/images/mcp-demo-career-trajectory.png" alt="Claude Code using the varunchoraria MCP server to summarise career trajectory from work history page" loading="lazy" width="1312" height="856">
+    </a>
+    <figcaption>Asked: <em>"Where does he work, and summarise his career trajectory for me."</em> Claude read the <a href="/work/">Work page</a> and returned a structured career arc — student founder → founding PMM → PLG operator → category-creating marketing manager.</figcaption>
+  </figure>
+</div>
+
 <h2>Connect by client</h2>
 
 <div class="mcp-tabs" role="tablist">
@@ -379,6 +399,46 @@ no_sidebar: true
 .mcp-tool span {
   color: var(--color-text-muted);
   font-size: 0.82rem;
+}
+
+.mcp-demos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.mcp-demo {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mcp-demo a {
+  display: block;
+  text-decoration: none;
+}
+
+.mcp-demo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid var(--color-border);
+  transition: opacity 0.15s;
+}
+.mcp-demo a:hover img { opacity: 0.92; }
+
+.mcp-demo figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  line-height: 1.5;
+}
+.mcp-demo figcaption em {
+  color: var(--color-text);
+  font-style: italic;
 }
 
 @media (max-width: 540px) {
