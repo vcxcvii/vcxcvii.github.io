@@ -1,0 +1,65 @@
+---
+layout: page
+title: Connect via MCP
+description: Connect your AI agent to varunchoraria.com using the Model Context Protocol (MCP). Let Claude, Cursor, or any MCP-compatible client read and search everything Varun Choraria has written about B2B SaaS, GTM strategy, and product marketing.
+permalink: /mcp/
+no_sidebar: true
+---
+
+<p class="intro-note" style="margin-top:0">This site supports the <a href="https://github.com/jasonjmcghee/WebMCP" target="_blank" rel="noopener">Model Context Protocol (MCP)</a> — a standard that lets AI agents read and search websites directly. If you use Claude Desktop, Cursor, or another MCP-compatible client, you can connect it here and ask your agent questions about anything I've written.</p>
+
+<h2>What is this?</h2>
+
+<p>MCP is an open standard that lets AI assistants access external tools and data sources — including websites. Once you connect your agent to this site, it can browse my writing, look up specific posts, and search across all my notes on B2B marketing, GTM strategy, sales enablement, and career — without you having to copy-paste anything.</p>
+
+<p>For example, once connected you could ask your agent:</p>
+<ul>
+  <li><em>"What has Varun written about imposter syndrome?"</em></li>
+  <li><em>"Summarise his notes on GTM strategy"</em></li>
+  <li><em>"Find posts tagged 'career' and pull the key takeaways"</em></li>
+</ul>
+
+<h2>Available tools</h2>
+
+<p>Four tools are exposed to your agent once connected:</p>
+<ul>
+  <li><strong>list_posts</strong> — all notes with titles, dates, and tags</li>
+  <li><strong>get_post</strong> — full text of any note by slug</li>
+  <li><strong>search_posts</strong> — keyword search across all notes</li>
+  <li><strong>get_site_info</strong> — about me, topics I cover, and links</li>
+</ul>
+
+<h2>How to connect</h2>
+
+<p>You need an MCP-compatible client (Claude Desktop or Cursor work well). Setup takes about two minutes.</p>
+
+<ol>
+  <li>
+    <strong>Add the WebMCP bridge to your MCP client</strong><br>
+    In Claude Desktop: <em>Settings → Developer → Edit Config</em>, then add:
+    <pre><code>{
+  "mcpServers": {
+    "webmcp": {
+      "command": "npx",
+      "args": ["-y", "@jason.today/webmcp@latest", "--mcp"]
+    }
+  }
+}</code></pre>
+    Restart Claude Desktop after saving.
+  </li>
+  <li>
+    <strong>Generate a token</strong><br>
+    Ask your agent: <em>"Make a webmcp token for varunchoraria.com"</em>
+  </li>
+  <li>
+    <strong>Paste the token here</strong><br>
+    Click the blue widget in the bottom-right corner of this page and paste your token. Your agent can now read this site.
+  </li>
+</ol>
+
+<h2>Why MCP?</h2>
+
+<p>Most AI assistants have a knowledge cutoff and don't know what I've written recently. MCP solves this by giving your agent live, direct access — no RAG pipeline, no copy-pasting, no stale embeddings. If you're researching B2B marketing or GTM strategy and already use an AI agent in your workflow, this is the fastest way to pull in my writing as context.</p>
+
+<script src="{{ '/assets/js/webmcp.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/mcp-tools.js' | relative_url }}"></script>

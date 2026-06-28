@@ -8,6 +8,18 @@ A running log of what changed on this site and why. The goal is to be honest abo
 
 ---
 
+### 28 June 2026
+
+**MCP page and RSS feed page**
+
+Two new utility pages.
+
+**Connect via MCP — [/mcp/](/mcp/)** — This site now supports the [Model Context Protocol](https://github.com/jasonjmcghee/WebMCP), an open standard that lets AI agents read websites directly. If you use Claude Desktop or Cursor, you can connect your agent to this site and ask it to search or summarise anything I've written. Four tools are exposed: list all posts, get a specific post by slug, search by keyword, and pull site info. Setup takes about two minutes — instructions are on the page.
+
+**RSS feed page — [/feed/](/feed/)** — The site has had an RSS feed since June 20 but no dedicated page explaining it. Fixed that. The page covers the feed URL, how to subscribe, and a short list of RSS readers worth trying. I use [NetNewsWire](https://netnewswire.com/) — free, open-source, Mac and iOS.
+
+---
+
 ### 25 June 2026
 
 **Analytics stack: GA4, Google Search Console, and Microsoft Clarity**
