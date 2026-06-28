@@ -754,11 +754,11 @@ table.fixed-cols td:nth-child(2) { width: 28%; }
 .post-main,
 .archive-list a,
 .side-block p,
-.side-block a,
-.footer-top span,
-.footer-bottom span {
+.side-block a {
   overflow-wrap: anywhere;
 }
+
+.mcp-intro { margin-top: 0; }
 
 .entry-prose {
   font-size: 0.94rem;
@@ -1445,10 +1445,6 @@ table.fixed-cols td:nth-child(2) { width: 28%; }
     gap: 1.5rem;
   }
 
-  .footer-bottom {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
 }
 
 /* ─── MCP Nudge ───────────────────────────────── */

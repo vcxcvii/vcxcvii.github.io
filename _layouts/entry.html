@@ -1,6 +1,32 @@
 ---
 layout: default
 ---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | strip | jsonify }},
+  "url": {{ page.url | prepend: site.url | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": "Varun Choraria",
+    "url": "https://www.varunchoraria.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Varun Choraria",
+    "url": "https://www.varunchoraria.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ page.url | prepend: site.url | jsonify }}
+  }{% if page.tags and page.tags.size > 0 %},
+  "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}
+}
+</script>
 <section id="primary" class="entry-primary">
   <article class="entry-shell">
     <header class="entry-header">

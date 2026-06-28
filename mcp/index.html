@@ -6,7 +6,48 @@ permalink: /mcp/
 no_sidebar: true
 ---
 
-<p class="intro-note" style="margin-top:0">This site supports the <a href="https://github.com/jasonjmcghee/WebMCP" target="_blank" rel="noopener">Model Context Protocol (MCP)</a> — a standard that lets AI agents read and search websites directly. If you use Claude Desktop, Cursor, or another MCP-compatible client, you can connect it here and ask your agent questions about anything I've written.</p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is MCP and why does this site support it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP (Model Context Protocol) is an open standard that lets AI assistants access external tools and data sources — including websites. This site supports it so that AI agents like Claude or Cursor can read and search everything Varun Choraria has written about B2B marketing, GTM strategy, and sales enablement, directly and in real time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tools are available via MCP on this site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four tools are exposed: list_posts (all notes with titles, dates, and tags), get_post (full text of any note by slug), search_posts (keyword search across all notes), and get_site_info (about Varun, topics covered, and links)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I connect my AI agent to this site via MCP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You need an MCP-compatible client like Claude Desktop or Cursor. Add the WebMCP bridge to your client config, then ask your agent to generate a token for varunchoraria.com, and paste the token into the widget on the bottom-right of this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use MCP instead of just asking an AI about Varun's writing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most AI assistants have a knowledge cutoff and don't know what Varun has written recently. MCP gives your agent live, direct access — no copy-pasting, no stale embeddings. It's the fastest way to use his writing as context in an AI workflow."
+      }
+    }
+  ]
+}
+</script>
+
+<p class="intro-note mcp-intro">This site supports the <a href="https://github.com/jasonjmcghee/WebMCP" target="_blank" rel="noopener">Model Context Protocol (MCP)</a> — a standard that lets AI agents read and search websites directly. If you use Claude Desktop, Cursor, or another MCP-compatible client, you can connect it here and ask your agent questions about anything I've written.</p>
 
 <h2>What is this?</h2>
 
