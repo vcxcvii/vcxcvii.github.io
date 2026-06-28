@@ -32,7 +32,7 @@ no_sidebar: true
       "name": "How do I connect my AI agent to this site via MCP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Add the MCP server URL to your AI client config. For Claude Code run: claude mcp add --transport http varunchoraria https://varunchoraria-mcp.vercel.app. For Claude Desktop or Cursor, add the URL to your MCP settings JSON."
+        "text": "Add the MCP server URL to your AI client config. For Claude Code run: claude mcp add --transport http varunchoraria https://varunchoraria-mcpvercelapp.vercel.app. For Claude Desktop or Cursor, add the URL to your MCP settings JSON."
       }
     },
     {
@@ -63,7 +63,7 @@ no_sidebar: true
 
   <div class="mcp-tab-content active" id="tab-claude-code">
     <p>Run this in your terminal:</p>
-    <pre><code>claude mcp add --transport http varunchoraria https://varunchoraria-mcp.vercel.app</code></pre>
+    <pre><code>claude mcp add --transport http varunchoraria https://varunchoraria-mcpvercelapp.vercel.app</code></pre>
     <p>That's it. Restart Claude Code and ask it anything about my writing.</p>
   </div>
 
@@ -73,7 +73,7 @@ no_sidebar: true
   "mcpServers": {
     "varunchoraria": {
       "type": "http",
-      "url": "https://varunchoraria-mcp.vercel.app"
+      "url": "https://varunchoraria-mcpvercelapp.vercel.app"
     }
   }
 }</code></pre>
@@ -86,7 +86,7 @@ no_sidebar: true
   "mcpServers": {
     "varunchoraria": {
       "type": "http",
-      "url": "https://varunchoraria-mcp.vercel.app"
+      "url": "https://varunchoraria-mcpvercelapp.vercel.app"
     }
   }
 }</code></pre>
@@ -94,7 +94,7 @@ no_sidebar: true
 
   <div class="mcp-tab-content" id="tab-other">
     <p>Any MCP-compatible client that supports HTTP transport works. Point it at:</p>
-    <pre><code>https://varunchoraria-mcp.vercel.app</code></pre>
+    <pre><code>https://varunchoraria-mcpvercelapp.vercel.app</code></pre>
     <p>Transport: <strong>Streamable HTTP</strong> (MCP spec 2024-11-05).</p>
   </div>
 </div>
