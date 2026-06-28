@@ -1,0 +1,6 @@
+{% unless page.permalink == '/mcp/' %}
+<div id="mcp-nudge" role="note" aria-label="AI agent option" hidden>
+  <button id="mcp-nudge-close" aria-label="Dismiss">&#x2715;</button>
+  <p>Using an AI agent? <a href="{{ '/mcp/' | relative_url }}">Connect it to this site</a> to search and read everything here.</p>
+</div>
+{% endunless %}

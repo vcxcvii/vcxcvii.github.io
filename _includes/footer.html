@@ -1,10 +1,71 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Varun Choraria",
+  "url": "https://www.varunchoraria.com",
+  "jobTitle": "Senior Manager, Marketing",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "GTM Buddy",
+    "url": "https://www.gtmbuddy.com"
+  },
+  "description": "B2B SaaS marketing operator with over a decade of experience. Writes about go-to-market strategy, product marketing, sales enablement, and AI in B2B revenue teams.",
+  "knowsAbout": ["B2B SaaS", "go-to-market strategy", "product marketing", "sales enablement", "content marketing", "AI in sales", "management"],
+  "sameAs": [
+    "https://www.linkedin.com/in/varunchoraria/",
+    "https://github.com/vcxcvii"
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebSite",
+    "name": "VC's Notes",
+    "url": "https://www.varunchoraria.com"
+  }
+}
+</script>
+
 <footer id="site-footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <span>&copy; {{ site.time | date: "%Y" }} {{ site.title }} &nbsp;|&nbsp; <a href="{{ '/disclaimer/' | relative_url }}" class="footer-disclaimer">Disclaimer</a></span>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+
+      <div class="footer-col">
+        <p class="footer-col-label">Explore</p>
+        <ul class="footer-links">
+          {% for item in site.data.navigation %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.label }}</a></li>
+          {% endfor %}
+          <li><a href="{{ '/tags/' | relative_url }}">/tags</a></li>
+          <li><a href="{{ '/archive/' | relative_url }}">/archive</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">Connect</p>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/varunchoraria/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://cal.com/varun-choraria/30min" target="_blank" rel="noopener noreferrer">Book 30 min</a></li>
+          <li><a href="{{ '/changelog/' | relative_url }}">/changelog</a></li>
+          <li><a href="{{ '/disclaimer/' | relative_url }}">/disclaimer</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">Subscribe &amp; follow</p>
+        <ul class="footer-links">
+          <li><a href="{{ '/feed/' | relative_url }}">RSS feed</a></li>
+          <li><a href="{{ '/mcp/' | relative_url }}">Connect via MCP</a></li>
+          <li><a href="{{ '/llms.txt' | relative_url }}">llms.txt</a></li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <div class="footer-meta">
+      <span>&copy; {{ site.time | date: "%Y" }} {{ site.title }} &nbsp;&middot;&nbsp; <a href="{{ '/disclaimer/' | relative_url }}" class="footer-disclaimer">Disclaimer</a></span>
+      <span>Maintained by AI — Claude and Codex. Built with <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>, hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>. Analytics by <a href="https://clarity.microsoft.com" target="_blank" rel="noopener">Microsoft Clarity</a> — see the <a href="{{ '/disclaimer/' | relative_url }}">Disclaimer</a>.</span>
     </div>
-    <div class="footer-bottom">
-      <span>This website is proudly maintained by AI — Claude and Codex. Built with <a href="https://jekyllrb.com">Jekyll</a> and hosted on <a href="https://pages.github.com">GitHub Pages</a>. This site uses <a href="https://clarity.microsoft.com">Microsoft Clarity</a> for analytics — see the <a href="{{ '/disclaimer/' | relative_url }}">Disclaimer</a> for details.</span>
-    </div>
+
   </div>
 </footer>
