@@ -1,6 +1,7 @@
 ---
 layout: none
 permalink: /design.md
+version: "alpha"
 name: STARLIGHT
 description: A celestial design system for personal brands — bold, warm, and built for readability.
 
@@ -51,10 +52,14 @@ typography:
   date:
     fontFamily: Inter
     fontSize: 0.82rem
-    fontVariant: tabular-nums
+    fontVariation: "tnum"
   mono:
-    fontFamily: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace"
     fontSize: 0.88em
+  site-title:
+    fontFamily: Inter
+    fontSize: 1.35rem
+    fontWeight: 700
 
 rounded:
   sm: 3px
@@ -76,8 +81,14 @@ components:
     textColor: "{colors.void}"
     rounded: "{rounded.pill}"
     padding: "0.16rem 0.55rem"
-    fontSize: 0.75rem
-    hoverOpacity: 0.85
+    typography: "{typography.label}"
+  tag-pill-hover:
+    backgroundColor: "{colors.hd189733b}"
+    textColor: "{colors.void}"
+    rounded: "{rounded.pill}"
+    padding: "0.16rem 0.55rem"
+    typography: "{typography.label}"
+    opacity: 0.85
   blockquote:
     backgroundColor: "{colors.cancri55e}"
     borderColor: "{colors.hd189733b}"
@@ -96,26 +107,27 @@ components:
     padding: "1rem 1.25rem"
   nav-link:
     textColor: "rgba(255, 255, 255, 0.85)"
-    hoverBackground: "rgba(255, 255, 255, 0.15)"
-    hoverTextColor: "#FFFFFF"
+    rounded: "{rounded.pill}"
+    padding: "0.2rem 0.55rem"
+  nav-link-hover:
+    backgroundColor: "rgba(255, 255, 255, 0.15)"
+    textColor: "#FFFFFF"
     rounded: "{rounded.pill}"
     padding: "0.2rem 0.55rem"
   nav-link-active:
-    backgroundGradientStart: "{colors.hd189733b}"
-    backgroundGradientMid: "{colors.tres2b}"
-    backgroundGradientEnd: "{colors.void}"
+    backgroundColor: "linear-gradient({colors.hd189733b}, {colors.tres2b}, {colors.void})"
     textColor: "#FFFFFF"
     rounded: "{rounded.pill}"
     padding: "0.2rem 0.55rem"
   header-gradient:
-    gradientStart: "{colors.hd189733b}"
-    gradientMid: "{colors.tres2b}"
-    gradientEnd: "{colors.void}"
+    backgroundColor: "linear-gradient({colors.hd189733b}, {colors.tres2b}, {colors.void})"
   site-title:
     textColor: "#FFFFFF"
-    fontWeight: 700
-    fontSize: 1.35rem
-    hoverOpacity: 0.8
+    typography: "{typography.site-title}"
+  site-title-hover:
+    textColor: "#FFFFFF"
+    typography: "{typography.site-title}"
+    opacity: 0.8
 ---
 
 ## Overview
@@ -185,6 +197,7 @@ Colors are named after exoplanets. Each maps to a specific role in the UI.
 | `label` | 0.75rem | 700 + 0.08em spacing | Section labels, year markers |
 | `date` | 0.82rem | 400 (tabular nums) | Post dates |
 | `mono` | 0.88em | 400 | Code, pre blocks |
+| `site-title` | 1.35rem | 700 | Site wordmark in header |
 
 Body text line-height is 1.45. Prose uses 1.5 with justified alignment on desktop, left-aligned on mobile.
 
@@ -226,7 +239,7 @@ Depth comes from color contrast and the header gradient, not box-shadows. The si
 ## Components
 
 ### Tag Pill
-Small inline chip for post categories. HD 189733b background, white text, pill-shaped. On hover: 0.85 opacity.
+Small inline chip for post categories. HD 189733b background, void text, pill-shaped. Hover: `tag-pill-hover` (0.85 opacity).
 
 ### Blockquote
 Warm peach (55 Cancri e) background with a 3px HD 189733b left border. Rounded right corners.
@@ -235,13 +248,13 @@ Warm peach (55 Cancri e) background with a 3px HD 189733b left border. Rounded r
 Light grey (51 Pegasi b) background with Kepler-186f border. Inline code: 3px rounding. Blocks: 6px. Monospace font stack.
 
 ### Nav Link
-White text at 85% opacity on the dark header. On hover: white bg at 15% opacity. Active page: gradient-filled pill matching the header.
+White text at 85% opacity on the dark header. Hover state: `nav-link-hover` (white bg at 15% opacity, full white text). Active page: `nav-link-active` (gradient-filled pill matching the header).
 
 ### Header Action Buttons
 GitHub, LinkedIn, and Meet with VC appear as pill buttons in the header. Same ghost style: white border at 22% opacity, white bg at 8%, white text.
 
 ### Site Title
-"VC" in white, 1.35rem, bold. Includes a small SVG mark. On hover: fades to 80% opacity.
+"VC" in white, `site-title` typography token. Hover: `site-title-hover` (0.8 opacity).
 
 ---
 
