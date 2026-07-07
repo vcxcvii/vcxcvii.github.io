@@ -254,25 +254,29 @@ h2.section-title,
   font-size: 14px;
 }
 
-.nav-home-logo {
+.nav-home-avatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  border: 1.5px solid var(--color-border-dark);
+  border: 1.5px solid var(--color-border);
   text-decoration: none;
   flex: 0 0 auto;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-heading);
-  transition: background 0.15s, color 0.15s;
+  transition: border-color 0.15s;
+  overflow: hidden;
 }
 
-.nav-home-logo:hover {
-  background: var(--color-fill);
-  color: var(--color-heading);
+.nav-home-avatar:hover {
+  border-color: var(--color-border-dark);
+}
+
+.nav-home-avatar img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .site-menu,

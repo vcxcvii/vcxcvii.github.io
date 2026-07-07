@@ -1,6 +1,8 @@
 {% assign current_url = page.url | remove: 'index.html' %}
 <nav id="site-nav" aria-label="Primary">
-  <a href="{{ '/' | relative_url }}" class="nav-home-logo" aria-label="Home">V</a>
+  <a href="{{ '/' | relative_url }}" class="nav-home-avatar" aria-label="Home">
+    <img src="{{ '/assets/images/profile-home.png' | relative_url }}" alt="" width="44" height="44">
+  </a>
   <details class="site-menu">
     <summary>menu</summary>
     <div class="site-menu-panel">
