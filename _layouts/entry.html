@@ -27,65 +27,63 @@ layout: default
   "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}
 }
 </script>
-<section id="primary" class="entry-primary">
-  <article class="entry-shell">
-    <header class="entry-header">
-      <h1>{{ page.title }}</h1>
-      <p class="entry-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %b %Y" }}</time>
-      </p>
-      {% if page.tags and page.tags.size > 0 %}
-        <p class="entry-tags" aria-label="Tags">
-          {% for tag in page.tags %}
-            {% assign tag_slug = tag | slugify %}
-            <a class="tag-link" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">#{{ tag }}</a>
-          {% endfor %}
-        </p>
-      {% endif %}
-    </header>
-
-    <div class="prose entry-prose">
-      {{ content }}
-    </div>
-
+<article class="page-shell">
+  <header class="page-header">
+    <h1>{{ page.title }}</h1>
+    <p class="entry-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+    </p>
     {% if page.tags and page.tags.size > 0 %}
-      {% assign pool = site.posts | sort: "date" | reverse %}
-      {% assign related = "" | split: "" %}
+      <ul class="entry-tags" aria-label="Tags">
+        {% for tag in page.tags %}
+          {% assign tag_slug = tag | slugify %}
+          <li><a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">#{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% if page.tags and page.tags.size > 0 %}
+    {% assign pool = site.posts | sort: "date" | reverse %}
+    {% assign related = "" | split: "" %}
+    {% for post in pool %}
+      {% unless post.url == page.url %}
+        {% assign matched = false %}
+        {% for tag in page.tags %}
+          {% if post.tags contains tag %}
+            {% assign matched = true %}
+          {% endif %}
+        {% endfor %}
+        {% if matched %}
+          {% assign related = related | push: post %}
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+
+    {% if related.size == 0 %}
       {% for post in pool %}
         {% unless post.url == page.url %}
-          {% assign matched = false %}
-          {% for tag in page.tags %}
-            {% if post.tags contains tag %}
-              {% assign matched = true %}
-            {% endif %}
-          {% endfor %}
-          {% if matched %}
-            {% assign related = related | push: post %}
-          {% endif %}
+          {% assign related = related | push: post %}
         {% endunless %}
       {% endfor %}
-
-      {% if related.size == 0 %}
-        {% for post in pool %}
-          {% unless post.url == page.url %}
-            {% assign related = related | push: post %}
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
-
-      {% if related.size > 0 %}
-        <aside class="also-read">
-          <h2 class="also-read-heading">Also read</h2>
-          <ul class="also-read-list">
-            {% for post in related limit: 3 %}
-              <li class="also-read-item">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                <span class="also-read-date">{{ post.date | date: "%-d %b %Y" }}</span>
-              </li>
-            {% endfor %}
-          </ul>
-        </aside>
-      {% endif %}
     {% endif %}
-  </article>
-</section>
+
+    {% if related.size > 0 %}
+      <aside class="also-read">
+        <p class="also-read-heading">Also read</p>
+        <div class="rows also-read-list">
+          {% for post in related limit: 3 %}
+            <a href="{{ post.url | relative_url }}" class="row">
+              <span class="row-title">{{ post.title }}</span>
+              <span class="row-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </aside>
+    {% endif %}
+  {% endif %}
+</article>

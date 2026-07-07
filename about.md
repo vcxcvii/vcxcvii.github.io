@@ -2,7 +2,6 @@
 title: About
 intro: Marketing operator in B2B SaaS, speaker, author, podcast host, and lifelong side-quest enthusiast.
 page_class: about-page
-hide_about_sidebar: true
 mcp: true
 ---
 <div class="about-portrait-wrap">

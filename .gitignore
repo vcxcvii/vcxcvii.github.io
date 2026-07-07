@@ -4,3 +4,7 @@ vendor/bundle/
 _site/
 .jekyll-cache/
 .DS_Store
+frontend/node_modules/
+frontend/dist/
+assets/js/nav.js
+assets/css/nav.css

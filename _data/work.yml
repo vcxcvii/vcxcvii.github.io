@@ -1,0 +1,26 @@
+- period: "2026 - now"
+  company: GTM Buddy
+  company_url: https://gtmbuddy.ai/
+  title: Senior Manager, Marketing
+  summary: "Creating a new category: Revenue Activation. Leading a team of 3 across design, data ops, and demand gen, and making the marketing function AI-first in every workflow."
+  open: true
+- period: "2024 - 2026"
+  company: Freshworks
+  company_url: https://www.freshworks.com/
+  title: Lead, Product Marketing
+  summary: "PLG expansion campaigns driving six-figure expansion ARR. Built Freddy Sidekick, a custom GPT for 40 PMMs. Ran \"Switch to Freshsales\" campaigns against tier-1 competitors."
+- period: "2019 - 2024"
+  company: Vymo
+  company_url: https://vymo.com/
+  title: Product Marketing
+  summary: "Founding member of the PMM function. Led packaging, messaging, and positioning for BFSI verticals, then relocated to Chicago to lead product marketing for the US & Canada market entry."
+- period: "2016 - 2019"
+  company: WiseWords
+  company_url: https://web.archive.org/web/20180826201555/https://wisewordspro.com/
+  title: Co-founder & CEO
+  summary: "Student founder at 19. Grew a design and content studio serving 25+ brands, from freelance gigs on Fiverr to enterprise clients."
+- period: someday
+  company: "Your company?"
+  title: ""
+  summary: "If you're building something cool in AI or B2B, let me help you market the sh*t out of it."
+  cal: true

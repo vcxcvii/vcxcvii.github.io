@@ -1,10 +1,16 @@
+- label: "~"
+  url: /
 - label: /about
   url: /about/
 - label: /work
   url: /work/
-- label: /fun
-  url: /fun/
 - label: /notes
   url: /blog/
+- label: /fun
+  url: /fun/
 - label: /side-quests
   url: /side-quests/
+- label: /uses-this
+  url: /uses-this/
+- label: /changelog
+  url: /changelog/

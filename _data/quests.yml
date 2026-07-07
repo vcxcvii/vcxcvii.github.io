@@ -1,0 +1,12 @@
+- name: master-shifu
+  icon: github
+  link: https://github.com/vcxcvii/master-shifu
+  description: Consulting case framework skills for AI agents. 32 frameworks extracted from 19 MBA casebooks.
+- name: michealangelo
+  icon: github
+  link: https://github.com/vcxcvii/michealangelo
+  description: Self-improving design-system skills for AI coding agents.
+- name: MCP server
+  icon: mcp
+  link: https://varunchoraria.com/mcp/
+  description: Any MCP-compatible AI client can read this site's posts and pages directly. Live, not from training data.

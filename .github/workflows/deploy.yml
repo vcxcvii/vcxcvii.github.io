@@ -28,6 +28,17 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+      - name: Build nav component
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
       - name: Validate posts
         run: ruby _scripts/validate-posts.rb
       - name: Build with Jekyll

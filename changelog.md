@@ -2,11 +2,28 @@
 title: Changelog
 description: A running log of what changed on this site and why.
 intro: Every update to varunchoraria.com — what changed, what shipped, and the reasoning behind it.
-no_sidebar: true
 mcp: true
 ---
 
 A running log of what changed on this site and why. The goal is to be honest about the decisions behind how this site evolves.
+
+---
+
+### 7 July 2026
+
+**Full typographic redesign, a real shadcn nav, and two features cut on purpose**
+
+The site relaunched with a new visual language: narrow single column, quiet monochrome base, small colored accents, lowercase section headers. Every page — home, about, work, blog and post pages, archive, tags, side quests, uses-this, changelog, disclaimer, fun, 404 — was rebuilt against a single tokenized stylesheet and a machine-readable `DESIGN.md` that now reflects it.
+
+**Nav is a real React component, not a lookalike** — the top nav is now an actual shadcn `NavigationMenu` (Radix primitives, Tailwind, built with Vite) living in `frontend/`, compiled in CI and mounted client-side. A server-rendered fallback nav — plain Liquid, real `<a href>` links — sits underneath and is always in the HTML, so crawlers and no-JS visitors still get working navigation while the React version progressively enhances on top. Both read from the same `_data/navigation.yml`.
+
+**MCP nudge toast: removed.** The floating "connect an AI agent" card added friction without earning its keep. Gone.
+
+**Email subscribe: removed, not just hidden.** The plan is a Resend-API agent that emails subscribers new posts — but that needs somewhere to store subscriber emails, and this repo is public. Storing PII in it isn't an option. Parked until there's a private store for it; the half-built form came out rather than sit there implying a feature that doesn't work.
+
+**Footer now shows a live version count** — `v{{ n }} · updated {{ date }}`, computed at build time by counting this file's own `### ` headings, linking to `/changelog/`. No hardcoded version number to forget to bump.
+
+**Mobile pass** — nav scrolls horizontally instead of wrapping on narrow screens, the work timeline stacks its date above the title below 640px, hero/footer/section headers reflow cleanly down to 375px.
 
 ---
 

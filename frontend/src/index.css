@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Mapped 1:1 to DESIGN.md tokens (assets/css/style.scss :root) so this
+   component matches the hand-written half of the site instead of shadcn's
+   default zinc/slate palette. */
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #09090b;
+  --border: #e4e4e7;
+  --link: #0000ff;
+  --radius: 0.5rem;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-link: var(--link);
+  --radius-md: var(--radius);
+  --font-mono: var(--font-mono);
+}

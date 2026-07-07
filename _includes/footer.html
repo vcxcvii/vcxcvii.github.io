@@ -24,58 +24,17 @@
 }
 </script>
 
+{% assign changelog_doc = site.pages | where: "url", "/changelog/" | first %}
+{% assign entries = changelog_doc.content | split: '<h3 id="' %}
+{% assign entry_count = entries.size | minus: 1 %}
+{% assign latest_after_id = entries[1] | split: '">' %}
+{% assign latest_entry = latest_after_id[1] | split: "</h3>" | first %}
+
 <footer id="site-footer">
-  <div class="footer-inner">
-
-    <nav class="footer-nav" aria-label="Footer navigation">
-
-      <div class="footer-col">
-        <p class="footer-col-label">Explore</p>
-        <ul class="footer-links">
-          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-          <li><a href="{{ '/work/' | relative_url }}">Work</a></li>
-          <li><a href="{{ '/blog/' | relative_url }}">Notes</a></li>
-          <li><a href="{{ '/fun/' | relative_url }}">Fun</a></li>
-          <li><a href="{{ '/side-quests/' | relative_url }}">Side quests</a></li>
-          <li><a href="{{ '/uses-this/' | relative_url }}">Uses this</a></li>
-          <li><a href="{{ '/changelog/' | relative_url }}">Changelog</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-label">Elsewhere</p>
-        <ul class="footer-links">
-          {% for link in site.data.elsewhere %}
-          <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-label">Connect</p>
-        <ul class="footer-links">
-          <li><a href="https://www.linkedin.com/in/varunchoraria/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="https://cal.com/varun-choraria/30min" target="_blank" rel="noopener noreferrer">Book 30 min</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-label">Subscribe</p>
-        <ul class="footer-links">
-          <li><a href="{{ '/feed/' | relative_url }}">RSS feed</a></li>
-          <li><a href="{{ '/mcp/' | relative_url }}">Connect via MCP</a></li>
-          <li><a href="{{ '/llms.txt' | relative_url }}">llms.txt</a></li>
-          <li><a href="{{ '/design.md' | relative_url }}">design.md</a></li>
-        </ul>
-      </div>
-
-    </nav>
-
-    <div class="footer-meta">
-      <span>&copy; {{ site.time | date: "%Y" }} {{ site.title }} &nbsp;&middot;&nbsp; <a href="{{ '/disclaimer/' | relative_url }}" class="footer-disclaimer">Disclaimer</a></span>
-      <span>Maintained by AI — Claude and Codex. Built with <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>, hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>. Analytics by <a href="https://clarity.microsoft.com" target="_blank" rel="noopener">Microsoft Clarity</a> — see the <a href="{{ '/disclaimer/' | relative_url }}">Disclaimer</a>.</span>
-    </div>
-
+  <span>&copy; {{ site.time | date: "%Y" }} Varun Choraria &middot; built by AI, supervised by a human</span>
+  <div class="footer-links">
+    <a href="{{ '/changelog/' | relative_url }}">v{{ entry_count }} &middot; updated {{ latest_entry }}</a>
+    <a href="{{ '/disclaimer/' | relative_url }}">disclaimer</a>
+    <a href="https://github.com/vcxcvii/vcxcvii.github.io" target="_blank" rel="noopener noreferrer">source</a>
   </div>
 </footer>

@@ -1,26 +1,13 @@
 ---
 layout: default
 ---
-<section id="primary"{% if page.page_class %} class="{{ page.page_class | escape }}"{% endif %}>
-  {% assign page_eyebrow = page.eyebrow | default: page.section_label %}
-  {% if page_eyebrow %}
-    <p class="section-label">{{ page_eyebrow }}</p>
-  {% endif %}
+<article class="page-shell{% if page.page_class %} {{ page.page_class }}{% endif %}">
+  <header class="page-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.intro %}<p class="intro-note">{{ page.intro }}</p>{% endif %}
+  </header>
 
-  <article class="page-shell">
-    <header class="page-header">
-      <h1>{{ page.title }}</h1>
-      {% if page.intro %}
-        <p class="intro-note">{{ page.intro }}</p>
-      {% endif %}
-    </header>
-
-    <div class="prose">
-      {{ content }}
-    </div>
-  </article>
-</section>
-
-{% unless page.no_sidebar %}
-  {% include sidebar.html %}
-{% endunless %}
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

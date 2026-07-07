@@ -1,25 +1,21 @@
 ---
 layout: default
 ---
-<section id="primary" class="tag-archive-page">
-  <p class="section-label">Tag</p>
+{% assign none = "" | split: "" %}
+{% assign tagged = site.tags[page.tag] | default: none | sort: "date" | reverse %}
 
-  {% assign none = "" | split: "" %}
-  {% assign tagged = site.tags[page.tag] | default: none | sort: "date" | reverse %}
+<article class="page-shell">
+  <header class="page-header">
+    <h1>{{ page.title }}</h1>
+    <p class="intro-note">{{ tagged.size }} post{% if tagged.size != 1 %}s{% endif %} tagged <strong>{{ page.tag }}</strong>.</p>
+  </header>
 
-  <article class="page-shell">
-    <header class="page-header">
-      <h1>{{ page.title }}</h1>
-      <p class="intro-note">{{ tagged.size }} post{% if tagged.size != 1 %}s{% endif %} tagged <strong>{{ page.tag }}</strong>.</p>
-    </header>
-
-    <ul class="archive-list">
-      {% for item in tagged %}
-        <li>
-          <span class="archive-date">{{ item.date | date: "%d %b %Y" }}</span>
-          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </article>
-</section>
+  <div class="rows">
+    {% for item in tagged %}
+      <a href="{{ item.url | relative_url }}" class="row">
+        <span class="row-title">{{ item.title }}</span>
+        <span class="row-date">{{ item.date | date: "%b %-d, %Y" }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</article>
