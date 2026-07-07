@@ -10,7 +10,7 @@ require "yaml"
 require "date"
 
 VALID_LAYOUTS  = %w[default page home side-quests tags none].freeze
-UTILITY_PATHS  = %w[feed/ mcp/ api/ blog/ archive/ tags/ _site/ _includes/ _layouts/].freeze
+UTILITY_PATHS  = %w[feed/ mcp/ api/ blog/ archive/ tags/ _site/ _includes/ _layouts/ frontend/].freeze
 SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
