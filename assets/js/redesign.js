@@ -1,23 +1,47 @@
 (function () {
-  document.querySelectorAll('.site-menu summary, .site-more summary').forEach(function (s) {
-    s.addEventListener('click', function (e) {
+  var nav = document.getElementById('site-nav');
+
+  function closeAll() {
+    var btn = nav.querySelector('.site-menu-btn');
+    var panel = nav.querySelector('.site-menu-panel');
+    var more = nav.querySelector('.site-more');
+    if (btn) btn.classList.remove('is-open');
+    if (panel) panel.classList.remove('is-open');
+    if (more) more.open = false;
+  }
+
+  function toggleMenu() {
+    var btn = nav.querySelector('.site-menu-btn');
+    var panel = nav.querySelector('.site-menu-panel');
+    var more = nav.querySelector('.site-more');
+    if (more) more.open = false;
+    if (!btn || !panel) return;
+    var was = panel.classList.contains('is-open');
+    panel.classList.toggle('is-open');
+    btn.classList.toggle('is-open');
+  }
+
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('.site-menu-btn')) {
       e.preventDefault();
-      var d = this.closest('details');
-      if (!d) return;
-      var was = d.open;
-      document.querySelectorAll('#site-nav details').forEach(function (x) { x.open = false; });
-      if (!was) d.open = true;
-    });
+      toggleMenu();
+      return;
+    }
   });
 
   document.addEventListener('click', function (e) {
-    if (e.target.closest('#site-nav summary')) return;
-    document.querySelectorAll('#site-nav details').forEach(function (d) { d.open = false; });
+    if (e.target.closest('#site-nav .site-menu-btn, #site-nav .site-more summary, #site-nav .site-menu-panel, #site-nav .site-more-panel')) return;
+    var btn = nav.querySelector('.site-menu-btn');
+    var panel = nav.querySelector('.site-menu-panel');
+    var more = nav.querySelector('.site-more');
+    if (btn) btn.classList.remove('is-open');
+    if (panel) panel.classList.remove('is-open');
+    if (more) more.open = false;
   });
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
-    document.querySelectorAll('#site-nav details').forEach(function (d) { d.open = false; });
+    closeAll();
   });
 
   document.querySelectorAll('[data-filter-tabs]').forEach(function (tabs) {
