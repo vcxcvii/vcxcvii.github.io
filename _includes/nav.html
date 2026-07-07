@@ -3,7 +3,7 @@
   <a href="{{ '/' | relative_url }}" class="nav-home-avatar" aria-label="Home">
     <img src="{{ '/assets/images/favicon.png' | relative_url }}" alt="" width="44" height="44" fetchpriority="low">
   </a>
-  <button class="site-menu-btn" aria-label="Menu">menu</button>
+  <button class="site-menu-btn" aria-label="Menu" type="button">menu</button>
   <div class="site-menu-panel">
     {% for item in site.data.navigation %}
       <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
