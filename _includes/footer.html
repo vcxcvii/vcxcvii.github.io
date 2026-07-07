@@ -46,13 +46,3 @@
     <a href="https://github.com/vcxcvii/vcxcvii.github.io" target="_blank" rel="noopener noreferrer">source</a>
   </div>
 </footer>
-<script>
-document.addEventListener('click',function(e){
-  var m=document.querySelector('.site-menu'),x=document.querySelector('.site-more');
-  if(m&&!m.contains(e.target))m.open=false;
-  if(x&&!x.contains(e.target))x.open=false;
-});
-document.querySelectorAll('.site-menu-panel a,.site-more-panel a').forEach(function(l){
-  l.addEventListener('click',function(){this.closest('details').open=false});
-});
-</script>
