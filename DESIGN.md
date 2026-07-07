@@ -12,10 +12,10 @@ Machine-readable design system for varunchoraria.com. Every visual decision live
 - Page background: #ffffff
 - Content column: max-width 640px, centered, padding 72px 24px 48px (top/side/bottom)
 - Section spacing: 56px margin-bottom between sections
-- Nav bar: first element on every page; compact text links in the style of shadcn `NavigationMenu`: `home`, `about`, `work`, `notes`, `fun`, then a `more` trigger for secondary links. `more` contains `side quests`, `uses this`, `disclaimer`, and `changelog`. No slash prefixes. Desktop uses a native `<details>` dropdown for `more`; mobile uses one native `menu` dropdown with all links. `_data/navigation.yml` remains the single source of truth. No React island or nav bundle in the Jekyll build.
+- Nav bar: first element on every page; starts with a circular profile-image home link, followed by compact text links in the style of shadcn `NavigationMenu`: `home`, `about`, `work`, `notes`, `fun`, then a `more` trigger for secondary links. `more` contains `side quests`, `uses this`, `disclaimer`, and `changelog`. No slash prefixes. Desktop uses a native `<details>` dropdown for `more`; mobile uses one native `menu` dropdown with all links. `_data/navigation.yml` remains the single source of truth. No React island or nav bundle in the Jekyll build.
 - GitHub contributions card breaks out of the column: margin 0 -56px (desktop). Chart uses link-blue and the card scrolls horizontally when the graph is wider than the viewport.
 - Sections use lowercase h2 headers ending in a colored period, e.g. `notes<span class="dot dot-notes">.</span>`
-- Mobile: content column breakpoints at 640px (timeline period stacks above title instead of beside it, row text no longer forces min-width) and 480px (hero/footer/section-head stack, GitHub card breakout collapses to column width). Touch targets stay >= 34px.
+- Mobile: content column breakpoints at 640px (timeline period stacks above title instead of beside it, row text no longer forces min-width) and 480px (hero/footer/section-head stack, GitHub card becomes an inset 16px-from-viewport card with horizontal graph scrolling). Touch targets stay >= 34px.
 
 ## Typography
 - UI/body font: system stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif (no webfonts)
@@ -73,6 +73,7 @@ Punctuation must sit flush against pills (no whitespace between the closing tag 
 - Card (contributions): padding 18px, border #e4e4e7, radius 12px; hover border #a1a1aa
 - Timeline: 2px #f4f4f5 left rule; 12px dots (open: accent; closed: white with 2px #d4d4d8 border); period column 96px mono (stacks above title under 640px); accordion, one item open, chevron rotates 180deg in 0.2s
 - Nav: see Layout section above (native Liquid links, desktop `more` dropdown, mobile `menu` dropdown)
+- Nav avatar: 38x38 circular home link using `/assets/images/profile-home.png`; image also serves as the PNG favicon and apple touch icon.
 - Footer version line: mono, `v{{ changelog entry count }} · updated {{ latest changelog date }}`, links to /changelog/. Computed live from `changelog.md`'s `### <date>` headings at build time — never hardcoded.
 
 ## Motion

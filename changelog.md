@@ -29,6 +29,8 @@ The site relaunched with a new visual language: narrow single column, quiet mono
 
 **Feedback pass** — `more` now includes disclaimer and changelog, tag filters and post badges use the same bordered chip component, muted mono text is darker across the site, and the GitHub contributions graph is link-blue with horizontal scrolling on small screens.
 
+**Profile home mark** — the profile image is now the site favicon and a persistent nav avatar on every page, linking back home.
+
 ---
 
 ### 28 June 2026
