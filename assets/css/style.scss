@@ -254,30 +254,23 @@ h2.section-title,
   font-size: 14px;
 }
 
-.nav-home-avatar {
+.nav-home-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1.5px solid var(--color-border);
   text-decoration: none;
   flex: 0 0 auto;
-  transition: border-color 0.15s;
-  overflow: hidden;
+  color: var(--color-text);
+  transition: background 0.15s, color 0.15s;
 }
 
-.nav-home-avatar:hover {
-  border-color: var(--color-border-dark);
-}
-
-.nav-home-avatar img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
+.nav-home-icon:hover {
+  background: var(--color-fill);
+  color: var(--color-heading);
 }
 
 .site-menu,

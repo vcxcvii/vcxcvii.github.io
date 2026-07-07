@@ -1,15 +1,23 @@
 (function () {
-  document.addEventListener('click', function (e) {
-    document.querySelectorAll('#site-nav details[open]').forEach(function (details) {
-      if (!details.contains(e.target)) details.open = false;
+  document.querySelectorAll('.site-menu summary, .site-more summary').forEach(function (s) {
+    s.addEventListener('click', function (e) {
+      e.preventDefault();
+      var d = this.closest('details');
+      if (!d) return;
+      var was = d.open;
+      document.querySelectorAll('#site-nav details').forEach(function (x) { x.open = false; });
+      if (!was) d.open = true;
     });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#site-nav summary')) return;
+    document.querySelectorAll('#site-nav details').forEach(function (d) { d.open = false; });
   });
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
-    document.querySelectorAll('#site-nav details[open]').forEach(function (details) {
-      details.open = false;
-    });
+    document.querySelectorAll('#site-nav details').forEach(function (d) { d.open = false; });
   });
 
   document.querySelectorAll('[data-filter-tabs]').forEach(function (tabs) {
