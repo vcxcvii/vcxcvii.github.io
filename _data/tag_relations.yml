@@ -1,0 +1,45 @@
+ai:
+  - frameworks
+  - strategy
+  - management
+analytics:
+  - product
+  - growth
+  - strategy
+career:
+  - leadership
+  - strategy
+communication:
+  - career
+  - leadership
+frameworks:
+  - strategy
+  - product
+  - ai
+growth:
+  - product
+  - analytics
+  - sales
+leadership:
+  - management
+  - career
+  - communication
+management:
+  - leadership
+  - strategy
+  - ai
+product:
+  - analytics
+  - growth
+  - product-marketing
+product-marketing:
+  - product
+  - growth
+  - sales
+sales:
+  - growth
+  - product-marketing
+strategy:
+  - leadership
+  - management
+  - frameworks

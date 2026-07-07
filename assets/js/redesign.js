@@ -13,7 +13,8 @@
       var filter = btn.dataset.filter;
       rows.forEach(function (row) {
         var tags = row.dataset.tags ? row.dataset.tags.split(',') : [];
-        row.style.display = (filter === 'all' || tags.indexOf(filter) !== -1) ? '' : 'none';
+        var visible = filter === 'all' || tags.indexOf(filter) !== -1;
+        row.hidden = !visible;
       });
     });
   });

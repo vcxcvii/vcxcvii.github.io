@@ -37,7 +37,7 @@ layout: default
       <ul class="entry-tags" aria-label="Tags">
         {% for tag in page.tags %}
           {% assign tag_slug = tag | slugify %}
-          <li><a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">#{{ tag }}</a></li>
+          <li><a class="badge" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a></li>
         {% endfor %}
       </ul>
     {% endif %}
@@ -50,24 +50,78 @@ layout: default
   {% if page.tags and page.tags.size > 0 %}
     {% assign pool = site.posts | sort: "date" | reverse %}
     {% assign related = "" | split: "" %}
+    {% assign seen_related = "|" | append: page.url | append: "|" %}
+    {% assign primary_tag = page.tags | first %}
+
     {% for post in pool %}
       {% unless post.url == page.url %}
+        {% assign post_key = "|" | append: post.url | append: "|" %}
+        {% if post.tags contains primary_tag %}
+          {% unless seen_related contains post_key %}
+            {% assign related = related | push: post %}
+            {% assign seen_related = seen_related | append: post.url | append: "|" %}
+          {% endunless %}
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+
+    {% for post in pool %}
+      {% unless post.url == page.url %}
+        {% assign post_key = "|" | append: post.url | append: "|" %}
         {% assign matched = false %}
-        {% for tag in page.tags %}
+        {% for tag in page.tags offset: 1 %}
           {% if post.tags contains tag %}
             {% assign matched = true %}
           {% endif %}
         {% endfor %}
         {% if matched %}
-          {% assign related = related | push: post %}
+          {% unless seen_related contains post_key %}
+            {% assign related = related | push: post %}
+            {% assign seen_related = seen_related | append: post.url | append: "|" %}
+          {% endunless %}
         {% endif %}
       {% endunless %}
     {% endfor %}
 
-    {% if related.size == 0 %}
+    {% if related.size < 3 %}
+      {% assign related_tags = "" | split: "" %}
+      {% for tag in page.tags %}
+        {% assign tag_relations = site.data.tag_relations[tag] | default: empty %}
+        {% for related_tag in tag_relations %}
+          {% unless page.tags contains related_tag %}
+            {% unless related_tags contains related_tag %}
+              {% assign related_tags = related_tags | push: related_tag %}
+            {% endunless %}
+          {% endunless %}
+        {% endfor %}
+      {% endfor %}
       {% for post in pool %}
         {% unless post.url == page.url %}
-          {% assign related = related | push: post %}
+          {% assign post_key = "|" | append: post.url | append: "|" %}
+          {% assign matched = false %}
+          {% for tag in related_tags %}
+            {% if post.tags contains tag %}
+              {% assign matched = true %}
+            {% endif %}
+          {% endfor %}
+          {% if matched %}
+            {% unless seen_related contains post_key %}
+              {% assign related = related | push: post %}
+              {% assign seen_related = seen_related | append: post.url | append: "|" %}
+            {% endunless %}
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+
+    {% if related.size < 3 %}
+      {% for post in pool %}
+        {% unless post.url == page.url %}
+          {% assign post_key = "|" | append: post.url | append: "|" %}
+          {% unless seen_related contains post_key %}
+            {% assign related = related | push: post %}
+            {% assign seen_related = seen_related | append: post.url | append: "|" %}
+          {% endunless %}
         {% endunless %}
       {% endfor %}
     {% endif %}

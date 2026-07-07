@@ -12,7 +12,7 @@ Machine-readable design system for varunchoraria.com. Every visual decision live
 - Page background: #ffffff
 - Content column: max-width 640px, centered, padding 72px 24px 48px (top/side/bottom)
 - Section spacing: 56px margin-bottom between sections
-- Nav bar: first element on every page; mono 13px slash-path links (/about /work /notes /fun /side-quests /uses-this /changelog) in link-blue, margin-bottom 48px. **Implementation is a progressive-enhancement pair**: a server-rendered Liquid `<nav data-nav-fallback>` (real `<a href>` links, always in the HTML, what crawlers/no-JS see) plus a real shadcn/Radix `NavigationMenu` React island (`frontend/`, built by Vite into `assets/js/nav.js` + `assets/css/nav.css`, mounted into `#nav-root`) that replaces the fallback once it loads. On desktop it's a single row; on narrow viewports it scrolls horizontally instead of wrapping (`#nav-root { overflow-x: auto }`). The React build reads the same `_data/navigation.yml` as the fallback via a `<script type="application/json" id="nav-data">` Jekyll renders — one source of truth for both paths. CI (`.github/workflows/deploy.yml`) runs `npm ci && npm run build` in `frontend/` before the Jekyll build step; nothing compiled is committed to git.
+- Nav bar: first element on every page; mono 13px slash-path links (/about /work /notes /fun /side-quests /uses-this /changelog) in link-blue, margin-bottom 48px. Implementation is server-rendered Liquid only: native `<details>` on mobile and direct inline links on desktop. No React island, no nav bundle, no duplicate fallback path. `_data/navigation.yml` remains the single source of truth.
 - GitHub contributions card breaks out of the column: margin 0 -56px (desktop)
 - Sections use lowercase h2 headers ending in a colored period, e.g. `notes<span class="dot dot-notes">.</span>`
 - Mobile: content column breakpoints at 640px (timeline period stacks above title instead of beside it, row text no longer forces min-width) and 480px (hero/footer/section-head stack, GitHub card breakout collapses to column width). Touch targets stay >= 34px.
@@ -71,7 +71,7 @@ Punctuation must sit flush against pills (no whitespace between the closing tag 
 - List row: padding 11px 12px with negative side margin so hover bg extends past text; hover bg #fafafa
 - Card (contributions): padding 18px, border #e4e4e7, radius 12px; hover border #a1a1aa
 - Timeline: 2px #f4f4f5 left rule; 12px dots (open: accent; closed: white with 2px #d4d4d8 border); period column 96px mono (stacks above title under 640px); accordion, one item open, chevron rotates 180deg in 0.2s
-- Nav: see Layout section above (shadcn/Radix `NavigationMenu` React island over a server-rendered fallback)
+- Nav: see Layout section above (native Liquid `<details>` mobile menu, inline desktop links)
 - Footer version line: mono, `v{{ changelog entry count }} · updated {{ latest changelog date }}`, links to /changelog/. Computed live from `changelog.md`'s `### <date>` headings at build time — never hardcoded.
 
 ## Motion

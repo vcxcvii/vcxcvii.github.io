@@ -27,8 +27,16 @@
 {% assign changelog_doc = site.pages | where: "url", "/changelog/" | first %}
 {% assign entries = changelog_doc.content | split: '<h3 id="' %}
 {% assign entry_count = entries.size | minus: 1 %}
-{% assign latest_after_id = entries[1] | split: '">' %}
-{% assign latest_entry = latest_after_id[1] | split: "</h3>" | first %}
+{% if entry_count > 0 %}
+  {% assign latest_after_id = entries[1] | split: '">' %}
+  {% assign latest_entry = latest_after_id[1] | split: "</h3>" | first %}
+{% else %}
+  {% assign entries = changelog_doc.content | split: '### ' %}
+  {% assign entry_count = entries.size | minus: 1 %}
+  {% capture newline %}
+{% endcapture %}
+  {% assign latest_entry = entries[1] | split: newline | first %}
+{% endif %}
 
 <footer id="site-footer">
   <span>&copy; {{ site.time | date: "%Y" }} Varun Choraria &middot; built by AI, supervised by a human</span>

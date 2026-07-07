@@ -1,8 +1,11 @@
 {% assign current_url = page.url | remove: 'index.html' %}
-<nav id="site-nav" aria-label="Primary" data-nav-fallback>
-  {% for item in site.data.navigation %}
-    <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
-  {% endfor %}
+<nav id="site-nav" aria-label="Primary">
+  <details class="site-menu">
+    <summary>menu</summary>
+  </details>
+  <div class="site-menu-links">
+    {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
+    {% endfor %}
+  </div>
 </nav>
-<div id="nav-root" aria-label="Primary" hidden></div>
-<script type="application/json" id="nav-data">{{ site.data.navigation | jsonify }}</script>
