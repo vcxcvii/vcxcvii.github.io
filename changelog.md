@@ -17,6 +17,8 @@ The site relaunched with a new visual language: narrow single column, quiet mono
 
 **Nav is native again** — the top nav is now plain Liquid and CSS: inline links on desktop, native `<details>` menu on mobile. No React bundle, no hydration path, no ghost dropdown. It still reads from `_data/navigation.yml`.
 
+**Nav revised again** — slash-prefixed labels are gone. Desktop now follows the compact shadcn-style pattern used by Aniket Pawar: primary text links plus a `more` dropdown. Mobile keeps a separate native `menu` dropdown so desktop and mobile states cannot conflict.
+
 **MCP nudge toast: removed.** The floating "connect an AI agent" card added friction without earning its keep. Gone.
 
 **Email subscribe: removed, not just hidden.** The plan is a Resend-API agent that emails subscribers new posts — but that needs somewhere to store subscriber emails, and this repo is public. Storing PII in it isn't an option. Parked until there's a private store for it; the half-built form came out rather than sit there implying a feature that doesn't work.

@@ -1,4 +1,17 @@
 (function () {
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('#site-nav details[open]').forEach(function (details) {
+      if (!details.contains(e.target)) details.open = false;
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('#site-nav details[open]').forEach(function (details) {
+      details.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-filter-tabs]').forEach(function (tabs) {
     var section = tabs.closest('.section') || tabs.closest('.page-shell');
     var list = section ? section.querySelector('[data-filter-list]') : null;

@@ -247,68 +247,120 @@ h2.section-title,
 
 #site-nav {
   margin-bottom: 48px;
-  font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
 }
 
-.site-menu {
+.site-menu,
+.site-more {
   position: relative;
 }
 
-.site-menu summary {
+.site-menu summary,
+.site-more summary {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 5px 10px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--r-btn);
-  color: var(--color-heading);
+  gap: 5px;
+  min-height: 32px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--color-secondary);
   cursor: pointer;
   list-style: none;
   user-select: none;
+  transition: background 0.15s, color 0.15s;
 }
 
-.site-menu summary::-webkit-details-marker {
+.site-menu summary {
+  border: 1px solid var(--color-border);
+  color: var(--color-heading);
+}
+
+.site-menu summary::-webkit-details-marker,
+.site-more summary::-webkit-details-marker {
   display: none;
 }
 
-.site-menu summary::after {
+.site-menu summary::after,
+.site-more summary::after {
   content: "";
-  width: 6px;
-  height: 6px;
-  margin-left: 9px;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
+  width: 5px;
+  height: 5px;
+  border-right: 1.25px solid currentColor;
+  border-bottom: 1.25px solid currentColor;
   transform: translateY(-2px) rotate(45deg);
   transition: transform 0.15s;
 }
 
-.site-menu[open] summary::after {
+.site-menu[open] summary::after,
+.site-more[open] summary::after {
   transform: translateY(1px) rotate(225deg);
+}
+
+.site-menu-panel,
+.site-more-panel {
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 10px;
+  padding: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-btn);
+  background: var(--color-bg);
+  box-shadow: 0 8px 24px rgba(9, 9, 11, 0.08);
+}
+
+.site-menu-panel {
+  display: none;
+}
+
+.site-menu[open] .site-menu-panel {
+  display: flex;
 }
 
 .site-menu-links {
   display: none;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--r-btn);
-  background: var(--color-bg);
 }
 
-.site-menu[open] + .site-menu-links {
-  display: flex;
+.site-menu-panel a,
+.site-menu-links a,
+.site-more-panel a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--color-secondary);
+  text-decoration-line: none;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
 }
 
-.site-menu-links a {
-  text-decoration-color: rgba(0, 0, 255, 0.3);
+.site-menu-panel a:visited,
+.site-menu-links a:visited,
+.site-more-panel a:visited {
+  color: var(--color-secondary);
 }
 
-.site-menu-links a.is-active {
+.site-menu-panel a:hover,
+.site-menu-links a:hover,
+.site-more-panel a:hover,
+.site-more summary:hover {
+  background: var(--color-surface);
+  color: var(--color-heading);
+  text-decoration-line: none;
+}
+
+.site-menu-panel a.is-active,
+.site-menu-links a.is-active,
+.site-more-panel a.is-active {
+  background: var(--color-fill);
+  color: var(--color-heading);
   font-weight: 600;
-  text-decoration-color: var(--color-link);
+}
+
+.site-menu-panel a.is-active:visited,
+.site-menu-links a.is-active:visited,
+.site-more-panel a.is-active:visited {
+  color: var(--color-heading);
 }
 
 @media (min-width: 641px) {
@@ -326,7 +378,7 @@ h2.section-title,
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     margin-top: 0;
     padding: 0;
     border: 0;
@@ -334,40 +386,21 @@ h2.section-title,
     scrollbar-width: none;
   }
 
-  .site-menu-links a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 30px;
-    padding: 3px 6px;
-    border-radius: var(--r-btn);
-    color: var(--color-secondary);
-    text-decoration-line: none;
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-  }
-
   .site-menu-links::-webkit-scrollbar {
     display: none;
   }
 
-  .site-menu-links a:visited {
-    color: var(--color-secondary);
-    text-decoration-line: none;
+  .site-more-panel {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 10;
+    min-width: 152px;
   }
 
-  .site-menu-links a:hover {
-    background: var(--color-surface);
-    color: var(--color-link);
-  }
-
-  .site-menu-links a.is-active {
-    background: var(--color-fill);
-    color: var(--color-heading);
-    text-decoration-line: none;
-  }
-
-  .site-menu-links a.is-active:visited {
-    color: var(--color-heading);
+  .site-more[open] .site-more-panel {
+    display: flex;
   }
 }
 

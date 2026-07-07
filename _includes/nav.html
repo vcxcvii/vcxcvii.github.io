@@ -2,10 +2,23 @@
 <nav id="site-nav" aria-label="Primary">
   <details class="site-menu">
     <summary>menu</summary>
+    <div class="site-menu-panel">
+      {% for item in site.data.navigation %}
+        <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </div>
   </details>
   <div class="site-menu-links">
-    {% for item in site.data.navigation %}
+    {% for item in site.data.navigation limit: 5 %}
       <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
     {% endfor %}
+    <details class="site-more">
+      <summary>more</summary>
+      <div class="site-more-panel">
+        {% for item in site.data.navigation offset: 5 %}
+          <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </div>
+    </details>
   </div>
 </nav>
