@@ -27,6 +27,8 @@ The site relaunched with a new visual language: narrow single column, quiet mono
 
 **Mobile pass** — nav uses a native mobile menu below 640px, the work timeline stacks its date above the title, hero/footer/section headers reflow cleanly down to 375px.
 
+**Feedback pass** — `more` now includes disclaimer and changelog, tag filters and post badges use the same bordered chip component, muted mono text is darker across the site, and the GitHub contributions graph is link-blue with horizontal scrolling on small screens.
+
 ---
 
 ### 28 June 2026

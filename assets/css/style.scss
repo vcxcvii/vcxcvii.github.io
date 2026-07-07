@@ -16,10 +16,10 @@
   /* text */
   --color-heading: #09090b;
   --color-text: #3f3f46;
-  --color-secondary: #52525b;
-  --color-text-muted: #71717a;
-  --color-faint: #a1a1aa;
-  --color-entry-meta: #a1a1aa;
+  --color-secondary: #3f3f46;
+  --color-text-muted: #52525b;
+  --color-faint: #71717a;
+  --color-entry-meta: #71717a;
 
   /* links */
   --color-link: #0000ff;
@@ -518,6 +518,9 @@ h2.section-title,
   border: 1px solid var(--color-border);
   border-radius: var(--r-card);
   text-decoration: none;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-dark) transparent;
   transition: border-color 0.15s;
 }
 
@@ -525,8 +528,22 @@ h2.section-title,
   border-color: var(--color-faint);
 }
 
+.gh-card::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gh-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gh-card::-webkit-scrollbar-thumb {
+  background: var(--color-border-dark);
+  border-radius: 999px;
+}
+
 .gh-graph {
-  width: 100%;
+  width: max(100%, 680px);
+  max-width: none;
 }
 
 .gh-meta {
@@ -607,25 +624,33 @@ h2.section-title,
 
 .tabs {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .tab {
-  border: none;
+  border: 1px solid var(--color-border);
   cursor: pointer;
-  padding: 4px 11px;
-  border-radius: var(--r-tab);
-  background: transparent;
-  color: var(--color-faint);
-  font-size: 12.5px;
+  min-height: 30px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--color-bg);
+  color: var(--color-secondary);
+  font-size: 12px;
   font-weight: 500;
   font-family: var(--font-mono);
-  transition: all 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.tab:hover {
+  background: var(--color-surface);
+  border-color: var(--color-border-dark);
+  color: var(--color-heading);
 }
 
 .tab.is-active {
   background: var(--color-accent);
+  border-color: var(--color-accent);
   color: #ffffff;
 }
 
@@ -839,11 +864,11 @@ h2.section-title,
 .badge {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
-  padding: 2px 9px;
+  min-height: 30px;
+  padding: 4px 10px;
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  background: var(--color-surface);
+  background: var(--color-bg);
   color: var(--color-secondary);
   font-family: var(--font-mono);
   font-size: 12px;
