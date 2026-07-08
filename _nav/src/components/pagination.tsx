@@ -19,7 +19,7 @@ function PaginationButton({ className, active, ...props }: PaginationButtonProps
   return (
     <button
       className={cn(
-        "inline-flex h-9 min-w-9 items-center justify-center rounded-[8px] border border-transparent px-3 text-[14px] font-medium text-nav-secondary transition-colors hover:border-nav-border hover:bg-nav-fill hover:text-nav-heading disabled:pointer-events-none disabled:opacity-40",
+        "inline-flex h-9 min-w-9 items-center justify-center rounded-[8px] border border-transparent bg-transparent px-3 text-[14px] font-medium text-nav-secondary transition-colors hover:border-nav-border hover:bg-nav-fill hover:text-nav-heading disabled:pointer-events-none disabled:opacity-40",
         active && "border-nav-border bg-nav-fill text-nav-heading",
         className,
       )}

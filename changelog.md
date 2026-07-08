@@ -11,6 +11,16 @@ A running log of what changed on this site and why.
 
 ### 8 July 2026
 
+**Polished dark-mode regressions**
+
+- Fixed blog filters by enforcing `[hidden] { display: none !important; }`, so list rows cannot override client-side filtering.
+- Reset nav, tabs, and pagination buttons to transparent backgrounds so browser-default button chrome no longer muddies menu contrast.
+- Softened the dark GitHub graph palette and made theme detection work for system-dark fallback, not only explicit `data-theme="dark"`.
+
+---
+
+### 8 July 2026
+
 **Dark mode, hero refresh, filters, pagination, related posts, and tool logos**
 
 - **Dark mode:** added zinc dark mode with a no-FOUC head script, explicit light/dark toggle in the nav, system fallback when JS is disabled, theme-color updates, dark GitHub graph palette, and dark-safe ASCII/image frames.

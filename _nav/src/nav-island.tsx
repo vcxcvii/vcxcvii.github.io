@@ -34,7 +34,7 @@ declare global {
 const PRIMARY_COUNT = 5;
 
 const itemClasses =
-  "inline-flex h-9 items-center justify-center rounded-[8px] px-3 text-[14px] font-medium leading-none no-underline transition-colors";
+  "inline-flex h-9 items-center justify-center rounded-[8px] border border-transparent bg-transparent px-3 text-[14px] font-medium leading-none no-underline transition-colors";
 
 function useIsMobile() {
   const [mobile, setMobile] = React.useState(
@@ -148,7 +148,7 @@ function Nav({ items, current }: { items: NavItem[]; current: string }) {
         aria-label="Toggle dark mode"
         aria-pressed={theme === "dark"}
         onClick={toggleTheme}
-        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-nav-border text-nav-secondary transition-colors hover:border-nav-heading hover:text-nav-heading"
+        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-nav-border bg-transparent text-nav-secondary transition-colors hover:border-nav-heading hover:bg-nav-fill hover:text-nav-heading"
       >
         {theme === "dark" ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
       </button>

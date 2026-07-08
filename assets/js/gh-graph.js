@@ -18,10 +18,13 @@
 
   var CELL = 10, GAP = 3, ROWS = 7;
   var LIGHT_PALETTE = ["#f4f4f5", "#d4d4d8", "#a1a1aa", "#52525b", "#09090b"];
-  var DARK_PALETTE = ["#27272a", "#3f3f46", "#71717a", "#d4d4d8", "#fafafa"];
+  var DARK_PALETTE = ["#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#d4d4d8"];
 
   function palette() {
-    return document.documentElement.getAttribute("data-theme") === "dark"
+    var explicit = document.documentElement.getAttribute("data-theme");
+    var dark = explicit === "dark" ||
+      (!explicit && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    return dark
       ? DARK_PALETTE
       : LIGHT_PALETTE;
   }

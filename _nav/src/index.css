@@ -24,8 +24,8 @@
   --color-nav-border: #3f3f46;
   --color-nav-border-dark: #52525b;
   --color-nav-heading: #fafafa;
-  --color-nav-secondary: #a1a1aa;
-  --color-nav-faint: #71717a;
+  --color-nav-secondary: #d4d4d8;
+  --color-nav-faint: #a1a1aa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,8 +36,8 @@
     --color-nav-border: #3f3f46;
     --color-nav-border-dark: #52525b;
     --color-nav-heading: #fafafa;
-    --color-nav-secondary: #a1a1aa;
-    --color-nav-faint: #71717a;
+    --color-nav-secondary: #d4d4d8;
+    --color-nav-faint: #a1a1aa;
   }
 }
 
@@ -158,11 +158,13 @@
 #nav-root [data-nav-content][data-state="closed"] { animation: nav-out 0.1s ease forwards; }
 
 :root[data-theme="dark"] #nav-root [data-nav-content] {
+  background: var(--color-nav-surface);
   box-shadow: none;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) #nav-root [data-nav-content] {
+    background: var(--color-nav-surface);
     box-shadow: none;
   }
 }
