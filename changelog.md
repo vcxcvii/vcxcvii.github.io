@@ -43,6 +43,10 @@ The `favicon.svg` mark was already monochrome; the PNG favicon doubles as the pr
 
 Most importantly, the **pre-push QA gate now enforces monochrome**: it fails if anyone reintroduces an accent hue (`#0000ff`, the old section/pill colours, etc.), a legacy nav/pill/dot class, the `ghchart` card, its column breakout, or uses the mono font on any UI element. The rule can't quietly rot now — the gate catches it.
 
+**Nav dropdown: switched to a click-based menu that actually stays open**
+
+The first island used Radix `NavigationMenu`, which is hover-driven and self-closes the moment the pointer isn't over it — so clicking `more` made it flash and vanish, with a janky shared-viewport resize animation. Rebuilt the `more`/`menu` dropdown on Radix `DropdownMenu` instead: it opens on click, stays open, and closes on click-away or Escape (keyboard and touch included). It renders without a Portal so it stays inside the island's scoped styles and the strict CSP. Nav links also dropped the global underline — the fill-hover and active states carry the affordance. Verified end to end in a real browser: open/stay/navigate/close, mobile collapse, and pixel-aligned avatar.
+
 ---
 
 ### 7 July 2026

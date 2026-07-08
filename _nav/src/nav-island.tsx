@@ -1,18 +1,21 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { ChevronDown } from "lucide-react";
 import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
-} from "@/components/navigation-menu";
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/dropdown-menu";
+import { cn } from "@/lib/utils";
 import "./index.css";
 
 type NavItem = { label: string; url: string };
 
 const PRIMARY_COUNT = 5;
+
+const itemClasses =
+  "inline-flex h-9 items-center justify-center rounded-[8px] px-3 text-[14px] font-medium leading-none no-underline transition-colors";
 
 function useIsMobile() {
   const [mobile, setMobile] = React.useState(
@@ -33,6 +36,7 @@ function normalize(u: string) {
 
 function Nav({ items, current }: { items: NavItem[]; current: string }) {
   const mobile = useIsMobile();
+  const [open, setOpen] = React.useState(false);
   const cur = normalize(current);
   const primary = items.slice(0, PRIMARY_COUNT);
   const secondary = items.slice(PRIMARY_COUNT);
@@ -50,55 +54,59 @@ function Nav({ items, current }: { items: NavItem[]; current: string }) {
     </a>
   );
 
-  const linkList = (list: NavItem[]) =>
-    list.map((it) => (
-      <NavigationMenuItem key={it.url}>
-        <NavigationMenuLink href={it.url} active={isActive(it.url)}>
-          {it.label}
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-    ));
+  const inlineLink = (it: NavItem) => (
+    <a
+      key={it.url}
+      href={it.url}
+      aria-current={isActive(it.url) ? "page" : undefined}
+      className={cn(
+        itemClasses,
+        isActive(it.url)
+          ? "bg-nav-fill font-semibold text-nav-heading"
+          : "text-nav-secondary hover:bg-nav-fill hover:text-nav-heading",
+      )}
+    >
+      {it.label}
+    </a>
+  );
 
-  const dropdown = (triggerLabel: string, list: NavItem[]) => (
-    <NavigationMenuItem className="group">
-      <NavigationMenuTrigger>{triggerLabel}</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="flex min-w-[180px] flex-col gap-0.5">
-          {list.map((it) => (
-            <li key={it.url}>
-              <NavigationMenuLink
-                href={it.url}
-                active={isActive(it.url)}
-                className="h-9 w-full justify-start whitespace-nowrap"
-              >
-                {it.label}
-              </NavigationMenuLink>
-            </li>
-          ))}
-        </ul>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
+  const menu = (triggerLabel: string, list: NavItem[]) => (
+    <DropdownMenu open={open} onOpenChange={setOpen}>
+      <DropdownMenuTrigger
+        className={cn(
+          itemClasses,
+          "gap-1 outline-none",
+          open ? "bg-nav-fill text-nav-heading" : "text-nav-secondary hover:bg-nav-fill hover:text-nav-heading",
+        )}
+      >
+        {triggerLabel}
+        <ChevronDown
+          className={cn("h-3 w-3 transition-transform duration-200", open && "rotate-180")}
+          aria-hidden="true"
+        />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {list.map((it) => (
+          <DropdownMenuItem key={it.url} href={it.url} active={isActive(it.url)}>
+            {it.label}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 
   return (
-    // items-start: the link row sits at the top of the NavigationMenu (whose
-    // flow height includes the dropdown area below), so aligning tops makes
-    // the 36px avatar and 36px links share a centerline.
-    <div className="flex items-start">
+    <nav data-nav-menu="" aria-label="Primary" className="flex items-center gap-1">
       {avatar}
-      <NavigationMenu>
-        <NavigationMenuList>
-          {mobile
-            ? dropdown("menu", items)
-            : (
-              <>
-                {linkList(primary)}
-                {secondary.length > 0 && dropdown("more", secondary)}
-              </>
-            )}
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+      {mobile ? (
+        menu("menu", items)
+      ) : (
+        <>
+          {primary.map(inlineLink)}
+          {secondary.length > 0 && menu("more", secondary)}
+        </>
+      )}
+    </nav>
   );
 }
 
@@ -112,10 +120,6 @@ if (root) {
   }
   const current = root.dataset.current || "/";
   if (items.length) {
-    createRoot(root).render(
-      <React.StrictMode>
-        <Nav items={items} current={current} />
-      </React.StrictMode>,
-    );
+    createRoot(root).render(<Nav items={items} current={current} />);
   }
 }
