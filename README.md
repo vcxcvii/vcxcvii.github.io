@@ -82,6 +82,18 @@ bundle install
 bundle exec jekyll serve
 ```
 
+### Nav island (React)
+
+The top nav is a shadcn `NavigationMenu` React island. Source lives in `_nav/` (Vite + React + Tailwind v4); GitHub Pages can't run npm, so the built artifacts (`assets/js/nav.js`, `assets/css/nav.css`) are committed. After changing anything in `_nav/`, rebuild:
+
+```bash
+cd _nav
+npm install   # first time
+npm run build # emits ../assets/js/nav.js + ../assets/css/nav.css
+```
+
+Nav links come from `_data/navigation.yml` (injected at Jekyll render time) — add an entry there and it appears in the built nav with no code change.
+
 ---
 
 ## Create content

@@ -25,6 +25,12 @@ The site ran two competing voices: a system sans for body, and a monospace stack
 
 Also added `text-wrap: balance` on headings and `text-wrap: pretty` on paragraphs for cleaner line breaks.
 
+**Nav rebuilt as a real shadcn NavigationMenu**
+
+The nav was hand-rolled `<details>` + vanilla JS, and the home avatar sat a half-pixel off its centerline (a 44px image in a 46px bordered box did the damage on non-retina screens). It's now an actual shadcn `NavigationMenu` React island: source in `_nav/` (Vite + React + Tailwind v4), built to committed `assets/js/nav.js` + `assets/css/nav.css` since GitHub Pages can't run npm. The avatar is a 36×36 box with the image at `object-cover` filling it — the sub-pixel misalignment is gone at the source. The nav now sits inside the content column (the old negative-margin breakout is gone), collapses to a single `menu` trigger under 640px, and still reads every link from `_data/navigation.yml`. Keyboard and focus behaviour come from Radix. `#nav-root` reserves height so there's no load shift, with a `<noscript>` plain-link fallback.
+
+This overturns the previous "no React island" rule in `DESIGN.md` — the owner asked for the real component.
+
 ---
 
 ### 7 July 2026

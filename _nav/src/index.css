@@ -1,0 +1,43 @@
+/* Tailwind v4 WITHOUT preflight — nav.css loads globally on the Jekyll page,
+   so a base reset would clobber the site's own styles. Import only theme +
+   utilities layers; skip base. */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-nav-bg: #ffffff;
+  --color-nav-surface: #fafafa;
+  --color-nav-fill: #f4f4f5;
+  --color-nav-border: #e4e4e7;
+  --color-nav-border-dark: #d4d4d8;
+  --color-nav-heading: #09090b;
+  --color-nav-secondary: #52525b;
+  --radius-nav: 8px;
+}
+
+/* Reserve height so there's no layout shift before the island mounts. */
+#nav-root {
+  min-height: 48px;
+}
+
+/* Monochrome NavigationMenu, scoped to the island. */
+#nav-root [data-nav-menu] {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Radix viewport open/close + item motion (shadcn defaults, hand-rolled so
+   we don't ship tailwindcss-animate). */
+@keyframes nav-scale-in { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes nav-scale-out { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.96); } }
+#nav-root [data-state="open"][data-nav-viewport] { animation: nav-scale-in 0.15s ease; }
+#nav-root [data-state="closed"][data-nav-viewport] { animation: nav-scale-out 0.12s ease; }
+#nav-root [data-nav-content][data-motion="from-start"],
+#nav-root [data-nav-content][data-motion="from-end"] { animation: nav-scale-in 0.15s ease; }
+#nav-root [data-nav-content][data-motion="to-start"],
+#nav-root [data-nav-content][data-motion="to-end"] { animation: nav-scale-out 0.12s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  #nav-root [data-nav-viewport],
+  #nav-root [data-nav-content] { animation: none !important; }
+}

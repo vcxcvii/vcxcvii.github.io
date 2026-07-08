@@ -244,221 +244,33 @@ h2.section-title,
 }
 
 /* ─── Nav ─────────────────────────────────────── */
+/* Nav is a shadcn NavigationMenu React island (see _nav/, built to
+   assets/js/nav.js + assets/css/nav.css). It sits INSIDE the 640px column —
+   no negative-margin breakout. Reserve height to avoid layout shift. */
 
-#site-nav {
+#nav-root {
+  min-height: 48px;
+  margin-bottom: 48px;
+}
+
+/* noscript fallback: plain inline links, no island */
+.nav-fallback {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
+  min-height: 48px;
   margin-bottom: 48px;
   font-size: 14px;
-  position: relative;
 }
 
-.nav-home-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-border);
+.nav-fallback a {
+  color: var(--color-secondary);
   text-decoration: none;
-  flex: 0 0 auto;
-  overflow: hidden;
-  transition: border-color 0.15s;
 }
 
-.nav-home-avatar:hover {
-  border-color: var(--color-border-dark);
-}
-
-.nav-home-avatar img {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-.site-more {
-  position: relative;
-}
-
-.site-more summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  min-height: 32px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  color: var(--color-secondary);
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-  transition: background 0.15s, color 0.15s;
-}
-
-.site-more summary::-webkit-details-marker {
-  display: none;
-}
-
-.site-more summary::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-right: 1.25px solid currentColor;
-  border-bottom: 1.25px solid currentColor;
-  transform: translateY(-2px) rotate(45deg);
-  transition: transform 0.15s;
-}
-
-.site-more[open] summary::after {
-  transform: translateY(1px) rotate(225deg);
-}
-
-.site-menu-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  min-height: 32px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  border: 1px solid var(--color-border);
-  background: transparent;
+.nav-fallback a:hover {
   color: var(--color-heading);
-  cursor: pointer;
-  font: inherit;
-  font-size: 14px;
-  user-select: none;
-  transition: background 0.15s, color 0.15s;
-}
-
-.site-menu-btn:hover {
-  background: var(--color-surface);
-  color: var(--color-heading);
-}
-
-.site-menu-btn.is-open::after {
-  transform: translateY(1px) rotate(225deg);
-}
-
-.site-menu-btn::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-right: 1.25px solid currentColor;
-  border-bottom: 1.25px solid currentColor;
-  transform: translateY(-2px) rotate(45deg);
-  transition: transform 0.15s;
-}
-
-.site-menu-panel,
-.site-more-panel {
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 10px;
-  padding: 6px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--r-btn);
-  background: var(--color-bg);
-  box-shadow: 0 8px 24px rgba(9, 9, 11, 0.08);
-}
-
-.site-menu-panel {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  z-index: 10;
-  min-width: 152px;
-}
-
-.site-menu-panel.is-open {
-  display: flex;
-}
-
-.site-menu-links {
-  display: none;
-}
-
-.site-menu-panel a,
-.site-menu-links a,
-.site-more-panel a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  color: var(--color-secondary);
-  text-decoration-line: none;
-  white-space: nowrap;
-  transition: background 0.15s, color 0.15s;
-}
-
-.site-menu-panel a:visited,
-.site-menu-links a:visited,
-.site-more-panel a:visited {
-  color: var(--color-secondary);
-}
-
-.site-menu-panel a:hover,
-.site-menu-links a:hover,
-.site-more-panel a:hover,
-.site-more summary:hover {
-  background: var(--color-surface);
-  color: var(--color-heading);
-  text-decoration-line: none;
-}
-
-.site-menu-panel a.is-active,
-.site-menu-links a.is-active,
-.site-more-panel a.is-active {
-  background: var(--color-fill);
-  color: var(--color-heading);
-  font-weight: 600;
-}
-
-.site-menu-panel a.is-active:visited,
-.site-menu-links a.is-active:visited,
-.site-more-panel a.is-active:visited {
-  color: var(--color-heading);
-}
-
-@media (min-width: 641px) {
-  #site-nav {
-    margin-left: -56px;
-    margin-right: -56px;
-  }
-
-  .site-menu-btn {
-    display: none;
-  }
-
-  .site-menu-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 4px;
-    margin-top: 0;
-    padding: 0;
-    border: 0;
-    overflow: visible;
-  }
-
-  .site-more-panel {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    z-index: 10;
-    min-width: 152px;
-  }
-
-  .site-more[open] .site-more-panel {
-    display: flex;
-  }
 }
 
 /* ─── Hero header ─────────────────────────────── */
