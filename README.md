@@ -1,9 +1,9 @@
-<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:900;font-size:20px;line-height:.86;background:#050505;border:none;padding:16px 18px;margin:0 0 1em 0;width:max-content;max-width:100%;overflow:auto;letter-spacing:0;">
-<span style="color:#0796D7;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">█   █  ███</span>
-<span style="color:#168ED0;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">█   █ █   </span>
-<span style="color:#2B86C2;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">█   █ █   </span>
-<span style="color:#0B74B1;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;"> █ █  █   </span>
-<span style="color:#024C7B;text-shadow:3px 3px 0 #FFE8DE,6px 6px 0 #024C7B;">  █    ███</span>
+<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:900;font-size:20px;line-height:.86;color:#fafafa;background:#09090b;border:none;padding:16px 18px;margin:0 0 1em 0;width:max-content;max-width:100%;overflow:auto;letter-spacing:0;">
+█   █  ███
+█   █ █   
+█   █ █   
+ █ █  █   
+  █    ███
 </pre>
 
 # VC's Notes
@@ -20,7 +20,7 @@ Built and maintained almost entirely with AI. Not as a gimmick — as a genuine 
 Claude Code is the primary web manager. It writes HTML, CSS, and Ruby. It adds pages, fixes bugs, and ships features based on plain-English instructions. Every change goes through a QA gate before it goes live.
 
 ### 2. Reads a machine-readable design system (DESIGN.md)
-Before touching any CSS, the AI reads [`DESIGN.md`](DESIGN.md) — a file that codifies every design decision: colors, typography, spacing, components. Colors have names (HD 189733b = `#0796D7`). Layouts have rules. The AI validates against this system before making any visual change, which means the design stays consistent without hand-holding.
+Before touching any CSS, the AI reads [`DESIGN.md`](DESIGN.md) — a file that codifies every design decision: colors, typography, spacing, components. The system is strictly monochrome (a single zinc scale; the only hues on the site live in photographs). Layouts have rules. The AI validates against this system before making any visual change, which means the design stays consistent without hand-holding.
 
 ### 3. QA checks before every push
 A pre-push hook runs `_scripts/qa.rb` automatically whenever content is pushed. It checks every changed file for:
@@ -53,23 +53,23 @@ The [/side-quests](https://varunchoraria.com/side-quests/) page lists tools and 
 
 ---
 
-## Design system (STARLIGHT)
+## Design system (monochrome zinc)
 
-The site runs on STARLIGHT — a celestial design system with exoplanet-inspired color tokens.
+The site runs on a strict single-neutral system built on the zinc scale. No accent hues anywhere — the only colour on the site is in photographs. One typeface (Geist Sans) does all UI and body work; monospace is reserved for code.
 
-| Token | Exoplanet | Hex | Role |
-|-------|-----------|-----|------|
-| `hd189733b` | HD 189733b | `#0796D7` | Accent, links |
-| `gj504b` | GJ 504b | `#8DC8EF` | Dark mode links |
-| `tres2b` | TrES-2b | `#024C7B` | Deep navy, visited |
-| `proxima-b` | Proxima b | `#EDEAE5` | Page background |
-| `kepler22b` | Kepler-22b | `#DCD8D2` | Surface / cards |
-| `kepler186f` | Kepler-186f | `#D2D3CC` | Borders |
-| `cancri55e` | 55 Cancri e | `#FFE8DE` | Blockquote highlight |
-| `pegasi51b` | 51 Pegasi b | `#E3E6EB` | Code blocks |
-| `void` | Void | `#08080C` | Text |
+| Token | Hex | Role |
+|-------|-----|------|
+| `heading` / `link` / `accent` | `#09090b` | Headings, links, every interactive highlight |
+| `text` | `#3f3f46` | Body |
+| `secondary` | `#52525b` | Secondary text |
+| `faint` | `#71717a` | Meta, dates |
+| `bg` | `#ffffff` | Page |
+| `surface` | `#fafafa` | Hover rows |
+| `fill` | `#f4f4f5` | Subtle fill, pills |
+| `border` | `#e4e4e7` | Borders |
+| `border-dark` | `#d4d4d8` | Stronger borders, underlines |
 
-Full spec — typography, spacing, components, light/dark tokens — lives in [`DESIGN.md`](DESIGN.md).
+Full spec — typography, spacing, components — lives in [`DESIGN.md`](DESIGN.md).
 
 ---
 
@@ -81,6 +81,18 @@ Requires Ruby `3.2.2` (see `.ruby-version`).
 bundle install
 bundle exec jekyll serve
 ```
+
+### Nav island (React)
+
+The top nav is a shadcn `NavigationMenu` React island. Source lives in `_nav/` (Vite + React + Tailwind v4); GitHub Pages can't run npm, so the built artifacts (`assets/js/nav.js`, `assets/css/nav.css`) are committed. After changing anything in `_nav/`, rebuild:
+
+```bash
+cd _nav
+npm install   # first time
+npm run build # emits ../assets/js/nav.js + ../assets/css/nav.css
+```
+
+Nav links come from `_data/navigation.yml` (injected at Jekyll render time) — add an entry there and it appears in the built nav with no code change.
 
 ---
 

@@ -1,25 +1,9 @@
-{% assign current_url = page.url | remove: 'index.html' %}
-<nav id="site-nav" aria-label="Primary">
-  <a href="{{ '/' | relative_url }}" class="nav-home-avatar" aria-label="Home">
-    <img src="{{ '/assets/images/favicon.png' | relative_url }}" alt="" width="44" height="44" fetchpriority="low">
-  </a>
-  <button class="site-menu-btn" aria-label="Menu" type="button">menu</button>
-  <div class="site-menu-panel">
+<div id="nav-root" data-nav='{{ site.data.navigation | jsonify }}' data-current="{{ page.url }}"></div>
+<noscript>
+  <nav class="nav-fallback" aria-label="Primary">
     {% for item in site.data.navigation %}
-      <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
+      <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
     {% endfor %}
-  </div>
-  <div class="site-menu-links">
-    {% for item in site.data.navigation limit: 5 %}
-      <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
-    {% endfor %}
-    <details class="site-more">
-      <summary>more</summary>
-      <div class="site-more-panel">
-        {% for item in site.data.navigation offset: 5 %}
-          <a href="{{ item.url | relative_url }}"{% if current_url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
-        {% endfor %}
-      </div>
-    </details>
-  </div>
-</nav>
+  </nav>
+</noscript>
+<script defer src="{{ '/assets/js/nav.js' | relative_url }}?v={{ asset_version }}"></script>

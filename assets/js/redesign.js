@@ -1,35 +1,7 @@
 (function () {
-  var nav = document.getElementById('site-nav');
-
-  function closeMenus() {
-    var btn = nav.querySelector('.site-menu-btn');
-    var panel = nav.querySelector('.site-menu-panel');
-    var more = nav.querySelector('.site-more');
-    if (btn) btn.classList.remove('is-open');
-    if (panel) panel.classList.remove('is-open');
-    if (more) more.open = false;
-  }
-
-  nav.addEventListener('click', function (e) {
-    if (e.target.closest('.site-menu-btn')) {
-      e.preventDefault();
-      var panel = nav.querySelector('.site-menu-panel');
-      var more = nav.querySelector('.site-more');
-      if (more) more.open = false;
-      if (!panel) return;
-      panel.classList.toggle('is-open');
-      e.target.closest('.site-menu-btn').classList.toggle('is-open');
-    }
-  });
-
-  document.addEventListener('click', function (e) {
-    if (e.target.closest('#site-nav')) return;
-    closeMenus();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenus();
-  });
+  // Nav is a shadcn NavigationMenu React island (assets/js/nav.js); it owns
+  // its own open/close, outside-click, and Escape handling. This script only
+  // drives the notes filter tabs and the work accordion.
 
   document.querySelectorAll('[data-filter-tabs]').forEach(function (tabs) {
     var section = tabs.closest('.section') || tabs.closest('.page-shell');

@@ -15,6 +15,61 @@ SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
 
+# ── Monochrome design guardrails ──────────────────────────────────────
+# The site is strictly monochrome (zinc). These fail the gate if anyone
+# reintroduces an accent hue, a legacy nav/pill/dot class, the old ghchart
+# GitHub card, its column breakout, or uses mono on UI (mono = code only).
+FORBIDDEN_HEX = %w[
+  0000ff 2563eb 16a34a 7c3aed db2777 1d4ed8 7e22ce 15803d
+  eff6ff faf5ff f0fdf4 dbeafe f3e8ff dcfce7 0796d7
+].freeze
+LEGACY_PATTERNS = %w[
+  site-menu- site-more dot-notes dot-work dot-quests dot-ai
+  pill-blue pill-purple pill-green gh-card-wrap ghchart.rshah
+].freeze
+
+def design_guardrails
+  errs = []
+  # Code files: markup/style where legacy classes and the old card would live.
+  code_files = (
+    Dir.glob("assets/css/*.{scss,css}") +
+    Dir.glob("_layouts/*.html") +
+    Dir.glob("_includes/*.html") +
+    ["mcp/index.html", "feed/index.html"]
+  ).uniq.select { |f| File.exist?(f) }
+  # Hex scan also covers prose docs (a real hue in README/DESIGN is a bug);
+  # changelog is history and exempt.
+  hex_files = (code_files +
+    Dir.glob("*.md").reject { |f| File.basename(f) == "changelog.md" }
+  ).uniq.select { |f| File.exist?(f) }
+
+  hex_files.each do |f|
+    src = File.read(f).downcase
+    FORBIDDEN_HEX.each do |hex|
+      if src.include?("#" + hex) || src.include?("/" + hex + "/") || src.include?(hex + "/vcxcvii")
+        errs << "Design: non-monochrome color '#{hex}' in #{f} — the site is strictly zinc"
+      end
+    end
+  end
+
+  code_files.each do |f|
+    src = File.read(f).downcase
+    LEGACY_PATTERNS.each do |pat|
+      errs << "Design: legacy pattern '#{pat}' reintroduced in #{f}" if src.include?(pat)
+    end
+  end
+
+  css = "assets/css/style.scss"
+  if File.exist?(css)
+    n = File.read(css).scan("var(--font-mono)").size
+    if n != 2
+      errs << "Design: mono on UI — #{n} var(--font-mono) uses in style.scss, expected 2 (code/pre + .ascii-logo). Mono is code-only."
+    end
+  end
+
+  errs
+end
+
 def utility?(path)
   UTILITY_PATHS.any? { |u| path.include?(u) } ||
     path.match?(/README|DESIGN|Gemfile|CNAME|robots/)
@@ -39,13 +94,17 @@ files = if ARGV.any?
 
 content_files = files.select { |f| f.match?(/\.(md|html)$/) && File.exist?(f) && !utility?(f) }
 
-if content_files.empty?
-  puts "QA: no content files to check."
+# Design guardrails run every time — they protect the whole repo, not just
+# the changed content files.
+design_errors = design_guardrails
+
+if content_files.empty? && design_errors.empty?
+  puts "QA: no content files to check; monochrome guardrails pass."
   exit 0
 end
 
 puts ""
-puts "QA Check — #{content_files.size} file(s)"
+puts "QA Check — #{content_files.size} content file(s)"
 puts "=" * 56
 
 all_errors   = []
@@ -140,6 +199,13 @@ content_files.each do |path|
 
   all_errors.concat(errs.map   { |e| "#{path}: #{e}" })
   all_warnings.concat(warns.map { |w| "#{path}: #{w}" })
+end
+
+unless design_errors.empty?
+  puts ""
+  puts "Design guardrails (monochrome)"
+  design_errors.each { |e| puts "       ERROR  #{e}" }
+  all_errors.concat(design_errors)
 end
 
 puts ""

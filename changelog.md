@@ -9,6 +9,46 @@ A running log of what changed on this site and why. The goal is to be honest abo
 
 ---
 
+### 8 July 2026
+
+**Monochrome zinc palette — every accent hue retired**
+
+The site moves from "monochrome base with scattered colored accents" to a strict single-neutral system. Links were pure blue (#0000ff); section periods carried four different accent hues (blue/green/purple/pink); hero pills came in three pastel variants; the active filter tab, the open timeline dot, and the status badges were all colored. All of it is gone.
+
+Everything now runs on one zinc scale. Links are heading-black, underlined with a faint zinc underline that darkens on hover — no more blue, no `:visited` state. Section periods share one `.dot` (faint). Pills are one neutral variant. Filter-tab active state and the open timeline dot are heading-black. Status badges differentiate by label text only. The stray `#0796D7` theme-color meta was corrected to white.
+
+`DESIGN.md` was rewritten to encode the monochrome system so future agents can't reintroduce a hue. (Typography, nav, and the GitHub card land in follow-up changes.)
+
+**Geist Sans everywhere, mono demoted to code only**
+
+The site ran two competing voices: a system sans for body, and a monospace stack doing display duty on dates, meta, labels, tabs, badges, footer, and nav. That reads as two fonts fighting, not hierarchy. Now one typeface — **Geist Sans**, self-hosted as a single variable woff2 (`font-display: swap`, preloaded, no external origin so the strict CSP stays intact) — does all UI and body work. Weight, size, and color carry the hierarchy. Monospace is now reserved for what it's for: `code`, `pre`, and the ASCII-art logo.
+
+Also added `text-wrap: balance` on headings and `text-wrap: pretty` on paragraphs for cleaner line breaks.
+
+**Nav rebuilt as a real shadcn NavigationMenu**
+
+The nav was hand-rolled `<details>` + vanilla JS, and the home avatar sat a half-pixel off its centerline (a 44px image in a 46px bordered box did the damage on non-retina screens). It's now an actual shadcn `NavigationMenu` React island: source in `_nav/` (Vite + React + Tailwind v4), built to committed `assets/js/nav.js` + `assets/css/nav.css` since GitHub Pages can't run npm. The avatar is a 36×36 box with the image at `object-cover` filling it — the sub-pixel misalignment is gone at the source. The nav now sits inside the content column (the old negative-margin breakout is gone), collapses to a single `menu` trigger under 640px, and still reads every link from `_data/navigation.yml`. Keyboard and focus behaviour come from Radix. `#nav-root` reserves height so there's no load shift, with a `<noscript>` plain-link fallback.
+
+This overturns the previous "no React island" rule in `DESIGN.md` — the owner asked for the real component.
+
+**GitHub card: self-rendered, monochrome, in-column, with real numbers**
+
+The old card was a raw blue `ghchart.rshah.org` image that broke out of the column and scrolled sideways — off-palette and carrying no information beyond the picture. It's replaced by a self-rendered card: a small vanilla script (`assets/js/gh-graph.js`) pulls per-day counts from a contributions API, caches them 6h in localStorage, and draws an inline SVG grid in the zinc intensity scale — last 26 weeks (16 on narrow screens) so it fits the 640px column with no horizontal scroll. It now shows the real contribution total ("N contributions in the last year") plus a `github ↗` and `book a call ↗` link. The card is hidden until data renders, so it degrades to nothing rather than a broken frame if the API is down. CSP updated: ghchart removed from `img-src`, the contributions API added to `connect-src`.
+
+**Sweep: legacy debris, QA gate teeth, docs**
+
+Cleanup pass to finish the monochrome move. The `/mcp/` page referenced a colour token that the palette overhaul had removed, so it was repointed to the current one. `design.txt` (served at `/design.md`) was the old "STARLIGHT" design system — a blue, exoplanet-themed doc that predated `DESIGN.md` and nothing linked to; it was deleted. The README's STARLIGHT section and its blue ASCII banner were rewritten for the monochrome system.
+
+The `favicon.svg` mark was already monochrome; the PNG favicon doubles as the profile avatar, so its colour stays (a portrait counts as a photograph). The banner-generation scripts were already grayscale, and existing post banner images are left as historical artifacts.
+
+Most importantly, the **pre-push QA gate now enforces monochrome**: it fails if anyone reintroduces an accent hue (`#0000ff`, the old section/pill colours, etc.), a legacy nav/pill/dot class, the `ghchart` card, its column breakout, or uses the mono font on any UI element. The rule can't quietly rot now — the gate catches it.
+
+**Nav dropdown: switched to a click-based menu that actually stays open**
+
+The first island used Radix `NavigationMenu`, which is hover-driven and self-closes the moment the pointer isn't over it — so clicking `more` made it flash and vanish, with a janky shared-viewport resize animation. Rebuilt the `more`/`menu` dropdown on Radix `DropdownMenu` instead: it opens on click, stays open, and closes on click-away or Escape (keyboard and touch included). It renders without a Portal so it stays inside the island's scoped styles and the strict CSP. Nav links also dropped the global underline — the fill-hover and active states carry the affordance. Verified end to end in a real browser: open/stay/navigate/close, mobile collapse, and pixel-aligned avatar.
+
+---
+
 ### 7 July 2026
 
 **Full typographic redesign, lightweight native nav, and two features cut on purpose**

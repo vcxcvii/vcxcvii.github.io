@@ -1,0 +1,58 @@
+/* Tailwind v4 WITHOUT preflight — nav.css loads globally on the Jekyll page,
+   so a base reset would clobber the site's own styles. Import only theme +
+   utilities layers; skip base. */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-nav-bg: #ffffff;
+  --color-nav-surface: #fafafa;
+  --color-nav-fill: #f4f4f5;
+  --color-nav-border: #e4e4e7;
+  --color-nav-border-dark: #d4d4d8;
+  --color-nav-heading: #09090b;
+  --color-nav-secondary: #52525b;
+  --radius-nav: 8px;
+}
+
+/* Reserve height so there's no layout shift before the island mounts. */
+#nav-root {
+  min-height: 48px;
+}
+
+/* Monochrome nav, scoped to the island. */
+#nav-root [data-nav-menu] {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Nav links use fill-hover / active for affordance, not the global underline. */
+#nav-root a,
+#nav-root a:hover {
+  text-decoration: none;
+}
+
+/* No Tailwind preflight here, so reset list chrome ourselves. */
+#nav-root ul,
+#nav-root li {
+  list-style: none;
+  margin: 0;
+}
+
+/* Dropdown open/close — a simple drop-in from the trigger. Radix Presence
+   detects the CSS animation and keeps the content mounted until it ends. */
+@keyframes nav-in {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes nav-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-4px) scale(0.98); }
+}
+#nav-root [data-nav-content] { transform-origin: top left; }
+#nav-root [data-nav-content][data-state="open"]   { animation: nav-in 0.14s ease; }
+#nav-root [data-nav-content][data-state="closed"] { animation: nav-out 0.1s ease forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  #nav-root [data-nav-content] { animation: none !important; }
+}
