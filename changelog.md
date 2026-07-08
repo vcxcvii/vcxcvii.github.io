@@ -35,6 +35,14 @@ This overturns the previous "no React island" rule in `DESIGN.md` — the owner 
 
 The old card was a raw blue `ghchart.rshah.org` image that broke out of the column and scrolled sideways — off-palette and carrying no information beyond the picture. It's replaced by a self-rendered card: a small vanilla script (`assets/js/gh-graph.js`) pulls per-day counts from a contributions API, caches them 6h in localStorage, and draws an inline SVG grid in the zinc intensity scale — last 26 weeks (16 on narrow screens) so it fits the 640px column with no horizontal scroll. It now shows the real contribution total ("N contributions in the last year") plus a `github ↗` and `book a call ↗` link. The card is hidden until data renders, so it degrades to nothing rather than a broken frame if the API is down. CSP updated: ghchart removed from `img-src`, the contributions API added to `connect-src`.
 
+**Sweep: legacy debris, QA gate teeth, docs**
+
+Cleanup pass to finish the monochrome move. The `/mcp/` page referenced a colour token that the palette overhaul had removed, so it was repointed to the current one. `design.txt` (served at `/design.md`) was the old "STARLIGHT" design system — a blue, exoplanet-themed doc that predated `DESIGN.md` and nothing linked to; it was deleted. The README's STARLIGHT section and its blue ASCII banner were rewritten for the monochrome system.
+
+The `favicon.svg` mark was already monochrome; the PNG favicon doubles as the profile avatar, so its colour stays (a portrait counts as a photograph). The banner-generation scripts were already grayscale, and existing post banner images are left as historical artifacts.
+
+Most importantly, the **pre-push QA gate now enforces monochrome**: it fails if anyone reintroduces an accent hue (`#0000ff`, the old section/pill colours, etc.), a legacy nav/pill/dot class, the `ghchart` card, its column breakout, or uses the mono font on any UI element. The rule can't quietly rot now — the gate catches it.
+
 ---
 
 ### 7 July 2026
