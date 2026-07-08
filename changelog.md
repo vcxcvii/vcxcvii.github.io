@@ -9,6 +9,18 @@ A running log of what changed on this site and why. The goal is to be honest abo
 
 ---
 
+### 8 July 2026
+
+**Monochrome zinc palette — every accent hue retired**
+
+The site moves from "monochrome base with scattered colored accents" to a strict single-neutral system. Links were pure blue (#0000ff); section periods carried four different accent hues (blue/green/purple/pink); hero pills came in three pastel variants; the active filter tab, the open timeline dot, and the status badges were all colored. All of it is gone.
+
+Everything now runs on one zinc scale. Links are heading-black, underlined with a faint zinc underline that darkens on hover — no more blue, no `:visited` state. Section periods share one `.dot` (faint). Pills are one neutral variant. Filter-tab active state and the open timeline dot are heading-black. Status badges differentiate by label text only. The stray `#0796D7` theme-color meta was corrected to white.
+
+`DESIGN.md` was rewritten to encode the monochrome system so future agents can't reintroduce a hue. (Typography, nav, and the GitHub card land in follow-up changes.)
+
+---
+
 ### 7 July 2026
 
 **Full typographic redesign, lightweight native nav, and two features cut on purpose**

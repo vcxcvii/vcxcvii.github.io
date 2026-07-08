@@ -5,32 +5,23 @@
 
   /* surfaces */
   --color-bg: #ffffff;
-  --color-surface: #fafafa;
-  --color-fill: #f4f4f5;
-  --color-border: #e4e4e7;
+  --color-surface: #fafafa;      /* zinc-50 */
+  --color-fill: #f4f4f5;         /* zinc-100 */
+  --color-border: #e4e4e7;       /* zinc-200 */
+  --color-border-dark: #d4d4d8;  /* zinc-300 */
   --color-divider: #f4f4f5;
-  --color-border-dark: #d4d4d8;
   --color-code-bg: #f4f4f5;
   --color-blockquote-bg: #f4f4f5;
 
   /* text */
-  --color-heading: #09090b;
-  --color-text: #3f3f46;
-  --color-secondary: #3f3f46;
-  --color-text-muted: #3f3f46;
-  --color-faint: #52525b;
-  --color-entry-meta: #52525b;
+  --color-heading: #09090b;      /* zinc-950 */
+  --color-text: #3f3f46;         /* zinc-700 */
+  --color-secondary: #52525b;    /* zinc-600 */
+  --color-faint: #71717a;        /* zinc-500 */
 
-  /* links */
-  --color-link: #0000ff;
-  --color-link-visited: #0000ff;
-  --color-accent: #2563eb;
-
-  /* section accents */
-  --dot-notes: #2563eb;
-  --dot-work: #16a34a;
-  --dot-quests: #7c3aed;
-  --dot-ai: #db2777;
+  /* links & accent — monochrome */
+  --color-link: #09090b;
+  --color-accent: #09090b;
 
   /* radius */
   --r-pill: 7px;
@@ -69,23 +60,19 @@ body {
 }
 
 ::selection {
-  background: var(--color-border);
+  background: var(--color-fill);
 }
 
 a {
-  color: var(--color-link);
+  color: var(--color-heading);
   text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 255, 0.3);
+  text-decoration-color: var(--color-border-dark);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.15s;
 }
 
-a:visited {
-  color: var(--color-link-visited);
-}
-
 a:hover {
-  text-decoration-color: var(--color-link);
+  text-decoration-color: var(--color-heading);
 }
 
 button {
@@ -95,7 +82,7 @@ button {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-link);
+  outline: 2px solid var(--color-heading);
   outline-offset: 3px;
 }
 
@@ -131,7 +118,7 @@ ul, ol {
 blockquote {
   margin: 1.5rem 0;
   padding: 0.75rem 1.25rem;
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-border-dark);
   background: var(--color-blockquote-bg);
   border-radius: 0 4px 4px 0;
   color: var(--color-secondary);
@@ -235,13 +222,9 @@ h2.section-title,
 }
 
 .dot {
+  color: var(--color-faint);
   font-weight: 600;
 }
-
-.dot-notes { color: var(--dot-notes); }
-.dot-work { color: var(--dot-work); }
-.dot-quests { color: var(--dot-quests); }
-.dot-ai { color: var(--dot-ai); }
 
 /* ─── Nav ─────────────────────────────────────── */
 
@@ -555,12 +538,8 @@ h2.section-title,
   flex-shrink: 0;
 }
 
-.pill-blue { background: #eff6ff; color: #1d4ed8; }
-.pill-blue:hover { background: #dbeafe; }
-.pill-purple { background: #faf5ff; color: #7e22ce; }
-.pill-purple:hover { background: #f3e8ff; }
-.pill-green { background: #f0fdf4; color: #15803d; }
-.pill-green:hover { background: #dcfce7; }
+.pill { background: var(--color-fill); color: var(--color-heading); }
+.pill:hover { background: var(--color-border); }
 
 /* ─── GitHub card ─────────────────────────────── */
 
@@ -706,8 +685,8 @@ h2.section-title,
 }
 
 .tab.is-active {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+  background: var(--color-heading);
+  border-color: var(--color-heading);
   color: #ffffff;
 }
 
@@ -738,8 +717,8 @@ h2.section-title,
 }
 
 .tl-item.is-open .tl-dot {
-  background: var(--dot-work);
-  border-color: var(--dot-work);
+  background: var(--color-heading);
+  border-color: var(--color-heading);
 }
 
 .tl-row {
@@ -1109,15 +1088,7 @@ h2.section-title,
   background: var(--color-fill);
 }
 
-.status-public {
-  color: #15803d;
-  background: #f0fdf4;
-}
-
-.status-private {
-  color: #7e22ce;
-  background: #faf5ff;
-}
+/* status badges are monochrome — differentiate by label text only */
 
 .project-updated {
   font-size: 12px;
@@ -1163,7 +1134,7 @@ h2.section-title,
   width: max-content;
   max-width: 100%;
   font-weight: 800;
-  color: var(--dot-quests);
+  color: #fafafa;
 }
 
 .project-body p {
