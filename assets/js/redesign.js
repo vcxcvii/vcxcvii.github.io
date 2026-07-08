@@ -1,27 +1,6 @@
 (function () {
-  // Nav is a shadcn NavigationMenu React island (assets/js/nav.js); it owns
-  // its own open/close, outside-click, and Escape handling. This script only
-  // drives the notes filter tabs and the work accordion.
-
-  document.querySelectorAll('[data-filter-tabs]').forEach(function (tabs) {
-    var section = tabs.closest('.section') || tabs.closest('.page-shell');
-    var list = section ? section.querySelector('[data-filter-list]') : null;
-    if (!list) return;
-    var rows = list.querySelectorAll('[data-tags]');
-
-    tabs.addEventListener('click', function (e) {
-      var btn = e.target.closest('.tab');
-      if (!btn) return;
-      tabs.querySelectorAll('.tab').forEach(function (b) { b.classList.remove('is-active'); });
-      btn.classList.add('is-active');
-      var filter = btn.dataset.filter;
-      rows.forEach(function (row) {
-        var tags = row.dataset.tags ? row.dataset.tags.split(',') : [];
-        var visible = filter === 'all' || tags.indexOf(filter) !== -1;
-        row.hidden = !visible;
-      });
-    });
-  });
+  // Nav, filters, and pagination are React islands (assets/js/nav.js). This
+  // script only drives progressive-enhanced accordions.
 
   document.querySelectorAll('[data-accordion]').forEach(function (wrap) {
     wrap.addEventListener('click', function (e) {

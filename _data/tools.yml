@@ -1,0 +1,40 @@
+claude-code:
+  name: Claude Code
+  logo: claude
+  url: https://www.anthropic.com/claude-code
+codex:
+  name: Codex
+  logo: openai
+  url: https://openai.com/codex
+cursor:
+  name: Cursor
+  logo: cursor
+  url: https://cursor.com
+opencode:
+  name: OpenCode
+  logo: opencode
+  url: https://opencode.ai
+superset:
+  name: Superset
+  logo: superset
+  url: https://superset.apache.org
+antigravity:
+  name: Antigravity
+  logo: antigravity
+  url: https://antigravity.google
+mcp:
+  name: MCPs
+  logo: mcp
+  url: /mcp/
+github:
+  name: GitHub
+  logo: github
+  url: https://github.com/vcxcvii
+bun:
+  name: Bun
+  logo: bun
+  url: https://bun.sh
+jekyll:
+  name: Jekyll
+  logo: jekyll
+  url: https://jekyllrb.com

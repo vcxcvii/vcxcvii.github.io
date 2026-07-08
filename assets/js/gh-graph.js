@@ -17,8 +17,22 @@
   var CACHE_TTL = 6 * 60 * 60 * 1000; // 6h
 
   var CELL = 10, GAP = 3, ROWS = 7;
-  // level 0..4 -> zinc intensity
-  var PALETTE = ["#f4f4f5", "#d4d4d8", "#a1a1aa", "#52525b", "#09090b"];
+  var LIGHT_PALETTE = ["#f4f4f5", "#d4d4d8", "#a1a1aa", "#52525b", "#09090b"];
+  var DARK_PALETTE = ["#27272a", "#3f3f46", "#71717a", "#d4d4d8", "#fafafa"];
+
+  function palette() {
+    return document.documentElement.getAttribute("data-theme") === "dark"
+      ? DARK_PALETTE
+      : LIGHT_PALETTE;
+  }
+
+  function renderLegend() {
+    var swatches = CARD.querySelectorAll(".gh-swatches i");
+    var colors = palette();
+    for (var i = 0; i < swatches.length; i++) {
+      swatches[i].style.background = colors[i];
+    }
+  }
 
   function readCache() {
     try {
@@ -58,6 +72,7 @@
 
     var cols = colsForWidth();
     var window = days.slice(-cols * ROWS);
+    var colors = palette();
 
     var w = cols * (CELL + GAP) - GAP;
     var h = ROWS * (CELL + GAP) - GAP;
@@ -81,7 +96,7 @@
       rect.setAttribute("width", String(CELL));
       rect.setAttribute("height", String(CELL));
       rect.setAttribute("rx", "2");
-      rect.setAttribute("fill", PALETTE[lvl]);
+      rect.setAttribute("fill", colors[lvl]);
       svg.appendChild(rect);
     }
 
@@ -89,6 +104,7 @@
     GRAPH.appendChild(svg);
     TOTAL.textContent = total.toLocaleString("en-US") +
       " contribution" + (total === 1 ? "" : "s") + " in the last year";
+    renderLegend();
     CARD.hidden = false;
     return true;
   }
@@ -101,6 +117,10 @@
   window.addEventListener("resize", function () {
     clearTimeout(rt);
     rt = setTimeout(function () { if (current) render(current); }, 150);
+  });
+  window.addEventListener("themechange", function () {
+    if (current) render(current);
+    else renderLegend();
   });
 
   var cached = readCache();

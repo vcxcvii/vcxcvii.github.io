@@ -13,7 +13,32 @@
   --color-nav-border-dark: #d4d4d8;
   --color-nav-heading: #09090b;
   --color-nav-secondary: #52525b;
+  --color-nav-faint: #71717a;
   --radius-nav: 8px;
+}
+
+:root[data-theme="dark"] {
+  --color-nav-bg: #18181b;
+  --color-nav-surface: #1f1f23;
+  --color-nav-fill: #27272a;
+  --color-nav-border: #3f3f46;
+  --color-nav-border-dark: #52525b;
+  --color-nav-heading: #fafafa;
+  --color-nav-secondary: #a1a1aa;
+  --color-nav-faint: #71717a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-nav-bg: #18181b;
+    --color-nav-surface: #1f1f23;
+    --color-nav-fill: #27272a;
+    --color-nav-border: #3f3f46;
+    --color-nav-border-dark: #52525b;
+    --color-nav-heading: #fafafa;
+    --color-nav-secondary: #a1a1aa;
+    --color-nav-faint: #71717a;
+  }
 }
 
 /* Reserve height so there's no layout shift before the island mounts. */
@@ -39,6 +64,85 @@
   margin: 0;
 }
 
+[data-filters-root] {
+  min-height: 40px;
+  max-width: 100%;
+}
+
+.tabs-scroll {
+  position: relative;
+  max-width: min(100%, 100vw - 48px);
+}
+
+.tabs-scroll::before,
+.tabs-scroll::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 24px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.tabs-scroll::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-nav-bg), transparent);
+}
+
+.tabs-scroll::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-nav-bg), transparent);
+}
+
+.tabs-scroll.has-left::before,
+.tabs-scroll.has-right::after {
+  opacity: 1;
+}
+
+.tabs-list-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-list-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.island-pagination {
+  margin-top: 22px;
+}
+
+.pagination-mobile {
+  display: none;
+}
+
+.pagination-count {
+  display: inline-flex;
+  min-width: 52px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-nav-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 479px) {
+  .pagination-desktop {
+    display: none;
+  }
+
+  .pagination-mobile {
+    display: flex;
+  }
+}
+
 /* Dropdown open/close — a simple drop-in from the trigger. Radix Presence
    detects the CSS animation and keeps the content mounted until it ends. */
 @keyframes nav-in {
@@ -52,6 +156,16 @@
 #nav-root [data-nav-content] { transform-origin: top left; }
 #nav-root [data-nav-content][data-state="open"]   { animation: nav-in 0.14s ease; }
 #nav-root [data-nav-content][data-state="closed"] { animation: nav-out 0.1s ease forwards; }
+
+:root[data-theme="dark"] #nav-root [data-nav-content] {
+  box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) #nav-root [data-nav-content] {
+    box-shadow: none;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   #nav-root [data-nav-content] { animation: none !important; }

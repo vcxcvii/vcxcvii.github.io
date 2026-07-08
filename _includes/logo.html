@@ -1,0 +1,23 @@
+{% assign tool = site.data.tools[include.name] %}
+{% assign label = include.label | default: tool.name | default: include.name %}
+{% assign logo_name = include.logo | default: tool.logo | default: include.name %}
+{% case logo_name %}
+{% when "anthropic" %}
+  {% include logos/anthropic.svg %}
+{% when "bun" %}
+  {% include logos/bun.svg %}
+{% when "claude" %}
+  {% include logos/claude.svg %}
+{% when "cursor" %}
+  {% include logos/cursor.svg %}
+{% when "github" %}
+  {% include logos/github.svg %}
+{% when "jekyll" %}
+  {% include logos/jekyll.svg %}
+{% when "opencode" %}
+  {% include logos/opencode.svg %}
+{% when "superset" %}
+  {% include logos/superset.svg %}
+{% else %}
+  <span class="tool-logo-fallback" aria-hidden="true">{{ label | slice: 0 | upcase }}</span>
+{% endcase %}

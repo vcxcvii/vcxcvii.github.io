@@ -128,7 +128,7 @@ layout: default
 
     {% if related.size > 0 %}
       <aside class="also-read">
-        <p class="also-read-heading">Also read</p>
+        <h2 class="also-read-heading">also read<span class="dot">.</span></h2>
         <div class="rows also-read-list">
           {% for post in related limit: 3 %}
             <a href="{{ post.url | relative_url }}" class="row">

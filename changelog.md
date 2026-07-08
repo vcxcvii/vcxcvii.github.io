@@ -11,6 +11,19 @@ A running log of what changed on this site and why.
 
 ### 8 July 2026
 
+**Dark mode, hero refresh, filters, pagination, related posts, and tool logos**
+
+- **Dark mode:** added zinc dark mode with a no-FOUC head script, explicit light/dark toggle in the nav, system fallback when JS is disabled, theme-color updates, dark GitHub graph palette, and dark-safe ASCII/image frames.
+- **Hero:** replaced the old intro with the new owner-provided copy. Keyword pills are monochrome, icon-led, mobile-safe, and motion-reduced when requested.
+- **Notes filters and pagination:** moved filters into the existing React island with shadcn-style Tabs, single-row mobile scrolling, hash-backed tag state, and client-side pagination that only appears over 20 filtered rows.
+- **Also read:** removed the duplicate manual bulleted block from the Master Shifu post and kept the row-style related-posts section with the lowercase `also read.` heading.
+- **Side quests:** added `_data/tools.yml`, inline logo rendering, self-hosted SVG marks from Simple Icons where available, and letter fallback for missing marks. Logos are used nominatively to reference tools, not to imply endorsement.
+- **Routing:** added `/notes/` as a Notes listing alias so the new hero `write` link has a real target while `/blog/` remains live.
+
+---
+
+### 8 July 2026
+
 **Rebuilt on a strict monochrome system**
 
 The site is now a single zinc scale. The only colour left is in photographs. What shipped:

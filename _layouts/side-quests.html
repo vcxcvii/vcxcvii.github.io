@@ -9,16 +9,14 @@ layout: default
 
   <div class="stack-bar">
     <span class="stack-bar-label">Stack</span>
-    <span class="stack-badge">Claude Code</span>
-    <span class="stack-badge">Codex</span>
-    <span class="stack-badge">Cursor</span>
-    <span class="stack-badge">OpenCode</span>
-    <span class="stack-badge">Superset</span>
-    <span class="stack-badge">Antigravity</span>
-    <span class="stack-badge">MCPs</span>
-    <span class="stack-badge">GitHub</span>
-    <span class="stack-badge">Bun</span>
-    <span class="stack-badge">Jekyll</span>
+    {% assign stack_tools = "claude-code,codex,cursor,opencode,superset,antigravity,mcp,github,bun,jekyll" | split: "," %}
+    {% for key in stack_tools %}
+      {% assign tool = site.data.tools[key] %}
+      <a class="stack-badge tool-badge" href="{{ tool.url | relative_url }}" {% if tool.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        {% include logo.html name=key %}
+        <span>{{ tool.name }}</span>
+      </a>
+    {% endfor %}
   </div>
 
   <div class="prose">

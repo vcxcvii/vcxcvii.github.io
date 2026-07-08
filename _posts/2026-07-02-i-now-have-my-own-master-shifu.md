@@ -108,9 +108,3 @@ curl -fsSL https://raw.githubusercontent.com/vcxcvii/master-shifu/main/install.s
 Or on my GitHub: [github.com/vcxcvii/master-shifu](https://github.com/vcxcvii/master-shifu)
 
 If you're a consultant, founder, PM, or just someone who wants their AI to think in frameworks instead of vibes — it's yours. Steal it, fork it, break it, improve it. That's what open source is for.
-
-## Also read
-
-- [Maybe going around CIRCLES is worth it](/maybe-going-around-circles-is-worth-it/) 26 Jun 2026
-- [Killed By Google](/killed-by-google/) 16 Jun 2026
-- [Team values I value](/team-values-i-value/) 25 Apr 2026

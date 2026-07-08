@@ -38,6 +38,52 @@
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace; /* CODE ONLY */
 }
 
+/* Dark theme token block. Keep in sync with the @media fallback below. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #18181b;
+  --color-surface: #1f1f23;
+  --color-fill: #27272a;
+  --color-border: #3f3f46;
+  --color-border-dark: #52525b;
+  --color-divider: #27272a;
+  --color-code-bg: #27272a;
+  --color-blockquote-bg: #27272a;
+
+  --color-heading: #fafafa;
+  --color-text: #d4d4d8;
+  --color-secondary: #a1a1aa;
+  --color-faint: #71717a;
+
+  --color-link: #fafafa;
+  --color-accent: #fafafa;
+}
+
+/* Dark theme fallback. Keep in sync with the data-theme block above. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --color-bg: #18181b;
+    --color-surface: #1f1f23;
+    --color-fill: #27272a;
+    --color-border: #3f3f46;
+    --color-border-dark: #52525b;
+    --color-divider: #27272a;
+    --color-code-bg: #27272a;
+    --color-blockquote-bg: #27272a;
+
+    --color-heading: #fafafa;
+    --color-text: #d4d4d8;
+    --color-secondary: #a1a1aa;
+    --color-faint: #71717a;
+
+    --color-link: #fafafa;
+    --color-accent: #fafafa;
+  }
+}
+
 /* Geist Sans — self-hosted variable font (CSP font-src 'self') */
 @font-face {
   font-family: "Geist";
@@ -352,23 +398,81 @@ h2.section-title,
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  min-height: 28px;
   padding: 2px 9px;
   border-radius: var(--r-pill);
   font-weight: 500;
   font-size: 15.5px;
   text-decoration: none;
-  vertical-align: baseline;
-  transition: background 0.15s;
+  vertical-align: -3px;
+  position: relative;
+  transition: background 0.15s, color 0.15s;
 }
 
 .pill svg {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 
 .pill { background: var(--color-fill); color: var(--color-heading); }
-.pill:hover { background: var(--color-border); }
+.pill:hover,
+.pill:focus-visible { background: var(--color-border); }
+
+.hero-pill::after {
+  content: "";
+  position: absolute;
+  inset: -8px -4px;
+}
+
+.pill-icon-motion {
+  transform-origin: center;
+  transition: transform 0.24s ease-out;
+}
+
+.hero-pill-write:hover .pill-icon-motion,
+.hero-pill-write:focus-visible .pill-icon-motion,
+.hero-pill-write:active .pill-icon-motion {
+  transform: rotate(-12deg);
+}
+
+.hero-pill-tinker:hover .pill-icon-motion,
+.hero-pill-tinker:focus-visible .pill-icon-motion,
+.hero-pill-tinker:active .pill-icon-motion {
+  transform: rotate(20deg);
+}
+
+.hero-pill-github:hover .pill-icon-motion,
+.hero-pill-github:focus-visible .pill-icon-motion,
+.hero-pill-github:active .pill-icon-motion {
+  transform: translateY(-1px) scale(1.06);
+}
+
+.hero-pill-here:hover .pill-icon-motion,
+.hero-pill-here:focus-visible .pill-icon-motion,
+.hero-pill-here:active .pill-icon-motion,
+.hero-pill-mcp:hover .pill-icon-motion,
+.hero-pill-mcp:focus-visible .pill-icon-motion,
+.hero-pill-mcp:active .pill-icon-motion {
+  transform: translateX(2px);
+}
+
+.hero-pill-calendar:hover .pill-icon-motion,
+.hero-pill-calendar:focus-visible .pill-icon-motion,
+.hero-pill-calendar:active .pill-icon-motion {
+  transform: translateY(2px);
+}
+
+.pill-underline {
+  stroke-dasharray: 7;
+  animation: notebookUnderline 4s ease-in-out infinite;
+}
+
+@keyframes notebookUnderline {
+  0%, 25% { stroke-dashoffset: 7; }
+  45%, 80% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -7; }
+}
 
 /* ─── GitHub card ─────────────────────────────── */
 
@@ -536,7 +640,24 @@ h2.section-title,
 .tab.is-active {
   background: var(--color-heading);
   border-color: var(--color-heading);
-  color: #ffffff;
+  color: var(--color-bg);
+}
+
+.tag-fallback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+  font-size: 13px;
+}
+
+.tag-fallback a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.tag-fallback a:hover {
+  color: var(--color-heading);
 }
 
 /* ─── Work timeline ───────────────────────────── */
@@ -560,7 +681,7 @@ h2.section-title,
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--color-bg);
   border: 2px solid var(--color-border-dark);
   transition: all 0.2s;
 }
@@ -808,10 +929,10 @@ h2.section-title,
 }
 
 .also-read-heading {
-  font-size: 12.5px;
-  font-family: var(--font-sans);
-  color: var(--color-faint);
-  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
 }
 
 .also-read-list {
@@ -865,15 +986,65 @@ h2.section-title,
 }
 
 .stack-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-family: var(--font-sans);
   font-size: 12.5px;
   color: var(--color-secondary);
+  text-decoration: none;
 }
 
 .stack-badge + .stack-badge::before {
-  content: "·";
-  margin-right: 8px;
-  color: var(--color-faint);
+  content: none;
+}
+
+.tool-badge svg {
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.tool-badge:hover {
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.tool-logo-fallback {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: var(--color-fill);
+  color: var(--color-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tool-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-heading);
+  font-weight: 500;
+  vertical-align: -2px;
+}
+
+.tool-inline svg {
+  width: 14px;
+  height: 14px;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.tool-inline .tool-logo-fallback {
+  width: 14px;
+  height: 14px;
+  font-size: 9px;
 }
 
 .projects-category {
@@ -972,7 +1143,8 @@ h2.section-title,
   font-size: 1rem;
   line-height: 0.86;
   overflow-x: auto;
-  background: #09090b;
+  background: var(--color-fill);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -984,7 +1156,15 @@ h2.section-title,
   max-width: 100%;
   font-family: var(--font-mono);
   font-weight: 800;
-  color: #fafafa;
+  color: var(--color-heading);
+}
+
+.prose p > img,
+.prose p > picture,
+.prose figure img {
+  background: var(--color-fill);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
 }
 
 .project-body p {
@@ -1090,5 +1270,16 @@ h2.section-title,
 
   .quest-head {
     flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #wrapper,
+  .pill-underline,
+  .pill-icon-motion,
+  .avatar {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }

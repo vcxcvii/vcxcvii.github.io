@@ -1,7 +1,7 @@
 ---
 layout: side-quests
 title: Side Quests
-intro: "Built with AI — projects, tools, and rabbit holes. Everything here was built on Claude Code, Codex, or OpenCode. Most started as weekend curiosity. A few became things I use every day."
+intro: "Built with AI: projects, tools, and rabbit holes. Most started as weekend curiosity. A few became things I use every day."
 mcp: true
 ---
 
@@ -25,7 +25,7 @@ mcp: true
 █   █    █    █   █
  ███     █    █   █</span></pre>
 
-      <p>I built 55+ marketing skills for Claude Code and Codex, purpose-built for GTM Buddy. Every skill reads the same shared positioning context, so every output — a competitor profile, a cold email, an SEO audit — comes out on-brand without re-briefing the agent each time.</p>
+      <p>I built 55+ marketing skills for <span class="tool-inline">{% include logo.html name="claude-code" %}Claude Code</span> and <span class="tool-inline">{% include logo.html name="codex" %}Codex</span>, purpose-built for GTM Buddy. Every skill reads the same shared positioning context, so every output — a competitor profile, a cold email, an SEO audit — comes out on-brand without re-briefing the agent each time.</p>
 
       <div class="project-section">
         <h4>How I built it</h4>
@@ -39,7 +39,7 @@ mcp: true
           <li>55+ skills across the full marketing spectrum (SEO, CRO, copy, ads, analytics, email, social, research, pricing, launch, RevOps, ASO)</li>
           <li>Shared context layer — skills read Revenue Activation ontology, content governance, keyword universe automatically</li>
           <li>Skill auto-orchestration — running one skill triggers related skills automatically</li>
-          <li>Dual agent support — works in both Claude Code and Codex</li>
+          <li>Dual agent support — works in both <span class="tool-inline">{% include logo.html name="claude-code" %}Claude Code</span> and <span class="tool-inline">{% include logo.html name="codex" %}Codex</span></li>
           <li>CLI installer — single command installs all skills into either agent</li>
           <li>No-em-dash rule enforced across all copy output</li>
           <li>SEO guardrails wired into every search-facing skill</li>
@@ -79,7 +79,7 @@ mcp: true
 
       <div class="project-section">
         <h4>How I built it</h4>
-        <p>I designed it around a simple workflow: drop any URL into Claude Code. The agent crawls the page using Playwright MCP and returns a full pass/fail report with fixes ready to paste into Webflow. It takes screenshots at 390px, 768px, 1024px, 1440px, extracts the DOM (title, H1, meta, canonical, schema, OG tags), scans copy for em dashes and category framing drift, checks accessibility, and even clicks CTAs and submits forms to verify they work.</p>
+        <p>I designed it around a simple workflow: drop any URL into <span class="tool-inline">{% include logo.html name="claude-code" %}Claude Code</span>. The agent crawls the page using Playwright <span class="tool-inline">{% include logo.html name="mcp" %}MCP</span> and returns a full pass/fail report with fixes ready to paste into Webflow. It takes screenshots at 390px, 768px, 1024px, 1440px, extracts the DOM (title, H1, meta, canonical, schema, OG tags), scans copy for em dashes and category framing drift, checks accessibility, and even clicks CTAs and submits forms to verify they work.</p>
         <p>I also wired in a Figma pipeline — drop a Figma URL and the agent compares the design against <code>DESIGN.md</code> tokens before the Webflow build starts. Every ❌ blocker includes a ready-to-paste fix in GTM Buddy voice.</p>
       </div>
 
@@ -99,7 +99,7 @@ mcp: true
       <div class="project-section">
         <h4>Version history</h4>
         <ul class="version-list">
-          <li><strong>1.3.0</strong> (May 17, 2026) — Agentic QA layer: /qa and /figma-qa skills, Playwright MCP integration, routing rules</li>
+          <li><strong>1.3.0</strong> (May 17, 2026) — Agentic QA layer: /qa and /figma-qa skills, Playwright <span class="tool-inline">{% include logo.html name="mcp" %}MCP</span> integration, routing rules</li>
           <li><strong>1.2.0</strong> (May 17, 2026) — DESIGN.md token system, block-char logo, repo rename from lp-design to design-engg</li>
           <li><strong>1.1.0</strong> (May 2026) — Full page audit pipeline, multi-breakpoint screenshots</li>
           <li><strong>1.0.0</strong> (Apr 2026) — Initial workspace with lp-design, copywriting, and engineering fundamentals</li>
@@ -125,7 +125,7 @@ mcp: true
   █   █   █  █  █
 ███   ████   █   █</span></pre>
 
-      <p>I created 5 Claude Code skills that give a new SDR ready-to-use outreach for any prospect, persona, or situation. Describe your prospect, mention any trigger event (funding round, layoffs, competitive tool), and the right skill fires automatically: cold call script, LinkedIn message, email sequence, or competitive displacement copy — all in GTM Buddy's Revenue Activation framing.</p>
+      <p>I created 5 <span class="tool-inline">{% include logo.html name="claude-code" %}Claude Code</span> skills that give a new SDR ready-to-use outreach for any prospect, persona, or situation. Describe your prospect, mention any trigger event (funding round, layoffs, competitive tool), and the right skill fires automatically: cold call script, LinkedIn message, email sequence, or competitive displacement copy — all in GTM Buddy's Revenue Activation framing.</p>
 
       <div class="project-section">
         <h4>How I built it</h4>
@@ -179,12 +179,12 @@ mcp: true
  █ █  █
   █    ███</span></pre>
 
-      <p>This is my personal website — a Jekyll static site built on the STARLIGHT design system with cosmic color tokens and AI-managed workflows. Hosted at <a href="https://www.varunchoraria.com" target="_blank" rel="noopener noreferrer">varunchoraria.com</a>.</p>
+      <p>This is my personal website — a <span class="tool-inline">{% include logo.html name="jekyll" %}Jekyll</span> static site built on the STARLIGHT design system with cosmic color tokens and AI-managed workflows. Hosted at <a href="https://www.varunchoraria.com" target="_blank" rel="noopener noreferrer">varunchoraria.com</a>.</p>
 
       <div class="project-section">
         <h4>How I built it</h4>
-        <p>I built it on Jekyll 4.3 with Ruby 3.2.2, hosted on GitHub Pages. Single <code>style.scss</code> stylesheet with CSS custom properties for theming. The STARLIGHT design system uses exoplanet-inspired color tokens (HD 189733b, GJ 504b, TrES-2b, Proxima b). Dark mode via <code>data-theme</code> attribute.</p>
-        <p>It's AI-managed — a complete <code>DESIGN.md</code> file codifies design tokens, typography, spacing, and components. Claude Code and Codex handle the heavy lifting. I use 14 mattpocock skills for TypeScript patterns and 35 compound-engineering skills.</p>
+        <p>I built it on <span class="tool-inline">{% include logo.html name="jekyll" %}Jekyll</span> 4.3 with Ruby 3.2.2, hosted on <span class="tool-inline">{% include logo.html name="github" %}GitHub</span> Pages. Single <code>style.scss</code> stylesheet with CSS custom properties for theming. The STARLIGHT design system uses exoplanet-inspired color tokens (HD 189733b, GJ 504b, TrES-2b, Proxima b). Dark mode via <code>data-theme</code> attribute.</p>
+        <p>It's AI-managed — a complete <code>DESIGN.md</code> file codifies design tokens, typography, spacing, and components. <span class="tool-inline">{% include logo.html name="claude-code" %}Claude Code</span> and <span class="tool-inline">{% include logo.html name="codex" %}Codex</span> handle the heavy lifting. I use 14 mattpocock skills for TypeScript patterns and 35 compound-engineering skills.</p>
       </div>
 
       <div class="project-section">
@@ -196,7 +196,7 @@ mcp: true
           <li>STARLIGHT design system with CSS custom properties</li>
           <li>Responsive — mobile menu, fluid typography</li>
           <li>GA4 tracking with Google Analytics</li>
-          <li>Sub-800ms page loads on GitHub Pages</li>
+          <li>Sub-800ms page loads on <span class="tool-inline">{% include logo.html name="github" %}GitHub</span> Pages</li>
         </ul>
       </div>
 
@@ -212,7 +212,7 @@ mcp: true
       </div>
 
       <p class="project-footer">
-        <a href="https://github.com/vcxcvii/vcxcvii.github.io" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+        <a href="https://github.com/vcxcvii/vcxcvii.github.io" target="_blank" rel="noopener noreferrer"><span class="tool-inline">{% include logo.html name="github" %}GitHub</span> →</a>
       </p>
     </div>
   </details>
