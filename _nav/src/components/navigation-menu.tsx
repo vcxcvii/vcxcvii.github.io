@@ -77,7 +77,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     data-nav-content=""
-    className={cn("absolute left-0 top-0 w-full", className)}
+    className={cn("w-auto", className)}
     {...props}
   />
 ));

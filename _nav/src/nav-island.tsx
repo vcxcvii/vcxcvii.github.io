@@ -81,7 +81,10 @@ function Nav({ items, current }: { items: NavItem[]; current: string }) {
   );
 
   return (
-    <div className="flex items-center">
+    // items-start: the link row sits at the top of the NavigationMenu (whose
+    // flow height includes the dropdown area below), so aligning tops makes
+    // the 36px avatar and 36px links share a centerline.
+    <div className="flex items-start">
       {avatar}
       <NavigationMenu>
         <NavigationMenuList>
