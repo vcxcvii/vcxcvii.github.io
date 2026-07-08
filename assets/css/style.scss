@@ -810,6 +810,111 @@ h2.section-title,
   margin-bottom: 0;
 }
 
+/* ─── Ask an AI band ──────────────────────────── */
+/* Pre-footer CTA, site-wide (see _includes/ask-ai.html). Strictly
+   monochrome: brand marks render in currentColor on neutral tiles;
+   the only hue is the profile photo. */
+
+.ask-ai {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px 32px;
+  flex-wrap: wrap;
+}
+
+.ask-ai-copy {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.ask-ai-headline {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--color-heading);
+  text-wrap: balance;
+}
+
+.ask-ai-sub {
+  margin: 4px 0 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-secondary);
+}
+
+.ask-ai-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  flex: 0 1 380px;
+}
+
+.ask-ai-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-btn);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.ask-ai-btn:hover,
+.ask-ai-btn:focus-visible {
+  border-color: var(--color-border-dark);
+  background: var(--color-fill);
+}
+
+.ask-ai-icon {
+  display: inline-flex;
+  color: var(--color-heading);
+  flex-shrink: 0;
+}
+
+.ask-ai-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ask-ai-photo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-border-dark);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .ask-ai {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .ask-ai-actions {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .ask-ai-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ─── Footer ──────────────────────────────────── */
 
 #site-footer {

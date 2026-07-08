@@ -12,6 +12,8 @@
   url: /side-quests/
 - label: uses this
   url: /uses-this/
+- label: rss
+  url: /feed/
 - label: disclaimer
   url: /disclaimer/
 - label: changelog
