@@ -19,6 +19,12 @@ Everything now runs on one zinc scale. Links are heading-black, underlined with 
 
 `DESIGN.md` was rewritten to encode the monochrome system so future agents can't reintroduce a hue. (Typography, nav, and the GitHub card land in follow-up changes.)
 
+**Geist Sans everywhere, mono demoted to code only**
+
+The site ran two competing voices: a system sans for body, and a monospace stack doing display duty on dates, meta, labels, tabs, badges, footer, and nav. That reads as two fonts fighting, not hierarchy. Now one typeface — **Geist Sans**, self-hosted as a single variable woff2 (`font-display: swap`, preloaded, no external origin so the strict CSP stays intact) — does all UI and body work. Weight, size, and color carry the hierarchy. Monospace is now reserved for what it's for: `code`, `pre`, and the ASCII-art logo.
+
+Also added `text-wrap: balance` on headings and `text-wrap: pretty` on paragraphs for cleaner line breaks.
+
 ---
 
 ### 7 July 2026

@@ -18,14 +18,14 @@ Machine-readable design system for varunchoraria.com. Every visual decision live
 - Mobile: content column breakpoints at 640px (timeline period stacks above title instead of beside it, row text no longer forces min-width) and 480px (hero/footer/section-head stack, GitHub card becomes an inset 16px-from-viewport card with horizontal graph scrolling). Touch targets stay >= 34px.
 
 ## Typography
-- UI/body font: system stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif (no webfonts)
-- Mono font: system mono stack: ui-monospace, 'SF Mono', Menlo, monospace (dates, meta lines, labels, nav, footer)
-- Base: 15.5px, line-height 1.65 (1.85 for intro/prose paragraphs), color #3f3f46, antialiased
-- h1: 26px / 700 / letter-spacing -0.02em / #09090b
-- h2 (section headers): 17px / 600 / letter-spacing -0.01em / #09090b
+- One typeface does all UI + body work: **Geist Sans**, self-hosted variable woff2 at `/assets/fonts/Geist-Variable.woff2` (`@font-face`, weights 100–900, `font-display: swap`; preloaded in head). CSP is `font-src 'self'` — never hotlink Google Fonts; it will be blocked. Stack: `"Geist", -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif`.
+- Mono font is **code only**: `ui-monospace, 'SF Mono', Menlo, monospace`. Used solely by `code, pre` and `.ascii-logo` (ASCII art). No UI element (dates, meta, labels, tabs, badges, footer, nav) uses mono — hierarchy is done with weight/size/color in Geist.
+- Base: 15.5px, line-height 1.65 (1.85 for intro/prose paragraphs), color #3f3f46, antialiased. `text-wrap: pretty` on `p`.
+- h1: 26px / 700 / letter-spacing -0.02em / #09090b. `text-wrap: balance` on h1, h2.
+- h2 (section headers): 22px / 650 / letter-spacing -0.01em / #09090b
 - Row titles: 15px / 500 (list rows) or 600 (timeline, quest names)
 - Descriptions: 14px / 400 / #52525b
-- Meta and dates: 12.5-13px mono / #71717a
+- Meta and dates: 12.5-13px sans / #71717a; where load-bearing as labels, letter-spacing 0.01em
 - Links: ALL text hyperlinks are heading-black (#09090b), underlined, decoration color border-dark (#d4d4d8), underline-offset 3px; hover decoration #09090b. No `:visited` differentiation. Only component-styled elements (pills, icon buttons, list rows, primary buttons) override this.
 
 ## Colors
@@ -67,13 +67,13 @@ GitHub contribution graph intensity (monochrome): 0 → #f4f4f5, then #d4d4d8, #
 ## Components
 - Icon button: 34x34, 1px #e4e4e7 border, radius 8px, icon #3f3f46; hover border and icon #09090b
 - Filter tab: sans 12px, min-height 30px, padding 4px 10px, radius 6px, 1px border; active bg #09090b + white text; inactive white + secondary text; hover subtle fill + darker border.
-- Tag badge: same visual system as filter tab, mono 12px, min-height 30px, padding 4px 10px, radius 6px, 1px border, white background, secondary text.
+- Tag badge: same visual system as filter tab, sans 12px, min-height 30px, padding 4px 10px, radius 6px, 1px border, white background, secondary text.
 - List row: padding 11px 12px with negative side margin so hover bg extends past text; hover bg #fafafa
 - Card (contributions): padding 18px, border #e4e4e7, radius 12px; hover border #a1a1aa
 - Timeline: 2px #f4f4f5 left rule; 12px dots (open: #09090b; closed: white with 2px #d4d4d8 border); period column 96px (stacks above title under 640px); accordion, one item open, chevron rotates 180deg in 0.2s
 - Nav: see Layout section above (native Liquid links, desktop `more` dropdown, mobile `menu` dropdown)
 - Nav avatar: 38x38 circular home link using `/assets/images/profile-home.png`; image also serves as the PNG favicon and apple touch icon.
-- Footer version line: mono, `v{{ changelog entry count }} · updated {{ latest changelog date }}`, links to /changelog/. Computed live from `changelog.md`'s `### <date>` headings at build time — never hardcoded.
+- Footer version line: sans (faint), `v{{ changelog entry count }} · updated {{ latest changelog date }}`, links to /changelog/. Computed live from `changelog.md`'s `### <date>` headings at build time — never hardcoded.
 
 ## Motion
 - Page load: main fades up once (opacity 0 to 1, translateY 8px to 0, 0.5s ease)
