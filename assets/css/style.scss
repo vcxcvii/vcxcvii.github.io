@@ -372,59 +372,79 @@ h2.section-title,
 
 /* ─── GitHub card ─────────────────────────────── */
 
-.gh-card-wrap {
-  margin: 0 -24px 56px;
-}
-
+/* GitHub contributions card — self-rendered, in-column (no breakout).
+   Populated by assets/js/gh-graph.js; stays [hidden] until data renders,
+   so it degrades to nothing without JS or on fetch error. */
 .gh-card {
-  display: block;
+  margin: 0 0 56px;
   padding: 18px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--r-card);
-  text-decoration: none;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border-dark) transparent;
-  transition: border-color 0.15s;
 }
 
-.gh-card:hover {
-  border-color: var(--color-faint);
+.gh-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
 }
 
-.gh-card::-webkit-scrollbar {
-  height: 8px;
+.gh-user {
+  font-size: 13px;
+  color: var(--color-faint);
 }
 
-.gh-card::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.gh-card::-webkit-scrollbar-thumb {
-  background: var(--color-border-dark);
-  border-radius: 999px;
+.gh-total {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-heading);
+  text-align: right;
 }
 
 .gh-graph {
-  width: max(100%, 680px);
-  max-width: none;
+  margin: 14px 0;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.gh-meta {
+.gh-graph svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.gh-foot {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 12px;
-  font-size: 12.5px;
-  color: var(--color-faint);
-  font-family: var(--font-sans);
+  gap: 12px 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
 }
 
-@media (min-width: 641px) {
-  .gh-card-wrap {
-    margin: 0 -56px 56px;
-  }
+.gh-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-faint);
+}
+
+.gh-swatches {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.gh-swatches i {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.gh-links {
+  display: inline-flex;
+  gap: 16px;
 }
 
 /* ─── Rows (notes / archive / tags / also-read) ── */
@@ -1055,8 +1075,8 @@ h2.section-title,
     gap: 12px;
   }
 
-  .gh-card-wrap {
-    margin: 0 -8px 40px;
+  .gh-card {
+    margin-bottom: 40px;
   }
 
   .section-head {

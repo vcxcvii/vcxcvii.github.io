@@ -31,6 +31,10 @@ The nav was hand-rolled `<details>` + vanilla JS, and the home avatar sat a half
 
 This overturns the previous "no React island" rule in `DESIGN.md` — the owner asked for the real component.
 
+**GitHub card: self-rendered, monochrome, in-column, with real numbers**
+
+The old card was a raw blue `ghchart.rshah.org` image that broke out of the column and scrolled sideways — off-palette and carrying no information beyond the picture. It's replaced by a self-rendered card: a small vanilla script (`assets/js/gh-graph.js`) pulls per-day counts from a contributions API, caches them 6h in localStorage, and draws an inline SVG grid in the zinc intensity scale — last 26 weeks (16 on narrow screens) so it fits the 640px column with no horizontal scroll. It now shows the real contribution total ("N contributions in the last year") plus a `github ↗` and `book a call ↗` link. The card is hidden until data renders, so it degrades to nothing rather than a broken frame if the API is down. CSP updated: ghchart removed from `img-src`, the contributions API added to `connect-src`.
+
 ---
 
 ### 7 July 2026
