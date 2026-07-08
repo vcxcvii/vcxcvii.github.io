@@ -11,6 +11,15 @@ A running log of what changed on this site and why.
 
 ### 8 July 2026
 
+**Ask-an-AI band on every page, and RSS back in the nav**
+
+- **Ask an AI:** added a pre-footer call-to-action that sits on every page, just above the footer. Four buttons: ask ChatGPT, Claude, or Perplexity who I am (each opens the assistant with the question pre-filled), plus a direct link to book a call. The brand marks are drawn in a single ink colour to stay inside the monochrome system, so the only colour in the band is my photo. On mobile the copy stacks above the buttons, and the grid drops to one column on the narrowest screens.
+- **RSS is back in the nav:** the feed page already lived at /feed/, but nothing linked to it. It now appears under the "more" menu, so the writing is one click to follow in any reader.
+
+---
+
+### 8 July 2026
+
 **Polished dark-mode regressions**
 
 - Fixed blog filters by enforcing `[hidden] { display: none !important; }`, so list rows cannot override client-side filtering.
