@@ -1,11 +1,13 @@
 ---
-title: "You are what you admire"
+title: "How to design without AI Slop"
 date: 2026-07-08 00:00:00 +0530
 description: "Killing generic AI-slop design isn't a prompt problem. Curate taste like a swipe file, then encode it as guardrails a pre-push gate actually enforces."
 tags:
   - ai
   - design
 ---
+
+## You are what you admire
 
 If you're tired of AI spitting out the same generic slop every time you ask it to design a landing page, the fix is simpler than it looks. It starts with taste.
 
