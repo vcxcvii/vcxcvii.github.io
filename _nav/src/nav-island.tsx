@@ -62,18 +62,6 @@ function Nav({ items, current }: { items: NavItem[]; current: string }) {
   const secondary = items.slice(PRIMARY_COUNT);
   const isActive = (url: string) => normalize(url) === cur;
 
-  const avatar = (
-    <a href="/" aria-label="Home" className="mr-1 flex h-9 w-9 shrink-0 items-center overflow-hidden rounded-full border border-nav-border no-underline">
-      <img
-        src="/assets/images/favicon.png"
-        alt=""
-        className="h-full w-full rounded-full object-cover"
-        width={36}
-        height={36}
-      />
-    </a>
-  );
-
   const inlineLink = (it: NavItem) => (
     <a
       key={it.url}
@@ -133,7 +121,6 @@ function Nav({ items, current }: { items: NavItem[]; current: string }) {
   return (
     <nav data-nav-menu="" aria-label="Primary" className="flex items-center gap-1">
       <div className="flex min-w-0 flex-1 items-center gap-1">
-        {avatar}
         {mobile ? (
           menu("menu", items)
         ) : (
