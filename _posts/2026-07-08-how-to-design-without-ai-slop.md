@@ -5,6 +5,8 @@ description: "Killing generic AI-slop design isn't a prompt problem. Curate tast
 tags:
   - ai
   - design
+redirect_from:
+  - /you-are-what-you-admire/
 ---
 
 ## You are what you admire
