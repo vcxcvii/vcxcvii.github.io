@@ -233,17 +233,19 @@ mcp: true
 █    █     █
 ████ ████  █</span></pre>
 
-      <p>A self-healing UX agent for this site. It pulls session data from Microsoft Clarity, diagnoses friction (dead clicks, rage clicks, quickback rate, scroll depth, script errors), maps each finding to a suggested fix, and files a GitHub issue for me to review — no blind auto-deploys.</p>
+      <p>A self-healing UX agent for this site. It pulls session data from Microsoft Clarity, diagnoses friction (dead clicks, rage clicks, quickback rate, scroll depth, script errors), maps each finding to a suggested fix, and files a GitHub issue for me to review — no blind auto-deploys. Runs on autopilot every week via GitHub Actions.</p>
 
       <div class="project-section">
         <h4>How I built it</h4>
         <p>Built in <span class="tool-inline">{% include logo.html name="claude-code" %}Claude Code</span> as a small TypeScript pipeline. A fetch step pulls Clarity's Data Export API (respecting its 10-calls/day, 3-day-lookback limits), a threshold-based extractor turns raw metrics into severity-ranked findings, a mapper translates each finding into a plain-language fix suggestion, and a final step opens a labeled, deduped GitHub issue on this repo via the <code>gh</code> CLI.</p>
+        <p>A GitHub Actions workflow runs the whole pipeline every Monday, no manual trigger needed. Weekly cadence lines up with Clarity's 3-day lookback window and daily call budget.</p>
         <p>Named for the DC Comics Lazarus Pit — the chemical pool that resurrects and heals. Fitting for a "self-healing" site agent, obscure enough that only the die-hards clock it.</p>
       </div>
 
       <div class="project-section">
         <h4>Features</h4>
         <ul>
+          <li>Runs weekly on autopilot via GitHub Actions (also manually triggerable)</li>
           <li>Clarity Data Export API integration with built-in daily call budget tracking</li>
           <li>Threshold-based finding extraction across 6 UX signal metrics</li>
           <li>Finding-to-fix mapping grounded in concrete, actionable suggestions</li>
@@ -255,6 +257,7 @@ mcp: true
       <div class="project-section">
         <h4>Version history</h4>
         <ul class="version-list">
+          <li><strong>1.1.0</strong> (Jul 10, 2026) — Weekly autopilot via GitHub Actions</li>
           <li><strong>1.0.0</strong> (Jul 10, 2026) — Initial pipeline: Clarity fetch, finding extraction, component mapping, GitHub issue filing</li>
         </ul>
       </div>

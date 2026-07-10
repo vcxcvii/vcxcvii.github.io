@@ -13,4 +13,4 @@
 - name: lazarus pit
   icon: github
   link: https://github.com/vcxcvii/lazarus-pit
-  description: Self-healing UX agent. Pulls Clarity session data, diagnoses friction, files GitHub issues with proposed fixes.
+  description: Self-healing UX agent. Pulls Clarity session data, diagnoses friction, files GitHub issues with proposed fixes. Runs weekly on autopilot.
