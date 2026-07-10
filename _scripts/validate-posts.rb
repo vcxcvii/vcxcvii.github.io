@@ -19,6 +19,13 @@ Dir.glob("_posts/*.md").sort.each do |path|
   end
 
   front_matter = YAML.safe_load(match[1], permitted_classes: [Time, Date], aliases: false) || {}
+
+  file_slug = File.basename(path, ".md").sub(/\A\d{4}-\d{2}-\d{2}-/, "")
+  title_slug = front_matter["title"].to_s.downcase.delete("'’").gsub(/[^a-z0-9]+/, "-").gsub(/\A-+|-+\z/, "")
+  unless front_matter["permalink"] || title_slug == file_slug || title_slug.start_with?("#{file_slug}-")
+    errors << "#{path}: slug '#{file_slug}' does not match title (expected '#{title_slug}' or a prefix of it; set 'permalink' to override)"
+  end
+
   tags = front_matter["tags"]
 
   if !tags.is_a?(Array) || tags.compact.empty?
