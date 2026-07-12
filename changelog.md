@@ -9,6 +9,17 @@ A running log of what changed on this site and why.
 
 ---
 
+### 12 July 2026
+
+**Letterboxd added, hover labels on social icons, Helvetica sitewide, mobile CTA fix**
+
+- **Letterboxd:** added the exact Simple Icons mark next to GitHub in the hero social row, linking to my profile.
+- **Hover tooltips:** all four hero social icons (LinkedIn, X, GitHub, Letterboxd) now show a small label on hover, styled to match the site instead of relying on the browser's native title tooltip.
+- **Typeface:** swapped the self-hosted Geist variable font for Helvetica sitewide (`"Helvetica Neue", Helvetica, Arial, sans-serif`), dropping the Geist `@font-face` and its preload.
+- **Mobile fix:** tightened the gap between the "Ask an AI" headline and its button grid on narrow screens (18px to 10px) — it was reading as an oversized, disconnected block.
+
+---
+
 ### 8 July 2026
 
 **Ask-an-AI band on every page, and RSS back in the nav**
