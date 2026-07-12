@@ -1,7 +1,7 @@
 ---
 title: Changelog
 description: A running log of what changed on this site and why.
-intro: Every update to varunchoraria.com — what changed, what shipped, and the reasoning behind it.
+intro: Every update to varunchoraria.com, what changed, what shipped, and the reasoning behind it.
 mcp: true
 ---
 
@@ -17,6 +17,8 @@ A running log of what changed on this site and why.
 - **Hover tooltips:** all four hero social icons (LinkedIn, X, GitHub, Letterboxd) now show a small label on hover, styled to match the site instead of relying on the browser's native title tooltip.
 - **Typeface:** swapped the self-hosted Geist variable font for Helvetica sitewide (`"Helvetica Neue", Helvetica, Arial, sans-serif`), dropping the Geist `@font-face` and its preload.
 - **Mobile fix:** tightened the gap between the "Ask an AI" headline and its button grid on narrow screens (18px to 10px) — it was reading as an oversized, disconnected block.
+- **Favicon:** replaced the memoji favicon with a bold "VC" tile. Browsers get the SVG directly (crisp at any size, real transparency on the rounded corners); the PNG fallback is a full-bleed 180px square for apple-touch-icon, fixing white corner fringing from flattened transparency.
+- **Link previews:** cleaned em-dashes out of page descriptions so social previews read plainly.
 
 ---
 

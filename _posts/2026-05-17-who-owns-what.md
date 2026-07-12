@@ -1,7 +1,7 @@
 ---
 title: Who owns what?
 date: 2026-05-17 00:00:00 +0530
-description: In the age of agentic AI, the question hasn't changed — who owns what between humans and AI? Here is a framework to figure it out, and a process to keep it current.
+description: "In the age of agentic AI, the question hasn't changed: who owns what between humans and AI? Here is a framework to figure it out, and a process to keep it current."
 tags:
   - ai
   - management
