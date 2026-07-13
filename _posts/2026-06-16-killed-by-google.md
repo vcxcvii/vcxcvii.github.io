@@ -1,6 +1,7 @@
 ---
 title: Killed By Google
 date: 2026-06-16 00:00:00 +0530
+description: "Killed by Google, Stripe's #crazyideas, and whether companies — and people — can afford to run a portfolio of experiments while chasing ARR."
 tags:
   - career
   - strategy

@@ -1,6 +1,7 @@
 ---
 title: Too much parenting, too little adulting
 date: 2026-06-20 00:00:00 +0530
+description: "Managers burn out parenting their teams. Even in the age of agentic AI, RACI charts and follow-up chasing can't substitute for reports who act like adults."
 tags:
   - management
   - leadership

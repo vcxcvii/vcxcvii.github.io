@@ -1,26 +1,31 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Varun Choraria",
-  "url": "https://www.varunchoraria.com",
-  "jobTitle": "Senior Manager, Marketing",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "GTM Buddy",
-    "url": "https://www.gtmbuddy.com"
-  },
-  "description": "B2B SaaS marketing operator with over a decade of experience. Writes about go-to-market strategy, product marketing, sales enablement, and AI in B2B revenue teams.",
-  "knowsAbout": ["B2B SaaS", "go-to-market strategy", "product marketing", "sales enablement", "content marketing", "AI in sales", "management"],
-  "sameAs": [
-    "https://www.linkedin.com/in/varunchoraria/",
-    "https://github.com/vcxcvii"
-  ],
-  "mainEntityOfPage": {
-    "@type": "WebSite",
-    "name": "VC's Notes",
-    "url": "https://www.varunchoraria.com"
-  }
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.varunchoraria.com/#person",
+      "name": "Varun Choraria",
+      "url": "https://www.varunchoraria.com",
+      "image": "https://www.varunchoraria.com/assets/images/varun-choraria-about.jpeg",
+      "jobTitle": "Independent B2B SaaS Marketing Consultant",
+      "description": "Independent B2B SaaS marketing consultant with over a decade of experience. Advises on positioning, messaging, and go-to-market strategy. Writes about GTM, product marketing, sales enablement, and AI in B2B revenue teams.",
+      "knowsAbout": ["B2B SaaS", "go-to-market strategy", "product marketing", "positioning", "messaging", "sales enablement", "content marketing", "AI in sales", "management"],
+      "sameAs": [
+        "https://www.linkedin.com/in/varunchoraria/",
+        "https://github.com/vcxcvii"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.varunchoraria.com/#website",
+      "name": "VC's Notes",
+      "url": "https://www.varunchoraria.com",
+      "description": {{ site.description | jsonify }},
+      "author": { "@id": "https://www.varunchoraria.com/#person" },
+      "publisher": { "@id": "https://www.varunchoraria.com/#person" }
+    }
+  ]
 }
 </script>
 

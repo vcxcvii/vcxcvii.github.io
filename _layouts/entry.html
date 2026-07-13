@@ -8,18 +8,11 @@ layout: default
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: page.excerpt | strip_html | strip | jsonify }},
   "url": {{ page.url | prepend: site.url | jsonify }},
+  "image": {{ page.image | default: '/assets/images/varun-choraria-about.jpeg' | prepend: site.url | jsonify }},
   "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
   "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
-  "author": {
-    "@type": "Person",
-    "name": "Varun Choraria",
-    "url": "https://www.varunchoraria.com"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Varun Choraria",
-    "url": "https://www.varunchoraria.com"
-  },
+  "author": { "@id": "https://www.varunchoraria.com/#person" },
+  "publisher": { "@id": "https://www.varunchoraria.com/#person" },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": {{ page.url | prepend: site.url | jsonify }}
@@ -31,7 +24,8 @@ layout: default
   <header class="page-header">
     <h1>{{ page.title }}</h1>
     <p class="entry-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.last_modified_at %}
+      &middot; updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>{% endif %}
     </p>
     {% if page.tags and page.tags.size > 0 %}
       <ul class="entry-tags" aria-label="Tags">

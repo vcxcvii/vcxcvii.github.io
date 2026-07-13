@@ -11,9 +11,20 @@ Always open to interesting opportunities across the world. With respect to profe
 
 ## Current
 
+### Independent Marketing Consultant
+
+**2026-present**
+
+- Advising B2B SaaS companies on positioning, messaging, and go-to-market strategy
+- Building AI-first marketing systems — one operator running a swarm of agents
+
+---
+
+## Past
+
 ### Senior Manager, Marketing
 
-**2026-present** · [GTM Buddy](https://gtmbuddy.ai/)
+**2026** · [GTM Buddy](https://gtmbuddy.ai/)
 
 - Took over marketing at a Series A B2B SaaS startup — led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a $XXX,XXX budget, delivering $X,XXX,XXX+ in active pipeline
 - Transformed the team to AI-first operations by integrating GitHub, Cursor, Claude, Codex, and Swan into daily workflows — dramatically improved shipping velocity and built internal tools that automated sales signal detection, account research, and meeting prep
@@ -25,10 +36,6 @@ Always open to interesting opportunities across the world. With respect to profe
 - Founded the SDR motion from scratch — generated 2 qualified meetings within the first month
 - Managed founder brand: orchestrated 35+ podcast appearances in one quarter (800K+ combined views), grew LinkedIn to 200K+ impressions, and secured a Forbes feature placement
 - Drove 9 qualified leads through AEO/GEO (AI search optimization) — positioned the company in AI-generated answers across ChatGPT, Perplexity, and Claude
-
----
-
-## Past
 
 ### Lead, Product Marketing
 
