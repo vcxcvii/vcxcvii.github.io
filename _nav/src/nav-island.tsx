@@ -201,6 +201,13 @@ function FilterPaginationIsland({ root }: { root: HTMLElement }) {
   }, []);
 
   React.useEffect(() => {
+    if (!list) return;
+    if (!list.id) list.id = "filter-list-panel";
+    list.setAttribute("role", "tabpanel");
+    list.setAttribute("aria-labelledby", `filter-tab-${active}`);
+  }, [list, active]);
+
+  React.useEffect(() => {
     const el = listRef.current;
     if (!el) return;
     updateOverflow();
@@ -280,6 +287,8 @@ function FilterPaginationIsland({ root }: { root: HTMLElement }) {
               <TabsTrigger
                 key={tag}
                 value={tag}
+                id={`filter-tab-${tag}`}
+                aria-controls={list ? list.id || "filter-list-panel" : undefined}
                 ref={(node) => { triggerRefs.current[tag] = node; }}
               >
                 {tag === "all" ? "All" : displayTag(tag)}

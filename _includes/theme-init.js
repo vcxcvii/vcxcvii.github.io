@@ -69,10 +69,22 @@
     syncMeta: function () { applyThemeMeta(explicit || systemTheme(), explicit); }
   };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", window.__vcTheme.syncMeta);
-  } else {
+  // Non-blocking stylesheets: links ship as media="print" and flip here,
+  // because CSP (no 'unsafe-inline') blocks the usual onload= attribute swap.
+  function flipAsyncCss() {
+    var links = document.querySelectorAll('link[data-async-css]');
+    for (var i = 0; i < links.length; i++) links[i].media = "all";
+  }
+
+  function onReady() {
     window.__vcTheme.syncMeta();
+    flipAsyncCss();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", onReady);
+  } else {
+    onReady();
   }
 
   if (window.matchMedia) {
