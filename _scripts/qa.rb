@@ -59,11 +59,11 @@ def design_guardrails
     end
   end
 
-  css = "assets/css/style.scss"
+  css = File.exist?("_sass/main.scss") ? "_sass/main.scss" : "assets/css/style.scss"
   if File.exist?(css)
     n = File.read(css).scan("var(--font-mono)").size
     if n != 2
-      errs << "Design: mono on UI — #{n} var(--font-mono) uses in style.scss, expected 2 (code/pre + .ascii-logo). Mono is code-only."
+      errs << "Design: mono on UI — #{n} var(--font-mono) uses in #{css}, expected 2 (code/pre + .ascii-logo). Mono is code-only."
     end
   end
 
