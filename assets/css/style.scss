@@ -241,12 +241,6 @@ th {
   max-width: var(--col-max);
   margin: 0 auto;
   padding: 72px var(--col-pad) 48px;
-  animation: fadeUp 0.5s ease both;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .section {
