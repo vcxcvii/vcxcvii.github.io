@@ -710,6 +710,32 @@ h2.section-title,
   border-color: var(--color-heading);
 }
 
+.tl-item.tl-pulse .tl-dot {
+  background: var(--color-heading);
+  border-color: var(--color-heading);
+}
+
+.tl-item.tl-pulse .tl-dot::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--color-heading);
+  animation: tl-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes tl-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
 .tl-row {
   display: flex;
   align-items: baseline;
@@ -1401,6 +1427,7 @@ h2.section-title,
   #wrapper,
   .pill-underline,
   .pill-icon-motion,
+  .tl-pulse .tl-dot::after,
   .avatar {
     animation: none !important;
     transition: none !important;

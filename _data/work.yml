@@ -1,8 +1,3 @@
-- period: "2026 - now"
-  company: Independent
-  title: AI B2B Marketing Consultant
-  summary: "Helping mid-sized B2B SaaS companies win with AI-first marketing — positioning, messaging, and go-to-market strategy, shipped by one operator running a swarm of agents."
-  open: true
 - period: "2026"
   company: GTM Buddy
   company_url: https://gtmbuddy.ai/
@@ -28,3 +23,5 @@
   title: ""
   summary: "If you're building something cool in AI or B2B, let me help you market the sh*t out of it."
   cal: true
+  open: true
+  pulse: true

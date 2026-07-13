@@ -87,7 +87,7 @@ layout: default
   <h2>work<span class="dot">.</span></h2>
   <div class="timeline" data-accordion>
     {% for job in site.data.work %}
-      <div class="tl-item{% if job.open %} is-open{% endif %}">
+      <div class="tl-item{% if job.open %} is-open{% endif %}{% if job.pulse %} tl-pulse{% endif %}">
         <span class="tl-dot"></span>
         <button type="button" class="tl-row" data-accordion-trigger>
           <span class="tl-period">{{ job.period }}</span>
