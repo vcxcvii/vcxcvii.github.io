@@ -60,6 +60,21 @@ used_tags.uniq.sort.each do |tag|
   errors << "#{tag_page}: title must be '#{tag}'" unless front_matter["title"] == tag
 end
 
+# CSP inline-script hashes: every inline <script> emitted by head.html must
+# have a matching sha256 in the CSP meta tag, or browsers silently block it
+# (theme init, analytics loader) — see the July 2026 nav.css breakage.
+require "digest"
+require "base64"
+
+head = File.read("_includes/head.html")
+head_expanded = head.gsub(/\{%\s*include\s+(\S+)\s*%\}/) { File.read(File.join("_includes", Regexp.last_match(1))) }
+csp = head[/Content-Security-Policy" content="([^"]*)"/, 1].to_s
+
+head_expanded.scan(%r{<script>(.*?)</script>}m) do |(body)|
+  hash = "sha256-#{Base64.strict_encode64(Digest::SHA256.digest(body))}"
+  errors << "_includes/head.html: inline script hash '#{hash}' missing from CSP script-src (script starts: #{body.strip[0, 40].inspect})" unless csp.include?(hash)
+end
+
 if errors.any?
   warn "Post validation failed:"
   errors.each { |error| warn "- #{error}" }
