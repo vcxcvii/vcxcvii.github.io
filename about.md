@@ -14,7 +14,7 @@ I'm a marketing professional and I've worked in the B2B SaaS space for about a d
 
 ## Now
 
-I work independently with B2B SaaS companies on positioning, messaging, and go-to-market strategy. Most recently, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A), helping create the Revenue Activation category.
+I'm an AI B2B marketing consultant for mid-sized SaaS companies — positioning, messaging, and go-to-market strategy. Most recently, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A), helping create the Revenue Activation category.
 
 I'm all-in on Agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents. I'm building that way of working now.
 

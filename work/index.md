@@ -11,11 +11,11 @@ Always open to interesting opportunities across the world. With respect to profe
 
 ## Current
 
-### Independent Marketing Consultant
+### AI B2B Marketing Consultant
 
 **2026-present**
 
-- Advising B2B SaaS companies on positioning, messaging, and go-to-market strategy
+- Advising mid-sized B2B SaaS companies on positioning, messaging, and go-to-market strategy
 - Building AI-first marketing systems — one operator running a swarm of agents
 
 ---

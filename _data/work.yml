@@ -1,9 +1,13 @@
 - period: "2026 - now"
+  company: Independent
+  title: AI B2B Marketing Consultant
+  summary: "Helping mid-sized B2B SaaS companies win with AI-first marketing — positioning, messaging, and go-to-market strategy, shipped by one operator running a swarm of agents."
+  open: true
+- period: "2026"
   company: GTM Buddy
   company_url: https://gtmbuddy.ai/
   title: Senior Manager, Marketing
   summary: "Creating a new category: Revenue Activation. Leading a team of 3 across design, data ops, and demand gen, and making the marketing function AI-first in every workflow."
-  open: true
 - period: "2024 - 2026"
   company: Freshworks
   company_url: https://www.freshworks.com/
