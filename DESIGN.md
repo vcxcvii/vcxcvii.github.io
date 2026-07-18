@@ -12,11 +12,11 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 ## Hard constraints
 
 - No React, Tailwind, shadcn, component framework, web font, icon library, client-side router, theme system, or build-time JavaScript.
-- No cards, pills, badges, tab bars, dropdown navigation, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay.
+- No cards, pills, badges, tab bars, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay.
 - No dark-mode toggle. One light reading theme.
 - No JavaScript on ordinary pages. Homepage may load the dependency-free GitHub graph script. A utility page may use a tiny script only when native HTML cannot provide the function.
 - Never hide core content behind JavaScript, hover, filters, accordions, pagination, or animation.
-- All navigation links remain visible on mobile. Let them wrap; never replace them with a hamburger.
+- Desktop navigation links remain visible. Mobile uses a native CSS hamburger toggle; links remain normal HTML and require no JavaScript.
 
 ## Page shell
 
@@ -46,9 +46,9 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - `github ↗` is the final external link.
 - Header links are muted gray without underlines until hover, focus, or active state. Icon-only social links also omit underlines because they contain no visible text.
 - A `1px #dddddd` rule sits below the navigation.
-- No home pill, active background, icon button, dropdown, or theme toggle.
+- No home pill, active background, or theme toggle.
 - Desktop: single line where space permits.
-- Mobile: `VC` occupies the first line; path links wrap below with at least `44px` touch height.
+- Mobile: `VC` and a plain hamburger occupy the first line. Opening it reveals a right-aligned link stack with at least `44px` touch height.
 
 ## Homepage
 
@@ -95,7 +95,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Each row: `DD Mon » linked title`.
 - Date uses monospace and muted gray; title uses blue, underlined link.
 - No excerpts, filters, tag pills, search, cards, pagination, or `View all` on homepage.
-- Mobile rows use at least `44px` height and a narrower date column.
+- Homepage mobile rows use compact vertical rhythm and a narrower date column. Other archive surfaces keep `44px` tap rows.
 
 ## Tags
 
@@ -112,7 +112,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Prose width is no wider than `42rem`.
 - Images use natural color and scale down to viewport width.
 - Code blocks and tables may scroll horizontally; the page itself must never scroll horizontally.
-- After prose: `Related essays`, up to three dated links selected only through existing tag relationships.
+- After prose: `Related essays`, up to three dated links selected only through existing tag relationships. Rows use the same single-line date, separator, and linked-title treatment as the homepage archive.
 
 ## Supporting pages
 
@@ -124,20 +124,20 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Footer
 
-- Thin top rule, small gray text.
-- First row: `rss · mcp page · llms.txt · tags · disclaimer · changelog · design.md · source`.
+- Thin top rule, small gray text, generous space between groups.
+- `Site` group: `rss`, `mcp`, `llms.txt`, `tags`, `disclaimer`, `changelog`, `design.md`, and `source`, arranged as a loose link grid without dot separators.
 - `design.md` links to the readable canonical file in the public GitHub repository.
-- Second row: plain text links for ChatGPT, Claude, and Perplexity.
-- Final row: copyright and `Built with AI, supervised by a human.`
-- No logos, buttons, avatars, grids, or callout background.
+- `Ask AI` group: icon-only links for ChatGPT, Claude, and Perplexity with accessible labels.
+- Final row sits below its own light rule: copyright and `Built with AI, supervised by a human.`
+- No buttons, avatars, or callout background.
 
 ## Responsive behavior
 
 - Primary breakpoint: `44rem`; compact breakpoint: `30rem`.
 - Test at `320`, `375`, `390`, `430`, `768`, and `1440` CSS pixels.
 - No horizontal page overflow at `320px`.
-- Navigation and archive links must remain readable without zoom.
-- Tap targets: `44px` on mobile navigation and essay rows.
+- Navigation toggle, expanded links, and archive links must remain readable without zoom.
+- Tap targets: `44px` on mobile navigation and non-home archive rows. Homepage essay rows stay compact by design.
 - GitHub graph fits available width; never force horizontal scrolling.
 - Two-column utility content collapses to one column below `30rem`.
 

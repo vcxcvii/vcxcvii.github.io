@@ -83,6 +83,7 @@ def design_guardrails
   errs << "Design: GitHub must remain visible in navigation" unless nav.include?("github &#8599;")
   errs << "Design: blog must remain visible in navigation" unless nav.include?("site.data.navigation") && File.read("_data/navigation.yml").include?("url: /blog/")
   errs << "Design: side quests must remain visible in navigation" unless File.read("_data/navigation.yml").include?("url: /side-quests/")
+  errs << "Design: mobile hamburger navigation missing" unless nav.include?('class="nav-toggle"') && nav.include?('class="menu-toggle"')
 
   home = read_file("_layouts/home.html")
   errs << "Design: homepage must render the full essay archive" unless home.include?("essay-list.html posts=site.posts")
@@ -116,11 +117,17 @@ def design_guardrails
   errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
 
   footer = read_file("_includes/footer.html")
-  errs << "Design: footer MCP page link missing" unless footer.include?("mcp page") && footer.include?("'/mcp/' | relative_url")
+  errs << "Design: footer MCP link missing" unless footer.match?(/>mcp<\/a>/) && footer.include?("'/mcp/' | relative_url")
   errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
   errs << "Design: footer must link to the dedicated tag index" unless footer.include?("'/tags/' | relative_url")
   errs << "Design: footer must link to the canonical DESIGN.md" unless footer.include?("blob/main/DESIGN.md")
   errs << "Design: footer must not embed the complete tag index" if footer.include?("include tag-list.html")
+  footer_ai_icons = %w[openai claude perplexity].all? { |name| footer.include?(%{logo.html name="#{name}"}) }
+  errs << "Design: footer Ask AI links must use three accessible logos" unless footer_ai_icons && footer.scan(/aria-label="Ask /).size == 3
+
+  entry = read_file("_layouts/entry.html")
+  related_rows_match_archive = entry.include?('<li class="essay-row">') && entry.include?('post.date | date: "%d %b"')
+  errs << "Design: related essays must match homepage archive rows" unless related_rows_match_archive
 
   repo_list = read_file("_includes/repo-list.html")
   errs << "Design: side-quest rows must use the inline GitHub mark" unless repo_list.include?('logo.html name="github"')

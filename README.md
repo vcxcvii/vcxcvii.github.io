@@ -6,17 +6,17 @@ Built with Jekyll. Hosted on GitHub Pages. Deliberately resembles the simple, fu
 
 ## Design
 
-The homepage is the archive: small circular portrait above the introduction, calendar and social icons, green GitHub activity, every essay grouped by year, then public side-project repositories. The shared footer links to the dedicated tag index. Navigation and footer are plain HTML. Text links are blue and underlined except in the header; icon-only social links have no text decoration. `VC` is electric blue. The site uses system fonts and no component framework.
+The homepage is the archive: small circular portrait above the introduction, calendar and social icons, green GitHub activity, every essay grouped by year, then public side-project repositories. The shared footer links to the dedicated tag index. Navigation and footer are plain HTML; mobile navigation uses a CSS-only hamburger toggle. Text links are blue and underlined except in the header; icon-only social links have no text decoration. `VC` is electric blue. The site uses system fonts and no component framework.
 
 [`DESIGN.md`](DESIGN.md) contains the complete machine-readable design and performance rules.
 
 Hard constraints:
 
 - No React, Tailwind, shadcn, web fonts, dark-mode framework, or client-side navigation
-- No cards, pills, dropdown menus, shadows, gradients, or decorative animation
+- No cards, pills, shadows, gradients, or decorative animation
 - No JavaScript on normal pages
 - One small dependency-free script for the GitHub contribution graph
-- Mobile navigation stays visible and wraps instead of collapsing behind a menu
+- Mobile navigation uses a CSS-only hamburger; links remain normal HTML
 
 ## Run locally
 

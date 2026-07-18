@@ -1,5 +1,12 @@
 <nav class="site-nav" aria-label="Primary">
   <a class="site-mark" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>VC</a>
+  <input class="nav-toggle" type="checkbox" id="site-menu-toggle" aria-label="Navigation menu">
+  <label class="menu-toggle" for="site-menu-toggle">
+      <span class="visually-hidden">Toggle navigation</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+  </label>
   <div class="site-links">
     {% for item in site.data.navigation %}
       <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>/{{ item.label }}</a>
