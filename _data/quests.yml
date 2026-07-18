@@ -14,13 +14,14 @@
   featured: true
   description: Self-improving design-system skills for Claude, Codex, and other Agent Skills-compatible coding agents.
 
-- name: Grow & Close
+- id: grow-and-close
+  name: Grow & Close
   group: Personal
   state: Public
   icon: github
   link: https://github.com/vcxcvii/grow-and-close
   featured: true
-  description: Senior-led GTM execution studio for B2B SaaS companies that need strategy turned into shipped work.
+  description: Senior-led, AI-native GTM execution studio for B2B SaaS companies that need strategy turned into shipped work.
 
 - name: VC's Notes
   group: Personal

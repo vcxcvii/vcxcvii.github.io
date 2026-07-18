@@ -91,6 +91,11 @@ def design_guardrails
   errs << "Design: homepage must not render the footer tag index" if home.include?("include tag-list.html")
   errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
   errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
+  grow_and_close_intro = home.include?('where: "id", "grow-and-close"') &&
+                         home.include?("grow_and_close.link") &&
+                         home.include?("grow_and_close.name") &&
+                         home.include?("grow_and_close.description")
+  errs << "Content: homepage Grow & Close intro missing" unless grow_and_close_intro
   errs << "Design: homepage portrait missing" unless home.include?("assets/images/hero-photo.jpg") && home.include?('width="168" height="168"')
   errs << "Design: homepage portrait must remain circular" unless css_source.include?(".home-portrait") && css_source.include?("border-radius: 50%")
   errs << "Design: homepage side-quest repositories missing" unless home.include?("include repo-list.html") && home.include?("'/side-quests/' | relative_url")
@@ -127,6 +132,11 @@ def design_guardrails
   errs << "Design: dedicated side-quest page must remain a plain directory" if side_quests.include?("<details")
 
   quest_data = File.exist?("_data/quests.yml") ? YAML.safe_load(File.read("_data/quests.yml")) : []
+  grow_and_close = quest_data.find { |quest| quest["id"] == "grow-and-close" }
+  valid_grow_and_close = grow_and_close &&
+                         grow_and_close["link"] == "https://github.com/vcxcvii/grow-and-close" &&
+                         grow_and_close["description"].include?("Senior-led, AI-native GTM execution studio")
+  errs << "Content: Grow & Close project data missing or incomplete" unless valid_grow_and_close
   required_quests = ["Master Shifu", "Michealangelo", "Grow & Close", "VC's Notes", "Self-updating GitHub profile", "MCP server", "Lazarus Pit", "GTM Buddy Marketing Skills", "GTM Buddy Design and Engineering", "GTM Skills (SDR)"]
   quest_names = quest_data.map { |quest| quest["name"] }
   missing_quests = required_quests - quest_names
