@@ -33,7 +33,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 ## Color
 
 - Normal and visited links: browser blue `#0000ee`, underlined.
-- `VC` masthead mark: restrained red `#cc0000`.
+- `VC` masthead mark: electric blue `#0057ff`.
 - GitHub graph: official contribution colors `#ebedf0`, `#9be9a8`, `#40c463`, `#30a14e`, `#216e39`.
 - Text never uses the GitHub palette. Green belongs to GitHub activity only.
 - Selection highlight: pale yellow `#fff2a8`.
@@ -41,8 +41,8 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 ## Header
 
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
-- First link is red `VC`, returning home.
-- Visible path links follow: `/about`, `/work`, `/fun`, `/uses`.
+- First link is electric-blue `VC`, returning home.
+- Visible path links follow: `/about`, `/work`, `/blog`, `/fun`, `/uses`.
 - `github ↗` is the final external link.
 - Header links are the sole link-style exception: muted gray without underlines until hover, focus, or active state.
 - No home pill, active background, icon button, dropdown, or theme toggle.
@@ -55,12 +55,14 @@ Order is fixed:
 
 1. Header.
 2. Short introduction: name, location, operating focus, writing topics.
-3. GitHub contribution graph in official green.
-4. `Essays` heading.
-5. Every essay, newest first, grouped by year.
-6. Footer.
+3. Calendar link and compact links to LinkedIn, X, GitHub, and Letterboxd.
+4. GitHub contribution graph in official green.
+5. Linked `Essays` heading.
+6. Every essay, newest first, grouped by year.
+7. Linked `Tags` heading and every tag with its essay count.
+8. Footer.
 
-The introduction is not a marketing hero. No portrait, social icon row, booking button, animated keyword, career timeline, side-quest cards, or AI CTA band.
+The introduction is not a marketing hero. No portrait, oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are compact text links, never an icon library.
 
 ## GitHub activity
 
@@ -81,6 +83,13 @@ The introduction is not a marketing hero. No portrait, social icon row, booking 
 - No excerpts, filters, tag pills, search, cards, pagination, or `View all` on homepage.
 - Mobile rows use at least `44px` height and a narrower date column.
 
+## Tags
+
+- Homepage and `/tags/` show the same complete alphabetical tag list.
+- Each entry is a plain blue link plus a muted essay count.
+- Three columns on desktop, two on tablet, one below `30rem`.
+- Tag archive pages retain the same year-grouped essay list.
+
 ## Essay pages
 
 - Header remains unchanged.
@@ -92,7 +101,8 @@ The introduction is not a marketing hero. No portrait, social icon row, booking 
 
 ## Supporting pages
 
-- `/about`, `/work`, `/fun`, `/uses-this`, `/side-quests`, `/feed`, and `/mcp` use the same page shell and typography.
+- `/about`, `/work`, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, and `/mcp` use the same page shell and typography.
+- `/about` contains no portrait.
 - Long pages rely on headings, rules, lists, `<details>`, and links. Do not introduce a separate visual system.
 - Side-quest disclosure sections are native `<details>` with simple horizontal rules, not cards.
 - MCP endpoint is presented as selectable code. Avoid custom copy UI when selecting and copying text already works.

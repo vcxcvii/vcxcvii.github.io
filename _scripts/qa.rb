@@ -21,7 +21,7 @@ FORBIDDEN_PATTERNS = %w[
   theme-init.js shadcn tailwind @font-face box-shadow linear-gradient
   radial-gradient backdrop-filter
 ].freeze
-REQUIRED_COLORS = %w[#0000ee #c00 #9be9a8 #40c463 #30a14e #216e39].freeze
+REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
 CSS_BUDGET = 14_000
 GITHUB_JS_BUDGET = 8_000
 
@@ -56,10 +56,20 @@ def design_guardrails
   nav = File.exist?("_includes/nav.html") ? File.read("_includes/nav.html") : ""
   errs << "Design: pure HTML site mark missing from navigation" unless nav.include?('class="site-mark"')
   errs << "Design: GitHub must remain visible in navigation" unless nav.include?("github &#8599;")
+  errs << "Design: blog must remain visible in navigation" unless nav.include?("site.data.navigation") && File.read("_data/navigation.yml").include?("url: /blog/")
 
   home = File.exist?("_layouts/home.html") ? File.read("_layouts/home.html") : ""
   errs << "Design: homepage must render the full essay archive" unless home.include?("essay-list.html posts=site.posts")
   errs << "Design: homepage must retain GitHub activity" unless home.include?('data-gh-user="vcxcvii"')
+  errs << "Design: homepage essays heading must link to /blog/" unless home.include?("'/blog/' | relative_url")
+  errs << "Design: homepage must expose tag navigation" unless home.include?("include tag-list.html")
+  errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
+  %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
+    errs << "Design: homepage social link missing #{host}" unless home.include?(host)
+  end
+
+  about = File.exist?("about.md") ? File.read("about.md") : ""
+  errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
 
   errs
 end

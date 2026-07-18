@@ -2,6 +2,8 @@
   url: /about/
 - label: work
   url: /work/
+- label: blog
+  url: /blog/
 - label: fun
   url: /fun/
 - label: uses

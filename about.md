@@ -4,10 +4,6 @@ intro: Marketing operator in B2B SaaS, speaker, author, podcast host, and lifelo
 page_class: about-page
 mcp: true
 ---
-<div class="about-portrait-wrap">
-  <img class="about-portrait" src="{{ '/assets/images/varun-choraria-about.jpeg' | relative_url }}" alt="Portrait of Varun Choraria" width="724" height="1086" fetchpriority="high" loading="eager">
-</div>
-
 I'm a marketing professional and I've worked in the B2B SaaS space for about a decade now. I'm also a speaker, author, ex-host of a podcast, bodybuilder, and martial artist. I moonlight as a cat dad.
 
 ---

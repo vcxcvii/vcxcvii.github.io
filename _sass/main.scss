@@ -7,7 +7,7 @@
   --color-surface: #f7f7f7;
   --color-accent: #0000ee;
   --color-link: #0000ee;
-  --color-mark: #c00;
+  --color-mark: #0057ff;
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
@@ -256,6 +256,28 @@ td {
   margin-bottom: 0;
 }
 
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: .25rem .55rem;
+  border: 1px solid currentColor;
+  font-size: .8125rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
 .github-activity {
   margin: 0 0 3rem;
 }
@@ -325,6 +347,40 @@ td {
 
 .essays > h2 {
   margin-top: 0;
+}
+
+.tags-section {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.tags-section h2 {
+  margin-top: 0;
+}
+
+.tag-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .35rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  min-width: 0;
+  margin: 0;
+}
+
+.tag-list span {
+  color: var(--color-secondary);
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .essay-year {
@@ -411,16 +467,6 @@ td {
   margin-top: .5rem;
   color: var(--color-secondary);
   font-size: .8125rem;
-}
-
-.about-portrait-wrap {
-  width: 14rem;
-  max-width: 65%;
-  margin: 0 0 1.5rem;
-}
-
-.about-portrait {
-  vertical-align: middle;
 }
 
 .also-read {
@@ -706,10 +752,19 @@ td {
     padding: .6rem 0;
   }
 
+  .social-links a {
+    min-height: 2.75rem;
+    padding: .65rem .75rem;
+  }
+
   .essay-row {
     min-height: 2.75rem;
     align-items: start;
     padding: .55rem 0;
+  }
+
+  .tag-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-entry summary {
@@ -760,6 +815,10 @@ td {
   .mcp-tool {
     grid-template-columns: 1fr;
     gap: .2rem;
+  }
+
+  .tag-list {
+    grid-template-columns: 1fr;
   }
 
   .page-shell .mcp-tool {

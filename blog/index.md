@@ -1,5 +1,5 @@
 ---
 layout: listing
-title: Notes
-intro: Writing on marketing, strategy, and whatever else is worth saying.
+title: Blog
+intro: Every essay, newest first, grouped by year.
 ---

@@ -1,0 +1,14 @@
+{% assign post_tags = site.posts | map: "tags" | join: "," %}
+{% assign all_tags = post_tags | split: "," | uniq | sort %}
+<ul class="tag-list">
+  {% for tag in all_tags %}
+    {% if tag == "" %}{% continue %}{% endif %}
+    {% assign tag_slug = tag | slugify %}
+    {% assign none = "" | split: "" %}
+    {% assign tagged_posts = site.tags[tag] | default: none %}
+    <li>
+      <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a>
+      <span>{{ tagged_posts.size }}</span>
+    </li>
+  {% endfor %}
+</ul>
