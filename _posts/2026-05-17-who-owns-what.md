@@ -1,7 +1,7 @@
 ---
 title: Who owns what?
 date: 2026-05-17 00:00:00 +0530
-description: "In the age of agentic AI, the question hasn't changed: who owns what between humans and AI? Here is a framework to figure it out, and a process to keep it current."
+description: "Who owns what between humans and AI? Use this framework to assign work by context, judgment, ownership, and metrics, then keep the boundary current."
 tags:
   - ai
   - management
@@ -35,7 +35,7 @@ Across a 40-member product marketing org spread across 2 business units, the qua
 
 ---
 
-# The evergreen question
+## The evergreen question
 
 Now in the agentic AI world, where everyone is using MCPs, skills, agents and subagents — things have become more advanced as AI percolates into deeper and more complex workflows, in addition to job descriptions themselves being re-written.
 
@@ -53,7 +53,7 @@ This changes the hiring equation quite a bit, because EQ becomes a signal you lo
 
 ---
 
-# The evergreen answer
+## The evergreen answer
 
 As anyone in the management side of the business, you need to stop asking yourself this question:
 

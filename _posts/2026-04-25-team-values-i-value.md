@@ -1,7 +1,7 @@
 ---
 title: Team values I value
 date: 2026-04-25 00:00:00 +0530
-description: Management in the agentic era needs fewer routers and more operators. These are the values I expect from teams that manage vendors, AI agents, and stakeholders without waiting for permission.
+description: Management in the agentic era needs fewer routers and more operators. These are the values I expect from teams working with people and AI agents.
 tags:
   - management
   - leadership

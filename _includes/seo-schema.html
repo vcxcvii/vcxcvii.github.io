@@ -1,0 +1,51 @@
+{% if page.url == '/about/' %}
+  {% assign webpage_type = 'ProfilePage' %}
+{% elsif page.layout == 'listing' or page.layout == 'archive' or page.layout == 'tag_archive' or page.layout == 'side-quests' %}
+  {% assign webpage_type = 'CollectionPage' %}
+{% else %}
+  {% assign webpage_type = 'WebPage' %}
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person",
+      "name": "Varun Choraria",
+      "alternateName": "VC",
+      "url": "{{ site.url }}/about/",
+      "image": "{{ '/assets/images/varun-choraria-about.jpeg' | prepend: site.url }}",
+      "jobTitle": "AI B2B Marketing Consultant",
+      "description": {{ site.author_description | jsonify }},
+      "sameAs": [
+        "https://www.linkedin.com/in/varunchoraria/",
+        "https://twitter.com/vcxcvii",
+        "https://github.com/vcxcvii",
+        "https://letterboxd.com/vcxcvii/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "Varun Choraria",
+      "alternateName": "VC's Notes",
+      "description": {{ site.description | jsonify }},
+      "publisher": { "@id": "{{ site.url }}/#person" },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "{{ webpage_type }}",
+      "@id": "{{ canonical_url }}#webpage",
+      "url": "{{ canonical_url }}",
+      "name": {{ meta_title | jsonify }},
+      "description": {{ meta_description | jsonify }},
+      "isPartOf": { "@id": "{{ site.url }}/#website" },
+      "inLanguage": "en-IN"{% if page.url == '/about/' %},
+      "mainEntity": { "@id": "{{ site.url }}/#person" }{% elsif page.url == '/' %},
+      "about": { "@id": "{{ site.url }}/#person" }{% endif %}
+    }
+  ]
+}
+</script>

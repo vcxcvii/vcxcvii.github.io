@@ -1,7 +1,8 @@
 ---
 title: I've been trying to get lucky for a decade. Here's what I learnt.
+seo_title: How to get luckier in your career
 date: 2026-04-19 00:00:00 +0530
-description: Luck is taboo, careers are probabilistic, and the only way to improve your odds is through a stubborn mix of doing, telling, persistence, and compounding your edge.
+description: Careers are probabilistic. Improve your odds through a stubborn mix of doing, telling, persistence, relationships, and compounding your edge.
 tags:
   - career
   - strategy

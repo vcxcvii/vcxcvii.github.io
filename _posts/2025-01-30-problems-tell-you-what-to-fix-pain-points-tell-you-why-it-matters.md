@@ -1,5 +1,6 @@
 ---
 title: "Problems tell you what to fix. Pain points tell you why it matters."
+seo_title: "Problems vs. pain points: Why the difference matters"
 date: 2025-01-30 00:00:00 +0530
 description: Problems are situational. Pain is what makes those problems emotionally and commercially urgent for the person living them.
 tags:

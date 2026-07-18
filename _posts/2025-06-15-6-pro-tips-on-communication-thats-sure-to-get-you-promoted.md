@@ -15,6 +15,8 @@ It's not because they're great at what they do, although sometimes that may be t
 
 <!--more-->
 
+## Six communication habits that compound
+
 1. **Don't save your best behavior for execs only:** Getting promoted is a function of managing both up and across. We often only save the prettiest decks and the most compelling narratives for a larger meeting with execs. Problem is, you're not socializing your ideas and getting buy-in from your peers on an ongoing basis. Doing it on an ongoing basis not only makes them feel involved, it builds a perception that you're taking the lead and driving it. Treat every Slack update with your peers as a practice ground.
 
 2. **"You're not strategic enough":** This was common feedback from various managers over the years. Took me a while to wrap my head around it, but when I did, I saw a simple truth: I over-estimated the amount of buy-in I had. To me, great communication meant technical proactiveness. "Enable" your leaders and every person cc'd with all the information, all at once. What this missed was the amount of work I was expecting someone else to do just to buy into an idea. Something I learned very recently was to sell your idea. It's comms 101, where you wrap your idea into the five whys:
@@ -35,6 +37,8 @@ It's not because they're great at what they do, although sometimes that may be t
 
 6. **How confident should I be?:** I've been in rooms where I was flushed with imposter syndrome but nevertheless had to present. I've also been among leaders I thought were the living embodiment of idiocy and paid the price with my over-confidence. If something is not backed by facts, data, or a case study, it's a hunch, no matter how strong the conviction. Don't mislead a leader. If something is a hunch or a hypothesis, say it.
 
+## Staying calm in high-stakes conversations
+
 Over and above these tips, the real world isn't as black and white where you can easily apply X tip to Y scenario. Why? Emotions. We're emotional beings, and so are our leaders.
 
 So how do you stay calm in these high-stakes situations? Here is what I do:
@@ -43,6 +47,8 @@ So how do you stay calm in these high-stakes situations? Here is what I do:
 - if it's a dicey 1:1, or if I'm getting into a call with someone I have a rocky working relationship with, I genuinely drive the conversation: enlist the bullets to discuss, seek alignment on the same, discuss items and note it, then send minutes
 - if I don't know the subject very well and don't have an answer to an objection, I note it down as an action item and give them a timeline of when I'll be able to revert
 - if I know the subject well but don't have an exact answer, I try to answer in the general direction and validate what they might really be asking
+
+## Small habits that build communication skill
 
 Lastly, there are some ad-hoc skills you can pick up too, which compound your communication skills:
 

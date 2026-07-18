@@ -19,7 +19,7 @@ So, even in the age of agentic AI, you become the usual middle manager who is fi
 
 ----
 
-# Behaviors don't change
+## Behaviors don't change
 
 In a diverse team, everyone comes from diverse backgrounds, various societal hierarchies, value systems and traumas. I've been in the business long enough to realize that no one is exempt from previous job PTSD and/or burnt by leadership.
 
@@ -30,7 +30,7 @@ So then the convenient thing is to point at "behavior issues" of people and PIP 
 The net effect from a business equation perspective is that you're probably at a worse spot than before you started.
 
 ----
-# Observe and Absorb
+## Observe and Absorb
 
 Something I've realized is that most leaders aren't fools (although some terribly are) and genuinely care about their team. So as a manager:
 

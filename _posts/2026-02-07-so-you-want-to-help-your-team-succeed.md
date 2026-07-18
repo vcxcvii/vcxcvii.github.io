@@ -16,6 +16,8 @@ I understood these, because it was simple and straightforward. Coming from an IC
 
 <!--more-->
 
+## The problem with a tiny team
+
 That's a natural setup both in the age of AI as well as in a company at the Series A stage, but I was in a tug-of-war between two very difficult problem statements:
 
 1. Marketing traditionally was not seen as a growth lever. We had an ambitious charter of both category creation as well as driving pipeline. Driving pipeline is a straightforward mandate, but not when you have to revisit your basics of ICP and lead qualification. Over and above that, we were also trying to cope with AI and automations, trying to do our job once and then automate it using skills probably the next time.
@@ -27,6 +29,8 @@ To my surprise, my manager said one thing: "Give me more work to do. Assign task
 
 This was unusual for me, since I always assumed you would only go to your higher-ups with solutions to problems, not work itself. Asks are different because they're project and stakeholder dependencies. Here I was, coming up with a laundry list of items to work on.
 
+## What servant leadership means
+
 That's when my manager introduced me to "servant leadership" as a concept. I loved it, and I'm in the process of internalizing it myself, but here's what I've understood about it:
 
 A true leader's goal is to serve those they lead. It's kind of like taking the inverse of a problem you have and reverse engineering it. Because if you think about it, a leader's real mandate is to drive influence, not direct and execute.
@@ -36,6 +40,8 @@ And this makes logical sense to me, because if you think about it:
 1. Maslow's law dominates it all. If needs are met, belonging and growth in the context of career, meaningful contributions happen.
 2. As an ex-IC, and I hard relate, system and work constraints bubble up from the bottom.
 3. Motivation and incentives are tightly coupled. That's when folks really go above and beyond, and I believe you need that in any setup.
+
+## Putting it into practice
 
 And I'm unsure if I'm right in doing this, and time will tell, but here's how I'm putting thought to action:
 

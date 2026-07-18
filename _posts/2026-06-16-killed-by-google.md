@@ -1,7 +1,7 @@
 ---
 title: Killed By Google
 date: 2026-06-16 00:00:00 +0530
-description: "Killed by Google, Stripe's #crazyideas, and whether companies — and people — can afford to run a portfolio of experiments while chasing ARR."
+description: "Killed by Google, Stripe's #crazyideas, and whether companies and people can afford to run a portfolio of experiments while chasing ARR."
 tags:
   - career
   - strategy
@@ -23,7 +23,7 @@ As I started to think deeply about it - both at a personal and company level - a
 It's a good move, but in an age where everything comes at a cost, is there light at the end of the tunnel?
 
 ---
-# Utter Chaos
+## Utter Chaos
 
 [Ramp is fundraising](https://www.linkedin.com/feed/update/urn:li:activity:7468292936078819328/) to cover token costs. Freshworks, where I worked at previously, [let go 11% of their workforce](https://www.reuters.com/business/freshworks-cut-11-jobs-ai-reshapes-software-sector-2026-05-05/) in 2026 because most of their code is now written by AI. 
 
@@ -37,7 +37,7 @@ Well, in my experience, the fundamentals don't change and in an increasingly cha
 
 ----
 
-# The fundamentals: Relationships + Side Projects > Resumes
+## The fundamentals: Relationships + Side Projects > Resumes
 
 I have zero idea why resumes were created in the first place, but for the sake of this conversation let's assume an old IT uncle wanted to add extra hoops to employment.
 
@@ -63,4 +63,3 @@ So, you can do a couple of things:
 ----
 
 It's not hard to do meaningful work, but it's not easy either. 
-

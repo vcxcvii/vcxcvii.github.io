@@ -78,6 +78,28 @@ def design_guardrails
   unused_classes = css_classes.reject { |name| class_corpus.include?(name) }
   errs << "Cleanup: unused CSS classes #{unused_classes.join(', ')}" unless unused_classes.empty?
 
+  head = read_file("_includes/head.html")
+  errs << "SEO: shared schema include missing" unless head.include?("include seo-schema.html")
+  errs << "SEO: canonical metadata missing" unless head.include?('rel="canonical"') && head.include?("page.canonical_url")
+  errs << "SEO: robots metadata missing" unless head.include?('name="robots"') && head.include?("page.noindex")
+  errs << "SEO: RSS autodiscovery missing" unless head.include?('type="application/atom+xml"')
+  errs << "SEO: favicon URL must remain stable between builds" if head.lines.grep(/rel="(?:apple-touch-)?icon"/).any? { |line| line.include?("asset_version") }
+
+  schema = read_file("_includes/seo-schema.html")
+  %w[Person WebSite ProfilePage CollectionPage WebPage].each do |type|
+    errs << "SEO: shared schema missing #{type}" unless schema.include?(type)
+  end
+
+  favicon = read_file("assets/favicon.svg").downcase
+  valid_favicon = favicon.include?('fill="#ffffff"') && favicon.include?('fill="#0057ff"') && favicon.include?("<desc>")
+  errs << "SEO: favicon must remain white with accessible electric-blue VC description" unless valid_favicon
+
+  %w[archive/index.md notes/index.md].each do |path|
+    source = read_file(path)
+    valid_alias = source.include?("canonical_url: /blog/") && source.include?("noindex: true") && source.include?("sitemap: false")
+    errs << "SEO: #{path} must remain a non-indexed alias of /blog/" unless valid_alias
+  end
+
   nav = read_file("_includes/nav.html")
   errs << "Design: pure HTML site mark missing from navigation" unless nav.include?('class="site-mark"')
   errs << "Design: GitHub must remain visible in navigation" unless nav.include?('href="https://github.com/vcxcvii"') && nav.include?(">github</a>")
@@ -137,6 +159,9 @@ def design_guardrails
   entry = read_file("_layouts/entry.html")
   related_rows_match_archive = entry.include?('<li class="essay-row">') && entry.include?('post.date | date: "%d %b"')
   errs << "Design: related essays must match homepage archive rows" unless related_rows_match_archive
+  errs << "SEO: essay author byline missing" unless entry.include?('rel="author"') && entry.include?("Varun Choraria")
+  article_image = entry.include?("article_image_path") && entry.include?("assets/images/varun-choraria-about.jpeg") && entry.include?('"image":')
+  errs << "SEO: BlogPosting image and fallback missing" unless article_image
 
   repo_list = read_file("_includes/repo-list.html")
   errs << "Design: side-quest rows must use the inline GitHub mark" unless repo_list.include?('logo.html name="github"')
@@ -234,7 +259,7 @@ content_files.each do |path|
   word_count = plain.split.size
   has_headings = plain.match?(/^##/)
 
-  title = fm["title"].to_s.strip
+  title = (fm["seo_title"] || fm["title"]).to_s.strip
   desc  = (fm["description"] || fm["intro"]).to_s.strip
 
   # ── SEO ─────────────────────────────────────────────────────────────
@@ -247,6 +272,7 @@ content_files.each do |path|
   if is_post
     warns << "AEO: #{word_count} words — aim for #{AEO_WORD_MIN}+ for AI readability" if word_count < AEO_WORD_MIN
     warns << "AEO: no ## headings — structure helps AI agents parse content" unless has_headings
+    errs << "SEO: Markdown H1 found; entry layout already renders the page H1" if body.match?(/^# /)
 
     tags = fm["tags"]
     errs << "AEO: missing 'tags' — required for categorisation" unless tags.is_a?(Array) && tags.any?
@@ -259,7 +285,8 @@ content_files.each do |path|
     end
   end
 
-  if is_page && fm["layout"] != "home"
+  dynamic_page = %w[listing archive tag_archive side-quests].include?(fm["layout"].to_s) || body.include?("include tag-list.html")
+  if is_page && fm["layout"] != "home" && !fm["noindex"] && !dynamic_page
     warns << "AEO: #{word_count} words — more content helps AI agents answer questions" if word_count < 50
   end
 
@@ -268,7 +295,7 @@ content_files.each do |path|
     warns << "Design: unknown layout '#{fm['layout']}'"
   end
 
-  warns << "Design: missing 'intro' field — used in page headers" if is_page && fm["intro"].to_s.strip.empty?
+  warns << "Design: missing 'intro' field; used in page headers" if is_page && !fm["noindex"] && fm["intro"].to_s.strip.empty?
 
   if is_post
     raw_date = fm["date"]
@@ -284,7 +311,7 @@ content_files.each do |path|
   end
 
   # ── MCP compliance ───────────────────────────────────────────────────
-  if is_page && !fm["mcp"]
+  if is_page && !fm["noindex"] && !fm["mcp"]
     warns << "MCP: page not indexed by AI agents — add 'mcp: true' to frontmatter"
   end
 

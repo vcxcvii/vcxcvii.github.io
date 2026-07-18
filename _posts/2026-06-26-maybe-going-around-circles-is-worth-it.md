@@ -28,7 +28,7 @@ CIRCLES is a helpful framework to bring a rounded thinking hat to the table and 
 <!--more-->
 
 ---
-# The same thing works in RCAs
+## The same thing works in RCAs
 
 1. A costly lesson I learnt in my career: check the damn dashboard itself for telemetry errors, sanity of the data lake and how a metric is computed. You'd be surprised how often that occurs. Plumbing issues like hygiene and data pipeline breakages often misreport signals.
    
@@ -53,6 +53,9 @@ I've done both - for PLG as well as sales-led motions. For PLG, I was able to fi
 For sales-led motions, I was able to identify if an increase in traffic = ICP vs. non-ICP visits via [SwanAI ](https://www.getswan.com/) led to more demo form fills or not. SwanAI helped us profile, enrich and classify web visitors and ping us on slack with an outreach drafted. It was a good way for us to validate our SEO / AEO bets. Additionally, having access to data helped us reverse-engineer our ideal deal / account and customer profile based on past-won deals data to better target them for future pipeline.
 
 ---
+
+## Direction still needs judgment
+
 The premise is simple: being insight-led vs. data-driven is a lot better because it helps you drive cross-functional influence and evaluate tradeoffs better. Everyone talks about velocity, few understand it. Velocity is speed + direction. Speed is mostly solved for by AI. Direction is still very judgment and context-heavy, as most insights still need to pass the human smell-test. 
 
 Being insight-led also helps you ruthlessly prioritize closest to revenue tasks. [I've said this before too ](https://www.varunchoraria.com/who-owns-what/) organizations are now becoming flatter by the day, and so every project invariably becomes cross-functional because skill gap has collapsed due to AI.

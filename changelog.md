@@ -9,6 +9,19 @@ A running log of what changed on this site and why.
 
 ---
 
+### 18 July 2026
+
+**Search metadata, structured data, crawl controls, and favicon refresh**
+
+- **Favicon:** replaced the dark tile with a stable white square and electric-blue `VC` in matching SVG and 180px PNG files.
+- **Titles and descriptions:** added concise, unique search titles and page-specific descriptions while preserving essay headlines.
+- **Structured data:** added shared `Person`, `WebSite`, `ProfilePage`, `CollectionPage`, and `WebPage` entities; strengthened essay `BlogPosting` author data.
+- **Crawl hygiene:** canonicalized duplicate archive aliases to `/blog/`, removed them and the 404 page from the sitemap, and added correct `noindex` directives.
+- **Discovery:** added RSS autodiscovery, explicit author bylines, useful tag descriptions, and updated `llms.txt` machine endpoints.
+- **Content structure:** repaired essay heading hierarchy so each page keeps one H1 and exposes useful H2 sections to readers and search systems.
+
+---
+
 ### 12 July 2026
 
 **Letterboxd added, hover labels on social icons, Helvetica sitewide, mobile CTA fix**
@@ -177,7 +190,7 @@ Published [Killed by Google](/killed-by-google/). Fixed the social icons on mobi
 
 **Two new sections: /til and a live API**
 
-Added [/til](/til/) for short notes — things I learn and want to remember, published as they happen rather than saved up for a long essay. Added a live JSON endpoint at `/api/latest.json` so my GitHub profile can automatically show the latest post without me having to update it manually.
+Added `/til/` for short notes (later retired), things I learn and want to remember, published as they happen rather than saved up for a long essay. Added a live JSON endpoint at `/api/latest.json` so my GitHub profile can automatically show the latest post without me having to update it manually.
 
 ---
 

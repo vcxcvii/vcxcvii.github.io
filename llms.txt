@@ -1,28 +1,29 @@
 # Varun Choraria
 
-> AI B2B Marketing Consultant for mid-sized SaaS companies. Writer on B2B SaaS, go-to-market strategy, and the intersection of AI and human judgment in modern sales.
+> AI B2B marketing consultant and operator. Essays on go-to-market strategy, management, careers, AI, product marketing, and building useful things.
 
 ## About
 
-Varun Choraria is an AI B2B marketing consultant for mid-sized SaaS companies, with over a decade of experience advising on positioning, messaging, and go-to-market strategy. He most recently led marketing at GTM Buddy, a Revenue Activation platform for B2B sales teams. He writes about go-to-market strategy, sales enablement, content, and the evolving role of AI in B2B revenue teams.
+Varun Choraria is an AI B2B marketing consultant for mid-sized SaaS companies, with about a decade of experience across positioning, messaging, product marketing, and go-to-market strategy. He most recently led marketing at GTM Buddy. He is also building Grow & Close, a senior-led, AI-native GTM execution studio.
 
 ## Writing
 
-- [/notes](/blog/) — longer essays on B2B marketing, GTM strategy, and AI in sales
-- [/til](/til/) — short atomic notes and observations
+- [/blog/](/blog/): every essay, newest first, grouped by year
+- [/tags/](/tags/): essays grouped by topic
+- [/feed/](/feed/): RSS subscription instructions
 
 ## Work
 
-- [/work](/work/) — professional background and current role
-- [/about](/about/) — extended bio
+- [/work/](/work/): professional background and current work
+- [/about/](/about/): biography, experience, and current focus
 
 ## Side Projects
 
-- [/side-quests](/side-quests/) — personal projects and experiments
+- [/side-quests/](/side-quests/): public projects, tools, and experiments
 
 ## Beyond Work
 
-- [/fun](/fun/) — book, speaking, and podcast work
+- [/fun/](/fun/): book, speaking, and podcast work
   - **Book:** *Miracle-preneuring: Why anyone can and should be an entrepreneur* (2016) — self-published, covered by Forbes, Entrepreneur, and 50+ outlets. Available on Amazon and Apple Books.
   - **Speaking:** talks on product marketing and B2B GTM at Wynter, Product Marketing Alliance, AIC Prestige / AIM / Niti Aayog / Microsoft For Startups, and others.
   - **Podcast:** co-hosted *The Edge Podcast for CHROs* (2021, two seasons) — future of work, guests from GoJek, Infosys, Oracle, Razorpay, Doist, and others.
@@ -30,6 +31,18 @@ Varun Choraria is an AI B2B marketing consultant for mid-sized SaaS companies, w
 ## Contact
 
 - Cal.com: https://cal.com/varun-choraria/30min
+- LinkedIn: https://www.linkedin.com/in/varunchoraria/
+- GitHub: https://github.com/vcxcvii
+
+## Machine access
+
+- [/mcp/](/mcp/): live MCP endpoint and setup instructions
+- [/api/site.json](/api/site.json): structured site profile
+- [/api/posts.json](/api/posts.json): structured essay index
+- [/feed.xml](/feed.xml): Atom feed
+
+## Ask an AI
+
 - Ask ChatGPT: https://chatgpt.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
 - Ask Claude: https://claude.ai/new?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
 - Ask Perplexity: https://www.perplexity.ai/search?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F

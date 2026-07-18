@@ -108,7 +108,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Essay pages
 
 - Header remains unchanged.
-- Page begins with title, exact published date, optional updated date, then plain tag links.
+- Page begins with title, exact published date, linked author byline, optional updated date, then plain tag links.
 - Prose width is no wider than `42rem`.
 - Images use natural color and scale down to viewport width.
 - Code blocks and tables may scroll horizontally; the page itself must never scroll horizontally.
@@ -188,3 +188,6 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - No emojis. No em dashes; use commas, colons, parentheses, or periods.
 - Display dates as `DD Mon` inside yearly archives and `Mon D, YYYY` on essay pages.
 - External destinations use `↗` only where the external nature matters, primarily source links. The navigation GitHub link remains plain text without an arrow.
+- Search metadata uses concise, unique titles and descriptions without changing an essay's editorial headline. Duplicate archive aliases point canonically to `/blog/` and remain out of the sitemap.
+- Structured data identifies Varun as the author, the site as a `WebSite`, `/about/` as a `ProfilePage`, archives as `CollectionPage`, and essays as `BlogPosting`.
+- Favicon is a stable white square with electric-blue `VC`; SVG and 180px PNG use the same design.
