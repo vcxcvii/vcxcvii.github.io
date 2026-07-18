@@ -80,10 +80,14 @@ def design_guardrails
 
   nav = read_file("_includes/nav.html")
   errs << "Design: pure HTML site mark missing from navigation" unless nav.include?('class="site-mark"')
-  errs << "Design: GitHub must remain visible in navigation" unless nav.include?("github &#8599;")
+  errs << "Design: GitHub must remain visible in navigation" unless nav.include?('href="https://github.com/vcxcvii"') && nav.include?(">github</a>")
   errs << "Design: blog must remain visible in navigation" unless nav.include?("site.data.navigation") && File.read("_data/navigation.yml").include?("url: /blog/")
   errs << "Design: side quests must remain visible in navigation" unless File.read("_data/navigation.yml").include?("url: /side-quests/")
   errs << "Design: mobile hamburger navigation missing" unless nav.include?('class="nav-toggle"') && nav.include?('class="menu-toggle"')
+  overlay_nav = css_source.include?(".nav-toggle:checked ~ .site-links") &&
+                css_source.include?("position: absolute") &&
+                css_source.include?("z-index: 20")
+  errs << "Design: mobile navigation must overlay content" unless overlay_nav
 
   home = read_file("_layouts/home.html")
   errs << "Design: homepage must render the full essay archive" unless home.include?("essay-list.html posts=site.posts")

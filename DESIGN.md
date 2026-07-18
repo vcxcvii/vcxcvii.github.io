@@ -43,12 +43,12 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
 - First link is electric-blue `VC`, returning home.
 - Visible path links follow: `/about`, `/work`, `/blog`, `/side-quests`, `/fun`, `/uses`.
-- `github ↗` is the final external link.
+- Plain `github` is the final external link; do not append an arrow mark.
 - Header links are muted gray without underlines until hover, focus, or active state. Icon-only social links also omit underlines because they contain no visible text.
 - A `1px #dddddd` rule sits below the navigation.
 - No home pill, active background, or theme toggle.
 - Desktop: single line where space permits.
-- Mobile: `VC` and a plain hamburger occupy the first line. Opening it reveals a right-aligned link stack with at least `44px` touch height.
+- Mobile: `VC` and a plain hamburger occupy the first line. Opening it reveals a right-aligned white link panel over the page content, never changing document flow or pushing content down. Each link retains at least `44px` touch height. The panel uses one light bottom rule, no shadow or animation.
 
 ## Homepage
 
@@ -187,4 +187,4 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - First person. Direct sentences. Specific claims.
 - No emojis. No em dashes; use commas, colons, parentheses, or periods.
 - Display dates as `DD Mon` inside yearly archives and `Mon D, YYYY` on essay pages.
-- External destinations use `↗` only where the external nature matters, primarily navigation and source links.
+- External destinations use `↗` only where the external nature matters, primarily source links. The navigation GitHub link remains plain text without an arrow.
