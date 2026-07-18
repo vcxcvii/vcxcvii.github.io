@@ -69,6 +69,8 @@ def design_guardrails
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
     errs << "Design: homepage social link missing #{host}" unless home.include?(host)
   end
+  social_links = home[/<nav class="social-links".*?<\/nav>/m].to_s
+  errs << "Design: social links must remain plain hyperlinks without arrow marks" if social_links.include?("&#8599;")
 
   about = File.exist?("about.md") ? File.read("about.md") : ""
   errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
