@@ -548,11 +548,6 @@ td {
   white-space: nowrap;
 }
 
-.mcp-copy-btn,
-.mcp-url-hint {
-  display: none;
-}
-
 .mcp-prompts {
   padding-left: 1.35rem;
 }
@@ -611,11 +606,6 @@ td {
   padding: .75rem;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
-}
-
-.page-shell .mcp-copy-btn,
-.page-shell .mcp-url-hint {
-  display: none;
 }
 
 .page-shell .mcp-prompts {
