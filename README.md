@@ -33,7 +33,10 @@ Open `http://127.0.0.1:4000/`.
 
 ```bash
 ruby _scripts/validate-posts.rb
-ruby _scripts/qa.rb DESIGN.md _layouts/home.html _sass/main.scss
+ruby -c _scripts/qa.rb
+ruby -c _scripts/validate-posts.rb
+node --check assets/js/gh-graph.js
+ruby _scripts/qa.rb
 bundle exec jekyll build
 ```
 
@@ -71,7 +74,7 @@ mcp: true
 ```text
 _includes/nav.html         Pure HTML navigation
 _includes/essay-list.html  Shared chronological archive
-_includes/footer.html      Tags, RSS, MCP, AI, disclaimer, changelog, source
+_includes/footer.html      Tags, RSS, MCP, AI, disclaimer, changelog, design, source
 _layouts/home.html         Intro, social links, GitHub, archive, side quests
 _includes/social-links.html Accessible inline social icons
 _includes/repo-list.html   Featured GitHub side projects
@@ -80,6 +83,7 @@ side-quests/index.md       Grouped directory generated from quest data
 _layouts/entry.html        Essay, related essays, older/newer links
 _sass/main.scss            Only design stylesheet, inlined at build
 assets/js/gh-graph.js      Only homepage application JavaScript
+_includes/logos/           Only logo source
 api/                       Jekyll-generated MCP data
 DESIGN.md                  Machine-readable design system
 ```

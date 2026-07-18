@@ -17,17 +17,25 @@ AEO_WORD_MIN   = 100
 
 # ── Lightweight publication guardrails ───────────────────────────────
 FORBIDDEN_PATTERNS = %w[
-  nav-root assets/js/nav.js assets/css/nav.css assets/js/redesign.js
-  theme-init.js shadcn tailwind @font-face box-shadow linear-gradient
-  radial-gradient backdrop-filter
+  nav-root shadcn tailwind @font-face box-shadow linear-gradient radial-gradient
+  backdrop-filter
+].freeze
+FORBIDDEN_ASSETS = %w[
+  assets/js/analytics.js assets/js/clarity.js assets/js/nav.js
+  assets/js/redesign.js assets/css/nav.css _includes/theme-init.js
 ].freeze
 REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
 CSS_BUDGET = 14_000
 GITHUB_JS_BUDGET = 8_000
 
+def read_file(path)
+  File.exist?(path) ? File.read(path) : ""
+end
+
 def design_guardrails
   errs = []
   code_files = (
+    Dir.glob("_sass/*.scss") +
     Dir.glob("assets/css/*.{scss,css}") +
     Dir.glob("assets/js/*.js") +
     Dir.glob("_layouts/*.html") +
@@ -42,8 +50,13 @@ def design_guardrails
     end
   end
 
+  FORBIDDEN_ASSETS.each do |path|
+    errs << "Cleanup: forbidden legacy asset exists at #{path}" if File.exist?(path)
+  end
+  errs << "Cleanup: duplicate public logo assets found under assets/logos" if Dir.glob("assets/logos/*").any?
+
   css = "_sass/main.scss"
-  css_source = File.exist?(css) ? File.read(css).downcase : ""
+  css_source = read_file(css).downcase
   errs << "Design: missing #{css}" if css_source.empty?
   errs << "Performance: #{css} exceeds #{CSS_BUDGET} bytes" if File.exist?(css) && File.size(css) > CSS_BUDGET
   REQUIRED_COLORS.each do |color|
@@ -52,14 +65,25 @@ def design_guardrails
 
   github_js = "assets/js/gh-graph.js"
   errs << "Performance: #{github_js} exceeds #{GITHUB_JS_BUDGET} bytes" if File.exist?(github_js) && File.size(github_js) > GITHUB_JS_BUDGET
+  js_files = Dir.glob("assets/js/*.js").sort
+  errs << "Cleanup: assets/js must contain only #{github_js}" unless js_files == [github_js]
 
-  nav = File.exist?("_includes/nav.html") ? File.read("_includes/nav.html") : ""
+  class_files = (
+    Dir.glob("{_includes,_layouts,_posts,assets/js,mcp,feed,api,side-quests,tags}/**/*.{html,md,js}") +
+    Dir.glob("*.{html,md}")
+  ).select { |f| File.file?(f) }
+  class_corpus = class_files.map { |f| File.read(f).downcase }.join("\n")
+  css_classes = css_source.scan(/\.([a-z][a-z0-9_-]*)/).flatten.uniq
+  unused_classes = css_classes.reject { |name| class_corpus.include?(name) }
+  errs << "Cleanup: unused CSS classes #{unused_classes.join(', ')}" unless unused_classes.empty?
+
+  nav = read_file("_includes/nav.html")
   errs << "Design: pure HTML site mark missing from navigation" unless nav.include?('class="site-mark"')
   errs << "Design: GitHub must remain visible in navigation" unless nav.include?("github &#8599;")
   errs << "Design: blog must remain visible in navigation" unless nav.include?("site.data.navigation") && File.read("_data/navigation.yml").include?("url: /blog/")
   errs << "Design: side quests must remain visible in navigation" unless File.read("_data/navigation.yml").include?("url: /side-quests/")
 
-  home = File.exist?("_layouts/home.html") ? File.read("_layouts/home.html") : ""
+  home = read_file("_layouts/home.html")
   errs << "Design: homepage must render the full essay archive" unless home.include?("essay-list.html posts=site.posts")
   errs << "Design: homepage must retain GitHub activity" unless home.include?('data-gh-user="vcxcvii"')
   errs << "Design: homepage essays heading must link to /blog/" unless home.include?("'/blog/' | relative_url")
@@ -72,7 +96,7 @@ def design_guardrails
   essays_position = home.index('class="essays"')
   quests_position = home.index('class="side-quests-preview"')
   errs << "Design: homepage side quests must follow essays" unless essays_position && quests_position && essays_position < quests_position
-  social_links = File.exist?("_includes/social-links.html") ? File.read("_includes/social-links.html") : ""
+  social_links = read_file("_includes/social-links.html")
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
     errs << "Design: homepage social link missing #{host}" unless social_links.include?(host)
   end
@@ -82,21 +106,22 @@ def design_guardrails
   errs << "Design: social profiles must use four accessible icons" unless social_icon_count == 4 && social_label_count == 4
   errs << "Design: social icons must not show external-arrow marks" if social_links.include?("&#8599;")
 
-  about = File.exist?("about.md") ? File.read("about.md") : ""
+  about = read_file("about.md")
   errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
 
-  footer = File.exist?("_includes/footer.html") ? File.read("_includes/footer.html") : ""
+  footer = read_file("_includes/footer.html")
   errs << "Design: footer MCP page link missing" unless footer.include?("mcp page") && footer.include?("'/mcp/' | relative_url")
   errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
   errs << "Design: footer must link to the dedicated tag index" unless footer.include?("'/tags/' | relative_url")
+  errs << "Design: footer must link to the canonical DESIGN.md" unless footer.include?("blob/main/DESIGN.md")
   errs << "Design: footer must not embed the complete tag index" if footer.include?("include tag-list.html")
 
-  repo_list = File.exist?("_includes/repo-list.html") ? File.read("_includes/repo-list.html") : ""
+  repo_list = read_file("_includes/repo-list.html")
   errs << "Design: side-quest rows must use the inline GitHub mark" unless repo_list.include?('logo.html name="github"')
   errs << "Design: side-quest rows must link directly to GitHub" unless repo_list.include?("github.com")
   errs << "Design: homepage side quests must use explicit feature flags" unless repo_list.include?("quest.featured")
 
-  side_quests = File.exist?("side-quests/index.md") ? File.read("side-quests/index.md") : ""
+  side_quests = read_file("side-quests/index.md")
   errs << "Design: dedicated side-quest page must use the shared quest data" unless side_quests.include?("site.data.quests")
   errs << "Design: dedicated side-quest page must remain a plain directory" if side_quests.include?("<details")
 

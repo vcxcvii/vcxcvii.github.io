@@ -52,15 +52,13 @@ a:hover {
 }
 
 a:focus-visible,
-button:focus-visible,
-summary:focus-visible {
+button:focus-visible {
   outline: 2px solid var(--color-link);
   outline-offset: 3px;
 }
 
 a,
-button,
-summary {
+button {
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(0, 0, 238, .18);
 }
@@ -175,8 +173,7 @@ ol,
 blockquote,
 pre,
 table,
-figure,
-details {
+figure {
   margin: 0 0 1rem;
 }
 
@@ -249,10 +246,6 @@ td {
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--color-border);
-}
-
-.home-intro-grid {
-  display: block;
 }
 
 .home-portrait {
@@ -553,20 +546,6 @@ td {
   font-size: .75rem;
 }
 
-.essay-nav {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border);
-  font-size: .8125rem;
-}
-
-.essay-nav a:last-child {
-  text-align: right;
-}
-
 .plain-links {
   color: var(--color-secondary);
   font-size: .8125rem;
@@ -608,10 +587,6 @@ td {
   white-space: nowrap;
 }
 
-.mcp-prompts {
-  padding-left: 1.35rem;
-}
-
 .mcp-tools-grid {
   margin-bottom: 2rem;
 }
@@ -649,74 +624,6 @@ td {
 
 .mcp-demo figcaption {
   margin-top: .5rem;
-}
-
-.page-shell .mcp-hero {
-  padding: 0;
-  border: 0;
-  background: transparent;
-}
-
-.page-shell .mcp-url-row {
-  display: block;
-}
-
-.page-shell .mcp-url-text {
-  display: block;
-  padding: .75rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-}
-
-.page-shell .mcp-prompts {
-  display: block;
-  padding-left: 1.35rem;
-  list-style: disc;
-}
-
-.page-shell .mcp-prompts li {
-  padding: 0;
-  background: transparent;
-}
-
-.page-shell .mcp-tools-grid {
-  display: block;
-}
-
-.page-shell .mcp-tool {
-  display: grid;
-  grid-template-columns: 9rem minmax(0, 1fr);
-  gap: 1rem;
-  padding: .5rem 0;
-  background: transparent;
-  border-top: 1px solid var(--color-border);
-}
-
-.page-shell .mcp-tool:last-child {
-  border-bottom: 1px solid var(--color-border);
-}
-
-.page-shell .mcp-tool strong {
-  color: var(--color-text);
-}
-
-.page-shell .mcp-demos {
-  display: block;
-}
-
-.page-shell .mcp-demo {
-  max-width: 100%;
-  border: 0;
-  overflow: visible;
-}
-
-.page-shell .mcp-demo img {
-  border: 0;
-}
-
-.page-shell .mcp-demo figcaption {
-  padding: 0;
-  background: transparent;
 }
 
 #site-footer {
@@ -813,14 +720,6 @@ td {
     display: none;
   }
 
-  .essay-nav {
-    grid-template-columns: 1fr;
-  }
-
-  .essay-nav a:last-child {
-    text-align: left;
-  }
-
   .mcp-tool {
     grid-template-columns: 1fr;
     gap: .2rem;
@@ -830,10 +729,6 @@ td {
     grid-template-columns: 1fr;
   }
 
-  .page-shell .mcp-tool {
-    grid-template-columns: 1fr;
-    gap: .2rem;
-  }
 }
 
 @media print {
@@ -844,8 +739,7 @@ td {
 
   .site-nav,
   #site-footer,
-  .github-activity,
-  .essay-nav {
+  .github-activity {
     display: none;
   }
 

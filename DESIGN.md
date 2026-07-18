@@ -125,7 +125,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Footer
 
 - Thin top rule, small gray text.
-- First row: `rss · mcp page · llms.txt · tags · disclaimer · changelog · source`.
+- First row: `rss · mcp page · llms.txt · tags · disclaimer · changelog · design.md · source`.
+- `design.md` links to the readable canonical file in the public GitHub repository.
 - Second row: plain text links for ChatGPT, Claude, and Perplexity.
 - Final row: copyright and `Built with AI, supervised by a human.`
 - No logos, buttons, avatars, grids, or callout background.
@@ -168,7 +169,17 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - `_sass/main.scss` is the only design stylesheet and is inlined by `_includes/head.html`.
 - `_includes/nav.html`, `_includes/essay-list.html`, and `_includes/footer.html` are the shared interface primitives.
 - `assets/js/gh-graph.js` is the only homepage application script.
+- `_includes/logos/` is the only logo source. Do not duplicate those files under `assets/`.
+- Analytics and Clarity load from the small deferred inline loader in `_includes/head.html`; standalone duplicate loader files are forbidden.
+- Footer exposes the canonical `DESIGN.md` source on GitHub without adding it to the built site payload.
 - Do not restore `_nav/`, `assets/js/nav.js`, `assets/css/nav.css`, `assets/js/redesign.js`, or `_includes/theme-init.js`.
+
+## Validation
+
+- `_scripts/validate-posts.rb` validates frontmatter, tag pages, and inline CSP hashes.
+- `_scripts/qa.rb` validates content, design invariants, dead-asset exclusions, and performance budgets.
+- `node --check assets/js/gh-graph.js` is the dependency-free JavaScript lint gate.
+- Production build must pass after validation. GitHub Actions runs all gates before deployment.
 
 ## Content rules
 
