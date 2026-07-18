@@ -77,6 +77,7 @@ def design_guardrails
 
   footer = File.exist?("_includes/footer.html") ? File.read("_includes/footer.html") : ""
   errs << "Design: footer MCP page link missing" unless footer.include?("mcp page") && footer.include?("'/mcp/' | relative_url")
+  errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
   errs << "Design: footer must expose the complete tag index" unless footer.include?("include tag-list.html")
 
   errs
