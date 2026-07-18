@@ -125,9 +125,10 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Footer
 
 - Thin top rule, small gray text, generous space between groups.
-- `Site` group: `rss`, `mcp`, `llms.txt`, `tags`, `disclaimer`, `changelog`, `design.md`, and `source`, arranged as a loose link grid without dot separators.
+- Four clear groups: `Read` (`rss`, `tags`, `changelog`), `Machine` (`mcp`, `llms.txt`), `Colophon` (`disclaimer`, `design.md`, `source`), and `Ask AI`.
+- Desktop uses four columns; mobile uses two, then one below `30rem`. Links stack vertically without dot separators.
 - `design.md` links to the readable canonical file in the public GitHub repository.
-- `Ask AI` group: icon-only links for ChatGPT, Claude, and Perplexity with accessible labels.
+- `Ask AI` uses recognizable 24px brand-color SVG logos for ChatGPT, Claude, and Perplexity, each inside an accessible 44px link target. No visible text links.
 - Final row sits below its own light rule: copyright and `Built with AI, supervised by a human.`
 - No buttons, avatars, or callout background.
 

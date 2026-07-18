@@ -1,24 +1,34 @@
 <footer id="site-footer">
   <div class="footer-main">
-    <div>
-      <p class="footer-heading">Site</p>
-      <nav class="footer-links" aria-label="Footer">
+    <div class="footer-group">
+      <p class="footer-heading">Read</p>
+      <nav class="footer-links" aria-label="Reading links">
         <a href="{{ '/feed/' | relative_url }}">rss</a>
+        <a href="{{ '/tags/' | relative_url }}">tags</a>
+        <a href="{{ '/changelog/' | relative_url }}">changelog</a>
+      </nav>
+    </div>
+    <div class="footer-group">
+      <p class="footer-heading">Machine</p>
+      <nav class="footer-links" aria-label="Machine-readable links">
         <a href="{{ '/mcp/' | relative_url }}">mcp</a>
         <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a>
-        <a href="{{ '/tags/' | relative_url }}">tags</a>
+      </nav>
+    </div>
+    <div class="footer-group">
+      <p class="footer-heading">Colophon</p>
+      <nav class="footer-links" aria-label="Colophon links">
         <a href="{{ '/disclaimer/' | relative_url }}">disclaimer</a>
-        <a href="{{ '/changelog/' | relative_url }}">changelog</a>
         <a href="https://github.com/vcxcvii/vcxcvii.github.io/blob/main/DESIGN.md" target="_blank" rel="noopener noreferrer">design.md</a>
         <a href="https://github.com/vcxcvii/vcxcvii.github.io" target="_blank" rel="noopener noreferrer">source &#8599;</a>
       </nav>
     </div>
-    <div>
+    <div class="footer-group footer-ai-group">
       <p class="footer-heading">Ask AI</p>
       <div class="footer-ai-links">
-        <a href="https://chatgpt.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F" target="_blank" rel="noopener noreferrer" aria-label="Ask ChatGPT about Varun" title="ChatGPT">{% include logo.html name="openai" %}</a>
-        <a href="https://claude.ai/new?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F" target="_blank" rel="noopener noreferrer" aria-label="Ask Claude about Varun" title="Claude">{% include logo.html name="claude" %}</a>
-        <a href="https://www.perplexity.ai/search?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F" target="_blank" rel="noopener noreferrer" aria-label="Ask Perplexity about Varun" title="Perplexity">{% include logo.html name="perplexity" %}</a>
+        <a class="footer-ai-link footer-ai-openai" href="https://chatgpt.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F" target="_blank" rel="noopener noreferrer" aria-label="Ask ChatGPT about Varun" title="ChatGPT">{% include logo.html name="openai" %}</a>
+        <a class="footer-ai-link footer-ai-claude" href="https://claude.ai/new?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F" target="_blank" rel="noopener noreferrer" aria-label="Ask Claude about Varun" title="Claude">{% include logo.html name="claude" %}</a>
+        <a class="footer-ai-link footer-ai-perplexity" href="https://www.perplexity.ai/search?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F" target="_blank" rel="noopener noreferrer" aria-label="Ask Perplexity about Varun" title="Perplexity">{% include logo.html name="perplexity" %}</a>
       </div>
     </div>
   </div>

@@ -126,6 +126,9 @@ def design_guardrails
   errs << "Design: footer must not embed the complete tag index" if footer.include?("include tag-list.html")
   footer_ai_icons = %w[openai claude perplexity].all? { |name| footer.include?(%{logo.html name="#{name}"}) }
   errs << "Design: footer Ask AI links must use three accessible logos" unless footer_ai_icons && footer.scan(/aria-label="Ask /).size == 3
+  %w[Read Machine Colophon Ask\ AI].each do |heading|
+    errs << "Design: footer section '#{heading}' missing" unless footer.include?(%{class="footer-heading">#{heading}</p>})
+  end
 
   entry = read_file("_layouts/entry.html")
   related_rows_match_archive = entry.include?('<li class="essay-row">') && entry.include?('post.date | date: "%d %b"')

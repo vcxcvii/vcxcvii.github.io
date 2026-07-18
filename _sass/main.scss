@@ -8,6 +8,9 @@
   --color-accent: #0000ee;
   --color-link: #0000ee;
   --color-mark: #0057ff;
+  --color-openai: #111111;
+  --color-claude: #d97757;
+  --color-perplexity: #20808d;
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
@@ -646,11 +649,11 @@ td {
 }
 
 #site-footer {
-  margin-top: 4rem;
-  padding-top: 1.5rem;
+  margin-top: 5rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--color-border);
   color: var(--color-secondary);
-  font-size: .75rem;
+  font-size: .8125rem;
 }
 
 #site-footer p {
@@ -659,51 +662,65 @@ td {
 
 .footer-main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
   align-items: start;
 }
 
 .footer-heading {
-  margin-bottom: .65rem !important;
+  margin-bottom: .75rem !important;
   color: var(--color-text);
+  font-size: .75rem;
   font-weight: 700;
 }
 
 .footer-links {
-  display: grid;
-  grid-template-columns: repeat(4, max-content);
-  gap: .45rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .5rem;
 }
 
 .footer-ai-links {
   display: flex;
-  gap: .5rem;
+  gap: .75rem;
 }
 
-.footer-ai-links a {
+.footer-ai-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  color: var(--color-secondary);
+  width: 2.75rem;
+  height: 2.75rem;
   text-decoration: none;
 }
 
-.footer-ai-links a:hover {
-  color: var(--color-text);
+.footer-ai-openai {
+  color: var(--color-openai);
+}
+
+.footer-ai-claude {
+  color: var(--color-claude);
+}
+
+.footer-ai-perplexity {
+  color: var(--color-perplexity);
+}
+
+.footer-ai-link:hover {
+  opacity: .7;
 }
 
 .footer-ai-links svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .footer-note {
-  margin-top: 1.5rem !important;
-  padding-top: 1rem;
+  margin-top: 2rem !important;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--color-border);
+  font-size: .75rem;
 }
 
 @media (max-width: 44rem) {
@@ -788,9 +805,9 @@ td {
     padding: .25rem 0;
   }
 
-  .footer-ai-links a {
-    width: 2.75rem;
-    height: 2.75rem;
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
   }
 
   .tag-list {
@@ -828,11 +845,7 @@ td {
 
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .footer-links {
-    grid-template-columns: repeat(2, max-content);
+    gap: 2rem;
   }
 
   .mcp-tool {
