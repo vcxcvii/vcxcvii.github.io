@@ -42,7 +42,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
 - First link is electric-blue `VC`, returning home.
-- Visible path links follow: `/about`, `/work`, `/blog`, `/fun`, `/uses`.
+- Visible path links follow: `/about`, `/work`, `/blog`, `/side-quests`, `/fun`, `/uses`.
 - `github ↗` is the final external link.
 - Header links are the sole link-style exception: muted gray without underlines until hover, focus, or active state.
 - A `1px #dddddd` rule sits below the navigation.
@@ -58,13 +58,21 @@ Order is fixed:
 2. Short introduction with the prior square portrait: name, location, operating focus, writing topics.
 3. Internal MCP page link, calendar link, and compact links to LinkedIn, X, GitHub, and Letterboxd.
 4. GitHub contribution graph in official green.
-5. Linked `Essays` heading.
-6. Every essay, newest first, grouped by year.
-7. Footer.
+5. Linked `Side quests` heading and public GitHub repository list.
+6. Linked `Essays` heading.
+7. Every essay, newest first, grouped by year.
+8. Footer.
 
 The introduction is not a marketing hero. It uses the existing `168x168` square `hero-photo.jpg`, never a large or decorative portrait. No oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are plain underlined hyperlinks with no boxes, icons, or external-arrow marks.
 
 Homepage sections are separated by light `1px #dddddd` horizontal rules with generous whitespace. Rules clarify structure; they never become boxed sections.
+
+## Side quests preview
+
+- Source: GitHub entries in `_data/quests.yml`.
+- Each row contains a small inline GitHub mark, linked repository name, and one short description.
+- Repository links open GitHub directly; the section heading links to `/side-quests/`.
+- Plain rows with light rules only. No cards, badges, language bars, star counts, or API request.
 
 ## GitHub activity
 

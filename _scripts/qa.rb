@@ -57,6 +57,7 @@ def design_guardrails
   errs << "Design: pure HTML site mark missing from navigation" unless nav.include?('class="site-mark"')
   errs << "Design: GitHub must remain visible in navigation" unless nav.include?("github &#8599;")
   errs << "Design: blog must remain visible in navigation" unless nav.include?("site.data.navigation") && File.read("_data/navigation.yml").include?("url: /blog/")
+  errs << "Design: side quests must remain visible in navigation" unless File.read("_data/navigation.yml").include?("url: /side-quests/")
 
   home = File.exist?("_layouts/home.html") ? File.read("_layouts/home.html") : ""
   errs << "Design: homepage must render the full essay archive" unless home.include?("essay-list.html posts=site.posts")
@@ -66,6 +67,7 @@ def design_guardrails
   errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
   errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
   errs << "Design: homepage portrait missing" unless home.include?("assets/images/hero-photo.jpg") && home.include?('width="168" height="168"')
+  errs << "Design: homepage side-quest repositories missing" unless home.include?("include repo-list.html") && home.include?("'/side-quests/' | relative_url")
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
     errs << "Design: homepage social link missing #{host}" unless home.include?(host)
   end
@@ -79,6 +81,10 @@ def design_guardrails
   errs << "Design: footer MCP page link missing" unless footer.include?("mcp page") && footer.include?("'/mcp/' | relative_url")
   errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
   errs << "Design: footer must expose the complete tag index" unless footer.include?("include tag-list.html")
+
+  repo_list = File.exist?("_includes/repo-list.html") ? File.read("_includes/repo-list.html") : ""
+  errs << "Design: side-quest rows must use the inline GitHub mark" unless repo_list.include?('logo.html name="github"')
+  errs << "Design: side-quest rows must link directly to GitHub" unless repo_list.include?("github.com")
 
   errs
 end

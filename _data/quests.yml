@@ -1,8 +1,8 @@
-- name: master-shifu
+- name: Master Shifu
   icon: github
   link: https://github.com/vcxcvii/master-shifu
   description: Consulting case framework skills for AI agents. 32 frameworks extracted from 19 MBA casebooks.
-- name: michealangelo
+- name: Michealangelo
   icon: github
   link: https://github.com/vcxcvii/michealangelo
   description: Self-improving design-system skills for AI coding agents.
@@ -10,7 +10,7 @@
   icon: mcp
   link: https://varunchoraria.com/mcp/
   description: Any MCP-compatible AI client can read this site's posts and pages directly. Live, not from training data.
-- name: lazarus pit
+- name: Lazarus Pit
   icon: github
   link: https://github.com/vcxcvii/lazarus-pit
   description: Self-healing UX agent. Pulls Clarity session data, diagnoses friction, files GitHub issues with proposed fixes. Runs weekly on autopilot.

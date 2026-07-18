@@ -1,0 +1,13 @@
+<ul class="repo-list">
+  {% for quest in site.data.quests %}
+    {% if quest.link contains 'github.com' %}
+      <li>
+        <a class="repo-link" href="{{ quest.link }}" target="_blank" rel="noopener noreferrer">
+          {% include logo.html name="github" %}
+          <span>{{ quest.name }}</span>
+        </a>
+        <p>{{ quest.description }}</p>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

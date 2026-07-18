@@ -35,6 +35,11 @@ layout: default
 </section>
 <script defer src="{{ '/assets/js/gh-graph.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
+<section class="side-quests-preview" aria-labelledby="side-quests-heading">
+  <h2 id="side-quests-heading"><a href="{{ '/side-quests/' | relative_url }}">Side quests</a></h2>
+  {% include repo-list.html %}
+</section>
+
 <section class="essays" aria-labelledby="essays-heading">
   <h2 id="essays-heading"><a href="{{ '/blog/' | relative_url }}">Essays</a></h2>
   {% include essay-list.html posts=site.posts %}
