@@ -45,6 +45,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - Visible path links follow: `/about`, `/work`, `/blog`, `/fun`, `/uses`.
 - `github ↗` is the final external link.
 - Header links are the sole link-style exception: muted gray without underlines until hover, focus, or active state.
+- A `1px #dddddd` rule sits below the navigation.
 - No home pill, active background, icon button, dropdown, or theme toggle.
 - Desktop: single line where space permits.
 - Mobile: `VC` occupies the first line; path links wrap below with at least `44px` touch height.
@@ -63,6 +64,8 @@ Order is fixed:
 8. Footer.
 
 The introduction is not a marketing hero. No portrait, oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are compact, square-cornered bordered text links, never an icon library.
+
+Homepage sections are separated by light `1px #dddddd` horizontal rules with generous whitespace. Rules clarify structure; they never become boxed sections.
 
 ## GitHub activity
 
