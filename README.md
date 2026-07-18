@@ -72,7 +72,7 @@ mcp: true
 _includes/nav.html         Pure HTML navigation
 _includes/essay-list.html  Shared chronological archive
 _includes/footer.html      Tags, RSS, MCP, AI, disclaimer, changelog, source
-_layouts/home.html         Intro, social links, GitHub, side quests, archive
+_layouts/home.html         Intro, social links, GitHub, archive, side quests
 _includes/repo-list.html   Public GitHub side projects
 _layouts/entry.html        Essay, related essays, older/newer links
 _sass/main.scss            Only design stylesheet, inlined at build
