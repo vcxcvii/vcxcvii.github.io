@@ -64,12 +64,16 @@ def design_guardrails
   errs << "Design: homepage essays heading must link to /blog/" unless home.include?("'/blog/' | relative_url")
   errs << "Design: homepage must expose tag navigation" unless home.include?("include tag-list.html")
   errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
+  errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
     errs << "Design: homepage social link missing #{host}" unless home.include?(host)
   end
 
   about = File.exist?("about.md") ? File.read("about.md") : ""
   errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
+
+  footer = File.exist?("_includes/footer.html") ? File.read("_includes/footer.html") : ""
+  errs << "Design: footer MCP page link missing" unless footer.include?("mcp page") && footer.include?("'/mcp/' | relative_url")
 
   errs
 end

@@ -56,7 +56,7 @@ Order is fixed:
 
 1. Header.
 2. Short introduction: name, location, operating focus, writing topics.
-3. Calendar link and compact links to LinkedIn, X, GitHub, and Letterboxd.
+3. Internal MCP page link, calendar link, and compact links to LinkedIn, X, GitHub, and Letterboxd.
 4. GitHub contribution graph in official green.
 5. Linked `Essays` heading.
 6. Every essay, newest first, grouped by year.
@@ -113,7 +113,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Footer
 
 - Thin top rule, small gray text.
-- First row: `rss · mcp · llms.txt · disclaimer · source`.
+- First row: `rss · mcp page · llms.txt · disclaimer · source`.
 - Second row: plain text links for ChatGPT, Claude, and Perplexity.
 - Final row: copyright and `Built with AI, supervised by a human.`
 - No logos, buttons, avatars, grids, or callout background.
