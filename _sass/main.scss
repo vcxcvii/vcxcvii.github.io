@@ -362,9 +362,7 @@ td {
 .gh-legend i:nth-of-type(5) { background: #216e39; }
 
 .side-quests-preview {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
+  margin-top: 1.5rem;
 }
 
 .side-quests-preview h2 {
@@ -405,6 +403,11 @@ td {
   margin: .25rem 0 0;
   color: var(--color-secondary);
   font-size: .8125rem;
+}
+
+.essays {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .essays > h2 {

@@ -69,6 +69,9 @@ def design_guardrails
   errs << "Design: homepage portrait missing" unless home.include?("assets/images/hero-photo.jpg") && home.include?('width="168" height="168"')
   errs << "Design: homepage portrait must remain circular" unless css_source.include?(".home-portrait") && css_source.include?("border-radius: 50%")
   errs << "Design: homepage side-quest repositories missing" unless home.include?("include repo-list.html") && home.include?("'/side-quests/' | relative_url")
+  essays_position = home.index('class="essays"')
+  quests_position = home.index('class="side-quests-preview"')
+  errs << "Design: homepage side quests must follow essays" unless essays_position && quests_position && essays_position < quests_position
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
     errs << "Design: homepage social link missing #{host}" unless home.include?(host)
   end
