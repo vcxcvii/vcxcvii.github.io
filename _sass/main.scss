@@ -228,9 +228,12 @@ pre code {
 }
 
 table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
   font-size: .875rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 th,
@@ -281,7 +284,7 @@ td {
   font-size: .75rem;
 }
 
-.gh-graph {
+.gh-graph.is-loading {
   min-height: 6.5rem;
 }
 

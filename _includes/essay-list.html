@@ -6,7 +6,11 @@
     {% if post_year != current_year %}
       {% unless current_year == "" %}</ol>{% endunless %}
       {% assign current_year = post_year %}
-      <h3 class="essay-year">{{ current_year }}</h3>
+      {% if include.year_level == 2 %}
+        <h2 class="essay-year">{{ current_year }}</h2>
+      {% else %}
+        <h3 class="essay-year">{{ current_year }}</h3>
+      {% endif %}
       <ol class="essay-list">
     {% endif %}
         <li class="essay-row">

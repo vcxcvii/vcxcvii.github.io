@@ -22,6 +22,8 @@
   var contributionData = null;
   var resizeTimer = null;
 
+  graph.classList.add("is-loading");
+
   function readCache() {
     try {
       var cached = JSON.parse(localStorage.getItem(cacheKey));
@@ -56,7 +58,10 @@
 
   function render(data) {
     var days = data && data.contributions;
-    if (!days || !days.length) return;
+    if (!days || !days.length) {
+      graph.classList.remove("is-loading");
+      return;
+    }
 
     var maxColumns = Math.floor(days.length / rows);
     var columns = columnsForWidth(maxColumns);
@@ -97,10 +102,14 @@
       rect.setAttribute("height", String(cell));
       rect.setAttribute("fill", colors[level]);
       rect.setAttribute("rx", "2");
+      var title = document.createElementNS(namespace, "title");
+      title.textContent = day.date + ": " + (day.count || 0) + " contribution" + ((day.count || 0) === 1 ? "" : "s");
+      rect.appendChild(title);
       svg.appendChild(rect);
     });
 
     graph.replaceChildren(svg);
+    graph.classList.remove("is-loading");
     total.textContent = count.toLocaleString("en-US") + " contributions";
     fallback.hidden = true;
     legend.hidden = false;
@@ -124,6 +133,7 @@
       setData(data);
     })
     .catch(function () {
+      graph.classList.remove("is-loading");
       /* Keep the plain GitHub link as the no-data fallback. */
     });
 

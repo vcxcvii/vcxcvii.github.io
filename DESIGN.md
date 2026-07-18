@@ -44,6 +44,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - First link is red `VC`, returning home.
 - Visible path links follow: `/about`, `/work`, `/fun`, `/uses`.
 - `github ↗` is the final external link.
+- Header links are the sole link-style exception: muted gray without underlines until hover, focus, or active state.
 - No home pill, active background, icon button, dropdown, or theme toggle.
 - Desktop: single line where space permits.
 - Mobile: `VC` occupies the first line; path links wrap below with at least `44px` touch height.
@@ -87,8 +88,7 @@ The introduction is not a marketing hero. No portrait, social icon row, booking 
 - Prose width is no wider than `42rem`.
 - Images use natural color and scale down to viewport width.
 - Code blocks and tables may scroll horizontally; the page itself must never scroll horizontally.
-- After prose: `Related essays`, three dated links selected through existing tag relationships.
-- Final navigation links to older and newer essays.
+- After prose: `Related essays`, up to three dated links selected only through existing tag relationships.
 
 ## Supporting pages
 

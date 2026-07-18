@@ -108,18 +108,6 @@ layout: default
       {% endfor %}
     {% endif %}
 
-    {% if related.size < 3 %}
-      {% for post in pool %}
-        {% unless post.url == page.url %}
-          {% assign post_key = "|" | append: post.url | append: "|" %}
-          {% unless seen_related contains post_key %}
-            {% assign related = related | push: post %}
-            {% assign seen_related = seen_related | append: post.url | append: "|" %}
-          {% endunless %}
-        {% endunless %}
-      {% endfor %}
-    {% endif %}
-
     {% if related.size > 0 %}
       <aside class="also-read">
         <h2 class="also-read-heading">Related essays</h2>
@@ -136,10 +124,4 @@ layout: default
     {% endif %}
   {% endif %}
 
-  {% if page.previous or page.next %}
-    <nav class="essay-nav" aria-label="Essay navigation">
-      {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">&larr; Older: {{ page.previous.title }}</a>{% endif %}
-      {% if page.next %}<a href="{{ page.next.url | relative_url }}">Newer: {{ page.next.title }} &rarr;</a>{% endif %}
-    </nav>
-  {% endif %}
 </article>

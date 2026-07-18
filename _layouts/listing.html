@@ -6,5 +6,5 @@ layout: default
     <h1>{{ page.title }}</h1>
     {% if page.intro %}<p class="intro-note">{{ page.intro }}</p>{% endif %}
   </header>
-  {% include essay-list.html posts=site.posts %}
+  {% include essay-list.html posts=site.posts year_level=2 %}
 </article>
