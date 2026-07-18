@@ -202,8 +202,7 @@ blockquote {
 }
 
 code,
-pre,
-.ascii-logo {
+pre {
   font-family: var(--font-mono);
 }
 
@@ -577,62 +576,17 @@ td {
   margin-top: 2.5rem;
 }
 
-.project-entry {
-  margin: 0;
-  padding: .75rem 0;
-  border-top: 1px solid var(--color-border);
-}
-
-.project-entry:last-child {
-  border-bottom: 1px solid var(--color-border);
-}
-
-.project-entry summary {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  gap: .5rem 1rem;
+.quest-heading {
+  display: flex;
+  gap: .75rem;
   align-items: baseline;
-  cursor: pointer;
+  justify-content: space-between;
 }
 
-.project-name {
-  color: var(--color-link);
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.project-updated,
-.project-state {
+.quest-state {
+  flex: 0 0 auto;
   color: var(--color-secondary);
   font-size: .75rem;
-}
-
-.expand-icon {
-  display: none;
-}
-
-.project-body {
-  padding: 1rem 0 0;
-}
-
-.ascii-logo {
-  display: inline-block;
-  max-width: 100%;
-  overflow-x: auto;
-  color: var(--color-text);
-  font-size: .75rem;
-  line-height: 1;
-}
-
-.tool-inline,
-.tool-inline svg {
-  vertical-align: middle;
-}
-
-.tool-inline svg {
-  width: 1em;
-  height: 1em;
-  margin-right: .2rem;
 }
 
 .mcp-tagline {
@@ -824,13 +778,6 @@ td {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .project-entry summary {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .project-updated {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (max-width: 30rem) {

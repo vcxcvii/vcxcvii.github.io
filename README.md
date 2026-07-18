@@ -74,7 +74,9 @@ _includes/essay-list.html  Shared chronological archive
 _includes/footer.html      Tags, RSS, MCP, AI, disclaimer, changelog, source
 _layouts/home.html         Intro, social links, GitHub, archive, side quests
 _includes/social-links.html Accessible inline social icons
-_includes/repo-list.html   Public GitHub side projects
+_includes/repo-list.html   Featured GitHub side projects
+_data/quests.yml           Complete side-quest directory and homepage feature flags
+side-quests/index.md       Grouped directory generated from quest data
 _layouts/entry.html        Essay, related essays, older/newer links
 _sass/main.scss            Only design stylesheet, inlined at build
 assets/js/gh-graph.js      Only homepage application JavaScript

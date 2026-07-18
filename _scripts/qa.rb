@@ -10,7 +10,7 @@ require "yaml"
 require "date"
 
 VALID_LAYOUTS  = %w[default page home entry listing archive tag_archive side-quests tags none].freeze
-UTILITY_PATHS  = %w[feed/ mcp/ api/ blog/ archive/ tags/ _site/ _includes/ _layouts/].freeze
+UTILITY_PATHS  = %w[feed/ mcp/ api/ blog/ archive/ tags/ side-quests/ _site/ _includes/ _layouts/].freeze
 SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
@@ -94,6 +94,17 @@ def design_guardrails
   repo_list = File.exist?("_includes/repo-list.html") ? File.read("_includes/repo-list.html") : ""
   errs << "Design: side-quest rows must use the inline GitHub mark" unless repo_list.include?('logo.html name="github"')
   errs << "Design: side-quest rows must link directly to GitHub" unless repo_list.include?("github.com")
+  errs << "Design: homepage side quests must use explicit feature flags" unless repo_list.include?("quest.featured")
+
+  side_quests = File.exist?("side-quests/index.md") ? File.read("side-quests/index.md") : ""
+  errs << "Design: dedicated side-quest page must use the shared quest data" unless side_quests.include?("site.data.quests")
+  errs << "Design: dedicated side-quest page must remain a plain directory" if side_quests.include?("<details")
+
+  quest_data = File.exist?("_data/quests.yml") ? YAML.safe_load(File.read("_data/quests.yml")) : []
+  required_quests = ["Master Shifu", "Michealangelo", "Grow & Close", "VC's Notes", "Self-updating GitHub profile", "MCP server", "Lazarus Pit", "GTM Buddy Marketing Skills", "GTM Buddy Design and Engineering", "GTM Skills (SDR)"]
+  quest_names = quest_data.map { |quest| quest["name"] }
+  missing_quests = required_quests - quest_names
+  errs << "Content: side-quest directory missing #{missing_quests.join(', ')}" unless missing_quests.empty?
 
   errs
 end

@@ -67,12 +67,16 @@ The introduction is not a marketing hero. It uses the existing `168x168` `hero-p
 
 Homepage sections are separated by light `1px #dddddd` horizontal rules with generous whitespace. Rules clarify structure; they never become boxed sections.
 
-## Side quests preview
+## Side quests
 
-- Source: GitHub entries in `_data/quests.yml`.
+- `_data/quests.yml` is the single source for both surfaces.
+- Homepage preview shows only entries marked `featured: true` with GitHub links.
 - Each row contains a small inline GitHub mark, linked repository name, and one short description.
 - Repository links open GitHub directly; the section heading links to `/side-quests/`.
 - Plain rows with light rules only. No cards, badges, language bars, star counts, or API request.
+- `/side-quests/` renders every entry, grouped as Personal, Experiments, and Work.
+- Directory rows contain name, state, and short description. Link and icon appear only when a destination exists.
+- No disclosure widgets, ASCII logos, feature inventories, or hand-maintained duplicate project markup.
 
 ## GitHub activity
 
@@ -114,8 +118,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 - `/about`, `/work`, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, and `/mcp` use the same page shell and typography.
 - `/about` contains no portrait.
-- Long pages rely on headings, rules, lists, `<details>`, and links. Do not introduce a separate visual system.
-- Side-quest disclosure sections are native `<details>` with simple horizontal rules, not cards.
+- Long pages rely on headings, rules, lists, and links. Do not introduce a separate visual system.
+- Side quests use grouped plain rows with simple horizontal rules, not cards or disclosure widgets.
 - MCP endpoint is presented as selectable code. Avoid custom copy UI when selecting and copying text already works.
 
 ## Footer

@@ -1,16 +1,66 @@
 - name: Master Shifu
+  group: Personal
+  state: Public
   icon: github
   link: https://github.com/vcxcvii/master-shifu
+  featured: true
   description: Consulting case framework skills for AI agents. 32 frameworks extracted from 19 MBA casebooks.
+
 - name: Michealangelo
+  group: Personal
+  state: Public
   icon: github
   link: https://github.com/vcxcvii/michealangelo
-  description: Self-improving design-system skills for AI coding agents.
+  featured: true
+  description: Self-improving design-system skills for Claude, Codex, and other Agent Skills-compatible coding agents.
+
+- name: Grow & Close
+  group: Personal
+  state: Public
+  icon: github
+  link: https://github.com/vcxcvii/grow-and-close
+  description: Senior-led GTM execution studio for B2B SaaS companies that need strategy turned into shipped work.
+
+- name: VC's Notes
+  group: Personal
+  state: Live
+  icon: github
+  link: https://github.com/vcxcvii/vcxcvii.github.io
+  description: This lightweight Jekyll publication about AI, GTM, management, careers, and side quests.
+
+- name: Self-updating GitHub profile
+  group: Personal
+  state: Public
+  icon: github
+  link: https://github.com/vcxcvii/vcxcvii
+  description: Profile README that refreshes itself from current GitHub activity.
+
 - name: MCP server
+  group: Personal
+  state: Live
   icon: mcp
-  link: https://varunchoraria.com/mcp/
-  description: Any MCP-compatible AI client can read this site's posts and pages directly. Live, not from training data.
+  link: /mcp/
+  description: Lets MCP-compatible AI clients read this site's current posts and pages directly.
+
 - name: Lazarus Pit
+  group: Experiments
+  state: Private
   icon: github
   link: https://github.com/vcxcvii/lazarus-pit
-  description: Self-healing UX agent. Pulls Clarity session data, diagnoses friction, files GitHub issues with proposed fixes. Runs weekly on autopilot.
+  featured: true
+  description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes.
+
+- name: GTM Buddy Marketing Skills
+  group: Work
+  state: Internal
+  description: Shared marketing skills and context for consistent SEO, CRO, copy, ads, analytics, email, and research work.
+
+- name: GTM Buddy Design and Engineering
+  group: Work
+  state: Internal
+  description: Reusable agent workspace for building, testing, and shipping responsive GTM Buddy web pages.
+
+- name: GTM Skills (SDR)
+  group: Work
+  state: Internal
+  description: Routed SDR skills for cold calls, LinkedIn messages, email sequences, and competitive displacement.
