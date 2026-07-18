@@ -72,11 +72,15 @@ def design_guardrails
   essays_position = home.index('class="essays"')
   quests_position = home.index('class="side-quests-preview"')
   errs << "Design: homepage side quests must follow essays" unless essays_position && quests_position && essays_position < quests_position
+  social_links = File.exist?("_includes/social-links.html") ? File.read("_includes/social-links.html") : ""
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
-    errs << "Design: homepage social link missing #{host}" unless home.include?(host)
+    errs << "Design: homepage social link missing #{host}" unless social_links.include?(host)
   end
-  social_links = home[/<nav class="social-links".*?<\/nav>/m].to_s
-  errs << "Design: social links must remain plain hyperlinks without arrow marks" if social_links.include?("&#8599;")
+  errs << "Design: homepage must include the social icon row" unless home.include?("include social-links.html")
+  social_icon_count = social_links.scan("<svg").size + social_links.scan("include logos/github.svg").size
+  social_label_count = social_links.scan(/<a[^>]+aria-label=/).size
+  errs << "Design: social profiles must use four accessible icons" unless social_icon_count == 4 && social_label_count == 4
+  errs << "Design: social icons must not show external-arrow marks" if social_links.include?("&#8599;")
 
   about = File.exist?("about.md") ? File.read("about.md") : ""
   errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
@@ -84,7 +88,8 @@ def design_guardrails
   footer = File.exist?("_includes/footer.html") ? File.read("_includes/footer.html") : ""
   errs << "Design: footer MCP page link missing" unless footer.include?("mcp page") && footer.include?("'/mcp/' | relative_url")
   errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
-  errs << "Design: footer must expose the complete tag index" unless footer.include?("include tag-list.html")
+  errs << "Design: footer must link to the dedicated tag index" unless footer.include?("'/tags/' | relative_url")
+  errs << "Design: footer must not embed the complete tag index" if footer.include?("include tag-list.html")
 
   repo_list = File.exist?("_includes/repo-list.html") ? File.read("_includes/repo-list.html") : ""
   errs << "Design: side-quest rows must use the inline GitHub mark" unless repo_list.include?('logo.html name="github"')

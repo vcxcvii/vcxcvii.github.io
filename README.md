@@ -6,7 +6,7 @@ Built with Jekyll. Hosted on GitHub Pages. Deliberately resembles the simple, fu
 
 ## Design
 
-The homepage is the archive: small circular portrait above the introduction, calendar and social links, green GitHub activity, every essay grouped by year, then public side-project repositories. The shared footer carries the complete tag index. Navigation and footer are plain HTML. Links are blue and underlined. `VC` is electric blue. The site uses system fonts and no component framework.
+The homepage is the archive: small circular portrait above the introduction, calendar and social icons, green GitHub activity, every essay grouped by year, then public side-project repositories. The shared footer links to the dedicated tag index. Navigation and footer are plain HTML. Links are blue and underlined. `VC` is electric blue. The site uses system fonts and no component framework.
 
 [`DESIGN.md`](DESIGN.md) contains the complete machine-readable design and performance rules.
 
@@ -73,6 +73,7 @@ _includes/nav.html         Pure HTML navigation
 _includes/essay-list.html  Shared chronological archive
 _includes/footer.html      Tags, RSS, MCP, AI, disclaimer, changelog, source
 _layouts/home.html         Intro, social links, GitHub, archive, side quests
+_includes/social-links.html Accessible inline social icons
 _includes/repo-list.html   Public GitHub side projects
 _layouts/entry.html        Essay, related essays, older/newer links
 _sass/main.scss            Only design stylesheet, inlined at build

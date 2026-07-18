@@ -63,7 +63,7 @@ Order is fixed:
 7. Linked `Side quests` heading and public GitHub repository list.
 8. Footer.
 
-The introduction is not a marketing hero. It uses the existing `168x168` `hero-photo.jpg`, cropped into a circle above the text on every viewport, never beside it. No oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are plain underlined hyperlinks with no boxes, icons, or external-arrow marks.
+The introduction is not a marketing hero. It uses the existing `168x168` `hero-photo.jpg`, cropped into a circle above the text on every viewport, never beside it. No oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are four icon-only links with accessible names, no boxes, visible text, or external-arrow marks.
 
 Homepage sections are separated by light `1px #dddddd` horizontal rules with generous whitespace. Rules clarify structure; they never become boxed sections.
 
@@ -95,7 +95,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Tags
 
-- The shared footer and `/tags/` show the same complete alphabetical tag list. The footer copy is suppressed on `/tags/` to avoid duplication.
+- `/tags/` is the only complete alphabetical tag list.
+- The shared footer contains one plain `tags` link to `/tags/`; it never embeds the list.
 - Each entry is a plain blue link plus a muted essay count.
 - Three columns on desktop, two on tablet, one below `30rem`.
 - Tag archive pages retain the same year-grouped essay list.
@@ -119,13 +120,11 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Footer
 
-- First section: linked `Tags` heading and every tag with its essay count.
-- A light rule separates tags from footer utilities.
 - Thin top rule, small gray text.
-- First row: `rss · mcp page · llms.txt · disclaimer · changelog · source`.
+- First row: `rss · mcp page · llms.txt · tags · disclaimer · changelog · source`.
 - Second row: plain text links for ChatGPT, Claude, and Perplexity.
 - Final row: copyright and `Built with AI, supervised by a human.`
-- No logos, buttons, avatars, or callout background. The compact responsive tag grid is the sole footer grid.
+- No logos, buttons, avatars, grids, or callout background.
 
 ## Responsive behavior
 
