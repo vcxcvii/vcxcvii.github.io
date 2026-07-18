@@ -71,7 +71,7 @@ mcp: true
 ```text
 _includes/nav.html         Pure HTML navigation
 _includes/essay-list.html  Shared chronological archive
-_includes/footer.html      RSS, MCP, AI, disclaimer, source
+_includes/footer.html      Tags, RSS, MCP, AI, disclaimer, changelog, source
 _layouts/home.html         Intro, social links, GitHub, archive
 _layouts/entry.html        Essay, related essays, older/newer links
 _sass/main.scss            Only design stylesheet, inlined at build
