@@ -253,14 +253,14 @@ td {
 }
 
 .home-intro-grid {
-  display: grid;
-  grid-template-columns: 7rem minmax(0, 1fr);
-  gap: 1.5rem;
-  align-items: start;
+  display: block;
 }
 
 .home-portrait {
+  display: block;
   width: 7rem;
+  margin-bottom: 1.25rem;
+  border-radius: 50%;
   aspect-ratio: 1;
   object-fit: cover;
 }
@@ -843,13 +843,9 @@ td {
     font-size: 1.5rem;
   }
 
-  .home-intro-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
   .home-portrait {
     width: 5.5rem;
+    margin-bottom: 1rem;
   }
 
   .github-heading {

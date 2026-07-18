@@ -67,6 +67,7 @@ def design_guardrails
   errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
   errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
   errs << "Design: homepage portrait missing" unless home.include?("assets/images/hero-photo.jpg") && home.include?('width="168" height="168"')
+  errs << "Design: homepage portrait must remain circular" unless css_source.include?(".home-portrait") && css_source.include?("border-radius: 50%")
   errs << "Design: homepage side-quest repositories missing" unless home.include?("include repo-list.html") && home.include?("'/side-quests/' | relative_url")
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
     errs << "Design: homepage social link missing #{host}" unless home.include?(host)
