@@ -355,19 +355,6 @@ td {
   margin-top: 0;
 }
 
-.essays {
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.tags-section {
-  margin-top: 1.5rem;
-}
-
-.tags-section h2 {
-  margin-top: 0;
-}
-
 .tag-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -723,6 +710,16 @@ td {
   border-top: 1px solid var(--color-border);
   color: var(--color-secondary);
   font-size: .75rem;
+}
+
+.footer-tags {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer-tags h2 {
+  margin: 0 0 1rem;
 }
 
 #site-footer p {

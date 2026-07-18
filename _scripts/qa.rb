@@ -62,7 +62,7 @@ def design_guardrails
   errs << "Design: homepage must render the full essay archive" unless home.include?("essay-list.html posts=site.posts")
   errs << "Design: homepage must retain GitHub activity" unless home.include?('data-gh-user="vcxcvii"')
   errs << "Design: homepage essays heading must link to /blog/" unless home.include?("'/blog/' | relative_url")
-  errs << "Design: homepage must expose tag navigation" unless home.include?("include tag-list.html")
+  errs << "Design: homepage must not render the footer tag index" if home.include?("include tag-list.html")
   errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
   errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
@@ -74,6 +74,7 @@ def design_guardrails
 
   footer = File.exist?("_includes/footer.html") ? File.read("_includes/footer.html") : ""
   errs << "Design: footer MCP page link missing" unless footer.include?("mcp page") && footer.include?("'/mcp/' | relative_url")
+  errs << "Design: footer must expose the complete tag index" unless footer.include?("include tag-list.html")
 
   errs
 end

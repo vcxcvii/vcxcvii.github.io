@@ -60,8 +60,7 @@ Order is fixed:
 4. GitHub contribution graph in official green.
 5. Linked `Essays` heading.
 6. Every essay, newest first, grouped by year.
-7. Linked `Tags` heading and every tag with its essay count.
-8. Footer.
+7. Footer.
 
 The introduction is not a marketing hero. No portrait, oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are compact, square-cornered bordered text links, never an icon library.
 
@@ -88,7 +87,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Tags
 
-- Homepage and `/tags/` show the same complete alphabetical tag list.
+- The shared footer and `/tags/` show the same complete alphabetical tag list.
 - Each entry is a plain blue link plus a muted essay count.
 - Three columns on desktop, two on tablet, one below `30rem`.
 - Tag archive pages retain the same year-grouped essay list.
@@ -112,6 +111,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Footer
 
+- First section: linked `Tags` heading and every tag with its essay count.
+- A light rule separates tags from footer utilities.
 - Thin top rule, small gray text.
 - First row: `rss · mcp page · llms.txt · disclaimer · source`.
 - Second row: plain text links for ChatGPT, Claude, and Perplexity.
