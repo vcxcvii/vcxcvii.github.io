@@ -9,63 +9,57 @@
 require "yaml"
 require "date"
 
-VALID_LAYOUTS  = %w[default page home side-quests tags none].freeze
+VALID_LAYOUTS  = %w[default page home entry listing archive tag_archive side-quests tags none].freeze
 UTILITY_PATHS  = %w[feed/ mcp/ api/ blog/ archive/ tags/ _site/ _includes/ _layouts/].freeze
 SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
 
-# ── Monochrome design guardrails ──────────────────────────────────────
-# The site is strictly monochrome (zinc). These fail the gate if anyone
-# reintroduces an accent hue, a legacy nav/pill/dot class, the old ghchart
-# GitHub card, its column breakout, or uses mono on UI (mono = code only).
-FORBIDDEN_HEX = %w[
-  0000ff 2563eb 16a34a 7c3aed db2777 1d4ed8 7e22ce 15803d
-  eff6ff faf5ff f0fdf4 dbeafe f3e8ff dcfce7 0796d7
+# ── Lightweight publication guardrails ───────────────────────────────
+FORBIDDEN_PATTERNS = %w[
+  nav-root assets/js/nav.js assets/css/nav.css assets/js/redesign.js
+  theme-init.js shadcn tailwind @font-face box-shadow linear-gradient
+  radial-gradient backdrop-filter
 ].freeze
-LEGACY_PATTERNS = %w[
-  site-menu- site-more dot-notes dot-work dot-quests dot-ai
-  pill-blue pill-purple pill-green gh-card-wrap ghchart.rshah
-].freeze
+REQUIRED_COLORS = %w[#0000ee #c00 #9be9a8 #40c463 #30a14e #216e39].freeze
+CSS_BUDGET = 14_000
+GITHUB_JS_BUDGET = 8_000
 
 def design_guardrails
   errs = []
-  # Code files: markup/style where legacy classes and the old card would live.
   code_files = (
     Dir.glob("assets/css/*.{scss,css}") +
+    Dir.glob("assets/js/*.js") +
     Dir.glob("_layouts/*.html") +
     Dir.glob("_includes/*.html") +
     ["mcp/index.html", "feed/index.html"]
   ).uniq.select { |f| File.exist?(f) }
-  # Hex scan also covers prose docs (a real hue in README/DESIGN is a bug);
-  # changelog is history and exempt.
-  hex_files = (code_files +
-    Dir.glob("*.md").reject { |f| File.basename(f) == "changelog.md" }
-  ).uniq.select { |f| File.exist?(f) }
-
-  hex_files.each do |f|
-    src = File.read(f).downcase
-    FORBIDDEN_HEX.each do |hex|
-      if src.include?("#" + hex) || src.include?("/" + hex + "/") || src.include?(hex + "/vcxcvii")
-        errs << "Design: non-monochrome color '#{hex}' in #{f} — the site is strictly zinc"
-      end
-    end
-  end
 
   code_files.each do |f|
     src = File.read(f).downcase
-    LEGACY_PATTERNS.each do |pat|
-      errs << "Design: legacy pattern '#{pat}' reintroduced in #{f}" if src.include?(pat)
+    FORBIDDEN_PATTERNS.each do |pattern|
+      errs << "Design: forbidden heavyweight pattern '#{pattern}' in #{f}" if src.include?(pattern)
     end
   end
 
-  css = File.exist?("_sass/main.scss") ? "_sass/main.scss" : "assets/css/style.scss"
-  if File.exist?(css)
-    n = File.read(css).scan("var(--font-mono)").size
-    if n != 2
-      errs << "Design: mono on UI — #{n} var(--font-mono) uses in #{css}, expected 2 (code/pre + .ascii-logo). Mono is code-only."
-    end
+  css = "_sass/main.scss"
+  css_source = File.exist?(css) ? File.read(css).downcase : ""
+  errs << "Design: missing #{css}" if css_source.empty?
+  errs << "Performance: #{css} exceeds #{CSS_BUDGET} bytes" if File.exist?(css) && File.size(css) > CSS_BUDGET
+  REQUIRED_COLORS.each do |color|
+    errs << "Design: required publication color '#{color}' missing from #{css}" unless css_source.include?(color)
   end
+
+  github_js = "assets/js/gh-graph.js"
+  errs << "Performance: #{github_js} exceeds #{GITHUB_JS_BUDGET} bytes" if File.exist?(github_js) && File.size(github_js) > GITHUB_JS_BUDGET
+
+  nav = File.exist?("_includes/nav.html") ? File.read("_includes/nav.html") : ""
+  errs << "Design: pure HTML site mark missing from navigation" unless nav.include?('class="site-mark"')
+  errs << "Design: GitHub must remain visible in navigation" unless nav.include?("github &#8599;")
+
+  home = File.exist?("_layouts/home.html") ? File.read("_layouts/home.html") : ""
+  errs << "Design: homepage must render the full essay archive" unless home.include?("essay-list.html posts=site.posts")
+  errs << "Design: homepage must retain GitHub activity" unless home.include?('data-gh-user="vcxcvii"')
 
   errs
 end
@@ -99,7 +93,7 @@ content_files = files.select { |f| f.match?(/\.(md|html)$/) && File.exist?(f) &&
 design_errors = design_guardrails
 
 if content_files.empty? && design_errors.empty?
-  puts "QA: no content files to check; monochrome guardrails pass."
+  puts "QA: no content files to check; lightweight design guardrails pass."
   exit 0
 end
 
@@ -161,7 +155,7 @@ content_files.each do |path|
     end
   end
 
-  if is_page
+  if is_page && fm["layout"] != "home"
     warns << "AEO: #{word_count} words — more content helps AI agents answer questions" if word_count < 50
   end
 
@@ -203,7 +197,7 @@ end
 
 unless design_errors.empty?
   puts ""
-  puts "Design guardrails (monochrome)"
+  puts "Design guardrails (lightweight publication)"
   design_errors.each { |e| puts "       ERROR  #{e}" }
   all_errors.concat(design_errors)
 end

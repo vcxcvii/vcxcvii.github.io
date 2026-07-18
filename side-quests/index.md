@@ -9,10 +9,10 @@ mcp: true
   <h2>Work</h2>
   <p class="category-intro">Tools and systems I built for GTM Buddy's Revenue Activation practice.</p>
 
-  <details class="project-card">
+  <details class="project-entry">
     <summary>
       <span class="project-name">GTM Buddy Marketing Skills</span>
-      <span class="status-badge status-internal">Internal</span>
+      <span class="project-state">Internal</span>
       <span class="project-updated">Updated May 17, 2026</span>
       <span class="expand-icon">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="3.5,4.5 6,7.5 8.5,4.5"/></svg>
@@ -59,10 +59,10 @@ mcp: true
     </div>
   </details>
 
-  <details class="project-card">
+  <details class="project-entry">
     <summary>
       <span class="project-name">GTM Buddy Design × Engineering</span>
-      <span class="status-badge status-internal">Internal</span>
+      <span class="project-state">Internal</span>
       <span class="project-updated">Updated May 17, 2026</span>
       <span class="expand-icon">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="3.5,4.5 6,7.5 8.5,4.5"/></svg>
@@ -109,10 +109,10 @@ mcp: true
     </div>
   </details>
 
-  <details class="project-card">
+  <details class="project-entry">
     <summary>
       <span class="project-name">GTM Skills (SDR)</span>
-      <span class="status-badge status-internal">Internal</span>
+      <span class="project-state">Internal</span>
       <span class="project-updated">Updated May 15, 2026</span>
       <span class="expand-icon">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="3.5,4.5 6,7.5 8.5,4.5"/></svg>
@@ -163,10 +163,10 @@ mcp: true
   <h2>Personal</h2>
   <p class="category-intro">Side projects born from curiosity, necessity, or boredom.</p>
 
-  <details class="project-card">
+  <details class="project-entry">
     <summary>
       <span class="project-name">VC's Notes</span>
-      <span class="status-badge status-public">Live</span>
+      <span class="project-state">Live</span>
       <span class="project-updated">Updated May 16, 2026</span>
       <span class="expand-icon">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="3.5,4.5 6,7.5 8.5,4.5"/></svg>
@@ -179,22 +179,22 @@ mcp: true
  █ █  █
   █    ███</span></pre>
 
-      <p>This is my personal website — a <span class="tool-inline">{% include logo.html name="jekyll" %}Jekyll</span> static site built on the STARLIGHT design system with cosmic color tokens and AI-managed workflows. Hosted at <a href="https://www.varunchoraria.com" target="_blank" rel="noopener noreferrer">varunchoraria.com</a>.</p>
+      <p>This is my personal publication: a <span class="tool-inline">{% include logo.html name="jekyll" %}Jekyll</span> static site inspired by the simple, functional personal websites of the early web. Hosted at <a href="https://www.varunchoraria.com" target="_blank" rel="noopener noreferrer">varunchoraria.com</a>.</p>
 
       <div class="project-section">
         <h4>How I built it</h4>
-        <p>I built it on <span class="tool-inline">{% include logo.html name="jekyll" %}Jekyll</span> 4.3 with Ruby 3.2.2, hosted on <span class="tool-inline">{% include logo.html name="github" %}GitHub</span> Pages. Single <code>style.scss</code> stylesheet with CSS custom properties for theming. The STARLIGHT design system uses exoplanet-inspired color tokens (HD 189733b, GJ 504b, TrES-2b, Proxima b). Dark mode via <code>data-theme</code> attribute.</p>
+        <p>I built it on <span class="tool-inline">{% include logo.html name="jekyll" %}Jekyll</span> 4.3 with Ruby 3.2.2, hosted on <span class="tool-inline">{% include logo.html name="github" %}GitHub</span> Pages. Jekyll renders plain HTML, the stylesheet is inlined, and one small dependency-free script draws the green GitHub graph.</p>
         <p>It's AI-managed — a complete <code>DESIGN.md</code> file codifies design tokens, typography, spacing, and components. <span class="tool-inline">{% include logo.html name="claude-code" %}Claude Code</span> and <span class="tool-inline">{% include logo.html name="codex" %}Codex</span> handle the heavy lifting. I use 14 mattpocock skills for TypeScript patterns and 35 compound-engineering skills.</p>
       </div>
 
       <div class="project-section">
         <h4>Features</h4>
         <ul>
-          <li>Light/dark mode with system preference detection</li>
-          <li>Two-column blog layout with sidebar navigation</li>
+          <li>Complete chronological essay archive on the homepage</li>
+          <li>Plain HTML navigation that stays visible on mobile</li>
           <li>Blog feed, tags, archive, about, uses-this, work, fun pages</li>
-          <li>STARLIGHT design system with CSS custom properties</li>
-          <li>Responsive — mobile menu, fluid typography</li>
+          <li>Machine-readable design and performance rules in DESIGN.md</li>
+          <li>Responsive from 320px without a mobile menu</li>
           <li>GA4 tracking with Google Analytics</li>
           <li>Sub-800ms page loads on <span class="tool-inline">{% include logo.html name="github" %}GitHub</span> Pages</li>
         </ul>
@@ -217,10 +217,10 @@ mcp: true
     </div>
   </details>
 
-  <details class="project-card">
+  <details class="project-entry">
     <summary>
       <span class="project-name">Lazarus Pit</span>
-      <span class="status-badge status-public">Live</span>
+      <span class="project-state">Live</span>
       <span class="project-updated">Updated Jul 10, 2026</span>
       <span class="expand-icon">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="3.5,4.5 6,7.5 8.5,4.5"/></svg>

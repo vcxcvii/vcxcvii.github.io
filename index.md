@@ -1,5 +1,7 @@
 ---
 layout: home
 title: Home
-description: Writing archive for VC's Notes.
+intro: Essays on AI, GTM, management, careers, and building things.
+description: Varun Choraria's essays on AI, go-to-market strategy, management, careers, and building things.
+mcp: true
 ---

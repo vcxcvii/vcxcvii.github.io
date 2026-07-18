@@ -1,20 +1,8 @@
-- label: home
-  url: /
 - label: about
   url: /about/
 - label: work
   url: /work/
-- label: notes
-  url: /blog/
 - label: fun
   url: /fun/
-- label: side quests
-  url: /side-quests/
-- label: uses this
+- label: uses
   url: /uses-this/
-- label: rss
-  url: /feed/
-- label: disclaimer
-  url: /disclaimer/
-- label: changelog
-  url: /changelog/

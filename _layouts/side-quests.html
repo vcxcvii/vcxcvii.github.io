@@ -6,19 +6,13 @@ layout: default
     <h1>{{ page.title }}</h1>
     {% if page.intro %}<p class="intro-note">{{ page.intro }}</p>{% endif %}
   </header>
-
-  <div class="stack-bar">
-    <span class="stack-bar-label">Stack</span>
+  <p class="plain-links"><strong>Stack:</strong>
     {% assign stack_tools = "claude-code,codex,cursor,opencode,superset,antigravity,mcp,github,bun,jekyll" | split: "," %}
     {% for key in stack_tools %}
       {% assign tool = site.data.tools[key] %}
-      <a class="stack-badge tool-badge" href="{{ tool.url | relative_url }}" {% if tool.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>
-        {% include logo.html name=key %}
-        <span>{{ tool.name }}</span>
-      </a>
+      <a href="{{ tool.url | relative_url }}"{% if tool.url contains 'http' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ tool.name }}</a>{% unless forloop.last %}, {% endunless %}
     {% endfor %}
-  </div>
-
+  </p>
   <div class="prose">
     {{ content }}
   </div>

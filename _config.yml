@@ -19,7 +19,7 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
-  - _nav
+  - frontend
 
 defaults:
   - scope:

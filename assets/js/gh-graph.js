@@ -1,138 +1,135 @@
-/* GitHub contributions card — self-rendered, monochrome, in-column.
- * Fetches per-day counts from the jogruber contributions API, caches for 6h
- * in localStorage, and draws an inline SVG grid. The card is [hidden] in
- * markup and only revealed on a successful render, so it degrades to nothing
- * without JS or on any error. */
+/* Small, dependency-free GitHub contribution graph. */
 (function () {
   "use strict";
 
-  var CARD = document.querySelector(".gh-card[data-gh-user]");
-  if (!CARD) return;
+  var section = document.querySelector("[data-gh-user]");
+  if (!section) return;
 
-  var USER = CARD.getAttribute("data-gh-user");
-  var GRAPH = CARD.querySelector("[data-gh-graph]");
-  var TOTAL = CARD.querySelector("[data-gh-total]");
-  var API = "https://github-contributions-api.jogruber.de/v4/" + USER + "?y=last";
-  var CACHE_KEY = "gh:" + USER;
-  var CACHE_TTL = 6 * 60 * 60 * 1000; // 6h
-
-  var CELL = 10, GAP = 3, ROWS = 7;
-  var LIGHT_PALETTE = ["#f4f4f5", "#d4d4d8", "#a1a1aa", "#52525b", "#09090b"];
-  var DARK_PALETTE = ["#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#d4d4d8"];
-
-  function palette() {
-    var explicit = document.documentElement.getAttribute("data-theme");
-    var dark = explicit === "dark" ||
-      (!explicit && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    return dark
-      ? DARK_PALETTE
-      : LIGHT_PALETTE;
-  }
-
-  function renderLegend() {
-    var swatches = CARD.querySelectorAll(".gh-swatches i");
-    var colors = palette();
-    for (var i = 0; i < swatches.length; i++) {
-      swatches[i].style.background = colors[i];
-    }
-  }
+  var user = section.getAttribute("data-gh-user");
+  var graph = section.querySelector("[data-gh-graph]");
+  var total = section.querySelector("[data-gh-total]");
+  var fallback = section.querySelector("[data-gh-fallback]");
+  var legend = section.querySelector("[data-gh-legend]");
+  var endpoint = "https://github-contributions-api.jogruber.de/v4/" + user + "?y=last";
+  var cacheKey = "github-contributions:" + user;
+  var cacheTtl = 6 * 60 * 60 * 1000;
+  var cell = 10;
+  var gap = 3;
+  var rows = 7;
+  var labelHeight = 16;
+  var colors = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var contributionData = null;
+  var resizeTimer = null;
 
   function readCache() {
     try {
-      var raw = localStorage.getItem(CACHE_KEY);
-      if (!raw) return null;
-      var obj = JSON.parse(raw);
-      if (!obj || (Date.now() - obj.t) > CACHE_TTL) return null;
-      return obj.d;
-    } catch (e) { return null; }
+      var cached = JSON.parse(localStorage.getItem(cacheKey));
+      if (cached && Date.now() - cached.savedAt < cacheTtl) return cached.data;
+    } catch (error) {
+      return null;
+    }
+    return null;
   }
 
   function writeCache(data) {
-    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), d: data })); }
-    catch (e) { /* private mode / quota — ignore */ }
+    try {
+      localStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), data: data }));
+    } catch (error) {
+      /* Storage can be unavailable. Rendering still works. */
+    }
   }
 
-  function colsForWidth() {
-    var w = GRAPH.clientWidth || CARD.clientWidth || 320;
-    // 26 weeks (half year) normally; drop to 16 on narrow screens
-    if (w < 480) return 16;
-    var fit = Math.floor((w + GAP) / (CELL + GAP));
-    return Math.max(8, Math.min(26, fit));
+  function columnsForWidth(maxColumns) {
+    var width = graph.clientWidth || section.clientWidth || 280;
+    var fit = Math.floor((width + gap) / (cell + gap));
+    return Math.max(8, Math.min(maxColumns, fit));
+  }
+
+  function contributionTotal(data, days) {
+    if (data.total) {
+      var year = Object.keys(data.total)[0];
+      if (year && data.total[year] != null) return data.total[year];
+    }
+    return days.reduce(function (sum, day) { return sum + (day.count || 0); }, 0);
   }
 
   function render(data) {
-    var days = (data && data.contributions) || [];
-    if (!days.length) return false;
+    var days = data && data.contributions;
+    if (!days || !days.length) return;
 
-    var total = 0;
-    for (var i = 0; i < days.length; i++) total += (days[i].count || 0);
-    if (data.total) {
-      var t = typeof data.total === "number"
-        ? data.total
-        : (data.total.lastYear != null ? data.total.lastYear : null);
-      if (t != null) total = t;
-    }
+    var maxColumns = Math.floor(days.length / rows);
+    var columns = columnsForWidth(maxColumns);
+    var visibleDays = days.slice(-columns * rows);
+    var width = columns * (cell + gap) - gap;
+    var height = labelHeight + rows * (cell + gap) - gap;
+    var namespace = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(namespace, "svg");
+    var count = contributionTotal(data, days);
 
-    var cols = colsForWidth();
-    var window = days.slice(-cols * ROWS);
-    var colors = palette();
-
-    var w = cols * (CELL + GAP) - GAP;
-    var h = ROWS * (CELL + GAP) - GAP;
-    var svgNS = "http://www.w3.org/2000/svg";
-    var svg = document.createElementNS(svgNS, "svg");
-    svg.setAttribute("width", String(w));
-    svg.setAttribute("height", String(h));
-    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+    svg.setAttribute("viewBox", "0 0 " + width + " " + height);
     svg.setAttribute("role", "img");
-    svg.setAttribute("aria-label", total.toLocaleString("en-US") + " GitHub contributions in the last year");
+    svg.setAttribute("aria-label", count.toLocaleString("en-US") + " GitHub contributions in the last year");
 
-    for (var k = 0; k < window.length; k++) {
-      var d = window[k];
-      var col = Math.floor(k / ROWS);
-      var row = k % ROWS;
-      var lvl = typeof d.level === "number" ? d.level : (d.count > 0 ? 1 : 0);
-      if (lvl < 0) lvl = 0; if (lvl > 4) lvl = 4;
-      var rect = document.createElementNS(svgNS, "rect");
-      rect.setAttribute("x", String(col * (CELL + GAP)));
-      rect.setAttribute("y", String(row * (CELL + GAP)));
-      rect.setAttribute("width", String(CELL));
-      rect.setAttribute("height", String(CELL));
-      rect.setAttribute("rx", "2");
-      rect.setAttribute("fill", colors[lvl]);
-      svg.appendChild(rect);
+    var previousMonth = -1;
+    var lastLabelX = -Infinity;
+    for (var column = 0; column < columns; column += 1) {
+      var firstDay = visibleDays[column * rows];
+      if (!firstDay || !firstDay.date) continue;
+      var month = parseInt(firstDay.date.slice(5, 7), 10) - 1;
+      var x = column * (cell + gap);
+      if (month === previousMonth || x - lastLabelX < 30 || x > width - 24) continue;
+      previousMonth = month;
+      lastLabelX = x;
+      var label = document.createElementNS(namespace, "text");
+      label.setAttribute("x", String(x));
+      label.setAttribute("y", "9");
+      label.textContent = months[month];
+      svg.appendChild(label);
     }
 
-    GRAPH.textContent = "";
-    GRAPH.appendChild(svg);
-    TOTAL.textContent = total.toLocaleString("en-US") +
-      " contribution" + (total === 1 ? "" : "s") + " in the last year";
-    renderLegend();
-    CARD.hidden = false;
-    return true;
+    visibleDays.forEach(function (day, index) {
+      var level = Math.max(0, Math.min(4, Number(day.level) || 0));
+      var rect = document.createElementNS(namespace, "rect");
+      rect.setAttribute("x", String(Math.floor(index / rows) * (cell + gap)));
+      rect.setAttribute("y", String(labelHeight + (index % rows) * (cell + gap)));
+      rect.setAttribute("width", String(cell));
+      rect.setAttribute("height", String(cell));
+      rect.setAttribute("fill", colors[level]);
+      rect.setAttribute("rx", "2");
+      svg.appendChild(rect);
+    });
+
+    graph.replaceChildren(svg);
+    total.textContent = count.toLocaleString("en-US") + " contributions";
+    fallback.hidden = true;
+    legend.hidden = false;
   }
 
-  var current = null;
-  function draw(data) { current = data; render(data); }
-
-  // debounced re-render on resize (column width changes cols)
-  var rt;
-  window.addEventListener("resize", function () {
-    clearTimeout(rt);
-    rt = setTimeout(function () { if (current) render(current); }, 150);
-  });
-  window.addEventListener("themechange", function () {
-    if (current) render(current);
-    else renderLegend();
-  });
+  function setData(data) {
+    contributionData = data;
+    render(data);
+  }
 
   var cached = readCache();
-  if (cached) draw(cached);
+  if (cached) setData(cached);
 
-  fetch(API, { headers: { Accept: "application/json" } })
-    .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
-    .then(function (data) {
-      if (render(data)) { current = data; writeCache(data); }
+  fetch(endpoint)
+    .then(function (response) {
+      if (!response.ok) throw new Error("GitHub contribution request failed");
+      return response.json();
     })
-    .catch(function () { /* keep cached render, or stay hidden */ });
-})();
+    .then(function (data) {
+      writeCache(data);
+      setData(data);
+    })
+    .catch(function () {
+      /* Keep the plain GitHub link as the no-data fallback. */
+    });
+
+  window.addEventListener("resize", function () {
+    if (!contributionData) return;
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(function () { render(contributionData); }, 120);
+  });
+}());

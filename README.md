@@ -1,175 +1,85 @@
-<pre style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:900;font-size:20px;line-height:.86;color:#fafafa;background:#09090b;border:none;padding:16px 18px;margin:0 0 1em 0;width:max-content;max-width:100%;overflow:auto;letter-spacing:0;">
-█   █  ███
-█   █ █   
-█   █ █   
- █ █  █   
-  █    ███
-</pre>
-
 # VC's Notes
 
-[Varun Choraria](https://varunchoraria.com)'s personal website — a Jekyll blog about B2B marketing, GTM strategy, management, career, and side quests.
+[Varun Choraria](https://www.varunchoraria.com)'s personal publication about AI, GTM, management, careers, and side quests.
 
-Built and maintained almost entirely with AI. Not as a gimmick — as a genuine test of what it looks like when a personal site is run like a product, with an AI agent doing the engineering work.
+Built with Jekyll. Hosted on GitHub Pages. Deliberately resembles the simple, functional personal websites of the early web.
 
----
+## Design
 
-## What AI does on this site
+The homepage is the archive: short introduction, green GitHub activity, then every essay grouped by year. Navigation and footer are plain HTML. Links are blue and underlined. `VC` is red. The site uses system fonts and no component framework.
 
-### 1. Manages the codebase (Claude Code)
-Claude Code is the primary web manager. It writes HTML, CSS, and Ruby. It adds pages, fixes bugs, and ships features based on plain-English instructions. Every change goes through a QA gate before it goes live.
+[`DESIGN.md`](DESIGN.md) contains the complete machine-readable design and performance rules.
 
-### 2. Reads a machine-readable design system (DESIGN.md)
-Before touching any CSS, the AI reads [`DESIGN.md`](DESIGN.md) — a file that codifies every design decision: colors, typography, spacing, components. The system is strictly monochrome (a single zinc scale; the only hues on the site live in photographs). Layouts have rules. The AI validates against this system before making any visual change, which means the design stays consistent without hand-holding.
+Hard constraints:
 
-### 3. QA checks before every push
-A pre-push hook runs `_scripts/qa.rb` automatically whenever content is pushed. It checks every changed file for:
-- **SEO** — title and description present, within character limits
-- **AEO** — content length, heading structure, tags (helps AI agents parse and cite the content)
-- **Design compliance** — valid layout, intro field, date format
-- **MCP compliance** — new pages flagged if they're missing `mcp: true` (see below)
-- **Dangerous files** — blocks CSV, SQL, .env, and other non-site files from being accidentally committed
-
-Errors block the push. Warnings are informational.
-
-### 4. Exposes the site as an MCP server
-The site runs a live [MCP (Model Context Protocol)](https://varunchoraria.com/mcp/) server at [`varunchoraria-mcpvercelapp.vercel.app`](https://varunchoraria-mcpvercelapp.vercel.app). Any MCP-compatible AI client — Claude Code, Claude Desktop, Cursor, Codex CLI — can connect to it and read the site content directly.
-
-Six tools are exposed:
-- `get_site_info` — bio, role, topics, contact
-- `list_posts` — all posts with titles, dates, tags
-- `get_post` — full text of any post by slug
-- `list_pages` — all indexed pages
-- `get_page` — full content of About, Work, Uses This, etc.
-- `search` — keyword search across everything
-
-The server fetches from `/api/site.json` — a Jekyll-generated file that auto-updates on every push. Add `mcp: true` to any page's frontmatter and it gets indexed automatically.
-
-### 5. Browser-side MCP widget (WebMCP)
-A floating widget on every page (bottom right) lets users connect their local AI agent to the site via [WebMCP](https://github.com/jasonjmcghee/WebMCP) — a browser-based bridge. Useful for in-browser sessions with Claude Desktop.
-
-### 6. Side quests built with AI
-The [/side-quests](https://varunchoraria.com/side-quests/) page lists tools and projects built using Claude Code, Codex, and OpenCode — GTM dashboards, design pipelines, internal tools. Most started as weekend experiments.
-
----
-
-## Design system (monochrome zinc)
-
-The site runs on a strict single-neutral system built on the zinc scale. No accent hues anywhere — the only colour on the site is in photographs. One typeface (Geist Sans) does all UI and body work; monospace is reserved for code.
-
-| Token | Hex | Role |
-|-------|-----|------|
-| `heading` / `link` / `accent` | `#09090b` | Headings, links, every interactive highlight |
-| `text` | `#3f3f46` | Body |
-| `secondary` | `#52525b` | Secondary text |
-| `faint` | `#71717a` | Meta, dates |
-| `bg` | `#ffffff` | Page |
-| `surface` | `#fafafa` | Hover rows |
-| `fill` | `#f4f4f5` | Subtle fill, pills |
-| `border` | `#e4e4e7` | Borders |
-| `border-dark` | `#d4d4d8` | Stronger borders, underlines |
-
-Full spec — typography, spacing, components — lives in [`DESIGN.md`](DESIGN.md).
-
----
+- No React, Tailwind, shadcn, web fonts, dark-mode framework, or client-side navigation
+- No cards, pills, dropdown menus, shadows, gradients, or decorative animation
+- No JavaScript on normal pages
+- One small dependency-free script for the GitHub contribution graph
+- Mobile navigation stays visible and wraps instead of collapsing behind a menu
 
 ## Run locally
 
-Requires Ruby `3.2.2` (see `.ruby-version`).
+Requires Ruby `3.2.2`.
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-### Nav island (React)
+Open `http://127.0.0.1:4000/`.
 
-The top nav is a shadcn `NavigationMenu` React island. Source lives in `_nav/` (Vite + React + Tailwind v4); GitHub Pages can't run npm, so the built artifacts (`assets/js/nav.js`, `assets/css/nav.css`) are committed. After changing anything in `_nav/`, rebuild:
+## QA
 
 ```bash
-cd _nav
-npm install   # first time
-npm run build # emits ../assets/js/nav.js + ../assets/css/nav.css
+ruby _scripts/validate-posts.rb
+ruby _scripts/qa.rb DESIGN.md _layouts/home.html _sass/main.scss
+bundle exec jekyll build
 ```
 
-Nav links come from `_data/navigation.yml` (injected at Jekyll render time) — add an entry there and it appears in the built nav with no code change.
+The pre-push gate checks SEO, AEO, MCP indexing, design constraints, and asset budgets.
 
----
+## Create an essay
 
-## Create content
-
-### Blog post
-
-Create a file in `_posts/` named `YYYY-MM-DD-slug.md`:
+Add `_posts/YYYY-MM-DD-slug.md`:
 
 ```yaml
 ---
-title: Post title
-date: 2026-06-28 00:00:00 +0530
-description: One sentence summary for SEO.
+title: Essay title
+date: 2026-07-18 00:00:00 +0530
+description: One-sentence summary.
 tags:
-  - gtm
-  - career
+  - ai
+  - strategy
 ---
-Post content here.
 ```
 
-### Page
-
-Create a Markdown file in the repo root or a subdirectory:
+## Create a page
 
 ```yaml
 ---
 title: Page title
-intro: Short intro shown in the page header.
+intro: Short introduction.
 mcp: true
 ---
-Page content here.
 ```
 
-Add `mcp: true` to expose the page to AI agents via the MCP server.
-
----
-
-## Deploy
-
-Push to `main`. GitHub Actions handles the rest.
-
-```bash
-git add .
-git commit -m "what changed"
-git push
-```
-
-The pre-push hook runs QA automatically. Fix any errors before the push goes through.
-
----
-
-## Security
-
-- No API keys, tokens, or credentials in the codebase
-- Pre-push hook blocks accidental commits of CSV, SQL, .env, and similar files
-- Jekyll auto-escaping handles XSS. All content is Markdown-sourced
-- HTTPS enforced via GitHub Pages + automatic TLS
-
----
+`mcp: true` exposes the page through the site's MCP server.
 
 ## Architecture
 
+```text
+_includes/nav.html         Pure HTML navigation
+_includes/essay-list.html  Shared chronological archive
+_includes/footer.html      RSS, MCP, AI, disclaimer, source
+_layouts/home.html         Intro, GitHub, complete archive
+_layouts/entry.html        Essay, related essays, older/newer links
+_sass/main.scss            Only design stylesheet, inlined at build
+assets/js/gh-graph.js      Only homepage application JavaScript
+api/                       Jekyll-generated MCP data
+DESIGN.md                  Machine-readable design system
 ```
-├── _config.yml          # Jekyll config
-├── _includes/           # head, footer, nav partials
-├── _layouts/            # page, home, default layouts
-├── _posts/              # blog post markdown files
-├── _scripts/
-│   └── qa.rb            ★ Pre-push QA agent
-├── api/
-│   ├── posts.json       # All posts as JSON (for MCP)
-│   └── site.json        # All posts + pages as JSON (for MCP)
-├── assets/css/
-│   └── style.scss       # Single stylesheet, CSS custom properties
-├── mcp/
-│   └── index.html       # MCP connection page
-├── DESIGN.md            ★ Machine-readable design system
-└── [about, work, fun, uses-this, side-quests, changelog].md
-```
+
+## Deploy
+
+Push to `main`. GitHub Actions builds and publishes the site. QA runs before push.

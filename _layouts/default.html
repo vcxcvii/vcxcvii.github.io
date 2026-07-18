@@ -4,12 +4,13 @@
     {% include head.html %}
   </head>
   <body>
+    <a class="skip-link" href="#page-content">Skip to content</a>
     <main id="wrapper">
       {% include nav.html %}
-      {{ content }}
-      {% include ask-ai.html %}
+      <div id="page-content" tabindex="-1">
+        {{ content }}
+      </div>
       {% include footer.html %}
     </main>
-    <script defer src="{{ '/assets/js/redesign.js' | relative_url }}?v={{ asset_version }}"></script>
   </body>
 </html>

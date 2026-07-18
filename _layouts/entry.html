@@ -31,7 +31,7 @@ layout: default
       <ul class="entry-tags" aria-label="Tags">
         {% for tag in page.tags %}
           {% assign tag_slug = tag | slugify %}
-          <li><a class="badge" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a></li>
+          <li><a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a></li>
         {% endfor %}
       </ul>
     {% endif %}
@@ -122,16 +122,24 @@ layout: default
 
     {% if related.size > 0 %}
       <aside class="also-read">
-        <h2 class="also-read-heading">also read<span class="dot">.</span></h2>
-        <div class="rows also-read-list">
+        <h2 class="also-read-heading">Related essays</h2>
+        <ol class="related-list">
           {% for post in related limit: 3 %}
-            <a href="{{ post.url | relative_url }}" class="row">
-              <span class="row-title">{{ post.title }}</span>
-              <span class="row-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-            </a>
+            <li>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+              <span aria-hidden="true">&raquo;</span>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
           {% endfor %}
-        </div>
+        </ol>
       </aside>
     {% endif %}
+  {% endif %}
+
+  {% if page.previous or page.next %}
+    <nav class="essay-nav" aria-label="Essay navigation">
+      {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">&larr; Older: {{ page.previous.title }}</a>{% endif %}
+      {% if page.next %}<a href="{{ page.next.url | relative_url }}">Newer: {{ page.next.title }} &rarr;</a>{% endif %}
+    </nav>
   {% endif %}
 </article>

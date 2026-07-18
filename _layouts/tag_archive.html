@@ -2,20 +2,11 @@
 layout: default
 ---
 {% assign none = "" | split: "" %}
-{% assign tagged = site.tags[page.tag] | default: none | sort: "date" | reverse %}
-
+{% assign tagged = site.tags[page.tag] | default: none %}
 <article class="page-shell">
   <header class="page-header">
     <h1>{{ page.title }}</h1>
-    <p class="intro-note">{{ tagged.size }} post{% if tagged.size != 1 %}s{% endif %} tagged <strong>{{ page.tag }}</strong>.</p>
+    <p class="intro-note">{{ tagged.size }} essay{% if tagged.size != 1 %}s{% endif %} tagged <strong>{{ page.tag }}</strong>.</p>
   </header>
-
-  <div class="rows">
-    {% for item in tagged %}
-      <a href="{{ item.url | relative_url }}" class="row">
-        <span class="row-title">{{ item.title }}</span>
-        <span class="row-date">{{ item.date | date: "%b %-d, %Y" }}</span>
-      </a>
-    {% endfor %}
-  </div>
+  {% include essay-list.html posts=tagged %}
 </article>

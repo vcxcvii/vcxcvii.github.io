@@ -61,8 +61,7 @@ used_tags.uniq.sort.each do |tag|
 end
 
 # CSP inline-script hashes: every inline <script> emitted by head.html must
-# have a matching sha256 in the CSP meta tag, or browsers silently block it
-# (theme init, analytics loader) — see the July 2026 nav.css breakage.
+# have a matching sha256 in the CSP meta tag, or browsers silently block it.
 require "digest"
 require "base64"
 
