@@ -87,7 +87,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Tags
 
-- The shared footer and `/tags/` show the same complete alphabetical tag list.
+- The shared footer and `/tags/` show the same complete alphabetical tag list. The footer copy is suppressed on `/tags/` to avoid duplication.
 - Each entry is a plain blue link plus a muted essay count.
 - Three columns on desktop, two on tablet, one below `30rem`.
 - Tag archive pages retain the same year-grouped essay list.
@@ -117,7 +117,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - First row: `rss · mcp page · llms.txt · disclaimer · source`.
 - Second row: plain text links for ChatGPT, Claude, and Perplexity.
 - Final row: copyright and `Built with AI, supervised by a human.`
-- No logos, buttons, avatars, grids, or callout background.
+- No logos, buttons, avatars, or callout background. The compact responsive tag grid is the sole footer grid.
 
 ## Responsive behavior
 

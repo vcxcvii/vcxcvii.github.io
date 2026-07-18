@@ -1,8 +1,10 @@
 <footer id="site-footer">
+  {% unless page.url == '/tags/' %}
   <section class="footer-tags" aria-labelledby="footer-tags-heading">
     <h2 id="footer-tags-heading"><a href="{{ '/tags/' | relative_url }}">Tags</a></h2>
     {% include tag-list.html %}
   </section>
+  {% endunless %}
   <p class="footer-links">
     <a href="{{ '/feed/' | relative_url }}">rss</a>
     <span>&middot;</span>
