@@ -11,7 +11,7 @@ require "yaml"
 require "date"
 
 VALID_LAYOUTS  = %w[default page home entry listing archive tag_archive side-quests tags none].freeze
-UTILITY_PATHS  = %w[.agents/ feed/ mcp/ api/ blog/ archive/ tags/ side-quests/ _site/ _includes/ _layouts/].freeze
+NON_CONTENT_PATHS = %w[.agents/ api/ _site/ _includes/ _layouts/].freeze
 SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
@@ -137,8 +137,8 @@ def design_guardrails
   errs
 end
 
-def utility?(path)
-  UTILITY_PATHS.any? { |u| path.include?(u) } ||
+def non_content?(path)
+  NON_CONTENT_PATHS.any? { |prefix| path.include?(prefix) } ||
     path.match?(/README|DESIGN|Gemfile|CNAME|robots/)
 end
 
@@ -164,7 +164,7 @@ files = if scan_all
           `git diff --name-only origin/main..HEAD 2>/dev/null`.split("\n")
         end
 
-content_files = files.select { |f| f.match?(/\.(md|html)$/) && File.exist?(f) && !utility?(f) }
+content_files = files.select { |f| f.match?(/\.(md|html)$/) && File.exist?(f) && !non_content?(f) }
 
 # Design guardrails run every time — they protect the whole repo, not just
 # the changed content files.
