@@ -104,8 +104,8 @@ select {
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
+  margin-bottom: 2.25rem;
+  padding-bottom: .75rem;
   border-bottom: 1px solid var(--color-border);
   font-size: .875rem;
   font-weight: 700;
@@ -247,8 +247,8 @@ td {
 }
 
 .home-intro {
-  margin-bottom: 2.5rem;
-  padding-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -283,8 +283,8 @@ td {
 }
 
 .github-activity {
-  margin: 0 0 3rem;
-  padding-bottom: 3rem;
+  margin: 0 0 1.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -356,12 +356,12 @@ td {
 }
 
 .essays {
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
 }
 
 .tags-section {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .tags-section h2 {
@@ -742,7 +742,7 @@ td {
 
   .site-nav {
     display: block;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .site-mark {
