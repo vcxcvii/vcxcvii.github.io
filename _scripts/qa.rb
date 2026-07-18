@@ -91,6 +91,8 @@ def design_guardrails
   errs << "Design: homepage essays heading must link to /blog/" unless home.include?("'/blog/' | relative_url")
   errs << "Design: homepage must not render the footer tag index" if home.include?("include tag-list.html")
   errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
+  calendar_line = home.lines.find { |line| line.include?("https://cal.com/varun-choraria/30min") }
+  errs << "Design: homepage calendar link must not show an external arrow" if calendar_line&.include?("&#8599;")
   errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
   grow_and_close_intro = home.include?('where: "id", "grow-and-close"') &&
                          home.include?("grow_and_close.link") &&
