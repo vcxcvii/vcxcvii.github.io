@@ -62,7 +62,7 @@ Order is fixed:
 7. Linked `Tags` heading and every tag with its essay count.
 8. Footer.
 
-The introduction is not a marketing hero. No portrait, oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are compact text links, never an icon library.
+The introduction is not a marketing hero. No portrait, oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are compact, square-cornered bordered text links, never an icon library.
 
 ## GitHub activity
 

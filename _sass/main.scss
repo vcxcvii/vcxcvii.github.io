@@ -271,11 +271,11 @@ td {
   border: 1px solid currentColor;
   font-size: .8125rem;
   line-height: 1;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .social-links a:hover {
-  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .github-activity {
