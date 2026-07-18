@@ -44,7 +44,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - First link is electric-blue `VC`, returning home.
 - Visible path links follow: `/about`, `/work`, `/blog`, `/side-quests`, `/fun`, `/uses`.
 - `github ↗` is the final external link.
-- Header links are the sole link-style exception: muted gray without underlines until hover, focus, or active state.
+- Header links are muted gray without underlines until hover, focus, or active state. Icon-only social links also omit underlines because they contain no visible text.
 - A `1px #dddddd` rule sits below the navigation.
 - No home pill, active background, icon button, dropdown, or theme toggle.
 - Desktop: single line where space permits.
