@@ -19,6 +19,7 @@
   state: Public
   icon: github
   link: https://github.com/vcxcvii/grow-and-close
+  featured: true
   description: Senior-led GTM execution studio for B2B SaaS companies that need strategy turned into shipped work.
 
 - name: VC's Notes
@@ -45,9 +46,6 @@
 - name: Lazarus Pit
   group: Experiments
   state: Private
-  icon: github
-  link: https://github.com/vcxcvii/lazarus-pit
-  featured: true
   description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes.
 
 - name: GTM Buddy Marketing Skills

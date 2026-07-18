@@ -105,6 +105,8 @@ def design_guardrails
   quest_names = quest_data.map { |quest| quest["name"] }
   missing_quests = required_quests - quest_names
   errs << "Content: side-quest directory missing #{missing_quests.join(', ')}" unless missing_quests.empty?
+  linked_private_quests = quest_data.select { |quest| quest["state"] == "Private" && quest["link"] }
+  errs << "Content: private side quests must not expose inaccessible links" unless linked_private_quests.empty?
 
   errs
 end
