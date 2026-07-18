@@ -65,6 +65,7 @@ def design_guardrails
   errs << "Design: homepage must not render the footer tag index" if home.include?("include tag-list.html")
   errs << "Design: homepage calendar link missing" unless home.include?("https://cal.com/varun-choraria/30min")
   errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
+  errs << "Design: homepage portrait missing" unless home.include?("assets/images/hero-photo.jpg") && home.include?('width="168" height="168"')
   %w[linkedin.com twitter.com github.com letterboxd.com].each do |host|
     errs << "Design: homepage social link missing #{host}" unless home.include?(host)
   end

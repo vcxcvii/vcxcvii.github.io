@@ -55,14 +55,14 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 Order is fixed:
 
 1. Header.
-2. Short introduction: name, location, operating focus, writing topics.
+2. Short introduction with the prior square portrait: name, location, operating focus, writing topics.
 3. Internal MCP page link, calendar link, and compact links to LinkedIn, X, GitHub, and Letterboxd.
 4. GitHub contribution graph in official green.
 5. Linked `Essays` heading.
 6. Every essay, newest first, grouped by year.
 7. Footer.
 
-The introduction is not a marketing hero. No portrait, oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are compact, square-cornered bordered text links, never an icon library.
+The introduction is not a marketing hero. It uses the existing `168x168` square `hero-photo.jpg`, never a large or decorative portrait. No oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are compact, square-cornered bordered text links, never an icon library.
 
 Homepage sections are separated by light `1px #dddddd` horizontal rules with generous whitespace. Rules clarify structure; they never become boxed sections.
 
