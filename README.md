@@ -36,11 +36,11 @@ ruby _scripts/validate-posts.rb
 ruby -c _scripts/qa.rb
 ruby -c _scripts/validate-posts.rb
 node --check assets/js/gh-graph.js
-ruby _scripts/qa.rb
+ruby _scripts/qa.rb --all
 bundle exec jekyll build
 ```
 
-The pre-push gate checks SEO, AEO, MCP indexing, design constraints, and asset budgets.
+The full QA gate checks every tracked page and post for SEO, AEO, MCP indexing, design constraints, dead assets, and performance budgets. Run `ruby _scripts/qa.rb` without `--all` for changed files only.
 
 ## Create an essay
 

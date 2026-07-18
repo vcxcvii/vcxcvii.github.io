@@ -177,7 +177,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Validation
 
 - `_scripts/validate-posts.rb` validates frontmatter, tag pages, and inline CSP hashes.
-- `_scripts/qa.rb` validates content, design invariants, dead-asset exclusions, and performance budgets.
+- `_scripts/qa.rb --all` validates every tracked page and post plus design invariants, dead-asset exclusions, and performance budgets. Without `--all`, it checks changed content only.
 - `node --check assets/js/gh-graph.js` is the dependency-free JavaScript lint gate.
 - Production build must pass after validation. GitHub Actions runs all gates before deployment.
 

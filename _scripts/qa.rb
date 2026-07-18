@@ -4,13 +4,14 @@
 # Pre-push QA: SEO, AEO, design compliance, MCP compliance.
 # Usage:
 #   ruby _scripts/qa.rb              # checks files changed since last push
+#   ruby _scripts/qa.rb --all        # checks every tracked content file
 #   ruby _scripts/qa.rb path/to/file # checks specific files
 
 require "yaml"
 require "date"
 
 VALID_LAYOUTS  = %w[default page home entry listing archive tag_archive side-quests tags none].freeze
-UTILITY_PATHS  = %w[feed/ mcp/ api/ blog/ archive/ tags/ side-quests/ _site/ _includes/ _layouts/].freeze
+UTILITY_PATHS  = %w[.agents/ feed/ mcp/ api/ blog/ archive/ tags/ side-quests/ _site/ _includes/ _layouts/].freeze
 SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
@@ -152,8 +153,13 @@ rescue Psych::SyntaxError => e
   [nil, source]
 end
 
-files = if ARGV.any?
-          ARGV.select { |f| File.exist?(f) }
+arguments = ARGV.dup
+scan_all = arguments.delete("--all")
+
+files = if scan_all
+          `git ls-files -- '*.md' '*.html'`.split("\n")
+        elsif arguments.any?
+          arguments.select { |f| File.exist?(f) }
         else
           `git diff --name-only origin/main..HEAD 2>/dev/null`.split("\n")
         end
