@@ -70,9 +70,9 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Side quests
 
 - `_data/quests.yml` is the single source for both surfaces.
-- Homepage preview shows entries marked `featured: true`; private entries may appear without a link.
-- Linked rows contain a small destination-appropriate mark and open the project's canonical destination directly.
-- Private rows show an unlinked project name. Every row includes one short description; the section heading links to `/side-quests/`.
+- Every homepage entry marked `featured: true` must include a destination and an icon.
+- GitHub projects use the GitHub mark and link directly to their repository. Website projects use the website mark and link to their canonical website.
+- Every row includes one short description; the section heading links to `/side-quests/`.
 - Plain rows with light rules only. No cards, badges, language bars, star counts, or API request.
 - `/side-quests/` renders every entry, grouped as Personal, Experiments, and Work.
 - Directory rows contain name, state, and short description. Link and icon appear only when a destination exists.

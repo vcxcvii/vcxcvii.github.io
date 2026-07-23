@@ -46,7 +46,9 @@
 
 - name: Lazarus Pit
   group: Experiments
-  state: Private
+  state: Public
+  icon: github
+  link: https://github.com/vcxcvii/lazarus-pit
   featured: true
   description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes.
 

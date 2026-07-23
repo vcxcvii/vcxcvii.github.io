@@ -180,10 +180,15 @@ def design_guardrails
   errs << "Content: Grow & Close project data missing or incomplete" unless valid_grow_and_close
   lazarus_pit = quest_data.find { |quest| quest["name"] == "Lazarus Pit" }
   valid_lazarus_pit = lazarus_pit &&
-                      lazarus_pit["state"] == "Private" &&
-                      !lazarus_pit["link"] &&
+                      lazarus_pit["state"] == "Public" &&
+                      lazarus_pit["icon"] == "github" &&
+                      lazarus_pit["link"] == "https://github.com/vcxcvii/lazarus-pit" &&
                       lazarus_pit["featured"] == true
-  errs << "Content: Lazarus Pit must appear unlinked in homepage side quests" unless valid_lazarus_pit
+  errs << "Content: Lazarus Pit must link to GitHub with the GitHub icon" unless valid_lazarus_pit
+  invalid_featured_quests = quest_data.select do |quest|
+    quest["featured"] == true && (!quest["link"] || !quest["icon"])
+  end
+  errs << "Content: featured side quests require a link and icon: #{invalid_featured_quests.map { |quest| quest["name"] }.join(', ')}" unless invalid_featured_quests.empty?
   required_quests = ["Master Shifu", "Michealangelo", "Grow & Close", "VC's Notes", "Self-updating GitHub profile", "MCP server", "Lazarus Pit", "GTM Buddy Marketing Skills", "GTM Buddy Design and Engineering", "GTM Skills (SDR)"]
   quest_names = quest_data.map { |quest| quest["name"] }
   missing_quests = required_quests - quest_names
