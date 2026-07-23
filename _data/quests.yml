@@ -18,8 +18,8 @@
   name: Grow & Close
   group: Personal
   state: Public
-  icon: github
-  link: https://github.com/vcxcvii/grow-and-close
+  icon: website
+  link: https://growandclose.com/
   featured: true
   description: Senior-led, AI-native GTM execution studio for B2B SaaS companies that need strategy turned into shipped work.
 
@@ -47,6 +47,7 @@
 - name: Lazarus Pit
   group: Experiments
   state: Private
+  featured: true
   description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes.
 
 - name: GTM Buddy Marketing Skills

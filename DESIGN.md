@@ -43,7 +43,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
 - First link is electric-blue `VC`, returning home.
 - Visible path links follow: `/about`, `/work`, `/blog`, `/side-quests`, `/fun`, `/uses`.
-- Plain `github` is the final external link; do not append an arrow mark.
+- Keep the primary navigation internal. External profiles belong in the homepage social links.
 - Header links are muted gray without underlines until hover, focus, or active state. Icon-only social links also omit underlines because they contain no visible text.
 - A `1px #dddddd` rule sits below the navigation.
 - No home pill, active background, or theme toggle.
@@ -60,7 +60,7 @@ Order is fixed:
 4. GitHub contribution graph in official green.
 5. Linked `Essays` heading.
 6. Every essay, newest first, grouped by year.
-7. Linked `Side quests` heading and public GitHub repository list.
+7. Linked `Side quests` heading and featured side-quest list.
 8. Footer.
 
 The introduction is not a marketing hero. It uses the existing `168x168` `hero-photo.jpg`, cropped into a circle above the text on every viewport, never beside it. No oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are four icon-only links with accessible names, no boxes, visible text, or external-arrow marks. The calendar link also omits an external-arrow mark.
@@ -70,9 +70,9 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Side quests
 
 - `_data/quests.yml` is the single source for both surfaces.
-- Homepage preview shows only entries marked `featured: true` with GitHub links.
-- Each row contains a small inline GitHub mark, linked repository name, and one short description.
-- Repository links open GitHub directly; the section heading links to `/side-quests/`.
+- Homepage preview shows entries marked `featured: true`; private entries may appear without a link.
+- Linked rows contain a small destination-appropriate mark and open the project's canonical destination directly.
+- Private rows show an unlinked project name. Every row includes one short description; the section heading links to `/side-quests/`.
 - Plain rows with light rules only. No cards, badges, language bars, star counts, or API request.
 - `/side-quests/` renders every entry, grouped as Personal, Experiments, and Work.
 - Directory rows contain name, state, and short description. Link and icon appear only when a destination exists.
@@ -187,7 +187,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - First person. Direct sentences. Specific claims.
 - No emojis. No em dashes; use commas, colons, parentheses, or periods.
 - Display dates as `DD Mon` inside yearly archives and `Mon D, YYYY` on essay pages.
-- External destinations use `↗` only where the external nature matters, primarily source links. The navigation GitHub link remains plain text without an arrow.
+- External destinations use `↗` only where the external nature matters, primarily source links. The primary navigation remains internal.
 - Search metadata uses concise, unique titles and descriptions without changing an essay's editorial headline. Duplicate archive aliases point canonically to `/blog/` and remain out of the sitemap.
 - Structured data identifies Varun as the author, the site as a `WebSite`, `/about/` as a `ProfilePage`, archives as `CollectionPage`, and essays as `BlogPosting`.
 - Favicon is a stable white square with electric-blue `VC`; SVG and 180px PNG use the same design.

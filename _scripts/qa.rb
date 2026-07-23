@@ -102,7 +102,7 @@ def design_guardrails
 
   nav = read_file("_includes/nav.html")
   errs << "Design: pure HTML site mark missing from navigation" unless nav.include?('class="site-mark"')
-  errs << "Design: GitHub must remain visible in navigation" unless nav.include?('href="https://github.com/vcxcvii"') && nav.include?(">github</a>")
+  errs << "Design: primary navigation must remain internal" if nav.include?('href="https://github.com/vcxcvii"')
   errs << "Design: blog must remain visible in navigation" unless nav.include?("site.data.navigation") && File.read("_data/navigation.yml").include?("url: /blog/")
   errs << "Design: side quests must remain visible in navigation" unless File.read("_data/navigation.yml").include?("url: /side-quests/")
   errs << "Design: mobile hamburger navigation missing" unless nav.include?('class="nav-toggle"') && nav.include?('class="menu-toggle"')
@@ -164,8 +164,8 @@ def design_guardrails
   errs << "SEO: BlogPosting image and fallback missing" unless article_image
 
   repo_list = read_file("_includes/repo-list.html")
-  errs << "Design: side-quest rows must use the inline GitHub mark" unless repo_list.include?('logo.html name="github"')
-  errs << "Design: side-quest rows must link directly to GitHub" unless repo_list.include?("github.com")
+  errs << "Design: side-quest rows must use destination-appropriate marks" unless repo_list.include?("logo.html name=quest.icon")
+  errs << "Design: side-quest rows must link to their canonical destination" unless repo_list.include?("quest.link")
   errs << "Design: homepage side quests must use explicit feature flags" unless repo_list.include?("quest.featured")
 
   side_quests = read_file("side-quests/index.md")
@@ -175,9 +175,15 @@ def design_guardrails
   quest_data = File.exist?("_data/quests.yml") ? YAML.safe_load(File.read("_data/quests.yml")) : []
   grow_and_close = quest_data.find { |quest| quest["id"] == "grow-and-close" }
   valid_grow_and_close = grow_and_close &&
-                         grow_and_close["link"] == "https://github.com/vcxcvii/grow-and-close" &&
+                         grow_and_close["link"] == "https://growandclose.com/" &&
                          grow_and_close["description"].include?("Senior-led, AI-native GTM execution studio")
   errs << "Content: Grow & Close project data missing or incomplete" unless valid_grow_and_close
+  lazarus_pit = quest_data.find { |quest| quest["name"] == "Lazarus Pit" }
+  valid_lazarus_pit = lazarus_pit &&
+                      lazarus_pit["state"] == "Private" &&
+                      !lazarus_pit["link"] &&
+                      lazarus_pit["featured"] == true
+  errs << "Content: Lazarus Pit must appear unlinked in homepage side quests" unless valid_lazarus_pit
   required_quests = ["Master Shifu", "Michealangelo", "Grow & Close", "VC's Notes", "Self-updating GitHub profile", "MCP server", "Lazarus Pit", "GTM Buddy Marketing Skills", "GTM Buddy Design and Engineering", "GTM Skills (SDR)"]
   quest_names = quest_data.map { |quest| quest["name"] }
   missing_quests = required_quests - quest_names

@@ -1,11 +1,15 @@
 <ul class="repo-list">
   {% for quest in site.data.quests %}
-    {% if quest.featured and quest.link contains 'github.com' %}
+    {% if quest.featured %}
       <li>
-        <a class="repo-link" href="{{ quest.link }}" target="_blank" rel="noopener noreferrer">
-          {% include logo.html name="github" %}
-          <span>{{ quest.name }}</span>
-        </a>
+        {% if quest.link %}
+          <a class="repo-link" href="{{ quest.link }}" target="_blank" rel="noopener noreferrer">
+            {% if quest.icon %}{% include logo.html name=quest.icon %}{% endif %}
+            <span>{{ quest.name }}</span>
+          </a>
+        {% else %}
+          <strong>{{ quest.name }}</strong>
+        {% endif %}
         <p>{{ quest.description }}</p>
       </li>
     {% endif %}

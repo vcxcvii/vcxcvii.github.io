@@ -6,7 +6,7 @@ Built with Jekyll. Hosted on GitHub Pages. Deliberately resembles the simple, fu
 
 ## Design
 
-The homepage is the archive: small circular portrait above the introduction, calendar and social icons, green GitHub activity, every essay grouped by year, then public side-project repositories. The shared footer links to the dedicated tag index. Navigation and footer are plain HTML; mobile navigation uses a CSS-only hamburger toggle. Text links are blue and underlined except in the header; icon-only social links have no text decoration. `VC` is electric blue. The site uses system fonts and no component framework.
+The homepage is the archive: small circular portrait above the introduction, calendar and social icons, green GitHub activity, every essay grouped by year, then featured side projects. Private projects may appear without links. The shared footer links to the dedicated tag index. Navigation and footer are plain HTML; mobile navigation uses a CSS-only hamburger toggle. Text links are blue and underlined except in the header; icon-only social links have no text decoration. `VC` is electric blue. The site uses system fonts and no component framework.
 
 [`DESIGN.md`](DESIGN.md) contains the complete machine-readable design and performance rules.
 
@@ -82,7 +82,7 @@ _includes/head.html        Canonical, social, robots, RSS, and favicon metadata
 _includes/seo-schema.html  Shared Person, WebSite, and page-level JSON-LD
 _layouts/home.html         Intro, social links, GitHub, archive, side quests
 _includes/social-links.html Accessible inline social icons
-_includes/repo-list.html   Featured GitHub side projects
+_includes/repo-list.html   Featured side projects and canonical links
 _data/quests.yml           Complete side-quest directory and homepage feature flags
 side-quests/index.md       Grouped directory generated from quest data
 _layouts/entry.html        Essay, related essays, older/newer links
