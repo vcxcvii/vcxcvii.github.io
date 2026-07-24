@@ -1,7 +1,9 @@
 ---
 title: "Github-ing"
 date: 2026-07-16 00:00:00 +0530
-permalink: /github-is-where-ideas-become-accountable/
+permalink: /github-ing/
+redirect_from:
+  - /github-is-where-ideas-become-accountable/
 description: AI made building cheap. GitHub makes the thinking, decisions, and execution behind the work inspectable. That matters far beyond engineering.
 tags:
   - ai
