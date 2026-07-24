@@ -35,10 +35,11 @@ Varun Choraria is a B2B SaaS marketing consultant with about a decade of experie
 
 ## Beyond Work
 
-- [/fun/](/fun/): book, speaking, and podcast work
-  - **Book:** *Miracle-preneuring: Why anyone can and should be an entrepreneur* (2016) — self-published, covered by Forbes, Entrepreneur, and 50+ outlets. Available on Amazon and Apple Books.
+- [/speaking/](/speaking/): book, speaking, and podcast work
+  - **Book:** *Miracle-preneuring: Why anyone can and should be an entrepreneur* (2016), self-published, covered by Forbes, Entrepreneur, and 50+ outlets. Available on Amazon and Apple Books.
   - **Speaking:** talks on product marketing and B2B GTM at Wynter, Product Marketing Alliance, AIC Prestige / AIM / Niti Aayog / Microsoft For Startups, and others.
-  - **Podcast:** co-hosted *The Edge Podcast for CHROs* (2021, two seasons) — future of work, guests from GoJek, Infosys, Oracle, Razorpay, Doist, and others.
+  - **Podcast:** co-hosted *The Edge Podcast for CHROs* (2021, two seasons) on the future of work, with guests from Oracle, Infosys, Razorpay, MetLife, Ather Energy, GoJek, Zoho, and Doist.
+- [/uses-this/](/uses-this/): the hardware, software, and everyday gear he relies on
 
 ## Contact
 
@@ -48,6 +49,7 @@ Varun Choraria is a B2B SaaS marketing consultant with about a decade of experie
 
 ## Machine access
 
+- [/changelog/](/changelog/): every update to this site, what shipped and why
 - [/mcp/](/mcp/): live MCP endpoint and setup instructions
 - [/api/site.json](/api/site.json): structured site profile
 - [/api/posts.json](/api/posts.json): structured essay index
