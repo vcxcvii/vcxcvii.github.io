@@ -5,7 +5,7 @@ intro: Roles, responsibilities, and selected consulting work.
 page_class: work-page
 mcp: true
 ---
-Always open to interesting opportunities across the world. With respect to professional engagements, [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me.
+Always open to interesting opportunities across the world. For consulting, [see how I work](/consulting/) or [book 30 minutes on my calendar](https://cal.com/varun-choraria/30min). For everything else, [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me.
 
 ---
 

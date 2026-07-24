@@ -17,6 +17,12 @@ Varun Choraria is an AI B2B marketing consultant for mid-sized SaaS companies, w
 - [/work/](/work/): professional background and current work
 - [/about/](/about/): biography, experience, and current focus
 
+## Consulting
+
+- [/consulting/](/consulting/): consulting fit, working model, and ways to work with Varun
+- [/ai-b2b-marketing-consultant/](/ai-b2b-marketing-consultant/): AI-first B2B marketing systems, workflows, and implementation
+- [/b2b-saas-product-marketing-consultant/](/b2b-saas-product-marketing-consultant/): positioning, messaging, launches, and sales enablement for B2B SaaS
+
 ## Side Projects
 
 - [/side-quests/](/side-quests/): public projects, tools, and experiments

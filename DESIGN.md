@@ -42,7 +42,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
 - First link is electric-blue `VC`, returning home.
-- Visible path links follow: `/about`, `/work`, `/blog`, `/side-quests`, `/fun`, `/uses`.
+- Visible path links follow: `/about`, `/work`, `/consulting`, `/blog`, `/side-quests`, `/fun`, `/uses`.
 - Keep the primary navigation internal. External profiles belong in the homepage social links.
 - Header links are muted gray without underlines until hover, focus, or active state. Icon-only social links also omit underlines because they contain no visible text.
 - A `1px #dddddd` rule sits below the navigation.
@@ -116,7 +116,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Supporting pages
 
-- `/about`, `/work`, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, and `/mcp` use the same page shell and typography.
+- `/about`, `/work`, `/consulting`, the two consulting detail pages, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, and `/mcp` use the same page shell and typography.
 - `/about` contains no portrait.
 - Long pages rely on headings, rules, lists, and links. Do not introduce a separate visual system.
 - Side quests use grouped plain rows with simple horizontal rules, not cards or disclosure widgets.
@@ -125,8 +125,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Footer
 
 - Thin top rule, small gray text, generous space between groups.
-- Four clear groups: `Read` (`rss`, `tags`, `changelog`), `Machine` (`mcp`, `llms.txt`), `Colophon` (`disclaimer`, `design.md`, `source`), and `Ask AI`.
-- Desktop uses four columns; mobile uses two, then one below `30rem`. Links stack vertically without dot separators.
+- Five clear groups: `Work with me` (`consulting`, service pages, `calendar`), `Read` (`blog`, `rss`, `tags`, `changelog`), `Machine` (`mcp`, `llms.txt`), `Colophon` (`about`, `work`, `disclaimer`, `design.md`, `source`), and `Ask AI`.
+- Desktop uses a four-column grid, with `Ask AI` continuing onto the second row. Mobile uses two columns, then one below `30rem`. Links stack vertically without dot separators.
 - `design.md` links to the readable canonical file in the public GitHub repository.
 - `Ask AI` uses recognizable 24px brand-color SVG logos for ChatGPT, Claude, and Perplexity, each inside an accessible 44px link target. No visible text links.
 - Final row sits below its own light rule: copyright and `Built with AI, supervised by a human.`

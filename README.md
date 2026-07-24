@@ -77,9 +77,9 @@ mcp: true
 ```text
 _includes/nav.html         Pure HTML navigation
 _includes/essay-list.html  Shared chronological archive
-_includes/footer.html      Tags, RSS, MCP, AI, disclaimer, changelog, design, source
+_includes/footer.html      Consulting, calendar, reading, machine, AI, and colophon links
 _includes/head.html        Canonical, social, robots, RSS, and favicon metadata
-_includes/seo-schema.html  Shared Person, WebSite, and page-level JSON-LD
+_includes/seo-schema.html  Shared Person, WebSite, WebPage, and Service JSON-LD
 _layouts/home.html         Intro, social links, GitHub, archive, side quests
 _includes/social-links.html Accessible inline social icons
 _includes/repo-list.html   Featured side projects and canonical links

@@ -2,6 +2,8 @@
   url: /about/
 - label: work
   url: /work/
+- label: consulting
+  url: /consulting/
 - label: blog
   url: /blog/
 - label: side-quests

@@ -45,7 +45,21 @@
       "inLanguage": "en-IN"{% if page.url == '/about/' %},
       "mainEntity": { "@id": "{{ site.url }}/#person" }{% elsif page.url == '/' %},
       "about": { "@id": "{{ site.url }}/#person" }{% endif %}
-    }
+    }{% if page.service %},
+    {
+      "@type": "Service",
+      "@id": "{{ canonical_url }}#service",
+      "name": {{ page.service_name | default: page.title | jsonify }},
+      "serviceType": {{ page.service_type | default: page.title | jsonify }},
+      "description": {{ meta_description | jsonify }},
+      "url": "{{ canonical_url }}",
+      "provider": { "@id": "{{ site.url }}/#person" },
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "B2B SaaS founders and marketing leaders"
+      }
+    }{% endif %}
   ]
 }
 </script>

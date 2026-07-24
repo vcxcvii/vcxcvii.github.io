@@ -9,6 +9,19 @@ A running log of what changed on this site and why.
 
 ---
 
+### 24 July 2026
+
+**Published the GitHub essay and added consulting pages**
+
+- **New essay:** published "GitHub is where ideas become accountable," a personal argument for systems-first work, versioned organizational memory, and public proof of work.
+- **Consulting:** added a direct consulting hub plus dedicated pages for AI B2B marketing consulting and B2B SaaS product marketing consulting.
+- **Voice:** kept the new pages blunt, first-person, and explicit about what I do, what I do not do, and who should not hire me.
+- **Navigation:** retained the slash-style navigation and added one `/consulting` link.
+- **Footer:** added consulting and calendar links, then reorganized the existing footer without changing its lightweight publication style.
+- **Structured data:** added `Service` schema to consulting pages and exposed every page through the existing MCP content index.
+
+---
+
 ### 18 July 2026
 
 **Search metadata, structured data, crawl controls, and favicon refresh**
