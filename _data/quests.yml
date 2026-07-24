@@ -1,3 +1,11 @@
+- name: Interview Recon
+  group: Personal
+  state: Public
+  icon: github
+  link: https://github.com/vcxcvii/interview-recon
+  featured: true
+  description: Turns your AI coding agent into an interview research analyst. Candidate-POV company dossiers, JD-mapped talking points, and a 90-day plan. Free-tier friendly by design.
+
 - name: Master Shifu
   group: Personal
   state: Public
