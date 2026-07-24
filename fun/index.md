@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Fun
-intro: Side quests, writing, speaking, and the non-work parts that still matter.
+intro: A book, a stack of talks, and two seasons of a podcast. The work that happened outside a job description.
 mcp: true
 ---
 
