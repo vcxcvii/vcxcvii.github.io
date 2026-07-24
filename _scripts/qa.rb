@@ -145,14 +145,14 @@ def design_guardrails
   errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
 
   footer = read_file("_includes/footer.html")
-  errs << "Design: footer MCP link missing" unless footer.match?(/>mcp<\/a>/) && footer.include?("'/mcp/' | relative_url")
+  errs << "Design: footer MCP link missing" unless footer.match?(/>connect AI<\/a>/) && footer.include?("'/mcp/' | relative_url")
   errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
   errs << "Design: footer must link to the dedicated tag index" unless footer.include?("'/tags/' | relative_url")
   errs << "Design: footer must link to the canonical DESIGN.md" unless footer.include?("blob/main/DESIGN.md")
   errs << "Design: footer must not embed the complete tag index" if footer.include?("include tag-list.html")
   footer_ai_icons = %w[openai claude perplexity].all? { |name| footer.include?(%{logo.html name="#{name}"}) }
   errs << "Design: footer Ask AI links must use three accessible logos" unless footer_ai_icons && footer.scan(/aria-label="Ask /).size == 3
-  %w[Work\ with\ me Read Machine Colophon Ask\ AI].each do |heading|
+  %w[Work Read AI Site Ask].each do |heading|
     errs << "Design: footer section '#{heading}' missing" unless footer.include?(%{class="footer-heading">#{heading}</p>})
   end
 

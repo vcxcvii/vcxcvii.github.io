@@ -18,6 +18,7 @@ A running log of what changed on this site and why.
 - **Voice:** kept the new pages blunt, first-person, and explicit about what I do, what I do not do, and who should not hire me.
 - **Navigation:** retained the slash-style navigation and added one `/consulting` link.
 - **Footer:** added consulting and calendar links, then reorganized the existing footer without changing its lightweight publication style.
+- **Plain language:** renamed footer sections and links so words like "Machine," "Colophon," "MCP," and "RSS" no longer make readers decode the site.
 - **Structured data:** added `Service` schema to consulting pages and exposed every page through the existing MCP content index.
 
 ---
