@@ -1,7 +1,11 @@
 ---
 layout: page
-title: Fun
-intro: A book, a stack of talks, and two seasons of a podcast. The work that happened outside a job description.
+title: Speaking & Media
+seo_title: "Speaking, Book & Podcast | Varun Choraria"
+description: "Varun Choraria's public work: keynotes and panels on B2B product marketing and GTM, the book Miracle-preneuring, and The Edge Podcast for CHROs with guests from Oracle, Infosys, Razorpay, MetLife, GoJek, Ather Energy, and Doist."
+intro: Keynotes, panels, a book, and two seasons of a podcast. The work that happened outside a job description.
+redirect_from:
+  - /fun/
 mcp: true
 ---
 
@@ -47,7 +51,18 @@ YouTube promos:
 
 ### [The Edge Podcast for CHROs](https://www.youtube.com/@theedgepodcastforchros3212)
 
-**2021** — co-hosted two seasons exploring the future of work, with guests from GoJek, Infosys, Oracle, MetLife, Ather, Razorpay, Doist, and others.
+**2021** — co-hosted two seasons exploring the future of work, with guests from GoJek, Infosys, Oracle, MetLife, Ather Energy, Razorpay, Zoho, Doist, and others.
+
+**Start here.** Eight episodes worth your time, by the company the guest came from:
+
+- **Oracle**: [Masterclass on people, process, and productivity](https://www.youtube.com/watch?v=6i42aSUYZKk), with Shaakun Khanna
+- **Infosys**: [Reskilling and the skills passport](https://www.youtube.com/watch?v=bkswfulI3IM), with Richard Lobo, EVP & Head of Human Resources
+- **Razorpay**: [Payroll as a competitive advantage](https://www.youtube.com/watch?v=OiUXpJsuxD0), with Rohit Venugopal of RazorpayX Payroll
+- **MetLife**: [A compensation and benefits playbook](https://www.youtube.com/watch?v=NgCOAko2gh8), with Srinivas Reddy, Director of HR
+- **Ather Energy**: [Building culture from ground zero](https://www.youtube.com/watch?v=cwHUMaHXOjY), with Sunitha Lal, CHRO
+- **GoJek**: [Marketing to developers](https://www.youtube.com/watch?v=WBKaIPOJSHY), with Sidu Ponnappa, SVP Engineering
+- **Doist**: [Rethinking organisational culture, remote or not](https://www.youtube.com/watch?v=e-rOTNROIAo), with Andrew Gobran, People Ops
+- **Zoho**: [Welcoming employees back to work](https://www.youtube.com/watch?v=RoGngO63990), with Praval Singh, VP Marketing
 
 **Season 1** focused on return to work and remote work — [full playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gLyxP9ezKm1TBWWsvYHj2Ov)
 
