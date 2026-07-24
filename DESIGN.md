@@ -117,6 +117,9 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Supporting pages
 
 - `/about`, `/work`, `/consulting`, the two consulting detail pages, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, and `/mcp` use the same page shell and typography.
+- `/consulting` is the umbrella offer. AI marketing and product marketing pages are specialist branches of the same B2B SaaS marketing consulting practice.
+- Every consulting page uses the same three engagement shapes: workshop, defined project, and ongoing consulting or fractional leadership.
+- The shared provider title is `B2B SaaS Marketing Consultant`. AI is a specialist capability and delivery method, not the umbrella job title.
 - `/about` contains no portrait.
 - Long pages rely on headings, rules, lists, and links. Do not introduce a separate visual system.
 - Side quests use grouped plain rows with simple horizontal rules, not cards or disclosure widgets.

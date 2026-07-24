@@ -20,6 +20,7 @@ A running log of what changed on this site and why.
 - **Footer:** added consulting and calendar links, then reorganized the existing footer without changing its lightweight publication style.
 - **Plain language:** renamed footer sections and links so words like "Machine," "Colophon," "MCP," and "RSS" no longer make readers decode the site.
 - **Consulting offer:** rebuilt the main consulting page around nuanced growth problems, pipeline accountability, workshops, defined projects, and ongoing advisory or fractional leadership.
+- **Clear positioning:** aligned the consulting hub, AI consulting page, product marketing page, bio, work page, and machine-readable descriptions around one B2B SaaS marketing promise.
 - **Structured data:** added `Service` schema to consulting pages and exposed every page through the existing MCP content index.
 
 ---

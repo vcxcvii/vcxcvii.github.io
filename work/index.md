@@ -11,12 +11,13 @@ Always open to interesting opportunities across the world. For consulting, [see 
 
 ## Current
 
-### AI B2B Marketing Consultant
+### B2B SaaS Marketing Consultant
 
 **2026-present**
 
-- Advising mid-sized B2B SaaS companies on positioning, messaging, and go-to-market strategy
-- Building AI-first marketing systems — one operator running a swarm of agents
+- Advising B2B SaaS companies on growth strategy, pipeline, positioning, product marketing, and AI
+- Running workshops, defined projects, and ongoing marketing leadership
+- Building AI-first marketing systems with small teams and agents
 
 ---
 

@@ -2,8 +2,8 @@
 layout: page
 title: AI B2B Marketing Consultant
 seo_title: AI B2B Marketing Consultant | Varun Choraria
-description: AI B2B marketing consulting for teams that need better systems, workflows, AEO, and execution without replacing judgment with generated output.
-intro: I help B2B marketing teams decide where AI can improve pipeline, quality, and speed, then build the system around it.
+description: AI marketing consulting for B2B SaaS teams that want a clear AI plan, working marketing systems, trained people, and measurable business results.
+intro: I help B2B SaaS teams use AI to ship better marketing faster, without losing judgment, quality, or control.
 service: true
 service_name: AI B2B marketing consulting
 service_type: AI marketing consulting for B2B SaaS
@@ -12,92 +12,123 @@ mcp: true
 
 ## What does an AI B2B marketing consultant do?
 
-An AI B2B marketing consultant decides where AI should enter the marketing system, builds the workflows around it, and keeps humans responsible for judgment. The work should improve a commercial result, the quality of the work, or the cost and speed of producing it.
+An AI B2B marketing consultant finds where AI can improve marketing, builds the system around it, trains the people who will use it, and measures whether it made the work or business result better.
 
-Most companies do not need AI everywhere.
+The point is not more tools. The point is more useful work from the team you already have.
 
-They need a few important places where AI changes the economics or quality of marketing, plus a plan for the people, data, tools, and review around it.
+[Book 30 minutes on my calendar](https://cal.com/varun-choraria/30min) to talk through your team, goals, and current AI work.
 
-[Book 30 minutes on my calendar](https://cal.com/varun-choraria/30min) if that sounds familiar.
+## What you get
 
-## The problem is usually not the model
+### A clear AI plan
 
-Give a frontier model to a broken marketing organization and you get broken marketing at a higher volume.
+Which work should change, which work should stay human, what to build first, who owns it, and how success will be measured.
 
-The positioning still drifts. Research still disappears into slides. Sales still cannot find the latest story. Content still ships without distribution. Reporting still arrives after everybody has formed an opinion.
+### Working marketing systems
 
-AI makes production cheaper. It does not make priorities clearer.
+Agents, instructions, tools, data, review steps, and documents connected around real work. Not a folder of prompts people forget.
 
-That distinction matters.
+### A team that can use the system
 
-## What I help build
+Workshops and training built around your work. People learn the tools, the process, the quality bar, and how to challenge bad output.
 
-### AI-first marketing workflows
+### Proof that the change helped
 
-Research, campaign planning, content, lifecycle, sales enablement, reporting, and QA connected as actual workflows. Not a folder of clever prompts.
+Before and after measures for speed, cost, quality, use, and the business result linked to the work.
 
-### Agent-ready knowledge systems
+## Where I help
 
-Versioned documentation, clear instructions, reusable skills, defined owners, and enough context for agents to do useful work without making things up.
+### AI strategy and team design
 
-### AEO and GEO systems
+Choose use cases, tools, roles, rules, budget, and the order in which the team should change.
 
-Pages and content that answer real buyer questions, expose clear entities, cite evidence, and give AI systems something worth extracting. No keyword soup with a new acronym on top.
+### Content, AEO, and GEO
 
-### Human review that survives scale
+Build research, writing, review, and publishing systems that help useful pages ship faster and make the brand easier for search engines and AI answers to understand.
 
-The machine drafts. A named person owns the decision. Review standards live inside the workflow, not inside one person's memory.
+### Campaign, sales, and lifecycle work
 
-## How an engagement works
+Use AI for research, planning, account work, sales support, campaign production, customer signals, onboarding, and expansion.
 
-**Align.** A working session or leadership workshop can map the opportunity, choose priorities, and give the team a shared plan.
+### Knowledge and reporting
 
-**Choose.** Pick the workflows where better throughput, quality, or insight would change a business result.
+Give people and agents trusted context. Connect plans, customer evidence, pipeline, campaign results, and review notes so the next decision starts with what the company already knows.
 
-**Build.** Create the workflow, agent instructions, integrations, QA gates, and documentation.
+## AI does not fix unclear marketing
 
-**Run.** Use it on real work. Fix what breaks. Measure cycle time, quality, adoption, and the business result connected to the workflow.
+Give a strong model a weak brief and you get weak work faster.
 
-**Expand.** Keep improving the first system or move to the next one. This can be a defined project or an ongoing consulting contract.
+Most failed AI projects are not model problems. Nobody chose the business goal. Context is scattered. The old process was never clear. Review belongs to whoever has time. The team cannot tell whether the new system helped.
 
-## Ways to work together
+Buying tools is easy. Changing how the work gets decided, built, checked, and measured is the job.
 
-### AI strategy workshop
+## Choose how we work
 
-For leadership teams that need to decide what AI changes, where to start, what to measure, and how the team should work. This can include practical tool training, but the tools serve the decisions.
+### Workshop
 
-### Workflow or system project
+Use a workshop to set the AI plan, train leadership or the team, choose use cases, and leave with clear owners and next steps. Practical tool training can be part of it.
 
-For one valuable use case such as research, content, AEO and GEO, lifecycle, sales support, campaign operations, reporting, or quality review. We design it, build it, run it, and measure it.
+### Defined project
 
-### Ongoing AI marketing advisory
+Use a project to build and run one valuable system. Good starting points include AEO and GEO, content, sales support, account research, reporting, lifecycle, or campaign work.
 
-For teams that want help across several systems, regular leadership advice, team training, vendor choices, operating reviews, and continued improvement as tools and business needs change.
+### Ongoing consulting or fractional leadership
 
-## Why trust me with this?
+Use an ongoing contract when several parts of marketing need to change, the team needs regular help, or the tools and work will keep moving.
 
-I learned marketing before I started building with AI.
+I can guide the plan, train the team, review systems, help choose vendors, watch the measures, and keep improving what ships.
 
-At GTM Buddy, I integrated GitHub, Cursor, Claude, Codex, and Swan into daily marketing workflows. I built systems for sales signals, account research, meeting preparation, campaign execution, and pipeline visibility.
+If the plan needs more execution capacity, I can bring in [Grow & Close](https://growandclose.com/) while staying close to the strategy and review.
 
-I also maintain public agent skills, experiments, and operating notes on [GitHub](https://github.com/vcxcvii). You can inspect the work instead of taking an "AI expert" label on faith.
+## How the work happens
 
-My broader background is on the [work page](/work/).
+**Choose the result.** Start with a business or team goal, not a tool.
 
-## When this work gets useful
+**Map the work.** Find the steps, people, data, delays, and decisions inside the current process.
 
-This work gets useful when a founder, CMO, or Head of Marketing has moved past curiosity and needs a clear operating answer.
+**Build and train.** Create the system, run it on real work, and teach the team how to use and change it.
 
-You may need a leadership workshop before committing budget. You may have one workflow ready to rebuild. You may want ongoing help across the function. All three are valid.
+**Measure and improve.** Compare speed, cost, quality, use, and business results. Fix what breaks. Expand only when the first system works.
 
-What matters is access to the people doing the work, an owner for the business outcome, and enough willingness to change the process rather than bolt a model onto it.
+## What we measure
 
-## Project, ongoing advisor, or execution team?
+The measure depends on the use case.
 
-Use a project when the problem and finish line are clear.
+- For content: time to publish, review time, quality, search visibility, conversion, and influenced pipeline.
+- For sales support: research time, use by reps, meeting quality, conversion, and pipeline.
+- For reporting: time saved, data trust, decision speed, and forecast quality.
+- For team change: use, work shipped per person, error rates, and where senior time is spent.
 
-Use ongoing advisory when priorities, tools, and workflows will evolve over several cycles.
+We choose the measures before building. Otherwise every AI pilot looks successful.
 
-Use an execution team when the plan is clear but capacity is the constraint. I can bring that through [Grow & Close](https://growandclose.com/) while staying close to the strategy and review.
+## Proof
+
+At GTM Buddy, I used GitHub, Cursor, Claude, Codex, and Swan in daily marketing work. I built systems for sales signals, account research, meeting preparation, campaigns, and pipeline reporting.
+
+I also maintain public agent skills, experiments, and operating notes on [GitHub](https://github.com/vcxcvii). You can inspect the work instead of trusting an "AI expert" label.
+
+My broader marketing record is on the [work page](/work/).
+
+## Common questions
+
+### Can you run an AI workshop with tool training?
+
+Yes. The tools will be taught through your work and goals, not as a random product tour.
+
+### Do you build the systems yourself?
+
+Yes. I can build key parts, work with your technical and marketing teams, or bring more execution help through Grow & Close.
+
+### Do you take ongoing AI consulting contracts?
+
+Yes. Ongoing work makes sense when several systems need to change or the team needs a senior person to keep the plan, training, and measures connected.
+
+### Does every AI project need to create pipeline?
+
+No. Some work should improve cost, speed, quality, or team capacity. We still name the business reason and measure it before we build.
+
+## Start with the work, not the tool
+
+Bring one process that is slow, expensive, weak, or hard to scale. We will decide whether it needs a workshop, a defined project, or ongoing help.
 
 [Book a 30-minute conversation](https://cal.com/varun-choraria/30min).

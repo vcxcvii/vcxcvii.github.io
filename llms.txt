@@ -1,10 +1,10 @@
 # Varun Choraria
 
-> AI B2B marketing consultant and operator. Essays on go-to-market strategy, management, careers, AI, product marketing, and building useful things.
+> B2B SaaS marketing consultant and operator. Essays on go-to-market strategy, management, careers, AI, product marketing, and building useful things.
 
 ## About
 
-Varun Choraria is an AI B2B marketing consultant for mid-sized SaaS companies, with about a decade of experience across positioning, messaging, product marketing, and go-to-market strategy. He most recently led marketing at GTM Buddy. He is also building Grow & Close, a senior-led, AI-native GTM execution studio.
+Varun Choraria is a B2B SaaS marketing consultant with about a decade of experience across growth strategy, pipeline, product marketing, and AI. He works through workshops, defined projects, and ongoing marketing leadership. He most recently led marketing at GTM Buddy and is building Grow & Close, a senior-led, AI-native GTM execution studio.
 
 ## Writing
 
@@ -19,9 +19,9 @@ Varun Choraria is an AI B2B marketing consultant for mid-sized SaaS companies, w
 
 ## Consulting
 
-- [/consulting/](/consulting/): consulting fit, working model, and ways to work with Varun
-- [/ai-b2b-marketing-consultant/](/ai-b2b-marketing-consultant/): AI-first B2B marketing systems, workflows, and implementation
-- [/b2b-saas-product-marketing-consultant/](/b2b-saas-product-marketing-consultant/): positioning, messaging, launches, and sales enablement for B2B SaaS
+- [/consulting/](/consulting/): growth strategy, pipeline, product marketing, AI, and ongoing marketing leadership
+- [/ai-b2b-marketing-consultant/](/ai-b2b-marketing-consultant/): AI plans, workshops, working marketing systems, team training, and measurement
+- [/b2b-saas-product-marketing-consultant/](/b2b-saas-product-marketing-consultant/): positioning, launches, sales enablement, PLG, and measurable growth
 
 ## Side Projects
 
