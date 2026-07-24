@@ -4,7 +4,9 @@
 
 ## About
 
-Varun Choraria is a B2B SaaS marketing consultant with about a decade of experience across growth strategy, pipeline, product marketing, and AI. He works through workshops, defined projects, and ongoing marketing leadership. He most recently led marketing at GTM Buddy and is building Grow & Close, a senior-led, AI-native GTM execution studio.
+Varun Choraria is a B2B SaaS marketing consultant with about a decade of experience across growth strategy, pipeline, product marketing, and AI. He works through workshops, defined projects, and ongoing marketing leadership. He led marketing at GTM Buddy from January to August 2026, was Lead Product Marketing at Freshworks (2024-2026), and was a founding product marketer at Vymo (2019-2024). He is building Grow & Close, a senior-led, AI-native GTM execution studio.
+
+**Availability: open to both full-time roles and consulting engagements.**
 
 ## Writing
 
@@ -26,6 +28,10 @@ Varun Choraria is a B2B SaaS marketing consultant with about a decade of experie
 ## Side Projects
 
 - [/side-quests/](/side-quests/): public projects, tools, and experiments
+- Open source, free to use:
+  - **interview-recon** (https://github.com/vcxcvii/interview-recon): turns an AI coding agent into an interview research analyst
+  - **master-shifu** (https://github.com/vcxcvii/master-shifu): 32 consulting frameworks from 19 MBA casebooks as agent commands
+  - **michealangelo** (https://github.com/vcxcvii/michealangelo): self-improving design-system skills for AI coding agents
 
 ## Beyond Work
 

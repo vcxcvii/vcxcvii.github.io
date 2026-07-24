@@ -1,0 +1,55 @@
+{% comment %}
+Breadcrumbs: visible trail + BreadcrumbList schema.
+Posts sit under Blog. Service pages sit under Consulting. Tag pages sit under Topics.
+Everything else is a direct child of Home.
+{% endcomment %}
+{% assign crumb_parent_name = false %}
+{% if page.layout == 'entry' %}
+  {% assign crumb_parent_name = 'Blog' %}
+  {% assign crumb_parent_url = '/blog/' %}
+{% elsif page.url contains '-consultant' %}
+  {% assign crumb_parent_name = 'Consulting' %}
+  {% assign crumb_parent_url = '/consulting/' %}
+{% elsif page.url contains '/tags/' and page.url != '/tags/' %}
+  {% assign crumb_parent_name = 'Topics' %}
+  {% assign crumb_parent_url = '/tags/' %}
+{% endif %}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <span aria-hidden="true">/</span>
+  {% if crumb_parent_name %}<a href="{{ crumb_parent_url | relative_url }}">{{ crumb_parent_name }}</a>
+  <span aria-hidden="true">/</span>
+  {% endif %}<span aria-current="page">{{ page.title }}</span>
+</nav>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}/"
+    }{% if crumb_parent_name %},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ crumb_parent_name | jsonify }},
+      "item": "{{ crumb_parent_url | prepend: site.url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.title | jsonify }},
+      "item": "{{ page.url | prepend: site.url }}"
+    }{% else %},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.title | jsonify }},
+      "item": "{{ page.url | prepend: site.url }}"
+    }{% endif %}
+  ]
+}
+</script>

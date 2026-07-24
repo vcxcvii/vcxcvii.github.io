@@ -10,11 +10,17 @@ service_type: AI marketing consulting for B2B SaaS
 mcp: true
 ---
 
+Most marketing teams have bought the AI tools and still ship at the same speed. Everyone has a ChatGPT tab open. Nothing in the actual workflow changed, nobody trusts the output enough to send it, and there is no number anyone can point to.
+
+That gap is the work.
+
 ## What does an AI B2B marketing consultant do?
 
 An AI B2B marketing consultant finds where AI can improve marketing, builds the system around it, trains the people who will use it, and measures whether it made the work or business result better.
 
 The point is not more tools. The point is more useful work from the team you already have.
+
+I run marketing this way myself: I [rebuilt this site with agents](/how-to-design-without-ai-slop/), [turned 19 consulting casebooks into agent commands](/i-now-have-my-own-master-shifu/), and [built a research system that does a week of company analysis in an afternoon](/hunting-season-for-the-rest-of-us/). The tools are [open source](/side-quests/) if you want to see the workmanship before you hire it.
 
 [Book 30 minutes on my calendar](https://cal.com/varun-choraria/30min) to talk through your team, goals, and current AI work.
 

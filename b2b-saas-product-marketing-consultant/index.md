@@ -10,11 +10,17 @@ service_type: Product marketing consulting for B2B SaaS
 mcp: true
 ---
 
+If three people at your company describe the product three different ways, that is not a messaging problem you can fix with a document. It shows up as slow deals, discounting, sales decks nobody uses, and launches that land with a thud.
+
+That is usually a positioning problem, and it is fixable.
+
 ## What does a B2B SaaS product marketing consultant do?
 
 A product marketing consultant helps decide who the product is for, why buyers should care, how the company should tell the story, and what sales, marketing, and product need to take it to market.
 
 The output is not one messaging document. It is a clearer product story that shows up in the website, launch, campaign, sales call, product, and pipeline.
+
+Two essays that show how I think about this: [problems tell you what to fix, pain points tell you why it matters](/problems-tell-you-what-to-fix-pain-points-tell-you-why-it-matters/) and [what "you're not strategic enough" actually means](/youre-not-strategic-enough-said-manager/). More on [what I've shipped](/work/).
 
 [Book 30 minutes on my calendar](https://cal.com/varun-choraria/30min) to talk through the product, buyer, and result you need.
 

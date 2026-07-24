@@ -1,6 +1,8 @@
 ---
-title: "Hunting Season 2026"
+title: "Hunting Season for the Rest of Us"
 date: 2026-07-24 00:00:00 +0530
+redirect_from:
+  - /hunting-season-2026/
 description: "Job hunting in 2026 is brutal. Here is my near-zero-cost prep system: deep research, industry primers, voice-mode mock interviews, and a rubric."
 tags:
   - career
@@ -168,6 +170,8 @@ Then tell your agent "prep me for my interview at [company]". How it works under
 3. **It remembers between rounds.** Dossiers live in plain folders on your machine. Run it again before round 2 and it loads what it knows, refreshes only what's stale, and logs what round 1 actually asked. Prep becomes a system with state, not a panic with a deadline.
 
 When this season ends, I'll publish the recap with real screenshots and what actually worked in the rooms.
+
+The rest of what I build in public lives on [side quests](/side-quests/). If you'd rather hire this thinking than copy it, [here's how I work](/consulting/).
 
 The market is harsh. The floor is higher, the ceiling is higher, and nobody is coming to lower them for us. But the same tools that raised the bar will help you clear it, mostly free, if you prep like an operator.
 

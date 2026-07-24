@@ -6,3 +6,6 @@ _site/
 .DS_Store
 frontend/node_modules/
 frontend/dist/
+
+# local nav experiment (not part of the site)
+_nav/

@@ -5,7 +5,7 @@ intro: Roles, responsibilities, and selected consulting work.
 page_class: work-page
 mcp: true
 ---
-Always open to interesting opportunities across the world. For consulting, [see how I work](/consulting/) or [book 30 minutes on my calendar](https://cal.com/varun-choraria/30min). For everything else, [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me.
+**I'm open to full-time roles and consulting engagements**, anywhere in the world. For consulting, [see how I work](/consulting/) or [book 30 minutes on my calendar](https://cal.com/varun-choraria/30min). For a full-time conversation, [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me. If you want to know how I think before we talk, start with [the essays](/blog/) or [what I build on the side](/side-quests/).
 
 ---
 
@@ -25,7 +25,7 @@ Always open to interesting opportunities across the world. For consulting, [see 
 
 ### Senior Manager, Marketing
 
-**2026** · [GTM Buddy](https://gtmbuddy.ai/)
+**Jan 2026 - Aug 2026** · [GTM Buddy](https://gtmbuddy.ai/)
 
 - Took over marketing at a Series A B2B SaaS startup — led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a $XXX,XXX budget, delivering $X,XXX,XXX+ in active pipeline
 - Transformed the team to AI-first operations by integrating GitHub, Cursor, Claude, Codex, and Swan into daily workflows — dramatically improved shipping velocity and built internal tools that automated sales signal detection, account research, and meeting prep

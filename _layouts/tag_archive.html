@@ -4,6 +4,7 @@ layout: default
 {% assign none = "" | split: "" %}
 {% assign tagged = site.tags[page.tag] | default: none %}
 <article class="page-shell">
+  {% include breadcrumbs.html %}
   <header class="page-header">
     <h1>{{ page.title }}</h1>
     <p class="intro-note">{{ page.intro | default: page.description }} {{ tagged.size }} essay{% if tagged.size != 1 %}s{% endif %} tagged <strong>{{ page.tag }}</strong>.</p>

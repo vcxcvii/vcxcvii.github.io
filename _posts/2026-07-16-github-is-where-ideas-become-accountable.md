@@ -1,6 +1,6 @@
 ---
 title: "Github-ing"
-date: 2026-07-24 00:00:00 +0530
+date: 2026-07-16 00:00:00 +0530
 permalink: /github-is-where-ideas-become-accountable/
 description: AI made building cheap. GitHub makes the thinking, decisions, and execution behind the work inspectable. That matters far beyond engineering.
 tags:
