@@ -3,7 +3,7 @@ layout: page
 title: AI B2B Marketing Consultant
 seo_title: AI B2B Marketing Consultant | Varun Choraria
 description: AI B2B marketing consulting for teams that need better systems, workflows, AEO, and execution without replacing judgment with generated output.
-intro: I help B2B marketing teams become AI-first without becoming worse at marketing.
+intro: I help B2B marketing teams decide where AI can improve pipeline, quality, and speed, then build the system around it.
 service: true
 service_name: AI B2B marketing consulting
 service_type: AI marketing consulting for B2B SaaS
@@ -12,11 +12,11 @@ mcp: true
 
 ## What does an AI B2B marketing consultant do?
 
-An AI B2B marketing consultant decides where AI should enter the marketing system, builds the workflows around it, and keeps humans responsible for judgment. The job is not to add more tools. The job is to remove bad handoffs and help good work ship faster.
+An AI B2B marketing consultant decides where AI should enter the marketing system, builds the workflows around it, and keeps humans responsible for judgment. The work should improve a commercial result, the quality of the work, or the cost and speed of producing it.
 
-Most companies do not need more AI.
+Most companies do not need AI everywhere.
 
-They need fewer disconnected prompts, fewer abandoned pilots, and fewer people copying model output into documents nobody trusts.
+They need a few important places where AI changes the economics or quality of marketing, plus a plan for the people, data, tools, and review around it.
 
 [Book 30 minutes on my calendar](https://cal.com/varun-choraria/30min) if that sounds familiar.
 
@@ -50,26 +50,29 @@ The machine drafts. A named person owns the decision. Review standards live insi
 
 ## How an engagement works
 
-**Diagnose.** Map current work, tools, bottlenecks, data, and decision rights.
+**Align.** A working session or leadership workshop can map the opportunity, choose priorities, and give the team a shared plan.
 
-**Choose.** Pick one workflow where better throughput would matter. Trying to transform the whole department at once is how transformation programs become theatre.
+**Choose.** Pick the workflows where better throughput, quality, or insight would change a business result.
 
 **Build.** Create the workflow, agent instructions, integrations, QA gates, and documentation.
 
-**Run.** Use it on real work. Fix what breaks. Measure whether cycle time, quality, or business output improved.
+**Run.** Use it on real work. Fix what breaks. Measure cycle time, quality, adoption, and the business result connected to the workflow.
 
-**Hand over.** Your team should understand the system well enough to challenge it and change it.
+**Expand.** Keep improving the first system or move to the next one. This can be a defined project or an ongoing consulting contract.
 
-## What I refuse to do
+## Ways to work together
 
-- Replace thinking with prompting
-- Automate a process nobody understands
-- Publish AI slop at industrial scale
-- Recommend tools because they sponsor a conference
-- Pretend headcount reduction is an AI strategy
-- Leave behind a deck instead of a working system
+### AI strategy workshop
 
-AI should make a good operator more capable. It should not give a weak operating model better vocabulary.
+For leadership teams that need to decide what AI changes, where to start, what to measure, and how the team should work. This can include practical tool training, but the tools serve the decisions.
+
+### Workflow or system project
+
+For one valuable use case such as research, content, AEO and GEO, lifecycle, sales support, campaign operations, reporting, or quality review. We design it, build it, run it, and measure it.
+
+### Ongoing AI marketing advisory
+
+For teams that want help across several systems, regular leadership advice, team training, vendor choices, operating reviews, and continued improvement as tools and business needs change.
 
 ## Why trust me with this?
 
@@ -81,31 +84,20 @@ I also maintain public agent skills, experiments, and operating notes on [GitHub
 
 My broader background is on the [work page](/work/).
 
-## Who should hire me?
+## When this work gets useful
 
-Best fit:
+This work gets useful when a founder, CMO, or Head of Marketing has moved past curiosity and needs a clear operating answer.
 
-- B2B SaaS company with a working product
-- Founder, CMO, or Head of Marketing owns the engagement
-- Team already produces real marketing work
-- One painful workflow is ready to be rebuilt
-- People want implementation, not inspiration
+You may need a leadership workshop before committing budget. You may have one workflow ready to rebuild. You may want ongoing help across the function. All three are valid.
 
-Bad fit:
+What matters is access to the people doing the work, an owner for the business outcome, and enough willingness to change the process rather than bolt a model onto it.
 
-- You want a generic AI training day
-- You want one hundred blog posts next month
-- Nobody owns the marketing outcome
-- You cannot give access to the people doing the work
+## Project, ongoing advisor, or execution team?
 
-## AI consultant, agency, or internal hire?
+Use a project when the problem and finish line are clear.
 
-Hire a consultant when the operating model is unclear and senior diagnosis matters.
+Use ongoing advisory when priorities, tools, and workflows will evolve over several cycles.
 
-Hire an agency when the model is clear and you need repeatable execution capacity.
-
-Hire internally when the workload is permanent, the motion is proven, and somebody needs to own it five days a week.
-
-Sometimes you need all three. Pretending one category replaces the others is sales copy.
+Use an execution team when the plan is clear but capacity is the constraint. I can bring that through [Grow & Close](https://growandclose.com/) while staying close to the strategy and review.
 
 [Book a 30-minute conversation](https://cal.com/varun-choraria/30min).
