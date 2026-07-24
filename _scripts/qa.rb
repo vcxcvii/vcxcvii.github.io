@@ -145,7 +145,7 @@ def design_guardrails
   errs << "Design: about page must not render a portrait" if about.include?("<img") || about.include?("about-portrait")
 
   footer = read_file("_includes/footer.html")
-  errs << "Design: footer MCP link missing" unless footer.match?(/>connect AI<\/a>/) && footer.include?("'/mcp/' | relative_url")
+  errs << "Design: footer MCP link missing" unless footer.match?(/>MCP<\/a>/) && footer.include?("'/mcp/' | relative_url")
   errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
   errs << "Design: footer must link to the dedicated tag index" unless footer.include?("'/tags/' | relative_url")
   errs << "Design: footer must link to the canonical DESIGN.md" unless footer.include?("blob/main/DESIGN.md")
