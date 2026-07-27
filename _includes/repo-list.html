@@ -2,10 +2,18 @@
   {% for quest in site.data.quests %}
     {% if quest.featured %}
       <li>
-        <a class="repo-link" href="{{ quest.link }}" target="_blank" rel="noopener noreferrer">
-          {% include logo.html name=quest.icon %}
-          <span>{{ quest.name }}</span>
-        </a>
+        {% if quest.link %}
+          {% if quest.link contains 'http' %}
+            <a class="repo-link" href="{{ quest.link }}" target="_blank" rel="noopener noreferrer">
+          {% else %}
+            <a class="repo-link" href="{{ quest.link | relative_url }}">
+          {% endif %}
+            {% include logo.html name=quest.icon %}
+            <span>{{ quest.name }}</span>
+          </a>
+        {% else %}
+          <strong>{{ quest.name }}</strong>
+        {% endif %}
         <p>{{ quest.description }}</p>
       </li>
     {% endif %}

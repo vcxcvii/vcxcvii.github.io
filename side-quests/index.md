@@ -28,7 +28,7 @@ mcp: true
             {% endif %}
             <span class="quest-state">{{ quest.state }}</span>
           </div>
-          <p>{{ quest.description }}</p>
+          <p>{{ quest.description }}{% if quest.repo_url and quest.link %}{% unless quest.link contains 'http' %} <a href="{{ quest.repo_url }}" target="_blank" rel="noopener noreferrer">code</a>{% endunless %}{% endif %}</p>
         </li>
       {% endfor %}
     </ul>

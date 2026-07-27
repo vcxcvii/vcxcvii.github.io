@@ -2,7 +2,9 @@
   group: Personal
   state: Public
   icon: github
-  link: https://github.com/vcxcvii/interview-recon
+  link: /side-quests/interview-recon/
+  repo: interview-recon
+  repo_url: https://github.com/vcxcvii/interview-recon
   featured: true
   description: Turns your AI coding agent into an interview research analyst. Candidate-POV company dossiers, JD-mapped talking points, and a 90-day plan. Free-tier friendly by design.
 
@@ -10,7 +12,9 @@
   group: Personal
   state: Public
   icon: github
-  link: https://github.com/vcxcvii/master-shifu
+  link: /side-quests/master-shifu/
+  repo: master-shifu
+  repo_url: https://github.com/vcxcvii/master-shifu
   featured: true
   description: Consulting case framework skills for AI agents. 32 frameworks extracted from 19 MBA casebooks.
 
@@ -18,7 +22,9 @@
   group: Personal
   state: Public
   icon: github
-  link: https://github.com/vcxcvii/michealangelo
+  link: /side-quests/michealangelo/
+  repo: michealangelo
+  repo_url: https://github.com/vcxcvii/michealangelo
   featured: true
   description: Self-improving design-system skills for Claude, Codex, and other Agent Skills-compatible coding agents.
 
@@ -57,6 +63,7 @@
   state: Public
   icon: github
   link: https://github.com/vcxcvii/lazarus-pit
+  repo: lazarus-pit
   featured: true
   description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes.
 

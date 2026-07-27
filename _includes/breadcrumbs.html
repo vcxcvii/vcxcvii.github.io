@@ -10,6 +10,9 @@ Everything else is a direct child of Home.
 {% elsif page.url contains '-consultant' %}
   {% assign crumb_parent_name = 'Consulting' %}
   {% assign crumb_parent_url = '/consulting/' %}
+{% elsif page.url contains '/side-quests/' and page.url != '/side-quests/' %}
+  {% assign crumb_parent_name = 'Side Quests' %}
+  {% assign crumb_parent_url = '/side-quests/' %}
 {% elsif page.url contains '/tags/' and page.url != '/tags/' %}
   {% assign crumb_parent_name = 'Topics' %}
   {% assign crumb_parent_url = '/tags/' %}

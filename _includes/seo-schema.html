@@ -59,6 +59,25 @@
         "@type": "BusinessAudience",
         "audienceType": "B2B SaaS founders and marketing leaders"
       }
+    }{% endif %}{% if page.project %},
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ canonical_url }}#software",
+      "name": {{ page.project_name | default: page.title | jsonify }},
+      "description": {{ meta_description | jsonify }},
+      "url": "{{ canonical_url }}",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "macOS, Linux, Windows",
+      "author": { "@id": "{{ site.url }}/#person" },
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }{% if page.license %},
+      "license": {{ page.license | jsonify }}{% endif %}{% if page.repo_url %},
+      "codeRepository": {{ page.repo_url | jsonify }}{% endif %}{% if page.version %},
+      "softwareVersion": {{ page.version | jsonify }}{% endif %}
     }{% endif %}
   ]
 }
