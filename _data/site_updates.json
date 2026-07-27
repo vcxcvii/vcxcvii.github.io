@@ -1,7 +1,47 @@
 {
-  "last_processed_commit": "63ea563932c4602db635e00b04fb72e331a84e42",
+  "last_processed_commit": "c3c1183ce2775cbccfbea9989d8f85ed01fb9982",
   "updated_at": "2026-07-27",
   "updates": [
+    {
+      "id": "2026-07-27-c3c1183",
+      "date": "2026-07-27",
+      "title": "Footer links now use plain language and cover privacy, contact, and disclaimers",
+      "summary": "The footer now uses descriptive labels for tools, gear, and side projects, replacing jargon and project names with clear explanations. It also adds direct links to privacy, contact, and disclaimer pages, so visitors can find essential information and reach out without hunting through menus or guessing terminology.",
+      "benefits": [
+        {
+          "label": "Find essentials fast",
+          "text": "Privacy, contact, and disclaimer links are now visible in the footer."
+        },
+        {
+          "label": "Clear tool names",
+          "text": "Side projects and gear are labeled in plain English, not just project titles."
+        }
+      ],
+      "commit_shas": [
+        "c3c1183ce2775cbccfbea9989d8f85ed01fb9982"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
+    {
+      "id": "2026-07-27-c3c1183",
+      "date": "2026-07-27",
+      "title": "Images now preload for faster page loads on key pages",
+      "summary": "The site now preloads hero and featured images on the homepage and other important pages. This reduces the time visitors wait for visuals to appear, especially on slower connections or when landing directly on a major section. The change helps the site feel more responsive without adding complexity.",
+      "benefits": [
+        {
+          "label": "Quicker visuals",
+          "text": "Hero and featured images load sooner, so pages appear complete faster."
+        },
+        {
+          "label": "Better first impression",
+          "text": "Landing pages no longer show empty spaces while images download."
+        }
+      ],
+      "commit_shas": [
+        "c3c1183ce2775cbccfbea9989d8f85ed01fb9982"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-27-63ea563",
       "date": "2026-07-27",
