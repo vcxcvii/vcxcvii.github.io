@@ -6,6 +6,13 @@ layout: default
   <header class="page-header">
     <h1>{{ page.title }}</h1>
     {% if page.intro %}<p class="intro-note">{{ page.intro }}</p>{% endif %}
+    {% if page.project %}
+      {% assign quest_updates = site.data.quest_releases[page.repo] %}
+      {% assign latest_quest_update = quest_updates | first %}
+      {% if latest_quest_update %}
+        {% include sync-engine.html timestamp=latest_quest_update.date %}
+      {% endif %}
+    {% endif %}
   </header>
 
   <div class="prose">

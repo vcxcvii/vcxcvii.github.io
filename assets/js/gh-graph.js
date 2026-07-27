@@ -143,3 +143,93 @@
     resizeTimer = window.setTimeout(function () { render(contributionData); }, 120);
   });
 }());
+
+/* First-party UX signals for GA4 and Microsoft Clarity. */
+(function () {
+  "use strict";
+
+  var path = window.location.pathname;
+  var articleMeta = document.querySelector('meta[property="og:type"]');
+  var isArticle = articleMeta && articleMeta.content === "article";
+  var pageType = path === "/" ? "home" :
+    path.indexOf("/side-quests/") === 0 ? "side_quest" :
+    path === "/consulting/" || path.indexOf("-consultant/") > -1 ? "service" :
+    isArticle ? "article" : "page";
+
+  function send(eventName, parameters) {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", eventName, parameters);
+    }
+  }
+
+  if (typeof window.clarity === "function") {
+    window.clarity("set", "page_type", pageType);
+  }
+
+  var reached = {};
+  var thresholds = [25, 50, 75, 90];
+  var ticking = false;
+
+  function recordScrollDepth() {
+    ticking = false;
+    var root = document.documentElement;
+    var available = root.scrollHeight - window.innerHeight;
+    if (available <= 0) return;
+
+    var percent = Math.min(100, Math.round((window.scrollY / available) * 100));
+    thresholds.forEach(function (threshold) {
+      if (percent < threshold || reached[threshold]) return;
+      reached[threshold] = true;
+      send("scroll_depth", {
+        page_type: pageType,
+        percent_scrolled: threshold
+      });
+    });
+  }
+
+  window.addEventListener("scroll", function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(recordScrollDepth);
+  }, { passive: true });
+
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest && event.target.closest("a[href]");
+    if (!link) return;
+
+    var destination;
+    try {
+      destination = new URL(link.href, window.location.href);
+    } catch (error) {
+      return;
+    }
+
+    var locationName = link.closest(".site-nav") ? "primary_nav" :
+      link.closest("#site-footer") ? "footer" :
+      link.closest(".github-activity") ? "github_activity" :
+      link.closest(".home-intro") ? "home_intro" :
+      link.closest(".essays") ? "essay_list" :
+      link.closest(".side-quests-preview") ? "side_quests" :
+      link.closest(".prose") ? "body" : "other";
+
+    if (destination.hostname === "cal.com") {
+      send("cta_click", {
+        cta_name: "book_call",
+        link_location: locationName,
+        page_type: pageType
+      });
+      if (typeof window.clarity === "function") {
+        window.clarity("event", "book_call_click");
+      }
+      return;
+    }
+
+    if (destination.origin === window.location.origin) {
+      send("internal_link_click", {
+        destination_path: destination.pathname,
+        link_location: locationName,
+        page_type: pageType
+      });
+    }
+  });
+}());

@@ -1,0 +1,233 @@
+{
+  "last_processed_commit": "2700acb811d0ea170ee594bc551ec85dedc8fc2b",
+  "updated_at": "2026-07-27",
+  "updates": [
+    {
+      "id": "2026-07-27-side-quest-pages",
+      "date": "2026-07-27",
+      "title": "Side projects now explain the payoff before sending you to the code",
+      "summary": "Interview Recon, Master Shifu, and Michealangelo now have proper pages. You can work out what each tool is for, what it gives you, where it stops, and how to install it without reverse-engineering a README.",
+      "benefits": [
+        {
+          "label": "Choose faster",
+          "text": "Each page leads with the outcome, then explains the mechanism and limits."
+        },
+        {
+          "label": "Install without guesswork",
+          "text": "Commands, supported agents, free-tier constraints, and expected outputs live in one place."
+        },
+        {
+          "label": "See useful changes",
+          "text": "Project updates ignore documentation noise and keep only product work that changes what the tool can do."
+        }
+      ],
+      "commit_shas": [
+        "2700acb811d0ea170ee594bc551ec85dedc8fc2b"
+      ],
+      "source": "curated"
+    },
+    {
+      "id": "2026-07-25-speaking-media",
+      "date": "2026-07-25",
+      "title": "Speaking and media stopped hiding behind a page called Fun",
+      "summary": "The old Fun page mixed a book, talks, and podcast appearances under a label that explained none of them. It is now Speaking & Media, with a useful URL and a short list of episodes worth starting with.",
+      "benefits": [
+        {
+          "label": "Find the proof",
+          "text": "Talks, podcast seasons, and the book now sit under a name people would search for."
+        },
+        {
+          "label": "Start somewhere useful",
+          "text": "Eight recommended episodes replace the job of digging through two complete seasons."
+        },
+        {
+          "label": "Keep old links working",
+          "text": "The previous URL redirects instead of becoming a dead end."
+        }
+      ],
+      "commit_shas": [
+        "d9e625d743a4ce0bd471bc431550c35c3e76333e"
+      ],
+      "source": "curated"
+    },
+    {
+      "id": "2026-07-24-consulting-pages",
+      "date": "2026-07-24",
+      "title": "You can now tell what hiring me would involve before booking a call",
+      "summary": "The consulting section now separates general B2B SaaS work, AI marketing work, and product marketing work. Each page names the problem, the engagement shape, the expected outcome, and the situations where I am the wrong fit.",
+      "benefits": [
+        {
+          "label": "Evaluate fit",
+          "text": "The pages explain workshops, defined projects, ongoing consulting, and fractional leadership without pretending every company needs the same thing."
+        },
+        {
+          "label": "See the boundary",
+          "text": "What I do not do is stated beside what I do."
+        },
+        {
+          "label": "Reach the right page",
+          "text": "Navigation and internal links now connect the broad consulting offer to its specialist pages."
+        }
+      ],
+      "commit_shas": [
+        "b2d5e0a0608f99d7edf64b9d1680fb3ac3114cf2",
+        "dca78c0ba89d70f0d344b1011118e1a024210bc2"
+      ],
+      "source": "curated"
+    },
+    {
+      "id": "2026-07-24-sharing-navigation",
+      "date": "2026-07-24",
+      "title": "Shared links finally look like the page they lead to",
+      "summary": "Essays now generate wide preview images that survive LinkedIn, WhatsApp, and Slack. Pages also gained visible breadcrumbs, so arriving deep inside the site no longer means guessing where you are.",
+      "benefits": [
+        {
+          "label": "Know before clicking",
+          "text": "Link previews carry the real title, description, and a readable image."
+        },
+        {
+          "label": "Move around",
+          "text": "Breadcrumbs show the page's place in the site and provide a short route back."
+        },
+        {
+          "label": "Keep renamed writing reachable",
+          "text": "Old essay URLs redirect instead of breaking shared links."
+        }
+      ],
+      "commit_shas": [
+        "dca78c0ba89d70f0d344b1011118e1a024210bc2"
+      ],
+      "source": "curated"
+    },
+    {
+      "id": "2026-07-18-search-structure",
+      "date": "2026-07-18",
+      "title": "Search engines and AI systems no longer have to guess what each page is",
+      "summary": "Titles, descriptions, canonical URLs, structured data, author details, heading order, RSS discovery, and crawl rules now describe the site consistently. Most of this is invisible until it is missing, which it was.",
+      "benefits": [
+        {
+          "label": "Better search results",
+          "text": "Pages have distinct titles and descriptions instead of borrowing generic site copy."
+        },
+        {
+          "label": "Cleaner indexing",
+          "text": "Duplicate archive aliases and the 404 page no longer compete with real pages."
+        },
+        {
+          "label": "Clearer machine context",
+          "text": "Search engines and AI agents can identify the author, page type, canonical URL, and relationships between pages."
+        }
+      ],
+      "commit_shas": [
+        "e8a253cbab2155bb42c410d37e1090ff25f34a7b"
+      ],
+      "source": "curated"
+    },
+    {
+      "id": "2026-07-08-ask-ai-rss",
+      "date": "2026-07-08",
+      "title": "The site now gives both humans and AI a sensible next step",
+      "summary": "Every page ends with direct routes to ask ChatGPT, Claude, or Perplexity about me, plus the site keeps RSS visible for people who would rather follow the writing without an algorithm.",
+      "benefits": [
+        {
+          "label": "Continue the question",
+          "text": "AI links open with useful context instead of dropping you onto an empty chat."
+        },
+        {
+          "label": "Follow the writing",
+          "text": "RSS is linked from the site instead of existing as an undiscoverable feed."
+        },
+        {
+          "label": "Keep the interface quiet",
+          "text": "The calls to action use the same restrained visual system as the rest of the publication."
+        }
+      ],
+      "commit_shas": [],
+      "source": "curated"
+    },
+    {
+      "id": "2026-07-07-publication-redesign",
+      "date": "2026-07-07",
+      "title": "The site became a publication instead of a pile of page templates",
+      "summary": "Every major page moved onto one narrow, readable system with shared type, spacing, navigation, and content patterns. Half-built features came out when they added maintenance without helping a reader.",
+      "benefits": [
+        {
+          "label": "Read without fighting the layout",
+          "text": "Long-form pages, lists, tags, projects, and utility pages now share one predictable rhythm."
+        },
+        {
+          "label": "Use it on small screens",
+          "text": "Navigation, timelines, headers, and footers reflow cleanly down to phone widths."
+        },
+        {
+          "label": "No pretend features",
+          "text": "The unfinished email form and an intrusive MCP prompt were removed instead of being left to imply they worked."
+        }
+      ],
+      "commit_shas": [],
+      "source": "curated"
+    },
+    {
+      "id": "2026-06-28-live-mcp",
+      "date": "2026-06-28",
+      "title": "AI clients can read the live site instead of relying on stale training data",
+      "summary": "The MCP endpoint exposes current posts and pages to compatible AI clients. A pre-push QA gate also checks public content for search, answer-engine, design, and privacy mistakes before it leaves the repository.",
+      "benefits": [
+        {
+          "label": "Use current context",
+          "text": "Compatible clients can search and retrieve the actual live publication."
+        },
+        {
+          "label": "Connect with one URL",
+          "text": "The MCP page gives client-specific setup snippets instead of requiring a local bridge."
+        },
+        {
+          "label": "Reduce public mistakes",
+          "text": "The QA gate blocks sensitive exports and catches broken content structure before push."
+        }
+      ],
+      "commit_shas": [],
+      "source": "curated"
+    },
+    {
+      "id": "2026-06-23-accessibility-speed",
+      "date": "2026-06-23",
+      "title": "The site became easier to find, faster to load, and less awkward to use",
+      "summary": "Search and AI crawl files were added, accessibility failures were fixed, and a tiny avatar stopped shipping as a 104KB image. None of that needed a redesign. It needed paying attention.",
+      "benefits": [
+        {
+          "label": "Readable controls",
+          "text": "Contrast and screen-reader labels now match what people see."
+        },
+        {
+          "label": "Less wasted data",
+          "text": "The small booking image became roughly 37 times lighter at the same display size."
+        },
+        {
+          "label": "Better discovery",
+          "text": "robots.txt and llms.txt give search engines and AI systems explicit routes through the site."
+        }
+      ],
+      "commit_shas": [],
+      "source": "curated"
+    },
+    {
+      "id": "2026-05-17-launch",
+      "date": "2026-05-17",
+      "title": "The default Jekyll theme came out; a real personal site went in",
+      "summary": "I rebuilt the site around my writing, work, and side projects, then connected GitHub Pages so changes deploy from the repository. This is where the current site starts.",
+      "benefits": [
+        {
+          "label": "One home",
+          "text": "Writing, work, speaking, and experiments became parts of the same site."
+        },
+        {
+          "label": "Changes stay accountable",
+          "text": "The public repository records what changed and GitHub Pages ships it."
+        }
+      ],
+      "commit_shas": [],
+      "source": "curated"
+    }
+  ]
+}

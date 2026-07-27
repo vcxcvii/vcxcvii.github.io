@@ -5,6 +5,7 @@
   link: /side-quests/interview-recon/
   repo: interview-recon
   repo_url: https://github.com/vcxcvii/interview-recon
+  changelog_include: "SKILL.md,scripts/"
   featured: true
   description: Turns your AI coding agent into an interview research analyst. Candidate-POV company dossiers, JD-mapped talking points, and a 90-day plan. Free-tier friendly by design.
 
@@ -15,6 +16,7 @@
   link: /side-quests/master-shifu/
   repo: master-shifu
   repo_url: https://github.com/vcxcvii/master-shifu
+  changelog_include: "skills/,test-skills.sh,install.sh,scripts/"
   featured: true
   description: Consulting case framework skills for AI agents. 32 frameworks extracted from 19 MBA casebooks.
 
@@ -25,6 +27,7 @@
   link: /side-quests/michealangelo/
   repo: michealangelo
   repo_url: https://github.com/vcxcvii/michealangelo
+  changelog_include: "skills/,document-formatting/,bin/,package.json"
   featured: true
   description: Self-improving design-system skills for Claude, Codex, and other Agent Skills-compatible coding agents.
 
@@ -64,6 +67,7 @@
   icon: github
   link: https://github.com/vcxcvii/lazarus-pit
   repo: lazarus-pit
+  changelog_include: "src/,.github/workflows/,package.json"
   featured: true
   description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes.
 

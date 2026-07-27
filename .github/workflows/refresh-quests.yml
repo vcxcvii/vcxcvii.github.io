@@ -21,6 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Test changelog relevance and synthesis
+        run: python3 _scripts/test_refresh_quests.py
+
       - name: Refresh quest changelog data
         env:
           # QUESTS_TOKEN is only needed to read private repos (e.g. lazarus-pit).

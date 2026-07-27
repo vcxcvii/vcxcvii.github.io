@@ -11,7 +11,7 @@ require "yaml"
 require "date"
 
 VALID_LAYOUTS  = %w[default page home entry listing archive tag_archive side-quests tags none].freeze
-NON_CONTENT_PATHS = %w[.agents/ api/ _site/ _includes/ _layouts/].freeze
+NON_CONTENT_PATHS = %w[.agents/ api/ _site/ _includes/ _layouts/ _scripts/].freeze
 SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100

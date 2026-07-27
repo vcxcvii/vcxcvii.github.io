@@ -19,7 +19,9 @@ layout: default
     <h2 id="github-heading"><a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer">GitHub</a></h2>
     <span data-gh-total>@vcxcvii</span>
   </div>
-  <div class="gh-graph" data-gh-graph aria-live="polite"></div>
+  <a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer" aria-label="View @vcxcvii on GitHub" style="display:block;text-decoration:none">
+    <div class="gh-graph" data-gh-graph aria-live="polite"></div>
+  </a>
   <p class="gh-fallback" data-gh-fallback><a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer">See projects and activity on GitHub</a></p>
   <div class="gh-legend" data-gh-legend hidden>
     <span>Less</span>
@@ -27,8 +29,6 @@ layout: default
     <span>More</span>
   </div>
 </section>
-<script defer src="{{ '/assets/js/gh-graph.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
-
 <section class="essays" aria-labelledby="essays-heading">
   <h2 id="essays-heading"><a href="{{ '/blog/' | relative_url }}">Essays</a></h2>
   {% include essay-list.html posts=site.posts %}

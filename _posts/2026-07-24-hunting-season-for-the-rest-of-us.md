@@ -3,7 +3,8 @@ title: "Hunting Season for the Rest of Us"
 date: 2026-07-24 00:00:00 +0530
 redirect_from:
   - /hunting-season-2026/
-description: "Job hunting in 2026 is brutal. Here is the war room I built to prep for it: the folder structure, the research moves, voice-mode mocks with a rubric, and what the whole thing cost."
+description: "A free AI-assisted interview war room: company research, industry primers, live voice mocks, and the workflow I use to show up sharper."
+last_modified_at: 2026-07-27 00:00:00 +0530
 tags:
   - career
   - ai

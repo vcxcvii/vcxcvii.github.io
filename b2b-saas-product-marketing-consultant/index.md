@@ -3,6 +3,7 @@ layout: page
 title: B2B SaaS Product Marketing Consultant
 seo_title: B2B SaaS Product Marketing Consultant | Varun
 description: B2B SaaS product marketing consulting for clearer positioning, stronger launches, useful sales enablement, PLG, and measurable growth.
+last_modified_at: 2026-07-27
 intro: I help B2B SaaS teams make their product easier to understand, sell, and grow.
 service: true
 service_name: B2B SaaS product marketing consulting

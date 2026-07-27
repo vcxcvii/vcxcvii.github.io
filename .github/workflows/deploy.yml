@@ -3,10 +3,13 @@ name: Deploy Jekyll site to Pages
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - "_data/site_updates.json"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  models: read
   pages: write
   id-token: write
 
@@ -20,6 +23,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 50
+      - name: Test visitor changelog pipeline
+        run: python3 _scripts/test_refresh_site_changelog.py
+      - name: Synthesize visitor changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHANGELOG_MODEL: openai/gpt-4.1
+        run: python3 _scripts/refresh_site_changelog.py
+      - name: Save visitor changelog update
+        run: |
+          if git diff --quiet -- _data/site_updates.json; then
+            echo "no visitor changelog change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/site_updates.json
+          git commit -m "chore: refresh visitor changelog"
+          if ! git push; then
+            echo "::warning::changelog rendered for this deploy but could not be pushed; next run will retry"
+          fi
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

@@ -1,0 +1,26 @@
+{% assign sync_timestamp = include.timestamp %}
+{% if sync_timestamp %}
+<aside class="intro-note" aria-label="Live changelog status">
+  {% if include.kind == "site" %}
+    <p><strong>This updates itself.</strong> I built an engine that reads new commits and the files they changed, drops internal maintenance, then uses the surrounding diff to synthesize only changes that improve something you can see, use, find, or trust. This stays current without becoming a raw commit dump.</p>
+  {% else %}
+    <p><strong>This updates itself.</strong> I built an engine that checks live commits against rules for each tracked repository, drops documentation and maintenance noise, then groups the remaining product work into updates you can understand without reading Git history.</p>
+  {% endif %}
+  <p><small>Last updated <time datetime="{{ sync_timestamp }}" data-live-counter>{{ sync_timestamp | date: "%-d %B %Y" }}</time>.</small></p>
+</aside>
+<script>
+(function(){
+  var format=new Intl.RelativeTimeFormat('en',{numeric:'auto'});
+  function update(){
+    var now=new Date(),today=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate());
+    document.querySelectorAll('[data-live-counter]').forEach(function(element){
+      var then=new Date(element.dateTime);
+      var date=Date.UTC(then.getUTCFullYear(),then.getUTCMonth(),then.getUTCDate());
+      element.textContent=format.format(Math.round((date-today)/86400000),'day');
+      element.title=then.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+    });
+  }
+  update();window.setInterval(update,3600000);
+}());
+</script>
+{% endif %}

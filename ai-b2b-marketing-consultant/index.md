@@ -3,6 +3,7 @@ layout: page
 title: AI B2B Marketing Consultant
 seo_title: AI B2B Marketing Consultant | Varun Choraria
 description: AI marketing consulting for B2B SaaS teams that want a clear AI plan, working marketing systems, trained people, and measurable business results.
+last_modified_at: 2026-07-27
 intro: I help B2B SaaS teams use AI to ship better marketing faster, without losing judgment, quality, or control.
 service: true
 service_name: AI B2B marketing consulting

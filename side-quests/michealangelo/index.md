@@ -1,82 +1,98 @@
 ---
 layout: page
 title: Michealangelo
-seo_title: Michealangelo | Design taste skills for AI agents
-description: A free skill pack that gives Claude Code, Codex and Cursor real design judgment. Grids, colour theory, psychology, and a taste audit that blocks AI slop.
-intro: Give your AI coding assistant good taste. Fourteen skills, one install command, MIT licensed.
+seo_title: Design skills for AI coding agents | Michealangelo
+description: Ship interfaces that stop looking AI-generated with 14 free design skills for AI coding agents, covering grids, colour, type, psychology, motion, and taste.
+last_modified_at: 2026-07-27
+intro: Ship interfaces that stop looking AI-generated. Give your coding agent design constraints, precise vocabulary, and a taste gate before release.
 project: true
-project_name: michealangelo
+project_name: Michealangelo
 repo: michealangelo
 repo_url: https://github.com/vcxcvii/michealangelo
 license: MIT
 version: "0.2"
 state: Public
 mcp: true
+application_category: DeveloperApplication
+application_subcategory: AI interface design tools
+audience: People building interfaces with AI coding agents
+software_requirements: Claude Code, Codex, or another Agent Skills-compatible coding agent
+feature_list:
+  - Design-system routing across 14 skills
+  - Grid, colour, typography, psychology, and motion guidance
+  - Taste audit for generic AI interface patterns
+  - Living design tokens and specifications
+  - Hash-safe skill updates
+faqs:
+  - question: What is Michealangelo?
+    answer: Michealangelo is a free pack of 14 Agent Skills that gives AI coding agents explicit rules for layout, colour, typography, psychology, motion, components, and design quality.
+  - question: Which coding agents support Michealangelo?
+    answer: It installs for Claude Code, Codex, and project-level Agent Skills directories used by other compatible coding agents.
+  - question: Does Michealangelo generate a design system?
+    answer: Yes. Its router combines relevant skills, while design-spec maintains living design tokens and a versioned specification across sessions.
+  - question: Will it automatically overwrite my edited skills?
+    answer: No. The updater compares file hashes from installation and reports locally edited skills instead of silently replacing them.
 ---
 
-Ask any coding agent to build you a landing page and you get the same thing back. A hero, three feature cards, a testimonial slider, a gradient button.
+Michealangelo is a free pack of 14 design skills for AI coding agents. It gives Claude Code, Codex, and compatible agents explicit rules for layout, colour, typography, psychology, motion, components, and taste, so interface decisions come from a system instead of the average SaaS page in the model's training data.
 
-It is not a talent problem. The model is averaging its training data, and the average landing page is bad.
+Ask an unconstrained agent for a landing page and familiar defaults appear: centred hero, three cards, gradient button, decorative motion. Michealangelo replaces that pattern matching with constraints you can inspect and reuse.
 
-## What is michealangelo?
+## What improves when I use Michealangelo?
 
-A pack of fourteen [Agent Skills](https://agentskills.io/specification.md) that teach your agent design judgment instead of design defaults. Proper grids, real colour theory, human psychology, motion that clarifies rather than decorates, and a component choice made from a live registry rather than from memory.
+- **Output stops looking interchangeable.** `taste-audit` identifies generic AI interface patterns before they ship.
+- **Design decisions come with reasons.** Grid, palette, typography, motion, and component choices point back to the rule they followed.
+- **Fewer feedback rounds.** Precise constraints reduce repeated "not like that" corrections.
+- **Sessions stay consistent.** `design-spec` maintains living design tokens and a versioned plan instead of leaving decisions inside an old chat.
+- **Updates respect local edits.** Hash checks report changed skill files rather than silently overwriting your work.
 
-`design-system` is the front door. Tell it what you are building and it decides which of the other skills apply, and in what order, rather than you or the agent guessing.
+The benefit is not a prettier first draft. It is a design process that remains arguable, repeatable, and easier to hand off.
 
-The rest sit behind it. `grid-systems` sets layout, spacing and type scale before a single component is placed. `color-systems` generates palettes and checks contrast rather than copying a trend. `design-psychology` covers cognitive bias and how people actually misread interfaces. `taste-audit` is the gate that catches generic SaaS patterns before they ship. `design-observer` watches for the moments you override a suggestion and logs them, so the pack improves from use.
+## How does Michealangelo work?
 
-## Why I built it
+`design-system` is the router. Tell it what you are building and it selects the relevant skills in the right order.
 
-I rebuilt this website with agents, and the first three attempts looked like every other AI-generated site on the internet.
+`grid-systems` sets layout, spacing, and type scale before components appear. `color-systems` generates palettes and checks contrast. `design-psychology` covers how people perceive and misread interfaces. `component-library` checks live registries instead of relying on model memory. `motion` adds movement only where it clarifies state. `taste-audit` runs last as the quality gate.
 
-That bothered me more than it should have. I do not write code beyond basic HTML, so I could see the problem clearly and could not fix it by hand. What I could do was write down what good looks like, precisely enough that a machine could follow it.
+Supporting skills interrogate the brief, pair fonts, sharpen design vocabulary, write handoffs, and preserve design decisions across sessions.
 
-So the skills are mostly transcribed judgment. Müller-Brockmann on grids. Colour theory that runs a contrast check instead of vibes. A vocabulary skill that forces the difference between kerning and tracking, or affordance and signifier, because vague words create ambiguity at handoff.
+## Why did I build it?
 
-I wrote about the wider argument in [How to design without AI slop](/how-to-design-without-ai-slop/).
+I rebuilt this website with agents. The first attempts looked like every other AI-generated site on the internet.
 
-## How do I install it?
+I do not write code beyond basic HTML, so I could see the problem without being able to repair every detail by hand. What I could do was describe good design precisely enough for a machine to follow: Müller-Brockmann on grids, contrast math instead of colour vibes, and exact language for differences such as kerning versus tracking or affordance versus signifier.
+
+Michealangelo is that judgment turned into files. The wider argument is in [How to design without AI slop](/how-to-design-without-ai-slop/).
+
+## How do I install Michealangelo?
 
 ```bash
 npx github:vcxcvii/michealangelo install --target claude
 ```
 
-No sign-up, no npm package to trust, no account. It copies a folder of skill files into `~/.claude/skills/`. Restart your session and they are available.
+Choose `codex`, `agents`, or `all` instead of `claude` for another target. Install only selected skills with `--skills grid-systems,color-systems`.
 
-| Target | Installs to | Use for |
+| Target | Installs to | Best for |
 |---|---|---|
-| `claude` (default) | `~/.claude/skills/` | Claude Code |
+| `claude` | `~/.claude/skills/` | Claude Code |
 | `codex` | `~/.codex/skills/` | Codex |
-| `agents` | `./.agents/skills/` | Any Agent-Skills-compatible agent |
-| `all` | all of the above | Multiple agents at once |
+| `agents` | `./.agents/skills/` | Project-level compatible agents |
+| `all` | All three locations | Multiple agents |
 
-You can install a subset with `--skills grid-systems,color-systems`, and `update` never silently overwrites a skill file you have hand-edited. It checks a hash from install time and reports what it skipped.
+## What should I not expect?
 
-## What outcomes can I expect?
+Michealangelo cannot make you a designer or rescue a brief nobody has thought through. `grill-me` exists because vague audiences, goals, and constraints create vague output no design system can fully repair.
 
-- **Output that stops looking generated.** The taste audit is the part people notice first, because it names the pattern instead of saying "make it better."
-- **Decisions with reasons attached.** Layout, palette and component choices come with the rule they followed, which makes them arguable rather than mysterious.
-- **Consistency across sessions.** The same brief produces the same system, because the constraints live in files rather than in a chat you closed.
-- **Fewer rounds.** Most of the value is not the first draft. It is not having to say "no, not like that" four times.
+## Latest meaningful changes
 
-What it will not do: make you a designer, or rescue a brief nobody has thought about. `grill-me` exists because half the bad output traces back to a request nobody interrogated.
+{% include project-changelog.html %}
 
-## What changed recently
+## Questions people ask
 
-{% assign entries = site.data.quest_releases[page.repo] %}{% if entries and entries.size > 0 %}{% for e in entries limit: 5 %}
-**{{ e.date }}** · {{ e.title }}{% if e.url %} · [view]({{ e.url }}){% endif %}
-{% if e.body %}
-{{ e.body }}
-{% endif %}{% endfor %}
-{% else %}
-Nothing logged yet. The changelog refreshes itself from the repository.
-{% endif %}
+{% include project-faqs.html %}
 
-## Something feel wrong in the output?
+## Found a design decision that still feels wrong?
 
-That is the most useful feedback there is, and it is how the pack grows. [Book 30 minutes](https://cal.com/varun-choraria/30min) or open an issue on [the repo]({{ page.repo_url }}).
+[Open an issue on GitHub]({{ page.repo_url }}) with the brief, output, and correction you expected. That gap is useful input for the skill set. For a longer conversation, [book 30 minutes](https://cal.com/varun-choraria/30min).
 
-MIT licensed. Fork it, strip it down, disagree with it in public.
-
-Related: [interview-recon](/side-quests/interview-recon/) for company research, and everything else on [side quests](/side-quests/).
+Michealangelo is MIT licensed. Fork it, remove what you do not need, and disagree with it in public.

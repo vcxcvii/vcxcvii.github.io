@@ -42,9 +42,11 @@
       "name": {{ meta_title | jsonify }},
       "description": {{ meta_description | jsonify }},
       "isPartOf": { "@id": "{{ site.url }}/#website" },
-      "inLanguage": "en-IN"{% if page.url == '/about/' %},
+      "inLanguage": "en-IN"{% if page.project %},
+      "mainEntity": { "@id": "{{ canonical_url }}#software" }{% elsif page.url == '/about/' %},
       "mainEntity": { "@id": "{{ site.url }}/#person" }{% elsif page.url == '/' %},
-      "about": { "@id": "{{ site.url }}/#person" }{% endif %}
+      "about": { "@id": "{{ site.url }}/#person" }{% endif %}{% if page.faqs %},
+      "hasPart": { "@id": "{{ canonical_url }}#faq" }{% endif %}
     }{% if page.service %},
     {
       "@type": "Service",
@@ -66,9 +68,20 @@
       "name": {{ page.project_name | default: page.title | jsonify }},
       "description": {{ meta_description | jsonify }},
       "url": "{{ canonical_url }}",
-      "applicationCategory": "DeveloperApplication",
+      "applicationCategory": {{ page.application_category | default: 'DeveloperApplication' | jsonify }}{% if page.application_subcategory %},
+      "applicationSubCategory": {{ page.application_subcategory | jsonify }}{% endif %},
       "operatingSystem": "macOS, Linux, Windows",
       "author": { "@id": "{{ site.url }}/#person" },
+      "mainEntityOfPage": { "@id": "{{ canonical_url }}#webpage" }{% if page.audience %},
+      "audience": {
+        "@type": "Audience",
+        "audienceType": {{ page.audience | jsonify }}
+      }{% endif %}{% if page.software_requirements %},
+      "softwareRequirements": {{ page.software_requirements | jsonify }}{% endif %}{% if page.feature_list %},
+      "featureList": [
+        {% for feature in page.feature_list %}{{ feature | jsonify }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]{% endif %},
       "isAccessibleForFree": true,
       "offers": {
         "@type": "Offer",
@@ -78,6 +91,24 @@
       "license": {{ page.license | jsonify }}{% endif %}{% if page.repo_url %},
       "codeRepository": {{ page.repo_url | jsonify }}{% endif %}{% if page.version %},
       "softwareVersion": {{ page.version | jsonify }}{% endif %}
+    }{% endif %}{% if page.faqs %},
+    {
+      "@type": "FAQPage",
+      "@id": "{{ canonical_url }}#faq",
+      "url": "{{ canonical_url }}#questions-people-ask",
+      "isPartOf": { "@id": "{{ canonical_url }}#webpage" },
+      "mainEntity": [
+        {% for faq in page.faqs %}
+        {
+          "@type": "Question",
+          "name": {{ faq.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ faq.answer | jsonify }}
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
     }{% endif %}
   ]
 }

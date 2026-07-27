@@ -1,88 +1,97 @@
 ---
 layout: page
 title: Interview Recon
-seo_title: Interview Recon | AI interview research skill
-description: A free skill that turns Claude Code, Codex or Cursor into an interview research analyst. Company dossier, JD-mapped talking points, 90-day plan.
-intro: Turn your AI coding agent into an interview research analyst. Free, MIT, and designed to work without a paid scraping API.
+seo_title: AI interview research skill | Interview Recon
+description: Build a sourced company dossier, JD-mapped talking points, sharp questions, and a grounded 90-day plan with this free AI interview research skill.
+last_modified_at: 2026-07-27
+intro: Walk into interviews with a sourced company dossier, JD-mapped talking points, sharper questions, and a grounded 90-day plan.
 project: true
-project_name: interview-recon
+project_name: Interview Recon
 repo: interview-recon
 repo_url: https://github.com/vcxcvii/interview-recon
 license: MIT
 state: Public
 mcp: true
+application_category: BusinessApplication
+application_subcategory: Interview preparation software
+audience: Job candidates using AI coding agents
+software_requirements: An Agent Skills-compatible AI agent. Firecrawl is optional.
+feature_list:
+  - Sourced company dossier
+  - Job-description-mapped talking points
+  - Grounded 90-day plan
+  - Interview questions based on current company signals
+  - Persistent research across interview rounds
+faqs:
+  - question: Is Interview Recon free?
+    answer: Yes. Interview Recon is MIT licensed. It works with your agent's built-in web tools, so a paid scraping API is optional.
+  - question: Which AI agents support Interview Recon?
+    answer: It works with Claude Code, Codex, Cursor, and other agents that support the Agent Skills format.
+  - question: What does Interview Recon produce?
+    answer: It produces a sourced company dossier, strategy canvas, go-to-market teardown, people signals, JD-mapped talking points, a 90-day plan, and questions to ask.
+  - question: Does it reuse research between interview rounds?
+    answer: Yes. It loads the existing dossier, refreshes stale material, and appends notes from each round instead of starting over.
 ---
 
-Most candidates skim the company website the night before. Then they walk in and say something the other four candidates also said.
+Interview Recon is a free AI interview research skill for candidates using Claude Code, Codex, Cursor, or another Agent Skills-compatible agent. It turns a job description and public company sources into a reusable dossier: JD-mapped talking points, a grounded 90-day plan, credible questions, and citations you can verify before the call.
 
-The problem is not effort. It is that real company research takes a week, and nobody has a week.
+Most candidates skim a company website the night before. Real research takes days, so everyone arrives repeating the same surface-level facts. Interview Recon compresses that work into an afternoon while keeping the evidence attached.
 
-## What is interview-recon?
+## What will I walk into the interview with?
 
-It is an [Agent Skill](https://agentskills.io/specification.md) that makes your AI coding agent research a company the way a strategy consultant would, then write up what a *candidate* needs rather than what a salesperson needs.
+- **Talking points tied to the job description.** Each requirement connects to company evidence and a point you can defend.
+- **A 90-day plan grounded in current moves.** Hiring, product, pricing, competitors, funding, and public-market signals shape the plan.
+- **Questions other candidates will not ask.** The strongest questions come from tensions in the company's own strategy, not generic interview lists.
+- **Claims you can verify.** Every factual claim carries a numbered source, URL, and fetch date.
+- **Research that survives the next round.** The dossier persists, refreshes stale material, and records what earlier interviewers asked.
 
-You say "prep me for my interview at Acme." It saves the job description first, because listings vanish. It proposes a short research plan and waits for you to approve it. Then it works through a fixed spine: products and pricing, competitors, content footprint, leadership and hiring signals, news and funding, and the latest earnings calls of any public company in the same space.
+The output is designed for use in the room, not for producing the longest possible research document.
 
-That last one matters more than it sounds. Private companies do not publish numbers. Their public neighbours do, and those calls set the narrative your interviewer is living inside.
+## How does Interview Recon work?
 
-Out the other end comes a folder on your machine: a one-page brief, a strategy canvas, a go-to-market teardown, a people page, and the interview kit. Every claim carries a numbered source with a URL and a date. No "trust me" facts.
+1. **Save the job description first.** Listings disappear. Your copy becomes the spine of the research.
+2. **Approve a short research plan.** The skill names its questions, sources, backend, and budget before fetching.
+3. **Research the company in a fixed order.** It covers products, pricing, competitors, content, leadership, hiring, news, funding, and relevant earnings calls.
+4. **Synthesize a candidate dossier.** You get a one-page brief, strategy canvas, go-to-market teardown, people signals, interview kit, and source log.
 
-## Why I built it
+Public neighbours matter when the target company is private. Their earnings calls expose market pressures and narratives your interviewer may already be working inside.
 
-I built it during my own 2026 job hunt, which is a polite way of saying I built it because I needed it.
+## Why did I build it?
 
-I was running several processes at once and kept arriving at calls with research I could not remember the source of. Worse, I kept doing the same work twice, because nothing carried from round one into round two.
+I built Interview Recon during my own 2026 job hunt. I was running several interview processes at once, losing the source behind useful facts, and repeating research before every round.
 
-So the skill persists. Run it again before the next round and it loads what it already knows, refreshes only what went stale, and logs what the last round actually asked.
-
-The full story, with screenshots, is in [Hunting Season for the Rest of Us](/hunting-season-for-the-rest-of-us/).
+Persistence fixed that. Run the skill again and it loads what it already knows, refreshes only what went stale, and appends what the last round actually asked. The full build story, with screenshots, is in [Hunting Season for the Rest of Us](/hunting-season-for-the-rest-of-us/).
 
 ## Do I need a paid scraping API?
 
-No, and this part was deliberate.
+No. Without a key, Interview Recon uses your agent's built-in web search and fetch. The workflow and outputs stay the same. It flags JavaScript-heavy or bot-protected pages it could not fully inspect instead of pretending the research is complete.
 
-With a [Firecrawl](https://firecrawl.dev) key, the free tier refills monthly, it uses a scraping script and announces its credit budget up front. Fifteen credits in quick mode, forty in deep mode, and it never exceeds that without asking.
+With a Firecrawl key, it can use faster scraping. It announces a credit budget before starting: 15 credits in quick mode or 40 in deep mode. It never exceeds that budget without asking.
 
-Without any key, it uses your agent's built-in web search and fetch. Same workflow, same outputs. It tells you which pages might be incomplete, like JavaScript-heavy pricing pages or bot-protected review sites, instead of failing quietly and pretending it looked.
+## How do I install Interview Recon?
 
-Most research skills prescribe paid tools and degrade silently when you do not have them. This one announces its backend, its budget, and what is lost, every single time.
-
-## How do I install it?
-
-For [Claude Code](https://claude.com/claude-code):
+For Claude Code:
 
 ```bash
 git clone https://github.com/vcxcvii/interview-recon.git ~/.claude/skills/interview-recon
 ```
 
-That is the whole install. Open Claude Code and say "prep me for my interview at [company]".
+Open Claude Code and say, "prep me for my interview at [company]." For another Agent Skills-compatible tool, place the repository in that agent's skills directory.
 
-It works with any agent that supports the Agent Skills format. Point your agent's skills directory at the folder.
+## What should I not expect?
 
-## What outcomes can I expect?
+Interview Recon cannot see private company information, replace your judgment, or make you sound like someone you are not. It turns public evidence into better preparation. You still decide what is true, relevant, and worth saying.
 
-- **A dossier you can actually use in the room**, not a research dump. JD-mapped talking points, a 90-day plan grounded in the company's real moves, and questions to ask that no other candidate will ask.
-- **Sourced claims.** Every number links to where it came from and when it was fetched, so nothing embarrasses you when the interviewer knows their own business better than the internet does.
-- **Something that survives round two.** The dossier is append-only across rounds.
-- **Roughly an afternoon instead of a week**, assuming you actually read what it produces.
+## Latest meaningful changes
 
-What it will not do: see anything private, replace your judgment, or make you sound like someone you are not. It sees what is public. The rest is still your job.
+{% include project-changelog.html %}
 
-## What changed recently
+## Questions people ask
 
-{% assign entries = site.data.quest_releases[page.repo] %}{% if entries and entries.size > 0 %}{% for e in entries limit: 5 %}
-**{{ e.date }}** · {{ e.title }}{% if e.url %} · [view]({{ e.url }}){% endif %}
-{% if e.body %}
-{{ e.body }}
-{% endif %}{% endfor %}
-{% else %}
-Nothing logged yet. The changelog refreshes itself from the repository.
-{% endif %}
+{% include project-faqs.html %}
 
-## Found a bug, or want it to do something else?
+## Want to improve the next interview kit?
 
-Tell me. [Book 30 minutes on my calendar](https://cal.com/varun-choraria/30min), or open an issue on [the repo]({{ page.repo_url }}).
+[Open an issue on GitHub]({{ page.repo_url }}) with a missing source, broken workflow, or output that did not help. For a longer conversation, [book 30 minutes](https://cal.com/varun-choraria/30min).
 
-It is MIT licensed. Steal it, fork it, break it, improve it. Job hunting is hard enough without paywalled prep.
-
-If you also want case-interview frameworks, [master-shifu](/side-quests/master-shifu/) chains into this one. Everything else I have built is on [side quests](/side-quests/).
+Interview Recon is MIT licensed. Fork it, adapt it, and keep your research. If you also need case-interview frameworks, [Master Shifu](/side-quests/master-shifu/) chains into it.

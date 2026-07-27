@@ -1,0 +1,160 @@
+#!/usr/bin/env python3
+"""Regression tests for the side-quest changelog refresher."""
+import importlib.util
+import os
+import tempfile
+import unittest
+from unittest import mock
+
+SCRIPT = os.path.join(os.path.dirname(__file__), 'refresh_quests.py')
+SPEC = importlib.util.spec_from_file_location('refresh_quests', SCRIPT)
+refresh = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(refresh)
+
+
+class RefreshTests(unittest.TestCase):
+    def test_sync_timestamp_is_machine_readable_utc(self):
+        self.assertRegex(
+            refresh.sync_timestamp(),
+            r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$',
+        )
+
+    def test_quest_rules_require_repo_specific_include_paths(self):
+        source = """- name: Product
+  repo: product
+  changelog_include: "src/,package.json"
+- name: No changelog
+  repo: ignored
+"""
+        with tempfile.NamedTemporaryFile('w', delete=False) as handle:
+            handle.write(source)
+            path = handle.name
+        try:
+            with mock.patch.object(refresh, 'QUESTS', path):
+                self.assertEqual(
+                    refresh.quest_rules(),
+                    [{'repo': 'product', 'include': ('src/', 'package.json')}],
+                )
+        finally:
+            os.unlink(path)
+
+    def test_docs_only_commit_is_dropped_and_same_day_product_work_is_grouped(self):
+        summaries = [{'sha': 'docs'}, {'sha': 'feature'}, {'sha': 'fix'}]
+        responses = {
+            'repos/vcxcvii/product': {'private': False},
+            'repos/vcxcvii/product/releases?per_page=5': [],
+            'repos/vcxcvii/product/commits?per_page=25': summaries,
+            'repos/vcxcvii/product/commits/docs': {
+                'sha': 'docs',
+                'html_url': 'https://example.test/docs',
+                'commit': {
+                    'message': 'docs: fix README link',
+                    'committer': {'date': '2026-07-27T08:00:00Z'},
+                },
+                'files': [{'filename': 'README.md'}],
+            },
+            'repos/vcxcvii/product/commits/feature': {
+                'sha': 'feature',
+                'html_url': 'https://example.test/feature',
+                'commit': {
+                    'message': 'feat: add sourced interview questions',
+                    'committer': {'date': '2026-07-26T09:00:00Z'},
+                },
+                'files': [
+                    {'filename': 'src/questions.py'},
+                    {'filename': 'src/sources.py'},
+                ],
+            },
+            'repos/vcxcvii/product/commits/fix': {
+                'sha': 'fix',
+                'html_url': 'https://example.test/fix',
+                'commit': {
+                    'message': 'fix: preserve job descriptions',
+                    'committer': {'date': '2026-07-26T08:00:00Z'},
+                },
+                'files': [{'filename': 'src/jobs.py'}],
+            },
+        }
+        with mock.patch.object(
+            refresh, 'api', side_effect=lambda path: responses[path]
+        ):
+            entries = refresh.entries_for(
+                {'repo': 'product', 'include': ('src/',)}
+            )
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]['source'], 'commits')
+        self.assertEqual(entries[0]['commit_count'], 2)
+        self.assertNotIn('README', str(entries))
+        self.assertIn('Preserve job descriptions', entries[0]['body'])
+
+    def test_private_repo_never_publishes_commit_url(self):
+        responses = {
+            'repos/vcxcvii/private': {'private': True},
+            'repos/vcxcvii/private/releases?per_page=5': [],
+            'repos/vcxcvii/private/commits?per_page=25': [{'sha': 'one'}],
+            'repos/vcxcvii/private/commits/one': {
+                'sha': 'one',
+                'html_url': 'https://example.test/private',
+                'commit': {
+                    'message': 'fix: remove bot sessions',
+                    'committer': {'date': '2026-07-27T08:00:00Z'},
+                },
+                'files': [{'filename': 'src/filter.ts'}],
+            },
+        }
+        with mock.patch.object(
+            refresh, 'api', side_effect=lambda path: responses[path]
+        ):
+            entries = refresh.entries_for(
+                {'repo': 'private', 'include': ('src/',)}
+            )
+        self.assertEqual(entries[0]['url'], '')
+
+    def test_commit_titles_drop_conventional_prefixes_and_readme_noise(self):
+        self.assertEqual(
+            refresh.clean_title('test: add stress tests and polish README'),
+            'Add stress tests',
+        )
+        self.assertEqual(
+            refresh.clean_title(
+                'Rename repo to michealangelo, add design-spec, fix naming'
+            ),
+            'Add design-spec, fix naming',
+        )
+
+    def test_existing_data_is_preserved_when_repo_is_inaccessible(self):
+        previous = """# Generated by _scripts/refresh_quests.py. Do not edit by hand.
+_meta:
+  updated_at: "2026-07-13T08:00:00Z"
+private:
+  - date: "2026-07-13"
+    title: "Remove bot sessions"
+    source: "commit"
+"""
+        quests = """- name: Private
+  repo: private
+  changelog_include: "src/"
+"""
+        with tempfile.TemporaryDirectory() as directory:
+            quests_path = os.path.join(directory, 'quests.yml')
+            output_path = os.path.join(directory, 'releases.yml')
+            with open(quests_path, 'w') as handle:
+                handle.write(quests)
+            with open(output_path, 'w') as handle:
+                handle.write(previous)
+            with mock.patch.multiple(
+                refresh, QUESTS=quests_path, OUT=output_path
+            ), mock.patch.object(
+                refresh, 'api', return_value=None
+            ), mock.patch.object(
+                refresh, 'sync_timestamp', return_value='2026-07-27T12:00:00Z'
+            ):
+                refresh.main()
+            with open(output_path) as handle:
+                output = handle.read()
+        self.assertIn('Remove bot sessions', output)
+        self.assertIn('updated_at: "2026-07-13T08:00:00Z"', output)
+
+
+if __name__ == '__main__':
+    unittest.main()

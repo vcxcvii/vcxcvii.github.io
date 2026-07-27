@@ -1,235 +1,28 @@
 ---
 title: Changelog
-description: A running log of what changed on this site and why.
-intro: Every update to varunchoraria.com, what changed, what shipped, and the reasoning behind it.
+seo_title: Website changelog | Varun Choraria
+description: "Visitor-relevant updates to varunchoraria.com: clearer pages, better navigation, useful tools, accessibility, search, privacy, and what each change improves."
+intro: "Only changes worth noticing: what became easier to find, understand, use, or trust, and why I changed it."
 mcp: true
 ---
 
-A running log of what changed on this site and why.
+{% assign latest_site_update = site.data.site_updates.updates | first %}
+{% include sync-engine.html timestamp=latest_site_update.date kind="site" %}
+
+This is not a mirror of the Git history. A renamed file is not an update. Neither is a cleaner build script, unless it changes something you can see, use, find, or trust.
+
+The entries below keep the consequence and drop the maintenance log.
+
+{% for update in site.data.site_updates.updates %}
+### {{ update.date | date: "%-d %B %Y" }}
+
+**{{ update.title }}**
+
+{{ update.summary }}
+
+{% for benefit in update.benefits %}
+- **{{ benefit.label }}:** {{ benefit.text }}
+{% endfor %}
 
 ---
-
-### 24 July 2026
-
-**Published the GitHub essay and added consulting pages**
-
-- **New essay:** published "GitHub is where ideas become accountable," a personal argument for systems-first work, versioned organizational memory, and public proof of work.
-- **Consulting:** added a direct consulting hub plus dedicated pages for AI B2B marketing consulting and B2B SaaS product marketing consulting.
-- **Voice:** kept the new pages blunt, first-person, and explicit about what I do, what I do not do, and who should not hire me.
-- **Navigation:** retained the slash-style navigation and added one `/consulting` link.
-- **Footer:** added consulting and calendar links, then reorganized the existing footer without changing its lightweight publication style.
-- **Plain language:** renamed footer sections and links so words like "Machine," "Colophon," "MCP," and "RSS" no longer make readers decode the site.
-- **Consulting offer:** rebuilt the main consulting page around nuanced growth problems, pipeline accountability, workshops, defined projects, and ongoing advisory or fractional leadership.
-- **Clear positioning:** aligned the consulting hub, AI consulting page, product marketing page, bio, work page, and machine-readable descriptions around one B2B SaaS marketing promise.
-- **Structured data:** added `Service` schema to consulting pages and exposed every page through the existing MCP content index.
-
----
-
-### 18 July 2026
-
-**Search metadata, structured data, crawl controls, and favicon refresh**
-
-- **Favicon:** replaced the dark tile with a stable white square and electric-blue `VC` in matching SVG and 180px PNG files.
-- **Titles and descriptions:** added concise, unique search titles and page-specific descriptions while preserving essay headlines.
-- **Structured data:** added shared `Person`, `WebSite`, `ProfilePage`, `CollectionPage`, and `WebPage` entities; strengthened essay `BlogPosting` author data.
-- **Crawl hygiene:** canonicalized duplicate archive aliases to `/blog/`, removed them and the 404 page from the sitemap, and added correct `noindex` directives.
-- **Discovery:** added RSS autodiscovery, explicit author bylines, useful tag descriptions, and updated `llms.txt` machine endpoints.
-- **Content structure:** repaired essay heading hierarchy so each page keeps one H1 and exposes useful H2 sections to readers and search systems.
-
----
-
-### 12 July 2026
-
-**Letterboxd added, hover labels on social icons, Helvetica sitewide, mobile CTA fix**
-
-- **Letterboxd:** added the exact Simple Icons mark next to GitHub in the hero social row, linking to my profile.
-- **Hover tooltips:** all four hero social icons (LinkedIn, X, GitHub, Letterboxd) now show a small label on hover, styled to match the site instead of relying on the browser's native title tooltip.
-- **Typeface:** swapped the self-hosted Geist variable font for Helvetica sitewide (`"Helvetica Neue", Helvetica, Arial, sans-serif`), dropping the Geist `@font-face` and its preload.
-- **Mobile fix:** tightened the gap between the "Ask an AI" headline and its button grid on narrow screens (18px to 10px) — it was reading as an oversized, disconnected block.
-- **Favicon:** replaced the memoji favicon with a bold "VC" tile. Browsers get the SVG directly (crisp at any size, real transparency on the rounded corners); the PNG fallback is a full-bleed 180px square for apple-touch-icon, fixing white corner fringing from flattened transparency.
-- **Link previews:** cleaned em-dashes out of page descriptions so social previews read plainly.
-
----
-
-### 8 July 2026
-
-**Ask-an-AI band on every page, and RSS back in the nav**
-
-- **Ask an AI:** added a pre-footer call-to-action that sits on every page, just above the footer. Four buttons: ask ChatGPT, Claude, or Perplexity who I am (each opens the assistant with the question pre-filled), plus a direct link to book a call. The brand marks are drawn in a single ink colour to stay inside the monochrome system, so the only colour in the band is my photo. On mobile the copy stacks above the buttons, and the grid drops to one column on the narrowest screens.
-- **RSS is back in the nav:** the feed page already lived at /feed/, but nothing linked to it. It now appears under the "more" menu, so the writing is one click to follow in any reader.
-
----
-
-### 8 July 2026
-
-**Polished dark-mode regressions**
-
-- Fixed blog filters by enforcing `[hidden] { display: none !important; }`, so list rows cannot override client-side filtering.
-- Reset nav, tabs, and pagination buttons to transparent backgrounds so browser-default button chrome no longer muddies menu contrast.
-- Softened the dark GitHub graph palette and made theme detection work for system-dark fallback, not only explicit `data-theme="dark"`.
-
----
-
-### 8 July 2026
-
-**Dark mode, hero refresh, filters, pagination, related posts, and tool logos**
-
-- **Dark mode:** added zinc dark mode with a no-FOUC head script, explicit light/dark toggle in the nav, system fallback when JS is disabled, theme-color updates, dark GitHub graph palette, and dark-safe ASCII/image frames.
-- **Hero:** replaced the old intro with the new owner-provided copy. Keyword pills are monochrome, icon-led, mobile-safe, and motion-reduced when requested.
-- **Notes filters and pagination:** moved filters into the existing React island with shadcn-style Tabs, single-row mobile scrolling, hash-backed tag state, and client-side pagination that only appears over 20 filtered rows.
-- **Also read:** removed the duplicate manual bulleted block from the Master Shifu post and kept the row-style related-posts section with the lowercase `also read.` heading.
-- **Side quests:** added `_data/tools.yml`, inline logo rendering, self-hosted SVG marks from Simple Icons where available, and letter fallback for missing marks. Logos are used nominatively to reference tools, not to imply endorsement.
-- **Routing:** added `/notes/` as a Notes listing alias so the new hero `write` link has a real target while `/blog/` remains live.
-
----
-
-### 8 July 2026
-
-**Rebuilt on a strict monochrome system**
-
-The site is now a single zinc scale. The only colour left is in photographs. What shipped:
-
-- **Colour:** removed every accent hue — blue links, the four section-dot colours, three pill variants, and the coloured filter tab, timeline dot, and status badges. Links are black and underlined; everything else is neutral. Fixed a stray teal `theme-color`.
-- **Type:** one typeface, Geist Sans, self-hosted as a single variable font (no external fonts, so the strict CSP is untouched). Monospace is now code-only — off dates, meta, tabs, badges, footer, and nav.
-- **Nav:** replaced the hand-rolled menu with a shadcn `DropdownMenu` React island (source in `_nav/`, committed bundle since Pages can't run npm). Opens on click, closes on click-away or Escape, collapses to one `menu` under 640px, and reads its links from `_data/navigation.yml`. The home avatar's sub-pixel misalignment is fixed, and the nav sits inside the content column.
-- **GitHub card:** dropped the blue `ghchart` image that overflowed the column. It's now a self-rendered monochrome graph that shows the real contribution total and links to GitHub and a call. Fits every screen down to 320px, and hides itself if the data source is unavailable rather than showing a broken frame.
-- **Enforcement:** the pre-push QA gate now fails any change that reintroduces a hue, a legacy class, or the mono font on UI. The monochrome rule is enforced, not just documented.
-- **Cleanup:** deleted the dead `/design.md` (the old "Starlight" blue system); updated `DESIGN.md` and the README to the monochrome system.
-
----
-
-### 7 July 2026
-
-**Full typographic redesign, lightweight native nav, and two features cut on purpose**
-
-The site relaunched with a new visual language: narrow single column, quiet monochrome base, small colored accents, lowercase section headers. Every page — home, about, work, blog and post pages, archive, tags, side quests, uses-this, changelog, disclaimer, fun, 404 — was rebuilt against a single tokenized stylesheet and a machine-readable `DESIGN.md` that now reflects it.
-
-**Nav is native again** — the top nav is now plain Liquid and CSS: inline links on desktop, native `<details>` menu on mobile. No React bundle, no hydration path, no ghost dropdown. It still reads from `_data/navigation.yml`.
-
-**Nav revised again** — slash-prefixed labels are gone. Desktop now follows the compact shadcn-style pattern used by Aniket Pawar: primary text links plus a `more` dropdown. Mobile keeps a separate native `menu` dropdown so desktop and mobile states cannot conflict.
-
-**MCP nudge toast: removed.** The floating "connect an AI agent" card added friction without earning its keep. Gone.
-
-**Email subscribe: removed, not just hidden.** The plan is a Resend-API agent that emails subscribers new posts — but that needs somewhere to store subscriber emails, and this repo is public. Storing PII in it isn't an option. Parked until there's a private store for it; the half-built form came out rather than sit there implying a feature that doesn't work.
-
-**Footer now shows a live version count** — `v{{ n }} · updated {{ date }}`, computed at build time by counting this file's own `### ` headings, linking to `/changelog/`. No hardcoded version number to forget to bump.
-
-**Mobile pass** — nav uses a native mobile menu below 640px, the work timeline stacks its date above the title, hero/footer/section headers reflow cleanly down to 375px.
-
-**Feedback pass** — `more` now includes disclaimer and changelog, tag filters and post badges use the same bordered chip component, muted mono text is darker across the site, and the GitHub contributions graph is link-blue with horizontal scrolling on small screens.
-
-**Profile home mark** — the profile image is now the site favicon and a persistent nav avatar on every page, linking back home.
-
----
-
-### 28 June 2026
-
-**MCP server, QA agent, security cleanup, and README rewrites**
-
-**Live MCP server — [/mcp/](/mcp/)** — The site now runs a proper [Model Context Protocol](https://modelcontextprotocol.io) server, not just a page explaining what MCP is. Any MCP-compatible AI client — Claude Code, Claude Desktop, Cursor, or Codex CLI — can connect to it with one URL and read everything on the site directly. Not from training data. From the actual live content.
-
-Six tools are exposed: pull site info, list all posts, get any post by slug, list all pages, get any page, and search across everything. The server is hosted on Vercel and fetches from `/api/site.json` — a Jekyll-generated file that updates automatically every time new content is pushed. Add `mcp: true` to any page's frontmatter and it gets indexed on the next push. No manual steps.
-
-The [/mcp/](/mcp/) page was redesigned from scratch. It used to require users to install a local npm bridge, generate a token, and paste it into a widget. Replaced that with a tabbed interface — pick your client, copy one snippet, done. Tabs for Claude Code, Claude Desktop, Cursor, Codex CLI, ChatGPT (with an honest note that it doesn't support MCP yet), and a generic option. Every code block has its own copy button.
-
-The page also explains how this differs from the "Ask Claude / Ask ChatGPT" buttons elsewhere on the site. Those open a chatbot with a pre-typed query — the AI draws on training data. MCP is different: it gives your local agent live read access to the actual content here, which matters when you want recent posts or want to use my writing as real context in a workflow rather than just a chat.
-
-**Pre-push QA agent** — A script now runs automatically before every `git push`. It checks every changed file against four criteria: SEO (title, description, character limits), AEO (word count, heading structure, tags — things that help AI agents parse and cite content correctly), design compliance (layout, intro field, date format), and MCP compliance (new pages flagged if they're not indexed). It also blocks any push that includes a CSV, SQL, .env, or other non-site file — more on why below. Errors block the push. Warnings go through but are logged.
-
-**Security: sensitive data removed** — A HubSpot data export (`hubspot_time_to_first_meeting_last_6_months.csv`) was accidentally committed to this public repo during a Claude Code session where the file landed in the wrong directory. It contained deal names, pipeline data, and contact email addresses from GTM Buddy's CRM. The file was removed from the repo and purged from the entire git history so it no longer exists in any commit. The pre-push hook now blocks this class of mistake going forward.
-
-**RSS feed page — [/feed/](/feed/)** — The site has had an RSS feed since June 20 but no dedicated page explaining it. Fixed that. The page covers the feed URL, how to subscribe, and a short list of RSS readers worth trying. I use [NetNewsWire](https://netnewswire.com/) — free, open-source, Mac and iOS.
-
-**README updates** — The site's GitHub README and my GitHub profile README were both rewritten in plain English to reflect what the site actually is now: an AI-managed personal site with a live MCP server, a QA gate, and a machine-readable design system.
-
----
-
-### 25 June 2026
-
-**Analytics stack: GA4, Google Search Console, and Microsoft Clarity**
-
-Three tracking integrations that should have been in place earlier.
-
-**Google Analytics 4** — Standard event tracking, traffic sources, and pageviews. The main reason to have this is to see which pages people actually read, not which ones I think they read.
-
-**Google Search Console** — Verified domain ownership with Google. This lets me see which search queries surface the site, what positions the pages rank at, and whether Google is indexing everything correctly. Useful signal for knowing if the writing is actually findable.
-
-**Microsoft Clarity** — Session replay and heatmaps. More granular than GA4 — you can watch actual visitor sessions, see where people click, and spot where they drop off. Also added the required privacy disclosures to the footer and the disclaimer page.
-
----
-
-### 23 June 2026
-
-**Ask AI buttons, Meet with VC, light mode only, and a bunch of fixes**
-
-**Ask an AI about me** — Added a section above the footer on every page with buttons to ask ChatGPT, Claude, or Perplexity who I am and what I write about. The question is pre-filled, so it's one click. AI is increasingly how people discover and research other people. Meeting visitors there felt more useful than a contact form.
-
-**Meet with VC — now in the nav too** — The "Meet with VC" booking button (which links to a 30-minute Cal.com slot) is now in the top navigation on every page, on both desktop and mobile. Previously it only appeared in the Ask AI section at the bottom.
-
-**Light mode only** — Removed the dark/light mode toggle. The site is permanently light now. Simpler, fewer things to maintain, one less decision for visitors. If you were using dark mode on this site, it just won't exist anymore.
-
-**Accessibility: perfect score** — Google Lighthouse flags accessibility issues. Two came up: a line of text that was slightly too faint against its background (just barely below the readability threshold), and a button that said "Meet with VC" on screen but something different to screen readers. Both fixed. The site now scores 100 out of 100 for accessibility.
-
-**Photos and file sizes** — The small circular photo used in the "Meet with VC" button was 104KB. The display size is 28 pixels wide. Resized it to under 3KB. Same quality, 37x smaller.
-
-**Search and AI indexing** — Added a `robots.txt` file, which tells search engines how to crawl the site. It was missing entirely. Also added an `llms.txt` file — a plain-text summary of the site that AI systems can read when someone asks about me. It covers writing, work, the book, speaking, and the podcast.
-
-**Security** — Moved all JavaScript into separate files (rather than embedded in the page), set a stricter policy on what scripts the site is allowed to run, and added a few other under-the-hood protections.
-
----
-
-### 21 June 2026
-
-**About page and side-quests update**
-
-Filled out the GTM Buddy section on [/about](/about/) with more detail about what I actually do there. Updated the skills count. Removed dead links from a few internal projects on [/side-quests](/side-quests/) that were pointing to old GitHub repos.
-
----
-
-### 20 June 2026
-
-**Two new posts + RSS feed**
-
-Published [Who owns what?](/who-owns-what/) and [Too much parenting, too little adulting](/too-much-parenting-too-little-adulting/). Also set up an RSS feed — the standard way for people to subscribe to a blog. Should have been there from day one.
-
----
-
-### 16 June 2026
-
-**New post + small fixes**
-
-Published [Killed by Google](/killed-by-google/). Fixed the social icons on mobile that were sitting out of line. Made the "Also Read" section smarter — it now shows recent posts when there are no posts in the same category, instead of showing nothing.
-
----
-
-### 12 June 2026
-
-**Two new sections: /til and a live API**
-
-Added `/til/` for short notes (later retired), things I learn and want to remember, published as they happen rather than saved up for a long essay. Added a live JSON endpoint at `/api/latest.json` so my GitHub profile can automatically show the latest post without me having to update it manually.
-
----
-
-### 24 May 2026
-
-**Performance fixes + /uses-this refresh**
-
-Ran a full site audit and fixed everything flagged. Updated [/uses-this](/uses-this/) to reflect what I actually use now: Obsidian, Cursor, Screen Studio, Quartr, and a few others that weren't there before.
-
----
-
-### 18 May 2026
-
-**Side-quests visual refresh**
-
-The project cards on [/side-quests](/side-quests/) were feeling flat. Replaced the logos with pixel-art style wordmarks in a warm amber palette. Same information, more character.
-
----
-
-### 17 May 2026
-
-**Built from scratch and launched**
-
-Rebuilt the site from scratch — moved from Jekyll's default theme to a fully custom design I call STARLIGHT (warm neutrals, deep blues, the same colour palette across everything). Set up automatic deploys so every change goes live as soon as it's pushed. Updated the favicon to a four-point star.
-
-This is the version of the site that exists now.
+{% endfor %}

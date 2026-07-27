@@ -1,0 +1,13 @@
+{% assign entries = site.data.quest_releases[page.repo] %}
+{% if entries and entries.size > 0 %}
+These are product changes, not every repository commit. The list refreshes daily and ignores documentation-only maintenance.
+
+{% for e in entries limit: 5 %}
+**{{ e.date }}** · {{ e.title }}{% if e.commit_count and e.commit_count > 1 %} · {{ e.commit_count }} related commits{% endif %}{% if e.url %} · [view source]({{ e.url }}){% endif %}
+{% if e.body %}
+{{ e.body }}
+{% endif %}
+{% endfor %}
+{% else %}
+No meaningful product change is logged yet. This section checks the repository daily and ignores documentation-only maintenance.
+{% endif %}

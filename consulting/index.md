@@ -3,6 +3,7 @@ layout: page
 title: Consulting
 seo_title: B2B SaaS Marketing Consultant | Varun Choraria
 description: B2B SaaS marketing consulting that connects strategy, execution, and pipeline. Workshops, projects, and ongoing senior marketing leadership.
+last_modified_at: 2026-07-27
 intro: I help B2B SaaS companies decide what marketing should do next, ship the work, and measure the result in pipeline, revenue, or another business outcome.
 service: true
 service_name: B2B SaaS marketing consulting

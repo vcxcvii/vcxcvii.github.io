@@ -2,7 +2,8 @@
 layout: page
 title: Speaking & Media
 seo_title: "Speaking, Book & Podcast | Varun Choraria"
-description: "Varun Choraria's public work: keynotes and panels on B2B product marketing and GTM, the book Miracle-preneuring, and The Edge Podcast for CHROs with guests from Oracle, Infosys, Razorpay, MetLife, GoJek, Ather Energy, and Doist."
+description: "Keynotes and panels by Varun Choraria on B2B product marketing, GTM, AI, careers, and management, plus his book and The Edge Podcast."
+last_modified_at: 2026-07-27
 intro: Keynotes, panels, a book, and two seasons of a podcast. The work that happened outside a job description.
 redirect_from:
   - /fun/
