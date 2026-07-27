@@ -325,6 +325,9 @@ def update_records(clean_updates, commits, existing_updates):
     existing_shas = {
         sha for update in existing_updates for sha in update.get('commit_shas', [])
     }
+    used_ids = {
+        update['id'] for update in existing_updates if update.get('id')
+    }
     records = []
     for update in clean_updates:
         if any(sha in existing_shas for sha in update['commit_shas']):
@@ -333,8 +336,15 @@ def update_records(clean_updates, commits, existing_updates):
             (by_sha[sha] for sha in update['commit_shas']),
             key=lambda commit: (commit['date'], commit['sha']),
         )
+        base_id = f'{newest["date"]}-{newest["sha"][:7]}'
+        record_id = base_id
+        suffix = 2
+        while record_id in used_ids:
+            record_id = f'{base_id}-{suffix}'
+            suffix += 1
+        used_ids.add(record_id)
         records.append({
-            'id': f'{newest["date"]}-{newest["sha"][:7]}',
+            'id': record_id,
             'date': newest['date'],
             'title': update['title'],
             'summary': update['summary'],

@@ -92,11 +92,34 @@ class SiteChangelogTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             refresh.validate_model_output({'updates': [base]}, [commit()])
 
+    def test_multiple_updates_from_one_commit_get_unique_ids(self):
+        updates = [
+            {
+                'title': 'Navigation is easier to understand',
+                'summary': 'Visitors can find the right page without decoding project names.',
+                'benefits': [],
+                'commit_shas': [SHA],
+            },
+            {
+                'title': 'Images arrive faster on long pages',
+                'summary': 'Screenshots use smaller files and reserve their space before loading.',
+                'benefits': [],
+                'commit_shas': [SHA],
+            },
+        ]
+        records = refresh.update_records(updates, [commit()], [])
+        self.assertEqual(
+            [record['id'] for record in records],
+            ['2026-07-27-aaaaaaa', '2026-07-27-aaaaaaa-2'],
+        )
+
     def test_seed_data_is_outcome_led_and_valid_json(self):
         with open(refresh.DATA) as source:
             data = json.load(source)
         self.assertRegex(data['last_processed_commit'], r'^[a-f0-9]{40}$')
         self.assertGreaterEqual(len(data['updates']), 8)
+        ids = [update['id'] for update in data['updates']]
+        self.assertEqual(len(ids), len(set(ids)))
         for update in data['updates']:
             self.assertNotIn('—', update['title'] + update['summary'])
             self.assertGreaterEqual(len(update['benefits']), 2)
