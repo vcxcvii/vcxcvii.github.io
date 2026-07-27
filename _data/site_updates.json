@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "2700acb811d0ea170ee594bc551ec85dedc8fc2b",
+  "last_processed_commit": "63ea563932c4602db635e00b04fb72e331a84e42",
   "updated_at": "2026-07-27",
   "updates": [
+    {
+      "id": "2026-07-27-63ea563",
+      "date": "2026-07-27",
+      "title": "Visitor changelog now updates itself after every deploy",
+      "summary": "The site now synthesizes and publishes a visitor-facing changelog automatically after each deployment. This removes manual steps and ensures that site updates are recorded promptly and accurately, so visitors can trust the changelog to reflect what actually changed and why it matters.",
+      "benefits": [
+        {
+          "label": "Changelog stays fresh",
+          "text": "Site updates are recorded immediately after each deploy, reducing stale or missing entries."
+        },
+        {
+          "label": "Trustable history",
+          "text": "Visitors can rely on the changelog for a clear, accurate record of changes that affect their experience."
+        },
+        {
+          "label": "Less manual friction",
+          "text": "Maintainers no longer need to manually update the changelog, lowering the risk of omissions."
+        }
+      ],
+      "commit_shas": [
+        "63ea563932c4602db635e00b04fb72e331a84e42"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-27-side-quest-pages",
       "date": "2026-07-27",
