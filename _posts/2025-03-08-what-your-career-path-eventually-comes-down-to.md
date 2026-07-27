@@ -1,7 +1,7 @@
 ---
 title: What your career path eventually comes down to
 date: 2025-03-08 00:00:00 +0530
-description: Career durability compounds when curiosity, craftsmanship, and long-term bets start mattering more than title-chasing.
+description: Career durability compounds when curiosity, craftsmanship, and long-term bets matter more than title-chasing. Here is the difference I keep seeing.
 tags:
   - career
   - strategy

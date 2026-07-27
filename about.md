@@ -1,9 +1,9 @@
 ---
 title: About
+seo_title: B2B SaaS marketer and AI consultant | Varun Choraria
 intro: Marketing operator in B2B SaaS, speaker, author, podcast host, and lifelong side-quest enthusiast.
+description: Meet Varun Choraria, a B2B SaaS marketing operator and AI consultant who turns positioning, product marketing, and growth strategy into shipped work.
 page_class: about-page
-image: /assets/images/varun-choraria-about.jpeg
-image_alt: Portrait of Varun Choraria
 mcp: true
 ---
 I'm a marketing professional and I've worked in the B2B SaaS space for about a decade now. I'm also a speaker, author, ex-host of a podcast, bodybuilder, and martial artist. I moonlight as a cat dad.

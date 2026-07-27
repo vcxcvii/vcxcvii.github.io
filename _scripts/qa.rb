@@ -84,6 +84,8 @@ def design_guardrails
   errs << "SEO: robots metadata missing" unless head.include?('name="robots"') && head.include?("page.noindex")
   errs << "SEO: RSS autodiscovery missing" unless head.include?('type="application/atom+xml"')
   errs << "SEO: favicon URL must remain stable between builds" if head.lines.grep(/rel="(?:apple-touch-)?icon"/).any? { |line| line.include?("asset_version") }
+  errs << "Security: production CSP must not permit localhost sockets" if head.include?("ws://localhost")
+  errs << "Performance: homepage LCP image preload missing" unless head.include?('rel="preload" as="image"') && head.include?("hero-photo.jpg")
 
   schema = read_file("_includes/seo-schema.html")
   %w[Person WebSite ProfilePage CollectionPage WebPage].each do |type|
@@ -155,6 +157,8 @@ def design_guardrails
   %w[Work Read AI Site Ask].each do |heading|
     errs << "Design: footer section '#{heading}' missing" unless footer.include?(%{class="footer-heading">#{heading}</p>})
   end
+  errs << "Trust: footer contact link missing" unless footer.include?("'/contact/' | relative_url")
+  errs << "Trust: footer privacy link missing" unless footer.include?("'/privacy/' | relative_url")
 
   entry = read_file("_layouts/entry.html")
   related_rows_match_archive = entry.include?('<li class="essay-row">') && entry.include?('post.date | date: "%d %b"')
@@ -162,6 +166,21 @@ def design_guardrails
   errs << "SEO: essay author byline missing" unless entry.include?('rel="author"') && entry.include?("Varun Choraria")
   article_image = entry.include?("article_image_path") && entry.include?("assets/images/varun-choraria-about.jpeg") && entry.include?('"image":')
   errs << "SEO: BlogPosting image and fallback missing" unless article_image
+  valid_publisher = entry.include?('"publisher": {') &&
+                    entry.include?('"name": "Varun Choraria"') &&
+                    entry.include?('"logo": {')
+  errs << "SEO: BlogPosting publisher name and logo missing" unless valid_publisher
+
+  %w[contact.md privacy.md].each do |path|
+    errs << "Trust: #{path} missing" unless File.exist?(path)
+  end
+
+  hunting = read_file("_posts/2026-07-24-hunting-season-for-the-rest-of-us.md")
+  hunting_images = hunting.scan(/<img[^>]+hunting-season-[^>]+>/)
+  complete_hunting_images = hunting_images.size == 6 &&
+                            hunting_images.all? { |image| image.include?('width="') && image.include?('height="') } &&
+                            hunting_images.drop(1).all? { |image| image.include?('loading="lazy"') }
+  errs << "Performance: hunting-season images need dimensions and below-fold lazy loading" unless complete_hunting_images
 
   repo_list = read_file("_includes/repo-list.html")
   errs << "Design: side-quest rows must use destination-appropriate marks" unless repo_list.include?("logo.html name=quest.icon")
@@ -180,11 +199,10 @@ def design_guardrails
   errs << "Content: Grow & Close project data missing or incomplete" unless valid_grow_and_close
   lazarus_pit = quest_data.find { |quest| quest["name"] == "Lazarus Pit" }
   valid_lazarus_pit = lazarus_pit &&
-                      lazarus_pit["state"] == "Public" &&
-                      lazarus_pit["icon"] == "github" &&
-                      lazarus_pit["link"] == "https://github.com/vcxcvii/lazarus-pit" &&
-                      lazarus_pit["featured"] == true
-  errs << "Content: Lazarus Pit must link to GitHub with the GitHub icon" unless valid_lazarus_pit
+                      lazarus_pit["state"] == "Private" &&
+                      !lazarus_pit["link"] &&
+                      !lazarus_pit["featured"]
+  errs << "Content: private Lazarus Pit must not expose an inaccessible link" unless valid_lazarus_pit
   invalid_featured_quests = quest_data.select do |quest|
     quest["featured"] == true && (!quest["link"] || !quest["icon"])
   end
@@ -302,7 +320,8 @@ content_files.each do |path|
   end
 
   # ── Design compliance ────────────────────────────────────────────────
-  if fm.key?("layout") && !VALID_LAYOUTS.include?(fm["layout"].to_s)
+  raw_html_document = fm["layout"].nil? && body.lstrip.start_with?("<!doctype html>")
+  if fm.key?("layout") && !raw_html_document && !VALID_LAYOUTS.include?(fm["layout"].to_s)
     warns << "Design: unknown layout '#{fm['layout']}'"
   end
 

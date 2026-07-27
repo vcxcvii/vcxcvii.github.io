@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Work
+seo_title: B2B SaaS marketing work | Varun Choraria
 intro: Roles, responsibilities, and selected consulting work.
+description: See Varun Choraria's B2B SaaS marketing work across pipeline, positioning, product marketing, AI systems, category creation, and consulting outcomes.
 page_class: work-page
 mcp: true
 ---

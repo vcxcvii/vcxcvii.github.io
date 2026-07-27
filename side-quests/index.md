@@ -1,7 +1,9 @@
 ---
 layout: side-quests
 title: Side Quests
+seo_title: Open-source AI side quests | Varun Choraria
 intro: "Projects, tools, and rabbit holes. Most started as weekend curiosity. A few became things I use every day."
+description: Explore open-source AI skills, interview research tools, design systems, and experiments I built to make useful work faster, clearer, and easier to repeat.
 mcp: true
 ---
 
@@ -28,7 +30,7 @@ mcp: true
             {% endif %}
             <span class="quest-state">{{ quest.state }}</span>
           </div>
-          <p>{{ quest.description }}{% if quest.repo_url and quest.link %}{% unless quest.link contains 'http' %} <a href="{{ quest.repo_url }}" target="_blank" rel="noopener noreferrer">code</a>{% endunless %}{% endif %}</p>
+          <p>{{ quest.description }}{% if quest.repo_url and quest.link %}{% unless quest.link contains 'http' %} <a href="{{ quest.repo_url }}" target="_blank" rel="noopener noreferrer">{{ quest.name }} source code</a>{% endunless %}{% endif %}</p>
         </li>
       {% endfor %}
     </ul>

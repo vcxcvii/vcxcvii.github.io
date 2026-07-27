@@ -3,7 +3,7 @@ layout: default
 ---
 {% assign grow_and_close = site.data.quests | where: "id", "grow-and-close" | first %}
 <header class="home-intro">
-  <img class="home-portrait" src="{{ '/assets/images/hero-photo.jpg' | relative_url }}" alt="Portrait of Varun Choraria" width="168" height="168" decoding="async">
+  <img class="home-portrait" src="{{ '/assets/images/hero-photo.jpg' | relative_url }}" alt="Portrait of Varun Choraria" width="168" height="168" decoding="async" fetchpriority="high">
   <div class="home-intro-copy">
     <h1>Hi, I'm Varun Choraria.</h1>
     <p>VC for short. I'm a B2B SaaS marketing operator in Bangalore, India. For about a decade I've built pipeline, positioning, and product marketing at <a href="{{ '/work/' | relative_url }}">Freshworks, Vymo, and GTM Buddy</a>, and I now do that work as a <a href="{{ '/consulting/' | relative_url }}">consultant</a> through <a href="{{ grow_and_close.link }}" target="_blank" rel="noopener noreferrer">{{ grow_and_close.name }}</a>, a {{ grow_and_close.description | replace: 'Senior-led', 'senior-led' }}</p>

@@ -1,5 +1,6 @@
 ---
 title: Who owns what?
+seo_title: Who owns what between humans and AI? | Varun Choraria
 date: 2026-05-17 00:00:00 +0530
 description: "Who owns what between humans and AI? Use this framework to assign work by context, judgment, ownership, and metrics, then keep the boundary current."
 tags:

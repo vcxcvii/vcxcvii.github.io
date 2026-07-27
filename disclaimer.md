@@ -1,5 +1,6 @@
 ---
 title: Disclaimer
+seo_title: Website disclaimer and terms | Varun Choraria
 intro: Because the world takes things too literally these days
 description: Website disclaimer covering personal views, external links, accuracy, and the informational nature of Varun Choraria's essays and notes.
 mcp: true
@@ -34,4 +35,4 @@ This website uses Microsoft Clarity to understand how visitors use and interact 
 
 ### Contact Information
 
-If you have any questions about this disclaimer, please contact me through the appropriate channels provided on this website.
+If you have questions about this disclaimer, use the options on the [contact page](/contact/). For details about analytics, cookies, and the services that process site data, read the [privacy page](/privacy/).

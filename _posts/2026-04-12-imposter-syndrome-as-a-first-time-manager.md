@@ -111,13 +111,13 @@ The marketing team works out of GitHub. We forked skills from marketing-skills.c
 
 You don't necessarily have to start from scratch every time.
 
-<img src="/assets/images/posts/skills-repository-readme.png" alt="GTM Buddy marketing skills repository README overview" width="1800" height="1418" loading="lazy">
+<img src="/assets/images/posts/skills-repository-readme.webp" alt="GTM Buddy marketing skills repository README overview" width="1800" height="1418" loading="lazy" decoding="async">
 
-<img src="/assets/images/posts/skills-taxonomy.png" alt="Skills taxonomy overview — how all skills relate to the shared product-marketing-context foundation" width="1744" height="878" loading="lazy">
+<img src="/assets/images/posts/skills-taxonomy.webp" alt="Skills taxonomy overview — how all skills relate to the shared product-marketing-context foundation" width="1744" height="878" loading="lazy" decoding="async">
 
-<img src="/assets/images/posts/skills-shared-context.png" alt="Shared context files read by every skill automatically" width="1762" height="1228" loading="lazy">
+<img src="/assets/images/posts/skills-shared-context.webp" alt="Shared context files read by every skill automatically" width="1762" height="1228" loading="lazy" decoding="async">
 
-<img src="/assets/images/posts/skills-cro.png" alt="CRO skills in the repository — page-cro, form-cro, signup-flow-cro, and more" width="1818" height="1460" loading="lazy">
+<img src="/assets/images/posts/skills-cro.webp" alt="CRO skills in the repository — page-cro, form-cro, signup-flow-cro, and more" width="1818" height="1460" loading="lazy" decoding="async">
 
 I constantly maintain this repository and ship skill and workflow updates every week. I also do a virtual lunch-and-learn with the team on how I'm using it, and how I would if I were in their seat.
 
@@ -129,7 +129,7 @@ We use SwanAI for automating GTM workflows from Slack — deanonymizing website 
 
 <img src="/assets/images/posts/swanai-cadence.png" alt="SwanAI — Tiered Cadence & Speed Matching workflow" width="1874" height="682" loading="lazy">
 
-<img src="/assets/images/posts/swanai-workflows.png" alt="SwanAI — GTM playbooks running from Slack" width="2406" height="914" loading="lazy">
+<img src="/assets/images/posts/swanai-workflows.webp" alt="SwanAI — GTM playbooks running from Slack" width="2406" height="914" loading="lazy" decoding="async">
 
 ---
 

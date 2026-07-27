@@ -13,7 +13,7 @@ Let's break down the difference, why it matters, and how to leverage both to clo
 
 ---
 
-### The critical difference between problems and pain
+## The critical difference between problems and pain
 
 At first glance, problems and pains seem identical. They're not.
 
@@ -28,7 +28,7 @@ Problems are macro. Pains are micro. Problems are logical. Pains are human.
 
 ---
 
-### The science of pain: It's not just physical
+## The science of pain: It's not just physical
 
 Pain is multidimensional. The [bio-psycho-social model](https://europeanpainfederation.eu/what-is-the-bio-psycho-social-model-of-pain/) explains it as a mix of:
 
@@ -40,11 +40,11 @@ In business, pain is **the intersection of a problem and a person**. The same pr
 
 ---
 
-### Why sales teams fail when they ignore pains
+## Why sales teams fail when they ignore pains
 
 Focusing only on solving problems leads to generic pitches. But when you address pains, you resonate emotionally. Let's dissect an example.
 
-#### Problem: "We need a CRM."
+### Problem: "We need a CRM."
 
 Pains vary by role:
 
@@ -70,7 +70,7 @@ If your CRM pitch only highlights tracking prospects, you'll miss the mark. But 
 
 ---
 
-### How to uncover pains, not just problems
+## How to uncover pains, not just problems
 
 1. **Ask "why" repeatedly**
    - _Problem:_ "We need better pipeline visibility."

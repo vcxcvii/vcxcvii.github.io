@@ -4,6 +4,7 @@ date: 2026-07-24 00:00:00 +0530
 redirect_from:
   - /hunting-season-2026/
 description: "A free AI-assisted interview war room: company research, industry primers, live voice mocks, and the workflow I use to show up sharper."
+preload_image: /assets/images/posts/hunting-season-1-hub.webp
 last_modified_at: 2026-07-27 00:00:00 +0530
 tags:
   - career
@@ -30,7 +31,7 @@ It's a static site. Forty HTML pages sitting in a folder on my desktop, no hosti
 
 Screenshots below are anonymized prototypes. I'm mid-process with these companies and publicly dissecting your potential employer is an excellent way to stop being mid-process. The blue callouts are notes on why each piece exists.
 
-<a href="/assets/images/posts/hunting-season-1-hub@2x.png"><img src="/assets/images/posts/hunting-season-1-hub.png" alt="The war room hub"></a>
+<a href="/assets/images/posts/hunting-season-1-hub.webp"><img src="/assets/images/posts/hunting-season-1-hub.webp" alt="The war room hub" width="1400" height="1249" fetchpriority="high" decoding="async"></a>
 
 Here's the folder, roughly:
 
@@ -65,7 +66,7 @@ The version history, since the failures are more useful than the final state:
 
 Same lesson as [designing without AI slop](https://www.varunchoraria.com/how-to-design-without-ai-slop/). The model will generate all of this happily. Deciding what belongs on which page is still your job and it is most of the work.
 
-<a href="/assets/images/posts/hunting-season-2-overview@2x.png"><img src="/assets/images/posts/hunting-season-2-overview.png" alt="Company overview page"></a>
+<a href="/assets/images/posts/hunting-season-2-overview.webp"><img src="/assets/images/posts/hunting-season-2-overview.webp" alt="Company overview page" width="1400" height="1116" loading="lazy" decoding="async"></a>
 
 Three things on the overview page do the real work, and you can build all three in a Google Doc in an hour. The rest of the site is convenience.
 
@@ -83,7 +84,7 @@ The **101** is the industry from zero, written as a story. Why does this thing e
 
 The **201** is what makes you sound like you've been in the room before: the debates practitioners genuinely argue about, the unit economics, twenty years of history compressed into four acts, and a day in the life of the person who signs the cheque.
 
-<a href="/assets/images/posts/hunting-season-3-learn101@2x.png"><img src="/assets/images/posts/hunting-season-3-learn101.png" alt="The 101 primer"></a>
+<a href="/assets/images/posts/hunting-season-3-learn101.webp"><img src="/assets/images/posts/hunting-season-3-learn101.webp" alt="The 101 primer" width="1400" height="854" loading="lazy" decoding="async"></a>
 
 Here's the difference in practice. Vocabulary-level prep gets you: "they've shipped an autonomous agent for the part of the workflow humans always did by hand." The 201 version gets you: that was never a capability problem, it was a unit-economics problem. The buyer always had the upper hand in those transactions. Actually using it cost more in analyst hours than it saved, so for about thirty years nobody bothered. Agents collapse the cost of paying attention, which is what finally makes the leverage worth exercising.
 
@@ -117,7 +118,7 @@ Everything in the war room carries a hyperlink and a date. Four research moves p
 
 **Audit their content like you already own it.** Every site has a public sitemap at `sitename.com/sitemap.xml`. Pull it, classify the posts by buying intent, chart the result. One company I looked at publishes several times more content than its loudest rival and roughly 70% of it is top-of-funnel fluff. That became a chart and a first-90-days recommendation. Nobody expects a candidate to walk in with the content audit already done, which is exactly why it works.
 
-<a href="/assets/images/posts/hunting-season-4-competition@2x.png"><img src="/assets/images/posts/hunting-season-4-competition.png" alt="The sitemap audit"></a>
+<a href="/assets/images/posts/hunting-season-4-competition.webp"><img src="/assets/images/posts/hunting-season-4-competition.webp" alt="The sitemap audit" width="1400" height="884" loading="lazy" decoding="async"></a>
 
 **Mine both kinds of reviews.** G2 and Gartner Peer Insights tell you what customers think versus what the homepage claims. Employee review sites tell you what you're walking into. One company in my pipeline sits under 3 out of 5 across several hundred employee reviews, with the same complaint about pay after promotion showing up over and over. That didn't kill my interest in the role. It set my posture for the conversation about money, which is research doing a job that has nothing to do with answering their questions.
 
@@ -150,13 +151,13 @@ Rules:
 
 Two honest caveats. This simulates the archetype, not the person. You're practising against what someone with that job and those published opinions tends to value and push on, and a revenue-minded CSO does push differently than a brand-minded CMO. And you have to do it out loud. In voice mode. The entire finding is the gap between how good your answer looks written down and how it sounds coming out of your face.
 
-<a href="/assets/images/posts/hunting-season-6-rubric@2x.png"><img src="/assets/images/posts/hunting-season-6-rubric.png" alt="The rubric report"></a>
+<a href="/assets/images/posts/hunting-season-6-rubric.webp"><img src="/assets/images/posts/hunting-season-6-rubric.webp" alt="The rubric report" width="1400" height="817" loading="lazy" decoding="async"></a>
 
 The rubric is what turns this from a novelty into training, because reps without feedback are just rehearsing your mistakes with extra steps. Across three attempts my filler words went from 14 to 6. More useful than that, the pushback score taught me something no [communication listicle](https://www.varunchoraria.com/6-pro-tips-on-communication-thats-sure-to-get-you-promoted/) ever managed to make stick: agree with whatever is true in the objection before you start defending. The rubric caught me skipping that. Twice.
 
 Every question I fumble goes into an objection bank with a written answer, so the same punch doesn't land twice.
 
-<a href="/assets/images/posts/hunting-season-5-objections@2x.png"><img src="/assets/images/posts/hunting-season-5-objections.png" alt="The objection bank"></a>
+<a href="/assets/images/posts/hunting-season-5-objections.webp"><img src="/assets/images/posts/hunting-season-5-objections.webp" alt="The objection bank" width="1400" height="1202" loading="lazy" decoding="async"></a>
 
 Build yours with one prompt: "here's my resume and the JD, list the 10 hardest objections an interviewer would have about me, what each one is really assessing, and draft my answer." Then rewrite every answer in your own words, because a script you didn't write is audible from space.
 

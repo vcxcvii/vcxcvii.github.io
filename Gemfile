@@ -8,5 +8,6 @@ gem "jekyll-feed"
 gem "jekyll-redirect-from"
 
 group :development do
+  gem "bundler-audit", require: false
   gem "webrick", "~> 1.8"
 end

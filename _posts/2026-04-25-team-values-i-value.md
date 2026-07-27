@@ -1,5 +1,6 @@
 ---
 title: Team values I value
+seo_title: Team values for human and AI operators | Varun Choraria
 date: 2026-04-25 00:00:00 +0530
 description: Management in the agentic era needs fewer routers and more operators. These are the values I expect from teams working with people and AI agents.
 tags:
@@ -70,7 +71,7 @@ To me, this simply means two things: following up and following through. The way
 
 Accountability is not a task list and blind update-sharing. Success is a collective responsibility. Here's what it means in my books:
 
-1. What is your say/do ratio? [I wrote about it here](https://www.varunchoraria.com/ive-been-trying-to-get-lucky-for-a-decade/) as well. This is disproportionately important in my team.
+1. What is your say/do ratio? [I wrote about why consistency compounds](/ive-been-trying-to-get-lucky-for-a-decade/) as well. This is disproportionately important in my team.
 
 2. How proactively can you manage stakeholders? In my opinion, managing stakeholders is not rocket science. It's a simple recipe of an email trail, removing blockers, tactfully enabling people, and knowing when and what to escalate. I always encourage my team to work with a mindset of making your stakeholder's job easier from day zero, without expectations. Send them templates, content, and anything else that's needed without even asking. Proactively and periodically ask them for blockers. No one ever opens up about it without a nudge.
 
@@ -86,7 +87,7 @@ I would've called this "work ethic" in 2025, but in the agentic era, it's a rebr
 
 2. How ambitious are you? It's one thing to scrape a prospect list, another to tier and score it, identify buying committees, categorize them into what funnel they need to go into, and then build a personalized, automated engine that runs on its own. The human-in-the-loop aspect needs to be minimal, and on a cadence.
 
-3. Do you know your customers' pains and problems? [I wrote about it here](https://www.varunchoraria.com/problems-tell-you-what-to-fix-pain-points-tell-you-why-it-matters/) and it's mission-critical for success. It gets you respect super quick across functions too. Knowing your customer well, and how their needs are evolving, is foundational to understanding why you choose to optimize for a certain north star metric. If prospects and customers are finding it hard to buy from you easily, there's no point in losing sleep over site impressions.
+3. Do you know your customers' pains and problems? [I wrote about the difference between them](/problems-tell-you-what-to-fix-pain-points-tell-you-why-it-matters/) and it's mission-critical for success. It gets you respect super quick across functions too. Knowing your customer well, and how their needs are evolving, is foundational to understanding why you choose to optimize for a certain north star metric. If prospects and customers are finding it hard to buy from you easily, there's no point in losing sleep over site impressions.
 
 4. Are you tied at the hip? 11/10 teams work in silos. Even in the same team, one does not know what the other is up to. Over my career, I've seen this quickly evaporate all remaining empathy. Secondly, I'm a huge fan of [theory of constraints](https://en.wikipedia.org/wiki/Theory_of_constraints), and it is the single mental model I use to solve any personal or business problem. As a manager, I intentionally ensure cross-pollination by getting individuals with complementary skill sets to team up and own an outcome. It's always a driver-copilot model in every team, but no more than 2-3 folks per project. Beyond that, mimetic thinking and herd mentality set in.
 

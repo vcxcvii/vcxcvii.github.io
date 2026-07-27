@@ -1,6 +1,8 @@
 ---
 title: Uses This
+seo_title: Tools and gear I use | Varun Choraria
 intro: A running list of the hardware, software, and everyday gear I rely on.
+description: The hardware, software, AI tools, books, and everyday gear I actually use, including what earns its place and what has not lived up to the hype.
 permalink: /uses-this/
 page_class: uses-page
 mcp: true

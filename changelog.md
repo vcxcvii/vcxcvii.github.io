@@ -14,7 +14,7 @@ This is not a mirror of the Git history. A renamed file is not an update. Neithe
 The entries below keep the consequence and drop the maintenance log.
 
 {% for update in site.data.site_updates.updates %}
-### {{ update.date | date: "%-d %B %Y" }}
+## {{ update.date | date: "%-d %B %Y" }}
 
 **{{ update.title }}**
 

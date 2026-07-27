@@ -1,5 +1,6 @@
 ---
 title: "How to design without AI Slop"
+seo_title: How to design without generic AI slop | Varun Choraria
 date: 2026-07-08 00:00:00 +0530
 description: "Killing generic AI-slop design isn't a prompt problem. Curate taste like a swipe file, then encode it as guardrails a pre-push gate actually enforces."
 tags:
@@ -25,15 +26,15 @@ That's the whole trick. You are what you admire, and so is an LLM. Feed it slop 
 
 I redesigned this site this week ([here's the changelog](https://www.varunchoraria.com/changelog/)). The old version was a busy, sidebar-heavy blog with a blue gradient and a nudge toast. I wanted something quieter and more modern. Before, and after:
 
-<img src="/assets/images/posts/slop-before-old-site.png" alt="The old varunchoraria.com: a blue gradient header, three-ish column layout with a right sidebar, and an MCP nudge toast" width="2940" height="1594" loading="lazy">
+<img src="/assets/images/posts/slop-before-old-site.webp" alt="The old varunchoraria.com: a blue gradient header, three-ish column layout with a right sidebar, and an MCP nudge toast" width="2940" height="1594" loading="lazy" decoding="async">
 
-<img src="/assets/images/posts/slop-after-monochrome.png" alt="The redesigned varunchoraria.com: a single centered column, strict monochrome zinc palette, and quiet typography-first chrome" width="2880" height="1800" loading="lazy">
+<img src="/assets/images/posts/slop-after-monochrome.webp" alt="The redesigned varunchoraria.com: a single centered column, strict monochrome zinc palette, and quiet typography-first chrome" width="2880" height="1800" loading="lazy" decoding="async">
 
 Here's the exact process, and one you can copy.
 
 **Spin up Claude and switch to the best model.** If you can't stretch to Claude Pro, or you'd rather run something like [opencode](https://opencode.ai/), point it at my repo, [michealangelo](https://github.com/vcxcvii/michealangelo). It's a skill pack you install *alongside* your agent, not a replacement for it. It encodes UI/UX principles, web guidelines, and design psychology into guardrails, plus a design and animation vocabulary so you can give precise feedback ("the easing feels mechanical") instead of vague feedback ("make it nicer").
 
-<img src="/assets/images/posts/slop-design-vocabulary.png" alt="An opencode session using the design-vocabulary skill: it rewrites a vague 'make the button look nicer, friendlier blue, smoother animation' request into precise values like font-weight 500, border-radius 8px, bg-blue-500 for WCAG contrast, and a 200ms ease-out transition" width="2048" height="1508" loading="lazy">
+<img src="/assets/images/posts/slop-design-vocabulary.webp" alt="An opencode session using the design-vocabulary skill: it rewrites a vague 'make the button look nicer, friendlier blue, smoother animation' request into precise values like font-weight 500, border-radius 8px, bg-blue-500 for WCAG contrast, and a 200ms ease-out transition" width="2048" height="1508" loading="lazy" decoding="async">
 
 **Treat it like a senior designer, not a pair of hands.** A senior designer doesn't push pixels all day. They exercise taste and judgement and direct the execution. Talk to the model that way.
 
@@ -41,7 +42,7 @@ Here's the exact process, and one you can copy.
 
 **Get a written brief before anyone touches code.** Ask Claude to generate a detailed design brief for whichever model will execute (I targeted Codex, then Claude Code). Annotating a live preview burns tokens fast. A brief is cheaper, and it travels between tools.
 
-<img src="/assets/images/posts/slop-design-brief.png" alt="Claude generating a machine-readable spec for Codex: a mobile-first dark-mode and hero brief with problem, required change, judgement calls, fallbacks, and acceptance criteria" width="2390" height="1566" loading="lazy">
+<img src="/assets/images/posts/slop-design-brief.webp" alt="Claude generating a machine-readable spec for Codex: a mobile-first dark-mode and hero brief with problem, required change, judgement calls, fallbacks, and acceptance criteria" width="2390" height="1566" loading="lazy" decoding="async">
 
 **Execute in the CLI.** I use Claude Code partly because [caveman ultra](https://github.com/JuliusBrussee/caveman) cuts token spend by roughly 65% (measured) per session. Pick a mid-tier model on medium effort to execute, and save the frontier model for the thinking. Ship it for free on GitHub Pages, or on Vercel.
 
@@ -49,7 +50,7 @@ Here's the exact process, and one you can copy.
 
 **Watch your spend.** Something like [CodexBar](https://github.com/steipete/CodexBar) keeps token usage visible. This whole update, adding an "ask any AI about me" band and restoring my RSS feed to the nav, cost about 19% of a single session.
 
-<img src="/assets/images/posts/slop-codexbar.png" alt="CodexBar menu-bar app showing session usage at 19% for the current update" width="694" height="1716" loading="lazy">
+<img src="/assets/images/posts/slop-codexbar.webp" alt="CodexBar menu-bar app showing session usage at 19% for the current update" width="694" height="1716" loading="lazy" decoding="async">
 
 **For feedback, render locally.** Ask the agent to serve it on localhost. Want to compare versions? Spin up a few ports at once (I ran 4001, 4002, and 4003 side by side: ancient, colored, and the new monochrome build). Giving feedback is easy: just paste screenshots back.
 
