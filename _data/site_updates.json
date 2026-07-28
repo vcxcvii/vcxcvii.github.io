@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "2335a5e75afe30a2a6fe6aa08dec966406031313",
-  "updated_at": "2026-07-27",
+  "last_processed_commit": "28824552c4b701f2db703d183c1d0dd11b82a870",
+  "updated_at": "2026-07-28",
   "updates": [
+    {
+      "id": "2026-07-28-2882455",
+      "date": "2026-07-28",
+      "title": "Private side quests now have public landing pages and clear labels",
+      "summary": "Lazarus Pit, previously undocumented, now has a landing page explaining its self-healing UX agent, pipeline, and public issue output. All side quests are labelled Public or Private everywhere, so visitors can tell which projects are accessible and which are documented but not open source. Private quests link only to on-site pages, never to inaccessible repositories.",
+      "benefits": [
+        {
+          "label": "Find hidden projects",
+          "text": "Lazarus Pit is now documented with a clear explanation and public output links."
+        },
+        {
+          "label": "Know project access",
+          "text": "Every side quest is labelled Public or Private on both the homepage and side-quests page."
+        },
+        {
+          "label": "Avoid dead links",
+          "text": "Private projects link only to their landing pages, not to inaccessible repositories."
+        }
+      ],
+      "commit_shas": [
+        "28824552c4b701f2db703d183c1d0dd11b82a870"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-27-c3c1183-2",
       "date": "2026-07-27",
