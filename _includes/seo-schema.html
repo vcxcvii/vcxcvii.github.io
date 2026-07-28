@@ -81,13 +81,14 @@
       "featureList": [
         {% for feature in page.feature_list %}{{ feature | jsonify }}{% unless forloop.last %},{% endunless %}
         {% endfor %}
-      ]{% endif %},
+      ]{% endif %}{% if page.state == 'Private' %},
+      "isAccessibleForFree": false{% else %},
       "isAccessibleForFree": true,
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      }{% if page.license %},
+      }{% endif %}{% if page.license %},
       "license": {{ page.license | jsonify }}{% endif %}{% if page.repo_url %},
       "codeRepository": {{ page.repo_url | jsonify }}{% endif %}{% if page.version %},
       "softwareVersion": {{ page.version | jsonify }}{% endif %}

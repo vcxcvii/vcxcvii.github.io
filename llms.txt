@@ -27,11 +27,13 @@ Varun Choraria is a B2B SaaS marketing consultant with about a decade of experie
 
 ## Side Projects
 
-- [/side-quests/](/side-quests/): public projects, tools, and experiments
+- [/side-quests/](/side-quests/): projects, tools, and experiments, each labelled Public or Private
 - Open source, free to use:
   - **interview-recon** (https://github.com/vcxcvii/interview-recon): turns an AI coding agent into an interview research analyst
   - **master-shifu** (https://github.com/vcxcvii/master-shifu): 32 consulting frameworks from 19 MBA casebooks as agent commands
   - **michealangelo** (https://github.com/vcxcvii/michealangelo): self-improving design-system skills for AI coding agents
+- Private, documented publicly:
+  - [/side-quests/lazarus-pit/](/side-quests/lazarus-pit/): **lazarus-pit**, a self-healing UX agent that reads Microsoft Clarity data and files fix proposals as GitHub issues on this site
 
 ## Beyond Work
 

@@ -42,7 +42,7 @@
 
 - name: VC's Notes
   group: Personal
-  state: Live
+  state: Public
   icon: github
   link: https://github.com/vcxcvii/vcxcvii.github.io
   description: This lightweight Jekyll publication about AI, GTM, management, careers, and side quests.
@@ -56,7 +56,7 @@
 
 - name: MCP server
   group: Personal
-  state: Live
+  state: Public
   icon: mcp
   link: /mcp/
   description: Lets MCP-compatible AI clients read this site's current posts and pages directly.
@@ -64,21 +64,24 @@
 - name: Lazarus Pit
   group: Experiments
   state: Private
+  icon: github
+  link: /side-quests/lazarus-pit/
   repo: lazarus-pit
   changelog_include: "src/,.github/workflows/,package.json"
-  description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes.
+  featured: true
+  description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes as GitHub issues on this site.
 
 - name: GTM Buddy Marketing Skills
   group: Work
-  state: Internal
+  state: Private
   description: Shared marketing skills and context for consistent SEO, CRO, copy, ads, analytics, email, and research work.
 
 - name: GTM Buddy Design and Engineering
   group: Work
-  state: Internal
+  state: Private
   description: Reusable agent workspace for building, testing, and shipping responsive GTM Buddy web pages.
 
 - name: GTM Skills (SDR)
   group: Work
-  state: Internal
+  state: Private
   description: Routed SDR skills for cold calls, LinkedIn messages, email sequences, and competitive displacement.

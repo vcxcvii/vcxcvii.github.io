@@ -200,9 +200,9 @@ def design_guardrails
   lazarus_pit = quest_data.find { |quest| quest["name"] == "Lazarus Pit" }
   valid_lazarus_pit = lazarus_pit &&
                       lazarus_pit["state"] == "Private" &&
-                      !lazarus_pit["link"] &&
-                      !lazarus_pit["featured"]
-  errs << "Content: private Lazarus Pit must not expose an inaccessible link" unless valid_lazarus_pit
+                      lazarus_pit["link"] == "/side-quests/lazarus-pit/" &&
+                      !lazarus_pit["repo_url"]
+  errs << "Content: private Lazarus Pit must point at its own landing page, not a private repository" unless valid_lazarus_pit
   invalid_featured_quests = quest_data.select do |quest|
     quest["featured"] == true && (!quest["link"] || !quest["icon"])
   end
@@ -211,8 +211,12 @@ def design_guardrails
   quest_names = quest_data.map { |quest| quest["name"] }
   missing_quests = required_quests - quest_names
   errs << "Content: side-quest directory missing #{missing_quests.join(', ')}" unless missing_quests.empty?
-  linked_private_quests = quest_data.select { |quest| quest["state"] == "Private" && quest["link"] }
-  errs << "Content: private side quests must not expose inaccessible links" unless linked_private_quests.empty?
+  linked_private_quests = quest_data.select do |quest|
+    quest["state"] == "Private" && (quest["link"].to_s.include?("http") || quest["repo_url"])
+  end
+  errs << "Content: private side quests may only link to an on-site landing page: #{linked_private_quests.map { |quest| quest["name"] }.join(', ')}" unless linked_private_quests.empty?
+  unlabelled_quests = quest_data.reject { |quest| ["Public", "Private"].include?(quest["state"]) }
+  errs << "Content: every side quest needs a Public or Private label: #{unlabelled_quests.map { |quest| quest["name"] }.join(', ')}" unless unlabelled_quests.empty?
 
   errs
 end
