@@ -1,7 +1,72 @@
 {
-  "last_processed_commit": "28824552c4b701f2db703d183c1d0dd11b82a870",
-  "updated_at": "2026-07-28",
+  "last_processed_commit": "f512e00e977f22d0f7d52c4754efbe854c20ea81",
+  "updated_at": "2026-07-29",
   "updates": [
+    {
+      "id": "2026-07-29-9436b76",
+      "date": "2026-07-29",
+      "title": "Consulting now explains solo, AI-native work under one page",
+      "summary": "The consulting section now merges all previous service pages into a single, clearly positioned offering. The site drops references to Grow & Close and clarifies that consulting is solo and AI-native, with strategy and execution handled by one person. This helps visitors understand the engagement shape and find the right page without guessing between options.",
+      "benefits": [
+        {
+          "label": "Find the right page",
+          "text": "Consulting, product marketing, and AI marketing now live under one URL with redirects from the old pages."
+        },
+        {
+          "label": "Clear engagement shape",
+          "text": "The site explains that consulting is solo and agentic, not an agency or studio."
+        },
+        {
+          "label": "Footer stays simple",
+          "text": "Footer links now point only to consulting, work, and booking a call, reducing confusion."
+        }
+      ],
+      "commit_shas": [
+        "7771e5d599b2c02b4bb659387ba43b3db3d02cc8",
+        "9436b76574e0f7657d008909bac4161874839b48"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
+    {
+      "id": "2026-07-29-0e111fa",
+      "date": "2026-07-29",
+      "title": "MCP feed now exposes readable page slugs and listing content",
+      "summary": "The site’s API feed now uses readable page slugs and names the homepage 'home'. Listing pages like blog and tag archives now expose their intros and post lists, so AI clients and tools can read and summarize them. This prevents empty content and makes navigation and discovery easier for machine readers.",
+      "benefits": [
+        {
+          "label": "Machine-readable navigation",
+          "text": "Home, blog, and tag pages now have clear slugs and content for AI clients."
+        },
+        {
+          "label": "Listing content included",
+          "text": "Listing pages expose intros and post summaries instead of empty bodies."
+        }
+      ],
+      "commit_shas": [
+        "0e111fa04e901644e3a029660932c4ed87c4da56"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
+    {
+      "id": "2026-07-29-4d72a72",
+      "date": "2026-07-29",
+      "title": "Consultation booking intent tracked as a key event",
+      "summary": "Booking a consultation via Cal.com now triggers a stable custom event in Google Analytics. This lets site owners reliably measure consultation intent and treat it as a key event, improving insight into visitor actions without affecting site performance or usability.",
+      "benefits": [
+        {
+          "label": "Reliable analytics",
+          "text": "Cal.com booking clicks are tracked with a dedicated event name for consultation intent."
+        },
+        {
+          "label": "QA coverage",
+          "text": "Site QA checks that booking events are emitted, preventing silent analytics failures."
+        }
+      ],
+      "commit_shas": [
+        "4d72a721a201164a09f7669a468ceb9520a87a66"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-28-2882455",
       "date": "2026-07-28",
