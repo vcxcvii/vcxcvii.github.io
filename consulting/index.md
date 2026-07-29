@@ -2,7 +2,7 @@
 layout: page
 title: Consulting
 seo_title: AI-Native B2B SaaS Marketing Consultant | Varun Choraria
-description: Solo, AI-native B2B SaaS marketing consulting. Positioning, product marketing, pipeline plans, launches, sales enablement, and marketing systems built with agents.
+description: Solo, AI-native B2B SaaS marketing consulting. Positioning, product marketing, pipeline plans, launches, sales enablement, and systems built with agents.
 last_modified_at: 2026-07-29
 intro: I help B2B SaaS companies decide what marketing should do next, ship the work, and measure the result in pipeline, revenue, or another business outcome.
 service: true

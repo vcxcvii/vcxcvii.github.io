@@ -122,11 +122,6 @@ def design_guardrails
   calendar_line = home.lines.find { |line| line.include?("https://cal.com/varun-choraria/30min") }
   errs << "Design: homepage calendar link must not show an external arrow" if calendar_line&.include?("&#8599;")
   errs << "Design: homepage MCP page link missing" unless home.include?("'/mcp/' | relative_url")
-  grow_and_close_intro = home.include?('where: "id", "grow-and-close"') &&
-                         home.include?("grow_and_close.link") &&
-                         home.include?("grow_and_close.name") &&
-                         home.include?("grow_and_close.description")
-  errs << "Content: homepage Grow & Close intro missing" unless grow_and_close_intro
   errs << "Design: homepage portrait missing" unless home.include?("assets/images/hero-photo.jpg") && home.include?('width="168" height="168"')
   errs << "Design: homepage portrait must remain circular" unless css_source.include?(".home-portrait") && css_source.include?("border-radius: 50%")
   errs << "Design: homepage side-quest repositories missing" unless home.include?("include repo-list.html") && home.include?("'/side-quests/' | relative_url")
@@ -192,11 +187,6 @@ def design_guardrails
   errs << "Design: dedicated side-quest page must remain a plain directory" if side_quests.include?("<details")
 
   quest_data = File.exist?("_data/quests.yml") ? YAML.safe_load(File.read("_data/quests.yml")) : []
-  grow_and_close = quest_data.find { |quest| quest["id"] == "grow-and-close" }
-  valid_grow_and_close = grow_and_close &&
-                         grow_and_close["link"] == "https://growandclose.com/" &&
-                         grow_and_close["description"].include?("Senior-led, AI-native GTM execution studio")
-  errs << "Content: Grow & Close project data missing or incomplete" unless valid_grow_and_close
   lazarus_pit = quest_data.find { |quest| quest["name"] == "Lazarus Pit" }
   valid_lazarus_pit = lazarus_pit &&
                       lazarus_pit["state"] == "Private" &&
@@ -207,7 +197,7 @@ def design_guardrails
     quest["featured"] == true && (!quest["link"] || !quest["icon"])
   end
   errs << "Content: featured side quests require a link and icon: #{invalid_featured_quests.map { |quest| quest["name"] }.join(', ')}" unless invalid_featured_quests.empty?
-  required_quests = ["Master Shifu", "Michealangelo", "Grow & Close", "VC's Notes", "Self-updating GitHub profile", "MCP server", "Lazarus Pit", "GTM Buddy Marketing Skills", "GTM Buddy Design and Engineering", "GTM Skills (SDR)"]
+  required_quests = ["Master Shifu", "Michealangelo", "VC's Notes", "Self-updating GitHub profile", "MCP server", "Lazarus Pit", "GTM Buddy Marketing Skills", "GTM Buddy Design and Engineering", "GTM Skills (SDR)"]
   quest_names = quest_data.map { |quest| quest["name"] }
   missing_quests = required_quests - quest_names
   errs << "Content: side-quest directory missing #{missing_quests.join(', ')}" unless missing_quests.empty?
