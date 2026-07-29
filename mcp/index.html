@@ -33,7 +33,15 @@ mcp: true
       "name": "What can the AI access?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "All blog posts and notes with full text, plus site pages including About, Work history, Uses This, Side Quests, Fun, and Changelog. Six tools: get_site_info, list_posts, get_post, list_pages, get_page, and search."
+        "text": "Everything the sitemap knows about: every essay in full, plus every page including About, Work, Consulting, Speaking, Side Quests, Uses This, Changelog, and the tag archives. Six tools: get_site_info, list_posts, get_post, list_pages, get_page, and search."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it stay up to date on its own?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The server does not crawl and does not hold a copy of the site. Every publish rebuilds a feed at /api/site.json containing the full text of every post and page, and the server reads that feed live, refreshing at least every five minutes. A check in the site's build pipeline fails the deploy if any public URL is missing from the feed or exposes no content, so new pages cannot quietly go unreadable."
       }
     },
     {
@@ -106,6 +114,14 @@ mcp: true
 
 <p>This is also an experiment. I'm interested in what it looks like when a personal site becomes a first-class data source for AI agents, not just a URL to paste into a chat window.</p>
 
+<h2>How it stays current</h2>
+
+<p>There is no crawler and no copy of this site sitting in a database somewhere. Every publish rebuilds a single feed at <a href="/api/site.json">/api/site.json</a> holding the full text of every post and page, and the server reads that feed live, refreshing at least every five minutes. Publish something now and an agent can read it within the same coffee break.</p>
+
+<p>The failure mode I actually worried about was quieter: a new page that forgets to opt in, still visible to humans, invisible to agents. So the build compares the sitemap against the feed and fails the deploy if any public URL is missing or exposes no content. If you can reach a page in a browser, an AI client can read it.</p>
+
+<p>If the site is ever down, the server keeps serving its last good copy rather than erroring. <a href="https://varunchoraria-mcpvercelapp.vercel.app">Check what it currently sees</a>, including when the site was last built.</p>
+
 <h2>What the AI can access</h2>
 
 <div class="mcp-tools-grid">
@@ -123,7 +139,7 @@ mcp: true
   </div>
   <div class="mcp-tool">
     <strong>list_pages</strong>
-    <span>About, Work, Uses This, and more</span>
+    <span>About, Work, Side Quests, tags, and more</span>
   </div>
   <div class="mcp-tool">
     <strong>get_page</strong>
@@ -131,6 +147,6 @@ mcp: true
   </div>
   <div class="mcp-tool">
     <strong>search</strong>
-    <span>Keyword search across everything</span>
+    <span>Ranked full-text search with snippets</span>
   </div>
 </div>
