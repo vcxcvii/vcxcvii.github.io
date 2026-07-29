@@ -66,6 +66,10 @@ def design_guardrails
 
   github_js = "assets/js/gh-graph.js"
   errs << "Performance: #{github_js} exceeds #{GITHUB_JS_BUDGET} bytes" if File.exist?(github_js) && File.size(github_js) > GITHUB_JS_BUDGET
+  github_js_source = read_file(github_js)
+  valid_booking_event = github_js_source.include?('send("cal_booking_clicked"') &&
+                        github_js_source.include?('destination.hostname === "cal.com"')
+  errs << "Analytics: Cal.com links must emit cal_booking_clicked" unless valid_booking_event
   js_files = Dir.glob("assets/js/*.js").sort
   errs << "Cleanup: assets/js must contain only #{github_js}" unless js_files == [github_js]
 

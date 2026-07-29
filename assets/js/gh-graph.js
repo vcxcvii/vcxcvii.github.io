@@ -213,7 +213,7 @@
       link.closest(".prose") ? "body" : "other";
 
     if (destination.hostname === "cal.com") {
-      send("cta_click", {
+      send("cal_booking_clicked", {
         cta_name: "book_call",
         link_location: locationName,
         page_type: pageType

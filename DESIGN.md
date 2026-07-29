@@ -166,6 +166,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Keep homepage DOM small despite full archive.
 - Images below the fold use `loading="lazy"` and explicit dimensions.
 - Analytics may load after `window.load` during idle time. Analytics must never block rendering.
+- Cal.com links emit `cal_booking_clicked`; mark it as a GA4 key event for consultation intent.
 
 ## Repository architecture
 
