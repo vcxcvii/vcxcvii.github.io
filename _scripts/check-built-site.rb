@@ -3,6 +3,7 @@
 
 require "cgi"
 require "json"
+require "set"
 require "uri"
 
 SITE_DIR = File.expand_path("../_site", __dir__)
@@ -83,8 +84,37 @@ html_files.each do |file|
   end
 end
 
+# The MCP feed at /api/site.json is what AI clients read instead of crawling.
+# Anything public enough for the sitemap has to be readable there too, so a new
+# page that forgets `mcp: true` in its front matter fails the build rather than
+# going quietly missing.
+feed_path = File.join(SITE_DIR, "api", "site.json")
+sitemap_path = File.join(SITE_DIR, "sitemap.xml")
+
+if File.exist?(feed_path) && File.exist?(sitemap_path)
+  begin
+    feed = JSON.parse(File.read(feed_path))
+    feed_urls = (feed.fetch("posts", []) + feed.fetch("pages", [])).map { |item| item["url"].to_s.chomp("/") }.to_set
+    sitemap_urls = File.read(sitemap_path).scan(%r{<loc>(.*?)</loc>}m).flatten.map { |url| url.strip.chomp("/") }.to_set
+
+    (sitemap_urls - feed_urls).sort.each do |url|
+      errors << "api/site.json: #{url} is in the sitemap but missing from the MCP feed (add `mcp: true` to its front matter)"
+    end
+
+    (feed.fetch("posts", []) + feed.fetch("pages", [])).each do |item|
+      next unless item["content"].to_s.strip.empty?
+
+      errors << "api/site.json: #{item["url"]} exposes no content to MCP clients"
+    end
+  rescue JSON::ParserError => e
+    errors << "api/site.json: invalid JSON (#{e.message})"
+  end
+else
+  errors << "api/site.json or sitemap.xml missing from the build"
+end
+
 if errors.empty?
-  puts "Built-site QA passed: #{html_files.size} HTML files, valid JSON-LD, images, links, and external-link safety."
+  puts "Built-site QA passed: #{html_files.size} HTML files, valid JSON-LD, images, links, external-link safety, and MCP feed parity."
 else
   warn errors.uniq.join("\n")
   abort "Built-site QA failed with #{errors.uniq.size} error(s)."

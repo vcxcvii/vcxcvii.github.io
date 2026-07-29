@@ -5,6 +5,15 @@ permalink: /api/site.json
 {% assign mcp_pages = site.pages | where: "mcp", true %}
 {
   "generated": "{{ site.time | date_to_xmlschema }}",
+  "site": {
+    "name": {{ site.title | jsonify }},
+    "bio": {{ site.author_description | jsonify }},
+    "description": {{ site.description | jsonify }},
+    "url": {{ site.url | jsonify }},
+    "writing": {{ "/blog/" | absolute_url | jsonify }},
+    "topics": {{ site.data.tags | jsonify }},
+    "elsewhere": {{ site.data.elsewhere | jsonify }}
+  },
   "posts": [
     {% for post in site.posts %}
     {
