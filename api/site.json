@@ -2,7 +2,21 @@
 layout: none
 permalink: /api/site.json
 ---
-{% assign mcp_pages = site.pages | where: "mcp", true %}
+{%- comment -%}
+Every post is included automatically. Pages are included automatically too:
+anything with a title and a directory-style URL, unless it is kept out of the
+sitemap (legacy or noindex pages) or opts out with `mcp: false` in its front
+matter. Nothing needs a flag added when it is created, and check-built-site.rb
+fails the build if this ever falls out of step with sitemap.xml.
+{%- endcomment -%}
+{%- assign mcp_pages = "" | split: "" -%}
+{%- for page in site.pages -%}
+  {%- if page.title and page.url and page.mcp != false and page.sitemap != false -%}
+    {%- unless page.url contains "." -%}
+      {%- assign mcp_pages = mcp_pages | push: page -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
 {
   "generated": "{{ site.time | date_to_xmlschema }}",
   "site": {
