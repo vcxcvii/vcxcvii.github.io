@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "c661f38e6e571538d5cac2af388c11cd4e8d4c45",
+  "last_processed_commit": "d9d6a31e8a94834ba18b2b071c83b43f258b6bd4",
   "updated_at": "2026-07-29",
   "updates": [
+    {
+      "id": "2026-07-29-d9d6a31",
+      "date": "2026-07-29",
+      "title": "New pages now auto-appear in MCP feed for AI access",
+      "summary": "Pages with titles and directory-style URLs are now included in the MCP feed by default, unless intentionally hidden or flagged out. This removes the need to manually add a flag for every new page, making AI-powered tools and clients reliably see fresh content without extra setup. Posts remain automatically included.",
+      "benefits": [
+        {
+          "label": "Find new pages",
+          "text": "AI tools and clients can read new pages as soon as they are published, without waiting for manual flags."
+        },
+        {
+          "label": "Less setup friction",
+          "text": "Site editors no longer need to remember or add a special flag for every new page."
+        },
+        {
+          "label": "Trust feed completeness",
+          "text": "The feed stays in sync with the sitemap and build checks, so visitors can trust that all public content is accessible."
+        }
+      ],
+      "commit_shas": [
+        "d9d6a31e8a94834ba18b2b071c83b43f258b6bd4"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-29-c661f38",
       "date": "2026-07-29",
