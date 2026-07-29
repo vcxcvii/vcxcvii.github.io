@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "fb121c491e402c50a53720a656711c6b74415a36",
+  "last_processed_commit": "c661f38e6e571538d5cac2af388c11cd4e8d4c45",
   "updated_at": "2026-07-29",
   "updates": [
+    {
+      "id": "2026-07-29-c661f38",
+      "date": "2026-07-29",
+      "title": "MCP page now explains how the server stays current",
+      "summary": "The MCP section adds a clear explanation of how its server stays up to date: it reads a build-time feed refreshed every five minutes, and deploys fail if any public page is missing from that feed. Tool descriptions are also corrected to match the current site structure and search behavior. This helps visitors trust the freshness and completeness of AI-powered access.",
+      "benefits": [
+        {
+          "label": "Understand freshness",
+          "text": "Visitors can see exactly how the server stays current and why new pages cannot quietly go unreadable."
+        },
+        {
+          "label": "Trust AI access",
+          "text": "The mechanism is explained, so readers know agents see what humans see, with no hidden gaps."
+        },
+        {
+          "label": "Correct tool info",
+          "text": "Descriptions now match the actual site pages and search ranking, avoiding confusion from outdated labels."
+        }
+      ],
+      "commit_shas": [
+        "c661f38e6e571538d5cac2af388c11cd4e8d4c45"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-29-fb121c4",
       "date": "2026-07-29",
