@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "f512e00e977f22d0f7d52c4754efbe854c20ea81",
+  "last_processed_commit": "fb121c491e402c50a53720a656711c6b74415a36",
   "updated_at": "2026-07-29",
   "updates": [
+    {
+      "id": "2026-07-29-fb121c4",
+      "date": "2026-07-29",
+      "title": "Listing pages in MCP feed now flagged for search weighting",
+      "summary": "The site’s API feed now marks homepage, blog, and tag archive listing pages with a 'listing' flag. This helps clients and tools distinguish between generated listings and original essays, so full-text search and ranking can treat them appropriately. The change prevents listings from outranking actual content based on excerpt matches alone.",
+      "benefits": [
+        {
+          "label": "Clearer search results",
+          "text": "Listings and essays are now differentiated, so search tools can rank pages more accurately."
+        },
+        {
+          "label": "Machine-readable structure",
+          "text": "API clients can detect listing pages and adjust their behavior without guessing from content."
+        }
+      ],
+      "commit_shas": [
+        "fb121c491e402c50a53720a656711c6b74415a36"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-29-9436b76",
       "date": "2026-07-29",
