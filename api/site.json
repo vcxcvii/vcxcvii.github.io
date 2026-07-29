@@ -21,13 +21,31 @@ permalink: /api/site.json
   ],
   "pages": [
     {% for page in mcp_pages %}
+    {%- assign slug = page.url | remove_first: "/" | split: "/" | join: "/" -%}
+    {%- if slug == "" %}{% assign slug = "home" %}{% endif -%}
+    {%- assign body = page.content | strip_html | strip -%}
+    {%- if body == "" -%}
+      {%- if page.tag -%}
+        {%- assign listing = site.tags[page.tag] -%}
+      {%- elsif slug == "home" or slug == "blog" -%}
+        {%- assign listing = site.posts -%}
+      {%- else -%}
+        {%- assign listing = empty -%}
+      {%- endif -%}
+      {%- capture body -%}
+{{ page.intro }}
+{% for p in listing %}- {{ p.title }} ({{ p.date | date: "%Y-%m-%d" }}) {{ p.url | absolute_url }}: {{ p.excerpt | strip_html | strip | truncate: 240 }}
+{% endfor %}
+      {%- endcapture -%}
+      {%- assign body = body | strip -%}
+    {%- endif -%}
     {
       "type": "page",
       "title": {{ page.title | jsonify }},
-      "slug": {{ page.url | remove: "/" | jsonify }},
+      "slug": {{ slug | jsonify }},
       "url": {{ page.url | absolute_url | jsonify }},
       "intro": {{ page.intro | default: "" | jsonify }},
-      "content": {{ page.content | strip_html | strip | jsonify }}
+      "content": {{ body | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]
