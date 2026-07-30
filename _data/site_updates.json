@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "f4056cae613e941484f0f82f828cab1f30c121fb",
+  "last_processed_commit": "a107239523ce5732fe72b099f9dce721b59678b6",
   "updated_at": "2026-07-30",
   "updates": [
+    {
+      "id": "2026-07-30-a107239",
+      "date": "2026-07-30",
+      "title": "Letterboxd icon now recognizable in monochrome",
+      "summary": "The Letterboxd social icon on the homepage now uses its rounded badge form, making the logo readable at small sizes without relying on color. This change prevents the icon from appearing as three generic dots and matches the handling of other social icons. Visitors can identify and access the Letterboxd profile more easily.",
+      "benefits": [
+        {
+          "label": "Clear iconography",
+          "text": "The Letterboxd logo is visually distinct and recognizable even in monochrome."
+        },
+        {
+          "label": "Consistent navigation",
+          "text": "Social icons now follow a uniform style, helping visitors find profiles without confusion."
+        },
+        {
+          "label": "Accessible design",
+          "text": "The icon remains legible at small sizes, supporting users on various devices."
+        }
+      ],
+      "commit_shas": [
+        "a107239523ce5732fe72b099f9dce721b59678b6"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-30-f4056ca",
       "date": "2026-07-30",
