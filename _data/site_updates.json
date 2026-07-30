@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "183e4fd0cec582cd99350451b5f037db3a90890d",
+  "last_processed_commit": "7d8cf3686bd89a23ba8472b0b3d7462cd127b04b",
   "updated_at": "2026-07-30",
   "updates": [
+    {
+      "id": "2026-07-30-7d8cf36",
+      "date": "2026-07-30",
+      "title": "Rainmaker skill tree diagram now shows the missing Ground phase",
+      "summary": "The Rainmaker side project page updates its skill tree diagram to include the Ground phase, which was previously absent. The diagram and description now clarify all six phases and their roles, so visitors can understand how context is written and used in the system. This prevents confusion about the skill tree’s structure and sequence.",
+      "benefits": [
+        {
+          "label": "Understand system flow",
+          "text": "The diagram now shows how the Ground phase writes context for other skills."
+        },
+        {
+          "label": "Find missing phase",
+          "text": "Visitors can see all six phases, not just five, and follow the job sequence accurately."
+        },
+        {
+          "label": "Clearer onboarding",
+          "text": "The skill tree explanation matches the actual implementation, reducing onboarding guesswork."
+        }
+      ],
+      "commit_shas": [
+        "7d8cf3686bd89a23ba8472b0b3d7462cd127b04b"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-30-183e4fd",
       "date": "2026-07-30",
