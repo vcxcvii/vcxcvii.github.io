@@ -1,7 +1,32 @@
 {
-  "last_processed_commit": "a107239523ce5732fe72b099f9dce721b59678b6",
+  "last_processed_commit": "183e4fd0cec582cd99350451b5f037db3a90890d",
   "updated_at": "2026-07-30",
   "updates": [
+    {
+      "id": "2026-07-30-183e4fd",
+      "date": "2026-07-30",
+      "title": "Rainmaker side project now public with full landing page",
+      "summary": "Rainmaker, an open-source search system that ranks findings by distance to revenue, now has a public landing page and repository. The page explains the job to be done, onboarding steps, skill tree, and how Rainmaker differs from typical SEO tools. Visitors can see diagrams, example prompts, and clear answers about usage, licensing, and requirements.",
+      "benefits": [
+        {
+          "label": "Understand the tool",
+          "text": "The landing page explains what Rainmaker is for, how it works, and who should use it."
+        },
+        {
+          "label": "Find the repository",
+          "text": "A public GitHub link lets visitors access the code, specification, and license directly."
+        },
+        {
+          "label": "See onboarding steps",
+          "text": "Diagrams and prompts clarify the workflow, skill tree, and how Rainmaker fits different site types."
+        }
+      ],
+      "commit_shas": [
+        "114ee614864d659fea46c302fac9ede44ac76e99",
+        "183e4fd0cec582cd99350451b5f037db3a90890d"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-30-a107239",
       "date": "2026-07-30",
