@@ -1,14 +1,14 @@
 ---
 layout: page
 title: Rainmaker
-seo_title: Open-source GTM search agent ranked by distance to revenue | Rainmaker
-description: An open-source search system that ranks every finding by distance to revenue, checks the live SERP before briefing anything, and keeps a permanent record of whether the fix worked. Runs with no credentials on the first pass.
+seo_title: Open-source GTM search agent | Rainmaker
+description: Open-source search system that ranks every finding by distance to revenue, checks the live SERP before briefing anything, and records whether the fix worked.
 last_modified_at: 2026-07-30
 intro: An open-source search system that ranks every finding by distance to revenue instead of technical severity, refuses to brief a page it has not checked the SERP for, and keeps an append-only record of what shipped and what moved.
 project: true
 project_name: Rainmaker
 repo: rainmaker
-state: Private
+state: Public
 version: "0.3"
 mcp: true
 application_category: DeveloperApplication
@@ -26,7 +26,7 @@ feature_list:
   - Retrospectives that report what did nothing
 faqs:
   - question: Is Rainmaker free and open source?
-    answer: It will be. MIT licensed and public when the first release lands, with the full specification in the repository. There is no hosted service and no account. Keys stay on your machine and are used only against the API they belong to.
+    answer: Yes. MIT licensed, with the full specification in the repository. There is no hosted service and no account. Keys stay on your machine and are used only against the API they belong to.
   - question: Do I need an AI model key to use it?
     answer: No. The measuring half is plain Node and runs with zero credentials. A model key unlocks the interview, the writing skills and the AI citation probes. Every report states which capabilities were live and what their absence weakens.
   - question: Does Rainmaker publish content or post to communities by itself?
@@ -43,7 +43,7 @@ Rainmaker is an open-source search system with one principle.
 
 > Every finding is ranked by distance to revenue, never by technical severity.
 
-The specification is written and the build is underway. The repository goes public, MIT licensed, when the first release lands. This page describes what it does and how it is put together.
+The [repository is public](https://github.com/vcxcvii/rainmaker) and MIT licensed. The specification is written, the measuring core and the ledger are built, and the rest is in progress. This page describes what it does and how it is put together.
 
 ## What problem does it solve?
 
