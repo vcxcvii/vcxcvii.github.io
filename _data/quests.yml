@@ -40,7 +40,7 @@
   repo_url: https://github.com/vcxcvii/rainmaker
   changelog_include: "src/,skills/,spec/,SPEC.md,package.json"
   featured: true
-  description: Open-source search system that ranks every finding by distance to revenue, checks the live SERP before briefing anything, and keeps a permanent record of whether the fix worked.
+  description: Open-source SEO and AEO agent that ranks every finding by distance to revenue, checks the live SERP before briefing anything, and keeps a permanent record of whether the fix worked.
 
 - name: VC's Notes
   group: Personal

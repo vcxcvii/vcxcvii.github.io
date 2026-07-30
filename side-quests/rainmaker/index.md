@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Rainmaker
-seo_title: Open-source GTM search agent | Rainmaker
-description: Open-source search system that ranks every finding by distance to revenue, checks the live SERP before briefing anything, and records whether the fix worked.
+seo_title: Open-source SEO and AEO agent | Rainmaker
+description: Open-source SEO and AEO agent that ranks every finding by distance to revenue, checks the live SERP before briefing anything, and records whether the fix worked.
 last_modified_at: 2026-07-30
-intro: An open-source search system that ranks every finding by distance to revenue instead of technical severity, refuses to brief a page it has not checked the SERP for, and keeps an append-only record of what shipped and what moved.
+intro: An open-source SEO and AEO agent that ranks every finding by distance to revenue instead of technical severity, refuses to brief a page it has not checked the SERP for, and keeps an append-only record of what shipped and what moved.
 project: true
 project_name: Rainmaker
 repo: rainmaker
@@ -39,7 +39,7 @@ faqs:
     answer: Because twelve questions asked about a site nobody has looked at are the same twelve questions every consultant asks. The crawl runs first, in the background, so the interview can open with your actual numbers.
 ---
 
-Rainmaker is an open-source search system with one principle.
+Rainmaker is an open-source SEO and AEO agent with one principle.
 
 > Every finding is ranked by distance to revenue, never by technical severity.
 
