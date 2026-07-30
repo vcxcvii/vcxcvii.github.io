@@ -2,7 +2,7 @@
 layout: page
 title: Rainmaker
 seo_title: Open-source SEO and AEO agent | Rainmaker
-description: Open-source SEO and AEO agent that ranks every finding by distance to revenue, checks the live SERP before briefing anything, and records whether the fix worked.
+description: Open-source SEO and AEO agent that ranks findings by distance to revenue, checks the live SERP before briefing anything, and records whether the fix worked.
 last_modified_at: 2026-07-30
 intro: An open-source SEO and AEO agent that ranks every finding by distance to revenue instead of technical severity, refuses to brief a page it has not checked the SERP for, and keeps an append-only record of what shipped and what moved.
 project: true
