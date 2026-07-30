@@ -159,20 +159,19 @@ Then three fixes, not sixty, each with the file the evidence came from, the tier
 
 ## What does it actually do?
 
-Twenty-six skills, five phases, one decision each. No two skills can answer the same question, and together they cover the job.
+Twenty-six skills, six phases, one decision each. No two skills can answer the same question, and together they cover the job.
 
-<svg viewBox="0 0 720 340" role="img" aria-labelledby="tree-title" style="max-width:100%;height:auto;margin:1.5rem 0">
-  <title id="tree-title">Skill tree: five phases sitting on a shared context layer, with the deterministic core underneath</title>
+<svg viewBox="0 0 720 420" role="img" aria-labelledby="tree-title" style="max-width:100%;height:auto;margin:1.5rem 0">
+  <title id="tree-title">Skill tree: five working phases above the Ground phase, which writes the shared context layer, over the deterministic core</title>
   <g fill="none" stroke="#111111" stroke-width="1.5">
     <rect x="1" y="14" width="132" height="150"/>
     <rect x="148" y="14" width="132" height="150"/>
     <rect x="295" y="14" width="132" height="150"/>
     <rect x="442" y="14" width="132" height="150"/>
     <rect x="589" y="14" width="130" height="150"/>
-  </g>
-  <g fill="none" stroke="#111111" stroke-width="1.5">
     <rect x="1" y="204" width="718" height="52"/>
-    <rect x="1" y="278" width="718" height="52" stroke="#dddddd"/>
+    <rect x="1" y="284" width="718" height="52"/>
+    <rect x="1" y="358" width="718" height="52" stroke="#dddddd"/>
   </g>
   <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" fill="#111111" font-size="12">
     <text x="12" y="34" font-size="13" font-weight="bold">See</text>
@@ -208,20 +207,23 @@ Twenty-six skills, five phases, one decision each. No two skills can answer the 
     <text x="600" y="108" fill="#666666">what-changed-in-search</text>
     <text x="600" y="126" fill="#666666">put-it-on-autopilot</text>
 
-    <text x="12" y="226" font-size="13" font-weight="bold">Context layer</text>
-    <text x="12" y="244" fill="#666666">context/business.md and data/strategy.json. Shared ids, verified by hash, one owner per field.</text>
-    <text x="12" y="300" font-size="13" font-weight="bold">Deterministic core</text>
-    <text x="12" y="318" fill="#666666">crawl, tier, score, ledger. Written in code, identical across runs, never produced by a model.</text>
+    <text x="12" y="226" font-size="13" font-weight="bold">Ground</text>
+    <text x="12" y="244" fill="#666666">know-my-buyer, say-it-their-way, explain-this-number. Runs after the first crawl, and writes what everything else reads.</text>
+    <text x="12" y="306" font-size="13" font-weight="bold">Context layer</text>
+    <text x="12" y="324" fill="#666666">context/business.md and data/strategy.json. Shared ids, verified by hash, one owner per field.</text>
+    <text x="12" y="380" font-size="13" font-weight="bold">Deterministic core</text>
+    <text x="12" y="398" fill="#666666">crawl, tier, score, ledger. Written in code, identical across runs, never produced by a model.</text>
   </g>
   <g stroke="#111111" stroke-width="1.5" fill="none">
     <path d="M67 164 v40"/><path d="M214 164 v40"/><path d="M361 164 v40"/><path d="M508 164 v40"/><path d="M654 164 v40"/>
+    <path d="M361 256 v28"/>
   </g>
   <g stroke="#dddddd" stroke-width="1.5" fill="none">
-    <path d="M361 256 v22"/>
+    <path d="M361 336 v22"/>
   </g>
 </svg>
 
-The two layers below the phases are what stop twenty-six skills becoming twenty-six opinions. Every skill loads the same business context, in the same way, and each field in the strategy file has exactly one skill allowed to write it. The numbers underneath are computed in code, so two runs over unchanged input produce identical scores. No model produces or adjusts a score anywhere in the system.
+The layers below are what stop twenty-six skills becoming twenty-six opinions. Every skill loads the same business context, in the same way, and each field in the strategy file has exactly one skill allowed to write it. The numbers underneath are computed in code, so two runs over unchanged input produce identical scores. No model produces or adjusts a score anywhere in the system.
 
 ## Why not just install a folder of SEO skills?
 
