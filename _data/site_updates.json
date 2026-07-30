@@ -1,7 +1,32 @@
 {
-  "last_processed_commit": "7d8cf3686bd89a23ba8472b0b3d7462cd127b04b",
+  "last_processed_commit": "0412a635d26fc2121cd883589de855eb14a2052d",
   "updated_at": "2026-07-30",
   "updates": [
+    {
+      "id": "2026-07-30-2df3293",
+      "date": "2026-07-30",
+      "title": "Rainmaker now clarifies its role as both SEO and AEO agent",
+      "summary": "The Rainmaker side project page and listings now describe the tool as an open-source SEO and AEO agent, not just a search system. This change clarifies its purpose for visitors seeking agents that handle both search engine and answer engine optimization, preventing confusion about its scope and use cases.",
+      "benefits": [
+        {
+          "label": "Clear positioning",
+          "text": "Rainmaker’s page and directory entry now state it is for both SEO and AEO, so visitors know what problems it solves."
+        },
+        {
+          "label": "Find the right tool",
+          "text": "The updated description helps visitors searching for answer engine optimization agents discover Rainmaker without guessing."
+        },
+        {
+          "label": "Accurate summaries",
+          "text": "Meta descriptions and intros now match the tool’s actual job, reducing ambiguity for new readers."
+        }
+      ],
+      "commit_shas": [
+        "2df32936bac8ca9dcc0fd6aaf9c26ca46a8c29f5",
+        "0412a635d26fc2121cd883589de855eb14a2052d"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-30-7d8cf36",
       "date": "2026-07-30",
