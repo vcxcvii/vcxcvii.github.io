@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "d9d6a31e8a94834ba18b2b071c83b43f258b6bd4",
-  "updated_at": "2026-07-29",
+  "last_processed_commit": "f4056cae613e941484f0f82f828cab1f30c121fb",
+  "updated_at": "2026-07-30",
   "updates": [
+    {
+      "id": "2026-07-30-f4056ca",
+      "date": "2026-07-30",
+      "title": "Cursor profile now visible among homepage social icons",
+      "summary": "The homepage adds a Cursor.com profile link alongside LinkedIn, Twitter, GitHub, and Letterboxd, using a matching icon and accessible label. This makes the full set of public profiles discoverable from the main page, so visitors can find and connect through Cursor without guessing or hunting for the handle.",
+      "benefits": [
+        {
+          "label": "Find all profiles",
+          "text": "Cursor joins the homepage social row, so every public profile is visible in one place."
+        },
+        {
+          "label": "Accessible navigation",
+          "text": "Each icon uses a clear label and title, helping screen readers and keyboard users."
+        },
+        {
+          "label": "Consistent design",
+          "text": "The icon row stays uniform, with no extra boxes or external-arrow marks."
+        }
+      ],
+      "commit_shas": [
+        "f4056cae613e941484f0f82f828cab1f30c121fb"
+      ],
+      "source": "github-models:openai/gpt-4.1"
+    },
     {
       "id": "2026-07-29-d9d6a31",
       "date": "2026-07-29",
