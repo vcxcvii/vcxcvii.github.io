@@ -26,11 +26,23 @@ FORBIDDEN_ASSETS = %w[
   assets/js/redesign.js assets/css/nav.css _includes/theme-init.js
 ].freeze
 REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
-CSS_BUDGET = 14_000
+CSS_BUDGET = 14_000 # compiled bytes, which is what every page inlines
 GITHUB_JS_BUDGET = 8_000
 
 def read_file(path)
   File.exist?(path) ? File.read(path) : ""
+end
+
+# The stylesheet is inlined into every page, so what matters is the compiled
+# size, not the source. Comments and indentation are stripped before shipping,
+# and budgeting the source taxes them for nothing. Compiled with the same
+# settings as _config.yml so this measures exactly what the page carries.
+# Returns nil if sass is unavailable, so the caller can fall back.
+def compiled_css_bytes(path)
+  require "sass-embedded"
+  Sass.compile(path, style: :compressed, source_map: false).css.bytesize
+rescue LoadError, StandardError
+  nil
 end
 
 def design_guardrails
@@ -59,7 +71,16 @@ def design_guardrails
   css = "_sass/main.scss"
   css_source = read_file(css).downcase
   errs << "Design: missing #{css}" if css_source.empty?
-  errs << "Performance: #{css} exceeds #{CSS_BUDGET} bytes" if File.exist?(css) && File.size(css) > CSS_BUDGET
+  if File.exist?(css)
+    shipped = compiled_css_bytes(css)
+    if shipped
+      errs << "Performance: compiled CSS is #{shipped} bytes, over the #{CSS_BUDGET} budget" if shipped > CSS_BUDGET
+    elsif File.size(css) > CSS_BUDGET
+      # Could not compile, so fall back to the source size. Stricter than the
+      # real payload, but it never lets an oversized stylesheet through.
+      errs << "Performance: #{css} source is #{File.size(css)} bytes, over the #{CSS_BUDGET} budget (could not compile to measure the shipped size)"
+    end
+  end
   REQUIRED_COLORS.each do |color|
     errs << "Design: required publication color '#{color}' missing from #{css}" unless css_source.include?(color)
   end
