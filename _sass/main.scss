@@ -277,7 +277,8 @@ td {
   object-fit: cover;
 }
 
-.home-intro p {
+.home-intro p,
+.prose {
   max-width: 42rem;
 }
 
@@ -321,7 +322,8 @@ td {
   margin-bottom: .75rem;
 }
 
-.github-heading h2 {
+.github-heading h2,
+.entry-tags li {
   margin: 0;
 }
 
@@ -516,7 +518,8 @@ td {
 }
 
 .intro-note,
-.entry-meta {
+.entry-meta,
+.mcp-tagline {
   color: var(--color-secondary);
 }
 
@@ -534,14 +537,6 @@ td {
   padding: 0;
   list-style: none;
   font-size: .8125rem;
-}
-
-.entry-tags li {
-  margin: 0;
-}
-
-.prose {
-  max-width: 42rem;
 }
 
 .prose > :first-child {
@@ -601,24 +596,28 @@ td {
   margin-top: 1.25rem;
 }
 
-/* Outranks a:visited, which would force these blue. */
+/* Outranks a:visited. */
 .quest-actions .quest-action {
   padding: .5rem .8rem;
   border: 1px solid var(--color-border);
-  background: var(--color-surface);
   color: var(--color-text);
   font-size: .8125rem;
   text-decoration: none;
 }
 
-.quest-action:hover {
-  border-color: var(--color-text);
-  background: var(--color-text);
+.quest-actions .quest-primary {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
   color: var(--color-bg);
 }
 
-.mcp-tagline {
-  color: var(--color-secondary);
+.quest-action:hover {
+  border-color: var(--color-text);
+}
+
+.quest-primary:hover {
+  border-color: #0000b3;
+  background: #0000b3;
 }
 
 .mcp-hero {
