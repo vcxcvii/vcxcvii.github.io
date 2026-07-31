@@ -9,7 +9,7 @@ project: true
 project_name: Rainmaker
 repo: rainmaker
 state: Public
-version: "0.3"
+version: "0.2"
 mcp: true
 application_category: DeveloperApplication
 application_subcategory: Search and content operations
