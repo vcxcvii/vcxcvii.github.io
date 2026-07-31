@@ -8,6 +8,8 @@ intro: An open-source SEO and AEO agent that ranks every finding by distance to 
 project: true
 project_name: Rainmaker
 repo: rainmaker
+repo_url: https://github.com/vcxcvii/rainmaker
+license: MIT
 state: Public
 version: "0.2"
 mcp: true

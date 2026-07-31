@@ -17,10 +17,14 @@
 {% else %}
   {% assign canonical_url = canonical_path | prepend: site.url %}
 {% endif %}
+{% assign url_segments = page.url | split: '/' %}
+{% assign url_slug = url_segments | join: '-' | remove_first: '-' %}
+{% assign og_candidate = '/assets/images/og/' | append: url_slug | append: '.png' %}
+{% assign og_match = site.static_files | where: 'path', og_candidate | first %}
 {% if page.image %}
   {% assign social_image_path = page.image %}
-{% elsif page.layout == 'entry' %}
-  {% assign social_image_path = '/assets/images/og/' | append: page.slug | append: '.png' %}
+{% elsif og_match %}
+  {% assign social_image_path = og_candidate %}
 {% else %}
   {% assign social_image_path = '/assets/images/og/default.png' %}
 {% endif %}

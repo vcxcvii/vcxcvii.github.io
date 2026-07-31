@@ -13,6 +13,19 @@ layout: default
         {% include sync-engine.html timestamp=latest_quest_update.date %}
       {% endif %}
     {% endif %}
+    {% if page.repo_url %}
+    <div class="quest-actions">
+      <a class="quest-action" href="{{ page.repo_url }}" target="_blank" rel="noopener noreferrer">
+        {% include logos/github.svg %}
+        Get this for free on GitHub
+      </a>
+      {% if page.license %}
+      <a class="quest-action" href="{{ page.repo_url }}/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+        {{ page.license }} License
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
   </header>
 
   <div class="prose">
