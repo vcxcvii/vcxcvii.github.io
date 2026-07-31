@@ -1,4 +1,4 @@
-/* Small, dependency-free GitHub contribution graph. */
+/* Dependency-free GitHub contribution graph. */
 (function () {
   "use strict";
 
@@ -119,6 +119,9 @@
     contributionData = data;
     render(data);
   }
+
+  var embed = document.getElementById("gh-contrib-json");
+  try { if (embed) return setData(JSON.parse(embed.textContent)); } catch (e) {}
 
   var cached = readCache();
   if (cached) setData(cached);

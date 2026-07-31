@@ -21,6 +21,9 @@ layout: default
   <a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer" aria-label="View @vcxcvii on GitHub" style="display:block;text-decoration:none">
     <div class="gh-graph" data-gh-graph aria-live="polite"></div>
   </a>
+  {% if site.data.github_contributions %}
+  <script type="application/json" id="gh-contrib-json">{{ site.data.github_contributions | jsonify }}</script>
+  {% endif %}
   <p class="gh-fallback" data-gh-fallback><a href="https://github.com/vcxcvii" target="_blank" rel="noopener noreferrer">See projects and activity on GitHub</a></p>
   <div class="gh-legend" data-gh-legend hidden>
     <span>Less</span>
