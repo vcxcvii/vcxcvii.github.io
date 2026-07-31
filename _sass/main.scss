@@ -385,7 +385,9 @@ td {
   margin-top: 0;
 }
 
-.repo-list {
+.repo-list,
+.essay-list,
+.related-list {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -400,14 +402,16 @@ td {
   border-top: 1px solid var(--color-border);
 }
 
-.repo-link {
+.repo-link,
+.quest-action {
   display: inline-flex;
   gap: .4rem;
   align-items: center;
   font-weight: 700;
 }
 
-.repo-link svg {
+.repo-link svg,
+.quest-action svg {
   width: 1rem;
   height: 1rem;
   flex: 0 0 auto;
@@ -456,12 +460,6 @@ td {
 .essay-year {
   margin: 1.75rem 0 .4rem;
   font-size: .875rem;
-}
-
-.essay-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .essay-row {
@@ -574,25 +572,9 @@ td {
   margin: 0 0 .75rem;
 }
 
-.related-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
+/* Stays compact where .essay-row grows for mobile taps. */
 .related-list .essay-row {
-  display: grid;
-  grid-template-columns: 4.7rem .75rem minmax(0, 1fr);
   min-height: 1.75rem;
-  margin: 0;
-}
-
-.related-list time {
-  color: var(--color-faint);
-  font-family: var(--font-mono);
-  font-size: .8125rem;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 .projects-category {
@@ -612,7 +594,29 @@ td {
   font-size: .75rem;
 }
 
-.quest-action{padding:.5rem .75rem;margin:0 .75rem .5rem 0;border:1px solid #ddd;color:#111;font-size:.8125rem;text-decoration:none}
+.quest-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+
+/* :visited, or the base a:visited rule turns these blue. */
+.quest-action,
+.quest-action:visited {
+  padding: .5rem .8rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: .8125rem;
+  text-decoration: none;
+}
+
+.quest-action:hover {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
+}
 
 .mcp-tagline {
   color: var(--color-secondary);
@@ -859,10 +863,6 @@ td {
   }
 
   .essay-row {
-    grid-template-columns: 3.9rem .65rem minmax(0, 1fr);
-  }
-
-  .related-list .essay-row {
     grid-template-columns: 3.9rem .65rem minmax(0, 1fr);
   }
 
