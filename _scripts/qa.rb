@@ -28,6 +28,13 @@ FORBIDDEN_ASSETS = %w[
 REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
 CSS_BUDGET = 14_000 # compiled bytes, which is what every page inlines
 GITHUB_JS_BUDGET = 8_000
+# Every script the site is allowed to ship, with its own budget. An allowlist
+# rather than a count: a new file is a deliberate decision that shows up in a
+# diff here, and anything not named still fails the cleanup check below.
+ALLOWED_JS = {
+  "assets/js/gh-graph.js" => GITHUB_JS_BUDGET,
+  "assets/js/copy-code.js" => 3_000,
+}.freeze
 
 def read_file(path)
   File.exist?(path) ? File.read(path) : ""
@@ -86,13 +93,16 @@ def design_guardrails
   end
 
   github_js = "assets/js/gh-graph.js"
-  errs << "Performance: #{github_js} exceeds #{GITHUB_JS_BUDGET} bytes" if File.exist?(github_js) && File.size(github_js) > GITHUB_JS_BUDGET
+  ALLOWED_JS.each do |path, budget|
+    next unless File.exist?(path)
+    errs << "Performance: #{path} exceeds #{budget} bytes" if File.size(path) > budget
+  end
   github_js_source = read_file(github_js)
   valid_booking_event = github_js_source.include?('send("cal_booking_clicked"') &&
                         github_js_source.include?('destination.hostname === "cal.com"')
   errs << "Analytics: Cal.com links must emit cal_booking_clicked" unless valid_booking_event
   js_files = Dir.glob("assets/js/*.js").sort
-  errs << "Cleanup: assets/js must contain only #{github_js}" unless js_files == [github_js]
+  errs << "Cleanup: assets/js must contain only #{ALLOWED_JS.keys.join(', ')}" unless js_files == ALLOWED_JS.keys.sort
 
   class_files = (
     Dir.glob("{_includes,_layouts,_posts,assets/js,mcp,feed,api,side-quests,tags}/**/*.{html,md,js,svg}") +
