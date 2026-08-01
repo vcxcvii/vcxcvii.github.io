@@ -308,6 +308,16 @@ td {
   height: 1rem;
 }
 
+/* Wordmarks are wide and short, so a square box renders them a third the
+   height of a glyph mark and they stop being readable. Size them by width
+   against the same container instead, and let height follow the artwork. */
+.social-links .logo-wordmark,
+.repo-link .logo-wordmark,
+.quest-action .logo-wordmark {
+  width: 1.55rem;
+  height: auto;
+}
+
 .github-activity {
   margin: 0 0 1.5rem;
   padding-bottom: 1.5rem;

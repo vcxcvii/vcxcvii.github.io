@@ -95,7 +95,7 @@ def design_guardrails
   errs << "Cleanup: assets/js must contain only #{github_js}" unless js_files == [github_js]
 
   class_files = (
-    Dir.glob("{_includes,_layouts,_posts,assets/js,mcp,feed,api,side-quests,tags}/**/*.{html,md,js}") +
+    Dir.glob("{_includes,_layouts,_posts,assets/js,mcp,feed,api,side-quests,tags}/**/*.{html,md,js,svg}") +
     Dir.glob("*.{html,md}")
   ).select { |f| File.file?(f) }
   class_corpus = class_files.map { |f| File.read(f).downcase }.join("\n")
