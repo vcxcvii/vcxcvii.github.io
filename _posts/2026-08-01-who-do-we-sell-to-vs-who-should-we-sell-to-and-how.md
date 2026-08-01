@@ -2,7 +2,8 @@
 title: "Who do we sell to vs. Who SHOULD we sell to (and how)."
 seo_title: "How to continuously sharpen your ideal customer profile"
 date: 2026-08-01 00:00:00 +0530
-description: "A practical field guide to sharpening your ICP with win-loss evidence, product adoption, buying triggers, intent signals, and GTM experiments."
+description: "A field guide to sharpening your ICP: win-loss evidence that produces criteria instead of blame, intent signals, an industry-friends list, and what to do when you have no customers yet."
+last_modified_at: 2026-08-02 00:00:00 +0530
 mcp: true
 tags:
   - product-marketing
@@ -34,6 +35,8 @@ Updating and validating ICP can be tedious:
 - where the expansion motion, cross-sell and upsell, looks as good as the initial deal
 
 That is the distinction I want to get into.
+
+The rest of this runs from most evidence to least. Start where you actually are: customers and a CRM full of closed deals, an audience but no clear pattern, or a product and nobody using it yet.
 
 ## Being honest: if you have data
 
@@ -198,8 +201,16 @@ Making a one-to-many ABM campaign feel like one-to-one can happen in this sequen
 4. Target people who engage with an ad leading to a demo page.
 5. Add people who do not engage to the industry-friends list or another nurture sequence.
 
-A 7–8% demo rate makes sense to me here.
+I have seen 7 to 8% demo rates from this. That is my own experience across a handful of campaigns, not a benchmark I would ask you to plan against.
 
 Remember, 100% of your pipeline will not come from one place. You are doing a bit of controlled and strategic spray and pray, then seeing which channels and types of prospects convert faster.
 
 That feedback should keep changing who you SHOULD sell to.
+
+## Where to start on Monday
+
+Pull your last twenty closed deals, ten won and ten lost. For each one, answer six questions: how they heard about you, who was in the room, where the deal stalled, what the objection was, what it was worth, and whether you would take that deal again.
+
+The last question is the whole exercise. The first five produce a report about what happened. The sixth produces criteria for what you do next.
+
+If you cannot answer it for most of the twenty, that is your finding. You do not have an ICP problem yet. You have a listening problem, and it is cheaper to fix.
