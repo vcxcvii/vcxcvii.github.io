@@ -12,7 +12,7 @@ repo_url: https://github.com/vcxcvii/rainmaker
 npm_url: https://www.npmjs.com/package/@vcxcvii/rainmaker
 license: MIT
 state: Public
-version: "0.3.1"
+version: "0.4.0"
 mcp: true
 application_category: DeveloperApplication
 application_subcategory: Open-source SEO and AEO agent
@@ -31,13 +31,13 @@ faqs:
   - question: What is Rainmaker?
     answer: Rainmaker is a free, open-source SEO and AEO agent for coding assistants. It crawls your website, connects findings to how the business makes money, recommends the three most useful fixes, and records whether those fixes worked.
   - question: How do I start Rainmaker?
-    answer: Run npx @vcxcvii/rainmaker init --site https://yoursite.com in your site project. Open Codex, Claude Code, or another compatible assistant in that folder and say run rainmaker.
+    answer: Install the plugin for your assistant, open it in your site project, and say run rainmaker. The skill asks for your site URL and sets everything up itself. If your assistant has no plugin support, run npx @vcxcvii/rainmaker init --site https://yoursite.com in the site project first, then say run rainmaker. Run it in the folder for the site rather than your home directory.
   - question: Do I need an OpenAI or Anthropic API key?
     answer: No for the normal workflow. The assistant you already opened conducts the conversation using its existing model session. A separate model API key is only needed for the optional standalone terminal agent and direct AI citation probes.
   - question: Why can Rainmaker not use my ChatGPT or Claude subscription from the standalone CLI?
     answer: App subscriptions do not expose their session credentials or model runtime to child command-line processes. Rainmaker avoids that problem by running the interview inside the assistant itself. The CLI only handles crawling, measurement, scoring, and memory.
   - question: Does Rainmaker use Firecrawl automatically if it finds my key?
-    answer: No. The built-in crawler is the default. A Firecrawl or context.dev key only makes that provider available. Rainmaker must receive explicit approval in the current conversation and an explicit provider flag before using paid or quota-backed crawling.
+    answer: No, and it does not quietly ignore the key either. The built-in crawler is the default. When a Firecrawl or context.dev key is present, Rainmaker reads your live credit balance, tells you what you have, and asks which crawler you want before the first crawl. The answer is saved as crawl.provider in rainmaker.config.yml and honoured afterwards, so you are asked once rather than once per crawl. A crawl projected to exceed your remaining balance is refused.
   - question: Is Rainmaker a replacement for Ahrefs, Semrush, or an experienced SEO agency?
     answer: It replaces repetitive crawling, prioritization, and measurement, not every kind of judgment. Ahrefs and Semrush remain useful data sources. An experienced operator is still better at stakeholder alignment, customer nuance, creative positioning, and decisions where the evidence is incomplete.
   - question: Will Rainmaker publish content or change my live site by itself?
@@ -81,17 +81,21 @@ That final step is the point. A plan becomes stale. A system that changes its mi
 
 ## Install Rainmaker
 
-The simplest setup works in any project-level assistant that can read skills and run commands:
+Install the plugin for your assistant (below), open it in your website project, and say:
+
+```text
+run rainmaker
+```
+
+That is the whole setup. The front-door skill asks for your site URL, sets the project up itself, crawls, and opens the conversation from what it found. You never drive the CLI by hand.
+
+If your assistant has no plugin support, set the project up first and then say the same thing:
 
 ```bash
 npx @vcxcvii/rainmaker init --site https://yoursite.com
 ```
 
-Then open your coding assistant in that folder and say:
-
-```text
-run rainmaker
-```
+Run that in the folder for the site, not your home directory: it writes configuration, context and skill copies into the working directory, and refuses a home directory unless you pass `--force`.
 
 Rainmaker installs one front-door skill plus 26 decision skills. The front door resumes from the first incomplete step. It does not launch a second chatbot or ask for another model key.
 
@@ -150,7 +154,7 @@ Rainmaker is strongest at repeatable analysis, prioritization, and memory. It is
 
 ## What will Rainmaker never do quietly?
 
-- Spend Firecrawl or another paid provider’s quota because a key exists.
+- Spend Firecrawl or another paid provider’s quota because a key exists. It asks first, shows you the balance, and remembers your answer.
 - Let a model invent or adjust a revenue score.
 - Publish content, post in communities, send outreach, redirect a page, or delete a URL.
 - Pretend an algorithm update caused a change when the evidence only shows timing.
