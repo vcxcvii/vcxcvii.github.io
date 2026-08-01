@@ -42,7 +42,14 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
 - First link is electric-blue `VC`, returning home.
-- Visible path links follow: `/about`, `/work`, `/consulting`, `/blog`, `/side-quests`, `/fun`, `/uses`.
+- Visible path links follow, in `_data/navigation.yml` order: `/about`, `/work`,
+  `/consulting`, `/blog`, `/speaking`, `/side-quests`, `/uses-this`, `/contact`.
+- Eight links is the ceiling. At `720px`, the narrowest desktop width before the
+  hamburger takes over, they fill the column exactly. A ninth wraps, so adding
+  one means removing one.
+- Navigation links are plain paths. No button, pill, or filled call to action,
+  including for `/contact`: the header has one visual idiom and a single
+  emphasised item would make every other link read as secondary.
 - Keep the primary navigation internal. External profiles belong in the homepage social links.
 - Header links are muted gray without underlines until hover, focus, or active state. Icon-only social links also omit underlines because they contain no visible text.
 - A `1px #dddddd` rule sits below the navigation.
@@ -128,7 +135,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Footer
 
 - Thin top rule, small gray text, generous space between groups.
-- Five plain-language groups: `Work`, `Read`, `AI`, `Site`, and `Ask`.
+- Six plain-language groups: `Work`, `Read`, `Free tools`, `AI`, `About`, and `Site`, plus `Ask`.
+- `contact` sits under `About`, with the person, not under `Site` with the legal and meta pages.
 - Desktop uses a four-column grid, with `Ask` continuing onto the second row. Mobile uses two columns, then one below `30rem`. Links stack vertically without dot separators.
 - `site design` links to the readable canonical file in the public GitHub repository.
 - `Ask` uses recognizable 24px brand-color SVG logos for ChatGPT, Claude, and Perplexity, each inside an accessible 44px link target. No visible text links.
