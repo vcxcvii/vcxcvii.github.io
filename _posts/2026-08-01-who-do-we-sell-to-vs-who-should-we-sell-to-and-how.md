@@ -3,6 +3,7 @@ title: "Who do we sell to vs. Who SHOULD we sell to (and how)."
 seo_title: "How to continuously sharpen your ideal customer profile"
 date: 2026-08-01 00:00:00 +0530
 description: "A practical field guide to sharpening your ICP with win-loss evidence, product adoption, buying triggers, intent signals, and GTM experiments."
+mcp: true
 tags:
   - product-marketing
   - sales
