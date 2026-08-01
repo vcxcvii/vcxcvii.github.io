@@ -245,6 +245,65 @@ pre code {
   background: transparent;
 }
 
+/* Wrapper is created by assets/js/copy-code.js, so nothing here applies until
+   the enhancement runs. */
+.code-block {
+  position: relative;
+  margin: 0 0 1rem;
+
+  pre {
+    margin: 0;
+  }
+}
+
+.code-copy {
+  position: absolute;
+  top: .375rem;
+  right: .375rem;
+  padding: .2rem .45rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  font-size: .6875rem;
+  line-height: 1.4;
+  cursor: pointer;
+  /* Hidden until the block is hovered or the button is focused, so it never
+     sits on top of the first line of code while reading. */
+  opacity: 0;
+  transition: opacity .12s ease-in-out;
+}
+
+.code-block:hover .code-copy,
+.code-copy:focus-visible,
+.code-copy[data-copied="true"] {
+  opacity: 1;
+}
+
+.code-copy:hover {
+  color: var(--color-text);
+  border-color: var(--color-secondary);
+}
+
+.code-copy[data-copied="true"] {
+  color: var(--color-text);
+  border-color: var(--color-secondary);
+}
+
+/* Touch devices have no hover, so the button would only ever appear after a
+   tap that might also scroll the block. Show it permanently instead. */
+@media (hover: none) {
+  .code-copy {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-copy {
+    transition: none;
+  }
+}
+
 table {
   display: block;
   width: 100%;
