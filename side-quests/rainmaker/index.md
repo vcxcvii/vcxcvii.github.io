@@ -3,7 +3,7 @@ layout: page
 title: Rainmaker
 seo_title: Open-source SEO and AEO agent | Rainmaker
 description: Open-source SEO and AEO agent that ranks findings by distance to revenue, checks the live SERP before briefing anything, and records whether the fix worked.
-last_modified_at: 2026-07-31
+last_modified_at: 2026-08-01
 intro: An open-source SEO and AEO agent that ranks every finding by distance to revenue instead of technical severity, refuses to brief a page it has not checked the SERP for, and keeps an append-only record of what shipped and what moved.
 project: true
 project_name: Rainmaker
@@ -12,12 +12,12 @@ repo_url: https://github.com/vcxcvii/rainmaker
 npm_url: https://www.npmjs.com/package/@vcxcvii/rainmaker
 license: MIT
 state: Public
-version: "0.2"
+version: "0.3"
 mcp: true
 application_category: DeveloperApplication
 application_subcategory: Search and content operations
 audience: Anyone who owns a website and needs organic search to produce revenue, from a personal blog to a site with tens of thousands of URLs
-software_requirements: Node.js 22. Everything else is optional, including any AI model key.
+software_requirements: Node.js 20 or newer. Everything else is optional, including any AI model key.
 feature_list:
   - Revenue tiering that ranks every URL by distance to money
   - Scores computed in code, identical across runs, never produced by a model
@@ -31,7 +31,7 @@ faqs:
   - question: Is Rainmaker free and open source?
     answer: Yes. MIT licensed, with the full specification in the repository. There is no hosted service and no account. Keys stay on your machine and are used only against the API they belong to.
   - question: Do I need an AI model key to use it?
-    answer: No. The measuring half is plain Node and runs with zero credentials. A model key unlocks the interview, the writing skills and the AI citation probes. Every report states which capabilities were live and what their absence weakens.
+    answer: No. Your current assistant is the model and the local CLI runs with zero credentials. A separate model key is needed only for the optional standalone agent and direct AI citation probes.
   - question: Does Rainmaker publish content or post to communities by itself?
     answer: No. It drafts, files issues, and writes diffs. Publishing, posting, outreach, redirects and deletions all need a human. Every one of those actions is externally visible and hard to reverse.
   - question: How is this different from Ahrefs or Semrush?
@@ -39,7 +39,7 @@ faqs:
   - question: Does it work for sites that are not B2B SaaS?
     answer: Yes. The revenue model is a config value, and it changes the site structure the system plans for. Local services, ecommerce, marketplaces, media and consulting each get a different spine and a different permutation axis.
   - question: Why does it refuse to interview me before it has crawled my site?
-    answer: Because twelve questions asked about a site nobody has looked at are the same twelve questions every consultant asks. The crawl runs first, in the background, so the interview can open with your actual numbers.
+    answer: Because twelve questions asked about a site nobody has looked at are the same twelve questions every consultant asks. After setup, your assistant runs the crawl first so the interview can open with actual evidence.
 ---
 
 Rainmaker is an open-source SEO and AEO agent with one principle.
@@ -106,11 +106,16 @@ One command. It asks nothing it can work out for itself.
 npx @vcxcvii/rainmaker init --site https://yoursite.com
 ```
 
-That writes the config and installs the 26 skills where every assistant already
-looks: `.claude/skills/` for Claude Code and opencode, `AGENTS.md` for Codex and
-the twenty-odd other tools that read it. Then open your assistant in that
-directory and talk to it. Conversion paths, competitors and buyer are worked out
-from the site and the conversation, not asked for in a form up front.
+That writes the config, stub context, and a portable conversation protocol. It
+installs the 26 skills into `.agents/skills/` and `.claude/skills/`, writes
+`RAINMAKER.md`, and adds a safe pointer to `AGENTS.md`. Then open a compatible
+assistant in that directory and talk to it. The assistant crawls first, proposes
+the revenue model and conversion paths from evidence, confirms them with you,
+then writes the answers back before strategy work.
+
+There is no universal LLM plugin API. This is the portable layer the current
+tools share: Markdown instructions, local skills, and a deterministic CLI.
+`rainmaker install` refreshes it later without touching your business config.
 
 Claude Code users can install the plugin instead, which adds a session hook that
 reads project state and opens on the right next step:
@@ -122,13 +127,13 @@ reads project state and opens on the right next step:
 
 There is also a standalone agent, if you would rather not use an assistant at
 all: `npx @vcxcvii/rainmaker agent`, with your own key. Anthropic and OpenAI work
-directly; anything speaking the OpenAI chat-completions shape — OpenRouter, Groq,
-Ollama, a local model — works by pointing `OPENAI_BASE_URL` at it.
+directly; anything speaking the OpenAI chat-completions shape, including
+OpenRouter, Groq, Ollama, and local models, works through `OPENAI_BASE_URL`.
 
 The first ten minutes run in a deliberate order.
 
 <svg viewBox="0 0 720 210" role="img" aria-labelledby="onboarding-title" style="max-width:100%;height:auto;margin:1.5rem 0">
-  <title id="onboarding-title">Onboarding: one command writes the config while the crawl runs in the background, then a grounded interview, then three fixes, then a cadence recommendation</title>
+  <title id="onboarding-title">Onboarding: one command scaffolds the project, then the assistant crawls, holds a grounded interview, recommends three fixes, and proposes a cadence</title>
   <g fill="none" stroke="#111111" stroke-width="1.5">
     <rect x="1" y="20" width="172" height="56"/>
     <rect x="183" y="20" width="172" height="56"/>
@@ -145,8 +150,8 @@ The first ten minutes run in a deliberate order.
     <text x="451" y="60" text-anchor="middle" font-size="10.5" fill="#666666">effort vs. impact</text>
     <text x="633" y="42" text-anchor="middle" font-size="12">4. Cadence</text>
     <text x="633" y="60" text-anchor="middle" font-size="10.5" fill="#666666">recommended, not assumed</text>
-    <text x="360" y="150" text-anchor="middle" font-size="11" fill="#666666">the crawl runs here, in the background,</text>
-    <text x="360" y="166" text-anchor="middle" font-size="11" fill="#666666">so the interview can open with a real number</text>
+    <text x="360" y="150" text-anchor="middle" font-size="11" fill="#666666">your assistant starts the crawl next,</text>
+    <text x="360" y="166" text-anchor="middle" font-size="11" fill="#666666">then opens the interview with evidence</text>
   </g>
   <g stroke="#111111" stroke-width="1.5" fill="none">
     <path d="M173 48 h10"/><path d="M355 48 h10"/><path d="M537 48 h10"/>
@@ -159,7 +164,9 @@ The first ten minutes run in a deliberate order.
   </g>
 </svg>
 
-Setup asks only what cannot be measured: the site, how the business makes money, where money changes hands, average contract value, sales cycle length, one line on who buys, and up to five competitors. Every question can be skipped, and skipping degrades the output rather than blocking it.
+Setup asks for the site. It marks the business model, conversion paths, value,
+sales cycle, buyer, and competitors as unknown until the crawl and conversation
+can establish them. Guesses stay labelled instead of quietly becoming strategy.
 
 The interview never runs first. It runs second, after the crawl, and it opens like this:
 
@@ -322,11 +329,19 @@ No hosted service, no account. Keys are read from your environment, used against
 |---|---|
 | none | crawl, technical audit, tiering, scoring, site blueprint, reports |
 | Google service account | Search Console and Analytics, which turns flat opportunity scoring into measured opportunity |
-| [Firecrawl](https://www.firecrawl.dev) | the default crawl provider |
-| An AI model key | the interview, the writing skills, and citation probes per engine |
+| [Firecrawl](https://www.firecrawl.dev) | optional JavaScript-capable crawling and paid SERP capture, dormant until you explicitly approve and select it |
+| An AI model key | the optional standalone agent and direct citation probes; your existing assistant needs no second key |
 | PageSpeed, Clarity, SERP | higher rate limits, behavioural leak analysis, live SERP verdicts |
 
-Everything degrades rather than fails. With zero keys you still get a full technical, structural and competitor diagnosis, and every report carries a mandatory section stating which capabilities were live and precisely what their absence weakens.
+An environment key only makes a provider available. It does not approve use.
+`rainmaker audit` stays on the built-in crawler. Firecrawl requires
+`rainmaker audit --provider firecrawl`; its paid SERP search also requires
+`rainmaker serp --allow-paid "query"`.
+
+Everything degrades rather than fails. With zero keys you still get a baseline
+crawl, URL tiering, and structural diagnosis. Search Console, analytics, live
+SERPs, competitor evidence, and answer-engine probes require their respective
+tools or credentials. Every report states what was unavailable.
 
 ## Latest meaningful changes
 
