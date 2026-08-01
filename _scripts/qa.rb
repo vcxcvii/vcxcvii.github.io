@@ -249,7 +249,10 @@ end
 
 def non_content?(path)
   NON_CONTENT_PATHS.any? { |prefix| path.include?(prefix) } ||
-    path.match?(/README|DESIGN|Gemfile|CNAME|robots/)
+    # AGENTS.md and CLAUDE.md are instructions to a coding assistant, not pages.
+    # They are tracked so a clone or another machine gets the same setup, and
+    # they carry no frontmatter because nothing renders them.
+    path.match?(/README|DESIGN|Gemfile|CNAME|robots|AGENTS\.md|CLAUDE\.md/)
 end
 
 def parse_frontmatter(source)
