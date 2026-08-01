@@ -45,7 +45,7 @@ Rainmaker is an open-source SEO and AEO agent with one principle.
 
 > Every finding is ranked by distance to revenue, never by technical severity.
 
-The [repository is public](https://github.com/vcxcvii/rainmaker) and MIT licensed. The spec is written. The measuring core and the ledger are built. The rest is in progress. This page describes what it does and how it is put together.
+The [repository is public](https://github.com/vcxcvii/rainmaker) and MIT licensed, and the package is [published on npm](https://www.npmjs.com/package/@vcxcvii/rainmaker). The spec is written. The measuring core and the ledger are built. The rest is in progress. This page describes what it does and how it is put together.
 
 ## What problem does it solve?
 
@@ -102,9 +102,9 @@ The arrow back from Prove to Decide is the entire product. Everything else in th
 Three commands. Only the first is required.
 
 ```
-npx rainmaker init                 the measuring core, plain Node, no model needed
+npx @vcxcvii/rainmaker init        the measuring core, plain Node, no model needed
 npx skills add vcxcvii/rainmaker   the 26 skills, into whichever assistant you use
-npx rainmaker agent                the interactive agent, with your own key
+npx @vcxcvii/rainmaker agent       the interactive agent, with your own key
 ```
 
 The first ten minutes run in a deliberate order.
