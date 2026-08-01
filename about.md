@@ -1,8 +1,8 @@
 ---
 title: About
 seo_title: About Varun Choraria | Background, work and current focus
-intro: Marketing operator in B2B SaaS, speaker, author, podcast host, and lifelong side-quest enthusiast.
-description: Meet Varun Choraria, a B2B SaaS marketing operator and AI consultant who turns positioning, product marketing, and growth strategy into shipped work.
+intro: B2B SaaS marketing operator. A decade of pipeline, positioning and product marketing, now built with agents.
+description: B2B SaaS marketing operator. I decide what marketing should do next, ship the work, and measure it in pipeline or revenue. A decade in, currently consulting.
 page_class: about-page
 mcp: true
 ---
@@ -12,7 +12,7 @@ I'm a marketing professional and I've worked in the B2B SaaS space for about a d
 
 ## Now
 
-I'm a B2B SaaS marketing consultant. I help teams decide what marketing should do next, ship the work, and measure the result in pipeline, revenue, or another business outcome. I work across growth strategy, product marketing, and AI. Most recently, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A) through August 2026, helping create the Revenue Activation category. The [full history is here](/work/).
+I'm a B2B SaaS marketing operator. I help teams decide what marketing should do next, ship the work, and measure the result in pipeline, revenue, or another business outcome. I work across growth strategy, product marketing, and AI. Most recently, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A) through August 2026, helping create the Revenue Activation category. The [full history is here](/work/).
 
 **I'm open to both full-time roles and consulting engagements.** If you're building something in AI or B2B and want help marketing it, [here's how I work](/consulting/).
 
