@@ -7,7 +7,28 @@ mcp: true
 ---
 ## Work together
 
-If you need help with B2B SaaS growth, positioning, product marketing, or AI-first marketing systems, [book 30 minutes on my calendar](https://cal.com/varun-choraria/30min). The [consulting page](/consulting/) explains how I work before we talk.
+You do not need to diagnose the problem before the call. Bring the pipeline model, positioning problem, launch plan, AI question, team problem, or list of competing priorities. We will work out whether it needs a workshop, a defined project, or an ongoing role.
+
+[Book 30 minutes on my calendar](https://cal.com/varun-choraria/30min). Want the detail first? The [consulting page](/consulting/) covers how I work and what I measure.
+
+## What happens on the call
+
+30 minutes, no pitch. I will ask about your target, your buyers, and what has changed. You leave with a clearer next step even if the answer is that we should not work together.
+
+## Who this is for
+
+B2B SaaS founders, marketing leaders, and teams that need senior marketing judgment without a full-time hire or an agency layer. The pattern is usually one of these:
+
+- The pipeline target and the marketing plan do not add up
+- The product changed, but the homepage still tells the old story
+- The team is busy, but the work does not build on itself
+- The company needs senior judgment, but not another full-time leader
+
+If you recognize one of these, the call is worth 30 minutes. If you do not, the call will make that clear quickly, and neither of us loses much time.
+
+## Evidence before a pitch
+
+The tools behind this site are [open source on GitHub](https://github.com/vcxcvii). Read them, fork them, and decide with evidence instead of a pitch. I will not promise a rank, a vanity metric, or a launch headline in exchange for a contract.
 
 ## Roles, speaking, and everything else
 
