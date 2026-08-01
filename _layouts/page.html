@@ -19,6 +19,11 @@ layout: default
         {% include logos/github.svg %}
         <span>Get this for free on GitHub</span>
       </a>
+      {% if page.npm_url %}
+      <a class="quest-action" href="{{ page.npm_url }}" target="_blank" rel="noopener noreferrer">
+        <span>Install from npm</span>
+      </a>
+      {% endif %}
       {% if page.license %}
       <a class="quest-action" href="{{ page.repo_url }}/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
         <span>{{ page.license }} License</span>

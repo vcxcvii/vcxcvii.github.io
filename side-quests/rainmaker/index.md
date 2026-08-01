@@ -9,6 +9,7 @@ project: true
 project_name: Rainmaker
 repo: rainmaker
 repo_url: https://github.com/vcxcvii/rainmaker
+npm_url: https://www.npmjs.com/package/@vcxcvii/rainmaker
 license: MIT
 state: Public
 version: "0.2"
