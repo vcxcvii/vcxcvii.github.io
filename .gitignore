@@ -9,3 +9,17 @@ frontend/dist/
 
 # local nav experiment (not part of the site)
 _nav/
+
+# Rainmaker scaffolds these into whatever directory it runs in. None of it is
+# part of the published site, and two of them must not be committed to a public
+# repository: the config carries the real site, ICP, conversion paths and any
+# Search Console property, and data/ carries real traffic, conversion counts and
+# modelled pipeline. Matched by shape rather than by product name, because
+# renaming the product would otherwise silently unprotect them.
+*.config.yml
+data/
+context/
+skills/_shared/
+.agents/skills/
+.claude/skills/
+RAINMAKER.md
