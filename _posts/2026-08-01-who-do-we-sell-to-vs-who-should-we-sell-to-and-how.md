@@ -10,338 +10,196 @@ tags:
   - frameworks
 ---
 
-I've worked in startups and large organizations, and one pattern has followed me everywhere: the ideal customer profile is treated like a one-off exercise.
+I've been a part of both startups and large organizations, and one consistent trend I've unfortunately seen is that ICP is considered a one-off exercise versus the continuous development it should be.
 
-A workshop happens. A slide gets made. Someone writes "B2B SaaS, 200–2,000 employees, North America" in a box. Sales uploads a list. Marketing changes three words on the homepage. Everyone agrees the ICP work is done.
+- You don't update your ICP after two quarters of sales wins.
+- You don't update your ICP after a feature release based on adoption or key-event usage.
+- You don't update your ICP after critical accounts churn or you suddenly start losing mid-market customers.
+- You don't update your ICP until it is too late.
 
-Then reality keeps moving.
+That's the unfortunate state of the union.
 
-- Two quarters of sales wins reveal a segment nobody prioritized.
-- A feature release gets adopted heavily by customers you considered secondary.
-- Critical accounts churn for the same reason.
-- Mid-market win rates fall while enterprise expansion quietly improves.
-- The buyer changes, but the targeting does not.
+Updating and validating ICP can be tedious:
 
-The ICP stays frozen until the pipeline is already in trouble.
+- You have to rewire sales plays and positioning across sales enablement assets.
+- You have to hold sessions with every stakeholder to ensure they are updated.
+- You have to audit channels, adoption and expansion.
 
-That is the unfortunate state of the union.
+"Who do we sell to?" is often lazy targeting: scrape a list based on demographics, technographics and firmographics.
 
-Updating it is tedious. You have to rewire sales plays and positioning. You have to revisit enablement, channels, adoption, retention, expansion and product direction. You have to get sales, marketing, product and customer success to look at the same evidence without turning the meeting into a referendum on who missed quota.
+"Who SHOULD we sell to?" is often:
 
-Still, there is a useful distinction worth making:
+- where your GTM motion actually works, meaning you are able to reach and distribute in the channels where your customers hang out
+- where your product team is building features these customers will need
+- where the expansion motion, cross-sell and upsell, looks as good as the initial deal
 
-> **Who do we sell to?** is a description of the accounts currently entering the funnel.
->
-> **Who SHOULD we sell to?** is a decision about where the company should spend its next unit of GTM effort.
+That is the distinction I want to get into.
 
-The first can be answered with a CRM export. The second needs judgment.
+## Being honest: if you have data
 
-## An ICP is not a demographic filter
+If you are an established business with customers, start with win-loss analysis.
 
-Lazy targeting looks like this:
+This is going to come from three key sources:
 
-> Pull software companies with 100–500 employees, using Salesforce, that recently raised money.
+- CRM
+- call recordings
+- validating both honestly and openly with sales
 
-That can produce a list. It cannot tell you whether the product solves an urgent problem, whether the buyer can be reached, whether the account will adopt, or whether the deal will ever expand.
+Often, data lakes like a CRM have won or lost reasons in a dropdown with a cryptic note from the AE. You want to understand the difference between what actually happened and what was plainly stated.
 
-The version I find more useful has six parts:
+For both closed-won and closed-lost accounts, I would closely analyze:
 
-1. **Product fit:** can this customer reach meaningful value with what exists now?
-2. **Urgency:** what changed that makes solving the problem important today?
-3. **Evidence of winning:** do similar accounts buy, adopt and stay?
-4. **Reachability:** can we reliably find and reach the buying group?
-5. **Commercial quality:** are deal size, sales cycle and cost to serve worth it?
-6. **Expansion:** does the account become more valuable after the first deal?
+- How did the customer hear about us?
+- Which touchpoints hit them, how many were there and whom did they reach inside each account?
+- Where did the deal stall, or where did it spend the most time?
+- What were the objections?
+- Who was in the buyer committee?
+- What was the ACV or ARR?
 
-A firmographic filter describes the pond. A trigger event tells you when the fish are biting. Product and revenue evidence tell you whether they are the fish you should be trying to catch in the first place.
+Then stretch this across cohorts. You could segment by deal size, region, employee count or target-team size. If you sell a sales solution to sales teams, for example, cohort by team sizes such as 2–10, 10–100, 100–250 and so on.
 
-This is why I would not create one giant composite ICP. I would create two or three specific segments, then force the company to rank them. Each segment needs an observable profile, a trigger, a buyer map, a reachable channel, a message and a negative ICP.
+The cohorting methodology should follow the account or ICP qualification filters sales already uses.
 
-Otherwise the priority becomes whoever replies first, which is spray and pray wearing a strategy costume.
+Remember, the entire art of pipeline or ICP analysis is to listen to things systematically: through a process, within a defined timeframe and rooted in real data. Then wrap it around a monthly, quarterly and yearly cadence.
 
-## If you have customers, start with win-loss
+## One side produces blame, the other produces criteria
 
-An established company has an advantage: it has evidence. The problem is that the evidence is scattered across systems and people.
+There are two sides to any analysis. One produces blame. The other produces criteria that determine how things should be run the next time.
 
-The three most useful sources are:
+A simple example:
 
-- CRM data
-- call recordings and transcripts
-- honest conversations with sales
+> "Why did the plan upsell not work in region X?"
 
-You need all three because a CRM close-reason dropdown is a witness with a motive. "Price" may mean the product was genuinely too expensive. It may also mean value was never established, the champion disappeared, procurement froze the deal, or the rep needed a convenient option before closing the opportunity.
+versus:
 
-The CRM tells you what was recorded. The transcript usually gets you closer to what happened. Sales can tell you what neither system captured.
+> "Should we have targeted the plan upsell in region X in the first place?"
 
-For every closed-won, closed-lost and no-decision deal, I would code:
+There are also black-swan cases where prospects who would not have been your best fit turn out to be your best-adopting customers. In these cases, I would investigate the triggers:
 
-| Field | What I want to know |
-|---|---|
-| Outcome | Won, lost or no decision |
-| Primary reason | The single biggest driver |
-| Secondary reasons | Up to two contributing factors |
-| Segment | The cohort this account belongs to |
-| Deal size | ACV or ARR, kept numeric |
-| Close date | So changes can be compared over time |
-| Trigger | What changed before the deal opened |
-| Source | How the customer first heard about us |
-| Buying group | Initiator, champion, decision maker and blockers |
-| Quote | The line that best explains the outcome |
-| Confidence | High, medium or low based on available evidence |
-
-That creates an audit trail instead of a collection of anecdotes.
-
-Use a fixed reason taxonomy. Price, product gap, competitor, status quo, timing, champion, onboarding risk, relationship and value not established are good starting buckets. Give each deal one primary reason, not six equal ones. You can preserve nuance in the secondary reasons and quote.
-
-Then segment the deals by whatever actually changes the motion: deal size, geography, employee count, target-team size, product line, sales motion or another operationally meaningful cohort.
-
-The useful questions are not just "why did we win?" and "why did we lose?"
-
-- Which segment has the best deal size multiplied by close rate?
-- Which one closes fastest?
-- Which one adopts the product deeply after buying?
-- Where does expansion look as good as acquisition?
-- Which segment creates unusual implementation or support work?
-- Which triggers appear before wins but not before losses?
-- Where do we have an advantage competitors cannot easily copy?
-
-If the dataset is small, report counts. Three of eight deals is not a market trend because a percentage sign was added to it. Show the denominator, label the confidence and separate what the evidence says from what you are inferring.
-
-## Pricing deserves its own investigation
-
-Pricing is where lazy analysis causes expensive decisions.
-
-"We're losing on price" can describe several different problems:
-
-- the absolute price is too high
-- the buyer has no budget this quarter
-- the packaging forces them into the wrong tier
-- the pricing metric, seats, usage or credits, creates anxiety
-- a competitor is undercutting you
-- procurement wants different terms
-- the buyer never understood the value, so every price feels high
-
-Those do not share a fix.
-
-If pricing losses concentrate in small companies because they need three seats but the plan starts at ten, that is probably a packaging problem. If enterprise buyers understand the value and still walk because a competitor is materially cheaper, that is a competitive decision. If nobody can explain the ROI to the CFO, lowering the list price may simply make a weak argument cheaper.
-
-Code the pricing subtype, then cut it by segment, product, deal-size band, competitor and quarter. Pull the actual words buyers used. Compare the change against a price increase, packaging change, new competitor or change in the mix of deals.
-
-If nothing explains the movement, say that. "We do not know yet" is a much better operating input than a fabricated story with a confident chart.
-
-## One side produces blame. The other produces criteria.
-
-There are two ways to run the same analysis.
-
-One asks:
-
-> Why did the plan upsell fail in region X?
-
-The other asks:
-
-> What evidence should have been present before we targeted plan upsell in region X?
-
-The first tends to produce blame. The second produces criteria for the next decision.
-
-I would still study the black swans. Sometimes a prospect that looked wrong becomes one of the best-adopting customers. Do not immediately rewrite the ICP around one account, but do investigate the trigger:
-
-- What created the urgency?
+- What triggered the urgency to buy?
 - Was the team structured differently from similar customers?
-- Did a competitor move force the decision?
-- Did one unusual champion do the internal work?
-- Which product event predicted adoption?
+- Did a competitor move trigger this?
 
-The point is pattern recognition, not forcing every customer into the story you already wanted to tell.
-
-AI makes the synthesis much faster. It does not make the source data honest. Give the model one row per deal, a fixed taxonomy, quotes and confidence labels. Make every conclusion traceable back to the deal-level evidence. Otherwise you have automated the opinion, not the analysis.
-
-## Build the ICP around triggers, not adjectives
-
-Once the win-loss data is coded, I would turn it into two or three segments.
-
-Each one should answer:
-
-### Who are they?
-
-Use observable criteria: vertical, company size, stage, business model, team structure and relevant stack. "They care about innovation" is not observable. A job posting that requires Salesforce, Outreach and Gong is.
-
-### What changed?
-
-This is the most important question. What made now different from six months ago?
-
-- A new CRO or CMO joined.
-- A funding round closed.
-- The company started hiring its first SDRs.
-- A compliance deadline appeared.
-- A product launch opened a new use case.
-- A team crossed a size where the old workflow stopped working.
-- A failed audit or operational incident made the pain visible.
-- A competitor move created urgency.
-
-"Growing companies" is not a trigger. "Series B companies hiring a Head of Demand Generation within 90 days of the raise" is something you can monitor.
-
-### Who buys?
-
-The initiator, champion and signer may be different people. They need different messages. If a practitioner starts the conversation but a CFO signs, the practitioner needs help doing the internal sale. That requirement is part of the ICP, not an enablement problem discovered later.
-
-### Where can we reach them?
-
-Pick channels based on how the buying group behaves, not what is easiest to automate. Cold email, LinkedIn, inbound content, community, partners, product-led conversion and account-based marketing can all work. They do not all work equally for every segment.
-
-### What makes them a bad fit?
-
-The negative ICP is not a footnote. List the accounts that look right but repeatedly fail to adopt, expand or justify the cost to serve. Then name the observable red flags that could have saved the team from opening the deal.
+It is all about pattern recognition and synthesizing the data well. AI makes that a lot easier now. What RevOps used to take a week to analyze can now take minutes and be accessible and queryable by anyone.
 
 ## Make new ICP-y friends
 
-Win-loss is inside-out evidence. There is another useful pool outside the active pipeline:
+Everything above is a very outside-in approach. But what about the prospects who:
 
-- people visiting important website pages
-- regular newsletter readers
-- event and webinar attendees
-- repeat readers of your work
-- people engaging with relevant ads or posts
-- free users showing meaningful product behaviour
-- customers, partners and past champions
+- visit your website and are deanonymized by intent providers
+- regularly read your newsletters and marketing emails
+- regularly attend your events and webinars
+- read your blogs
+- accept free invitations to conferences
+- engage with your ads
 
-I would benchmark them against the segment and trigger patterns above. Engagement is not proof of fit. Fit is not proof of intent. The overlap is where things get interesting.
+I would benchmark these people against the findings so far, with the common denominator being who you initially thought your ICP was.
 
-That overlap becomes what I call an **industry friends list**: people worth knowing before either side needs something.
+The Venn diagram is your sweet spot for understanding how your ICP is evolving.
 
-Some plays I would run:
+### Build an industry-friends list
 
-1. Send a light, plain-text note when you publish something genuinely relevant. Not a fake personal email sent to 40,000 people. A small list, a clear reason, a real person replying and an easy way out.
-2. Follow up once and ask for the honest disagreement, not a calendar slot.
-3. Add good-fit people manually on LinkedIn. If you automate connection requests, respect platform rules and keep the volume low enough that the relationship still has a human owner.
-4. Build the list from event conversations, customers, partners, thoughtful post engagement and product usage. Treat deanonymized website intent as an account signal, not permission to stalk an individual.
-5. Run thought-leader ads to the segment when there is something useful to say.
-6. Map mutual connections. A warm introduction from somebody who trusts you beats another six-touch sequence.
+I would add these people to an always-on campaign. Whenever someone publishes a new blog, preferably under a senior leader with a proper author page, send a light FYI-style note.
 
-This is not immediately scalable. That is partly why it works. A senior person saying "tell me what you think, I read every reply" only builds trust if they actually read every reply.
+Keep it simple:
 
-Over time, the list becomes air cover. A webinar invitation does not arrive cold. An in-person event starts one conversation ahead. A prospect already knows how you think. Someone may introduce you into an account because the relationship existed before the request.
+1. Email one is about the blog, the point of view and how it affects them.
+2. Email two follows up and asks for their thoughts.
 
-## What if you do not have ICP-y friends?
+What makes a difference is sending it like a personal sales note, not a designed marketing mailer. More importantly, personally respond to the emails. A CTA like "tell me your honest thoughts, I read every email" establishes a ton of trust only if you actually do it.
 
-Your website becomes the entry point. Give people useful reasons to identify themselves:
+It is not very scalable. You may need another human or a personalized agent to help. Either way, this is what I call **industry friends**: a rolling list of people you keep adding to from LinkedIn post engagement, website visitors, enriched emails, past events, customers, partners and so on.
+
+In parallel, make sure they are actually your ICP. If they are, send them a LinkedIn connection request, manually or through a small PhantomBuster sequence a couple of times a month.
+
+This creates air cover for the future. If there is a last-minute rush for webinar or event signups, I would expect conversion from this list to be higher. Because you have already established a relationship, conversations at in-person events or even on webinars are immediately warmer.
+
+You can also identify who they are connected to. If you are trying to get into their account and need an introduction, they will often help.
+
+You can run thought-leader ads to them too.
+
+## What if you don't have ICP-y friends?
+
+Your website is your biggest trump card here. Offer a lot of helpful entry points:
 
 - free tools
-- virtual events
-- on-demand webinars
-- click-through product demos
-- practical templates and guides
-- a genuinely useful newsletter
+- virtual events, which can be re-promoted as always-on or on-demand webinars
+- an on-demand demo, either a click-through Storylane demo or a video behind a simple signup
 
-Then watch which segment uses what. An on-demand demo can reveal more than a generic ebook download. Multiple users from the same domain can reveal team adoption. Repeated use of one workflow can reveal a job-to-be-done the positioning has missed.
+The cherry on top is that you can identify ICP accounts here too and invite them onto podcasts. This is the only reason I think podcasts in B2B really work.
 
-Podcasts can work here too, but not because every B2B company needs another founder interviewing another founder. Invite people from accounts or roles you are trying to understand. Use the conversation as research. Publish the useful parts for the wider community. The guest gets a good artifact; you get language, relationships and a better view of how the market is changing.
+Especially in the age of AI, when job descriptions are changing and teams and organizations are being remodeled, you have a real chance to do research through a podcast and make it useful for the larger community.
 
-That can become a low-cost content system: one conversation turns into video, short clips, a written argument, a carousel and a follow-up note to the industry friends list. The content is downstream of a real conversation, which is why it has a chance of sounding like one.
+That same conversation can become video and carousel content on a personal LinkedIn profile anyway. You can build a no-cost content machine by repurposing a bunch of material and emailing it back to your industry-friends list as it grows.
 
-## What if you barely have a website?
+This whole thing is an entry-exit, always-on campaign to:
 
-This is common now. People are taking new products to market quickly, and many of those products replace an incumbent workflow or one piece of a larger suite.
+- identify ICPs
+- build relationships
+- ensure no account entering your pipeline is coming in cold
 
-The first question is whether you replace the whole system or a painful step inside it. That changes the buyer, proof burden, migration risk and channel.
+*Someone needs to know someone, period.*
 
-Outbound looks easiest because a list can be scraped before the product is understood. Usually that just lets you learn slowly at scale.
+## But what if you just have a website, or not even that?
 
-I would run three motions in parallel.
+This is something I've been encountering quite a lot lately because everyone is taking new products to market. More often than not, your product IS going to replace someone else's.
 
-### 1. Network marketing
+The question becomes whether you are replacing the whole suite or only one part of the workflow.
 
-Use warm introductions, small founder networks, product communities, launches and building in public. Founder brand matters here because the market has little product evidence. Talk about use cases, short demos, the changing workflow and what you are learning.
+Leaving aside all the V1 product questions, such as how well your product integrates with others, the larger questions are about beta users, alpha customers and which channel you pick.
 
-Attach a minimally intrusive product-led experience: clear docs, a phone number, a walkthrough, in-product education and a short nurture sequence. If you have useful telemetry, separate users into three groups:
+Outbound seems easiest. You scrape a list and put everyone into a sequence. But that is just spraying and praying.
 
-- **Paying and using:** early evidence of the wedge.
-- **Using deeply but not paying:** potential buyers with a friction problem, possibly price, migration, packaging or workflow.
-- **Not using and not paying:** investigate before disqualifying. If they resemble the intended segment, interview them about the missing job. If they do not, stop spending acquisition effort there.
+There are a few other ways to go about this.
 
-A generous free tier can support a mass-market, bottoms-up motion. A mid-market or enterprise product may need a narrower free experience and much more help crossing the adoption gap. Early buyers rarely choose an unknown product because it is the cheapest. They choose because the value is unusually clear.
+### Network marketing
 
-### 2. Incumbent and workflow signals
+You will have to rely on warm introductions, Product Hunt launches and building in public. Founder brand plays an essential role.
 
-Find users of the incumbent or adjacent stack through job postings, public implementation pages, BuiltWith, Clay or similar sources. Reach practitioners who understand the workflow and have enough proximity to the pain to try something new.
+It can be something as simple as talking about use cases, quick product demos, industry shifts and trends that might get attention.
 
-The original hack I have used is checking whether a company-specific tenant subdomain exists, for example `prospect.vendor.com`. It is cheap to test with a script. It is also only a clue. Custom domains, shared environments and retired tenants create false positives and false negatives. Corroborate it with job posts, implementation docs, public integrations or another independent signal before calling the account a confirmed user.
+Attach a minimally intrusive, white-glove, PLG-assisted sales experience. Add phone numbers, product docs and user guides. Use in-product banners and modals alongside a weekly educational nurture sequence.
 
-Mid-level practitioners can be good early champions because they live inside the workflow and often have more incentive to experiment. That is a hypothesis to test, not a universal law. Leadership may be the better entry point when the change is strategic, risky or expensive.
+If you can tether some product telemetry, identify high-usage cohorts and nudge them towards a paid plan or upgrade.
 
-### 3. Trigger-based outbound
+A generous free tier makes sense if you want to go mass-market and bottoms-up. If you are selling to mid-market and enterprise, do not be as generous, but make crossing the chasm easier.
 
-Pull accounts that match the segment, then narrow them with a trigger. Do not treat a dream-logo list as an ICP.
+Early winners do not win because of price. They win because of value. Build and bundle features accordingly so the conversion rate can improve.
 
-A simple sequence might be:
+From this, you can derive three types of ICPs:
 
-1. Two or three useful touches across roughly two weeks.
-2. A personalized LinkedIn invitation pointing to a relevant demo or microsite.
-3. Real-time tracking of meaningful engagement.
-4. A stronger demo ask for accounts that engage.
-5. A lower-pressure nurture or industry-friends path for accounts that do not.
+1. **People who pay now.** These are your early adopters.
+2. **People who use the product well but do not pay.** These are your next-in-line customers. You have to identify the friction, which could be workflow, price, migration or something else.
+3. **People who do not use the product well and do not pay.** Do not jump too quickly to disqualify them. Enrich the data first and see if they are close to whom you want to sell to. If they are, get onto one-to-one calls and understand the gaps in the job to be done. If they are not, disqualify them.
 
-Paid LinkedIn can add air cover if the account universe is tight enough. Thought-leader content usually gives the buyer a better reason to pay attention than another product ad.
+### Reach existing users
 
-Do not borrow somebody else's demo-rate benchmark and turn it into your forecast. Establish your own baseline by segment, trigger and channel. The useful number is not the overall conversion rate. It is whether triggered, good-fit accounts convert materially better than firmographic-only accounts.
+The second option is to reach users of an existing product. Use BuiltWith and Clay to get a list of people and their LinkedIn profiles, then DM them.
 
-## Turn it into a program, not a document
+One hack is to DM somebody at the mid-level. They often have the time and enthusiasm to reply and trial your product. Leadership generally does neither unless it is a small startup.
 
-I would maintain a simple tier system:
+### Make outbound less lazy
 
-| Tier | Meaning | Action |
-|---|---|---|
-| A | Several fit signals plus a real trigger | Direct, personalized outreach and focused air cover |
-| B | Fit signals present, trigger unclear | Nurture, monitor and use lighter outreach |
-| C | Firmographic fit only | Brand and education, no expensive sales time |
-| Not ICP | A disqualifying signal is present | Remove or consciously treat as an experiment |
+The last option is outbound. Pull a list of target accounts, enrich them and create specific plays for each.
 
-Then run the loop:
+The catch is that this should not be your dream list of accounts. It should be accounts confirmed as users of a certain tech stack or an incumbent.
 
-1. Back-test the segments against recent wins, losses, no-decisions and churn.
-2. Compare the CRM label with transcript evidence.
-3. Look for trigger, adoption and expansion patterns.
-4. Rank the segments by revenue efficiency, reachability, velocity and advantage.
-5. Change targeting, messaging, channel or packaging.
-6. Record the hypothesis.
-7. Review what happened monthly.
-8. Revisit the ICP quarterly, or earlier when the evidence shifts materially.
+You can wire a simple Python script using Claude, or build a Claygent, that searches for `[prospect_company].[incumbent_company].com`. For example, `mutiny.salesforce.com`.
 
-Do not rewrite the ICP after every weird deal. Do not wait a year while the same pattern repeats. The job is to distinguish drift from noise.
+Some SaaS products give customers a login subdomain when they pay. The agent simply checks whether that domain exists. It is not proof, but it is one more signal and one of many ways to reduce token or subscription costs while qualifying a list.
 
-## A copy-paste ICP sharpener
+If you have the budget, run paid LinkedIn ads to these accounts and see who engages. Based on that, reach out to the relevant people.
 
-If you want an AI assistant to help, give it evidence and force it to show its work. This is the compact version I would use:
+Making a one-to-many ABM campaign feel like one-to-one can happen in this sequence:
 
-```text
-Help me decide who we SHOULD sell to, not merely describe who we sell to now.
+1. Send two or three email touches across 12 days.
+2. Send a personalized LinkedIn invitation with a product microsite or landing page.
+3. Track engagement in real time.
+4. Target people who engage with an ad leading to a demo page.
+5. Add people who do not engage to the industry-friends list or another nurture sequence.
 
-Inputs I will provide:
-- recent closed-won, closed-lost and no-decision deals
-- CRM notes and available call excerpts
-- product adoption, retention and expansion patterns
-- current segments, channels, deal sizes and sales cycles
-- examples of churned or expensive-to-serve customers
+A 7–8% demo rate makes sense to me here.
 
-Rules:
-1. Separate evidence from inference. Label confidence high, medium or low.
-2. Use one row per deal and a consistent win-loss taxonomy.
-3. Prefer transcript evidence over a generic CRM close-reason field when they conflict.
-4. Never report a percentage without its count and denominator.
-5. Produce 2-3 distinct ICP segments, not one composite persona.
-6. For each segment include observable firmographics, signal stack, trigger events,
-   buyer map, best channel, messaging hook, adoption/expansion evidence and negative signals.
-7. Rank the segments by revenue efficiency, reachability, sales velocity and competitive advantage.
-8. Treat engagement as intent, not proof of fit.
-9. If data is thin, give me a testable hypothesis instead of invented certainty.
-10. End with the next 30-day experiment and what evidence would make us change our mind.
-```
+Remember, 100% of your pipeline will not come from one place. You are doing a bit of controlled and strategic spray and pray, then seeing which channels and types of prospects convert faster.
 
-The output should be something sales can target, marketing can reach, product can recognize in usage and customer success can challenge with retention evidence. If only one function agrees with it, it is not an ICP. It is a departmental preference.
-
-No company gets 100% of its pipeline from one place forever. You will always run some mix of relationships, inbound, product, partners, outbound and paid distribution.
-
-The point is not to eliminate experimentation. It is to make the experiment controlled enough that you know which customer, trigger, channel and message actually worked.
-
-Then update the ICP before it is too late.
-
-If you want me to help build the operating version of this, not another slide, [here is how I work](/consulting/).
+That feedback should keep changing who you SHOULD sell to.
