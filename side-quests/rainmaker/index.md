@@ -100,18 +100,35 @@ The arrow back from Prove to Decide is the entire product. Everything else in th
 
 ## How do you set it up?
 
-Three commands. Only the first is required.
+One command. It asks nothing it can work out for itself.
 
 ```
-npx @vcxcvii/rainmaker init        the measuring core, plain Node, no model needed
-npx skills add vcxcvii/rainmaker   the 26 skills, into whichever assistant you use
-npx @vcxcvii/rainmaker agent       the interactive agent, with your own key
+npx @vcxcvii/rainmaker init --site https://yoursite.com
 ```
+
+That writes the config and installs the 26 skills where every assistant already
+looks: `.claude/skills/` for Claude Code and opencode, `AGENTS.md` for Codex and
+the twenty-odd other tools that read it. Then open your assistant in that
+directory and talk to it. Conversion paths, competitors and buyer are worked out
+from the site and the conversation, not asked for in a form up front.
+
+Claude Code users can install the plugin instead, which adds a session hook that
+reads project state and opens on the right next step:
+
+```
+/plugin marketplace add vcxcvii/rainmaker
+/plugin install rainmaker@vcxcvii
+```
+
+There is also a standalone agent, if you would rather not use an assistant at
+all: `npx @vcxcvii/rainmaker agent`, with your own key. Anthropic and OpenAI work
+directly; anything speaking the OpenAI chat-completions shape — OpenRouter, Groq,
+Ollama, a local model — works by pointing `OPENAI_BASE_URL` at it.
 
 The first ten minutes run in a deliberate order.
 
 <svg viewBox="0 0 720 210" role="img" aria-labelledby="onboarding-title" style="max-width:100%;height:auto;margin:1.5rem 0">
-  <title id="onboarding-title">Onboarding: eight config questions while the crawl runs in the background, then a grounded interview, then three fixes, then a cadence recommendation</title>
+  <title id="onboarding-title">Onboarding: one command writes the config while the crawl runs in the background, then a grounded interview, then three fixes, then a cadence recommendation</title>
   <g fill="none" stroke="#111111" stroke-width="1.5">
     <rect x="1" y="20" width="172" height="56"/>
     <rect x="183" y="20" width="172" height="56"/>
@@ -120,8 +137,8 @@ The first ten minutes run in a deliberate order.
     <rect x="183" y="128" width="354" height="54" stroke="#dddddd"/>
   </g>
   <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" fill="#111111">
-    <text x="87" y="42" text-anchor="middle" font-size="12">1. Eight questions</text>
-    <text x="87" y="60" text-anchor="middle" font-size="10.5" fill="#666666">90 seconds, skippable</text>
+    <text x="87" y="42" text-anchor="middle" font-size="12">1. One command</text>
+    <text x="87" y="60" text-anchor="middle" font-size="10.5" fill="#666666">your URL, nothing else</text>
     <text x="269" y="42" text-anchor="middle" font-size="12">2. Grounded interview</text>
     <text x="269" y="60" text-anchor="middle" font-size="10.5" fill="#666666">one question at a time</text>
     <text x="451" y="42" text-anchor="middle" font-size="12">3. Three fixes</text>
