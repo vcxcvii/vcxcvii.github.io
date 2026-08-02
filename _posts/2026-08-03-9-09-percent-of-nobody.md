@@ -46,9 +46,9 @@ The whole dataset was 11 sessions. The agent looked at 11 visits, found dead cli
 
 Nothing it said was false, because 1 session genuinely did have dead clicks.
 
-But "9.09% of sessions, threshold 5%" reads like a measurement, when what actually happened is that one person clicked something that wasn't a button. 2 decimal places on a sample of 11 isn't precision, it's the costume precision wears.
+But "9.09% of sessions, threshold 5%" reads like a measurement, when what actually happened is that one person clicked something that wasn't a button. 2 decimal places on a sample of 11 isn't precision. It just looks like it.
 
-That's the failure I'd care about if I were shipping this to a client, because it isn't a wrong answer, it's a confident one.
+That's the failure I'd care about if I were shipping this to a client. It isn't a wrong answer, it's a confident one.
 
 Hand that issue to a junior marketer and they'll spend a day auditing button styles, purely because the number looked rigorous.
 
@@ -74,7 +74,7 @@ The difference isn't intelligence. Somebody wrote a floor into it, so there's a 
 
 Nobody wrote a threshold for how many sessions a percentage needs before it means anything, so it happily calculated one from 11.
 
-Every gap you don't write becomes a confident output.
+If you don't set a rule, the agent still gives you an answer. It just gives you a bad one, confidently.
 
 ## Why 4 of them are still open
 
@@ -112,6 +112,6 @@ Mine has never touched this site and I intend to keep it that way. The moment it
 
 Then go and look at your own denominators. The most dangerous thing an agent hands you isn't a hallucination, because you can catch those.
 
-It's a true statement, computed from a sample too small to mean anything, formatted to 2 decimal places, sitting inside a template that looks exactly like every correct finding you've ever read.
+It's a true statement worked out from a sample too small to mean anything, written up to 2 decimal places, in a template that looks exactly like every correct finding you've ever read.
 
 9.09% of my visitors hit a problem. That was one guy, and he may well have been me.

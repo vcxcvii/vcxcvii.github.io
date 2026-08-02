@@ -57,7 +57,7 @@ Then I looked at the raw lines instead of the total.
 
 They arrive in bursts. 1 to 2 requests per second, back to back, every one a cache miss. That's not a person asking a question. That's not an AI client either. That's a monitor, or a crawler, or something on a loop.
 
-And they're all `GET /`. MCP tool calls are JSON-RPC. A GET to the root returning 200 is a handshake or a health check. It's the sound of something knocking on the door, not walking through it.
+And they're all `GET /`. MCP tool calls are JSON-RPC, so a GET to the root returning 200 is a handshake or a health check. Something is knocking. Nothing is coming in.
 
 I can't prove none of those 5,721 were real. I can say that the shape of the traffic looks nothing like use.
 
@@ -73,7 +73,7 @@ Which took me a while to sit with, because it's a smaller thing than I wanted. I
 
 That distinction matters more than the traffic number, so here it is plainly.
 
-A channel is a way for people to get something. A signal is what building the thing says about you.
+A channel is a way for people to get something from you. A signal is what building the thing tells people about you.
 
 I aimed at the channel. I hit the signal. And the signal is doing real work: it says I ship, it says I understood MCP early enough to have an opinion, and it says the claim on my consulting page about being AI-native has something behind it other than the claim.
 

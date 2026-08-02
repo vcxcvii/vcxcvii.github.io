@@ -72,13 +72,13 @@ I shipped 0.3.1 with the orchestrator in it. The installed plugin was pinned at 
 
 So every skill did exactly what it was built to do. It checked for context, found none, and politely declined. 26 correct refusals adding up to a product that did nothing.
 
-Nothing crashed and nothing logged. It just sat there being useless with excellent manners.
+Nothing crashed and nothing logged. It just sat there doing nothing, very politely.
 
 Once I went looking I found 3 more of the same shape. A setting written into every config file and read by nothing, because the code that picked it only ever looked at the command-line flag. A startup hook that told the assistant to run a shell command, so it ran the command and stopped instead of loading the skill. A pointer file written to one filename when the assistant reads a different one.
 
 Same bug, 4 hats. The design lived in the prose. The plumbing quietly went around it.
 
-**What I took from it:** the design isn't what you wrote in the doc. It's whatever the delivery layer actually does. Check the hook text, the filenames, the version pins, the config keys. That's where good designs go to die.
+**What I took from it:** the design isn't what you wrote in the doc. It's whatever the delivery layer actually does. Check the hook text, the filenames, the version pins, the config keys. That's usually where the gap is.
 
 ## My own gate, in my face
 

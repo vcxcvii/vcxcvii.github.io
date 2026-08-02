@@ -124,7 +124,7 @@ And on my own machine there's a memory directory: one file per fact, each with a
 
 None of this is sophisticated. It's a diary that the machine reads.
 
-But it's the difference between paying for the same mistake twice and paying for it once. When re-reading is 99.5% of your token spend, the quality of what gets re-read is the whole game.
+But it's the difference between paying for the same mistake twice and paying for it once. When 99.5% of your spend goes on re-reading, what gets re-read matters more than anything else.
 
 ## The misconception
 
