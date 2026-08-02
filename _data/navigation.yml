@@ -1,6 +1,7 @@
-# Ordered by what a first-time visitor should do, not alphabetically. Money
-# pages first, then the proof behind them, then who I am, then utility. Nav
-# position is also link prominence, so the pages that should rank sit earliest.
+# Ordered by what a first-time visitor should do, not alphabetically. Who I am
+# first, then money pages, proof, and utility.
+- label: about
+  url: /about/
 - label: work
   url: /work/
 - label: consulting
@@ -9,8 +10,6 @@
   url: /blog/
 - label: side-quests
   url: /side-quests/
-- label: about
-  url: /about/
 - label: speaking
   url: /speaking/
 - label: uses-this
