@@ -5,6 +5,12 @@ on:
     branches: ["main"]
     paths-ignore:
       - "_data/site_updates.json"
+  # Jekyll skips posts dated ahead of the build clock, so a date-scheduled post
+  # only appears once something rebuilds the site on or after its date. The
+  # daily quest refresh pushes only when its data actually changed, which is
+  # usually but not reliably every day. This makes the rebuild unconditional.
+  schedule:
+    - cron: "5 1 * * *" # daily, 06:35 IST
   workflow_dispatch:
 
 permissions:

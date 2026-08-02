@@ -7,7 +7,11 @@ description: See Varun Choraria's B2B SaaS marketing work across pipeline, posit
 page_class: work-page
 mcp: true
 ---
-**I'm open to full-time roles and consulting engagements**, anywhere in the world. For consulting, [see how I work](/consulting/) or [book 30 minutes on my calendar](https://cal.com/varun-choraria/30min). For a full-time conversation, [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me. If you want to know how I think before we talk, start with [the essays](/blog/) or [what I build on the side](/side-quests/).
+**This page is the full record: roles, scope, teams, and outcomes.** I'm open to senior full-time roles anywhere in the world, and [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to start that conversation. If you'd rather hire the work than the person, [here's how I run engagements](/consulting/).
+
+Numbers below use magnitude rather than exact figures where a client's revenue isn't mine to publish. Same convention across every page on this site.
+
+If you want to know how I think before we talk, start with [the essays](/blog/) or [what I build on the side](/side-quests/).
 
 ---
 
@@ -29,7 +33,7 @@ mcp: true
 
 **Jan 2026 - Aug 2026** · [GTM Buddy](https://gtmbuddy.ai/)
 
-- Took over marketing at a Series A B2B SaaS startup — led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a $XXX,XXX budget, delivering $X,XXX,XXX+ in active pipeline
+- Took over marketing at a Series A B2B SaaS startup. Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a six-figure budget, delivering seven figures in active pipeline
 - Transformed the team to AI-first operations by integrating GitHub, Cursor, Claude, Codex, and Swan into daily workflows — dramatically improved shipping velocity and built internal tools that automated sales signal detection, account research, and meeting prep
 - Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution — became the single source of truth for investors and leadership
 - Created and filed a trademark for Revenue Activation — a new market category at the intersection of revenue operations and customer activation
@@ -44,11 +48,11 @@ mcp: true
 
 **2024-2026** · [Freshworks Inc](https://www.freshworks.com/) ([FRSH](https://g.co/kgs/iHGNbLU))
 
-- Setup PLG expansion campaigns and drove $XXX,XXX expansion ARR in ~8 months
+- Set up PLG expansion campaigns and drove six figures in expansion ARR in about 8 months
 - Helped build the CX PLG charter for 2025
 - Championed the purchase of ChatGPT and built a custom GPT, Freddy Sidekick, for PMMs. The goal was faster first drafts and leveling the playing field across writing skills and data analysis for all 40 team members.
-- Setup PLG for Freshsales, and drove $XXX expansion ARR
-- Ran "Switch to Freshsales" campaign against tier-1 competitors, leading to a revenue impact of $XX,XXX ARR
+- Set up PLG for Freshsales, and drove incremental expansion ARR on the CRM side
+- Ran the "Switch to Freshsales" campaign against tier-1 competitors, for a revenue impact in five figures of ARR
 - Shared multiple recommendations and wireframes to improve product onboarding and adoption for both CRM and CX products. Influenced roadmap items for 2025.
 - Strategy plus execution of the Freddy AI Agent Q3-Q4 2024 holiday campaign
 - Won Mid Tier Connect 2025 Award for impactful contributions in PLG
@@ -56,6 +60,8 @@ mcp: true
 ### Sr. Associate, Product Marketing
 
 **2019-2024** · [Vymo Inc](https://vymo.com/)
+
+Five years across growth and product marketing while the company grew from roughly $5M to $20M ARR.
 
 #### Growth Marketing, 2019
 

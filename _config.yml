@@ -24,6 +24,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - frontend
+  # Rainmaker's local working context. Gitignored, so CI never sees it, but a
+  # local build would otherwise render it into the sitemap and fail the MCP
+  # feed parity check in _scripts/check-built-site.rb for a reason that cannot
+  # happen in CI.
+  - context
 
 defaults:
   - scope:
