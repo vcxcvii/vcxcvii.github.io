@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "e57019e4b32c6dec5ab0aaeebe9f4e8961cd1587",
+  "last_processed_commit": "0d2055786560ee4a67e7c4a5f7503dbd3618ecb4",
   "updated_at": "2026-08-02",
   "updates": [
+    {
+      "id": "2026-08-03-0d20557",
+      "date": "2026-08-03",
+      "title": "The homepage now gives visitors three plain next steps",
+      "summary": "Hiring managers, consulting buyers, and people ready to talk no longer have to unpack one crowded paragraph. Each path now gets its own short line and direct link, without phrases like full record or how engagements run.",
+      "benefits": [
+        {
+          "label": "Faster choice",
+          "text": "Visitors can choose full-time work, consulting, or a call without reading a combined pitch."
+        },
+        {
+          "label": "More human copy",
+          "text": "Generic link labels were replaced with direct language that matches the rest of the site."
+        }
+      ],
+      "commit_shas": [
+        "0d2055786560ee4a67e7c4a5f7503dbd3618ecb4"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-e57019e",
       "date": "2026-08-03",
