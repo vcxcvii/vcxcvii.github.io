@@ -9,7 +9,7 @@ redirect_from:
   - /fun/
 mcp: true
 mcp_note: >-
-  Programme organisers: <a href="/mcp/">connect my MCP server</a> and ask your AI what I speak about and where I have spoken.
+  Organisers: <a href="/mcp/">connect my MCP server</a> and ask your AI what I talk about, so you don't have to email me to find out.
 ---
 
 ## Book

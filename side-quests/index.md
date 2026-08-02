@@ -6,7 +6,7 @@ intro: "Projects, tools, and rabbit holes. Most started as weekend curiosity. A 
 description: Explore open-source AI skills, interview research tools, design systems, and experiments I built to make useful work faster, clearer, and easier to repeat.
 mcp: true
 mcp_note: >-
-  Builders: <a href="/mcp/">connect my MCP server</a> and let your coding agent read what each of these tools does before you install one.
+  Before you install any of these: <a href="/mcp/">connect my MCP server</a> and let your coding agent tell you what they actually do.
 ---
 
 {% assign quest_groups = "Personal,Experiments,Work" | split: "," %}

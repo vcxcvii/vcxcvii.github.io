@@ -5,7 +5,7 @@ intro: The shortest routes to a useful conversation.
 description: Contact Varun Choraria about B2B SaaS marketing, AI, consulting, speaking, full-time roles, or the open-source tools published on this site.
 mcp: true
 mcp_note: >-
-  Prefer to ask an AI first? <a href="/mcp/">Connect my MCP server</a> and get the answer before you write the email.
+  Before you write the email, <a href="/mcp/">connect my MCP server</a> and ask your AI. It probably already knows.
 ---
 ## Work together
 

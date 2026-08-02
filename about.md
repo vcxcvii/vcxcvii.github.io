@@ -6,7 +6,7 @@ description: B2B SaaS marketing operator. I decide what marketing should do next
 page_class: about-page
 mcp: true
 mcp_note: >-
-  Short on time? <a href="/mcp/">Connect my MCP server</a> and ask your own AI who I am and what I have shipped.
+  Or skip it. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
 ---
 I'm a marketing professional and I've worked in the B2B SaaS space for about a decade now. I'm also a speaker, author, ex-host of a podcast, bodybuilder, and martial artist. I moonlight as a cat dad.
 

@@ -13,7 +13,7 @@ redirect_from:
   - /ai-b2b-marketing-consultant/
   - /b2b-saas-product-marketing-consultant/
 mcp_note: >-
-  Future partners: <a href="/mcp/">here is my MCP server</a>. Point your LLM at it and interrogate how I work before you spend 30 minutes on a call.
+  Want to check me out before you have to talk to me? Fair. <a href="/mcp/">Connect my MCP server</a> and let your AI ask the questions you'd feel rude asking on a call.
 ---
 
 One person running a swarm of agents. That is the whole engagement.

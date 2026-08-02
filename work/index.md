@@ -7,7 +7,7 @@ description: See Varun Choraria's B2B SaaS marketing work across pipeline, posit
 page_class: work-page
 mcp: true
 mcp_note: >-
-  Dear hiring managers: <a href="/mcp/">connect my MCP server</a> and let your LLM read this whole record, then ask it whatever you would ask a reference.
+  Hiring managers: you're going to skim this. Everyone does. <a href="/mcp/">Connect my MCP server</a> instead and let your AI read the whole thing, then ask it whether I can actually do the job.
 ---
 **This page is the full record: roles, scope, teams, and outcomes.** I'm open to senior full-time roles anywhere in the world, and [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to start that conversation. If you'd rather hire the work than the person, [here's how I run engagements](/consulting/).
 
