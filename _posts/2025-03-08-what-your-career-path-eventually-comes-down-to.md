@@ -26,7 +26,7 @@ I've spent most of the last 6 years trying to find the answer. Along the way, I'
 - lone wolves
 - say no to opportunities if it doesn't serve them, even if it comes from top management
 
-## Six levels of career independence
+## 6 levels of career independence
 
 If you want an infinite shelf life at work, or want to master pivots, or in general want to command premium pay, here's what the career ladder to becoming a top performer comes down to:
 
@@ -37,12 +37,12 @@ If you want an infinite shelf life at work, or want to master pivots, or in gene
 5. no one tells you anything
 6. no one asks you anything
 
-The sooner you can get to number six, not for a paycheck or anything else, but to be worth your salt, the sooner you'll start scratching the surface in any field. So, there's a direct correlation between curiosity, hustle, and career success.
+The sooner you can get to number 6, not for a paycheck or anything else, but to be worth your salt, the sooner you'll start scratching the surface in any field. So, there's a direct correlation between curiosity, hustle, and career success.
 
 ## How to compound career durability
 
 - Don't job hop for money. Gauge and bet on opportunities. Know when to exit.
 - Don't job hop for title and salary. Arrogance has never gotten anyone far. Pick a job that has the best manager you can learn from.
 - Don't job hop because of what your peers are doing.
-- Think three to five years ahead, minimum.
+- Think 3 to 5 years ahead, minimum.
 - And last of all, really put in the work. You can almost always out-work anyone.

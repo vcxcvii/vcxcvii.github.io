@@ -24,25 +24,25 @@ Last month, I fed every single book to Claude and turned each framework into a `
 
 Here's the thing about frameworks: they're not the problem. The problem is how we use them.
 
-Walk into any meeting where someone says "let's run a SWOT analysis" and watch what happens. People brainstorm strengths for five minutes, skip weaknesses because it feels negative, make up a couple threats, and call it a day. The framework was present. The rigor was absent.
+Walk into any meeting where someone says "let's run a SWOT analysis" and watch what happens. People brainstorm strengths for 5 minutes, skip weaknesses because it feels negative, make up a couple threats, and call it a day. The framework was present. The rigor was absent.
 
 I've done this. You've done this. We've all done this.
 
-A framework is only as good as the discipline with which it's applied. And discipline is scarce. Especially when you're in a room with six other people, the clock is ticking, and the CEO is looking at you expectantly.
+A framework is only as good as the discipline with which it's applied. And discipline is scarce. Especially when you're in a room with 6 other people, the clock is ticking, and the CEO is looking at you expectantly.
 
 That's where the idea started. Not "let's build an AI that knows frameworks" — there's a million of those. But *"let's build an AI that doesn't skip steps."*
 
 ---
 
-## The five phases
+## The 5 phases
 
 The flow is simple but the difference is in the order.
 
-When you tell Master Shifu a problem — say, "my SaaS margins are shrinking and I'm thinking about entering Brazil" — it doesn't jump to conclusions. It runs five phases:
+When you tell Master Shifu a problem — say, "my SaaS margins are shrinking and I'm thinking about entering Brazil" — it doesn't jump to conclusions. It runs 5 phases:
 
-**1. Grilling.** Round after round of clarifying questions. "What data do you have? How do you define margin? Is revenue growing or flat? What's your current unit economics? Do you have any competitors in Brazil already?" It's annoying on purpose. Most problems fall apart in the first five minutes if you ask the right questions.
+**1. Grilling.** Round after round of clarifying questions. "What data do you have? How do you define margin? Is revenue growing or flat? What's your current unit economics? Do you have any competitors in Brazil already?" It's annoying on purpose. Most problems fall apart in the first 5 minutes if you ask the right questions.
 
-**2. Five lenses.** Before picking a framework, it looks at the problem from five angles: customer, competition, financial, operational, and market. Each lens can auto-populate with real data via web scraping. The competition lens will check if your competitor changed pricing last week. The financial lens can pull SEC filings. The market lens scrapes industry news.
+**2. 5 lenses.** Before picking a framework, it looks at the problem from 5 angles: customer, competition, financial, operational, and market. Each lens can auto-populate with real data via web scraping. The competition lens will check if your competitor changed pricing last week. The financial lens can pull SEC filings. The market lens scrapes industry news.
 
 **3. Framework match.** Based on the enriched context, it selects 1-3 frameworks. Not a random guess — pattern-matched against the problem language and the lens outputs. It might return profitability + industry analysis + pricing. Or market entry + Porter's Five Forces + break-even. Depends on what the problem actually needs.
 

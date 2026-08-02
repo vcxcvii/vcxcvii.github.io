@@ -14,9 +14,9 @@ It's been about a quarter since I became a manager. I'm wondering what value I'm
 
 ## Pre-AI
 
-I remember in 2025, I was part of a 5,000-person organization, and I was an IC3 — three levels from the junior-most rung. Above me, we had 6–7 layers until the CEO. Add the complexity of multiple BUs, conflicting priorities, random OOOs from stakeholders, 25,000 meetings per week, and 7 different "leaders" and their friends.
+I remember in 2025, I was part of a 5,000-person organization, and I was an IC3 — 3 levels from the junior-most rung. Above me, we had 6–7 layers until the CEO. Add the complexity of multiple BUs, conflicting priorities, random OOOs from stakeholders, 25,000 meetings per week, and 7 different "leaders" and their friends.
 
-It would take about two weeks to stitch context, rally the right stakeholders, convince them that project X will get them promoted, figure out the escalation matrix, SLAs, project timelines, dependencies, and so on. And if your luck is genuinely bad, the project's scope will either get changed at the end of week three, or someone will sidestep you and take the lead mid-way, or you'll be questioned on ARR impact despite the project being a "P0" at the time of launch.
+It would take about 2 weeks to stitch context, rally the right stakeholders, convince them that project X will get them promoted, figure out the escalation matrix, SLAs, project timelines, dependencies, and so on. And if your luck is genuinely bad, the project's scope will either get changed at the end of week 3, or someone will sidestep you and take the lead mid-way, or you'll be questioned on ARR impact despite the project being a "P0" at the time of launch.
 
 All of this to change the color of a button.
 
@@ -26,19 +26,19 @@ I figured out a couple of things amid all this busyness:
 - Every manager mostly made money because routing information to the right people at the right time got that much more expensive as you ascended the corporate ladder.
 - Every BU was also bloated because every individual brought in adjacent skill sets. It's not that the people weren't skilled, but moving information from design → prototype → engineering → QA → alpha launch → beta launch → GA required about 50–100 people to be in a tight handshake.
 
-Sure, design → GA launch of a feature can happen in under two months. It was never about speed. It's the linkages between stages that were the real cost — translating what the designer intended for various JTBDs into the PM's worldview of business and edge cases, into engineering constraints, and so on. That's where the most energy per unit time was lost.
+Sure, design → GA launch of a feature can happen in under 2 months. It was never about speed. It's the linkages between stages that were the real cost — translating what the designer intended for various JTBDs into the PM's worldview of business and edge cases, into engineering constraints, and so on. That's where the most energy per unit time was lost.
 
 ---
 
 ## Post-AI
 
-Lean teams are going to be the status quo sooner rather than later. I lead a team of three to help generate $XM pipe per quarter. Prior to 2026, this would be the job of 6–7 people and would cost a lot in terms of ad spend. Time to first meeting and stage conversions would also be an afterthought, because all your focus is going into generating demand or plugging holes within the demand engine in a reactive manner.
+Lean teams are going to be the status quo sooner rather than later. I lead a team of 3 to help generate $XM pipe per quarter. Prior to 2026, this would be the job of 6–7 people and would cost a lot in terms of ad spend. Time to first meeting and stage conversions would also be an afterthought, because all your focus is going into generating demand or plugging holes within the demand engine in a reactive manner.
 
 AI and agents have fundamentally democratized skills. Everything is transferable now, and information and context are no longer the bottleneck. As a result, speed of shipping quadruples.
 
-The designer on my team can design, do keyword/AEO/GEO/SEO-optimized copywriting, and take things live in under two days — including manager and leadership reviews.
+The designer on my team can design, do keyword/AEO/GEO/SEO-optimized copywriting, and take things live in under 2 days — including manager and leadership reviews.
 
-The GTM engineer on my team can quickly query the design and campaign plan and get instant context. In a couple of prompts, he's able to build the data pipeline, routing logic, customize CRM fields, and scrape and enrich ICP information for sequences and ad targeting. All of this in under two days.
+The GTM engineer on my team can quickly query the design and campaign plan and get instant context. In a couple of prompts, he's able to build the data pipeline, routing logic, customize CRM fields, and scrape and enrich ICP information for sequences and ad targeting. All of this in under 2 days.
 
 Both work with virtually zero meetings between them.
 
@@ -46,7 +46,7 @@ Both work with virtually zero meetings between them.
 
 ## My imposter syndrome and how I fixed it
 
-One of my mentors once said that the three hardest career transitions are:
+One of my mentors once said that the 3 hardest career transitions are:
 
 - IC → Manager
 - Manager → Director / VP
@@ -95,7 +95,7 @@ The real leverage comes from aligning capacities to skill sets. A live example: 
 5. Qualification, scoring, and routing for all variations of visitors
 6. Meeting prep for the SDR team
 
-The humans spent the bulk of their time getting clarity on the problem statement and thinking holistically. All of this serves as the base context before anyone opens their LLM window blindly. In parallel, the team picks up those problem statements and works with AI, MCPs, and skills to build a deep understanding of the six steps above. Once everyone has the same level of clarity, execution happens at high velocity. The designer isn't dependent on the performance marketer for data. The GTM engineer's POV never conflicts with design direction.
+The humans spent the bulk of their time getting clarity on the problem statement and thinking holistically. All of this serves as the base context before anyone opens their LLM window blindly. In parallel, the team picks up those problem statements and works with AI, MCPs, and skills to build a deep understanding of the 6 steps above. Once everyone has the same level of clarity, execution happens at high velocity. The designer isn't dependent on the performance marketer for data. The GTM engineer's POV never conflicts with design direction.
 
 **3. An agentic manager has to kill the "big launch identity."**
 

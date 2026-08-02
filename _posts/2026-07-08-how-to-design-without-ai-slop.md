@@ -16,7 +16,7 @@ If you're tired of AI spitting out the same generic slop every time you ask it t
 
 As a marketer, good taste is close to a mandate. Marketing is a horizontal function: you're stitching design, copy, and math into a single campaign, and it all has to feel like one thing.
 
-Almost ten years ago I kept a swipe file. Vintage ads, headlines I loved, layouts I'd happily steal from. I'd flip through it before starting anything new. That swipe file was the prehistoric ancestor of the `taste.md` file doing the rounds on X right now.
+Almost 10 years ago I kept a swipe file. Vintage ads, headlines I loved, layouts I'd happily steal from. I'd flip through it before starting anything new. That swipe file was the prehistoric ancestor of the `taste.md` file doing the rounds on X right now.
 
 A `taste.md` distills what good looks like: font pairings, color, WCAG contrast, spacing, the small decisions that separate *considered* from *generic*. You can write your own if you're a designer, or, like me, reverse-engineer designs you admire and build on top of them.
 
@@ -60,7 +60,7 @@ Here's the exact process, and one you can copy.
 
 Here's what actually kills slop, and what most "just use a taste.md" advice leaves out.
 
-A taste.md is a suggestion. Suggestions rot. Three sessions in, an agent quietly reintroduces a stray accent color or swaps your font on a button, and you don't notice until it's live.
+A taste.md is a suggestion. Suggestions rot. 3 sessions in, an agent quietly reintroduces a stray accent color or swaps your font on a button, and you don't notice until it's live.
 
 So I didn't just *document* taste. I made it a rule the machine checks.
 

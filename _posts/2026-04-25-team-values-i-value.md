@@ -8,7 +8,7 @@ tags:
   - leadership
   - strategy
 ---
-We work with a bunch of vendors as a company of 44 people. As a manager, I have two choices:
+We work with a bunch of vendors as a company of 44 people. As a manager, I have 2 choices:
 
 1. I can coach my team so they can manage vendors and get the desired output.
 2. I can manage everyone myself, but at the cost of foresight.
@@ -61,7 +61,7 @@ It's a code of conduct, but in the context of what the individual and the team c
 
 ### Ownership
 
-To me, this simply means two things: following up and following through. The way I differentiate between the two is:
+To me, this simply means 2 things: following up and following through. The way I differentiate between the 2 is:
 
 1. Following up = how proactively one is sharing updates, surfacing blockers, and thinking from a systems and first-principles perspective for every task. I do not like order-takers. Did you close the loop without being chased?
 

@@ -16,7 +16,7 @@ The world is moving toward systems-first work, and I do not think most people un
 
 Every room has some version of the same conversation.
 
-What skills can we build? Which workflows can we connect? Can one agent hand work to another? Can the whole process run without six people chasing each other across Slack, email, and a spreadsheet called `final_v7`?
+What skills can we build? Which workflows can we connect? Can one agent hand work to another? Can the whole process run without 6 people chasing each other across Slack, email, and a spreadsheet called `final_v7`?
 
 These questions used to live with engineers, operations people, and the one person in every company who enjoyed Zapier a little too much.
 
@@ -26,7 +26,7 @@ Now they are table stakes.
 
 Capital is tighter. Customer wallets are tighter. Tools appear and disappear faster than procurement can finish reviewing them.
 
-I do not believe every company is about to become a ten-person unicorn. I do believe every leadership team has now seen what unusually small, AI-native teams can produce. You cannot unsee that.
+I do not believe every company is about to become a 10-person unicorn. I do believe every leadership team has now seen what unusually small, AI-native teams can produce. You cannot unsee that.
 
 ARR per employee used to be finance hygiene. Now it is an operating philosophy.
 
@@ -62,7 +62,7 @@ AI has made producing things dramatically cheaper. A nontechnical person can now
 
 I still do not understand code beyond basic HTML.
 
-But software has always had two different forms of literacy.
+But software has always had 2 different forms of literacy.
 
 One is understanding code.
 

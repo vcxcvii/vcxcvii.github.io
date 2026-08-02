@@ -15,11 +15,11 @@ It's not because they're great at what they do, although sometimes that may be t
 
 <!--more-->
 
-## Six communication habits that compound
+## 6 communication habits that compound
 
 1. **Don't save your best behavior for execs only:** Getting promoted is a function of managing both up and across. We often only save the prettiest decks and the most compelling narratives for a larger meeting with execs. Problem is, you're not socializing your ideas and getting buy-in from your peers on an ongoing basis. Doing it on an ongoing basis not only makes them feel involved, it builds a perception that you're taking the lead and driving it. Treat every Slack update with your peers as a practice ground.
 
-2. **"You're not strategic enough":** This was common feedback from various managers over the years. Took me a while to wrap my head around it, but when I did, I saw a simple truth: I over-estimated the amount of buy-in I had. To me, great communication meant technical proactiveness. "Enable" your leaders and every person cc'd with all the information, all at once. What this missed was the amount of work I was expecting someone else to do just to buy into an idea. Something I learned very recently was to sell your idea. It's comms 101, where you wrap your idea into the five whys:
+2. **"You're not strategic enough":** This was common feedback from various managers over the years. Took me a while to wrap my head around it, but when I did, I saw a simple truth: I over-estimated the amount of buy-in I had. To me, great communication meant technical proactiveness. "Enable" your leaders and every person cc'd with all the information, all at once. What this missed was the amount of work I was expecting someone else to do just to buy into an idea. Something I learned very recently was to sell your idea. It's comms 101, where you wrap your idea into the 5 whys:
 
    1. "Why is this idea relevant now?"
    2. "Why is this idea going to have X impact?"
@@ -33,7 +33,7 @@ It's not because they're great at what they do, although sometimes that may be t
 
 4. **Prep like you're taking the SATs:** Often your pre-reads might be very detailed, but if you haven't internalized the idea very well you will fumble and stammer, taking away credibility. Spend a lot of time editing, understanding, and going over the details. Find ways to trim it down to the absolute essentials. Read the room and think on your feet.
 
-5. **Simulate objections:** Building on top of four, I often use AI to poke holes in my idea. I upload the deck or doc, along with an ICP deck, and ask it to poke tactical holes. I sometimes describe what my colleagues and presenters are like from past conversations and the objections they've raised. This will help you think a couple of steps ahead in a very structured manner.
+5. **Simulate objections:** Building on top of 4, I often use AI to poke holes in my idea. I upload the deck or doc, along with an ICP deck, and ask it to poke tactical holes. I sometimes describe what my colleagues and presenters are like from past conversations and the objections they've raised. This will help you think a couple of steps ahead in a very structured manner.
 
 6. **How confident should I be?:** I've been in rooms where I was flushed with imposter syndrome but nevertheless had to present. I've also been among leaders I thought were the living embodiment of idiocy and paid the price with my over-confidence. If something is not backed by facts, data, or a case study, it's a hunch, no matter how strong the conviction. Don't mislead a leader. If something is a hunch or a hypothesis, say it.
 
@@ -60,7 +60,7 @@ That means taking initiative to:
 
 - send pre-reads
 - explain context and decision items within the call invite
-- spend the first two or three minutes discussing the objectives of the meeting
+- spend the first 2 or 3 minutes discussing the objectives of the meeting
 - mediate it like you're emceeing it
 - send minutes
 - follow up on minutes on Slack without cluttering threads

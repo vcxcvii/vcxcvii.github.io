@@ -15,15 +15,15 @@ tags:
 
 About a week into prepping for one of these companies, I could drop the category's favourite piece of jargon into a sentence without flinching. Felt good about it too.
 
-Then I tried explaining to myself why anyone would buy it, and I got about eleven seconds in before I ran out of road.
+Then I tried explaining to myself why anyone would buy it, and I got about 11 seconds in before I ran out of road.
 
 That's the thing nobody warns you about with interview prep. You can accumulate a fairly convincing vocabulary in a weekend, and vocabulary is worse than knowing nothing, because knowing nothing makes you ask questions and vocabulary makes you confident. Confidence invites the follow-up. The follow-up is where you die.
 
-I'm between roles right now, interviewing for GTM and product marketing seats, so I have been finding this out repeatedly and in real time. The market is not helping. Every posting gets a thousand applicants, half of them AI-blasted. AI now does the junior version of most marketing jobs, so "I can execute" stopped being a pitch somewhere around last year. Meanwhile companies expect one senior person plus a few agents to cover what a pod of three covered in 2022. Floor went up, ceiling went up, and most of us are standing in the gap between them wondering which way to jump.
+I'm between roles right now, interviewing for GTM and product marketing seats, so I have been finding this out repeatedly and in real time. The market is not helping. Every posting gets a thousand applicants, half of them AI-blasted. AI now does the junior version of most marketing jobs, so "I can execute" stopped being a pitch somewhere around last year. Meanwhile companies expect one senior person plus a few agents to cover what a pod of 3 covered in 2022. Floor went up, ceiling went up, and most of us are standing in the gap between them wondering which way to jump.
 
-I [spent a decade deliberately engineering luck](https://www.varunchoraria.com/ive-been-trying-to-get-lucky-for-a-decade/) and even I'll admit this season is harsh. You can't do anything about the market. You can do quite a lot about how you show up to the four or five shots you get.
+I [spent a decade deliberately engineering luck](https://www.varunchoraria.com/ive-been-trying-to-get-lucky-for-a-decade/) and even I'll admit this season is harsh. You can't do anything about the market. You can do quite a lot about how you show up to the 4 or 5 shots you get.
 
-So after that little incident I stopped prepping and spent three days building a thing instead. This is what it is, how it's put together, and what it cost, which was nothing.
+So after that little incident I stopped prepping and spent 3 days building a thing instead. This is what it is, how it's put together, and what it cost, which was nothing.
 
 ## What I actually built
 
@@ -48,47 +48,47 @@ interview-dossiers/
     assets/style.css        one stylesheet for everything
 ```
 
-Two things in there took me two bad versions to arrive at, and they're the only structural ideas in the whole system I'd defend.
+2 things in there took me 2 bad versions to arrive at, and they're the only structural ideas in the whole system I'd defend.
 
-**The rivals folder is shared.** Three of the companies I'm talking to compete with overlapping sets of vendors. In version one I researched each competitor separately inside each company's folder, which meant writing the same teardown of the same vendor twice with slightly different adjectives. Now a rival gets researched once, lives in one place, and gets linked from every company that needs it. This is the single reason a new company now takes a few hours instead of a day.
+**The rivals folder is shared.** 3 of the companies I'm talking to compete with overlapping sets of vendors. In version 1 I researched each competitor separately inside each company's folder, which meant writing the same teardown of the same vendor twice with slightly different adjectives. Now a rival gets researched once, lives in one place, and gets linked from every company that needs it. This is the single reason a new company now takes a few hours instead of a day.
 
-**Learning is separate from research.** There's a second folder, `gtm-kb`, that has nothing to do with any specific company. Four disciplines in it: ABM, content marketing, SEO plus AI search, and interview craft. Each one is an issue tree, then branch docs, then a self-test. The last question on every self-test is an applied artifact that has to land in an actual company dossier, so studying and prepping feed each other instead of competing for the same evening.
+**Learning is separate from research.** There's a second folder, `gtm-kb`, that has nothing to do with any specific company. 4 disciplines in it: ABM, content marketing, SEO plus AI search, and interview craft. Each one is an issue tree, then branch docs, then a self-test. The last question on every self-test is an applied artifact that has to land in an actual company dossier, so studying and prepping feed each other instead of competing for the same evening.
 
 That split came from noticing that company research goes stale in weeks and industry understanding doesn't. Mixing them meant throwing away good learning every time a process died.
 
 The version history, since the failures are more useful than the final state:
 
-**v1 was markdown files.** Which is what the research skill still outputs, and it's correct for the machine. It is unreadable for a human at volume. I had maybe sixty files and no way to answer "what do I know about this company" without opening nine of them.
+**v1 was markdown files.** Which is what the research skill still outputs, and it's correct for the machine. It is unreadable for a human at volume. I had maybe 60 files and no way to answer "what do I know about this company" without opening 9 of them.
 
 **v2 was one giant HTML page per company.** Everything on one scroll. Solved the file-hunting problem and created a worse one, which is that a 4,000-word page is a wall and you don't read walls the night before a round. You skim them and feel prepared, which is the exact failure mode I was trying to fix.
 
-**v3 asked a different question.** Not "how do I organize this information" but "what job does this page do for me, and when." That produced 10 pages per company, each named for its job: overview, 101, 201, strategy and people, market, buyers, competition, fit and objections, drills, sources. I open `drills` the morning of. I open `fit` when I'm nervous. I never open all ten at once, which is the point.
+**v3 asked a different question.** Not "how do I organize this information" but "what job does this page do for me, and when." That produced 10 pages per company, each named for its job: overview, 101, 201, strategy and people, market, buyers, competition, fit and objections, drills, sources. I open `drills` the morning of. I open `fit` when I'm nervous. I never open all 10 at once, which is the point.
 
 Same lesson as [designing without AI slop](https://www.varunchoraria.com/how-to-design-without-ai-slop/). The model will generate all of this happily. Deciding what belongs on which page is still your job and it is most of the work.
 
 <a href="/assets/images/posts/hunting-season-2-overview.webp"><img src="/assets/images/posts/hunting-season-2-overview.webp" alt="Company overview page" width="1400" height="1116" loading="lazy" decoding="async"></a>
 
-Three things on the overview page do the real work, and you can build all three in a Google Doc in an hour. The rest of the site is convenience.
+3 things on the overview page do the real work, and you can build all 3 in a Google Doc in an hour. The rest of the site is convenience.
 
 **The one insight.** Not a summary of the company. The single thing you'd fix or build in your first 90 days, stated like you actually believe it. Mine for one company: they sell several products as separate things and the buyer doesn't want several things, so the first job is the connective narrative. That's an opinion, and opinions are what these conversations are secretly testing, because [judgment is what we're all paid for now](https://www.varunchoraria.com/maybe-going-around-circles-is-worth-it/).
 
-**Five numbers you can defend.** Sourced, dated, hyperlinked. When you drop a number and someone leans in, "that's from your own exec's interview last December" ends it.
+**5 numbers you can defend.** Sourced, dated, hyperlinked. When you drop a number and someone leans in, "that's from your own exec's interview last December" ends it.
 
-**The landmine box.** Facts that changed recently and could detonate mid-conversation. In one process I found the CEO had quietly changed a few months earlier. The company's own about page still had the old titles on it. Picture confidently referencing the wrong CEO in round one. Now picture being the only candidate in the pile who asks a good question about the transition.
+**The landmine box.** Facts that changed recently and could detonate mid-conversation. In one process I found the CEO had quietly changed a few months earlier. The company's own about page still had the old titles on it. Picture confidently referencing the wrong CEO in round 1. Now picture being the only candidate in the pile who asks a good question about the transition.
 
 ### The primers, which are the highest-leverage part
 
-Two per industry, and this is the direct fix for the eleven-seconds problem up top.
+2 per industry, and this is the direct fix for the 11-seconds problem up top.
 
 The **101** is the industry from zero, written as a story. Why does this thing exist, who pays for it, what forces them to pay, how does the money actually move. Every term shows up when the story needs it and arrives attached to a reason, which is the only way I've found to make terms stick.
 
-The **201** is what makes you sound like you've been in the room before: the debates practitioners genuinely argue about, the unit economics, twenty years of history compressed into four acts, and a day in the life of the person who signs the cheque.
+The **201** is what makes you sound like you've been in the room before: the debates practitioners genuinely argue about, the unit economics, 20 years of history compressed into 4 acts, and a day in the life of the person who signs the cheque.
 
 <a href="/assets/images/posts/hunting-season-3-learn101.webp"><img src="/assets/images/posts/hunting-season-3-learn101.webp" alt="The 101 primer" width="1400" height="854" loading="lazy" decoding="async"></a>
 
-Here's the difference in practice. Vocabulary-level prep gets you: "they've shipped an autonomous agent for the part of the workflow humans always did by hand." The 201 version gets you: that was never a capability problem, it was a unit-economics problem. The buyer always had the upper hand in those transactions. Actually using it cost more in analyst hours than it saved, so for about thirty years nobody bothered. Agents collapse the cost of paying attention, which is what finally makes the leverage worth exercising.
+Here's the difference in practice. Vocabulary-level prep gets you: "they've shipped an autonomous agent for the part of the workflow humans always did by hand." The 201 version gets you: that was never a capability problem, it was a unit-economics problem. The buyer always had the upper hand in those transactions. Actually using it cost more in analyst hours than it saved, so for about 30 years nobody bothered. Agents collapse the cost of paying attention, which is what finally makes the leverage worth exercising.
 
-I can hold a ten minute conversation on the second one. The first one is a sentence I could have gotten from the homepage.
+I can hold a 10 minute conversation on the second one. The first one is a sentence I could have gotten from the homepage.
 
 To build them: ask whichever model you use to teach you the industry as a narrative, from first principles, with analogies, and a "if you remember one thing" line per section. Then a second pass for the debates, the economics, the history, the buyer's day. Then read both out loud and mark every sentence you couldn't defend if someone pushed. Those marks are your study list. Mine was embarrassingly long the first time.
 
@@ -96,7 +96,7 @@ To build them: ask whichever model you use to teach you the industry as a narrat
 
 Claude Code does the research, through a skill I wrote called [interview-recon](https://github.com/vcxcvii/interview-recon). It chains into [Master Shifu](https://www.varunchoraria.com/i-now-have-my-own-master-shifu/) when something case-shaped comes up and needs a framework. Firecrawl handles bulk scraping on the free tier. Context.dev covers what Firecrawl can't reach, which is LinkedIn public pages, bot-protected review sites, sitemaps, brand data. That one has its own story and it's at the bottom.
 
-Plain HTML for output because it opens instantly, prints as a leave-behind, and will still work in ten years when whatever note-taking app I'd otherwise have used has been acquired and shut down.
+Plain HTML for output because it opens instantly, prints as a leave-behind, and will still work in 10 years when whatever note-taking app I'd otherwise have used has been acquired and shut down.
 
 One rule about models: use the strongest reasoning model you have for the synthesis step and make it cite a URL for every claim. Not out of distrust exactly. It's that you'll be repeating these facts out loud in a room where being wrong once costs you the room.
 
@@ -108,11 +108,11 @@ The skill is open source, same as Master Shifu, because job hunting is hard enou
 git clone https://github.com/vcxcvii/interview-recon.git ~/.claude/skills/interview-recon
 ```
 
-Then say "prep me for my interview at [company]". Three design decisions in it worth stealing even if you never install it. It announces its backend and its credit budget up front and asks before blowing past it, because most research skills prescribe paid tools and then quietly degrade when you don't have them. It shows you a research plan before it fetches anything, so you stay the editor. And it appends rather than overwrites, so round two loads what round one learned and refreshes only what went stale.
+Then say "prep me for my interview at [company]". 3 design decisions in it worth stealing even if you never install it. It announces its backend and its credit budget up front and asks before blowing past it, because most research skills prescribe paid tools and then quietly degrade when you don't have them. It shows you a research plan before it fetches anything, so you stay the editor. And it appends rather than overwrites, so round 2 loads what round 1 learned and refreshes only what went stale.
 
-## The four moves that did the damage
+## The 4 moves that did the damage
 
-Everything in the war room carries a hyperlink and a date. Four research moves produced most of what's actually in there.
+Everything in the war room carries a hyperlink and a date. 4 research moves produced most of what's actually in there.
 
 **Read the earnings calls of the public companies in the space.** Private companies don't publish numbers. Their public neighbours do, and those neighbours set the narrative your interviewer is swimming in whether they know it or not. Transcripts are free on Motley Fool and on company IR pages. One hour with one transcript taught me that the whole industry's AI revenue reporting is a definitional arms race, everyone counting slightly different things and daring each other to object. That came up in a real conversation within the week.
 
@@ -122,7 +122,7 @@ Everything in the war room carries a hyperlink and a date. Four research moves p
 
 **Mine both kinds of reviews.** G2 and Gartner Peer Insights tell you what customers think versus what the homepage claims. Employee review sites tell you what you're walking into. One company in my pipeline sits under 3 out of 5 across several hundred employee reviews, with the same complaint about pay after promotion showing up over and over. That didn't kill my interest in the role. It set my posture for the conversation about money, which is research doing a job that has nothing to do with answering their questions.
 
-**Read everything the interviewer has published.** One hiring manager had posted their strategic thesis months before I ever spoke to them. My prep borrowed their language and pushed it one step further than they had taken it. That isn't flattery, it's arriving already aligned instead of spending the first twenty minutes establishing that you might be.
+**Read everything the interviewer has published.** One hiring manager had posted their strategic thesis months before I ever spoke to them. My prep borrowed their language and pushed it one step further than they had taken it. That isn't flattery, it's arriving already aligned instead of spending the first 20 minutes establishing that you might be.
 
 ## The part I'd keep if I could only keep one
 
@@ -149,11 +149,11 @@ Rules:
   my last attempt: [paste last rubric].
 ```
 
-Two honest caveats. This simulates the archetype, not the person. You're practising against what someone with that job and those published opinions tends to value and push on, and a revenue-minded CSO does push differently than a brand-minded CMO. And you have to do it out loud. In voice mode. The entire finding is the gap between how good your answer looks written down and how it sounds coming out of your face.
+2 honest caveats. This simulates the archetype, not the person. You're practising against what someone with that job and those published opinions tends to value and push on, and a revenue-minded CSO does push differently than a brand-minded CMO. And you have to do it out loud. In voice mode. The entire finding is the gap between how good your answer looks written down and how it sounds coming out of your face.
 
 <a href="/assets/images/posts/hunting-season-6-rubric.webp"><img src="/assets/images/posts/hunting-season-6-rubric.webp" alt="The rubric report" width="1400" height="817" loading="lazy" decoding="async"></a>
 
-The rubric is what turns this from a novelty into training, because reps without feedback are just rehearsing your mistakes with extra steps. Across three attempts my filler words went from 14 to 6. More useful than that, the pushback score taught me something no [communication listicle](https://www.varunchoraria.com/6-pro-tips-on-communication-thats-sure-to-get-you-promoted/) ever managed to make stick: agree with whatever is true in the objection before you start defending. The rubric caught me skipping that. Twice.
+The rubric is what turns this from a novelty into training, because reps without feedback are just rehearsing your mistakes with extra steps. Across 3 attempts my filler words went from 14 to 6. More useful than that, the pushback score taught me something no [communication listicle](https://www.varunchoraria.com/6-pro-tips-on-communication-thats-sure-to-get-you-promoted/) ever managed to make stick: agree with whatever is true in the objection before you start defending. The rubric caught me skipping that. Twice.
 
 Every question I fumble goes into an objection bank with a written answer, so the same punch doesn't land twice.
 
@@ -161,15 +161,15 @@ Every question I fumble goes into an objection bank with a written answer, so th
 
 Build yours with one prompt: "here's my resume and the JD, list the 10 hardest objections an interviewer would have about me, what each one is really assessing, and draft my answer." Then rewrite every answer in your own words, because a script you didn't write is audible from space.
 
-If you only have one evening, do these three: one earnings transcript from the biggest public company in your target's space, one written point of view about the first thing you'd fix, and one voice mock with the rubric above. Let it humble you tonight so the interviewer doesn't get to on Thursday.
+If you only have one evening, do these 3: one earnings transcript from the biggest public company in your target's space, one written point of view about the first thing you'd fix, and one voice mock with the rubric above. Let it humble you tonight so the interviewer doesn't get to on Thursday.
 
-The bill for all of it, since I know what job-search finances feel like: Firecrawl free tier, about 500 credits. Context.dev, about 350 credits. Claude Code and ChatGPT were subscriptions I already had, and if you have neither, the free tier of any frontier model covers the primers, the objection bank and text-mode mocks. Three focused days for the system and the first three companies. Incremental cash spent, zero.
+The bill for all of it, since I know what job-search finances feel like: Firecrawl free tier, about 500 credits. Context.dev, about 350 credits. Claude Code and ChatGPT were subscriptions I already had, and if you have neither, the free tier of any frontier model covers the primers, the objection bank and text-mode mocks. 3 focused days for the system and the first 3 companies. Incremental cash spent, zero.
 
 ## The world is kind
 
 Now the part I didn't plan for and can't take any credit for.
 
-Five days ago Yahia Bakour, who founded Context.dev, sent me one of those routine founder check-in emails. Saw you signed up, how's the API treating you. I told him the truth, which was that I loved the product, I was building an interview research agent on top of it, and I couldn't afford a paid plan right now because I'm between roles.
+5 days ago Yahia Bakour, who founded Context.dev, sent me one of those routine founder check-in emails. Saw you signed up, how's the API treating you. I told him the truth, which was that I loved the product, I was building an interview research agent on top of it, and I couldn't afford a paid plan right now because I'm between roles.
 
 He replied the next morning. He'd dropped 10,000 credits into my account, on the house, and bumped my rate limit. No strings, no call, no "let's find a way to work together." When I offered to do some free marketing work in return, his entire ask was that if I ever meet someone who needs the API, send them his way.
 

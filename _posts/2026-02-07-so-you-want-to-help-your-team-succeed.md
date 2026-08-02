@@ -12,13 +12,13 @@ It's been about a month since I've been a first-time manager. Before I started, 
 2. Don't throw weight around because of the title. It's alright if it happens unknowingly, but it's crossing a line when done intentionally
 3. Take up more work, because that's how you build trust
 
-I understood these, because it was simple and straightforward. Coming from an IC background, this was sort of natural to me anyway because I didn't know how to lead. But then, there came a point very recently when I realized the entire marketing team was tiny, four folks including me.
+I understood these, because it was simple and straightforward. Coming from an IC background, this was sort of natural to me anyway because I didn't know how to lead. But then, there came a point very recently when I realized the entire marketing team was tiny, 4 folks including me.
 
 <!--more-->
 
 ## The problem with a tiny team
 
-That's a natural setup both in the age of AI as well as in a company at the Series A stage, but I was in a tug-of-war between two very difficult problem statements:
+That's a natural setup both in the age of AI as well as in a company at the Series A stage, but I was in a tug-of-war between 2 very difficult problem statements:
 
 1. Marketing traditionally was not seen as a growth lever. We had an ambitious charter of both category creation as well as driving pipeline. Driving pipeline is a straightforward mandate, but not when you have to revisit your basics of ICP and lead qualification. Over and above that, we were also trying to cope with AI and automations, trying to do our job once and then automate it using skills probably the next time.
 2. The second issue was about unlocking capacity of each team member. That meant better ownership, accountability, craftsmanship, and also becoming a strategic thinker. Being strategic at the outset for us meant one thing: what is our unique insight about both our swim lanes, as well as the market?

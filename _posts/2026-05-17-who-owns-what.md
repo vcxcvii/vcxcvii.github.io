@@ -62,7 +62,7 @@ As anyone in the management side of the business, you need to stop asking yourse
 
 And continually ask yourself:
 
-> Does a task require context that can exist only between two humans? Eg. managing an executive relationship between a seller and a prospect.
+> Does a task require context that can exist only between 2 humans? Eg. managing an executive relationship between a seller and a prospect.
 
 If the answer is:
 

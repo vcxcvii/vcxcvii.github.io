@@ -13,7 +13,7 @@ tags:
 
 I've been a part of both startups and large organizations, and one consistent trend I've unfortunately seen is that ICP is considered a one-off exercise versus the continuous development it should be.
 
-- You don't update your ICP after two quarters of sales wins.
+- You don't update your ICP after 2 quarters of sales wins.
 - You don't update your ICP after a feature release based on adoption or key-event usage.
 - You don't update your ICP after critical accounts churn or you suddenly start losing mid-market customers.
 - You don't update your ICP until it is too late.
@@ -42,7 +42,7 @@ The rest of this runs from most evidence to least. Start where you actually are:
 
 If you are an established business with customers, start with win-loss analysis.
 
-This is going to come from three key sources:
+This is going to come from 3 key sources:
 
 - CRM
 - call recordings
@@ -67,7 +67,7 @@ Remember, the entire art of pipeline or ICP analysis is to listen to things syst
 
 ## One side produces blame, the other produces criteria
 
-There are two sides to any analysis. One produces blame. The other produces criteria that determine how things should be run the next time.
+There are 2 sides to any analysis. One produces blame. The other produces criteria that determine how things should be run the next time.
 
 A simple example:
 
@@ -107,7 +107,7 @@ I would add these people to an always-on campaign. Whenever someone publishes a 
 Keep it simple:
 
 1. Email one is about the blog, the point of view and how it affects them.
-2. Email two follows up and asks for their thoughts.
+2. Email 2 follows up and asks for their thoughts.
 
 What makes a difference is sending it like a personal sales note, not a designed marketing mailer. More importantly, personally respond to the emails. A CTA like "tell me your honest thoughts, I read every email" establishes a ton of trust only if you actually do it.
 
@@ -169,7 +169,7 @@ A generous free tier makes sense if you want to go mass-market and bottoms-up. I
 
 Early winners do not win because of price. They win because of value. Build and bundle features accordingly so the conversion rate can improve.
 
-From this, you can derive three types of ICPs:
+From this, you can derive 3 types of ICPs:
 
 1. **People who pay now.** These are your early adopters.
 2. **People who use the product well but do not pay.** These are your next-in-line customers. You have to identify the friction, which could be workflow, price, migration or something else.
@@ -195,7 +195,7 @@ If you have the budget, run paid LinkedIn ads to these accounts and see who enga
 
 Making a one-to-many ABM campaign feel like one-to-one can happen in this sequence:
 
-1. Send two or three email touches across 12 days.
+1. Send 2 or 3 email touches across 12 days.
 2. Send a personalized LinkedIn invitation with a product microsite or landing page.
 3. Track engagement in real time.
 4. Target people who engage with an ad leading to a demo page.
@@ -209,8 +209,8 @@ That feedback should keep changing who you SHOULD sell to.
 
 ## Where to start on Monday
 
-Pull your last twenty closed deals, ten won and ten lost. For each one, answer six questions: how they heard about you, who was in the room, where the deal stalled, what the objection was, what it was worth, and whether you would take that deal again.
+Pull your last 20 closed deals, 10 won and 10 lost. For each one, answer 6 questions: how they heard about you, who was in the room, where the deal stalled, what the objection was, what it was worth, and whether you would take that deal again.
 
-The last question is the whole exercise. The first five produce a report about what happened. The sixth produces criteria for what you do next.
+The last question is the whole exercise. The first 5 produce a report about what happened. The sixth produces criteria for what you do next.
 
-If you cannot answer it for most of the twenty, that is your finding. You do not have an ICP problem yet. You have a listening problem, and it is cheaper to fix.
+If you cannot answer it for most of the 20, that is your finding. You do not have an ICP problem yet. You have a listening problem, and it is cheaper to fix.
