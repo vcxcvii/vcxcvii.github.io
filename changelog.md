@@ -15,14 +15,14 @@ The entries below keep the consequence and drop the maintenance log.
 
 <div class="changelog-browser" data-changelog-browser>
   <nav class="changelog-controls" aria-label="Browse changelog by month" data-changelog-controls hidden>
-    <button type="button" data-changelog-newer>Newer</button>
+    <button type="button" data-changelog-newer>newer</button>
     <label for="changelog-month">
-      <span>Month and year</span>
+      <span class="visually-hidden">Month and year</span>
       <select id="changelog-month" data-changelog-month aria-controls="changelog-entries"></select>
     </label>
-    <button type="button" data-changelog-older>Older</button>
+    <button type="button" data-changelog-older>older</button>
   </nav>
-  <p class="changelog-status" data-changelog-status aria-live="polite"></p>
+  <p class="visually-hidden" data-changelog-status aria-live="polite"></p>
   <div id="changelog-entries">
   {% for update in site.data.site_updates.updates %}
     <article class="changelog-entry" data-changelog-entry data-changelog-month="{{ update.date | date: '%Y-%m' }}">

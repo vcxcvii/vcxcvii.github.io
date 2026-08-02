@@ -616,11 +616,12 @@ td {
 }
 
 .changelog-controls {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: .5rem;
-  align-items: end;
-  margin: 2rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 2rem 0 0;
+  padding: .625rem 0;
+  border-top: 1px solid var(--color-border);
 }
 
 .changelog-controls[hidden] {
@@ -628,48 +629,45 @@ td {
 }
 
 .changelog-controls label {
-  display: grid;
-  gap: .25rem;
-  color: var(--color-secondary);
-  font-size: .75rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .changelog-controls button,
 .changelog-controls select {
   min-height: 2.75rem;
-  padding: .5rem .75rem;
-  border: 1px solid var(--color-border);
+  padding: .5rem 0;
+  border: 0;
   border-radius: 0;
   background: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-link);
+  font-size: .875rem;
 }
 
 .changelog-controls button {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .changelog-controls button:disabled {
   color: var(--color-secondary);
   cursor: default;
   opacity: .55;
+  text-decoration: none;
 }
 
 .changelog-controls select {
   width: 100%;
-}
-
-.changelog-status {
-  color: var(--color-secondary);
-  font-size: .8125rem;
+  border-bottom: 1px solid currentColor;
 }
 
 .changelog-entry {
-  padding: 0 0 2rem;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--color-border);
 }
 
-.changelog-entry + .changelog-entry {
-  padding-top: 2rem;
+.changelog-entry:first-child {
+  border-top: 1px solid var(--color-border);
 }
 
 .changelog-entry h2 {
@@ -982,15 +980,6 @@ td {
   .home-portrait {
     width: 5.5rem;
     margin-bottom: 1rem;
-  }
-
-  .changelog-controls {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .changelog-controls label {
-    grid-column: 1 / -1;
-    grid-row: 1;
   }
 
   .github-heading {
