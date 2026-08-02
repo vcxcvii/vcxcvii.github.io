@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "32258a6524ab0e6da7fce73667193869bdc330fc",
+  "last_processed_commit": "e57019e4b32c6dec5ab0aaeebe9f4e8961cd1587",
   "updated_at": "2026-08-02",
   "updates": [
+    {
+      "id": "2026-08-03-e57019e",
+      "date": "2026-08-03",
+      "title": "The 9.09% essay now follows the actual mistake",
+      "summary": "The essay no longer mixes a small sample, a duplicate issue bug, and page-level analytics into competing stories. It now follows one clear mistake from a single dead-click session to an unjustified UX recommendation, with a sharper title to match.",
+      "benefits": [
+        {
+          "label": "Clear argument",
+          "text": "The post now explains exactly how a correct percentage became a bad recommendation."
+        },
+        {
+          "label": "Better title",
+          "text": "The new title uses the same concrete contrast as the site's older essays."
+        }
+      ],
+      "commit_shas": [
+        "e57019e4b32c6dec5ab0aaeebe9f4e8961cd1587"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-32258a6",
       "date": "2026-08-03",
