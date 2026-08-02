@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "428361c6dfcb452aef5440b27438f4623db3503a",
+  "last_processed_commit": "32258a6524ab0e6da7fce73667193869bdc330fc",
   "updated_at": "2026-08-02",
   "updates": [
+    {
+      "id": "2026-08-03-32258a6",
+      "date": "2026-08-03",
+      "title": "Changelog navigation now looks like the rest of the site",
+      "summary": "The boxed month filter is gone. Changelog browsing now uses plain underlined controls, while thin rules separate navigation and every update. The same month selection, URL state, keyboard behavior, and no-JavaScript fallback remain intact without introducing a separate visual language.",
+      "benefits": [
+        {
+          "label": "Simpler controls",
+          "text": "Month browsing now looks like ordinary site navigation instead of a form panel."
+        },
+        {
+          "label": "Clear separation",
+          "text": "Thin rules make each update easier to distinguish while scanning."
+        },
+        {
+          "label": "Mobile fit",
+          "text": "The underlined controls stay on one row, retain 44px targets, and fit at 320px."
+        }
+      ],
+      "commit_shas": [
+        "32258a6524ab0e6da7fce73667193869bdc330fc"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-927d104",
       "date": "2026-08-03",
