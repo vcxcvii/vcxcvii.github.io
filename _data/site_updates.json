@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "3e13f1100893ef7edba327deac958270aae9a498",
+  "last_processed_commit": "927d10485fff33389e217008da313693df3512cc",
   "updated_at": "2026-08-02",
   "updates": [
+    {
+      "id": "2026-08-03-927d104",
+      "date": "2026-08-03",
+      "title": "Changelog now stays current and browses cleanly by month",
+      "summary": "The stale automation no longer depends on retired GitHub Models. Verified commit metadata now updates the public record during deployment, while month-and-year controls let readers move through releases without scrolling through the complete chronology.",
+      "benefits": [
+        {
+          "label": "Reliable updates",
+          "text": "Deployment no longer silently keeps old data when a model endpoint disappears."
+        },
+        {
+          "label": "Month browsing",
+          "text": "Newer, older, and month-and-year controls make long history easier to scan."
+        },
+        {
+          "label": "Mobile fit",
+          "text": "Controls use 44px targets, fit at 320px, and preserve the full list when JavaScript is unavailable."
+        }
+      ],
+      "commit_shas": [
+        "927d10485fff33389e217008da313693df3512cc"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-02-3e13f11",
       "date": "2026-08-02",
