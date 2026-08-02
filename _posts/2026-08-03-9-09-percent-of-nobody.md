@@ -1,5 +1,5 @@
 ---
-title: "11 sessions are not a UX audit"
+title: "My site audits itself. It's very confident about 11 sessions."
 seo_title: "What my AI UX agent got wrong about 11 sessions"
 permalink: /11-sessions-are-not-a-ux-audit/
 redirect_from:
@@ -15,7 +15,7 @@ tags:
   - design
 ---
 
-I built a small agent called Lazarus Pit because I knew I was not going to remember to open Microsoft Clarity every Monday.
+I built a small agent called [Lazarus Pit](/side-quests/lazarus-pit/) because I knew I was not going to remember to open Microsoft Clarity every Monday.
 
 Its job is narrow. It reads the site's project-wide Clarity export, compares the metrics against a few thresholds, and files a GitHub issue with a hypothesis and a suggested fix. It can propose work. It cannot change the site.
 
