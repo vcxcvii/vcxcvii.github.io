@@ -1,9 +1,9 @@
 ---
 title: "Four ways my agents broke, and what each one taught me"
 seo_title: "Four ways my AI agents broke, and what they taught me"
-date: 2026-08-09 00:00:00 +0530
+date: 2026-08-02 00:00:00 +0530
 description: "A fork bomb, an agent that rewrote its own tool mid-task, a version pin that broke everything silently, and a guardrail that blocked me. Four rules."
-last_modified_at: 2026-08-09 00:00:00 +0530
+last_modified_at: 2026-08-02 00:00:00 +0530
 mcp: true
 tags:
   - ai

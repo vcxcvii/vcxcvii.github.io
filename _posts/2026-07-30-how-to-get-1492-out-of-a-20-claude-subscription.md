@@ -2,7 +2,7 @@
 title: "How to get $1,492 out of a $20 Claude subscription"
 seo_title: "Get $1,492 of AI work from a $20 Claude plan"
 permalink: /how-to-get-1492-out-of-a-20-claude-subscription/
-date: 2026-08-02 00:00:00 +0530
+date: 2026-07-30 00:00:00 +0530
 description: "One month of real logs: 2.04 billion tokens read, 10 million written, $1,492 of inference on a $20 plan. The receipts, the stack, and the honest part."
 last_modified_at: 2026-08-02 00:00:00 +0530
 mcp: true
@@ -61,7 +61,7 @@ Three things, and none of them are clever.
 
 **Plan with the expensive model, execute with cheap ones.** I use a frontier model to think through what needs to happen, then hand the actual execution to a swarm of smaller agents. Thinking is where the money is worth spending. Typing is not.
 
-**Compress the output.** I run [caveman](https://github.com/juliusbrussee/caveman), a skill by Julius Brussee that makes every response drop articles, filler, and hedging while keeping every number, error string, and line of code exact. It cuts output tokens by about 65%. Same answer, less of it, so more work fits inside one session before the context fills up. I did not write it, I just use it every day, and it is the single cheapest change on this list.
+**Compress the output.** I run [caveman](https://github.com/juliusbrussee/caveman), a skill by Julius Brussee that makes every response drop articles, filler, and hedging while keeping every number, error string, and line of code exact. Julius measures it at about 65% fewer output tokens. I went looking for that number in my own logs and couldn't produce an honest version of it, because token counts include code and tool calls, which the skill deliberately leaves alone. So take his figure, not mine. What I can tell you is the effect I actually feel: more work fits inside one session before the context fills up. I didn't write it, I just use it every day, and it's the cheapest change on this list.
 
 **Let the repo do the remembering.** This is the big one, and it gets its own section below.
 
@@ -103,7 +103,7 @@ Models hallucinate at me. My instructions are unclear more often than I'd like t
 
 None of that shows up in a $1,492 figure. It's real, and if you're starting out you should expect it.
 
-The four worst ones are getting their own post next week, because the failures turned out to be more useful than the wins.
+I wrote up [the four worst ones separately](/four-ways-my-agents-broke-and-what-each-one-taught-me/), because the failures turned out to be more useful than the wins.
 
 ## The thing that compounds
 

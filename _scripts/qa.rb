@@ -36,6 +36,32 @@ ALLOWED_JS = {
   "assets/js/copy-code.js" => 3_000,
 }.freeze
 
+# Money is written as figures, never as magnitude words. "six figures in
+# expansion ARR" is how a consultant hedges; "$100K+ in expansion ARR" is how
+# VC actually writes, and it survives being skim-read. A `+` marks a floor
+# where the exact number is a client's to disclose rather than his.
+MAGNITUDE_PHRASES = [
+  /\b(?:two|three|four|five|six|seven|eight|nine)[ -]figures?\b/i,
+  /\b(?:double|triple|quadruple)[ -]digits?\b/i,
+].freeze
+
+def magnitude_phrasing_errors
+  errs = []
+  files = `git ls-files -- '*.md' '*.html'`.split("\n").reject { |f| f.start_with?("_posts/") }
+  files.each do |f|
+    next unless File.exist?(f)
+
+    File.read(f).each_line.with_index(1) do |line, number|
+      MAGNITUDE_PHRASES.each do |pattern|
+        next unless (hit = line[pattern])
+
+        errs << "Voice: #{f}:#{number} says '#{hit}' — write the figure instead, e.g. $100K+"
+      end
+    end
+  end
+  errs
+end
+
 def read_file(path)
   File.exist?(path) ? File.read(path) : ""
 end
@@ -243,6 +269,8 @@ def design_guardrails
   errs << "Content: private side quests may only link to an on-site landing page: #{linked_private_quests.map { |quest| quest["name"] }.join(', ')}" unless linked_private_quests.empty?
   unlabelled_quests = quest_data.reject { |quest| ["Public", "Private"].include?(quest["state"]) }
   errs << "Content: every side quest needs a Public or Private label: #{unlabelled_quests.map { |quest| quest["name"] }.join(', ')}" unless unlabelled_quests.empty?
+
+  errs.concat(magnitude_phrasing_errors)
 
   errs
 end

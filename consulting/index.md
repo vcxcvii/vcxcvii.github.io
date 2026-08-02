@@ -152,8 +152,8 @@ The right number depends on the work. We choose it before building, because othe
 
 ## Proof
 
-- At GTM Buddy, I led a team of three and four agencies against a six-figure budget, with seven figures in active pipeline. I also built the pipeline view used by leadership and investors, and led positioning, messaging, sales enablement, and the launch of Nucleus, which reached 20 alpha customers.
-- At Freshworks, I helped build the PLG charter and set up expansion work that produced six figures in expansion ARR in about eight months.
+- At GTM Buddy, I led a team of three and four agencies against a $100K+ budget, with $1M+ in active pipeline. I also built the pipeline view used by leadership and investors, and led positioning, messaging, sales enablement, and the launch of Nucleus, which reached 20 alpha customers.
+- At Freshworks, I helped build the PLG charter and set up expansion work that produced $100K+ in expansion ARR in about eight months.
 - At Vymo, I worked in the first product marketing team across APAC and North America while the company grew from roughly $5M to $20M ARR, launched products, supported market entry, and trained more than 20 salespeople.
 - In consulting work, I built a sales content system used by 200+ reps with more than 95% adoption and worked on positioning and outbound tied to two enterprise wins.
 - On AI specifically, I used GitHub, Cursor, Claude, Codex, and Swan in daily marketing work at GTM Buddy, and built systems for sales signals, account research, meeting preparation, campaigns, and pipeline reporting.
