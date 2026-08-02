@@ -103,7 +103,7 @@ Models hallucinate at me. My instructions are unclear more often than I'd like t
 
 None of that shows up in a $1,492 figure. It's real, and if you're starting out you should expect it.
 
-I wrote up [the four worst ones separately](/four-ways-my-agents-broke-and-what-each-one-taught-me/), because the failures turned out to be more useful than the wins.
+I wrote up [the four worst ones separately](/the-models-were-fine-i-was-the-bug/), because the failures turned out to be more useful than the wins.
 
 ## The thing that compounds
 
