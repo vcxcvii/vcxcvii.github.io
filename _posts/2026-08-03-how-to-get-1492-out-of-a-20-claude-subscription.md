@@ -1,0 +1,139 @@
+---
+title: "How to get $1,492 out of a $20 Claude subscription"
+seo_title: "Get $1,492 of AI work from a $20 Claude plan"
+permalink: /how-to-get-1492-out-of-a-20-claude-subscription/
+date: 2026-08-03 00:00:00 +0530
+description: "One month of real logs: 2.04 billion tokens read, 10 million written, $1,492 of inference on a $20 plan. The receipts, the stack, and the honest part."
+last_modified_at: 2026-08-03 00:00:00 +0530
+mcp: true
+tags:
+  - ai
+  - analytics
+  - frameworks
+---
+
+I pay twenty dollars a month for Claude. Last week I went digging through my own logs to find out what that actually buys, because I wanted to write an honest post about it and I did not want to guess.
+
+The logs are sitting on everyone's machine. Every session your coding agent runs gets written to a file, with the token counts attached. Mine covers one month, from the 2nd of July to the 2nd of August. Seventy-two sessions. Older ones had already rotated out.
+
+Here is what came back.
+
+| Model | Written | Cache written | Cache read | If billed per use |
+|---|---|---|---|---|
+| Opus 5 | 3.59M | 9.69M | 746M | $523 |
+| Sonnet 5 | 2.34M | 10.7M | 721M | $292 |
+| Opus 4.8 | 2.40M | 7.70M | 313M | $265 |
+| Fable 5 | 1.81M | 4.81M | 260M | $412 |
+| **Total** | **10.1M** | **32.8M** | **2.04B** | **$1,492** |
+
+One month. Fourteen hundred and ninety-two dollars of inference at list price, on a twenty dollar plan.
+
+I had been telling people I get about a hundred dollars of work out of a twenty dollar subscription. I was off by more than an order of magnitude.
+
+## The number that surprised me wasn't the money
+
+Look at the last two columns again. Ten million tokens written. Two billion read.
+
+That ratio is two hundred to one, and it changes what you think you're paying for.
+
+Almost none of this is a model producing text. Almost all of it is a model reading. Every time an agent picks up a task, it re-reads the project. The spec. The design file. The last twenty commits. The rules I wrote for it six weeks ago and forgot about. Two billion tokens of re-reading against ten million tokens of output.
+
+Which means the thing you're actually buying is not writing. It's context. And the way to get more out of the same twenty dollars is to make the context worth re-reading, not to write cleverer prompts.
+
+## The whole bill
+
+Since the point of this post is receipts, here is all of it.
+
+- Claude Pro: $20 a month
+- ChatGPT: free tier
+- Codex: rides on what I already have. 1.05 billion input tokens since February, 797 million of them in July alone
+- Firecrawl: free tier, for bulk scraping
+- context.dev: 10,000 credits, gifted by the founder after I told him I was between roles and couldn't afford a plan
+- Hosting: GitHub Pages, free
+- Domain: about $10 a year
+- Everything else: nothing
+
+That's it. There is no agency, no freelancer, no seat licence, no analytics tool with a sales call attached.
+
+## How twenty dollars stretches
+
+Three things, and none of them are clever.
+
+**Plan with the expensive model, execute with cheap ones.** I use a frontier model to think through what needs to happen, then hand the actual execution to a swarm of smaller agents. Thinking is where the money is worth spending. Typing is not.
+
+**Compress the output.** I run [caveman](https://github.com/juliusbrussee/caveman), a skill by Julius Brussee that makes every response drop articles, filler, and hedging while keeping every number, error string, and line of code exact. It cuts output tokens by about 65%. Same answer, less of it, so more work fits inside one session before the context fills up. I did not write it, I just use it every day, and it is the single cheapest change on this list.
+
+**Let the repo do the remembering.** This is the big one, and it gets its own section below.
+
+## The machine
+
+I should mention this because it undercuts the usual excuse.
+
+All of the above runs on a personal M2 MacBook Air. Eight gigabytes of memory. A 256 gigabyte drive. In 2026 most people would call that machine finished.
+
+Nothing runs locally. The models run somewhere else, the site builds in CI, the daily jobs run on GitHub's runners. The laptop is a terminal. Hardware stopped being the constraint a while ago and most people haven't noticed.
+
+## What my own site actually does now
+
+The concrete version of all this is the site you're reading.
+
+Every push to main runs ten gates before anything ships. It tests the changelog pipeline, then runs it. A model reads the commit history and writes the visitor changelog, in my voice, because the voice is pinned in a file in the repo rather than re-prompted each time. A bot commits that back. Then dependency audit, two syntax linters, post validation, 413 lines of SEO, AEO, and design checks, the build, and a post-build pass over the HTML, schema, images, and links. Only then does it deploy.
+
+A separate job runs every morning at 09:47, pulls the latest release from every side quest repo, and updates the changelogs and the contribution graph.
+
+One line in that config is doing more work than it looks like it is:
+
+```yaml
+on:
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - "_data/site_updates.json"
+```
+
+The bot commits that file. Without `paths-ignore`, its own commit retriggers the deploy that made it, which commits the file again, forever. One line stands between a nice piece of automation and an infinite loop billed by the minute.
+
+I did not know that in advance. I found out the way everyone finds out.
+
+## The part that isn't a flex
+
+I'm learning all of this for the first time. So the honest column of this ledger looks like this.
+
+Models hallucinate at me. My instructions are unclear more often than I'd like to admit, and an unclear instruction burns real tokens producing something confidently wrong. I've spent whole sessions on the wrong problem because I never stated what "done" looked like. I've had an agent go off and rewrite a tool in the middle of a task I'd asked it to do something else entirely.
+
+None of that shows up in a $1,492 figure. It's real, and if you're starting out you should expect it.
+
+I wrote up the four worst ones separately, [here](/four-ways-my-agents-broke-and-what-each-one-taught-me/), because the failures turned out to be more useful than the wins.
+
+## The thing that compounds
+
+Here's what I'd keep if I could keep one habit.
+
+Every mistake gets written down somewhere the agent will read again.
+
+For my SEO agent, that's a file called `FEEDBACK.md`. It has fifteen entries under "Fixed", and each one is titled as the symptom rather than the fix:
+
+- A non-executable bin turned every call into a fork bomb
+- The agent rewrote the tool during a user's audit
+- Provider keys implied consent
+- A connected analytics property that measured nothing looked healthy
+
+Alongside it sits `SPEC.md`, which defines what "done" means in five clauses. Every open item gets sorted against that definition. Anything that doesn't break a clause gets queued rather than argued about. That single rule took my open list from six items to three, not because things got fixed but because things were finally allowed to leave the list.
+
+And on my own machine there's a memory directory: one file per fact, each with a summary line at the top, each linked to the others. Twenty-one files right now. Why a build failed. Why a name is frozen. What a client's constraint actually is.
+
+None of this is sophisticated. It's a diary that the machine reads.
+
+But it's the difference between paying for the same mistake twice and paying for it once. When re-reading is 99.5% of your token spend, the quality of what gets re-read is the whole game.
+
+## The misconception
+
+The most common thing I hear is that people want to take a course first.
+
+I can't do that. I can't sit through long videos and absorb theory. And I think the premise is wrong anyway. People treat working with these models as a science, and to some extent it is. It's also an art, and the art is a very old one: conversing with clarity.
+
+There's no hack underneath it. Use the model as a thought partner. Pick the right model for the job. State the goal properly. And don't let it be a yes man, because a yes man will happily help you build the wrong thing at great speed.
+
+This post is the demonstration. I didn't write it and hand it to a model to polish. I asked one to interview me, to keep asking follow-ups, to push back when I dodged a question, and then to publish it here in my voice, structured so both search engines and AI agents can read it. It pushed back twice. Both times it was right.
+
+Do it once. Automate it the next time. That's the entire method, and it costs twenty dollars.
