@@ -2,9 +2,9 @@
 title: "How to get $1,492 out of a $20 Claude subscription"
 seo_title: "Get $1,492 of AI work from a $20 Claude plan"
 permalink: /how-to-get-1492-out-of-a-20-claude-subscription/
-date: 2026-08-03 00:00:00 +0530
+date: 2026-08-02 00:00:00 +0530
 description: "One month of real logs: 2.04 billion tokens read, 10 million written, $1,492 of inference on a $20 plan. The receipts, the stack, and the honest part."
-last_modified_at: 2026-08-03 00:00:00 +0530
+last_modified_at: 2026-08-02 00:00:00 +0530
 mcp: true
 tags:
   - ai
@@ -103,7 +103,7 @@ Models hallucinate at me. My instructions are unclear more often than I'd like t
 
 None of that shows up in a $1,492 figure. It's real, and if you're starting out you should expect it.
 
-I wrote up the four worst ones separately, [here](/four-ways-my-agents-broke-and-what-each-one-taught-me/), because the failures turned out to be more useful than the wins.
+The four worst ones are getting their own post next week, because the failures turned out to be more useful than the wins.
 
 ## The thing that compounds
 
