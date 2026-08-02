@@ -154,9 +154,9 @@ The right number depends on the work. We choose it before building, because othe
 
 ## Proof
 
-- At GTM Buddy, I led a team of 3 and 4 agencies and delivered 4x the annual budget in active pipeline. I also built the pipeline view used by leadership and investors, and led positioning, messaging, sales enablement, and the launch of Nucleus, which reached 20 alpha customers.
-- At Freshworks, I helped build the PLG charter and set up expansion work that produced expansion ARR at zero acquisition cost, on no marketing spend. The tiered PLG campaign converted 2,778 product-qualified leads at 17.5%, and the competitive campaign against Intercom converted at 5.7x the average.
-- At Vymo, I cofounded the product marketing function and worked across APAC and North America through a 4x ARR run: product launches, market entry, 85% adoption across 400K+ end users in 7 countries, and a Strong Performer placement in the Forrester Wave.
+- At GTM Buddy, I led a team of 3 and 4 agencies that sourced $2M+ in pipeline on a $500K annual marketing budget. I also built the pipeline view used by leadership and investors, and led positioning, messaging, sales enablement, and the launch of Nucleus, which reached 20 alpha customers.
+- At Freshworks, I helped build the PLG charter and ran expansion campaigns that drove ARR with $0 in paid media. The tiered PLG campaign converted 2,778 product-qualified leads at 17.5%, and the competitive campaign against Intercom converted at 5.7x the average.
+- At Vymo, I helped build the product marketing function across APAC, then moved to Chicago as the sole PMM for North America. Over those 5 years, Vymo grew ARR 4x. My work covered product launches, market entry, 85% adoption across 400K+ end users in 7 countries, and the Strong Performer placement in the Forrester Wave.
 - In consulting work, I built a sales content system used by 200+ reps with 100% adoption, and worked on positioning and outbound tied to 2 enterprise logo wins.
 - On AI specifically, I used GitHub, Cursor, Claude, Codex, and Swan in daily marketing work at GTM Buddy, and built systems for sales signals, account research, meeting preparation, campaigns, and pipeline reporting.
 

@@ -35,7 +35,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 **Jan 2026 - Aug 2026** · [GTM Buddy](https://gtmbuddy.ai/) · Bangalore
 
-- Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies, delivering 4x the annual budget in active pipeline
+- Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies that sourced $2M+ in pipeline on a $500K annual marketing budget
 - Transformed the team to AI-first operations, integrating GitHub, Cursor, Claude, Codex, and Swan into daily work: automated sales signal detection, account research, and meeting prep
 - Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution, which became the single source of truth for investors and leadership
 - Launched Nucleus end-to-end: positioning, messaging, sales enablement, and go-to-market strategy, securing 20 customers in alpha
@@ -50,7 +50,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 **May 2024 - Jan 2026** · [Freshworks Inc](https://www.freshworks.com/) ([FRSH](https://g.co/kgs/iHGNbLU)) · Bangalore
 
-- Drove expansion ARR from PLG at zero customer acquisition cost, on no marketing spend
+- Drove expansion ARR through PLG campaigns with $0 in paid media
 - Ran the PLG campaign across Top, Mid, and Digital tiers for CX products: 2,778 PQLs converting at 17.5% into paying customers
 - Led the competitive campaign against Intercom for Freshdesk Omni, converting at 11.6%, which was 5.7x the average
 - Ran the multi-competitor "Switch to Freshsales" campaign, generating 775 qualified leads across 22,382 sessions
@@ -64,7 +64,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 **Oct 2022 - Apr 2024** · [Vymo Inc](https://vymo.com/) · Chicago, IL
 
-- Relocated to Chicago to run product marketing solo for the North America and Canada markets
+- Relocated to Chicago as the sole product marketer for North America
 - Owned sales enablement that influenced enterprise ARR inside a single quarter
 - Led solution packaging and product launches with solution engineers, sales, and product, driving 85% adoption across 400K+ end users in 7 countries
 - Defined ICP and GTM verticalisation, helping Vymo launch into multiple lines of business across 75+ enterprise deployments
