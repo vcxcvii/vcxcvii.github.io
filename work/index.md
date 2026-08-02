@@ -11,7 +11,7 @@ mcp_note: >-
 ---
 **This page is the full record: roles, scope, teams, and outcomes.** I'm open to senior full-time roles anywhere in the world, and [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to start that conversation. If you'd rather hire the work than the person, [here's how I run engagements](/consulting/).
 
-Outcomes are stated as rates, multiples, and adoption rather than as a former employer's revenue. The absolute figures are on my resume, which I'm happy to share. Publishing someone else's numbers on a public page is their call to make, not mine.
+Outcomes are stated as rates, multiples, and adoption rather than as a former employer's revenue. The absolute figures are on my resume, which I'm happy to share.
 
 If you want to know how I think before we talk, start with [the essays](/blog/) or [what I build on the side](/side-quests/).
 
