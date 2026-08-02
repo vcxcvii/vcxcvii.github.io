@@ -15,7 +15,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - No cards, pills, badges, tab bars, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay.
 - No dark-mode toggle. One light reading theme.
 - No JavaScript on ordinary pages. Homepage may load the dependency-free GitHub graph script. A utility page may use a tiny script only when native HTML cannot provide the function.
-- Never hide core content behind JavaScript, hover, filters, accordions, pagination, or animation.
+- Never hide core content behind JavaScript, hover, filters, accordions, pagination, or animation. The changelog month browser is progressive enhancement: without JavaScript, every entry remains visible.
 - Desktop navigation links remain visible. Mobile uses a native CSS hamburger toggle; links remain normal HTML and require no JavaScript.
 
 ## Page shell
@@ -130,6 +130,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - `/about` contains no portrait.
 - Long pages rely on headings, rules, lists, and links. Do not introduce a separate visual system.
 - Side quests use grouped plain rows with simple horizontal rules, not cards or disclosure widgets.
+- `/changelog/` opens on the newest month and offers month-and-year, newer, and older controls. The controls require 44px targets, fit at 320px, preserve the selected month in the URL, and leave the complete chronology visible when JavaScript is unavailable.
 - MCP endpoint is presented as selectable code. Avoid custom copy UI when selecting and copying text already works.
 
 ## Footer
@@ -182,6 +183,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - `_sass/main.scss` is the only design stylesheet and is inlined by `_includes/head.html`.
 - `_includes/nav.html`, `_includes/essay-list.html`, and `_includes/footer.html` are the shared interface primitives.
 - `assets/js/gh-graph.js` is the only homepage application script.
+- `assets/js/changelog.js` runs only on `/changelog/` and progressively adds month browsing.
 - `_includes/logos/` is the only logo source. Do not duplicate those files under `assets/`.
 - Analytics and Clarity load from the small deferred inline loader in `_includes/head.html`; standalone duplicate loader files are forbidden.
 - Footer exposes the canonical `DESIGN.md` source on GitHub without adding it to the built site payload.
@@ -191,7 +193,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 - `_scripts/validate-posts.rb` validates frontmatter, tag pages, and inline CSP hashes.
 - `_scripts/qa.rb --all` validates every tracked page and post plus design invariants, dead-asset exclusions, and performance budgets. Without `--all`, it checks changed content only.
-- `node --check assets/js/gh-graph.js` is the dependency-free JavaScript lint gate.
+- `node --check assets/js/gh-graph.js assets/js/changelog.js` is the dependency-free JavaScript lint gate.
 - Production build must pass after validation. GitHub Actions runs all gates before deployment.
 
 ## Content rules

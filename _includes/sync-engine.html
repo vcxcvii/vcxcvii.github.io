@@ -2,7 +2,7 @@
 {% if sync_timestamp %}
 <aside class="intro-note" aria-label="Live changelog status">
   {% if include.kind == "site" %}
-    <p><strong>This updates itself.</strong> I built an engine that reads new commits and the files they changed, drops internal maintenance, then uses the surrounding diff to synthesize only changes that improve something you can see, use, find, or trust. This stays current without becoming a raw commit dump.</p>
+    <p><strong>This updates with the site.</strong> Releases worth noting carry structured visitor notes in Git history. Deployment validates and publishes those notes, skips internal work, and needs no external model. This stays current without becoming a raw commit dump.</p>
   {% else %}
     <p><strong>This updates itself.</strong> I built an engine that checks live commits against rules for each tracked repository, drops documentation and maintenance noise, then groups the remaining product work into updates you can understand without reading Git history.</p>
   {% endif %}

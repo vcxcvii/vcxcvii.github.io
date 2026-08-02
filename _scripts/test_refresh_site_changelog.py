@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for visitor-focused site changelog synthesis."""
+"""Tests for deterministic visitor changelog publication."""
 import importlib.util
 import json
 import os
@@ -13,12 +13,12 @@ SPEC.loader.exec_module(refresh)
 SHA = 'a' * 40
 
 
-def commit(subject='Improve mobile navigation', files=None):
+def commit(subject='Improve mobile navigation', files=None, body=''):
     return {
         'sha': SHA,
         'date': '2026-07-27',
         'subject': subject,
-        'body': '',
+        'body': body,
         'files': files or ['_includes/nav.html', '_sass/main.scss'],
         'patch': '',
     }
@@ -40,7 +40,7 @@ class SiteChangelogTests(unittest.TestCase):
         )))
         self.assertTrue(refresh.visitor_candidate(commit()))
 
-    def test_valid_model_output_is_normalized(self):
+    def test_valid_changelog_payload_is_normalized(self):
         payload = {
             'updates': [{
                 'title': 'Mobile navigation now leaves the article alone',
@@ -61,7 +61,7 @@ class SiteChangelogTests(unittest.TestCase):
                 'commit_shas': [SHA],
             }],
         }
-        result = refresh.validate_model_output(payload, [commit()])
+        result = refresh.validate_updates(payload, [commit()])
         self.assertEqual(result[0]['commit_shas'], [SHA])
         self.assertEqual(len(result[0]['benefits']), 2)
 
@@ -79,18 +79,38 @@ class SiteChangelogTests(unittest.TestCase):
             'commit_shas': ['b' * 40],
         }
         with self.assertRaises(ValueError):
-            refresh.validate_model_output({'updates': [base]}, [commit()])
+            refresh.validate_updates({'updates': [base]}, [commit()])
         base['commit_shas'] = [SHA]
         base['title'] = 'A seamless navigation experience for everyone'
         with self.assertRaises(ValueError):
-            refresh.validate_model_output({'updates': [base]}, [commit()])
+            refresh.validate_updates({'updates': [base]}, [commit()])
         base['title'] = 'Mobile navigation now keeps the article still'
         base['summary'] = (
             'The menu keeps the reading position stable. '
             '<script>Anything from a commit is untrusted.</script>'
         )
         with self.assertRaises(ValueError):
-            refresh.validate_model_output({'updates': [base]}, [commit()])
+            refresh.validate_updates({'updates': [base]}, [commit()])
+
+    def test_commit_trailers_form_a_payload_without_a_provider(self):
+        body = """Changelog-Title: Mobile navigation now keeps the article still
+Changelog-Summary: The menu opens above the article, keeping the reading position stable while making every primary page reachable on narrow screens.
+Changelog-Benefit: Keep your place | Opening the menu no longer moves the article.
+Changelog-Benefit: Find pages | Primary links remain reachable on phones.
+"""
+        payload = refresh.trailer_payload(commit(body=body))
+        result = refresh.validate_updates(payload, [commit(body=body)])
+        self.assertEqual(result[0]['title'], 'Mobile navigation now keeps the article still')
+        self.assertEqual(len(result[0]['benefits']), 2)
+
+    def test_commits_without_trailers_opt_out(self):
+        self.assertIsNone(refresh.trailer_payload(commit()))
+
+    def test_malformed_benefit_trailer_is_rejected(self):
+        with self.assertRaises(ValueError):
+            refresh.trailer_payload(commit(
+                body='Changelog-Benefit: Missing the separator',
+            ))
 
     def test_multiple_updates_from_one_commit_get_unique_ids(self):
         updates = [

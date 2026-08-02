@@ -15,7 +15,6 @@ on:
 
 permissions:
   contents: write
-  models: read
   pages: write
   id-token: write
 
@@ -30,13 +29,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          fetch-depth: 50
+          fetch-depth: 0
       - name: Test visitor changelog pipeline
         run: python3 _scripts/test_refresh_site_changelog.py
-      - name: Synthesize visitor changelog
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CHANGELOG_MODEL: openai/gpt-4.1
+      - name: Refresh visitor changelog
         run: python3 _scripts/refresh_site_changelog.py
       - name: Save visitor changelog update
         run: |
@@ -66,7 +62,9 @@ jobs:
           ruby -c _scripts/qa.rb
           ruby -c _scripts/validate-posts.rb
       - name: Lint JavaScript
-        run: node --check assets/js/gh-graph.js
+        run: |
+          node --check assets/js/gh-graph.js
+          node --check assets/js/changelog.js
       - name: Validate posts
         run: ruby _scripts/validate-posts.rb
       - name: Run site QA

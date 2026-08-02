@@ -1,4 +1,16 @@
-# Site changelog voice
+# Site changelog voice and commit format
+
+The deploy reads structured commit-body trailers. It does not call an AI model.
+For a release worth logging, use:
+
+```text
+Changelog-Title: [title]
+Changelog-Summary: [summary]
+Changelog-Benefit: [label] | [concrete sentence]
+Changelog-Benefit: [label] | [concrete sentence]
+```
+
+Use two or three benefits. The fields must follow the voice and shape below.
 
 ## Job
 

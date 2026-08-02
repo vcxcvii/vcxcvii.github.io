@@ -34,6 +34,7 @@ GITHUB_JS_BUDGET = 8_000
 ALLOWED_JS = {
   "assets/js/gh-graph.js" => GITHUB_JS_BUDGET,
   "assets/js/copy-code.js" => 3_000,
+  "assets/js/changelog.js" => 3_000,
 }.freeze
 
 # Money is written as figures, never as magnitude words. "six figures in
@@ -206,6 +207,12 @@ def design_guardrails
   footer = read_file("_includes/footer.html")
   errs << "Design: footer MCP link missing" unless footer.match?(/>MCP<\/a>/) && footer.include?("'/mcp/' | relative_url")
   errs << "Design: footer changelog link missing" unless footer.include?("changelog") && footer.include?("'/changelog/' | relative_url")
+
+  changelog = read_file("changelog.md")
+  changelog_js = read_file("assets/js/changelog.js")
+  errs << "Design: changelog month controls missing" unless changelog.include?('data-changelog-controls') && changelog.include?('data-changelog-month')
+  errs << "Design: changelog must retain a no-JavaScript full list" unless changelog_js.include?("Without JavaScript, every entry stays visible")
+  errs << "Design: changelog controls must use 44px touch targets" unless css_source.include?(".changelog-controls") && css_source.include?("min-height: 2.75rem")
   errs << "Design: footer must link to the dedicated tag index" unless footer.include?("'/tags/' | relative_url")
   errs << "Design: footer must link to the canonical DESIGN.md" unless footer.include?("blob/main/DESIGN.md")
   errs << "Design: footer must not embed the complete tag index" if footer.include?("include tag-list.html")

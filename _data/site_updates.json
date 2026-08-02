@@ -1,7 +1,109 @@
 {
-  "last_processed_commit": "0412a635d26fc2121cd883589de855eb14a2052d",
-  "updated_at": "2026-07-30",
+  "last_processed_commit": "3e13f1100893ef7edba327deac958270aae9a498",
+  "updated_at": "2026-08-02",
   "updates": [
+    {
+      "id": "2026-08-02-3e13f11",
+      "date": "2026-08-02",
+      "title": "Work pages now use numbers I can defend",
+      "summary": "The homepage, Work, About, and Consulting pages now separate sourced pipeline from company growth and other context. GTM Buddy is stated as $2M+ sourced pipeline on a $500K annual marketing budget. Freshworks keeps the absolute ARR private and states $0 in paid media. Vymo’s 4x ARR growth is clearly company context.",
+      "benefits": [
+        {
+          "label": "Cleaner attribution",
+          "text": "Pipeline is labelled sourced, while company growth is no longer written like one person caused it."
+        },
+        {
+          "label": "Public boundaries",
+          "text": "Freshworks keeps the absolute figure off the site without hiding the outcome."
+        },
+        {
+          "label": "Consistent record",
+          "text": "The same facts now appear across the homepage, Work, About, and Consulting pages."
+        }
+      ],
+      "commit_shas": [
+        "3e13f1100893ef7edba327deac958270aae9a498",
+        "126ae2cc15d1487911752c3fe72d337273158136",
+        "6d14261bed77059941df5dce34f4b507b886f8b9"
+      ],
+      "source": "manual:verified"
+    },
+    {
+      "id": "2026-08-02-bd0a39a",
+      "date": "2026-08-02",
+      "title": "The 9.09% essay now explains what the denominator means",
+      "summary": "The essay about Lazarus Pit no longer treats one changed recommendation out of eleven like a grand success rate. It now says plainly that eleven sessions are too small for precision, links the tool being discussed, and keeps the useful point: disagreement between agents exposed a flaw in the review loop.",
+      "benefits": [
+        {
+          "label": "Clear denominator",
+          "text": "The essay explains the sample behind 9.09% instead of asking the percentage to sound meaningful."
+        },
+        {
+          "label": "Useful context",
+          "text": "Lazarus Pit is linked where the experiment first appears."
+        },
+        {
+          "label": "Human voice",
+          "text": "The rewrite drops decorative phrasing and states what the experiment did and did not prove."
+        }
+      ],
+      "commit_shas": [
+        "bd0a39a026090b6c06bdbcadfde5b22eb76eb704",
+        "e19fd32a7400fdfb01ab2a31e295e673f99ded96",
+        "24526bc1ee6fcfe5620993fdebe3ce7149ba9b10"
+      ],
+      "source": "manual:verified"
+    },
+    {
+      "id": "2026-08-01-68ae547",
+      "date": "2026-08-01",
+      "title": "Rainmaker setup now starts with one command and informed consent",
+      "summary": "Rainmaker’s page now leads with a skill-first setup, points installation at the npm package, and explains when provider access costs money or uses quota. Readers can install the tool without reverse-engineering the repository, bring their own model, and know that paid or quota-backed providers will not be activated without consent.",
+      "benefits": [
+        {
+          "label": "Start faster",
+          "text": "The documented install path begins with one command instead of repository archaeology."
+        },
+        {
+          "label": "Choose providers",
+          "text": "The guide separates the core workflow from optional model and crawl providers."
+        },
+        {
+          "label": "Control spend",
+          "text": "Paid or quota-backed services require explicit consent before activation."
+        }
+      ],
+      "commit_shas": [
+        "68ae54758804359a1797e66ee06778b189c773c7",
+        "e698cdc85fd9daa6df95517a5c88003406d3a68a",
+        "cb247395dffb3d24703b207c1e154bd25dc83140"
+      ],
+      "source": "manual:verified"
+    },
+    {
+      "id": "2026-08-01-1c4315e",
+      "date": "2026-08-01",
+      "title": "Code blocks now copy in one tap",
+      "summary": "Code examples now get a small Copy button without changing the underlying text or requiring a framework. The control stays visible on touch devices, gives keyboard users a clear focus target, and reports when copying succeeds. Selecting the code manually still works when JavaScript or clipboard access is unavailable.",
+      "benefits": [
+        {
+          "label": "Copy faster",
+          "text": "Commands and examples can move to the clipboard with one tap."
+        },
+        {
+          "label": "Works on touch",
+          "text": "The control remains visible on phones where hover does not exist."
+        },
+        {
+          "label": "Keeps fallback",
+          "text": "Code stays selectable when scripting or clipboard access is unavailable."
+        }
+      ],
+      "commit_shas": [
+        "1c4315ed1653c8892961678e8c904e3d3e522d89"
+      ],
+      "source": "manual:verified"
+    },
     {
       "id": "2026-07-30-2df3293",
       "date": "2026-07-30",

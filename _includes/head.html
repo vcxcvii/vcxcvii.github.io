@@ -91,3 +91,4 @@ window.addEventListener('load',function(){
 </script>
 <script defer src="{{ '/assets/js/gh-graph.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 <script defer src="{{ '/assets/js/copy-code.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{% if page.url == '/changelog/' %}<script defer src="{{ '/assets/js/changelog.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
