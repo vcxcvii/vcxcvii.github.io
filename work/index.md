@@ -11,7 +11,7 @@ mcp_note: >-
 ---
 **This page is the full record: roles, scope, teams, and outcomes.** I'm open to senior full-time roles anywhere in the world, and [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to start that conversation. If you'd rather hire the work than the person, [here's how I run engagements](/consulting/).
 
-Numbers are stated as figures throughout. A `+` means a floor rather than an exact amount, used where a client's revenue isn't mine to publish. Same convention on every page of this site.
+Outcomes are stated as rates, multiples, and adoption rather than as a former employer's revenue. The absolute figures are on my resume, which I'm happy to share. Publishing someone else's numbers on a public page is their call to make, not mine.
 
 If you want to know how I think before we talk, start with [the essays](/blog/) or [what I build on the side](/side-quests/).
 
@@ -33,73 +33,85 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 ### Senior Manager, Marketing
 
-**Jan 2026 - Aug 2026** · [GTM Buddy](https://gtmbuddy.ai/)
+**Jan 2026 - Aug 2026** · [GTM Buddy](https://gtmbuddy.ai/) · Bangalore
 
-- Took over marketing at a Series A B2B SaaS startup. Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a $500K annual budget, delivering $2M+ in active pipeline
-- Transformed the team to AI-first operations by integrating GitHub, Cursor, Claude, Codex, and Swan into daily workflows — dramatically improved shipping velocity and built internal tools that automated sales signal detection, account research, and meeting prep
-- Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution — became the single source of truth for investors and leadership
-- Created and filed a trademark for Revenue Activation — a new market category at the intersection of revenue operations and customer activation
-- Launched Nucleus (new product) end-to-end: owned positioning, messaging, sales enablement, and go-to-market strategy — secured 20 customers in alpha
-- Redesigned the company website and brand identity — website became the #1 lead generation channel with a significant increase in branded search traffic
-- Built automated GTM workflows via Swan: website deanonymization → automated AE first-touch, pipeline health monitoring on Slack, customer sentiment/testimonial engine, and account research/meeting prep automation
-- Founded the SDR motion from scratch — generated 2 qualified meetings within the first month
-- Managed founder brand: orchestrated 35+ podcast appearances in one quarter (800K+ combined views), grew LinkedIn to 200K+ impressions, and secured a Forbes feature placement
-- Drove 9 qualified leads through AEO/GEO (AI search optimization) — positioned the company in AI-generated answers across ChatGPT, Perplexity, and Claude
+- Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies, delivering 4x the annual budget in active pipeline
+- Transformed the team to AI-first operations, integrating GitHub, Cursor, Claude, Codex, and Swan into daily work: automated sales signal detection, account research, and meeting prep
+- Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution, which became the single source of truth for investors and leadership
+- Launched Nucleus end-to-end: positioning, messaging, sales enablement, and go-to-market strategy, securing 20 customers in alpha
+- Redesigned the website and brand identity, which became the #1 lead generation channel with a 65% increase in branded search traffic
+- Built automated GTM workflows via Swan: website deanonymization into automated AE first-touch, pipeline health monitoring on Slack, and account research and meeting-prep automation
+- Created and filed a trademark for Revenue Activation, a new category at the intersection of revenue operations and customer activation
+- Founded the SDR motion from scratch, generating 2 qualified meetings in the first month
+- Managed founder brand: 35+ podcast appearances in one quarter (800K+ combined views), LinkedIn grown to 200K+ impressions, and a Forbes feature placement
+- Drove 9 qualified leads through AEO and GEO, positioning the company inside AI-generated answers across ChatGPT, Perplexity, and Claude
 
-### Lead, Product Marketing
+### Lead, Product Marketing (PLG)
 
-**2024-2026** · [Freshworks Inc](https://www.freshworks.com/) ([FRSH](https://g.co/kgs/iHGNbLU))
+**May 2024 - Jan 2026** · [Freshworks Inc](https://www.freshworks.com/) ([FRSH](https://g.co/kgs/iHGNbLU)) · Bangalore
 
-- Set up PLG expansion campaigns and drove $500K in expansion ARR on $0 marketing spend, in about 8 months
+- Drove expansion ARR from PLG at zero customer acquisition cost, on no marketing spend
+- Ran the PLG campaign across Top, Mid, and Digital tiers for CX products: 2,778 PQLs converting at 17.5% into paying customers
+- Led the competitive campaign against Intercom for Freshdesk Omni, converting at 11.6%, which was 5.7x the average
+- Ran the multi-competitor "Switch to Freshsales" campaign, generating 775 qualified leads across 22,382 sessions
+- Set up the PLG motion for Freshsales, and developed the market launch strategy for Freddy AI Agent
+- Championed adoption of ChatGPT and built Freddy Sidekick, a custom GPT for 40+ PMMs trained on internal knowledge: >95% team adoption within weeks, cutting research time by 60-70%
 - Helped build the CX PLG charter for 2025
-- Championed the purchase of ChatGPT and built a custom GPT, Freddy Sidekick, for PMMs. The goal was faster first drafts and leveling the playing field across writing skills and data analysis for all 40 team members.
-- Set up PLG for Freshsales, the CRM side of the same motion
-- Ran the multi-competitor "Switch to Freshsales" campaign, generating $35.3K in new business ARR and 775 qualified leads against $200K+ in ad spend across 22,382 sessions
-- Shared multiple recommendations and wireframes to improve product onboarding and adoption for both CRM and CX products. Influenced roadmap items for 2025.
-- Strategy plus execution of the Freddy AI Agent Q3-Q4 2024 holiday campaign
-- Won Mid Tier Connect 2025 Award for impactful contributions in PLG
+- Spearheaded the demo experience transformation, prototyping the resource hub and demo centre to shorten the self-serve buyer journey
+- Won the Mid Tier Connect 2025 Award for contributions to PLG
 
-### Sr. Associate, Product Marketing
+### Product Marketing & GTM, Americas
 
-**2019-2024** · [Vymo Inc](https://vymo.com/)
+**Oct 2022 - Apr 2024** · [Vymo Inc](https://vymo.com/) · Chicago, IL
 
-Five years across growth and product marketing, through the company's run from $5M to $20M ARR. Cofounded the product marketing function with my manager, then relocated to Chicago to run product marketing solo for the North America and Canada markets.
+- Relocated to Chicago to run product marketing solo for the North America and Canada markets
+- Owned sales enablement that influenced enterprise ARR inside a single quarter
+- Led solution packaging and product launches with solution engineers, sales, and product, driving 85% adoption across 400K+ end users in 7 countries
+- Defined ICP and GTM verticalisation, helping Vymo launch into multiple lines of business across 75+ enterprise deployments
+- Led competitive intelligence: Vymo named a Strong Performer in the Q3 2022 Forrester Wave, and featured in the Gartner Market Guide for Sales Enablement 2023
+- Won the FY23 Annual Award for product marketing work behind the first multi-million dollar deal win in the USA
 
-#### Growth Marketing, 2019
+### Associate, Product Marketing & GTM, India & SEA
 
-- Started off as a Growth Marketer in 2019, out of college. Led NPS campaigns across G2 Crowd, leading to a 4.8/5 rating and 50+ reviews in 3 months
-- Ghostwriting for the co-founder and CTO on Forbes Technical Council blog / forum
-- Built a no-code app using Glide and Zapier to capture and assign leads at event booths, ensuring automatic lead assignment in under 24 hours with automated follow-up
+**Apr 2020 - Aug 2022** · Vymo Technologies India · Bangalore
 
-#### Product Marketing, APAC, 2020-2022
+- Cofounded the product marketing and GTM function
+- Led the launch of the sales enablement and content repository solution: 100% adoption within 15 days, and a 2x improvement in sales collateral adoption
+- Built a no-code cross-platform app for lead capture at event booths across 3 geographies, cutting time-to-first-meet for AEs to under 24 hours
+- Led packaging, positioning, and messaging for all key banking, insurance, and non-banking financial solutions
+- Won a Peer Award for exceptional contributions, and was promoted with an Outstanding Rating by the VP of Product Marketing
 
-- Cofounded the product marketing function alongside my manager
-- Led packaging, messaging, and positioning for all BFSI verticals
-- Helped launch Vymo Coach and Vymo Distribution Cloud
-- Built battlecards for all tier-1 and tier-2 competitors
-- Evaluated sales enablement tools, helped decide on purchasing GTM Buddy, became the admin, and led sales enablement efforts after that
-- Won peer award for exceptional work and contributions
-- Promoted with Outstanding Rating by the VP of Product Marketing and GTM
+### Growth Marketer, Content Marketing & Customer NPS
 
-#### Product Marketing, USA + Canada, 2022-2024
+**Jun 2019 - Mar 2020** · Vymo Technologies India · Bangalore
 
-- Relocated to Chicago, IL to run product marketing solo for North America and Canada: new market entry, and ramping a team of 20+ sales folks
-- Helped launch Vymo in the market for the insurance vertical
-- Led multiple training sessions, solution packaging, and rip-and-replace campaigns
+- Led customer NPS campaigns across Capterra and G2, taking Vymo to 4.7/5 in 6 months, an 89% increase
+- Ghostwrote 3 thought leadership articles for the co-founder and CTO, published on the Forbes Technology Council
+- Set up the content writing function, hiring and managing a team of 3 remote freelance writers
 
-### Co-founder and CEO, WiseWords Interactive Studio
+### Co-Founder & CEO
 
-**2016-2019** · [Wayback Machine - Website](https://web.archive.org/web/20180826201555/https://wisewordspro.com/)
+**2016 - 2018** · WiseWords Interactive Studio · Bangalore · [archived site](https://web.archive.org/web/20180826201555/https://wisewordspro.com/)
 
-- Student founder at 19. Freelanced on Fiverr initially to financially support myself. Saved money and co-founded my first LLP, WiseWordsPro Digital Solutions LLP. We offered website design, SEO, and content writing services.
-- As the brand grew, WiseWordsPro LLP became WiseWords Creative Studio Pvt Ltd, serving enterprise brands with added services like video production and graphic design
-- Worked with 25+ brands. Wound down operations in 2023.
+- Founded the agency at 19, in my first year of university, and grew it to 10+ enterprise and SMB clients
+- Marquee clients included Pall Corp (acquired by Danaher Corp) and Time N Cash Management Consulting
 
 ---
 
-## Consulting Engagements
+## Independent consulting
 
-- **Canada, Series D client:** Created a "SalesBuddy" content repository on Notion, used by 200+ reps with >95% adoption
-- **Series A client:** Led positioning, messaging, and cold outreach for key use-cases directly impacting 2 enterprise logo wins
-- **Series A client:** Launched AI products, led tier-1 competitive messaging, and drove website conversions via blogs and product pages
-- **Series A client:** Helped set up the cold outbound motion for the email channel
+- **Canada, Series D:** built an internal sales content repository on Notion, used by 200+ sales agents with 100% adoption
+- **India, Series A:** led positioning, messaging, and cold outreach for key use cases, directly impacting 2 enterprise logo wins
+- **India, Series A:** led sales enablement work that impacted qualified sales pipeline across FY24
+
+Client names, and the numbers behind these, on request.
+
+---
+
+## Speaking, podcasts & publications
+
+- Hosted The Edge Podcast for CHROs, interviewing 29 senior leaders from Infosys, Oracle, GoJek, Zoho and others, and co-authored 5 articles on moneycontrol.com about the future of work
+- Delivered sessions on product marketing and B2B GTM at Wynter Games, AIC Prestige, NITI Aayog, AIM, Microsoft for Startups, and Headstart Network
+- Wrote and self-published *Miracle-preneuring: Why Anyone Can and Should Be an Entrepreneur*
+
+More on [my speaking page](/speaking/). The tools I build in public are [side quests](/side-quests/).

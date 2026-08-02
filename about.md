@@ -1,14 +1,14 @@
 ---
 title: About
 seo_title: About Varun Choraria | Background, work and current focus
-intro: B2B SaaS marketing operator. A decade of pipeline, positioning and product marketing, now built with agents.
-description: B2B SaaS marketing operator. I decide what marketing should do next, ship the work, and measure it in pipeline or revenue. A decade in, currently consulting.
+intro: B2B SaaS marketing operator. 8+ years of pipeline, positioning and product marketing, now built with agents.
+description: B2B SaaS marketing operator. I decide what marketing should do next, ship the work, and measure it in pipeline or revenue. 8+ years in, currently consulting.
 page_class: about-page
 mcp: true
 mcp_note: >-
   Or skip it. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
 ---
-I'm a marketing professional and I've worked in the B2B SaaS space for about a decade now. I'm also a speaker, author, ex-host of a podcast, bodybuilder, and martial artist. I moonlight as a cat dad.
+I'm a marketing professional and I have worked in the B2B SaaS space for 8+ years now. I'm also a speaker, author, ex-host of a podcast, bodybuilder, and martial artist. I moonlight as a cat dad.
 
 ---
 
@@ -34,7 +34,7 @@ By qualification, I'm a mechanical engineer. I was mostly an average student, sc
 
 ### Early years
 
-I got my first job at a Series C startup, [Vymo](https://vymo.com/), and was the founding product marketing member. I helped position the product and enable sales, which led to the company achieving $20M ARR from $5M in 2 years. The top 5 banks and insurers across APAC were our customers. I saw the journey from Series A to Series C.
+I got my first job at a Series C startup, [Vymo](https://vymo.com/), and was the founding product marketing member. I helped position the product and enable sales, through a 4x ARR run in 2 years. The top 5 banks and insurers across APAC were our customers. I saw the journey from Series A to Series C.
 
 I was the go-to guy for building best-in-class presentations, homegrown no-code tools, and being in lockstep with sales across deals.
 
