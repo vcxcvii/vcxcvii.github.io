@@ -18,6 +18,11 @@ plugins:
 sass:
   style: compressed
   sourcemap: never
+# Build posts dated ahead of the build clock. Post dates on this site are a
+# publishing decision rather than a wall-clock fact, so a post scheduled for
+# tomorrow should ship when it is written, carrying tomorrow's date.
+future: true
+
 exclude:
   - DESIGN.md
   - README.md
