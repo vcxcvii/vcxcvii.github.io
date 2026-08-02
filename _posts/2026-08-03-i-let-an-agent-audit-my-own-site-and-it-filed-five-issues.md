@@ -29,7 +29,7 @@ Here are all five, verbatim from the titles.
 4. Low average scroll depth, 57.78%
 5. Traffic anomaly
 
-Read that list again and the first problem is sitting in plain sight. Three and four are the same finding. It filed the scroll-depth issue, then filed it again twenty-five minutes later with the number moved by a quarter of a percentage point.
+Read that list again and the first problem is sitting in plain sight. Three and four are the same finding. It filed the scroll-depth issue, then filed it again 25 minutes later with the number moved by a quarter of a percentage point.
 
 I closed one as a duplicate. That's the only issue I've closed.
 
@@ -37,15 +37,15 @@ I closed one as a duplicate. That's the only issue I've closed.
 
 Look at the percentages.
 
-9.09% is one in eleven. 18.18% is two in eleven.
+9.09% is 1 in 11. 18.18% is 2 in 11.
 
-The whole dataset was **eleven sessions**. The agent looked at eleven visits, found dead clicks in one of them, and reported it to two decimal places.
+The whole dataset was **11 sessions**. The agent looked at 11 visits, found dead clicks in one of them, and reported it to two decimal places.
 
-Nothing it said was false. One session did have dead clicks. But "9.09% of sessions, threshold 5%" reads like a measurement, and what actually happened was that one person clicked something that wasn't a button. Two decimal places on a sample of eleven is not precision. It's the costume precision wears.
+Nothing it said was false. One session did have dead clicks. But "9.09% of sessions, threshold 5%" reads like a measurement, and what actually happened was that one person clicked something that wasn't a button. Two decimal places on a sample of 11 is not precision. It's the costume precision wears.
 
 This is the failure I'd care most about if I were shipping this to someone else. Not a wrong answer, a confident one. If you handed that issue to a junior marketer, they'd spend a day auditing button styles because the number looked rigorous.
 
-The fix is boring and I should have written it first: report the raw count next to the rate, and don't file anything below a minimum sample size. One in eleven is a note. 9.09% is a finding. They're the same fact and only one of them makes people do work.
+The fix is boring and I should have written it first: report the raw count next to the rate, and don't file anything below a minimum sample size. 1 in 11 is a note. 9.09% is a finding. They're the same fact and only one of them makes people do work.
 
 ## The best thing it did was refuse
 
@@ -59,7 +59,7 @@ It looked at the week, found almost no real human traffic, and stopped. It didn'
 
 That's better judgment than most reporting I've seen from people, and it's better judgment than the same agent showed in issues one through four.
 
-The difference isn't intelligence. It's that somebody wrote a floor into it. A threshold of twenty sessions exists, so below twenty it stops. There is no threshold on "how many sessions before a percentage is meaningful," so it happily computed one from eleven.
+The difference isn't intelligence. It's that somebody wrote a floor into it. A threshold of 20 sessions exists, so below 20 it stops. There is no threshold on "how many sessions before a percentage is meaningful," so it happily computed one from 11.
 
 Every gap you don't write becomes a confident output.
 
@@ -67,7 +67,7 @@ Every gap you don't write becomes a confident output.
 
 The honest reason is that I don't believe most of them yet.
 
-Dead clicks on one session out of eleven doesn't tell me which element or which page. Quickback on two sessions could be two people who found what they needed and left, which on a personal site is a good outcome, not a leak. Scroll depth of 57% on essays that run two thousand words is roughly what you'd expect from people reading the top and deciding.
+Dead clicks on 1 session out of 11 doesn't tell me which element or which page. Quickback on two sessions could be two people who found what they needed and left, which on a personal site is a good outcome, not a leak. Scroll depth of 57% on essays that run 2,000 words is roughly what you'd expect from people reading the top and deciding.
 
 Issue five is the one that's actually true, and it's the one I can't fix by editing a page.
 
@@ -91,4 +91,4 @@ Give it read access and no write access. Make it file a proposal, not a change. 
 
 Then look hard at your denominators. The most dangerous output an agent produces isn't a hallucination, because you can catch those. It's a true statement computed from a sample too small to mean anything, formatted to two decimal places, in a template that looks like every correct finding you've ever read.
 
-Nine point zero nine percent. One person. Same fact, and only one of them would have cost me a day.
+9.09%. One person. Same fact, and only one of them would have cost me a day.

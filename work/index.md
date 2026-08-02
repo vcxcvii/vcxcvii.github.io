@@ -6,6 +6,8 @@ intro: Roles, responsibilities, and selected consulting work.
 description: See Varun Choraria's B2B SaaS marketing work across pipeline, positioning, product marketing, AI systems, category creation, and consulting outcomes.
 page_class: work-page
 mcp: true
+mcp_note: >-
+  Dear hiring managers: <a href="/mcp/">connect my MCP server</a> and let your LLM read this whole record, then ask it whatever you would ask a reference.
 ---
 **This page is the full record: roles, scope, teams, and outcomes.** I'm open to senior full-time roles anywhere in the world, and [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to start that conversation. If you'd rather hire the work than the person, [here's how I run engagements](/consulting/).
 
@@ -33,7 +35,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 **Jan 2026 - Aug 2026** · [GTM Buddy](https://gtmbuddy.ai/)
 
-- Took over marketing at a Series A B2B SaaS startup. Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a $100K+ budget, delivering $1M+ in active pipeline
+- Took over marketing at a Series A B2B SaaS startup. Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies against a $500K annual budget, delivering $2M+ in active pipeline
 - Transformed the team to AI-first operations by integrating GitHub, Cursor, Claude, Codex, and Swan into daily workflows — dramatically improved shipping velocity and built internal tools that automated sales signal detection, account research, and meeting prep
 - Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution — became the single source of truth for investors and leadership
 - Created and filed a trademark for Revenue Activation — a new market category at the intersection of revenue operations and customer activation
@@ -48,10 +50,10 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 **2024-2026** · [Freshworks Inc](https://www.freshworks.com/) ([FRSH](https://g.co/kgs/iHGNbLU))
 
-- Set up PLG expansion campaigns and drove $100K+ in expansion ARR in about 8 months
+- Set up PLG expansion campaigns and drove $500K in expansion ARR on $0 marketing spend, in about 8 months
 - Helped build the CX PLG charter for 2025
 - Championed the purchase of ChatGPT and built a custom GPT, Freddy Sidekick, for PMMs. The goal was faster first drafts and leveling the playing field across writing skills and data analysis for all 40 team members.
-- Set up PLG for Freshsales, and drove $500K in expansion ARR
+- Set up PLG for Freshsales, the CRM side of the same motion
 - Ran the "Switch to Freshsales" campaign against tier-1 competitors, for a revenue impact of $10K+ in ARR
 - Shared multiple recommendations and wireframes to improve product onboarding and adoption for both CRM and CX products. Influenced roadmap items for 2025.
 - Strategy plus execution of the Freddy AI Agent Q3-Q4 2024 holiday campaign
@@ -61,7 +63,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 **2019-2024** · [Vymo Inc](https://vymo.com/)
 
-Five years across growth and product marketing while the company grew from roughly $5M to $20M ARR.
+Five years across growth and product marketing, through the company's run from $5M to $20M ARR. Cofounded the product marketing function with my manager, then relocated to Chicago to run product marketing solo for the North America and Canada markets.
 
 #### Growth Marketing, 2019
 
@@ -71,7 +73,7 @@ Five years across growth and product marketing while the company grew from rough
 
 #### Product Marketing, APAC, 2020-2022
 
-- Founding team member of the product marketing function
+- Cofounded the product marketing function alongside my manager
 - Led packaging, messaging, and positioning for all BFSI verticals
 - Helped launch Vymo Coach and Vymo Distribution Cloud
 - Built battlecards for all tier-1 and tier-2 competitors
@@ -81,7 +83,7 @@ Five years across growth and product marketing while the company grew from rough
 
 #### Product Marketing, USA + Canada, 2022-2024
 
-- Relocated to Chicago, IL to support new market entry, ramp up a team of 20+ sales folks, and lead product marketing efforts for the geo
+- Relocated to Chicago, IL to run product marketing solo for North America and Canada: new market entry, and ramping a team of 20+ sales folks
 - Helped launch Vymo in the market for the insurance vertical
 - Led multiple training sessions, solution packaging, and rip-and-replace campaigns
 

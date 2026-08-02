@@ -31,7 +31,7 @@ The mind then instructs one to take the "here's how it's done" approach. It's es
 
 But this tunnel vision seldom scales. Today you might be a random employee. Tomorrow, you will have to band together people, create a vision, and deliver results.
 
-A complaint I've always had is that the transition from IC to leader is knowledge that is incredibly gatekept. Very few industry folks actually go the extra mile to train, coach, and mentor you. Ninety-nine percent of others are left to aimlessly fish around and find out. If they do find out, they'll probably breed another generation of bad leaders.
+A complaint I've always had is that the transition from IC to leader is knowledge that is incredibly gatekept. Very few industry folks actually go the extra mile to train, coach, and mentor you. 99% of others are left to aimlessly fish around and find out. If they do find out, they'll probably breed another generation of bad leaders.
 
 ## Closure
 

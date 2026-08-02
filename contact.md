@@ -4,6 +4,8 @@ seo_title: Contact Varun Choraria | B2B SaaS and AI
 intro: The shortest routes to a useful conversation.
 description: Contact Varun Choraria about B2B SaaS marketing, AI, consulting, speaking, full-time roles, or the open-source tools published on this site.
 mcp: true
+mcp_note: >-
+  Prefer to ask an AI first? <a href="/mcp/">Connect my MCP server</a> and get the answer before you write the email.
 ---
 ## Work together
 

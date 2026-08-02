@@ -8,6 +8,8 @@ intro: Keynotes, panels, a book, and two seasons of a podcast. The work that hap
 redirect_from:
   - /fun/
 mcp: true
+mcp_note: >-
+  Programme organisers: <a href="/mcp/">connect my MCP server</a> and ask your AI what I speak about and where I have spoken.
 ---
 
 ## Book

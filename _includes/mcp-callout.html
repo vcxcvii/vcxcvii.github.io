@@ -1,0 +1,17 @@
+{%- comment -%}
+Sitewide invitation to read this site through an AI client instead of by hand.
+Copy is per-audience via `mcp_note` in a page's front matter; anything without
+one gets the generic line. Skipped on the MCP page itself, which is the
+destination, and on pages that opt out with `mcp_callout: false`.
+{%- endcomment -%}
+{%- if page.url != '/mcp/' and page.mcp_callout != false -%}
+<aside class="mcp-callout">
+  <p>
+    {%- if page.mcp_note -%}
+      {{ page.mcp_note }}
+    {%- else -%}
+      Feeling lazy? <a href="{{ '/mcp/' | relative_url }}">Connect my MCP server</a> and let your own AI read this site for you.
+    {%- endif -%}
+  </p>
+</aside>
+{%- endif -%}

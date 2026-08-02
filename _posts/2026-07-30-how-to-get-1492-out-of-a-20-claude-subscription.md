@@ -12,9 +12,9 @@ tags:
   - frameworks
 ---
 
-I pay twenty dollars a month for Claude. Last week I went digging through my own logs to find out what that actually buys, because I wanted to write an honest post about it and I did not want to guess.
+I pay $20 a month for Claude. Last week I went digging through my own logs to find out what that actually buys, because I wanted to write an honest post about it and I did not want to guess.
 
-The logs are sitting on everyone's machine. Every session your coding agent runs gets written to a file, with the token counts attached. Mine covers one month, from the 2nd of July to the 2nd of August. Seventy-two sessions. Older ones had already rotated out.
+The logs are sitting on everyone's machine. Every session your coding agent runs gets written to a file, with the token counts attached. Mine covers one month, from the 2nd of July to the 2nd of August. 72 sessions. Older ones had already rotated out.
 
 Here is what came back.
 
@@ -26,19 +26,19 @@ Here is what came back.
 | Fable 5 | 1.81M | 4.81M | 260M | $412 |
 | **Total** | **10.1M** | **32.8M** | **2.04B** | **$1,492** |
 
-One month. Fourteen hundred and ninety-two dollars of inference at list price, on a twenty dollar plan.
+One month. $1,492 of inference at list price, on a $20 plan.
 
-I had been telling people I get about a hundred dollars of work out of a twenty dollar subscription. I was off by more than an order of magnitude.
+I had been telling people I get about $100 of work out of a $20 subscription. I was off by more than an order of magnitude.
 
 ## The number that surprised me wasn't the money
 
-Look at the last two columns again. Ten million tokens written. Two billion read.
+Look at the last two columns again. 10 million tokens written. 2 billion read.
 
-That ratio is two hundred to one, and it changes what you think you're paying for.
+That ratio is 200 to 1, and it changes what you think you're paying for.
 
-Almost none of this is a model producing text. Almost all of it is a model reading. Every time an agent picks up a task, it re-reads the project. The spec. The design file. The last twenty commits. The rules I wrote for it six weeks ago and forgot about. Two billion tokens of re-reading against ten million tokens of output.
+Almost none of this is a model producing text. Almost all of it is a model reading. Every time an agent picks up a task, it re-reads the project. The spec. The design file. The last 20 commits. The rules I wrote for it six weeks ago and forgot about. 2 billion tokens of re-reading against 10 million tokens of output.
 
-Which means the thing you're actually buying is not writing. It's context. And the way to get more out of the same twenty dollars is to make the context worth re-reading, not to write cleverer prompts.
+Which means the thing you're actually buying is not writing. It's context. And the way to get more out of the same $20 is to make the context worth re-reading, not to write cleverer prompts.
 
 ## The whole bill
 
@@ -69,7 +69,7 @@ Three things, and none of them are clever.
 
 I should mention this because it undercuts the usual excuse.
 
-All of the above runs on a personal M2 MacBook Air. Eight gigabytes of memory. A 256 gigabyte drive. In 2026 most people would call that machine finished.
+All of the above runs on a personal M2 MacBook Air. 8GB of memory. A 256GB drive. In 2026 most people would call that machine finished.
 
 Nothing runs locally. The models run somewhere else, the site builds in CI, the daily jobs run on GitHub's runners. The laptop is a terminal. Hardware stopped being the constraint a while ago and most people haven't noticed.
 
@@ -77,7 +77,7 @@ Nothing runs locally. The models run somewhere else, the site builds in CI, the 
 
 The concrete version of all this is the site you're reading.
 
-Every push to main runs ten gates before anything ships. It tests the changelog pipeline, then runs it. A model reads the commit history and writes the visitor changelog, in my voice, because the voice is pinned in a file in the repo rather than re-prompted each time. A bot commits that back. Then dependency audit, two syntax linters, post validation, 413 lines of SEO, AEO, and design checks, the build, and a post-build pass over the HTML, schema, images, and links. Only then does it deploy.
+Every push to main runs 10 gates before anything ships. It tests the changelog pipeline, then runs it. A model reads the commit history and writes the visitor changelog, in my voice, because the voice is pinned in a file in the repo rather than re-prompted each time. A bot commits that back. Then dependency audit, two syntax linters, post validation, 413 lines of SEO, AEO, and design checks, the build, and a post-build pass over the HTML, schema, images, and links. Only then does it deploy.
 
 A separate job runs every morning at 09:47, pulls the latest release from every side quest repo, and updates the changelogs and the contribution graph.
 
@@ -111,16 +111,16 @@ Here's what I'd keep if I could keep one habit.
 
 Every mistake gets written down somewhere the agent will read again.
 
-For my SEO agent, that's a file called `FEEDBACK.md`. It has fifteen entries under "Fixed", and each one is titled as the symptom rather than the fix:
+For my SEO agent, that's a file called `FEEDBACK.md`. It has 15 entries under "Fixed", and each one is titled as the symptom rather than the fix:
 
 - A non-executable bin turned every call into a fork bomb
 - The agent rewrote the tool during a user's audit
 - Provider keys implied consent
 - A connected analytics property that measured nothing looked healthy
 
-Alongside it sits `SPEC.md`, which defines what "done" means in five clauses. Every open item gets sorted against that definition. Anything that doesn't break a clause gets queued rather than argued about. That single rule took my open list from six items to three, not because things got fixed but because things were finally allowed to leave the list.
+Alongside it sits `SPEC.md`, which defines what "done" means in 5 clauses. Every open item gets sorted against that definition. Anything that doesn't break a clause gets queued rather than argued about. That single rule took my open list from 6 items to 3, not because things got fixed but because things were finally allowed to leave the list.
 
-And on my own machine there's a memory directory: one file per fact, each with a summary line at the top, each linked to the others. Twenty-one files right now. Why a build failed. Why a name is frozen. What a client's constraint actually is.
+And on my own machine there's a memory directory: one file per fact, each with a summary line at the top, each linked to the others. 21 files right now. Why a build failed. Why a name is frozen. What a client's constraint actually is.
 
 None of this is sophisticated. It's a diary that the machine reads.
 

@@ -12,6 +12,8 @@ mcp: true
 redirect_from:
   - /ai-b2b-marketing-consultant/
   - /b2b-saas-product-marketing-consultant/
+mcp_note: >-
+  Future partners: <a href="/mcp/">here is my MCP server</a>. Point your LLM at it and interrogate how I work before you spend 30 minutes on a call.
 ---
 
 One person running a swarm of agents. That is the whole engagement.
@@ -152,9 +154,9 @@ The right number depends on the work. We choose it before building, because othe
 
 ## Proof
 
-- At GTM Buddy, I led a team of three and four agencies against a $100K+ budget, with $1M+ in active pipeline. I also built the pipeline view used by leadership and investors, and led positioning, messaging, sales enablement, and the launch of Nucleus, which reached 20 alpha customers.
-- At Freshworks, I helped build the PLG charter and set up expansion work that produced $100K+ in expansion ARR in about eight months.
-- At Vymo, I worked in the first product marketing team across APAC and North America while the company grew from roughly $5M to $20M ARR, launched products, supported market entry, and trained more than 20 salespeople.
+- At GTM Buddy, I led a team of 3 and 4 agencies against a $500K annual budget, with $2M+ in active pipeline. I also built the pipeline view used by leadership and investors, and led positioning, messaging, sales enablement, and the launch of Nucleus, which reached 20 alpha customers.
+- At Freshworks, I helped build the PLG charter and set up expansion work that produced $500K in expansion ARR on $0 marketing spend, in about 8 months.
+- At Vymo, I cofounded the product marketing function and worked across APAC and North America through the company's run from $5M to $20M ARR, launched products, supported market entry, and trained more than 20 salespeople.
 - In consulting work, I built a sales content system used by 200+ reps with more than 95% adoption and worked on positioning and outbound tied to two enterprise wins.
 - On AI specifically, I used GitHub, Cursor, Claude, Codex, and Swan in daily marketing work at GTM Buddy, and built systems for sales signals, account research, meeting preparation, campaigns, and pipeline reporting.
 

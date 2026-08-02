@@ -47,7 +47,7 @@ The fix was two lines: a script that sets the flag after every build, and a mark
 
 I was ten minutes into a session, walking an agent through an interview about a business. Mid-conversation, it decided the tool it was running had a flaw, and went off to rewrite the tool.
 
-Twenty-five thousand tokens. Ten minutes. I was not asked.
+25,000 tokens. 10 minutes. I was not asked.
 
 To be fair to it, the flaw was real. That's what makes this the interesting failure rather than a dumb one. The agent wasn't wrong about the code. It was wrong about whose call it was.
 
@@ -71,11 +71,11 @@ The last one is my favourite, because guessing a number that's a command away is
 
 This one produced no error at all, which makes it the worst of the four.
 
-The tool is built as an orchestrator with twenty-six smaller skills underneath it. The orchestrator runs the conversation and produces the context. Each small skill refuses to run without that context, on purpose, because a skill that guesses at missing context produces confident nonsense.
+The tool is built as an orchestrator with 26 smaller skills underneath it. The orchestrator runs the conversation and produces the context. Each small skill refuses to run without that context, on purpose, because a skill that guesses at missing context produces confident nonsense.
 
 I shipped version 0.3.1 with the orchestrator in it. The installed plugin was pinned at 0.2.1, which had only the twenty-six small skills and no orchestrator.
 
-So every single skill did exactly what it was designed to do. It checked for context, found none, and politely declined. Twenty-six correct refusals adding up to a product that did nothing.
+So every single skill did exactly what it was designed to do. It checked for context, found none, and politely declined. 26 correct refusals adding up to a product that did nothing.
 
 Nothing crashed. Nothing logged an error. It just sat there being useless in a well-mannered way.
 

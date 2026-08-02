@@ -27,7 +27,7 @@ So after that little incident I stopped prepping and spent three days building a
 
 ## What I actually built
 
-It's a static site. Forty HTML pages sitting in a folder on my desktop, no hosting, no build step, no backend. I open `index.html` and the whole war room is there.
+It's a static site. 40 HTML pages sitting in a folder on my desktop, no hosting, no build step, no backend. I open `index.html` and the whole war room is there.
 
 Screenshots below are anonymized prototypes. I'm mid-process with these companies and publicly dissecting your potential employer is an excellent way to stop being mid-process. The blue callouts are notes on why each piece exists.
 
@@ -62,7 +62,7 @@ The version history, since the failures are more useful than the final state:
 
 **v2 was one giant HTML page per company.** Everything on one scroll. Solved the file-hunting problem and created a worse one, which is that a 4,000-word page is a wall and you don't read walls the night before a round. You skim them and feel prepared, which is the exact failure mode I was trying to fix.
 
-**v3 asked a different question.** Not "how do I organize this information" but "what job does this page do for me, and when." That produced ten pages per company, each named for its job: overview, 101, 201, strategy and people, market, buyers, competition, fit and objections, drills, sources. I open `drills` the morning of. I open `fit` when I'm nervous. I never open all ten at once, which is the point.
+**v3 asked a different question.** Not "how do I organize this information" but "what job does this page do for me, and when." That produced 10 pages per company, each named for its job: overview, 101, 201, strategy and people, market, buyers, competition, fit and objections, drills, sources. I open `drills` the morning of. I open `fit` when I'm nervous. I never open all ten at once, which is the point.
 
 Same lesson as [designing without AI slop](https://www.varunchoraria.com/how-to-design-without-ai-slop/). The model will generate all of this happily. Deciding what belongs on which page is still your job and it is most of the work.
 

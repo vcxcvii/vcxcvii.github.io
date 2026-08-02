@@ -5,6 +5,8 @@ seo_title: Open-source AI side quests | Varun Choraria
 intro: "Projects, tools, and rabbit holes. Most started as weekend curiosity. A few became things I use every day."
 description: Explore open-source AI skills, interview research tools, design systems, and experiments I built to make useful work faster, clearer, and easier to repeat.
 mcp: true
+mcp_note: >-
+  Builders: <a href="/mcp/">connect my MCP server</a> and let your coding agent read what each of these tools does before you install one.
 ---
 
 {% assign quest_groups = "Personal,Experiments,Work" | split: "," %}

@@ -356,15 +356,28 @@ td {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.75rem;
+  height: 2.75rem;
   color: var(--color-link);
   text-decoration: none;
 }
 
 .social-links svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+/* Sitewide invitation to read the site through an MCP client. Sits directly
+   under the nav on every page, so it must stay quiet: a rule, a line, no box. */
+.mcp-callout {
+  margin: 0 0 1.25rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: .9rem;
+}
+
+.mcp-callout p {
+  margin: 0;
 }
 
 .github-activity {
@@ -874,8 +887,8 @@ td {
   }
 
   .social-links a {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3rem;
+    height: 3rem;
   }
 
   .essay-row {
