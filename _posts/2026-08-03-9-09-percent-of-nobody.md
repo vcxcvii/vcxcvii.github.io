@@ -1,12 +1,12 @@
 ---
-title: "My site audits itself. It's very confident about 11 sessions."
-seo_title: "What my AI UX agent got wrong about 11 sessions"
+title: "My agent found 9.09%. I found one session."
+seo_title: "My agent found 9.09%. I found one session."
 permalink: /11-sessions-are-not-a-ux-audit/
 redirect_from:
   - /9-09-percent-of-nobody/
   - /my-site-audits-itself-its-very-confident-about-11-people/
 date: 2026-08-03 00:00:00 +0530
-description: "My UX agent turned 1 dead-click session into a 9.09% finding. The arithmetic was right. The data could not support the work it recommended."
+description: "My agent called 9.09% a UX problem. There had been 11 sessions. The maths was right. The recommendation was not."
 last_modified_at: 2026-08-03 00:00:00 +0530
 mcp: true
 tags:
@@ -15,54 +15,54 @@ tags:
   - design
 ---
 
+My agent found a UX problem on my site. Dead clicks had affected 9.09% of sessions, above the 5% threshold. It filed a GitHub issue and told me what to inspect.
+
+There had been 11 sessions.
+
+9.09% was 1 session.
+
+That was the real bug. The maths was right. The confidence was not.
+
+## What the agent actually knew
+
 I built a small agent called [Lazarus Pit](/side-quests/lazarus-pit/) because I knew I was not going to remember to open Microsoft Clarity every Monday.
 
-Its job is narrow. It reads the site's project-wide Clarity export, compares the metrics against a few thresholds, and files a GitHub issue with a hypothesis and a suggested fix. It can propose work. It cannot change the site.
+It reads the site's Clarity summary, checks the numbers against a few thresholds, then files a GitHub issue with a possible cause and a suggested fix. It can propose work. It cannot change the site.
 
-The first live run was on July 10. It had 11 sessions to work with and filed these 3 issues:
+On its first live run, it saw that dead clicks had crossed 5%. The issue recommended checking anything styled like a link or button.
 
-1. Dead clicks detected, 9.09% of sessions
-2. High quickback rate, 18.18% of sessions
-3. Low average scroll depth, 57.53%
+Reasonable advice, except the data did not tell the agent which page had the dead click. It did not identify an element. It did not have a recording to inspect. All it knew was that 1 dead click had happened somewhere across the site.
 
-I ran it again 25 minutes later. Scroll depth had moved to 57.78%, so it filed the same issue again with a different number in the title. That was the first bug.
+It had found something worth watching. It wrote it up as something worth fixing.
 
-## The arithmetic was right
+## Why 9.09% fooled the system
 
-9.09% of 11 sessions is 1 session. 18.18% is 2 sessions.
+`1 of 11 sessions` sounds weak because it is weak. `9.09% of sessions, threshold 5%` sounds like a finding.
 
-Those are sessions, not people. One person can create more than one session, and the project-wide export does not tell the agent which page or element produced the dead click.
+Both statements are true. Only one makes the size of the evidence obvious.
 
-The dead-click issue still recommended auditing anything styled like a link or button. The quickback issue recommended comparing link copy with destination pages. Both suggestions are reasonable things to inspect. Neither follows from the data the agent had.
+The percentage also triggered the workflow. Once the number crossed the threshold, the agent moved straight from observation to explanation to task. Nobody, including me, had made it stop and ask whether the data could support that jump.
 
-That distinction matters. The agent had found a signal. It wrote up a diagnosis.
+This is not really a sample-size problem. More sessions would make the rate less ridiculous, but a site-wide rate still cannot tell me which button to fix. I had asked one number to answer two different questions:
 
-The percentage made the jump easy to miss. `1 of 11 sessions` sounds like something to watch. `9.09% of sessions, threshold 5%` sounds like work has already been justified. It had not.
+1. Did something unusual happen?
+2. Do we know enough to change the site?
 
-## I fixed the rules, then ran it again
+The agent could answer the first. It pretended it could answer the second.
 
-The duplicate was easy. I had used the live metric value inside the issue title, then used that title to check whether an issue already existed. `57.53%` and `57.78%` looked like different findings to the code. I removed the number from the deduplication key that day.
+## What I changed
 
-The denominator needed a separate rule. On July 13, I added a floor of 20 human sessions. Bot sessions get subtracted first. Below that floor, the agent skips every UX finding.
+I added a floor of 20 human sessions. Below that, Lazarus Pit skips UX findings. Twenty is not suddenly enough evidence. It is just a guardrail against the worst version of the mistake.
 
-The next run had 0 human sessions. It filed one issue:
+The bigger fix is in how the agent reports what it sees:
 
-> **Metric:** Traffic, 0 (threshold 20)
->
-> **Hypothesis:** Too few human (non-bot) sessions in the window to diagnose UX. This is a distribution problem, not a friction problem. Skipping all other findings until traffic clears the floor.
+- Show the count with every rate: `1/11 sessions (9.09%)`.
+- Keep site-wide data as a site-wide observation.
+- Do not recommend a page-level fix without page-level evidence.
+- Treat one weak window as a note, not a task.
 
-This was useful. Not because the agent had developed judgment between runs, but because I had finally written down when it should stop.
+I still want the system. The analytics gets read, possible problems arrive where I already work, and nothing changes before I look at it.
 
-The floor is still blunt. 20 sessions do not suddenly make every percentage meaningful. They only prevent the worst version of this mistake.
+But I had taught the agent what number counts as bad. I had not taught it what evidence counts as enough.
 
-## What still needs fixing
-
-Every rate should show its count and denominator. `1/11 sessions (9.09%)`, not `9.09%` alone.
-
-A site-wide metric should stay a site-wide observation. Without a page, element, or session recording, the agent cannot support a specific page fix.
-
-One weak window should create a note, not a task. I have not decided how many repeat runs should turn that note into work.
-
-I still like the shape of the system. Analytics gets read. Findings arrive where the site work already happens. Nothing edits itself before I have looked at it.
-
-But the first run did not find a UX problem. It found a problem in my agent: I had taught it when a number crossed a threshold, but not when the underlying data was too weak to deserve a recommendation.
+Those are not the same rule.
