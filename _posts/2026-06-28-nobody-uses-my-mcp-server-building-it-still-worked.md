@@ -11,9 +11,7 @@ tags:
   - strategy
 ---
 
-Nobody's going to read this.
-
-Not this post specifically. I mean the whole thing. The blog, the about page, the work history. A hiring manager has 400 applications open and eleven minutes. A reader lands on one essay from a link and leaves. Resumes are boring by design, because the format won't let them be anything else.
+Nobody's going to read this, and I don't mean this post specifically. I mean the whole thing: the blog, the about page, the work history. A hiring manager has 400 applications open and 11 minutes. A reader lands on one essay from a link and leaves. Resumes are boring by design, because the format won't let them be anything else.
 
 Who deep dives into a stranger's rabbit hole in 2026?
 
@@ -39,9 +37,9 @@ Add /mcp/ and /feed/ pages. Update MCP page, HTTP server at the Vercel URL. **Fi
 
 Then the next morning: **remove broken Connect-by-client tabs, fix mobile layout.**
 
-So I shipped a page with the wrong server URL on it, then built six tabs of connection instructions, then discovered the tabs were broken and deleted them the following day.
+So I shipped a page with the wrong server URL on it, then built 6 tabs of connection instructions, then discovered the tabs were broken and deleted them the following day.
 
-A month later I found another one. The MCP feed was serving unreadable page slugs and listing pages with nothing in them. Which means for roughly four weeks, anything that did connect got a partly broken index of my site.
+A month later I found another one. The MCP feed was serving unreadable page slugs and listing pages with nothing in them. Which means for roughly 4 weeks, anything that did connect got a partly broken index of my site.
 
 Nobody told me. I found it myself, by accident.
 
@@ -65,9 +63,7 @@ I can't prove none of those 5,721 were real. I can say that the shape of the tra
 
 ## And zero people
 
-In 5 weeks, not one person has told me they used it.
-
-Not a hiring manager in an interview. Not a recruiter. Not a reader replying to a post. Nobody has ever said "I asked your server about X."
+In 5 weeks, not one person has told me they used it. Not a hiring manager in an interview, not a recruiter, not a reader replying to a post.
 
 What has happened, a few times, is that people notice it exists. Someone clocks that there's an MCP server on a personal site and says something about that. Not about anything it told them.
 
@@ -93,9 +89,7 @@ That's the actual calculation, and it's the one I'd defend. Not "this will be a 
 
 ## What I'm doing next
 
-Same bet, bigger version.
-
-I want a voice clone that answers as me, and a real chatbot built on everything I know rather than everything I've published. The server was step one, and step one taught me the interesting problem isn't access. Access is solved. It's that a static index of posts doesn't sound like a person, and sounding like a person is what makes anyone bother.
+Same bet, bigger version. I want a voice clone that answers as me, and a real chatbot built on everything I know rather than everything I've published. The server was step one, and step one taught me the interesting problem isn't access. Access is solved. It's that a static index of posts doesn't sound like a person, and sounding like a person is what makes anyone bother.
 
 If you want to test the version that exists, [it's here](/mcp/). Connect it and ask it something I'd struggle to answer well about myself.
 

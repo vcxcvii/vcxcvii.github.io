@@ -16,7 +16,7 @@ I pay $20 a month for Claude. Last week I went digging through my own logs to fi
 
 The logs are sitting on everyone's machine. Every session your coding agent runs gets written to a file, with the token counts attached. Mine covers one month, from the 2nd of July to the 2nd of August. 72 sessions. Older ones had already rotated out.
 
-Here is what came back.
+Here is what came back, by model.
 
 | Model | Written | Cache written | Cache read | If billed per use |
 |---|---|---|---|---|
@@ -32,11 +32,11 @@ I had been telling people I get about $100 of work out of a $20 subscription. I 
 
 ## The number that surprised me wasn't the money
 
-Look at the last two columns again. 10 million tokens written. 2 billion read.
+Look at the last 2 columns again. 10 million tokens written. 2 billion read.
 
 That ratio is 200 to 1, and it changes what you think you're paying for.
 
-Almost none of this is a model producing text. Almost all of it is a model reading. Every time an agent picks up a task, it re-reads the project. The spec. The design file. The last 20 commits. The rules I wrote for it six weeks ago and forgot about. 2 billion tokens of re-reading against 10 million tokens of output.
+Almost none of this is a model producing text. Almost all of it is a model reading. Every time an agent picks up a task, it re-reads the project: the spec, the design file, the last 20 commits, and the rules I wrote for it 6 weeks ago and forgot about. 2 billion tokens of re-reading against 10 million tokens of output.
 
 Which means the thing you're actually buying is not writing. It's context. And the way to get more out of the same $20 is to make the context worth re-reading, not to write cleverer prompts.
 
@@ -55,9 +55,9 @@ Since the point of this post is receipts, here is all of it.
 
 That's it. There is no agency, no freelancer, no seat licence, no analytics tool with a sales call attached.
 
-## How twenty dollars stretches
+## How $20 stretches
 
-Three things, and none of them are clever.
+3 things, and none of them are clever.
 
 **Plan with the expensive model, execute with cheap ones.** I use a frontier model to think through what needs to happen, then hand the actual execution to a swarm of smaller agents. Thinking is where the money is worth spending. Typing is not.
 
@@ -77,7 +77,7 @@ Nothing runs locally. The models run somewhere else, the site builds in CI, the 
 
 The concrete version of all this is the site you're reading.
 
-Every push to main runs 10 gates before anything ships. It tests the changelog pipeline, then runs it. A model reads the commit history and writes the visitor changelog, in my voice, because the voice is pinned in a file in the repo rather than re-prompted each time. A bot commits that back. Then dependency audit, two syntax linters, post validation, 413 lines of SEO, AEO, and design checks, the build, and a post-build pass over the HTML, schema, images, and links. Only then does it deploy.
+Every push to main runs 10 gates before anything ships. It tests the changelog pipeline, then runs it. A model reads the commit history and writes the visitor changelog, in my voice, because the voice is pinned in a file in the repo rather than re-prompted each time. A bot commits that back. Then dependency audit, 2 syntax linters, post validation, 413 lines of SEO, AEO, and design checks, the build, and a post-build pass over the HTML, schema, images, and links. Only then does it deploy.
 
 A separate job runs every morning at 09:47, pulls the latest release from every side quest repo, and updates the changelogs and the contribution graph.
 
@@ -103,7 +103,7 @@ Models hallucinate at me. My instructions are unclear more often than I'd like t
 
 None of that shows up in a $1,492 figure. It's real, and if you're starting out you should expect it.
 
-I wrote up [the four worst ones separately](/the-models-were-fine-i-was-the-bug/), because the failures turned out to be more useful than the wins.
+I wrote up [the 4 worst ones separately](/the-models-were-fine-i-was-the-bug/), because the failures turned out to be more useful than the wins.
 
 ## The thing that compounds
 
@@ -120,7 +120,7 @@ For my SEO agent, that's a file called `FEEDBACK.md`. It has 15 entries under "F
 
 Alongside it sits `SPEC.md`, which defines what "done" means in 5 clauses. Every open item gets sorted against that definition. Anything that doesn't break a clause gets queued rather than argued about. That single rule took my open list from 6 items to 3, not because things got fixed but because things were finally allowed to leave the list.
 
-And on my own machine there's a memory directory: one file per fact, each with a summary line at the top, each linked to the others. 21 files right now. Why a build failed. Why a name is frozen. What a client's constraint actually is.
+And on my own machine there's a memory directory: one file per fact, each with a summary line at the top, each linked to the others. 21 files right now. Why a build failed, why a name is frozen, what a client's constraint actually is.
 
 None of this is sophisticated. It's a diary that the machine reads.
 
@@ -136,4 +136,4 @@ There's no hack underneath it. Use the model as a thought partner. Pick the righ
 
 This post is the demonstration. I didn't write it and hand it to a model to polish. I asked one to interview me, to keep asking follow-ups, to push back when I dodged a question, and then to publish it here in my voice, structured so both search engines and AI agents can read it. It pushed back twice. Both times it was right.
 
-Do it once. Automate it the next time. That's the entire method, and it costs twenty dollars.
+Do it once. Automate it the next time. That's the entire method, and it costs $20.
