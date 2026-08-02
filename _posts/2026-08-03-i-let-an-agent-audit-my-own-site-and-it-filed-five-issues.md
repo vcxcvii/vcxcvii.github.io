@@ -17,7 +17,7 @@ The job is narrow. Once a week it reads the behavioural data from my analytics, 
 
 It has filed five issues so far. Four are still open. One is a duplicate of another one. And the best thing it produced was a refusal to do its job.
 
-I write a lot about giving agents real work, so it seems fair to show one graded on my own site rather than someone else's.
+I write a lot about giving agents real work, and I've already written up [four ways mine broke](/four-ways-my-agents-broke-and-what-each-one-taught-me/). This one didn't break. It worked exactly as designed, which turned out to be its own problem.
 
 ## What it filed
 

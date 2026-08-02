@@ -28,7 +28,7 @@ I work across growth strategy, product marketing, and AI. You can hire me for on
 
 Most consultants sell strategy and hand execution to someone else. Most agencies sell execution and skip the strategy. I do both, because AI collapsed the distance between them.
 
-I run my own marketing this way. I [rebuilt this site with agents](/how-to-design-without-ai-slop/), [turned 19 consulting casebooks into agent commands](/i-now-have-my-own-master-shifu/), and [built a research system that does a week of company analysis in an afternoon](/hunting-season-for-the-rest-of-us/). The tools are [open source](/side-quests/), so you can inspect the workmanship before you hire it.
+I run my own marketing this way. I [rebuilt this site with agents](/how-to-design-without-ai-slop/), [turned 19 consulting casebooks into agent commands](/i-now-have-my-own-master-shifu/), and [built a research system that does a week of company analysis in an afternoon](/hunting-season-for-the-rest-of-us/). I also publish [what it costs me to run](/how-to-get-1492-out-of-a-20-claude-subscription/), down to the token. The tools are [open source](/side-quests/), so you can inspect the workmanship before you hire it.
 
 That matters for two reasons. Work that used to need a team now ships from one person at senior quality. And when I recommend AI inside your marketing, I am describing how I already operate, not reading from a deck.
 
