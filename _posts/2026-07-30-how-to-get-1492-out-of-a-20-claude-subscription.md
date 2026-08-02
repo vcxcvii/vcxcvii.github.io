@@ -1,6 +1,6 @@
 ---
-title: "How to get $1,492 out of a $20 Claude subscription"
-seo_title: "Get $1,492 of AI work from a $20 Claude plan"
+title: "The Claude bill said $1,492. I paid $20. Here's how."
+seo_title: "The Claude bill said $1,492. I paid $20."
 permalink: /how-to-get-1492-out-of-a-20-claude-subscription/
 date: 2026-07-30 00:00:00 +0530
 description: "One month of real logs: 2.04 billion tokens read, 10 million written, $1,492 of inference on a $20 plan. The receipts, the stack, and the honest part."

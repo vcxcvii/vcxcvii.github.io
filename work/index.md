@@ -54,7 +54,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 - Helped build the CX PLG charter for 2025
 - Championed the purchase of ChatGPT and built a custom GPT, Freddy Sidekick, for PMMs. The goal was faster first drafts and leveling the playing field across writing skills and data analysis for all 40 team members.
 - Set up PLG for Freshsales, the CRM side of the same motion
-- Ran the "Switch to Freshsales" campaign against tier-1 competitors, for a revenue impact of $10K+ in ARR
+- Ran the multi-competitor "Switch to Freshsales" campaign, generating $35.3K in new business ARR and 775 qualified leads against $200K+ in ad spend across 22,382 sessions
 - Shared multiple recommendations and wireframes to improve product onboarding and adoption for both CRM and CX products. Influenced roadmap items for 2025.
 - Strategy plus execution of the Freddy AI Agent Q3-Q4 2024 holiday campaign
 - Won Mid Tier Connect 2025 Award for impactful contributions in PLG
