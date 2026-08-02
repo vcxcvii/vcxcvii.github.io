@@ -29,8 +29,8 @@
     {
       "id": "2026-08-02-3e13f11",
       "date": "2026-08-02",
-      "title": "Work pages now use numbers I can defend",
-      "summary": "The homepage, Work, About, and Consulting pages now separate sourced pipeline from company growth and other context. GTM Buddy is stated as $2M+ sourced pipeline on a $500K annual marketing budget. Freshworks keeps the absolute ARR private and states $0 in paid media. Vymo’s 4x ARR growth is clearly company context.",
+      "title": "Work pages now put each claim in the right place",
+      "summary": "The homepage now leads with team scope and category creation at GTM Buddy, while the full Work page carries sourced pipeline and budget details. Freshworks keeps the absolute ARR private and states $0 in paid media. Vymo’s 4x ARR growth is clearly company context rather than a personal revenue claim.",
       "benefits": [
         {
           "label": "Cleaner attribution",
@@ -41,8 +41,8 @@
           "text": "Freshworks keeps the absolute figure off the site without hiding the outcome."
         },
         {
-          "label": "Consistent record",
-          "text": "The same facts now appear across the homepage, Work, About, and Consulting pages."
+          "label": "Right level",
+          "text": "The homepage stays concise, while Work carries the detailed operating record."
         }
       ],
       "commit_shas": [
