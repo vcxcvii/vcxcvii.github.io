@@ -34,7 +34,7 @@ By qualification, I'm a mechanical engineer. I was mostly an average student, sc
 
 ### Early years
 
-I got my first job at a Series C startup, [Vymo](https://vymo.com/), and was the founding product marketing member. I helped position the product and enable sales, through a 4x ARR run in 2 years. The top 5 banks and insurers across APAC were our customers. I saw the journey from Series A to Series C.
+I got my first job at a Series C startup, [Vymo](https://vymo.com/), and was the founding product marketing member. I helped position the product and enable sales, through a 4x ARR run in 5 years. The top 5 banks and insurers across APAC were our customers. I saw the journey from Series A to Series C.
 
 I was the go-to guy for building best-in-class presentations, homegrown no-code tools, and being in lockstep with sales across deals.
 
