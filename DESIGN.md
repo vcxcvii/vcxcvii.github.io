@@ -129,6 +129,12 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - The shared provider title is `B2B SaaS Marketing Consultant`. AI is a specialist capability and delivery method, not the umbrella job title.
 - `/about` contains no portrait.
 - Long pages rely on headings, rules, lists, and links. Do not introduce a separate visual system.
+- `/uses-this/` renders from `_data/uses.yml`. Every entry carries a name, a one-line note, a destination, and one `logo` that must exist as `_includes/logos/<logo>.svg`. A row naming several products uses `name_md`, so each product carries its own link instead of the row linking only the first.
+- Each row is one `24px` monochrome mark in a fixed left gutter, then the linked name and its muted note as running prose. Rows are separated by the standard `1px #dddddd` rule. No cards, columns, grids, or icon library.
+- Marks use the real brand logo wherever one stays legible at `20px`. Wordmark-only logos do not, so Samsung, Ikea, Zoom, and Slack use category glyphs instead. Apple devices use device glyphs, because one repeated Apple mark tells the reader less than a laptop, watch, and phone do. Brand paths come from Simple Icons and are normalised to `currentColor` with the title stripped.
+- Unused marks are deleted rather than kept for later. `_includes/logo.html` is generated from the directory listing, so a stale file becomes a stale branch in that case statement.
+- Icon marks carry no meaning on their own. Every row remains complete and readable with images or CSS disabled.
+- The page emits an `ItemList` of the tools alongside its `FAQPage`, so assistants can answer tool questions without parsing the prose.
 - Side quests use grouped plain rows with simple horizontal rules, not cards or disclosure widgets.
 - `/changelog/` opens on the newest month and offers month-and-year, newer, and older controls. The controls require 44px targets, fit at 320px, preserve the selected month in the URL, and leave the complete chronology visible when JavaScript is unavailable.
 - MCP endpoint is presented as selectable code. Avoid custom copy UI when selecting and copying text already works.

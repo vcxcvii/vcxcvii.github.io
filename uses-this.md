@@ -6,57 +6,45 @@ description: The hardware, software, AI tools, books, and everyday gear I actual
 permalink: /uses-this/
 page_class: uses-page
 mcp: true
+uses_list: true
+faqs:
+  - question: What does a one-person AI marketing stack actually cost to run?
+    answer: Less than most teams assume. The working set is Claude and Codex in the terminal, Cursor for longer coding sessions, Obsidian for everything written, Figma for design, and Google Analytics and Search Console for measurement. No CRM, no sales engagement platform, no agency retainer. The expensive parts of a GTM stack are the ones that exist to coordinate people.
+  - question: Which AI tools do you use, and what do you use each one for?
+    answer: Claude and Codex from the terminal for most work, because I would rather pipe a model into real files than paste into a browser tab. Cursor when I want a full IDE alongside those agents. OpenCode as a backup when I hit rate limits, running Ollama, Qwen, and MiniMax. CodexBar in the menu bar to watch usage. Perplexity for quick research. MCPs and skills tie them to real data.
+  - question: Do you still use the tools from your last role?
+    answer: No, and I list them separately for that reason. HubSpot, SwanAI, Clay, Apollo, KitAI, Semrush, Podpitch, Webflow, Base44, and Veed were the daily drivers when I led marketing at GTM Buddy. I can run any of them again on day one, but I am not paying for them this month, and a uses page that pretends otherwise is not worth reading.
+  - question: What do you write and take notes in?
+    answer: Obsidian, daily, for 5+ years, synced through iCloud. Plain Markdown files on disk, which means the notes stay mine, stay diffable, and stay readable by any AI tool I point at them. The same reason this website is Jekyll and not a CMS.
+  - question: What runs varunchoraria.com?
+    answer: Jekyll, hosted free on GitHub Pages, with an MCP server at /mcp/ so AI assistants can read the site directly rather than scraping it. Google Analytics and Search Console handle measurement. There is no build pipeline, no framework, and no JavaScript on this page.
+  - question: What laptop do you use?
+    answer: A 13-inch MacBook Air with the M2 chip, 8 GB of RAM, and 256 GB of storage. It handles a full day of terminal agents, Figma, and calls in 2026. I had a 24 GB M4 for work and it throttled on long Zoom calls, so the constraint was never the memory.
 ---
-Inspired by [Uses This](https://usesthis.com/), this page documents the tools and software I use to get things done.
+Inspired by [Uses This](https://usesthis.com/), this page documents the tools and software I use to get things done. Last reviewed {{ site.time | date: "%B %-d, %Y" }}.
 
-## Hardware
+Everything I still pay for earns its place or gets cut. I run a one-person marketing stack on an 8 GB MacBook Air: terminal agents, Markdown files, and tools I can own or swap out in an afternoon. The GTM stack further down is a separate list, because knowing a tool and being subscribed to it this month are different claims.
 
-- **MacBook Air, 13-inch, M2, 8 GB RAM, 256 GB storage:** Personal computer, and still a beast even in 2026.
-- **MacBook Air, 13-inch, M4, 24 GB RAM, 512 GB storage:** Work laptop. It is a beast for sure, but for some reason starts lagging badly on Zoom calls longer than 30 minutes. Turns out that is because it does not have active cooling. The keyboard travel is not as good as my M2 Air. Performance-wise though, this is a huge level up.
-- **Samsung M8 Monitor:** My monitor and TV. Easily one of the best purchases I have made.
-- **Apple Watch SE:** Got this in 2022 and it still runs pretty well. I use it to log my workouts. Funnily enough, not to see the time.
-- **iPhone 16 Pro Max:** Got the base model, and it runs really well. The titanium body is a huge plus.
-- **AirPods Pro 2:** Got this in 2022. It is terrific and has survived a thousand falls, not kidding.
-- **iPad Air, M1, 11-inch:** Used to be a replacement for a TV in 2022 when I lived alone abroad. In 2026, it continues to be a glorified Kindle and TV. I have the Apple Pencil too, but I rarely use it.
-- **Apple HomePod mini:** Terrific speaker.
-- **Logitech MX Master 3S, MX Keys, and palm rest:** The best keyboard and mouse combo. Expensive, but I can type the fastest on it.
+{% for section in site.data.uses %}
+<h2 id="{{ section.id }}">{{ section.title }}</h2>
+{% if section.note %}
+{{ section.note }}
+{% endif %}
 
----
+<ul class="uses-list">
+{%- for item in section.items %}
+  <li class="uses-item">
+    <span class="uses-mark">{% include logo.html logo=item.logo label=item.name %}</span>
+    <span class="uses-body"><strong class="uses-name">{% if item.name_md %}{{ item.name_md | markdownify | remove: '<p>' | remove: '</p>' | strip }}{% elsif item.url %}<a href="{{ item.url }}">{{ item.name }}</a>{% else %}{{ item.name }}{% endif %}</strong><span class="uses-note">: {{ item.note | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></span>
+  </li>
+{%- endfor %}
+</ul>
+{% unless forloop.last %}<hr>{% endunless %}
+{% endfor %}
+<hr>
 
-## Software
+This is also the stack I run client work on. If you want it pointed at your pipeline, [here is how I consult]({{ '/consulting/' | relative_url }}).
 
-- **Apple Books and Kindle:** Apple Books because I used to pirate ebooks out of Library Genesis until it shut down. I then bought a Kindle subscription.
-- **Google Chrome:** Daily driver. I have tried Comet, Dia, Helium, Safari, and others. Nothing beats the portability and reliability of Chrome.
-- **Claude and Codex:** I am a huge terminal guy, so I use most AI models from there.
-- **[Cursor](https://cursor.com/):** AI-first code editor. I use it for longer-form coding sessions where I want a full IDE experience alongside my terminal agents.
-- **[cmux](https://github.com/manaflow-ai/cmux):** Native Mac terminal is good, but I like vertical tabs + lightweight ADE capabilities.
-- **[CodexBar](https://github.com/steipete/codexbar):** Helps me monitor my Codex and Claude code usage from my menu bar.
-- **[Obsidian](https://obsidian.md/):** This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud.
-- **[Quartr](https://quartr.com/):** To listen to earnings calls.
-- **Passwords, Apple Podcasts, and Apple Music:** I pay for Apple One, and their suite is unparalleled.
-- **Perplexity:** Got it free for a year via Airtel.
-- **Letterboxd:** Huge movie buff, so I catalog my movies there.
-- **YouTube Premium:** Highest ROI subscription ever.
-- **Apple TV, Netflix, JioHotstar, and Mubi:** For movies and TV shows.
-- **GitHub, GitHub Pages, and Jekyll:** My website is hosted on these. It is free.
-- **Slack, Zoom, and Google Workspace:** Irreplaceable for office comms.
-- **Base44:** Vibe coding landing pages.
-- **[SwanAI](https://www.getswan.com/):** Automating GTM workflows, lead scoring, lead distribution, and automated outreach.
-- **Clay, Apollo, and KitAI:** Scraping and enrichment.
-- **[Podpitch](https://podpitch.com/):** To get my founder featured on podcasts and handle podcast distribution.
-- **HubSpot:** CRM and social media scheduling.
-- **Figma:** Designing. Daily driver for 7+ years now.
-- **Webflow:** Website builder and hosting.
-- **Veed:** Video editing and recording.
-- **[Screen Studio](https://screen.studio/):** To create GIFs and do quick video recording.
-- **Google Analytics, Google Tag Manager, Google Search Console, and Semrush:** Website traffic, tagging, SEO, AEO, and GEO.
-- **MCPs and skills:** Playwright, marketing-skills.com, skills.sh, GA4, GSC, and the Figma MCP.
-- **[Mole](https://github.com/tw93/mole):** Combines CleanMyMac, AppCleaner, DaisyDisk, and iStat Menus in a single binary. I run this via terminal.
-- **[OpenCode](https://opencode.ai/):** Backup for when I run out of rate limits. I use Ollama, Qwen, MiniMax, and other models.
+## Questions people ask
 
----
-
-## Other
-
-- **Furniture (Ikea):** Medium-quality stuff, but it is super portable, cost-effective, and functional.
-- **Under Armour:** 95% of my wardrobe is from UA. Expensive, but insanely functional. It does not fade or tear easily, and even the athleisure looks classy and comfortable in formal settings.
+{% include project-faqs.html %}

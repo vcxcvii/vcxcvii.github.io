@@ -45,7 +45,8 @@
       "isPartOf": { "@id": "{{ site.url }}/#website" },
       "inLanguage": "en-IN"{% if page.project %},
       "mainEntity": { "@id": "{{ canonical_url }}#software" }{% elsif page.url == '/about/' %},
-      "mainEntity": { "@id": "{{ site.url }}/#person" }{% elsif page.url == '/' %},
+      "mainEntity": { "@id": "{{ site.url }}/#person" }{% elsif page.uses_list %},
+      "mainEntity": { "@id": "{{ canonical_url }}#tools" }{% elsif page.url == '/' %},
       "about": { "@id": "{{ site.url }}/#person" }{% endif %}{% if page.faqs %},
       "hasPart": { "@id": "{{ canonical_url }}#faq" }{% endif %}
     }{% if page.service %},
@@ -93,6 +94,36 @@
       "license": {{ page.license | jsonify }}{% endif %}{% if page.repo_url %},
       "codeRepository": {{ page.repo_url | jsonify }}{% endif %}{% if page.version %},
       "softwareVersion": {{ page.version | jsonify }}{% endif %}
+    }{% endif %}{% if page.uses_list %}{% assign uses_total = 0 %}{% for section in site.data.uses %}{% assign uses_total = uses_total | plus: section.items.size %}{% endfor %},
+    {
+      "@type": "ItemList",
+      "@id": "{{ canonical_url }}#tools",
+      "url": "{{ canonical_url }}",
+      "name": "Tools and gear Varun Choraria uses",
+      "description": {{ meta_description | jsonify }},
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "numberOfItems": {{ uses_total }},
+      "isPartOf": { "@id": "{{ canonical_url }}#webpage" },
+      "itemListElement": [
+        {%- assign uses_position = 0 -%}
+        {%- for section in site.data.uses -%}
+        {%- for item in section.items -%}
+        {%- assign uses_position = uses_position | plus: 1 -%}
+        {% if uses_position > 1 %},{% endif %}
+        {
+          "@type": "ListItem",
+          "position": {{ uses_position }},
+          "item": {
+            "@type": {{ section.schema_type | jsonify }},
+            "name": {{ item.name | jsonify }},
+            "description": {{ item.note | jsonify }},
+            "category": {{ section.title | jsonify }}{% if item.url %},
+            "url": {% if item.url contains '://' %}{{ item.url | jsonify }}{% else %}{{ item.url | absolute_url | jsonify }}{% endif %}{% endif %}
+          }
+        }
+        {%- endfor -%}
+        {%- endfor %}
+      ]
     }{% endif %}{% if page.faqs %},
     {
       "@type": "FAQPage",

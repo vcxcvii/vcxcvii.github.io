@@ -1,0 +1,194 @@
+# Source of truth for /uses-this/. Icons resolve through _includes/logo.html.
+# Every logo value must exist as _includes/logos/<logo>.svg.
+# name       plain text, used for structured data.
+# url        primary destination, used for structured data and for the link.
+# name_md    optional. Use when one row names several products, so each one
+#            carries its own link instead of the row carrying only the first.
+- id: hardware
+  title: Hardware
+  schema_type: Product
+  items:
+    - name: "MacBook Air, 13-inch, M2, 8 GB RAM, 256 GB storage"
+      logo: laptop
+      url: "https://www.apple.com/macbook-air/"
+      note: "Personal computer, and still a beast even in 2026."
+    - name: "Samsung M8 Monitor"
+      logo: monitor
+      url: "https://www.samsung.com/in/monitors/smart-monitor/"
+      note: "My monitor and TV. Easily one of the best purchases I have made."
+    - name: "Apple Watch SE"
+      logo: watch
+      url: "https://www.apple.com/apple-watch-se/"
+      note: "Got this in 2022 and it still runs pretty well. I use it to log my workouts. Funnily enough, not to see the time."
+    - name: "iPhone 16 Pro Max"
+      logo: phone
+      url: "https://www.apple.com/iphone-16-pro/"
+      note: "Got the base model, and it runs really well. The titanium body is a huge plus."
+    - name: "AirPods Pro 2"
+      logo: earbuds
+      url: "https://www.apple.com/airpods-pro/"
+      note: "Got this in 2022. It is terrific and has survived a thousand falls, not kidding."
+    - name: "iPad Air, M1, 11-inch"
+      logo: tablet
+      url: "https://www.apple.com/ipad-air/"
+      note: "Used to be a replacement for a TV in 2022 when I lived alone abroad. In 2026, it continues to be a glorified Kindle and TV. I have the Apple Pencil too, but I rarely use it."
+    - name: "Apple HomePod mini"
+      logo: speaker
+      url: "https://www.apple.com/homepod-mini/"
+      note: "Terrific speaker."
+    - name: "Logitech MX Master 3S, MX Keys, and palm rest"
+      logo: keyboard
+      url: "https://www.logitech.com/en-in/products/mice/mx-master-3s.html"
+      name_md: "[Logitech MX Master 3S, MX Keys, and palm rest](https://www.logitech.com/en-in/products/mice/mx-master-3s.html)"
+      note: "The best keyboard and mouse combo. Expensive, but I can type the fastest on it."
+
+- id: software
+  title: Software
+  schema_type: SoftwareApplication
+  items:
+    - name: "Apple Books and Kindle"
+      logo: book
+      url: "https://www.apple.com/apple-books/"
+      name_md: "[Apple Books](https://www.apple.com/apple-books/) and [Kindle](https://www.amazon.in/kindle-dbs/storefront)"
+      note: "Apple Books because I used to pirate ebooks out of Library Genesis until it shut down. I then bought a Kindle subscription."
+    - name: "Google Chrome"
+      logo: googlechrome
+      url: "https://www.google.com/chrome/"
+      note: "Daily driver. I have tried Comet, Dia, Helium, Safari, and others. Nothing beats the portability and reliability of Chrome."
+    - name: "Claude and Codex"
+      logo: claude
+      url: "https://claude.ai/"
+      name_md: "[Claude](https://claude.ai/) and [Codex](https://openai.com/codex/)"
+      note: "I am a huge terminal guy, so I use most AI models from there."
+    - name: "Cursor"
+      logo: cursor
+      url: "https://cursor.com/"
+      note: "AI-first code editor. I use it for longer-form coding sessions where I want a full IDE experience alongside my terminal agents."
+    - name: "cmux"
+      logo: terminal
+      url: "https://github.com/manaflow-ai/cmux"
+      note: "Native Mac terminal is good, but I like vertical tabs + lightweight ADE capabilities."
+    - name: "CodexBar"
+      logo: gauge
+      url: "https://github.com/steipete/codexbar"
+      note: "Helps me monitor my Codex and Claude code usage from my menu bar."
+    - name: "Obsidian"
+      logo: obsidian
+      url: "https://obsidian.md/"
+      note: "This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud."
+    - name: "Quartr"
+      logo: waveform
+      url: "https://quartr.com/"
+      note: "To listen to earnings calls."
+    - name: "Passwords, Apple Podcasts, and Apple Music"
+      logo: apple
+      url: "https://www.apple.com/apple-one/"
+      name_md: "[Passwords](https://support.apple.com/en-in/passwords), [Apple Podcasts](https://www.apple.com/apple-podcasts/), and [Apple Music](https://www.apple.com/apple-music/)"
+      note: "I pay for [Apple One](https://www.apple.com/apple-one/), and their suite is unparalleled."
+    - name: "Perplexity"
+      logo: perplexity
+      url: "https://www.perplexity.ai/"
+      note: "Got it free for a year via Airtel."
+    - name: "Letterboxd"
+      logo: letterboxd
+      url: "https://letterboxd.com/vcxcvii/"
+      note: "Huge movie buff, so I catalog my movies there."
+    - name: "YouTube Premium"
+      logo: youtube
+      url: "https://www.youtube.com/premium"
+      note: "Highest ROI subscription ever."
+    - name: "Apple TV, Netflix, JioHotstar, and Mubi"
+      logo: tv
+      url: "https://mubi.com/"
+      name_md: "[Apple TV](https://tv.apple.com/), [Netflix](https://www.netflix.com/), [JioHotstar](https://www.jiohotstar.com/), and [Mubi](https://mubi.com/)"
+      note: "For movies and TV shows."
+    - name: "GitHub, GitHub Pages, and Jekyll"
+      logo: github
+      url: "https://pages.github.com/"
+      name_md: "[GitHub](https://github.com/vcxcvii), [GitHub Pages](https://pages.github.com/), and [Jekyll](https://jekyllrb.com/)"
+      note: "My website is hosted on these. It is free."
+    - name: "Figma"
+      logo: figma
+      url: "https://www.figma.com/"
+      note: "Designing. Daily driver for 7+ years now."
+    - name: "Screen Studio"
+      logo: record
+      url: "https://screen.studio/"
+      note: "To create GIFs and do quick video recording."
+    - name: "Google Analytics, Google Tag Manager, and Google Search Console"
+      logo: googleanalytics
+      url: "https://analytics.google.com/"
+      name_md: "[Google Analytics](https://analytics.google.com/), [Google Tag Manager](https://tagmanager.google.com/), and [Google Search Console](https://search.google.com/search-console)"
+      note: "Website traffic, tagging, SEO, AEO, and GEO."
+    - name: "MCPs and skills"
+      logo: mcp
+      url: "/mcp/"
+      note: "Playwright, marketing-skills.com, skills.sh, GA4, GSC, and the Figma MCP."
+    - name: "Mole"
+      logo: broom
+      url: "https://github.com/tw93/mole"
+      note: "Combines CleanMyMac, AppCleaner, DaisyDisk, and iStat Menus in a single binary. I run this via terminal."
+    - name: "OpenCode"
+      logo: opencode
+      url: "https://opencode.ai/"
+      note: "Backup for when I run out of rate limits. I use Ollama, Qwen, MiniMax, and other models."
+
+- id: gtm-stack
+  title: GTM stack I have run
+  schema_type: SoftwareApplication
+  note: >-
+    Not in my current stack. These were the daily drivers when I led marketing
+    at GTM Buddy, and I can pick any of them back up on day one. I am listing
+    them because knowing a tool is not the same as paying for it this month.
+  items:
+    - name: "HubSpot"
+      logo: hubspot
+      url: "https://www.hubspot.com/"
+      note: "CRM and social media scheduling."
+    - name: "SwanAI"
+      logo: flow
+      url: "https://www.getswan.com/"
+      note: "Automating GTM workflows, lead scoring, lead distribution, and automated outreach."
+    - name: "Clay, Apollo, and KitAI"
+      logo: database
+      url: "https://www.clay.com/"
+      name_md: "[Clay](https://www.clay.com/), [Apollo](https://www.apollo.io/), and KitAI"
+      note: "Scraping and enrichment."
+    - name: "Semrush"
+      logo: semrush
+      url: "https://www.semrush.com/"
+      note: "Keyword research, competitive tracking, and SEO reporting."
+    - name: "Podpitch"
+      logo: microphone
+      url: "https://podpitch.com/"
+      note: "To get my founder featured on podcasts and handle podcast distribution."
+    - name: "Webflow"
+      logo: webflow
+      url: "https://webflow.com/"
+      note: "Website builder and hosting."
+    - name: "Base44"
+      logo: sparkle
+      url: "https://base44.com/"
+      note: "Vibe coding landing pages."
+    - name: "Veed"
+      logo: veed
+      url: "https://www.veed.io/"
+      note: "Video editing and recording."
+    - name: "Slack, Zoom, and Google Workspace"
+      logo: chat
+      url: "https://workspace.google.com/"
+      name_md: "[Slack](https://slack.com/), [Zoom](https://zoom.us/), and [Google Workspace](https://workspace.google.com/)"
+      note: "Irreplaceable for office comms."
+
+- id: other
+  title: Other
+  schema_type: Product
+  items:
+    - name: "Furniture (Ikea)"
+      logo: chair
+      url: "https://www.ikea.com/"
+      note: "Medium-quality stuff, but it is super portable, cost-effective, and functional."
+    - name: "Under Armour"
+      logo: underarmour
+      url: "https://www.underarmour.com/"
+      note: "95% of my wardrobe is from UA. Expensive, but insanely functional. It does not fade or tear easily, and even the athleisure looks classy and comfortable in formal settings."

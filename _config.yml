@@ -24,7 +24,11 @@ sass:
 future: true
 
 exclude:
+  - AGENTS.md
+  - CLAUDE.md
   - DESIGN.md
+  - FEEDBACK.md
+  - RAINMAKER.md
   - README.md
   - Gemfile
   - Gemfile.lock

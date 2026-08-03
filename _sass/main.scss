@@ -498,6 +498,66 @@ td {
   font-size: .8125rem;
 }
 
+/* /uses-this/ rows. One monochrome mark sits in a fixed left gutter, then the
+   tool name and its note run on as normal prose. Marks are inline SVG from
+   _includes/logos/, the only logo source: no icon font, library, or sprite.
+   Rows are separated by the same light rule used everywhere else, never cards. */
+.uses-list {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.uses-item {
+  display: flex;
+  gap: .85rem;
+  align-items: flex-start;
+  padding: .7rem 0;
+}
+
+.uses-item + .uses-item {
+  border-top: 1px solid var(--color-border);
+}
+
+/* The mark is decoration and orientation, never the only carrier of meaning:
+   it stays muted so the tool name keeps the row's contrast. */
+.uses-mark {
+  flex: 0 0 1.25rem;
+  padding-top: .1rem;
+  color: var(--color-secondary);
+  line-height: 0;
+}
+
+.uses-mark svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.uses-body {
+  min-width: 0;
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.uses-note {
+  color: var(--color-secondary);
+}
+
+.tool-logo-fallback {
+  display: inline-block;
+  width: 1.25rem;
+  font-size: .8125rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+@media (max-width: 30rem) {
+  .uses-item {
+    gap: .6rem;
+  }
+}
+
 .essays {
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
