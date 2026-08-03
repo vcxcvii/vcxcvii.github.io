@@ -7,7 +7,7 @@ Everything else is a direct child of Home.
 {% if page.layout == 'entry' %}
   {% assign crumb_parent_name = 'Blog' %}
   {% assign crumb_parent_url = '/blog/' %}
-{% elsif page.url contains '-consultant' %}
+{% elsif page.url contains '-consultant' or page.url contains '/consulting/' and page.url != '/consulting/' %}
   {% assign crumb_parent_name = 'Consulting' %}
   {% assign crumb_parent_url = '/consulting/' %}
 {% elsif page.url contains '/side-quests/' and page.url != '/side-quests/' %}
