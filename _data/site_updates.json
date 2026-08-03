@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "01b4a56eb3c810bc8bca2ba0f1569e9ed2ec4f13",
+  "last_processed_commit": "1ed3fed8e4df6324b162f4097e1487e0e4bc289b",
   "updated_at": "2026-08-03",
   "updates": [
+    {
+      "id": "2026-08-03-1ed3fed",
+      "date": "2026-08-03",
+      "title": "The uses page now shows what each tool is, and links to it",
+      "summary": "Every tool on /uses-this/ now carries its own logo and its own link, so you can see and reach the thing being described instead of reading a name. The tools I ran at my last job moved into a separate section, because a page called uses this should not quietly claim a stack I no longer pay for.",
+      "benefits": [
+        {
+          "label": "Faster scanning",
+          "text": "Each row leads with the tool's logo, so you can find the one you came for without reading every line."
+        },
+        {
+          "label": "Every tool is reachable",
+          "text": "All 39 entries link to the product, including each name inside rows that list several."
+        },
+        {
+          "label": "Honest about the stack",
+          "text": "Tools from my last role are listed as tools I have run, not tools I use today."
+        }
+      ],
+      "commit_shas": [
+        "1ed3fed8e4df6324b162f4097e1487e0e4bc289b"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-0d20557",
       "date": "2026-08-03",
