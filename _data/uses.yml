@@ -146,7 +146,7 @@
       url: "https://www.hubspot.com/"
       note: "CRM and social media scheduling."
     - name: "SwanAI"
-      logo: flow
+      logo: swan
       url: "https://www.getswan.com/"
       note: "Automating GTM workflows, lead scoring, lead distribution, and automated outreach."
     - name: "Clay, Apollo, and KitAI"
@@ -167,18 +167,25 @@
       url: "https://webflow.com/"
       note: "Website builder and hosting."
     - name: "Base44"
-      logo: sparkle
+      logo: base44
       url: "https://base44.com/"
       note: "Vibe coding landing pages."
     - name: "Veed"
       logo: veed
       url: "https://www.veed.io/"
       note: "Video editing and recording."
-    - name: "Slack, Zoom, and Google Workspace"
-      logo: chat
+    - name: "Slack"
+      logo: slack
+      url: "https://slack.com/"
+      note: "Team chat. Irreplaceable for office comms."
+    - name: "Zoom"
+      logo: zoom
+      url: "https://zoom.us/"
+      note: "Calls, and every recorded walkthrough that came out of them."
+    - name: "Google Workspace"
+      logo: google
       url: "https://workspace.google.com/"
-      name_md: "[Slack](https://slack.com/), [Zoom](https://zoom.us/), and [Google Workspace](https://workspace.google.com/)"
-      note: "Irreplaceable for office comms."
+      note: "Docs, Sheets, Slides, and mail."
 
 - id: other
   title: Other
