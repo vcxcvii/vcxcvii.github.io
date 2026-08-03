@@ -100,11 +100,12 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 ## Independent consulting
 
-- **Canada, Series D:** built an internal sales content repository on Notion, used by 200+ sales agents with 100% adoption
-- **India, Series A:** led positioning, messaging, and cold outreach for key use cases, directly impacting 2 enterprise logo wins
-- **India, Series A:** led sales enablement work that impacted qualified sales pipeline across FY24
+- **[Vendasta](https://www.vendasta.com/) (Canada, Series D):** built an internal sales content repository on Notion, organised by product suite with a context note on every asset, used by 200+ sales agents with 100% adoption
+- **[Pazo](https://www.gopazo.com/) (India, Series A):** built the outbound motion from zero for enterprise facilities buyers, from list to sequences, directly impacting 2 enterprise logo wins
+- **[GTM Buddy](https://gtmbuddy.ai/) (India, Series A):** audited every sales asset by stage against rep engagement data, then rebuilt the set: first-call decks, call scripts, onboarding, battlecards, case studies, campaign assets
+- **LucioAI (ZenLegal):** rebuilt the target definition for a legal AI product after cold email failed against large firms, then ran outbound for events, founder chats and demo signups
 
-Client names, and the numbers behind these, on request.
+The numbers behind these, on request.
 
 ---
 
