@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "b6ee9381f6b2fb53d3f0ced361ff985b4e074435",
+  "last_processed_commit": "c1e8aa93ff2a25ca9b85e4f35207a10fda9903b1",
   "updated_at": "2026-08-03",
   "updates": [
+    {
+      "id": "2026-08-03-c1e8aa9",
+      "date": "2026-08-03",
+      "title": "The consulting work now names its clients and shows the first month",
+      "summary": "Four consulting engagements that were listed only by country and funding stage are now named, with what the work was in each. A new page walks through what actually happens in the first 30 days of an engagement, drawn from those same four rather than from a generic process.",
+      "benefits": [
+        {
+          "label": "Checkable claims",
+          "text": "Named clients can be verified. A geography and a funding stage cannot."
+        },
+        {
+          "label": "Fewer questions before a call",
+          "text": "What the first month involves is now readable in advance instead of being the first thing a call has to cover."
+        },
+        {
+          "label": "Honest about the order",
+          "text": "The page says the audit comes before the strategy, including where that meant telling a client their problem was not marketing."
+        }
+      ],
+      "commit_shas": [
+        "c1e8aa93ff2a25ca9b85e4f35207a10fda9903b1"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-1ed3fed",
       "date": "2026-08-03",
