@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "c114dd2118467e2324f12b797efbe4cd69dc67c7",
+  "last_processed_commit": "5ee2af231fd395b2b98a923084741432edec47a7",
   "updated_at": "2026-08-03",
   "updates": [
+    {
+      "id": "2026-08-03-5ee2af2",
+      "date": "2026-08-03",
+      "title": "The first 30 days page says what it means",
+      "summary": "The page describing what happens in month one of an engagement was written in vague, passive language that named categories instead of things. It now uses plain sentences and lists, and states plainly that in two of four engagements the finding was that the problem was not marketing.",
+      "benefits": [
+        {
+          "label": "Easier to skim",
+          "text": "The metrics, targeting changes and day-30 deliverables are lists now, not paragraphs to read through."
+        },
+        {
+          "label": "Clearer answers",
+          "text": "The questions at the bottom match what people actually ask, so both readers and AI assistants get a direct answer."
+        }
+      ],
+      "commit_shas": [
+        "5ee2af231fd395b2b98a923084741432edec47a7"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-c114dd2",
       "date": "2026-08-03",
