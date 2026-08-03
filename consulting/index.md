@@ -14,6 +14,19 @@ redirect_from:
   - /b2b-saas-product-marketing-consultant/
 mcp_note: >-
   Want to check me out before you have to talk to me? Fair. <a href="/mcp/">Connect my MCP server</a> and let your AI ask the questions you'd feel rude asking on a call.
+faqs:
+  - question: Who does the work?
+    answer: I do. That is the point. One senior person working with agents, so the person who makes the decision is the person who ships and reviews the result. If your team or agencies are already in place, I can lead their work or fill a specific gap.
+  - question: Are you a strategist or an executor?
+    answer: Both. I help make the decision and stay close enough to the work to learn whether it was right.
+  - question: Will you own a pipeline number?
+    answer: Yes, within a clear growth model. We define what marketing owns, what it influences, which assumptions sit with sales or product, and how progress is reported.
+  - question: Can you run an AI workshop with tool training?
+    answer: Yes. The tools get taught through your work and goals, not as a product tour.
+  - question: Do you build the AI systems yourself?
+    answer: Yes. I build them, run them on real work, and teach your team how to use and change them.
+  - question: Do you work with early-stage companies?
+    answer: Yes. The goal changes with the stage. Early work may focus on buyer research, positioning, the offer, and the first repeatable tests. Later work can carry a larger pipeline target, team, and budget.
 ---
 
 One person running a swarm of agents. That is the whole engagement.
@@ -163,30 +176,9 @@ The right number depends on the work. We choose it before building, because othe
 The fuller record is on my [work page](/work/). The systems and experiments I build in public are on [GitHub](https://github.com/vcxcvii), so you can inspect the work instead of trusting an "AI expert" label.
 
 ## Common questions
+{: #questions-people-ask}
 
-### Who does the work?
-
-I do. That is the point. One senior person working with agents, so the person who makes the decision is the person who ships and reviews the result. If your team or agencies are already in place, I can lead their work or fill a specific gap.
-
-### Are you a strategist or an executor?
-
-Both. I help make the decision and stay close enough to the work to learn whether it was right.
-
-### Will you own a pipeline number?
-
-Yes, within a clear growth model. We define what marketing owns, what it influences, which assumptions sit with sales or product, and how progress is reported.
-
-### Can you run an AI workshop with tool training?
-
-Yes. The tools get taught through your work and goals, not as a product tour.
-
-### Do you build the AI systems yourself?
-
-Yes. I build them, run them on real work, and teach your team how to use and change them.
-
-### Do you work with early-stage companies?
-
-Yes. The goal changes with the stage. Early work may focus on buyer research, positioning, the offer, and the first repeatable tests. Later work can carry a larger pipeline target, team, and budget.
+{% include project-faqs.html %}
 
 ## Bring me the real problem
 
