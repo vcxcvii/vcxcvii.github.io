@@ -26,7 +26,7 @@ The entries below keep the consequence and drop the maintenance log.
   <div id="changelog-entries">
   {% for update in site.data.site_updates.updates %}
     <article class="changelog-entry" data-changelog-entry data-changelog-month="{{ update.date | date: '%Y-%m' }}">
-      <h2><time datetime="{{ update.date | date: '%Y-%m-%d' }}">{{ update.date | date: "%-d %B %Y" }}</time></h2>
+      <h2><time datetime="{{ update.date | date: '%Y-%m-%d' }}">{{ update.date | date: "%-d-%b-%Y" | downcase }}</time></h2>
       <p><strong>{{ update.title }}</strong></p>
       <p>{{ update.summary }}</p>
       <ul>

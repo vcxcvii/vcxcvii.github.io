@@ -3,7 +3,7 @@
 These are product changes, not every repository commit. The list refreshes daily and ignores documentation-only maintenance.
 
 {% for e in entries limit: 5 %}
-**{{ e.date }}** · {{ e.title }}{% if e.commit_count and e.commit_count > 1 %} · {{ e.commit_count }} related commits{% endif %}{% if e.url %} · [source for {{ e.title }}]({{ e.url }}){% endif %}
+**<time datetime="{{ e.date }}">{{ e.date | date: "%-d-%b-%Y" | downcase }}</time>** · {{ e.title }}{% if e.commit_count and e.commit_count > 1 %} · {{ e.commit_count }} related commits{% endif %}{% if e.url %} · [source for {{ e.title }}]({{ e.url }}){% endif %}
 {% if e.body %}
 {{ e.body }}
 {% endif %}
