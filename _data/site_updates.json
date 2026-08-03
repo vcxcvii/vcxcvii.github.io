@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "c1e8aa93ff2a25ca9b85e4f35207a10fda9903b1",
+  "last_processed_commit": "c114dd2118467e2324f12b797efbe4cd69dc67c7",
   "updated_at": "2026-08-03",
   "updates": [
+    {
+      "id": "2026-08-03-c114dd2",
+      "date": "2026-08-03",
+      "title": "Pages inside consulting now show where they sit",
+      "summary": "A page filed under consulting was showing as though it sat directly under the home page, both in the trail at the top and in the structured data search engines read. It now shows the full path, and the first 30 days page is linked from the footer.",
+      "benefits": [
+        {
+          "label": "Knowing where you are",
+          "text": "The trail at the top of a consulting page now names the section it belongs to instead of skipping it."
+        },
+        {
+          "label": "Correct in search",
+          "text": "Search engines read the same corrected path, so results can show the section rather than a page floating on its own."
+        }
+      ],
+      "commit_shas": [
+        "c114dd2118467e2324f12b797efbe4cd69dc67c7"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-c1e8aa9",
       "date": "2026-08-03",
