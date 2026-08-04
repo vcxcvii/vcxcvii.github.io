@@ -222,7 +222,7 @@ footer{margin-top:3.5rem;padding-top:1.3rem;border-top:1px solid var(--line);
   ${logoSvg}
   <div class="who">Prepared by <b>Varun Choraria</b></div>
   <nav class="sitenav">
-    <a href="https://www.varunchoraria.com" target="_blank" rel="noopener">varunchoraria.com</a>
+    <a href="https://www.varunchoraria.com/" target="_blank" rel="noopener">varunchoraria.com</a>
     <a href="https://www.varunchoraria.com/mcp/" target="_blank" rel="noopener" class="mcp">MCP server</a>
   </nav>
 </div>
