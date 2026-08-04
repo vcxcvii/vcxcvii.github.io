@@ -93,7 +93,8 @@ sitemap: false
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>${esc(args.title)}</title>
 <style>
-:root{--bg:#fbfbfa;--panel:#fff;--ink:#16181d;--ink2:#4e515a;--ink3:#84868f;
+html{color-scheme:light}
+:root{color-scheme:light;--bg:#fbfbfa;--panel:#fff;--ink:#16181d;--ink2:#4e515a;--ink3:#84868f;
  --line:#e6e5e1;--accent:${accent};--accent2:${accent2};--tint:#f2f1ee;--max:44rem}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -153,11 +154,49 @@ code{font:.85em ui-monospace,"SF Mono",Menlo,monospace;background:var(--tint);
  padding:.12em .35em;border-radius:3px}
 footer{margin-top:3.5rem;padding-top:1.3rem;border-top:1px solid var(--line);
  color:var(--ink3);font-size:.8125rem}
-@media(prefers-color-scheme:dark){
- :root{--bg:#131418;--panel:#1a1c21;--ink:#eaeaed;--ink2:#a8aab2;--ink3:#7d7f89;
-  --line:#2a2d34;--tint:#20232a;--accent:var(--accent2)}
- .brandbar svg [fill="#fff"],.brandbar svg [fill="#FFF"]{fill:#fff}
-}
+/* hero takeaway - the bit that survives a 20-second skim */
+.tl{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);
+ border-radius:0 0 6px 6px;padding:1.15rem 1.3rem;margin:0 0 2rem}
+.tl .lab{font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+ font-weight:700;display:block;margin-bottom:.55rem}
+.tl ol{margin:0;padding-left:1.15rem}
+.tl li{margin:.42rem 0}
+.tl li b{font-weight:650}
+/* editable-assumption calculator */
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:7px;
+ padding:1.2rem 1.3rem;margin:1.6rem 0}
+.calc h3{margin:0 0 .2rem;font-size:.9375rem}
+.calc .hint{font-size:.8125rem;color:var(--ink3);margin:0 0 1rem}
+.calc .rows{display:grid;gap:.6rem}
+.calc .row{display:grid;grid-template-columns:1fr 7.5rem;gap:.7rem;align-items:center}
+.calc label{font-size:.875rem;color:var(--ink2)}
+.calc label small{display:block;color:var(--ink3);font-size:.75rem}
+.calc input{width:100%;padding:.4rem .5rem;font:inherit;font-size:.875rem;text-align:right;
+ border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+.calc input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.calc .out{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.calc .big{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:.9rem}
+.calc .big div{min-width:7rem}
+.calc .big .n{font-size:1.45rem;font-weight:700;letter-spacing:-.02em;line-height:1.15;
+ font-variant-numeric:tabular-nums}
+.calc .big .c{font-size:.75rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.07em;
+ margin-top:.15rem}
+.calc .verdict{font-size:.875rem;padding:.7rem .85rem;border-radius:5px;background:var(--tint);
+ border-left:3px solid var(--accent)}
+.calc .verdict.bad{border-left-color:#b3261e}
+.calc .verdict.good{border-left-color:#1a7f4b}
+.calc .reset{background:none;border:0;color:var(--accent);font:inherit;font-size:.8125rem;
+ cursor:pointer;padding:0;margin-top:.7rem;text-decoration:underline}
+/* pre-empted objections */
+.obj{border:1px solid var(--line);border-radius:6px;margin:.6rem 0;background:var(--panel)}
+.obj summary{cursor:pointer;padding:.7rem .95rem;font-size:.9375rem;font-weight:600;
+ list-style:none;position:relative;padding-right:2.2rem}
+.obj summary::-webkit-details-marker{display:none}
+.obj summary::after{content:"+";position:absolute;right:.95rem;top:.62rem;color:var(--accent);
+ font-weight:700;font-size:1.05rem}
+.obj[open] summary::after{content:"\\2212"}
+.obj .body{padding:0 .95rem .9rem;font-size:.9375rem;color:var(--ink2)}
+.obj .body p:first-child{margin-top:0}
 @media print{.toc,.brandbar{display:none}.shell{display:block;padding:0}}
 </style>
 </head>
@@ -206,6 +245,13 @@ f.addEventListener('submit',async ev=>{
     const out=document.getElementById('out');
     out.innerHTML=new TextDecoder().decode(pt);
     out.hidden=false;
+    // innerHTML never executes <script>. Re-create each one so it does.
+    out.querySelectorAll('script').forEach(o=>{
+      const n=document.createElement('script');
+      for(const a of o.attributes) n.setAttribute(a.name,a.value);
+      n.textContent=o.textContent;
+      o.replaceWith(n);
+    });
     const hs=[...out.querySelectorAll('article h2')];
     const toc=out.querySelector('.toc');
     if(toc&&hs.length){
