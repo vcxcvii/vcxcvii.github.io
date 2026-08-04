@@ -105,8 +105,16 @@ a{color:var(--accent)}
 .brandbar{background:var(--panel);border-bottom:1px solid var(--line);padding:.85rem 1.5rem;
  display:flex;align-items:center;gap:.85rem;position:sticky;top:0;z-index:20}
 .brandbar svg{height:22px;width:auto;display:block}
-.brandbar .by{font-size:.8125rem;color:var(--ink3);margin-left:auto;text-align:right;line-height:1.35}
-.brandbar .by b{color:var(--ink2);font-weight:600}
+.brandbar .who{font-size:.8125rem;color:var(--ink3);padding-left:.9rem;border-left:1px solid var(--line)}
+.brandbar .who b{color:var(--ink2);font-weight:600}
+.brandbar .sitenav{margin-left:auto;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.brandbar .sitenav a{font-size:.8125rem;font-weight:600;text-decoration:none;padding:.34rem .7rem;
+ border-radius:99px;border:1px solid var(--accent);color:var(--accent);white-space:nowrap}
+.brandbar .sitenav a:hover{background:var(--accent);color:#fff}
+.brandbar .sitenav a.mcp{background:var(--accent);color:#fff}
+.brandbar .sitenav a.mcp:hover{opacity:.85}
+@media(max-width:640px){.brandbar{flex-wrap:wrap;gap:.6rem}.brandbar .who{display:none}
+ .brandbar .sitenav{margin-left:auto}}
 .gate{min-height:78vh;display:grid;place-items:center;padding:2rem 1.25rem}
 .gate form{width:100%;max-width:27rem;background:var(--panel);border:1px solid var(--line);
  border-radius:8px;padding:1.9rem}
@@ -154,6 +162,15 @@ code{font:.85em ui-monospace,"SF Mono",Menlo,monospace;background:var(--tint);
  padding:.12em .35em;border-radius:3px}
 footer{margin-top:3.5rem;padding-top:1.3rem;border-top:1px solid var(--line);
  color:var(--ink3);font-size:.8125rem}
+.sitecard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+ border-radius:0 7px 7px 0;padding:1.15rem 1.3rem;margin:2.6rem 0 1rem}
+.sitecard h3{margin:0 0 .3rem;font-size:1rem}
+.sitecard p{margin:0 0 .9rem;font-size:.9375rem;color:var(--ink2)}
+.sitecard .btns{display:flex;gap:.6rem;flex-wrap:wrap}
+.sitecard .btns a{font-size:.875rem;font-weight:600;text-decoration:none;padding:.48rem .95rem;
+ border-radius:5px;border:1px solid var(--accent);color:var(--accent)}
+.sitecard .btns a.solid{background:var(--accent);color:#fff}
+.sitecard .btns a:hover{opacity:.85}
 /* hero takeaway - the bit that survives a 20-second skim */
 .tl{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);
  border-radius:0 0 6px 6px;padding:1.15rem 1.3rem;margin:0 0 2rem}
@@ -201,7 +218,14 @@ footer{margin-top:3.5rem;padding-top:1.3rem;border-top:1px solid var(--line);
 </style>
 </head>
 <body>
-<div class="brandbar">${logoSvg}<div class="by">Prepared by <b>Varun Choraria</b><br>Private &middot; not published</div></div>
+<div class="brandbar">
+  ${logoSvg}
+  <div class="who">Prepared by <b>Varun Choraria</b></div>
+  <nav class="sitenav">
+    <a href="https://www.varunchoraria.com" target="_blank" rel="noopener">varunchoraria.com</a>
+    <a href="https://www.varunchoraria.com/mcp/" target="_blank" rel="noopener" class="mcp">MCP server</a>
+  </nav>
+</div>
 
 <div class="gate" id="gate">
   <form id="f" autocomplete="off">
@@ -284,8 +308,17 @@ writeFileSync(outPath, page);
 //    browser uses. A page that builds is not a page that opens.
 const built = readFileSync(outPath, "utf8");
 const text = plaintext.toString("utf8");
+// The page is static chrome plus three base64 blobs. Strip the blobs and what
+// remains is the template. A run of plaintext that also occurs there is
+// coincidental overlap -- the payload and the chrome both link to the same
+// site -- not a leak, because nothing interpolates the payload into the page.
+const chrome = built
+  .replace(JSON.stringify(body.toString("base64")), '""')
+  .replace(JSON.stringify(bodyIv.toString("base64")), '""')
+  .replace(new RegExp(wraps.map((w) => `"${w.s}"|"${w.i}"|"${w.w}"`).join("|"), "g"), '""');
 for (let i = 0; i + 48 <= text.length; i += 24) {
-  if (built.includes(text.slice(i, i + 48))) {
+  const run = text.slice(i, i + 48);
+  if (built.includes(run) && !chrome.includes(run)) {
     console.error(`FATAL: plaintext survived into the page near byte ${i}. Not shipping.`);
     process.exit(1);
   }
