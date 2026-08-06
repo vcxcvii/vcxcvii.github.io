@@ -312,10 +312,13 @@ const text = plaintext.toString("utf8");
 // remains is the template. A run of plaintext that also occurs there is
 // coincidental overlap -- the payload and the chrome both link to the same
 // site -- not a leak, because nothing interpolates the payload into the page.
-const chrome = built
-  .replace(JSON.stringify(body.toString("base64")), '""')
-  .replace(JSON.stringify(bodyIv.toString("base64")), '""')
-  .replace(new RegExp(wraps.map((w) => `"${w.s}"|"${w.i}"|"${w.w}"`).join("|"), "g"), '""');
+// Plain string swaps, never a RegExp: base64 contains + and /, which are
+// regex metacharacters, so a random salt beginning with + made new RegExp()
+// throw "Nothing to repeat" and killed the build after the file was written.
+const blobs = [body.toString("base64"), bodyIv.toString("base64")];
+for (const w of wraps) blobs.push(w.s, w.i, w.w);
+let chrome = built;
+for (const blob of blobs) chrome = chrome.split(`"${blob}"`).join('""');
 for (let i = 0; i + 48 <= text.length; i += 24) {
   const run = text.slice(i, i + 48);
   if (built.includes(run) && !chrome.includes(run)) {
