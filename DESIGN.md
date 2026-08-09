@@ -11,18 +11,18 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 
 ## Hard constraints
 
-- No React, Tailwind, shadcn, component framework, web font, icon library, client-side router, theme system, or build-time JavaScript.
+- No React, Tailwind, shadcn, component framework, web font, icon library, client-side router, theme framework, or build-time JavaScript.
 - No cards, pills, badges, tab bars, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay.
-- No dark-mode toggle. One light reading theme.
+- No dark-mode toggle, no theme JavaScript, no stored preference, no flash-prevention shim. Two palettes, chosen by `prefers-color-scheme` and nothing else. The reader already told their operating system which one they want; asking again in the page header is a second question with no new information in it.
 - No JavaScript on ordinary pages. Homepage may load the dependency-free GitHub graph script. A utility page may use a tiny script only when native HTML cannot provide the function.
 - Never hide core content behind JavaScript, hover, filters, accordions, pagination, or animation. The changelog month browser is progressive enhancement: without JavaScript, every entry remains visible.
 - Desktop navigation links remain visible. Mobile uses a native CSS hamburger toggle; links remain normal HTML and require no JavaScript.
 
 ## Page shell
 
-- White page: `#ffffff`.
-- Main text: `#111111`.
-- Secondary text and dates: `#666666`; rules: `#dddddd`.
+- White page: `#ffffff`; dark page: `#16181a`.
+- Main text: `#111111`; dark: `#e4e4e4`.
+- Secondary text and dates: `#666666`, dark `#8f9398`; rules: `#dddddd`, dark `#33383d`.
 - Content width: `46rem`, centered.
 - Desktop padding: `3rem 1.25rem 2rem`.
 - Mobile padding: `1.5rem 1.25rem 2rem`.
@@ -37,6 +37,23 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - GitHub graph: official contribution colors `#ebedf0`, `#9be9a8`, `#40c463`, `#30a14e`, `#216e39`.
 - Text never uses the GitHub palette. Green belongs to GitHub activity only.
 - Selection highlight: pale yellow `#fff2a8`.
+
+## Dark palette
+
+Both palettes live in `_sass/main.scss`: light in `:root`, dark in a single `@media screen and (prefers-color-scheme: dark)` block at the end of the file. Only tokens change between them, so every rule in between is written once. Four rules govern how the dark values were chosen, and any future change to them should hold all four.
+
+- **Derive from the ramp, do not invent.** Dark link `#669aff` is step two of the tonal ramp generated from `#0057ff`, hue 220, the same hue as the mark. Light reads the dark end of that ramp, dark reads the light end. A blue that merely looks right is how a site ends up with two brands.
+- **Preserve the running order, not the numbers.** Contrast against the page must fall in the same sequence in both modes: text, blockquote, link, dates, mark. Light is 18.9, 9.7, 9.4, 5.7, 5.5. Dark is 14.0, 8.6, 6.5, 5.8, 5.6. Dates were tuned to `#8f9398` specifically so links stay louder than dates, as they are in light.
+- **Elevation inverts.** In light the code surface `#f7f7f7` is darker than the page. In dark it is lighter: `#212427` on `#16181a`. A code block that is darker than the page reads as a hole.
+- **The ground is not grey.** `#16181a` sits ten degrees off the brand hue at 8% saturation, and the surface, rules, and secondary text hold that same 210 degree bias. A pure neutral would read as unconsidered, and pure black causes halation under near-white text.
+
+Remaining dark values: blockquote `#b4b4b4`, selection `#3c4a1e`, side-quest primary hover `#9dbcff`, GitHub heading link `#3fb950`.
+
+The contribution graph carries a count in colour, so its ramp must stay monotonic. Keeping the light greens on a dark ground inverts it: a one-contribution day would outshine a twenty-contribution day. Dark uses GitHub's own dark ramp, `#22262a`, `#0e4429`, `#006d32`, `#26a641`, `#39d353`, applied through `.gh-graph rect[fill="…"]` attribute selectors because `assets/js/gh-graph.js` writes fill as a presentation attribute and presentation attributes have zero specificity. The script is never edited for theming. The legend must always carry the same five values as the graph.
+
+`screen and` in the media query is required, not stylistic. A bare `prefers-color-scheme` query also matches print, and browsers omit backgrounds when printing, so a reader in dark mode would print near-white text onto white paper.
+
+`light-dark()` is rejected. It is larger than the media block, and on a browser without support the declaration is invalid at computed-value time, which resolves every consuming `var()` to `unset` and leaves a page with no background, text colour, or borders. The media block degrades to plain light mode.
 
 ## Header
 
@@ -174,7 +191,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Performance budgets
 
-- Inline compiled CSS target: under `12KB` compressed.
+- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `13,773`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token.
 - Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `0KB` first-party application JavaScript.
 - No render-blocking external stylesheet, font, or script.
 - No layout shift from navigation, fonts, or GitHub graph.
@@ -187,6 +204,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 - Jekyll renders all content.
 - `_sass/main.scss` is the only design stylesheet and is inlined by `_includes/head.html`.
+- Colour and the standard hairline are reached only through tokens: `--color-*` and `--rule`, which is `1px solid var(--color-border)` and resolves per mode at use time. A value used at exactly one site stays a literal, because in compressed CSS a token costs more than it saves until it repeats.
+- `_includes/head.html` carries two `theme-color` tags, one per `prefers-color-scheme`, so browser chrome matches the page.
 - `_includes/nav.html`, `_includes/essay-list.html`, and `_includes/footer.html` are the shared interface primitives.
 - `assets/js/gh-graph.js` is the only homepage application script.
 - `assets/js/changelog.js` runs only on `/changelog/` and progressively adds month browsing.

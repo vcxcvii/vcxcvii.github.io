@@ -12,7 +12,8 @@ The homepage is the archive: small circular portrait above the introduction, cal
 
 Hard constraints:
 
-- No React, Tailwind, shadcn, web fonts, dark-mode framework, or client-side navigation
+- No React, Tailwind, shadcn, web fonts, theme framework, or client-side navigation
+- Dark mode follows the operating system through `prefers-color-scheme`: no toggle, no JavaScript, no stored preference
 - No cards, pills, shadows, gradients, or decorative animation
 - No JavaScript on normal pages
 - One small dependency-free script for the GitHub contribution graph

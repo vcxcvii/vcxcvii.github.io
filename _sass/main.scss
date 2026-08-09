@@ -3,6 +3,9 @@
    so nothing further down needs to know which mode it is in. Dark values live
    in the prefers-color-scheme block at the end of this file. */
 :root {
+  /* Tells the browser both palettes exist, so native scrollbars, form controls
+     and the changelog month select follow the page instead of staying light. */
+  color-scheme: light dark;
   --color-bg:#fff;
   --color-text:#111;
   --color-secondary:#666;
@@ -1085,4 +1088,73 @@ td {
 svg.logo-wordmark {
   width: 1.55rem;
   height: auto;
+}
+
+/* Dark palette. Follows the operating system setting; there is no toggle and
+   no JavaScript, so nothing is stored and nothing can disagree with the OS.
+   Only tokens and the handful of literals that never made it into the token
+   layer are redefined here, so every rule above is written once.
+
+   `screen and` is load-bearing. A bare prefers-color-scheme query also matches
+   print, and browsers omit backgrounds when printing, so a reader in dark mode
+   would print near-white text onto white paper.
+
+   Values are derived rather than picked: the ground sits 10 degrees off the
+   brand hue instead of being a neutral grey, the code surface is lighter than
+   the page rather than darker (dark mode inverts elevation), and the link is
+   step two of the tonal ramp generated from #0057ff, so both modes are the
+   same blue read from opposite ends of one ramp. Contrast against the real
+   canvas: text 14.0:1, blockquote 8.6:1, link 6.5:1, dates 5.8:1, mark 5.6:1,
+   which is the same running order as the light palette. */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:#16181a;
+    --color-surface:#212427;
+    --color-text:#e4e4e4;
+    --color-secondary:#8f9398;
+    --color-border:#33383d;
+    --color-accent:#669aff;
+    --color-link:#669aff;
+    --color-mark:#5b8cff;
+  }
+
+  ::selection {
+    background: #3c4a1e;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: rgba(102, 154, 255, .18);
+  }
+
+  blockquote {
+    color: #b4b4b4;
+  }
+
+  .quest-primary:hover {
+    border-color: #9dbcff;
+    background: #9dbcff;
+  }
+
+  .github-heading h2 a,
+  .github-heading h2 a:visited {
+    color: #3fb950;
+  }
+
+  /* The graph encodes a count in colour, so the ramp has to stay monotonic:
+     on a dark ground the light greens invert it, and a single-contribution day
+     outshines a twenty-contribution one. These are GitHub's own dark values.
+     gh-graph.js writes fill as a presentation attribute, which has zero
+     specificity, so CSS overrides it without touching the script. */
+  .gh-graph rect[fill="#ebedf0"] { fill: #22262a; }
+  .gh-graph rect[fill="#9be9a8"] { fill: #0e4429; }
+  .gh-graph rect[fill="#40c463"] { fill: #006d32; }
+  .gh-graph rect[fill="#30a14e"] { fill: #26a641; }
+  .gh-graph rect[fill="#216e39"] { fill: #39d353; }
+
+  .gh-legend i { background: #22262a; }
+  .gh-legend i:nth-of-type(2) { background: #0e4429; }
+  .gh-legend i:nth-of-type(3) { background: #006d32; }
+  .gh-legend i:nth-of-type(4) { background: #26a641; }
+  .gh-legend i:nth-of-type(5) { background: #39d353; }
 }
