@@ -1,18 +1,21 @@
+/* One light palette and one dark palette, both expressed through the same
+   tokens. Only these values change between modes; every rule below reads them,
+   so nothing further down needs to know which mode it is in. Dark values live
+   in the prefers-color-scheme block at the end of this file. */
 :root {
-  --color-bg: #fff;
-  --color-text: #111;
-  --color-secondary: #666;
-  --color-faint: #666;
-  --color-border: #ddd;
-  --color-surface: #f7f7f7;
-  --color-accent: #0000ee;
-  --color-link: #0000ee;
-  --color-mark: #0057ff;
-  --color-openai: #111111;
-  --color-claude: #d97757;
-  --color-perplexity: #20808d;
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --color-bg:#fff;
+  --color-text:#111;
+  --color-secondary:#666;
+  --color-border:#ddd;
+  --color-surface:#f7f7f7;
+  --color-accent:#0000ee;
+  --color-link:#0000ee;
+  --color-mark:#0057ff;
+  --color-claude:#d97757;
+  --color-perplexity:#20808d;
+  --rule:1px solid var(--color-border);
+  --font-sans:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 * {
@@ -31,11 +34,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Background and colour are set on html and inherit from there, so repeating
+   them here would only ship the same two declarations twice. */
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--color-bg);
-  color: var(--color-text);
   line-height: 1.55;
   overflow-wrap: break-word;
 }
@@ -119,7 +122,7 @@ select {
   gap: 1rem;
   margin-bottom: 2.25rem;
   padding-bottom: .75rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--rule);
   font-size: .875rem;
   font-weight: 700;
 }
@@ -209,7 +212,7 @@ li + li {
 hr {
   margin: 2rem 0;
   border: 0;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
 blockquote {
@@ -233,7 +236,7 @@ pre {
   max-width: 100%;
   padding: .875rem 1rem;
   overflow-x: auto;
-  border: 1px solid var(--color-border);
+  border: var(--rule);
   background: var(--color-surface);
   font-size: .8125rem;
   line-height: 1.45;
@@ -261,7 +264,7 @@ pre code {
   top: .375rem;
   right: .375rem;
   padding: .2rem .45rem;
-  border: 1px solid var(--color-border);
+  border: var(--rule);
   background: var(--color-bg);
   color: var(--color-secondary);
   font-family: var(--font-sans);
@@ -280,11 +283,7 @@ pre code {
   opacity: 1;
 }
 
-.code-copy:hover {
-  color: var(--color-text);
-  border-color: var(--color-secondary);
-}
-
+.code-copy:hover,
 .code-copy[data-copied="true"] {
   color: var(--color-text);
   border-color: var(--color-secondary);
@@ -316,7 +315,7 @@ table {
 th,
 td {
   padding: .5rem;
-  border: 1px solid var(--color-border);
+  border: var(--rule);
   text-align: left;
   vertical-align: top;
 }
@@ -324,7 +323,7 @@ td {
 .home-intro {
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--rule);
 }
 
 .home-portrait {
@@ -372,7 +371,7 @@ td {
 .mcp-callout {
   margin: 0 0 1.25rem;
   padding-bottom: .75rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--rule);
   font-size: .9rem;
 }
 
@@ -383,7 +382,7 @@ td {
 .github-activity {
   margin: 0 0 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--rule);
 }
 
 .github-heading {
@@ -455,10 +454,6 @@ td {
   margin-top: 1.5rem;
 }
 
-.side-quests-preview h2 {
-  margin-top: 0;
-}
-
 .repo-list,
 .essay-list,
 .related-list {
@@ -473,7 +468,7 @@ td {
 }
 
 .repo-list li + li {
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
 .repo-link,
@@ -516,7 +511,7 @@ td {
 }
 
 .uses-item + .uses-item {
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
 /* The mark is decoration and orientation, never the only carrier of meaning:
@@ -552,19 +547,9 @@ td {
   text-align: center;
 }
 
-@media (max-width: 30rem) {
-  .uses-item {
-    gap: .6rem;
-  }
-}
-
 .essays {
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.essays > h2 {
-  margin-top: 0;
+  border-bottom: var(--rule);
 }
 
 .tag-list {
@@ -602,18 +587,16 @@ td {
   align-items: baseline;
   min-height: 1.75rem;
   margin: 0;
+  /* Set once here and inherited by the date and the title wrapper. The link
+     inside carries its own colour, so it is unaffected. */
+  color: var(--color-secondary);
 }
 
 .essay-row time {
-  color: var(--color-faint);
   font-family: var(--font-mono);
   font-size: .8125rem;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-}
-
-.essay-row > span {
-  color: var(--color-faint);
 }
 
 .breadcrumbs {
@@ -635,7 +618,7 @@ td {
 .prose > h2 {
   margin-top: 2.75rem;
   padding-top: 1.75rem;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
 .prose > h2:first-child,
@@ -681,7 +664,7 @@ td {
   gap: .75rem;
   margin: 2rem 0 0;
   padding: .625rem 0;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
 .changelog-controls[hidden] {
@@ -723,13 +706,17 @@ td {
 
 .changelog-entry {
   padding: 2rem 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--rule);
 }
 
 .changelog-entry:first-child {
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
+/* Section headings that open their own block, so the standard h2 top margin
+   would push them away from the rule above them. */
+.side-quests-preview h2,
+.essays > h2,
 .changelog-entry h2 {
   margin-top: 0;
 }
@@ -751,7 +738,7 @@ td {
 .also-read {
   margin-top: 3rem;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
 .also-read-heading {
@@ -790,7 +777,7 @@ td {
 /* Outranks a:visited. */
 .quest-actions .quest-action {
   padding: .5rem .8rem;
-  border: 1px solid var(--color-border);
+  border: var(--rule);
   color: var(--color-text);
   font-size: .8125rem;
   text-decoration: none;
@@ -819,7 +806,7 @@ td {
   display: block;
   padding: .75rem;
   overflow-x: auto;
-  border: 1px solid var(--color-border);
+  border: var(--rule);
   background: var(--color-surface);
   font-family: var(--font-mono);
   font-size: .75rem;
@@ -835,11 +822,11 @@ td {
   grid-template-columns: 9rem minmax(0, 1fr);
   gap: 1rem;
   padding: .5rem 0;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
 }
 
 .mcp-tool:last-child {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--rule);
 }
 
 .mcp-tool strong {
@@ -855,7 +842,7 @@ td {
 #site-footer {
   margin-top: 5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
   color: var(--color-secondary);
   font-size: .8125rem;
 }
@@ -888,7 +875,7 @@ td {
 .footer-ask {
   margin-bottom: 2.25rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--rule);
 }
 
 .footer-ai-links {
@@ -906,7 +893,7 @@ td {
 }
 
 .footer-ai-openai {
-  color: var(--color-openai);
+  color: var(--color-text);
 }
 
 .footer-ai-claude {
@@ -929,7 +916,7 @@ td {
 .footer-note {
   margin-top: 2rem !important;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--rule);
   font-size: .75rem;
 }
 
@@ -992,7 +979,7 @@ td {
     align-items: flex-end;
     gap: 0;
     padding: .75rem 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: var(--rule);
     background: var(--color-bg);
   }
 
@@ -1035,6 +1022,10 @@ td {
 @media (max-width: 30rem) {
   h1 {
     font-size: 1.5rem;
+  }
+
+  .uses-item {
+    gap: .6rem;
   }
 
   .home-portrait {
