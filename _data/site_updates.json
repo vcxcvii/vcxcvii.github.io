@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "0b7932ff68a4c7c0a5ca41070e9baf0632eb6ee5",
+  "last_processed_commit": "79a41e18cda6b15b1f6f882f35bf316613c2f149",
   "updated_at": "2026-08-09",
   "updates": [
+    {
+      "id": "2026-08-09-79a41e1",
+      "date": "2026-08-09",
+      "title": "The site now follows your system dark mode",
+      "summary": "If your device is set to dark, this site is now dark too. There is no toggle to find and nothing is stored about you: the page reads your operating system setting and matches it. Body text sits at 14:1 contrast against a ground that is deliberately not pure black, because pure black under near-white text makes letters glow at the edges and is hardest on readers with astigmatism.",
+      "benefits": [
+        {
+          "label": "Reading at night",
+          "text": "Text, links, dates and quotes keep the same order of emphasis they have in light mode, so nothing shouts that did not shout before."
+        },
+        {
+          "label": "No setting to find",
+          "text": "Your device already knows which you prefer, so the site just uses that. Nothing to click, and no preference kept about you."
+        },
+        {
+          "label": "Contribution graph",
+          "text": "The green scale switches to GitHub's dark values, so a busy day still reads brighter than a quiet one instead of the reverse."
+        }
+      ],
+      "commit_shas": [
+        "79a41e18cda6b15b1f6f882f35bf316613c2f149"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-03-5ee2af2",
       "date": "2026-08-03",
