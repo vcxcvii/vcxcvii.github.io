@@ -91,6 +91,8 @@ sitemap: false
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/images/favicon.png" type="image/png" sizes="180x180">
 <title>${esc(args.title)}</title>
 <style>
 html{color-scheme:light}
