@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "dca5f1dc41924b77559c39bd73459398655b2d60",
+  "last_processed_commit": "87a88b0639874512b3ed0977eba1409fecc3d89a",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-87a88b0",
+      "date": "2026-08-16",
+      "title": "Pick how the page reads from three swatches at the top",
+      "summary": "The page light is now three swatches in the top corner showing the grounds themselves, light, warm beige and dark, instead of a pull cord. Leave them alone and the page follows your system setting exactly as before. The days log also gained a Years row and a clearer break between the year overview and the weeks.",
+      "benefits": [
+        {
+          "label": "You see what you get",
+          "text": "Each swatch is painted in the ground it switches to, so nothing is a guess."
+        },
+        {
+          "label": "Works on a phone",
+          "text": "The picker sits in the page rather than floating over the menu button."
+        },
+        {
+          "label": "Years have a home",
+          "text": "The days log shows which year you are reading and where the others will live."
+        }
+      ],
+      "commit_shas": [
+        "87a88b0639874512b3ed0977eba1409fecc3d89a"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-dca5f1d",
       "date": "2026-08-16",
