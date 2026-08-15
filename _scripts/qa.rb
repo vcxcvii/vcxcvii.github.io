@@ -32,9 +32,9 @@ REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
 # Compiled bytes, which is what every page inlines. Raised from 14_000 when the
 # page light shipped: three grounds instead of two means the dark palette is
 # emitted twice, once for the system query and once for the stored choice, and
-# the lamp and its cord are on every page. The ceiling is deliberately close to
+# the theme swatches are on every page. The ceiling is deliberately close to
 # the current figure so the next feature has to justify itself the same way.
-CSS_BUDGET = 17_600
+CSS_BUDGET = 16_800
 GITHUB_JS_BUDGET = 8_000
 # Every script the site is allowed to ship, with its own budget. An allowlist
 # rather than a count: a new file is a deliberate decision that shows up in a
@@ -44,7 +44,7 @@ ALLOWED_JS = {
   "assets/js/copy-code.js" => 3_000,
   "assets/js/changelog.js" => 3_000,
   "assets/js/days.js" => 2_000,
-  "assets/js/lamp.js" => 4_000,
+  "assets/js/theme.js" => 4_000,
 }.freeze
 
 # Money is written as figures, never as magnitude words. "six figures in

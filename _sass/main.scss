@@ -685,6 +685,16 @@ td {
   white-space: nowrap;
 }
 
+.days-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+}
+
+.days-years [aria-current="page"] {
+  font-weight: 700;
+}
+
 .days-legend {
   display: flex;
   align-items: center;
@@ -1217,101 +1227,41 @@ svg.logo-wordmark {
    same blue read from opposite ends of one ramp. Contrast against the real
    canvas: text 14.0:1, blockquote 8.6:1, link 6.5:1, dates 5.8:1, mark 5.6:1,
    which is the same running order as the light palette. */
-/* The page light. Fixed to the top edge, in the gutter beside the content
-   column where the layout has room; on narrow screens it tucks into the page
-   padding, to the outside of the mobile menu button rather than over it.
-
-   The cord idles with a slow sway whether or not anyone touches it, because a
-   cord hanging dead still reads as a drawing of a cord. Pulling it swings
-   harder and settles. Both stop entirely under prefers-reduced-motion. */
-.lamp {
-  position: fixed;
-  top: 0;
-  right: max(.35rem, calc(50vw - 24rem));
-  z-index: 20;
+/* The page light. Three swatches showing the grounds themselves, so the
+   control is a sample of the thing it does rather than a symbol standing in
+   for it. Right-aligned above the masthead, in normal flow: a fixed control in
+   the top corner collides with the mobile menu button, and there is no gutter
+   on a 320px screen wide enough to hold three of these. */
+.theme-picker {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* The column is only a rail; the shade and the cord take their own hits, so
-     text that passes underneath stays selectable. */
-  pointer-events: none;
+  justify-content: flex-end;
+  gap: .3rem;
+  margin-bottom: .75rem;
 }
 
-.lamp-shade {
-  fill: none;
-  stroke: var(--color-border);
-  stroke-width: 1.5;
-  stroke-linejoin: round;
-}
-
-.lamp-bulb {
-  fill: var(--color-mark);
-  stroke: none;
-  /* The bulb is the one part that reports state, so it brightens as the ground
-     darkens. Colour alone carries nothing here: the button's own label always
-     says which ground is showing. */
-  opacity: .35;
-}
-
-.lamp-cord {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 2.75rem;
+.theme-swatch {
+  width: 1.35rem;
+  height: 1.35rem;
   padding: 0;
-  border: 0;
-  background: none;
+  border: var(--rule);
+  border-radius: 50%;
   cursor: pointer;
-  pointer-events: auto;
-  /* Swings from where it meets the shade, never from its middle. */
-  transform-origin: top center;
-  animation: lamp-idle 6s ease-in-out infinite;
 }
 
-.lamp-line {
-  width: 1px;
-  height: 2.75rem;
-  background: var(--color-border);
-}
+/* Fixed values, not tokens. Each swatch has to show its own ground whichever
+   ground the page is currently on, so these must not follow the palette. */
+.t-light { background: #fff; }
+.t-beige { background: #f3ecdf; }
+.t-dark { background: #16181a; }
 
-.lamp-bead {
-  width: .5rem;
-  height: .875rem;
-  border-radius: .25rem;
-  background: var(--color-secondary);
-}
-
-.lamp-cord:hover .lamp-bead,
-.lamp-cord:focus-visible .lamp-bead {
-  background: var(--color-text);
-}
-
-.lamp.pulled .lamp-cord {
-  animation: lamp-pull .9s cubic-bezier(.36, .07, .19, .97);
-}
-
-@keyframes lamp-idle {
-  0%, 100% { transform: rotate(-1.2deg); }
-  50% { transform: rotate(1.2deg); }
-}
-
-@keyframes lamp-pull {
-  0% { transform: rotate(0deg) translateY(6px); }
-  25% { transform: rotate(9deg); }
-  50% { transform: rotate(-6deg); }
-  75% { transform: rotate(3deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lamp-cord,
-  .lamp.pulled .lamp-cord {
-    animation: none;
-  }
-}
-
-:root[data-theme="beige"] .lamp-bulb {
-  opacity: .6;
+/* The selected one thickens its own border rather than growing a shadow: the
+   sheet has no shadows, and an outline here would be indistinguishable from
+   the focus ring. box-sizing is border-box sitewide, so the circle does not
+   move. It also carries aria-pressed, so the state survives with this
+   stylesheet switched off. */
+.theme-swatch[aria-pressed="true"] {
+  border-color: var(--color-mark);
+  border-width: 3px;
 }
 
 /* Dark lives in a mixin because it now has two triggers: the reader's system
@@ -1320,10 +1270,6 @@ svg.logo-wordmark {
    are the only place the trigger is named. Nesting handles the descendant
    rules: ::selection inside the mixin compiles to "<theme> ::selection". */
 @mixin dark-theme {
-  .lamp-bulb {
-    opacity: .95;
-  }
-
   --color-bg:#16181a;
   --color-surface:#212427;
   --color-text:#e4e4e4;

@@ -157,6 +157,8 @@ measurement in JavaScript.
 
 <p class="intro-note">One cell per week of {{ include.year }}, oldest on the left. Stronger means more landed. Pick one to jump to it, or hover for the date and the count.</p>
 
+<hr>
+
 {% for step in (0..week_max) %}
   {% assign back = week_max | minus: step %}
   {% assign week_start = back | times: week_seconds | plus: year_first %}

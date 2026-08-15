@@ -1,0 +1,14 @@
+{% comment %}
+The page light. Three swatches showing the grounds themselves, light, beige and
+dark, right-aligned above the masthead.
+
+assets/js/theme.js writes the markup. Without JavaScript nothing renders at
+all, because a control that cannot do anything should not occupy a tap target;
+the reader's system setting still decides the ground in that case, exactly as
+it did before this existed.
+
+It sits in normal flow rather than fixed to the viewport. A fixed control in
+the top corner collides with the mobile menu button, and this one is wide
+enough that no gutter on a 320px screen would hold it.
+{% endcomment %}
+<div class="theme-picker" data-theme-picker role="group" hidden></div>
