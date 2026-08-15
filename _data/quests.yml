@@ -65,15 +65,14 @@
 
 - name: Lazarus Pit
   group: Experiments
-  state: Private
+  state: Retired
   icon: github
   link: /side-quests/lazarus-pit/
-  # No repo: key on purpose. There is no lazarus-pit repository: the name was
-  # rainmaker's before it was renamed, so GitHub redirects it and the API
-  # served rainmaker's three releases under this quest. Restore repo: and
-  # changelog_include: only when a real repository exists to point at.
-  featured: true
-  description: Self-healing UX agent that reads Clarity sessions, diagnoses friction, and files proposed fixes as GitHub issues on this site.
+  # No repo: key, and not featured. The repository this was built in was
+  # renamed and is now rainmaker, so GitHub redirects the old name and the API
+  # was serving rainmaker's releases under this quest. Nothing exists to point
+  # at, and a retired experiment does not belong on the homepage.
+  description: A self-healing UX agent that read Clarity sessions and filed proposed fixes as GitHub issues. The repository it was built in became Rainmaker.
 
 - name: GTM Buddy Marketing Skills
   group: Work

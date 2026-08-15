@@ -267,11 +267,15 @@ def design_guardrails
 
   quest_data = File.exist?("_data/quests.yml") ? YAML.safe_load(File.read("_data/quests.yml")) : []
   lazarus_pit = quest_data.find { |quest| quest["name"] == "Lazarus Pit" }
+  # Retired since the repository it was built in was renamed to rainmaker.
+  # There is nothing to link to, and the rule that mattered when it was private
+  # still matters now: the row points at the on-site write-up and nowhere else.
   valid_lazarus_pit = lazarus_pit &&
-                      lazarus_pit["state"] == "Private" &&
+                      ["Private", "Retired"].include?(lazarus_pit["state"]) &&
                       lazarus_pit["link"] == "/side-quests/lazarus-pit/" &&
-                      !lazarus_pit["repo_url"]
-  errs << "Content: private Lazarus Pit must point at its own landing page, not a private repository" unless valid_lazarus_pit
+                      !lazarus_pit["repo_url"] &&
+                      !lazarus_pit["repo"]
+  errs << "Content: Lazarus Pit must point at its own landing page and name no repository" unless valid_lazarus_pit
   invalid_featured_quests = quest_data.select do |quest|
     quest["featured"] == true && (!quest["link"] || !quest["icon"])
   end
@@ -280,12 +284,21 @@ def design_guardrails
   quest_names = quest_data.map { |quest| quest["name"] }
   missing_quests = required_quests - quest_names
   errs << "Content: side-quest directory missing #{missing_quests.join(', ')}" unless missing_quests.empty?
+  # Private and Retired both mean "there is no repository a visitor can open",
+  # so both may only link on-site.
   linked_private_quests = quest_data.select do |quest|
-    quest["state"] == "Private" && (quest["link"].to_s.include?("http") || quest["repo_url"])
+    ["Private", "Retired"].include?(quest["state"]) &&
+      (quest["link"].to_s.include?("http") || quest["repo_url"])
   end
-  errs << "Content: private side quests may only link to an on-site landing page: #{linked_private_quests.map { |quest| quest["name"] }.join(', ')}" unless linked_private_quests.empty?
-  unlabelled_quests = quest_data.reject { |quest| ["Public", "Private"].include?(quest["state"]) }
-  errs << "Content: every side quest needs a Public or Private label: #{unlabelled_quests.map { |quest| quest["name"] }.join(', ')}" unless unlabelled_quests.empty?
+  errs << "Content: private and retired side quests may only link to an on-site landing page: #{linked_private_quests.map { |quest| quest["name"] }.join(', ')}" unless linked_private_quests.empty?
+  # A retired quest must not sit on the homepage, and must not name a repo: the
+  # refresh script would resolve it and publish somebody else's releases.
+  live_retired_quests = quest_data.select do |quest|
+    quest["state"] == "Retired" && (quest["featured"] == true || quest["repo"])
+  end
+  errs << "Content: retired side quests cannot be featured or name a repository: #{live_retired_quests.map { |quest| quest["name"] }.join(', ')}" unless live_retired_quests.empty?
+  unlabelled_quests = quest_data.reject { |quest| ["Public", "Private", "Retired"].include?(quest["state"]) }
+  errs << "Content: every side quest needs a Public, Private, or Retired label: #{unlabelled_quests.map { |quest| quest["name"] }.join(', ')}" unless unlabelled_quests.empty?
 
   errs.concat(magnitude_phrasing_errors)
 

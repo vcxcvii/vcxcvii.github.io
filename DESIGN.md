@@ -118,6 +118,9 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Plain rows with light rules only. No cards, badges, language bars, star counts, or API request.
 - `/side-quests/` renders every entry, grouped as Personal, Experiments, and Work.
 - Directory rows contain name, state, and short description. Link and icon appear only when a destination exists.
+- State is `Public`, `Private`, or `Retired`, enforced by `_scripts/qa.rb`. `Private` and `Retired` both mean there is no repository a visitor can open, so both may only link on-site. A `Retired` quest additionally cannot be featured on the homepage and cannot name a `repo:`, because the refresh script would resolve the name and publish another project's releases under it.
+- A retired project page drops `project: true`. That flag emits `SoftwareApplication` schema carrying a version and a feature list, which asserts software a reader can obtain. The write-up stays up when the reasoning in it is still worth reading; the claim that you can install it does not.
+- The row's description does not repeat the state. The label already says it.
 - No disclosure widgets, ASCII logos, feature inventories, or hand-maintained duplicate project markup.
 
 ## GitHub activity
