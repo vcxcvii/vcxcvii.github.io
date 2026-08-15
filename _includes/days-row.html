@@ -1,0 +1,17 @@
+{% comment %}
+One row in the /days/ log. Called from days/index.html for hand-written items,
+essays and side-quest releases alike, so all three render identically and the
+reader cannot tell which came from the data file.
+
+  date   optional YYYY-MM-DD. Omitted for items that belong to the week but
+         never landed on a day. The grid cell still has to exist, and an empty
+         <time> is not a time, so it becomes a plain span.
+  state  done | open | dropped
+  text   what the thing is
+  url    optional destination
+
+State is carried by <del> and by the words "(open)" and "(dropped)". The glyph
+is decoration and is hidden from assistive technology, so the row survives with
+the stylesheet off.
+{% endcomment %}
+<li class="essay-row days-item">{% if include.date %}<time datetime="{{ include.date }}">{{ include.date | date: "%d %b" }}</time>{% else %}<span></span>{% endif %}<span aria-hidden="true">{% if include.state == "done" %}&#10003;{% elsif include.state == "dropped" %}&#10007;{% else %}&#9633;{% endif %}</span><span>{% if include.state == "done" or include.state == "dropped" %}<del>{% if include.url %}<a href="{{ include.url | relative_url }}">{{ include.text }}</a>{% else %}{{ include.text }}{% endif %}</del>{% else %}{% if include.url %}<a href="{{ include.url | relative_url }}">{{ include.text }}</a>{% else %}{{ include.text }}{% endif %}{% endif %}{% if include.state == "dropped" %} <span class="intro-note">(dropped)</span>{% endif %}{% if include.state == "open" %} <span class="intro-note">(open)</span>{% endif %}</span></li>

@@ -23,38 +23,101 @@ because a number baked at build time is wrong from the next midnight onward.
 
 <p class="intro-note">days since this site went live, on <time datetime="{{ days_epoch }}">17 May 2026</time>. Borrowed from <a href="https://days.ramp.com/" target="_blank" rel="noopener noreferrer">days.ramp.com</a>, which counts the days since Ramp was founded so nobody forgets that tomorrow is already too late. <a href="{{ '/day-91/' | relative_url }}">Here is why I built mine</a>.</p>
 
-<p>Every week gets one stated intention. Under it, the things that happened, dated. Finished work is struck through. Work I did not finish stays open, including after the week ends, and work I killed says so. A week where nothing got logged still appears, empty, because that is the part worth knowing.</p>
+<p>Every week since the site went live appears below, whether or not anything happened in it. Each one can carry a stated intention, and under it the things that landed, dated. Essays and side-quest releases add themselves, because they are already published and dated elsewhere on this site. Everything else I write down by hand. Finished work is struck through, work I did not finish stays open after the week ends, and work I killed says so.</p>
 
-{% for week in site.data.days %}
-  <h2><time datetime="{{ week.week_of }}">Week of {{ week.week_of | date: "%-d %b %Y" }}</time></h2>
+{% comment %}
+Every week from the launch week to the current one is generated here rather
+than listed in _data/days.yml. A week only visible because it was typed out is
+not a record: the weeks I did nothing in are exactly the ones that would go
+missing. The data file supplies intentions and hand-written items; the weeks
+themselves are arithmetic.
 
-  {% if week.intention %}
-    <p class="intro-note">{{ week.intention }}</p>
+Week boundaries are Monday. 17 May 2026 was a Sunday, so the launch week starts
+Monday 11 May 2026.
+{% endcomment %}
+{% assign today_date = site.time | date: "%Y-%m-%d" %}
+{% assign seen_releases = "" %}
+{% assign week_seconds = 604800 %}
+{% assign first_monday = "2026-05-11" | date: "%s" | plus: 0 %}
+{% assign weekday = site.time | date: "%u" | plus: 0 %}
+{% assign into_week = weekday | minus: 1 | times: 86400 %}
+{% assign current_monday = today_seconds | minus: into_week %}
+{% assign week_index_max = current_monday | minus: first_monday | divided_by: week_seconds %}
+
+{% for step in (0..week_index_max) %}
+  {% assign week_start = week_index_max | minus: step | times: week_seconds | plus: first_monday %}
+  {% assign week_key = week_start | date: "%Y-%m-%d" %}
+  {% assign week_data = site.data.days | where: "week_of", week_key | first %}
+
+  <h2><time datetime="{{ week_key }}">Week of {{ week_start | date: "%-d %b %Y" }}</time></h2>
+
+  {% if week_data.intention %}
+    <p class="intro-note">{{ week_data.intention }}</p>
   {% else %}
     <p class="intro-note">No intention set for this week.</p>
   {% endif %}
 
-  {% if week.items and week.items.size > 0 %}
-    <ol class="essay-list">
-      {% for item in week.items %}
-        <li class="essay-row days-item">
-          {% comment %}An undated item still needs its grid cell, but an empty
-          <time> is not a time, so it gets a plain span instead.{% endcomment %}
-          {% if item.date %}<time datetime="{{ item.date }}">{{ item.date | date: "%d %b" }}</time>{% else %}<span></span>{% endif %}
-          <span aria-hidden="true">{% if item.state == "done" %}&#10003;{% elsif item.state == "dropped" %}&#10007;{% else %}&#9633;{% endif %}</span>
-          <span>
-            {%- if item.state == "done" or item.state == "dropped" -%}
-              <del>{% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</del>
-            {%- else -%}
-              {% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}
-            {%- endif -%}
-            {%- if item.state == "dropped" %} <span class="intro-note">(dropped)</span>{% endif -%}
-            {%- if item.state == "open" %} <span class="intro-note">(open)</span>{% endif -%}
-          </span>
-        </li>
+  {% comment %}
+  Walk the week a day at a time, newest first, so hand-written items, essays
+  and releases interleave in true date order instead of appearing in three
+  separate blocks. Undated items follow, since they belong to the week rather
+  than to any day in it.
+  {% endcomment %}
+  {% capture week_rows %}
+    {% for offset in (0..6) %}
+      {% assign back = 6 | minus: offset %}
+      {% assign day_seconds = back | times: 86400 | plus: week_start %}
+      {% assign day_key = day_seconds | date: "%Y-%m-%d" %}
+      {% if day_key > today_date %}{% continue %}{% endif %}
+
+      {% for item in week_data.items %}
+        {% if item.date == day_key %}
+          {% include days-row.html date=day_key state=item.state text=item.text url=item.url %}
+        {% endif %}
       {% endfor %}
-    </ol>
-  {% else %}
+
+      {% for post in site.posts %}
+        {% assign post_key = post.date | date: "%Y-%m-%d" %}
+        {% if post_key == day_key %}
+          {% capture post_text %}Published {{ post.title }}{% endcapture %}
+          {% include days-row.html date=day_key state="done" text=post_text url=post.url %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %}
+      Only tagged releases. _data/quest_releases.yml also carries entries with
+      source "commit" and "commits", whose titles are commit subjects like
+      "Add stress test suite". That is the low-signal noise this page exists to
+      avoid, and a release is the thing a reader can actually go and use.
+
+      Deduplicated by URL because the same release can appear under more than
+      one quest key in that file.
+      {% endcomment %}
+      {% for quest in site.data.quest_releases %}
+        {% if quest[0] == "_meta" %}{% continue %}{% endif %}
+        {% for release in quest[1] %}
+          {% if release.source != "release" %}{% continue %}{% endif %}
+          {% assign release_key = release.date | date: "%Y-%m-%d" %}
+          {% if release_key != day_key %}{% continue %}{% endif %}
+          {% if seen_releases contains release.url %}{% continue %}{% endif %}
+          {% assign seen_releases = seen_releases | append: release.url | append: " " %}
+          {% capture release_text %}Shipped {{ release.title }}{% endcapture %}
+          {% include days-row.html date=day_key state="done" text=release_text url=release.url %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+
+    {% for item in week_data.items %}
+      {% unless item.date %}
+        {% include days-row.html state=item.state text=item.text url=item.url %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign week_rows_trimmed = week_rows | strip %}
+  {% if week_rows_trimmed == "" %}
     <p class="intro-note">Nothing logged this week.</p>
+  {% else %}
+    <ol class="essay-list">{{ week_rows }}</ol>
   {% endif %}
 {% endfor %}

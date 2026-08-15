@@ -1,11 +1,23 @@
-# The log behind /days/. Newest week first, weeks start Monday.
+# The hand-written half of /days/. Newest week first, weeks start Monday.
+#
+# The page does NOT take its list of weeks from here. Every week from 11 May
+# 2026 to the current one is generated in days/index.html, so a week I did
+# nothing in still shows up. This file only fills those weeks in.
+#
+# Two things add themselves and must never be typed here, or they appear twice:
+#   - essays, from site.posts
+#   - side-quest releases, from _data/quest_releases.yml
+#
+# So this file is for work that is real but has no other home on the site: a
+# page shipped, a system changed, a thing killed.
 #
 # Schema
-#   week_of:   Monday of the week, YYYY-MM-DD. Required.
+#   week_of:   Monday of the week, quoted "YYYY-MM-DD". Quoted so it stays a
+#              string and matches the generated week key. Unquoted, YAML turns
+#              it into a Date and the lookup silently misses.
 #   intention: One sentence naming what the week is for. Omit it and the page
-#              says the week had no stated intention, which is itself a fact
-#              worth publishing.
-#   items:     Optional. A week with none renders as an empty week rather than
+#              says no intention was set, which is itself worth publishing.
+#   items:     Optional. A week with none renders empty rather than
 #              disappearing, because a gap in the log is part of the record.
 #
 # Item fields
@@ -14,7 +26,7 @@
 #          done    struck through, it happened
 #          open    still open, including after the week ended
 #          dropped struck through and marked, so it never reads as done
-#   date:  YYYY-MM-DD, the day it landed. Omit for items with no day yet.
+#   date:  "YYYY-MM-DD", the day it landed. Omit for items with no day yet.
 #   url:   Optional. Internal path or full external URL. Adds the link.
 #
 # One content rule: every item names something that exists publicly, or will.
@@ -22,14 +34,21 @@
 # a public artifact it does not belong on a public page, which is also what
 # keeps live hiring conversations off it.
 
-- week_of: 2026-08-10
+
+# Logged by hand because quest_releases.yml files this one as source "commit",
+# not "release", so the page filters it out with the commit-subject noise. The
+# thing itself shipped and has a page.
+- week_of: "2026-07-20"
+  items:
+    - date: "2026-07-24"
+      text: Shipped Interview Recon v1, a candidate-POV company research skill for AI agents
+      url: /side-quests/interview-recon/
+      state: done
+
+- week_of: "2026-08-10"
   intention: Ship the day counter and put the reason for it in writing.
   items:
-    - date: 2026-08-16
+    - date: "2026-08-16"
       text: Built /days, the counter and the log you are reading
       url: /days/
-      state: done
-    - date: 2026-08-16
-      text: Published the post explaining why this page exists
-      url: /day-91/
       state: done
