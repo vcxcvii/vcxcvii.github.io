@@ -17,9 +17,9 @@
   // them hides t-light and t-beige from anything that greps the source,
   // including the unused-class check in _scripts/qa.rb.
   var THEMES = [
-    { id: 'light', label: 'Light', cls: 't-light' },
-    { id: 'beige', label: 'Beige', cls: 't-beige' },
-    { id: 'dark', label: 'Dark', cls: 't-dark' }
+    { id: 'light', label: 'Light', cls: 't-light', chrome: '#ffffff' },
+    { id: 'beige', label: 'Beige', cls: 't-beige', chrome: '#f3ecdf' },
+    { id: 'dark', label: 'Dark', cls: 't-dark', chrome: '#16181a' }
   ];
   var root = document.documentElement;
 
@@ -46,8 +46,33 @@
 
   var buttons = mount.querySelectorAll('[data-theme-set]');
 
+  /* head.html ships two theme-color tags keyed to prefers-color-scheme, which
+     is the right answer only while nothing is stored. Once a ground is chosen
+     they can disagree with the page, so a tag with no media query goes in
+     front of them: browsers take the first theme-color whose media matches,
+     and one without a media query always matches. */
+  function paintChrome(theme) {
+    if (!root.getAttribute('data-theme')) return;
+    var colour = '';
+    for (var i = 0; i < THEMES.length; i++) {
+      if (THEMES[i].id === theme) colour = THEMES[i].chrome;
+    }
+    if (!colour) return;
+    var tag = document.querySelector('meta[name="theme-color"][data-theme-chrome]');
+    if (!tag) {
+      tag = document.createElement('meta');
+      tag.setAttribute('name', 'theme-color');
+      tag.setAttribute('data-theme-chrome', '');
+      var first = document.querySelector('meta[name="theme-color"]');
+      if (first && first.parentNode) first.parentNode.insertBefore(tag, first);
+      else document.head.appendChild(tag);
+    }
+    tag.setAttribute('content', colour);
+  }
+
   function mark() {
     var now = current();
+    paintChrome(now);
     for (var i = 0; i < buttons.length; i++) {
       var on = buttons[i].getAttribute('data-theme-set') === now;
       // aria-pressed rather than colour: the active swatch is also outlined,

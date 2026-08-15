@@ -44,7 +44,7 @@ ALLOWED_JS = {
   "assets/js/copy-code.js" => 3_000,
   "assets/js/changelog.js" => 3_000,
   "assets/js/days.js" => 2_000,
-  "assets/js/theme.js" => 4_000,
+  "assets/js/theme.js" => 5_000,
 }.freeze
 
 # Money is written as figures, never as magnitude words. "six figures in
@@ -404,7 +404,12 @@ content_files.each do |path|
     warns << "Design: unknown layout '#{fm['layout']}'"
   end
 
-  warns << "Design: missing 'intro' field; used in page headers" if is_page && !fm["noindex"] && fm["intro"].to_s.strip.empty?
+  # Promoted from a warning once every page had one. The intro is the visible
+  # standfirst the page layout renders under the H1, and it is the site's
+  # answer to "summarise this page": a reader sees it, and it is what a machine
+  # reads when there is no separate description. A page shipping without one is
+  # a page with no summary anywhere, so it fails rather than warns.
+  errs << "SEO: missing 'intro' field; it is the page's visible standfirst and its summary" if is_page && !fm["noindex"] && fm["intro"].to_s.strip.empty?
 
   if is_post
     raw_date = fm["date"]

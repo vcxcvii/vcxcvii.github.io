@@ -229,7 +229,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 - Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `16,616`, against a ceiling raised from `14,000` when the page light shipped. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
 - `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.
-- Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `assets/js/theme.js` only, budgeted at `4,000` bytes in `_scripts/qa.rb`.
+- Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `assets/js/theme.js` only, budgeted at `5,000` bytes in `_scripts/qa.rb`.
 - No render-blocking external stylesheet, font, or script.
 - No layout shift from navigation, fonts, or GitHub graph.
 - Keep homepage DOM small despite full archive.
@@ -242,7 +242,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Jekyll renders all content.
 - `_sass/main.scss` is the only design stylesheet and is inlined by `_includes/head.html`.
 - Colour and the standard hairline are reached only through tokens: `--color-*` and `--rule`, which is `1px solid var(--color-border)` and resolves per mode at use time. A value used at exactly one site stays a literal, because in compressed CSS a token costs more than it saves until it repeats.
-- `_includes/head.html` carries two `theme-color` tags, one per `prefers-color-scheme`, so browser chrome matches the page.
+- `_includes/head.html` carries two `theme-color` tags, one per `prefers-color-scheme`, which is correct only while no ground is stored. Once the reader picks one, `theme.js` inserts a third with no media query ahead of them, because browsers take the first `theme-color` whose media matches and one without a query always does.
 - `_includes/nav.html`, `_includes/essay-list.html`, and `_includes/footer.html` are the shared interface primitives.
 - `assets/js/gh-graph.js` is the only homepage application script.
 - `assets/js/theme.js` runs on every page and builds the swatches. The theme itself is applied by a separate inline snippet in `_includes/head.html`, which must run before first paint; its `sha256` is in the CSP and `_scripts/validate-posts.rb` fails the build if the two drift apart.
@@ -266,6 +266,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - No emojis. No em dashes; use commas, colons, parentheses, or periods.
 - Display dates as `DD Mon` inside yearly archives and `Mon D, YYYY` on essay pages.
 - External destinations use `↗` only where the external nature matters, primarily source links. The primary navigation remains internal.
+- Every page carries an `intro`, the visible standfirst the page layout renders under the H1, and `_scripts/qa.rb` fails the build without one. It is the site's summary mechanism: the reader sees it, and it is what a machine reads when no separate `description` exists. Essays use `description` instead, which feeds both the meta tag and `BlogPosting.description`.
+- Essays get no visible summary block on purpose. The titles are already outcome-first and the pieces turn on a reveal, so a standfirst restating the conclusion removes the reason to read the next paragraph.
 - Search metadata uses concise, unique titles and descriptions without changing an essay's editorial headline. Duplicate archive aliases point canonically to `/blog/` and remain out of the sitemap.
 - Structured data identifies Varun as the author, the site as a `WebSite`, `/about/` as a `ProfilePage`, archives as `CollectionPage`, and essays as `BlogPosting`.
 - Favicon is a stable white square with electric-blue `VC`; SVG and 180px PNG use the same design.
