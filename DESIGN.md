@@ -52,6 +52,8 @@ Remaining dark values: blockquote `#b4b4b4`, selection `#3c4a1e`, side-quest pri
 
 The contribution graph carries a count in colour, so its ramp must stay monotonic. Keeping the light greens on a dark ground inverts it: a one-contribution day would outshine a twenty-contribution day. Dark uses GitHub's own dark ramp, `#22262a`, `#0e4429`, `#006d32`, `#26a641`, `#39d353`, applied through `.gh-graph rect[fill="…"]` attribute selectors because `assets/js/gh-graph.js` writes fill as a presentation attribute and presentation attributes have zero specificity. The script is never edited for theming. The legend must always carry the same five values as the graph.
 
+Beige changes only the empty cell. `#ebedf0` is a cool grey that measures 1.0 against warm paper, identical in lightness and different only in hue, so the grid read as cold holes punched in it. Beige uses `#e9e0d0`, its own surface token, which sits at 1.11 against the page, the same subtlety `#ebedf0` has on white, and stays lighter than the first green so the ramp holds. The greens are the count and carry over unchanged. The legend override targets `i:first-of-type`, not `i`: the bare selector outranks `.gh-legend i:nth-of-type(n)` and would repaint all five swatches, erasing the ramp the legend exists to explain.
+
 `screen and` in the media query is required, not stylistic. A bare `prefers-color-scheme` query also matches print, and browsers omit backgrounds when printing, so a reader in dark mode would print near-white text onto white paper.
 
 `light-dark()` is rejected. It is larger than the media block, and on a browser without support the declaration is invalid at computed-value time, which resolves every consuming `var()` to `unset` and leaves a page with no background, text colour, or borders. The media block degrades to plain light mode.
@@ -109,6 +111,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 ## Side quests
 
 - `_data/quests.yml` is the single source for both surfaces.
+- A quest only carries `repo:` when a repository of that exact name exists. GitHub keeps a renamed repository's old name as a permanent redirect, so a stale value does not 404: it silently returns whichever project owns that name now. `_scripts/refresh_quests.py` compares the API's canonical `full_name` against the configured name and refuses the mismatch rather than publishing another project's releases.
 - Every homepage entry marked `featured: true` must include a destination and an icon.
 - GitHub projects use the GitHub mark and link directly to their repository. Website projects use the website mark and link to their canonical website.
 - Every row includes one short description; the section heading links to `/side-quests/`.
@@ -227,7 +230,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `16,616`, against a ceiling raised from `14,000` when the page light shipped. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
+- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `16,754`, against a ceiling raised from `14,000` when the page light shipped. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
 - `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.
 - Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `assets/js/theme.js` only, budgeted at `5,000` bytes in `_scripts/qa.rb`.
 - No render-blocking external stylesheet, font, or script.

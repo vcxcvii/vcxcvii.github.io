@@ -1360,6 +1360,24 @@ blockquote {
   --color-border:#d9cdb8;
 }
 
+/* The contribution grid's empty cell is #ebedf0, a cool grey that measures 1.0
+   against beige: identical in lightness, different only in hue, so the grid
+   read as cold holes punched in warm paper. This is the beige surface token,
+   which sits at 1.11 against the page, the same subtlety #ebedf0 has on white,
+   and stays lighter than the first green so the ramp remains monotonic. The
+   greens themselves are unchanged; they are the count, and they carry over to
+   warm paper without trouble. */
+:root[data-theme="beige"] .gh-graph rect[fill="#ebedf0"] {
+  fill: #e9e0d0;
+}
+
+/* first-of-type, not i. The bare selector outranks .gh-legend i:nth-of-type(n)
+   on specificity and would repaint all five swatches beige, erasing the ramp
+   the legend exists to explain. Only the empty swatch changes. */
+:root[data-theme="beige"] .gh-legend i:first-of-type {
+  background: #e9e0d0;
+}
+
 :root[data-theme="beige"] ::selection {
   background: #ffe08a;
 }

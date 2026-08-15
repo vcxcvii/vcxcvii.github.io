@@ -212,6 +212,17 @@ def entries_for(rule):
     meta = api(f'repos/{OWNER}/{repo}')
     if meta is None:
         return None
+    # GitHub keeps a renamed repository's old name as a permanent redirect, so
+    # a stale repo: value does not 404. It quietly returns whichever project
+    # now owns that name, and its releases get published under the wrong quest.
+    # full_name is the canonical name, so compare and refuse the mismatch.
+    canonical = str(meta.get('full_name', '')).lower()
+    expected = f'{OWNER}/{repo}'.lower()
+    if canonical and canonical != expected:
+        print(f'  skip {repo}: GitHub redirects it to {meta["full_name"]}. '
+              f'The repo was renamed or never existed under this name; fix '
+              f'repo: in _data/quests.yml.', file=sys.stderr)
+        return []
     public = not meta.get('private', False)
     rel = api(f'repos/{OWNER}/{repo}/releases?per_page={MAX_ENTRIES}')
     if rel is None:
