@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "bcee34530aee4f7278d1c7c039f3d48e3f2d8d30",
+  "last_processed_commit": "7c5ead902527bfe97c8484e135270b9435490d38",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-7c5ead9",
+      "date": "2026-08-16",
+      "title": "Browser chrome now matches the page ground you picked",
+      "summary": "Choosing beige or dark used to leave the browser's own toolbar showing the colour your system preferred rather than the one on screen. It now follows your choice. A pass over every page also confirmed no broken links, missing image descriptions, or heading problems anywhere on the site.",
+      "benefits": [
+        {
+          "label": "No mismatched edges",
+          "text": "The browser toolbar takes the colour of the ground you chose."
+        },
+        {
+          "label": "Checked, not assumed",
+          "text": "All 70 pages audited for broken anchors, missing alt text, and duplicate ids."
+        }
+      ],
+      "commit_shas": [
+        "7c5ead902527bfe97c8484e135270b9435490d38"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-bcee345",
       "date": "2026-08-16",
