@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "29893f8fd198428b8b0d840fa019e54598daae39",
+  "last_processed_commit": "9d658e84bdaebf6d4b44c01e5678e37f582993ea",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-9d658e8",
+      "date": "2026-08-16",
+      "title": "The days log now covers every week since the site went live",
+      "summary": "/days showed one week next to a counter reading 91 days. It now generates every week since the launch week and fills them from essays and side-quest releases already published here, so you can see three months of work rather than the last seven days. Weeks with nothing in them still appear, empty.",
+      "benefits": [
+        {
+          "label": "Three months visible",
+          "text": "Fourteen weeks of dated, linked work replaced a single week."
+        },
+        {
+          "label": "Gaps cannot hide",
+          "text": "Weeks are generated rather than typed, so a quiet week shows up instead of vanishing."
+        },
+        {
+          "label": "Sources are linked",
+          "text": "The Day 91 post now links every company, talk, and book it mentions."
+        }
+      ],
+      "commit_shas": [
+        "9d658e84bdaebf6d4b44c01e5678e37f582993ea"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-29893f8",
       "date": "2026-08-16",
