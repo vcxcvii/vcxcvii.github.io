@@ -21,6 +21,19 @@
   --font-mono:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
+/* These two declarations repeat often enough that in compressed output they
+   cost more than the selectors naming them do. Sass folds every @extend into a
+   single grouped rule, so the source below stays local and readable while the
+   shipped sheet carries each declaration once. This is the harvest that paid
+   for the density strip on /days/. */
+%mono {
+  font-family: var(--font-mono);
+}
+
+%muted {
+  color: var(--color-secondary);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -152,7 +165,7 @@ select {
 .site-links a {
   min-height: 2rem;
   padding: .25rem 0;
-  color: var(--color-secondary);
+  @extend %muted;
   text-decoration: none;
 }
 
@@ -226,7 +239,7 @@ blockquote {
 
 code,
 pre {
-  font-family: var(--font-mono);
+  @extend %mono;
 }
 
 code {
@@ -269,7 +282,7 @@ pre code {
   padding: .2rem .45rem;
   border: var(--rule);
   background: var(--color-bg);
-  color: var(--color-secondary);
+  @extend %muted;
   font-family: var(--font-sans);
   font-size: .6875rem;
   line-height: 1.4;
@@ -409,7 +422,7 @@ td {
 .github-heading span,
 .gh-fallback,
 .gh-legend {
-  color: var(--color-secondary);
+  @extend %muted;
   font-size: .75rem;
 }
 
@@ -492,7 +505,7 @@ td {
 .repo-list p {
   max-width: 40rem;
   margin: .25rem 0 0;
-  color: var(--color-secondary);
+  @extend %muted;
   font-size: .8125rem;
 }
 
@@ -522,7 +535,7 @@ td {
 .uses-mark {
   flex: 0 0 1.25rem;
   padding-top: .1rem;
-  color: var(--color-secondary);
+  @extend %muted;
   line-height: 0;
 }
 
@@ -538,7 +551,7 @@ td {
 }
 
 .uses-note {
-  color: var(--color-secondary);
+  @extend %muted;
 }
 
 .tool-logo-fallback {
@@ -573,8 +586,8 @@ td {
 }
 
 .tag-list span {
-  color: var(--color-secondary);
-  font-family: var(--font-mono);
+  @extend %muted;
+  @extend %mono;
   font-size: .75rem;
   font-variant-numeric: tabular-nums;
 }
@@ -592,11 +605,11 @@ td {
   margin: 0;
   /* Set once here and inherited by the date and the title wrapper. The link
      inside carries its own colour, so it is unaffected. */
-  color: var(--color-secondary);
+  @extend %muted;
 }
 
 .essay-row time {
-  font-family: var(--font-mono);
+  @extend %mono;
   font-size: .8125rem;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -621,14 +634,51 @@ td {
   color: var(--color-text);
 }
 
-.days-item time {
-  color: var(--color-secondary);
+/* Both win on specificity rather than on source order. The %muted group is
+   emitted where the placeholder is defined, near the top of the sheet, so
+   .intro-note no longer sits after .days-item and would otherwise lose the
+   "(open)" and "(dropped)" markers to the row's foreground colour. */
+.days-item time,
+.days-item .intro-note {
+  @extend %muted;
+}
+
+/* Year density row. One cell per week, oldest left, each an anchor to its week
+   further down the page. Ink, not the GitHub ramp: green carries contribution
+   counts elsewhere on this site and must not mean two things. Every cell also
+   carries its date and count as visually hidden text, so the shade is a
+   summary of the page rather than the only place the information exists. */
+.days-strip {
+  display: flex;
+  gap: 2px;
+  margin: 0 0 2rem;
+}
+
+/* Anchors are the flex items directly. A wrapping list element would need its
+   own flex rule for nothing the reader can see. */
+.days-cell {
+  flex: 1;
+  height: 1.5rem;
+  background: currentColor;
+  opacity: .1;
+}
+
+.days-cell.l1 {
+  opacity: .3;
+}
+
+.days-cell.l2 {
+  opacity: .55;
+}
+
+.days-cell.l3 {
+  opacity: .85;
 }
 
 .breadcrumbs {
-  font-family: var(--font-mono);
+  @extend %mono;
   font-size: .8rem;
-  color: var(--color-secondary);
+  @extend %muted;
   margin-bottom: 1.25rem;
 }
 
@@ -661,11 +711,11 @@ td {
 .intro-note,
 .entry-meta,
 .mcp-tagline {
-  color: var(--color-secondary);
+  @extend %muted;
 }
 
 .entry-meta {
-  font-family: var(--font-mono);
+  @extend %mono;
   font-size: .75rem;
   font-variant-numeric: tabular-nums;
 }
@@ -719,7 +769,7 @@ td {
 }
 
 .changelog-controls button:disabled {
-  color: var(--color-secondary);
+  @extend %muted;
   cursor: default;
   opacity: .55;
   text-decoration: none;
@@ -757,7 +807,7 @@ td {
 
 .prose figcaption {
   margin-top: .5rem;
-  color: var(--color-secondary);
+  @extend %muted;
   font-size: .8125rem;
 }
 
@@ -789,7 +839,7 @@ td {
 
 .quest-state {
   flex: 0 0 auto;
-  color: var(--color-secondary);
+  @extend %muted;
   font-size: .75rem;
 }
 
@@ -834,7 +884,7 @@ td {
   overflow-x: auto;
   border: var(--rule);
   background: var(--color-surface);
-  font-family: var(--font-mono);
+  @extend %mono;
   font-size: .75rem;
   white-space: nowrap;
 }
@@ -856,12 +906,12 @@ td {
 }
 
 .mcp-tool strong {
-  font-family: var(--font-mono);
+  @extend %mono;
   font-size: .75rem;
 }
 
 .mcp-tool span {
-  color: var(--color-secondary);
+  @extend %muted;
   font-size: .8125rem;
 }
 
@@ -869,7 +919,7 @@ td {
   margin-top: 5rem;
   padding-top: 2rem;
   border-top: var(--rule);
-  color: var(--color-secondary);
+  @extend %muted;
   font-size: .8125rem;
 }
 

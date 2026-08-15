@@ -165,7 +165,12 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Item state is `done`, `open`, or `dropped`, carried by `<del>` plus the literal words `(open)` and `(dropped)`. Never by colour, and never by the glyph alone, which is `aria-hidden`. The page reads correctly with the stylesheet off.
 - Unfinished items stay visible after their week ends. The page is a record, not a highlight reel, so removing a miss is not an available edit.
 - A week with no items renders its heading and `Nothing logged this week.` Gaps are never skipped or collapsed: a quiet week is the information.
-- Log rows reuse `.essay-row` and week headings reuse `.prose > h2`, so `/days/` adds three CSS rules and no new visual system. The GitHub green ramp is not available here.
+- `/days/` shows the current year only. A closed year moves to `/days/<year>/`, an eight-line page whose front matter sets `days_year` and whose body is one `{% include days-year.html year=page.days_year %}`. `/days/` finds those pages by `days_year` and lists them under `Earlier years`, so adding a year needs no edit anywhere else. Ten years of weeks in one document is a page nobody reads and every visitor downloads.
+- `_includes/days-year.html` renders a whole year: summary, density strip, and week list. A week belongs to the year of its Monday, so no week appears on two pages.
+- The year summary counts essays, releases, and weeks logged out of weeks elapsed. The coverage ratio is the only figure that can look bad, which is why it is there. It is the same rule as keeping dropped items visible.
+- The density strip is one cell per week, oldest left, each an anchor to its week further down the same page. It navigates, it never filters: nothing on the page is reachable only through it. Ink opacity over `currentColor`, never the GitHub ramp, and every cell repeats its date and count as visually hidden text so shade is never the only carrier.
+- Density bands are 1, 2 to 3, and 4 or more. A normal week here lands one or two things; higher bands would render every week the same shade.
+- Log rows reuse `.essay-row` and week headings reuse `h3`, so `/days/` adds no new visual system beyond the strip. The GitHub green ramp is not available here.
 - Every logged item names something that exists publicly, or will. Not preparation, not private meetings.
 
 ## Footer
@@ -203,7 +208,8 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `13,939`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token.
+- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `13,861`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
+- `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.
 - Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `0KB` first-party application JavaScript.
 - No render-blocking external stylesheet, font, or script.
 - No layout shift from navigation, fonts, or GitHub graph.

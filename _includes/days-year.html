@@ -1,0 +1,198 @@
+{% comment %}
+One year of /days/, from summary to week list. Called with:
+
+  year  four-digit string, e.g. "2026"
+
+Everything here is arithmetic over dates plus three sources: hand-written items
+in _data/days.yml, essays in site.posts, and tagged releases in
+_data/quest_releases.yml. Nothing is stored per year, so a new year page is an
+eight-line file that calls this and nothing else.
+
+A week belongs to the year of its Monday, so no week appears on two pages.
+{% endcomment %}
+
+{% assign site_first_monday = "2026-05-11" | date: "%s" | plus: 0 %}
+{% assign week_seconds = 604800 %}
+{% assign today_date = site.time | date: "%Y-%m-%d" %}
+{% assign today_seconds = today_date | date: "%s" | plus: 0 %}
+{% assign into_week = site.time | date: "%u" | plus: 0 | minus: 1 | times: 86400 %}
+{% assign current_monday = today_seconds | minus: into_week %}
+
+{% comment %}First Monday whose own date falls inside the year.{% endcomment %}
+{% assign jan1 = include.year | append: "-01-01" %}
+{% assign jan1_seconds = jan1 | date: "%s" | plus: 0 %}
+{% assign jan1_into_week = jan1 | date: "%u" | plus: 0 | minus: 1 | times: 86400 %}
+{% assign year_first = jan1_seconds | minus: jan1_into_week %}
+{% if year_first < jan1_seconds %}{% assign year_first = year_first | plus: week_seconds %}{% endif %}
+{% if year_first < site_first_monday %}{% assign year_first = site_first_monday %}{% endif %}
+
+{% comment %}Last Monday of the year, or this week if the year is still running.{% endcomment %}
+{% assign dec31 = include.year | append: "-12-31" %}
+{% assign dec31_seconds = dec31 | date: "%s" | plus: 0 %}
+{% assign dec31_into_week = dec31 | date: "%u" | plus: 0 | minus: 1 | times: 86400 %}
+{% assign year_last = dec31_seconds | minus: dec31_into_week %}
+{% if year_last > current_monday %}{% assign year_last = current_monday %}{% endif %}
+
+{% assign week_max = year_last | minus: year_first | divided_by: week_seconds %}
+
+{% comment %}
+One pass over the year, oldest week first, building two index-aligned strings:
+week keys and how many items each week holds. The strip and the summary both
+read those instead of recounting, and the week list below renders from the same
+arithmetic.
+{% endcomment %}
+{% assign week_keys = "" %}
+{% assign week_counts = "" %}
+{% assign essay_total = 0 %}
+{% assign release_total = 0 %}
+{% assign logged_weeks = 0 %}
+{% assign seen_releases = "" %}
+
+{% for step in (0..week_max) %}
+  {% assign wk = step | times: week_seconds | plus: year_first %}
+  {% assign wk_key = wk | date: "%Y-%m-%d" %}
+  {% assign wk_end = wk | plus: 518400 | date: "%Y-%m-%d" %}
+  {% assign wk_data = site.data.days | where: "week_of", wk_key | first %}
+  {% assign count = 0 %}
+
+  {% if wk_data.items %}{% assign count = count | plus: wk_data.items.size %}{% endif %}
+
+  {% for post in site.posts %}
+    {% assign pk = post.date | date: "%Y-%m-%d" %}
+    {% if pk >= wk_key and pk <= wk_end %}
+      {% assign count = count | plus: 1 %}
+      {% assign essay_total = essay_total | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+
+  {% for quest in site.data.quest_releases %}
+    {% if quest[0] == "_meta" %}{% continue %}{% endif %}
+    {% for release in quest[1] %}
+      {% if release.source != "release" %}{% continue %}{% endif %}
+      {% if seen_releases contains release.url %}{% continue %}{% endif %}
+      {% assign rk = release.date | date: "%Y-%m-%d" %}
+      {% if rk >= wk_key and rk <= wk_end %}
+        {% assign seen_releases = seen_releases | append: release.url | append: " " %}
+        {% assign count = count | plus: 1 %}
+        {% assign release_total = release_total | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% if count > 0 %}{% assign logged_weeks = logged_weeks | plus: 1 %}{% endif %}
+  {% assign week_keys = week_keys | append: wk_key | append: "," %}
+  {% assign week_counts = week_counts | append: count | append: "," %}
+{% endfor %}
+
+{% assign week_key_list = week_keys | split: "," %}
+{% assign week_count_list = week_counts | split: "," %}
+{% assign week_total = week_key_list.size %}
+
+{% assign this_year = today_date | slice: 0, 4 %}
+<h2 id="summary">{{ include.year }}{% if include.year == this_year %} so far{% endif %}</h2>
+
+<ul class="days-summary">
+  <li><strong>{{ essay_total }}</strong> {% if essay_total == 1 %}essay{% else %}essays{% endif %} published</li>
+  <li><strong>{{ release_total }}</strong> side-quest {% if release_total == 1 %}release{% else %}releases{% endif %} shipped</li>
+  <li><strong>{{ logged_weeks }} of {{ week_total }}</strong> weeks logged</li>
+</ul>
+
+{% comment %}
+Density row, one cell per week, oldest on the left. Each cell links to its week
+below, so it navigates the page rather than filtering it: nothing here is the
+only route to anything. The count is also written into the link text for screen
+readers and repeated as a heading further down, so the ink level is never the
+only carrier of the information.
+{% endcomment %}
+<nav class="days-strip" aria-label="Weeks in {{ include.year }}, oldest first">
+  {%- for key in week_key_list -%}
+    {%- assign n = week_count_list[forloop.index0] | plus: 0 -%}
+    {%- comment -%}
+    Thresholds are 1, 2 to 3, 4 or more. A typical productive week here lands
+    one or two things, so bands set any higher would render almost every week
+    at the same shade and the row would carry no information.
+    {%- endcomment -%}
+    {%- if n == 0 -%}{%- assign level = "" -%}
+    {%- elsif n == 1 -%}{%- assign level = " l1" -%}
+    {%- elsif n < 4 -%}{%- assign level = " l2" -%}
+    {%- else -%}{%- assign level = " l3" -%}{%- endif -%}
+    <a class="days-cell{{ level }}" href="#w-{{ key }}"><span class="visually-hidden">Week of {{ key | date: "%-d %b" }}, {{ n }} logged</span></a>
+  {%- endfor -%}
+</nav>
+
+<p class="intro-note">One cell per week of {{ include.year }}, oldest on the left. Darker means more landed. Pick one to jump to it.</p>
+
+{% for step in (0..week_max) %}
+  {% assign back = week_max | minus: step %}
+  {% assign week_start = back | times: week_seconds | plus: year_first %}
+  {% assign week_key = week_start | date: "%Y-%m-%d" %}
+  {% assign week_data = site.data.days | where: "week_of", week_key | first %}
+
+  <h3 id="w-{{ week_key }}"><time datetime="{{ week_key }}">Week of {{ week_start | date: "%-d %b %Y" }}</time></h3>
+
+  {% if week_data.intention %}
+    <p class="intro-note">{{ week_data.intention }}</p>
+  {% else %}
+    <p class="intro-note">No intention set for this week.</p>
+  {% endif %}
+
+  {% comment %}
+  Walk the week a day at a time, newest first, so hand-written items, essays
+  and releases interleave in true date order instead of appearing in three
+  separate blocks. Undated items follow, since they belong to the week rather
+  than to any day in it.
+  {% endcomment %}
+  {% assign seen_rendered = "" %}
+  {% capture week_rows %}
+    {% for offset in (0..6) %}
+      {% assign day_key = 6 | minus: offset | times: 86400 | plus: week_start | date: "%Y-%m-%d" %}
+      {% if day_key > today_date %}{% continue %}{% endif %}
+
+      {% for item in week_data.items %}
+        {% if item.date == day_key %}
+          {% include days-row.html date=day_key state=item.state text=item.text url=item.url %}
+        {% endif %}
+      {% endfor %}
+
+      {% for post in site.posts %}
+        {% assign post_key = post.date | date: "%Y-%m-%d" %}
+        {% if post_key == day_key %}
+          {% capture post_text %}Published {{ post.title }}{% endcapture %}
+          {% include days-row.html date=day_key state="done" text=post_text url=post.url %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %}
+      Only tagged releases. quest_releases.yml also carries entries with source
+      "commit", whose titles are commit subjects like "Add stress test suite",
+      which is the noise this page exists to avoid. Deduplicated by URL because
+      the same release appears under more than one quest key in that file.
+      {% endcomment %}
+      {% for quest in site.data.quest_releases %}
+        {% if quest[0] == "_meta" %}{% continue %}{% endif %}
+        {% for release in quest[1] %}
+          {% if release.source != "release" %}{% continue %}{% endif %}
+          {% if seen_rendered contains release.url %}{% continue %}{% endif %}
+          {% assign release_key = release.date | date: "%Y-%m-%d" %}
+          {% if release_key != day_key %}{% continue %}{% endif %}
+          {% assign seen_rendered = seen_rendered | append: release.url | append: " " %}
+          {% capture release_text %}Shipped {{ release.title }}{% endcapture %}
+          {% include days-row.html date=day_key state="done" text=release_text url=release.url %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+
+    {% for item in week_data.items %}
+      {% unless item.date %}
+        {% include days-row.html state=item.state text=item.text url=item.url %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign week_rows_trimmed = week_rows | strip %}
+  {% if week_rows_trimmed == "" %}
+    <p class="intro-note">Nothing logged this week.</p>
+  {% else %}
+    <ol class="essay-list">{{ week_rows }}</ol>
+  {% endif %}
+{% endfor %}
