@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "24bbbb0c8e337efb50d162e6e5c95fa0013f5232",
+  "last_processed_commit": "b76b74e4d17fae4ca8633a2a2782d4fed5fa41c4",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-b76b74e",
+      "date": "2026-08-16",
+      "title": "Lazarus Pit is marked retired, with the reasoning left in place",
+      "summary": "The Lazarus Pit experiment no longer exists as its own project, so its page and its row in the side-quest directory now say retired instead of describing a tool you could go and use. The write-up stays up, in past tense, because the part about refusing to draw conclusions from eleven sessions is still worth reading.",
+      "benefits": [
+        {
+          "label": "No dead ends",
+          "text": "Nothing on the site now offers a project that cannot be obtained."
+        },
+        {
+          "label": "The thinking survives",
+          "text": "The page keeps the reasoning rather than disappearing with the project."
+        }
+      ],
+      "commit_shas": [
+        "b76b74e4d17fae4ca8633a2a2782d4fed5fa41c4"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-24bbbb0",
       "date": "2026-08-16",
