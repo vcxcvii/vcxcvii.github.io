@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "b76b74e4d17fae4ca8633a2a2782d4fed5fa41c4",
+  "last_processed_commit": "6a59aa5d41db0383db9f183171dc09151e6e77df",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-6a59aa5",
+      "date": "2026-08-16",
+      "title": "The retired Lazarus Pit write-up now reads in the past tense",
+      "summary": "The page described a tool that still ran every Monday, which stopped being true when the project was retired. It now reads as a record of what the agent did, so anything quoting the page, including an AI assistant reading it, describes a finished experiment rather than software you can go and use.",
+      "benefits": [
+        {
+          "label": "Accurate when quoted",
+          "text": "AI clients reading the page get a finished experiment, not a live tool."
+        },
+        {
+          "label": "No phantom checks",
+          "text": "The section claiming to poll a repository daily is gone, since there is no repository."
+        }
+      ],
+      "commit_shas": [
+        "6a59aa5d41db0383db9f183171dc09151e6e77df"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-b76b74e",
       "date": "2026-08-16",
