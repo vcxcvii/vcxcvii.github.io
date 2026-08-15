@@ -108,19 +108,54 @@ only carrier of the information.
   {%- for key in week_key_list -%}
     {%- assign n = week_count_list[forloop.index0] | plus: 0 -%}
     {%- comment -%}
-    Thresholds are 1, 2 to 3, 4 or more. A typical productive week here lands
-    one or two things, so bands set any higher would render almost every week
-    at the same shade and the row would carry no information.
+    Bands are 1, 2 to 3, and 4 or more. A normal week here lands one or two
+    things, so wider bands render almost every week at the same strength and
+    the row carries no information.
     {%- endcomment -%}
     {%- if n == 0 -%}{%- assign level = "" -%}
     {%- elsif n == 1 -%}{%- assign level = " l1" -%}
     {%- elsif n < 4 -%}{%- assign level = " l2" -%}
     {%- else -%}{%- assign level = " l3" -%}{%- endif -%}
-    <a class="days-cell{{ level }}" href="#w-{{ key }}"><span class="visually-hidden">Week of {{ key | date: "%-d %b" }}, {{ n }} logged</span></a>
+    {%- assign label = key | date: "%-d %b" | prepend: "Week of " | append: ", " | append: n | append: " logged" -%}
+    <a class="days-cell{{ level }}" href="#w-{{ key }}" title="{{ label }}"><span class="visually-hidden">{{ label }}</span></a>
   {%- endfor -%}
 </nav>
 
-<p class="intro-note">One cell per week of {{ include.year }}, oldest on the left. Darker means more landed. Pick one to jump to it.</p>
+{%- comment -%}
+Month ticks. Each label spans as many flex units as the month has weeks in this
+year, so it lines up with its own run of cells without a second grid or any
+measurement in JavaScript.
+{%- endcomment -%}
+{%- assign month_runs = "" -%}
+{%- assign run_month = "" -%}
+{%- assign run_length = 0 -%}
+{%- for key in week_key_list -%}
+  {%- assign m = key | date: "%b" -%}
+  {%- if m != run_month -%}
+    {%- if run_length > 0 -%}{%- assign month_runs = month_runs | append: run_month | append: ":" | append: run_length | append: "," -%}{%- endif -%}
+    {%- assign run_month = m -%}
+    {%- assign run_length = 1 -%}
+  {%- else -%}
+    {%- assign run_length = run_length | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if run_length > 0 -%}{%- assign month_runs = month_runs | append: run_month | append: ":" | append: run_length | append: "," -%}{%- endif -%}
+
+<p class="days-months" aria-hidden="true">
+  {%- assign month_list = month_runs | split: "," -%}
+  {%- for pair in month_list -%}
+    {%- assign parts = pair | split: ":" -%}
+    <span style="flex:{{ parts[1] }}">{{ parts[0] }}</span>
+  {%- endfor -%}
+</p>
+
+<p class="days-legend">
+  <span>Quiet</span>
+  <i></i><i style="opacity:.3"></i><i style="opacity:.55"></i><i style="opacity:.85"></i>
+  <span>Busy</span>
+</p>
+
+<p class="intro-note">One cell per week of {{ include.year }}, oldest on the left. Stronger means more landed. Pick one to jump to it, or hover for the date and the count.</p>
 
 {% for step in (0..week_max) %}
   {% assign back = week_max | minus: step %}

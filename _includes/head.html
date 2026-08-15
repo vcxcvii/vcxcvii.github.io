@@ -36,7 +36,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Dj+i4IDnpvqmthMc2zXOyDC093BXb7M1pd2cFiBFT3I=' 'sha256-LJuA7cKL+a98sUtNXqbIcPAA7wH7s5cgM64Av4Zr6ks=' 'sha256-sZX89XpZg0Oatob3noYhtdPN7L5vjdfYruOrrx3wbqw=' https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://*.clarity.ms https://c.bing.com https://avatars.githubusercontent.com; font-src 'self'; connect-src https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.clarity.ms https://github-contributions-api.jogruber.de; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='beige'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})();</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-7fpq4cZ/m12n6+rFfhIJbgbIJvdoEFw6j/XuCP9ME3Q=' 'sha256-Dj+i4IDnpvqmthMc2zXOyDC093BXb7M1pd2cFiBFT3I=' 'sha256-LJuA7cKL+a98sUtNXqbIcPAA7wH7s5cgM64Av4Zr6ks=' 'sha256-sZX89XpZg0Oatob3noYhtdPN7L5vjdfYruOrrx3wbqw=' https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://*.clarity.ms https://c.bing.com https://avatars.githubusercontent.com; font-src 'self'; connect-src https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.clarity.ms https://github-contributions-api.jogruber.de; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#16181a" media="(prefers-color-scheme: dark)">
 <meta name="google-site-verification" content="v48CxEycPMCjgwT_ovhFQKTQIt0tdSIvaFsj4oFuMec">
@@ -92,5 +93,6 @@ window.addEventListener('load',function(){
 </script>
 <script defer src="{{ '/assets/js/gh-graph.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 <script defer src="{{ '/assets/js/copy-code.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script defer src="{{ '/assets/js/lamp.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% if page.url == '/changelog/' %}<script defer src="{{ '/assets/js/changelog.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
 {% if page.url == '/days/' %}<script defer src="{{ '/assets/js/days.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}

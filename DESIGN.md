@@ -12,9 +12,11 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 ## Hard constraints
 
 - No React, Tailwind, shadcn, component framework, web font, icon library, client-side router, theme framework, or build-time JavaScript.
-- No cards, pills, badges, tab bars, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay.
-- No dark-mode toggle, no theme JavaScript, no stored preference, no flash-prevention shim. Two palettes, chosen by `prefers-color-scheme` and nothing else. The reader already told their operating system which one they want; asking again in the page header is a second question with no new information in it.
-- No JavaScript on ordinary pages. Homepage may load the dependency-free GitHub graph script. A utility page may use a tiny script only when native HTML cannot provide the function.
+- No cards, pills, badges, tab bars, gradients, shadows, glass effects, fake browser chrome, CRT effects, or nostalgia cosplay.
+- One piece of decorative animation exists, the lamp cord's idle sway, and it is the only exception. It earns it by making the cord read as a cord: a pull control hanging dead still reads as a drawing of one, and readers do not pull drawings. It stops completely under `prefers-reduced-motion`.
+- Three grounds: light, beige, dark. With nothing stored, `prefers-color-scheme` decides between light and dark and no attribute is written, so a reader who never touches the lamp gets exactly the behaviour the site had with two palettes. The reader already told their operating system which one they want, and the default still answers that without asking.
+- The lamp is the only way to override it, and overriding is a deliberate pull rather than a question in the header. A stored choice and a pre-paint inline script are both accepted now; that is the cost of letting the reader pick beige, which no operating system can tell us they want.
+- Ordinary pages load `assets/js/lamp.js` and nothing else of their own. Homepage adds the dependency-free GitHub graph script. A utility page may use a tiny script only when native HTML cannot provide the function.
 - Never hide core content behind JavaScript, hover, filters, accordions, pagination, or animation. The changelog month browser is progressive enhancement: without JavaScript, every entry remains visible.
 - Desktop navigation links remain visible. Mobile uses a native CSS hamburger toggle; links remain normal HTML and require no JavaScript.
 
@@ -54,6 +56,16 @@ The contribution graph carries a count in colour, so its ramp must stay monotoni
 `screen and` in the media query is required, not stylistic. A bare `prefers-color-scheme` query also matches print, and browsers omit backgrounds when printing, so a reader in dark mode would print near-white text onto white paper.
 
 `light-dark()` is rejected. It is larger than the media block, and on a browser without support the declaration is invalid at computed-value time, which resolves every consuming `var()` to `unset` and leaves a page with no background, text colour, or borders. The media block degrades to plain light mode.
+
+## Page light
+
+- A shade fixed to the top edge with a pull cord hanging from it. Each pull moves the ground on one step: light, beige, dark, and round again.
+- `assets/js/lamp.js` writes the markup. Without JavaScript there is no lamp at all, because a control that cannot do anything should not occupy a tap target. The system setting still chooses the ground in that case.
+- The cord is a real `<button>`, so it takes keyboard focus, and its accessible name always states the current ground and the next one. The bulb brightens as the ground darkens, but colour carries nothing on its own; the label is the source of truth.
+- `data-theme` on `<html>` holds the choice, mirrored into `localStorage`. Absent means the reader has not chosen and `prefers-color-scheme` decides, which is why the dark media query is guarded with `:root:not([data-theme])`.
+- Dark is written once, in a Sass mixin, and included under both triggers. Beige overrides only the five ground tokens; link, mark, and accent stay the familiar web blues, because beige is a different paper stock and not a different brand.
+- Beige keeps the same contrast running order as the other two, text, blockquote, link, secondary, mark: 12.8, 8.4, 8.0, 5.6, 4.7.
+- It sits in the gutter beside the content column where the layout has room, and tucks into the page padding on narrow screens, outside the mobile menu button rather than over it.
 
 ## Header
 
@@ -168,7 +180,10 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - `/days/` shows the current year only. A closed year moves to `/days/<year>/`, an eight-line page whose front matter sets `days_year` and whose body is one `{% include days-year.html year=page.days_year %}`. `/days/` finds those pages by `days_year` and lists them under `Earlier years`, so adding a year needs no edit anywhere else. Ten years of weeks in one document is a page nobody reads and every visitor downloads.
 - `_includes/days-year.html` renders a whole year: summary, density strip, and week list. A week belongs to the year of its Monday, so no week appears on two pages.
 - The year summary counts essays, releases, and weeks logged out of weeks elapsed. The coverage ratio is the only figure that can look bad, which is why it is there. It is the same rule as keeping dropped items visible.
-- The density strip is one cell per week, oldest left, each an anchor to its week further down the same page. It navigates, it never filters: nothing on the page is reachable only through it. Ink opacity over `currentColor`, never the GitHub ramp, and every cell repeats its date and count as visually hidden text so shade is never the only carrier.
+- The density strip is one cell per week, oldest left, each an anchor to its week further down the same page. It navigates, it never filters: nothing on the page is reachable only through it.
+- Cells take opacity over `var(--color-text)`, never `currentColor` and never the GitHub ramp. They are anchors, so `currentColor` resolves to the link blue and the ramp silently becomes brand blue.
+- Every cell carries its date and count twice, as a `title` for pointer users and as visually hidden text for everyone else, so strength is never the only carrier. The caption says stronger rather than darker, because opacity over ink inverts with the ground.
+- Month ticks sit under the strip, each label flexed to the number of weeks its month holds, so they align without a second grid or any measurement in JavaScript. A four-step legend runs quiet to busy.
 - Density bands are 1, 2 to 3, and 4 or more. A normal week here lands one or two things; higher bands would render every week the same shade.
 - Log rows reuse `.essay-row` and week headings reuse `h3`, so `/days/` adds no new visual system beyond the strip. The GitHub green ramp is not available here.
 - Every logged item names something that exists publicly, or will. Not preparation, not private meetings.
@@ -208,9 +223,9 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `13,861`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
+- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `17,417`, against a ceiling raised from `14,000` when the page light shipped. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
 - `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.
-- Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `0KB` first-party application JavaScript.
+- Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `assets/js/lamp.js` only, budgeted at `4,000` bytes in `_scripts/qa.rb`.
 - No render-blocking external stylesheet, font, or script.
 - No layout shift from navigation, fonts, or GitHub graph.
 - Keep homepage DOM small despite full archive.
@@ -226,6 +241,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - `_includes/head.html` carries two `theme-color` tags, one per `prefers-color-scheme`, so browser chrome matches the page.
 - `_includes/nav.html`, `_includes/essay-list.html`, and `_includes/footer.html` are the shared interface primitives.
 - `assets/js/gh-graph.js` is the only homepage application script.
+- `assets/js/lamp.js` runs on every page and builds the lamp. The theme itself is applied by a separate inline snippet in `_includes/head.html`, which must run before first paint; its `sha256` is in the CSP and `_scripts/validate-posts.rb` fails the build if the two drift apart.
 - `assets/js/changelog.js` runs only on `/changelog/` and progressively adds month browsing.
 - `assets/js/days.js` runs only on `/days/` and recomputes the day count in the browser. Jekyll renders the number at build time, which stops being true at the next midnight, so the script is the correct value and the build-time number is the fallback.
 - `_includes/logos/` is the only logo source. Do not duplicate those files under `assets/`.
@@ -237,7 +253,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 - `_scripts/validate-posts.rb` validates frontmatter, tag pages, and inline CSP hashes.
 - `_scripts/qa.rb --all` validates every tracked page and post plus design invariants, dead-asset exclusions, and performance budgets. Without `--all`, it checks changed content only.
-- `node --check assets/js/gh-graph.js assets/js/changelog.js assets/js/days.js` is the dependency-free JavaScript lint gate.
+- `node --check assets/js/gh-graph.js assets/js/changelog.js assets/js/days.js assets/js/lamp.js` is the dependency-free JavaScript lint gate.
 - Production build must pass after validation. GitHub Actions runs all gates before deployment.
 
 ## Content rules

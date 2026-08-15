@@ -37,7 +37,7 @@ python3 _scripts/generate-og.py
 ruby _scripts/validate-posts.rb
 ruby -c _scripts/qa.rb
 ruby -c _scripts/validate-posts.rb
-node --check assets/js/gh-graph.js assets/js/changelog.js assets/js/days.js
+node --check assets/js/gh-graph.js assets/js/changelog.js assets/js/days.js assets/js/lamp.js
 ruby _scripts/qa.rb --all
 bundle exec jekyll build
 ```

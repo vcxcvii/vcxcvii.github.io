@@ -1,0 +1,11 @@
+{% comment %}
+The page light. A shade fixed to the top edge with a pull cord hanging from it;
+each pull moves the page to the next of three grounds, light, beige, dark.
+
+It is a real <button>, so it works from the keyboard and announces its state.
+Without JavaScript it is not rendered at all: assets/js/lamp.js writes the
+markup, because a control that cannot do anything should not be on the page
+occupying a tap target. The reader's system setting still decides the ground in
+that case, exactly as it did before the lamp existed.
+{% endcomment %}
+<div class="lamp" data-lamp hidden></div>

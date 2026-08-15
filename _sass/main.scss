@@ -651,15 +651,53 @@ td {
 .days-strip {
   display: flex;
   gap: 2px;
-  margin: 0 0 2rem;
+  margin: 0;
 }
 
 /* Anchors are the flex items directly. A wrapping list element would need its
-   own flex rule for nothing the reader can see. */
+   own flex rule for nothing the reader can see.
+
+   The ground is the ink colour, not currentColor: these are anchors, so
+   currentColor resolved to the link blue and the ramp quietly became brand
+   blue in both palettes. Reading --color-text keeps it ink, and it still
+   inverts with the ground on its own. */
 .days-cell {
   flex: 1;
   height: 1.5rem;
-  background: currentColor;
+  background: var(--color-text);
+  opacity: .1;
+}
+
+/* Month ticks under the strip. Positioned by the same flex ratio as the cells,
+   so a label sits over the first week of its month however many weeks the year
+   has so far. */
+.days-months {
+  display: flex;
+  gap: 2px;
+  margin: .3rem 0 0;
+  @extend %mono;
+  font-size: .6875rem;
+  @extend %muted;
+}
+
+.days-months span {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.days-legend {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  margin: .6rem 0 0;
+  font-size: .75rem;
+  @extend %muted;
+}
+
+.days-legend i {
+  width: 1.1rem;
+  height: .7rem;
+  background: var(--color-text);
   opacity: .1;
 }
 
@@ -1179,55 +1217,195 @@ svg.logo-wordmark {
    same blue read from opposite ends of one ramp. Contrast against the real
    canvas: text 14.0:1, blockquote 8.6:1, link 6.5:1, dates 5.8:1, mark 5.6:1,
    which is the same running order as the light palette. */
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    --color-bg:#16181a;
-    --color-surface:#212427;
-    --color-text:#e4e4e4;
-    --color-secondary:#8f9398;
-    --color-border:#33383d;
-    --color-accent:#669aff;
-    --color-link:#669aff;
-    --color-mark:#5b8cff;
-  }
+/* The page light. Fixed to the top edge, in the gutter beside the content
+   column where the layout has room; on narrow screens it tucks into the page
+   padding, to the outside of the mobile menu button rather than over it.
 
-  ::selection {
-    background: #3c4a1e;
-  }
-
-  a,
-  button {
-    -webkit-tap-highlight-color: rgba(102, 154, 255, .18);
-  }
-
-  blockquote {
-    color: #b4b4b4;
-  }
-
-  .quest-primary:hover {
-    border-color: #9dbcff;
-    background: #9dbcff;
-  }
-
-  .github-heading h2 a,
-  .github-heading h2 a:visited {
-    color: #3fb950;
-  }
-
-  /* The graph encodes a count in colour, so the ramp has to stay monotonic:
-     on a dark ground the light greens invert it, and a single-contribution day
-     outshines a twenty-contribution one. These are GitHub's own dark values.
-     gh-graph.js writes fill as a presentation attribute, which has zero
-     specificity, so CSS overrides it without touching the script. */
-  .gh-graph rect[fill="#ebedf0"] { fill: #22262a; }
-  .gh-graph rect[fill="#9be9a8"] { fill: #0e4429; }
-  .gh-graph rect[fill="#40c463"] { fill: #006d32; }
-  .gh-graph rect[fill="#30a14e"] { fill: #26a641; }
-  .gh-graph rect[fill="#216e39"] { fill: #39d353; }
-
-  .gh-legend i { background: #22262a; }
-  .gh-legend i:nth-of-type(2) { background: #0e4429; }
-  .gh-legend i:nth-of-type(3) { background: #006d32; }
-  .gh-legend i:nth-of-type(4) { background: #26a641; }
-  .gh-legend i:nth-of-type(5) { background: #39d353; }
+   The cord idles with a slow sway whether or not anyone touches it, because a
+   cord hanging dead still reads as a drawing of a cord. Pulling it swings
+   harder and settles. Both stop entirely under prefers-reduced-motion. */
+.lamp {
+  position: fixed;
+  top: 0;
+  right: max(.35rem, calc(50vw - 24rem));
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* The column is only a rail; the shade and the cord take their own hits, so
+     text that passes underneath stays selectable. */
+  pointer-events: none;
 }
+
+.lamp-shade {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.lamp-bulb {
+  fill: var(--color-mark);
+  stroke: none;
+  /* The bulb is the one part that reports state, so it brightens as the ground
+     darkens. Colour alone carries nothing here: the button's own label always
+     says which ground is showing. */
+  opacity: .35;
+}
+
+.lamp-cord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  pointer-events: auto;
+  /* Swings from where it meets the shade, never from its middle. */
+  transform-origin: top center;
+  animation: lamp-idle 6s ease-in-out infinite;
+}
+
+.lamp-line {
+  width: 1px;
+  height: 2.75rem;
+  background: var(--color-border);
+}
+
+.lamp-bead {
+  width: .5rem;
+  height: .875rem;
+  border-radius: .25rem;
+  background: var(--color-secondary);
+}
+
+.lamp-cord:hover .lamp-bead,
+.lamp-cord:focus-visible .lamp-bead {
+  background: var(--color-text);
+}
+
+.lamp.pulled .lamp-cord {
+  animation: lamp-pull .9s cubic-bezier(.36, .07, .19, .97);
+}
+
+@keyframes lamp-idle {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
+
+@keyframes lamp-pull {
+  0% { transform: rotate(0deg) translateY(6px); }
+  25% { transform: rotate(9deg); }
+  50% { transform: rotate(-6deg); }
+  75% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamp-cord,
+  .lamp.pulled .lamp-cord {
+    animation: none;
+  }
+}
+
+:root[data-theme="beige"] .lamp-bulb {
+  opacity: .6;
+}
+
+/* Dark lives in a mixin because it now has two triggers: the reader's system
+   setting, and an explicit choice stored by the lamp. Sass emits the body once
+   per include, so the rules are written once here and the two selectors below
+   are the only place the trigger is named. Nesting handles the descendant
+   rules: ::selection inside the mixin compiles to "<theme> ::selection". */
+@mixin dark-theme {
+  .lamp-bulb {
+    opacity: .95;
+  }
+
+  --color-bg:#16181a;
+  --color-surface:#212427;
+  --color-text:#e4e4e4;
+  --color-secondary:#8f9398;
+  --color-border:#33383d;
+  --color-accent:#669aff;
+  --color-link:#669aff;
+  --color-mark:#5b8cff;
+
+::selection {
+  background: #3c4a1e;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: rgba(102, 154, 255, .18);
+}
+
+blockquote {
+  color: #b4b4b4;
+}
+
+.quest-primary:hover {
+  border-color: #9dbcff;
+  background: #9dbcff;
+}
+
+.github-heading h2 a,
+.github-heading h2 a:visited {
+  color: #3fb950;
+}
+
+/* The graph encodes a count in colour, so the ramp has to stay monotonic:
+   on a dark ground the light greens invert it, and a single-contribution day
+   outshines a twenty-contribution one. These are GitHub's own dark values.
+   gh-graph.js writes fill as a presentation attribute, which has zero
+   specificity, so CSS overrides it without touching the script. */
+.gh-graph rect[fill="#ebedf0"] { fill: #22262a; }
+.gh-graph rect[fill="#9be9a8"] { fill: #0e4429; }
+.gh-graph rect[fill="#40c463"] { fill: #006d32; }
+.gh-graph rect[fill="#30a14e"] { fill: #26a641; }
+.gh-graph rect[fill="#216e39"] { fill: #39d353; }
+
+.gh-legend i { background: #22262a; }
+.gh-legend i:nth-of-type(2) { background: #0e4429; }
+.gh-legend i:nth-of-type(3) { background: #006d32; }
+.gh-legend i:nth-of-type(4) { background: #26a641; }
+.gh-legend i:nth-of-type(5) { background: #39d353; }
+}
+
+/* screen and is load-bearing. A bare prefers-color-scheme query also matches
+   print, and browsers drop backgrounds when printing, so a reader in dark mode
+   would print near-white text onto white paper.
+
+   :not([data-theme]) is what makes the lamp win. With no stored choice the
+   system setting decides, exactly as before; the moment the reader pulls the
+   cord, the attribute appears and this query stops matching. */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include dark-theme;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include dark-theme;
+}
+
+/* Warm paper. Only the five ground tokens change: link, mark and accent stay
+   the familiar web blues, because the point of this state is a different paper
+   stock, not a different brand.
+
+   Contrast against the page keeps the same running order the other two hold,
+   text, blockquote, link, secondary, mark: 12.8, 8.4, 8.0, 5.6, 4.7. */
+:root[data-theme="beige"] {
+  --color-bg:#f3ecdf;
+  --color-surface:#e9e0d0;
+  --color-text:#2b2620;
+  --color-secondary:#665c50;
+  --color-border:#d9cdb8;
+}
+
+:root[data-theme="beige"] ::selection {
+  background: #ffe08a;
+}
+
