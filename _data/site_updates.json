@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "9d658e84bdaebf6d4b44c01e5678e37f582993ea",
+  "last_processed_commit": "79c32ed3c525248b463bbe2478eb198057c255f0",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-79c32ed",
+      "date": "2026-08-16",
+      "title": "The days log gained a year summary and a week-by-week overview",
+      "summary": "/days now opens with what the year contains so far, essays, releases, and how many weeks actually got logged, followed by a row showing every week at a glance that you can click to jump into. Closed years move to their own page, so the log stays readable however many years it runs.",
+      "benefits": [
+        {
+          "label": "The year at a glance",
+          "text": "One row shows every week and how much landed in it, before you scroll anything."
+        },
+        {
+          "label": "Honest arithmetic",
+          "text": "The summary reports weeks logged out of weeks elapsed, not just the wins."
+        },
+        {
+          "label": "Still fast in ten years",
+          "text": "Each year gets its own page, so the log never becomes one enormous document."
+        }
+      ],
+      "commit_shas": [
+        "79c32ed3c525248b463bbe2478eb198057c255f0"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-9d658e8",
       "date": "2026-08-16",
