@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "87a88b0639874512b3ed0977eba1409fecc3d89a",
+  "last_processed_commit": "bcee34530aee4f7278d1c7c039f3d48e3f2d8d30",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-bcee345",
+      "date": "2026-08-16",
+      "title": "The days log says which year you are reading, above the band",
+      "summary": "The year row moved from the foot of the page to directly above the week band, so it now labels what you are looking at instead of explaining it after the fact. The caption below the band has room around it, and the footer link to the log is called days rather than something you would never search for.",
+      "benefits": [
+        {
+          "label": "Labelled where you look",
+          "text": "The year sits on top of the band rather than at the bottom of the page."
+        },
+        {
+          "label": "Easier to find",
+          "text": "The footer link is now called days, under Read with the blog."
+        }
+      ],
+      "commit_shas": [
+        "bcee34530aee4f7278d1c7c039f3d48e3f2d8d30"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-87a88b0",
       "date": "2026-08-16",
