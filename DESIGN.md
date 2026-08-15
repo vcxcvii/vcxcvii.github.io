@@ -60,10 +60,11 @@ The contribution graph carries a count in colour, so its ramp must stay monotoni
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
 - First link is electric-blue `VC`, returning home.
 - Visible path links follow, in `_data/navigation.yml` order: `/about`, `/work`,
-  `/consulting`, `/blog`, `/speaking`, `/side-quests`, `/uses-this`, `/contact`.
+  `/consulting`, `/blog`, `/speaking`, `/side-quests`, `/days`, `/contact`.
 - Eight links is the ceiling. At `720px`, the narrowest desktop width before the
   hamburger takes over, they fill the column exactly. A ninth wraps, so adding
-  one means removing one.
+  one means removing one. `/days` was added by removing `/uses-this`, which
+  remains reachable from the footer under `About`.
 - Navigation links are plain paths. No button, pill, or filled call to action,
   including for `/contact`: the header has one visual idiom and a single
   emphasised item would make every other link read as secondary.
@@ -140,7 +141,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Supporting pages
 
-- `/about`, `/work`, `/consulting`, the two consulting detail pages, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, and `/mcp` use the same page shell and typography.
+- `/about`, `/work`, `/consulting`, the two consulting detail pages, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, `/days`, and `/mcp` use the same page shell and typography.
 - `/consulting` is the umbrella offer. AI marketing and product marketing pages are specialist branches of the same B2B SaaS marketing consulting practice.
 - Every consulting page uses the same three engagement shapes: workshop, defined project, and ongoing consulting or fractional leadership.
 - The shared provider title is `B2B SaaS Marketing Consultant`. AI is a specialist capability and delivery method, not the umbrella job title.
@@ -155,6 +156,17 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Side quests use grouped plain rows with simple horizontal rules, not cards or disclosure widgets.
 - `/changelog/` opens on the newest month and offers month-and-year, newer, and older controls. The controls require 44px targets, fit at 320px, preserve the selected month in the URL, and leave the complete chronology visible when JavaScript is unavailable.
 - MCP endpoint is presented as selectable code. Avoid custom copy UI when selecting and copying text already works.
+
+## Days
+
+- `/days/` is a day counter over a weekly work log. `_data/days.yml` is the single source, newest week first.
+- The count is days elapsed since `2026-05-17`, the launch entry in `/changelog/`. The epoch lives in the page markup as `data-days-epoch`, not in the script, so there is one place to change it.
+- Both the build-time value and `assets/js/days.js` compute the count on the Asia/Kolkata calendar, matching `_config.yml`. A reader in another timezone sees the same number VC does, and the count rolls over at his midnight rather than theirs.
+- Item state is `done`, `open`, or `dropped`, carried by `<del>` plus the literal words `(open)` and `(dropped)`. Never by colour, and never by the glyph alone, which is `aria-hidden`. The page reads correctly with the stylesheet off.
+- Unfinished items stay visible after their week ends. The page is a record, not a highlight reel, so removing a miss is not an available edit.
+- A week with no items renders its heading and `Nothing logged this week.` Gaps are never skipped or collapsed: a quiet week is the information.
+- Log rows reuse `.essay-row` and week headings reuse `.prose > h2`, so `/days/` adds three CSS rules and no new visual system. The GitHub green ramp is not available here.
+- Every logged item names something that exists publicly, or will. Not preparation, not private meetings.
 
 ## Footer
 
@@ -191,7 +203,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `13,773`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token.
+- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `13,939`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token.
 - Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `0KB` first-party application JavaScript.
 - No render-blocking external stylesheet, font, or script.
 - No layout shift from navigation, fonts, or GitHub graph.
@@ -209,6 +221,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - `_includes/nav.html`, `_includes/essay-list.html`, and `_includes/footer.html` are the shared interface primitives.
 - `assets/js/gh-graph.js` is the only homepage application script.
 - `assets/js/changelog.js` runs only on `/changelog/` and progressively adds month browsing.
+- `assets/js/days.js` runs only on `/days/` and recomputes the day count in the browser. Jekyll renders the number at build time, which stops being true at the next midnight, so the script is the correct value and the build-time number is the fallback.
 - `_includes/logos/` is the only logo source. Do not duplicate those files under `assets/`.
 - Analytics and Clarity load from the small deferred inline loader in `_includes/head.html`; standalone duplicate loader files are forbidden.
 - Footer exposes the canonical `DESIGN.md` source on GitHub without adding it to the built site payload.
@@ -218,7 +231,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 - `_scripts/validate-posts.rb` validates frontmatter, tag pages, and inline CSP hashes.
 - `_scripts/qa.rb --all` validates every tracked page and post plus design invariants, dead-asset exclusions, and performance budgets. Without `--all`, it checks changed content only.
-- `node --check assets/js/gh-graph.js assets/js/changelog.js` is the dependency-free JavaScript lint gate.
+- `node --check assets/js/gh-graph.js assets/js/changelog.js assets/js/days.js` is the dependency-free JavaScript lint gate.
 - Production build must pass after validation. GitHub Actions runs all gates before deployment.
 
 ## Content rules

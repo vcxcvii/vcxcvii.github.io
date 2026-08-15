@@ -1,0 +1,35 @@
+# The log behind /days/. Newest week first, weeks start Monday.
+#
+# Schema
+#   week_of:   Monday of the week, YYYY-MM-DD. Required.
+#   intention: One sentence naming what the week is for. Omit it and the page
+#              says the week had no stated intention, which is itself a fact
+#              worth publishing.
+#   items:     Optional. A week with none renders as an empty week rather than
+#              disappearing, because a gap in the log is part of the record.
+#
+# Item fields
+#   text:  Required. What the thing is.
+#   state: done | open | dropped. Required.
+#          done    struck through, it happened
+#          open    still open, including after the week ended
+#          dropped struck through and marked, so it never reads as done
+#   date:  YYYY-MM-DD, the day it landed. Omit for items with no day yet.
+#   url:   Optional. Internal path or full external URL. Adds the link.
+#
+# One content rule: every item names something that exists publicly, or will.
+# Not "prepped for a call" or "worked on the deck". If it cannot be phrased as
+# a public artifact it does not belong on a public page, which is also what
+# keeps live hiring conversations off it.
+
+- week_of: 2026-08-10
+  intention: Ship the day counter and put the reason for it in writing.
+  items:
+    - date: 2026-08-16
+      text: Built /days, the counter and the log you are reading
+      url: /days/
+      state: done
+    - date: 2026-08-16
+      text: Published the post explaining why this page exists
+      url: /day-91/
+      state: done

@@ -602,6 +602,29 @@ td {
   white-space: nowrap;
 }
 
+/* /days/ only, and deliberately three rules. Log entries reuse .essay-row, so
+   the grid, the mono date column, the baseline and the 44px mobile tap height
+   are inherited rather than restated. Item state is carried by <del> and by
+   the words "(open)" and "(dropped)", never by colour, so the page still reads
+   correctly with this stylesheet switched off. */
+.days-count {
+  margin: 0;
+  font-size: 3.5rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* .essay-row mutes the whole row because in an archive the linked title
+   carries the colour. Here the item text is the content, so it takes the
+   foreground back and the date keeps the muted value on its own. */
+.days-item {
+  color: var(--color-text);
+}
+
+.days-item time {
+  color: var(--color-secondary);
+}
+
 .breadcrumbs {
   font-family: var(--font-mono);
   font-size: .8rem;

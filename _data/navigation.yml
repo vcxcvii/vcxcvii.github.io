@@ -12,7 +12,9 @@
   url: /side-quests/
 - label: speaking
   url: /speaking/
-- label: uses-this
-  url: /uses-this/
+# Took the slot uses-this held. Eight is the ceiling, so this was a swap rather
+# than an addition. uses-this stays reachable from the footer, under About.
+- label: days
+  url: /days/
 - label: contact
   url: /contact/

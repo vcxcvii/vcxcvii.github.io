@@ -93,3 +93,4 @@ window.addEventListener('load',function(){
 <script defer src="{{ '/assets/js/gh-graph.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 <script defer src="{{ '/assets/js/copy-code.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% if page.url == '/changelog/' %}<script defer src="{{ '/assets/js/changelog.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
+{% if page.url == '/days/' %}<script defer src="{{ '/assets/js/days.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}

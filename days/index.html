@@ -1,0 +1,60 @@
+---
+layout: page
+title: Days
+permalink: /days/
+intro: A running count of the days this site has been live, and a week-by-week log of what I actually got done in them.
+seo_title: Days | Varun Choraria
+description: A live day counter since varunchoraria.com went live on 17 May 2026, plus a weekly log of shipped work, open items, and the ones I dropped.
+mcp: true
+---
+
+{% comment %}
+Build-time value only. Both dates are formatted to YYYY-MM-DD first so Ruby
+parses them in the site timezone, Asia/Kolkata, and the difference lands on an
+exact multiple of a day. assets/js/days.js recomputes this in the browser,
+because a number baked at build time is wrong from the next midnight onward.
+{% endcomment %}
+{% assign days_epoch = "2026-05-17" %}
+{% assign epoch_seconds = days_epoch | date: "%s" | plus: 0 %}
+{% assign today_seconds = site.time | date: "%Y-%m-%d" | date: "%s" | plus: 0 %}
+{% assign days_live = today_seconds | minus: epoch_seconds | divided_by: 86400 %}
+
+<p class="days-count" data-days-count data-days-epoch="{{ days_epoch }}">{{ days_live }}</p>
+
+<p class="intro-note">days since this site went live, on <time datetime="{{ days_epoch }}">17 May 2026</time>. Borrowed from <a href="https://days.ramp.com/" target="_blank" rel="noopener noreferrer">days.ramp.com</a>, which counts the days since Ramp was founded so nobody forgets that tomorrow is already too late. <a href="{{ '/day-91/' | relative_url }}">Here is why I built mine</a>.</p>
+
+<p>Every week gets one stated intention. Under it, the things that happened, dated. Finished work is struck through. Work I did not finish stays open, including after the week ends, and work I killed says so. A week where nothing got logged still appears, empty, because that is the part worth knowing.</p>
+
+{% for week in site.data.days %}
+  <h2><time datetime="{{ week.week_of }}">Week of {{ week.week_of | date: "%-d %b %Y" }}</time></h2>
+
+  {% if week.intention %}
+    <p class="intro-note">{{ week.intention }}</p>
+  {% else %}
+    <p class="intro-note">No intention set for this week.</p>
+  {% endif %}
+
+  {% if week.items and week.items.size > 0 %}
+    <ol class="essay-list">
+      {% for item in week.items %}
+        <li class="essay-row days-item">
+          {% comment %}An undated item still needs its grid cell, but an empty
+          <time> is not a time, so it gets a plain span instead.{% endcomment %}
+          {% if item.date %}<time datetime="{{ item.date }}">{{ item.date | date: "%d %b" }}</time>{% else %}<span></span>{% endif %}
+          <span aria-hidden="true">{% if item.state == "done" %}&#10003;{% elsif item.state == "dropped" %}&#10007;{% else %}&#9633;{% endif %}</span>
+          <span>
+            {%- if item.state == "done" or item.state == "dropped" -%}
+              <del>{% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</del>
+            {%- else -%}
+              {% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}
+            {%- endif -%}
+            {%- if item.state == "dropped" %} <span class="intro-note">(dropped)</span>{% endif -%}
+            {%- if item.state == "open" %} <span class="intro-note">(open)</span>{% endif -%}
+          </span>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="intro-note">Nothing logged this week.</p>
+  {% endif %}
+{% endfor %}

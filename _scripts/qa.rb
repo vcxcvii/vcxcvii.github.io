@@ -38,6 +38,7 @@ ALLOWED_JS = {
   "assets/js/gh-graph.js" => GITHUB_JS_BUDGET,
   "assets/js/copy-code.js" => 3_000,
   "assets/js/changelog.js" => 3_000,
+  "assets/js/days.js" => 2_000,
 }.freeze
 
 # Money is written as figures, never as magnitude words. "six figures in
@@ -135,7 +136,7 @@ def design_guardrails
   errs << "Cleanup: assets/js must contain only #{ALLOWED_JS.keys.join(', ')}" unless js_files == ALLOWED_JS.keys.sort
 
   class_files = (
-    Dir.glob("{_includes,_layouts,_posts,assets/js,mcp,feed,api,side-quests,tags}/**/*.{html,md,js,svg}") +
+    Dir.glob("{_includes,_layouts,_posts,assets/js,mcp,feed,api,side-quests,tags,days}/**/*.{html,md,js,svg}") +
     Dir.glob("*.{html,md}")
   ).select { |f| File.file?(f) }
   class_corpus = class_files.map { |f| File.read(f).downcase }.join("\n")
