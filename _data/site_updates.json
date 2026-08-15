@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "79c32ed3c525248b463bbe2478eb198057c255f0",
+  "last_processed_commit": "dca5f1dc41924b77559c39bd73459398655b2d60",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-dca5f1d",
+      "date": "2026-08-16",
+      "title": "Pull the cord at the top of the page to change how it reads",
+      "summary": "Every page now has a lamp with a pull cord in the top corner. Each pull moves the page between light, warm beige, and dark. Leave it alone and the page follows your system setting exactly as it always has. The days log also gained month labels, a legend, and hover detail on its week strip.",
+      "benefits": [
+        {
+          "label": "Read it your way",
+          "text": "Three grounds now, including a warm beige your operating system cannot ask for."
+        },
+        {
+          "label": "Nothing changes uninvited",
+          "text": "Never pull the cord and the page follows your system setting, as before."
+        },
+        {
+          "label": "The strip reads faster",
+          "text": "Month labels, a quiet-to-busy legend, and the date and count on hover."
+        }
+      ],
+      "commit_shas": [
+        "dca5f1dc41924b77559c39bd73459398655b2d60"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-79c32ed",
       "date": "2026-08-16",
