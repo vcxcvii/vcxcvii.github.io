@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "7c5ead902527bfe97c8484e135270b9435490d38",
+  "last_processed_commit": "24bbbb0c8e337efb50d162e6e5c95fa0013f5232",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-24bbbb0",
+      "date": "2026-08-16",
+      "title": "The contribution graph reads correctly on the beige ground",
+      "summary": "On the beige page the GitHub grid's empty squares were a cool grey borrowed from the white theme, which made the whole graph look like holes cut out of the paper. They now match the warm ground. A side project was also showing another project's releases as its own, which is corrected.",
+      "benefits": [
+        {
+          "label": "Beige reads properly",
+          "text": "The contribution grid sits on the warm ground instead of fighting it."
+        },
+        {
+          "label": "Correct attribution",
+          "text": "Lazarus Pit no longer lists releases that belong to Rainmaker."
+        }
+      ],
+      "commit_shas": [
+        "24bbbb0c8e337efb50d162e6e5c95fa0013f5232"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-7c5ead9",
       "date": "2026-08-16",
