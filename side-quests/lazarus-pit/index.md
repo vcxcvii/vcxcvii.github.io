@@ -15,13 +15,13 @@ feature_list:
   - Deduplicated GitHub issues filed on the target repository
 faqs:
   - question: Is Lazarus Pit still available?
-    answer: No. It is retired. The repository it was built in was renamed and is now Rainmaker, so there is no Lazarus Pit to install. Its output is public, because every issue it files lands on this website's public repository under the lazarus-pit label.
-  - question: Does Lazarus Pit change code by itself?
-    answer: No. It files a GitHub issue containing the metric, the hypothesis, and a suggested fix. A human reviews, edits, and merges. There is no automatic commit or deploy.
-  - question: What data does Lazarus Pit read?
-    answer: Only the Microsoft Clarity Data Export API for this site, which returns site-wide metrics such as dead clicks, rage clicks, quickbacks, scroll depth, and script errors. It does not read session recordings.
-  - question: Why does it run weekly instead of daily?
-    answer: Clarity's export API allows ten calls a day and a three-day lookback. One weekly run stays inside both limits and matches how quickly a small site accumulates enough human sessions to diagnose.
+    answer: No. It is retired. The repository it was built in was renamed and is now Rainmaker, so there is no Lazarus Pit to install. Its output stayed public, and every issue it filed is still on this website's public repository under the lazarus-pit label.
+  - question: Did Lazarus Pit change code by itself?
+    answer: No. It filed a GitHub issue containing the metric, the hypothesis, and a suggested fix. A human reviewed, edited, and merged. There was no automatic commit or deploy.
+  - question: What data did Lazarus Pit read?
+    answer: Only the Microsoft Clarity Data Export API for this site, which returns site-wide metrics such as dead clicks, rage clicks, quickbacks, scroll depth, and script errors. It never read session recordings.
+  - question: Why did it run weekly instead of daily?
+    answer: Clarity's export API allows ten calls a day and a three-day lookback. One weekly run stayed inside both limits and matched how quickly a small site accumulates enough human sessions to diagnose.
 ---
 
 **Retired.** The repository this was built in was renamed and is now [Rainmaker](/side-quests/rainmaker/), so Lazarus Pit no longer exists as a separate project and there is nothing to install. This page stays up because the traffic-floor problem below is the useful part, and I would rather leave the reasoning where someone can find it than delete it.
@@ -40,12 +40,12 @@ Lazarus Pit removed the logging-in step. The finding arrived where the work alre
 
 Four modules ran in sequence.
 
-1. **Fetch.** `fetch-clarity.ts` calls the Clarity Data Export API for a three-day window and writes the raw response to disk. It tracks its own daily call budget locally and refuses to exceed ten calls a day.
-2. **Diagnose.** `finding-extractor.ts` scores each metric against a warn threshold and a high threshold, then ranks the findings by severity.
-3. **Map.** `component-mapper.ts` converts each finding into a titled suggestion: what the metric was, what it probably means, and where to look first.
-4. **Propose.** `pr-generator.ts` files one GitHub issue per finding on the target repository, labelled `lazarus-pit`, skipping any finding whose issue is already open.
+1. **Fetch.** `fetch-clarity.ts` called the Clarity Data Export API for a three-day window and wrote the raw response to disk. It tracked its own daily call budget locally and refused to exceed ten calls a day.
+2. **Diagnose.** `finding-extractor.ts` scored each metric against a warn threshold and a high threshold, then ranked the findings by severity.
+3. **Map.** `component-mapper.ts` turned each finding into a titled suggestion: what the metric was, what it probably meant, and where to look first.
+4. **Propose.** `pr-generator.ts` filed one GitHub issue per finding on the target repository, labelled `lazarus-pit`, skipping any finding whose issue was already open.
 
-`run.ts` chains all four. A GitHub Actions workflow runs the chain every Monday at 14:00 UTC and can also be triggered by hand.
+`run.ts` chained all four. A GitHub Actions workflow ran the chain every Monday at 14:00 UTC, and could also be triggered by hand.
 
 ## What counts as friction?
 
@@ -62,25 +62,21 @@ Four modules ran in sequence.
 
 The first version filed confident findings off eleven sessions, most of them bots. On that volume a single crawler moves a percentage several points and every threshold becomes noise.
 
-So the agent now subtracts bot sessions from the total and checks the remainder against a floor of twenty human sessions. Below the floor it files one finding and stops: this is a distribution problem, not a friction problem. That single change is the difference between a tool that reports and a tool worth reading.
+So it subtracted bot sessions from the total and checked the remainder against a floor of twenty human sessions. Below the floor it filed one finding and stopped: this is a distribution problem, not a friction problem. That single change was the difference between a tool that reports and a tool worth reading, and it is the part of this page still worth reading.
 
 ## Why did it not write the fix itself?
 
-It could. Filing a patch is not the hard part.
+It could have. Filing a patch is not the hard part.
 
 The hard part is that a site-wide metric cannot tell you which page misbehaved. Clarity's export API returns numbers for the project, not per URL, so every finding is a site-level hypothesis. Auto-committing against a hypothesis produces confident, wrong diffs that a human then has to reverse. Issues cost a review click and lose nothing.
 
-Escalating to generated pull requests is worth doing once finding quality has earned it. It has not yet.
+Escalating to generated pull requests would have been worth doing once finding quality earned it. It never got there.
 
-## Why is the repository private?
+## Why was the repository private?
 
-Nothing in it is secret, but nothing in it is reusable either. Thresholds are tuned to one small site, findings are site-level by necessity, and the fix templates assume this site's components. Publishing it would ship a tool that mostly teaches people the wrong thresholds for their own traffic.
+Nothing in it was secret, but nothing in it was reusable either. Thresholds were tuned to one small site, findings were site-level by necessity, and the fix templates assumed this site's components. Publishing it would have shipped a tool that mostly teaches people the wrong thresholds for their own traffic.
 
-The parts worth copying are described on this page. If that changes, so will the repository.
-
-## Latest meaningful changes
-
-{% include project-changelog.html %}
+The parts worth copying are described on this page, which is why the page outlived the project.
 
 ## Questions people ask
 
@@ -88,4 +84,4 @@ The parts worth copying are described on this page. If that changes, so will the
 
 ## Want to see what it caught?
 
-Its findings are public: [browse the open and closed issues](https://github.com/vcxcvii/vcxcvii.github.io/issues?q=label%3Alazarus-pit) it filed against this site. If you are building something similar and want to compare thresholds, [book 30 minutes](https://cal.com/varun-choraria/30min).
+Its findings outlived it: [browse the open and closed issues](https://github.com/vcxcvii/vcxcvii.github.io/issues?q=label%3Alazarus-pit) it filed against this site. If you are building something similar and want to compare thresholds, [book 30 minutes](https://cal.com/varun-choraria/30min).
