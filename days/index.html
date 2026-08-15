@@ -27,27 +27,3 @@ because a number baked at build time is wrong from the next midnight onward.
 <p>Every week of the year appears below, whether or not anything happened in it. Each one can carry a stated intention, and under it the things that landed, dated. Essays and side-quest releases add themselves, because they are already published and dated elsewhere on this site. Everything else I write down by hand. Finished work is struck through, work I did not finish stays open after the week ends, and work I killed says so.</p>
 
 {% include days-year.html year=current_year %}
-
-{% comment %}
-Years. The current one is where you already are, so it is marked rather than
-linked. A closed year moves to its own URL, /days/<year>/, an eight-line page
-that sets days_year in front matter and calls the same include; the list finds
-it by that field, so adding a year needs no edit here.
-
-The row renders even with only one year in it. An affordance that appears out
-of nowhere in January is worse than one that was visibly waiting.
-{% endcomment %}
-{% assign year_pages = site.pages | where_exp: "p", "p.days_year" | sort: "days_year" | reverse %}
-
-<h2 id="years">Years</h2>
-
-<nav class="days-years" aria-label="Days by year">
-  <span aria-current="page">{{ current_year }}</span>
-  {%- for page in year_pages -%}
-    {%- unless page.days_year == current_year -%}
-      <a href="{{ page.url | relative_url }}">{{ page.days_year }}</a>
-    {%- endunless -%}
-  {%- endfor -%}
-</nav>
-
-<p class="intro-note">{% if year_pages.size > 0 %}Earlier years keep their own page, so each one loads only itself.{% else %}{{ current_year }} is the only year so far. This site went live in May {{ current_year }}, and each closed year will get its own page here.{% endif %}</p>

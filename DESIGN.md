@@ -186,7 +186,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - Cells take opacity over `var(--color-text)`, never `currentColor` and never the GitHub ramp. They are anchors, so `currentColor` resolves to the link blue and the ramp silently becomes brand blue.
 - Every cell carries its date and count twice, as a `title` for pointer users and as visually hidden text for everyone else, so strength is never the only carrier. The caption says stronger rather than darker, because opacity over ink inverts with the ground.
 - Month ticks sit under the strip, each label flexed to the number of weeks its month holds, so they align without a second grid or any measurement in JavaScript. A four-step legend runs quiet to busy, then a rule closes the block before the weeks begin.
-- The `Years` row renders even when it holds only the current year. An affordance that appears out of nowhere in January is worse than one that was visibly waiting, and the note beside it says when the others arrive.
+- The `Years` row sits directly above the band, so one row both labels which year the cells cover and switches between years. It renders even when it holds only the current year: an affordance that appears out of nowhere in January is worse than one that was visibly waiting.
 - Density bands are 1, 2 to 3, and 4 or more. A normal week here lands one or two things; higher bands would render every week the same shade.
 - Log rows reuse `.essay-row` and week headings reuse `h3`, so `/days/` adds no new visual system beyond the strip. The GitHub green ramp is not available here.
 - Every logged item names something that exists publicly, or will. Not preparation, not private meetings.
@@ -195,6 +195,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 - Thin top rule, small gray text, generous space between groups.
 - Six plain-language groups: `Work`, `Read`, `Free tools`, `AI`, `About`, and `Site`, plus `Ask`.
+- `days` sits under `Read`, with the blog and the feed. It is a reading surface, and naming it anything other than `days` made it unfindable for the person who asked for it.
 - `contact` sits under `About`, with the person, not under `Site` with the legal and meta pages.
 - Desktop uses a four-column grid, with `Ask` continuing onto the second row. Mobile uses two columns, then one below `30rem`. Links stack vertically without dot separators.
 - `site design` links to the readable canonical file in the public GitHub repository.
@@ -226,7 +227,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `16,533`, against a ceiling raised from `14,000` when the page light shipped. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
+- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `16,616`, against a ceiling raised from `14,000` when the page light shipped. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
 - `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.
 - Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `assets/js/theme.js` only, budgeted at `4,000` bytes in `_scripts/qa.rb`.
 - No render-blocking external stylesheet, font, or script.

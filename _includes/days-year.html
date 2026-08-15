@@ -104,6 +104,25 @@ only route to anything. The count is also written into the link text for screen
 readers and repeated as a heading further down, so the ink level is never the
 only carrier of the information.
 {% endcomment %}
+{%- comment -%}
+Years sit directly above the band, so the row labels which year the cells cover
+and switches between them in the same place. A closed year moves to its own
+URL, /days/<year>/, an eight-line page that sets days_year in front matter and
+calls this include; the list finds it by that field, so adding a year needs no
+edit here. The row renders with one year in it: an affordance that appears out
+of nowhere in January is worse than one that was visibly waiting.
+{%- endcomment -%}
+{%- assign year_pages = site.pages | where_exp: "p", "p.days_year" | sort: "days_year" | reverse -%}
+
+<nav class="days-years" aria-label="Days by year">
+  <span aria-current="page">{{ include.year }}</span>
+  {%- for yp in year_pages -%}
+    {%- unless yp.days_year == include.year -%}
+      <a href="{{ yp.url | relative_url }}">{{ yp.days_year }}</a>
+    {%- endunless -%}
+  {%- endfor -%}
+</nav>
+
 <nav class="days-strip" aria-label="Weeks in {{ include.year }}, oldest first">
   {%- for key in week_key_list -%}
     {%- assign n = week_count_list[forloop.index0] | plus: 0 -%}
@@ -155,7 +174,7 @@ measurement in JavaScript.
   <span>Busy</span>
 </p>
 
-<p class="intro-note">One cell per week of {{ include.year }}, oldest on the left. Stronger means more landed. Pick one to jump to it, or hover for the date and the count.</p>
+<p class="intro-note days-caption">One cell per week of {{ include.year }}, oldest on the left. Stronger means more landed. Pick one to jump to it, or hover for the date and the count.</p>
 
 <hr>
 

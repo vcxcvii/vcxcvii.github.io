@@ -689,6 +689,15 @@ td {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem 1rem;
+  margin-bottom: .4rem;
+  @extend %mono;
+  font-size: .8125rem;
+}
+
+/* The caption explains the three rows above it, so it needs air between itself
+   and the legend rather than sitting on top of it. */
+.days-caption {
+  margin-top: 1.1rem;
 }
 
 .days-years [aria-current="page"] {
