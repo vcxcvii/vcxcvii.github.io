@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "88e65126b4422a6cb01e005ff112ac323ece01dd",
+  "last_processed_commit": "29893f8fd198428b8b0d840fa019e54598daae39",
   "updated_at": "2026-08-15",
   "updates": [
+    {
+      "id": "2026-08-16-29893f8",
+      "date": "2026-08-16",
+      "title": "A day counter and a weekly log of what I actually shipped",
+      "summary": "The new /days page counts the days since this site went live and lists, week by week, what got finished, what is still open, and what I dropped. Unfinished items stay visible after the week ends, and a week with nothing logged still shows up empty rather than being skipped.",
+      "benefits": [
+        {
+          "label": "See the work",
+          "text": "Every week names one intention and lists the dated things that actually came out of it."
+        },
+        {
+          "label": "Misses stay visible",
+          "text": "Open and dropped items are never removed later, so the log stays a record rather than a highlight reel."
+        },
+        {
+          "label": "Always current",
+          "text": "The count recomputes in your browser on Asia/Kolkata time, so it is right between deploys."
+        }
+      ],
+      "commit_shas": [
+        "29893f8fd198428b8b0d840fa019e54598daae39"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-09-79a41e1",
       "date": "2026-08-09",
