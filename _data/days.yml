@@ -52,3 +52,25 @@
       text: Built /days, the counter and the log you are reading
       url: /days/
       state: done
+
+- week_of: "2026-08-17"
+  intention: Turn Grow & Close from a brochure into something that can take a booking.
+  items:
+    - date: "2026-08-17"
+      text: Rebuilt growandclose.com around the problem a buyer names, not the services I sell
+      url: https://growandclose.com/
+      state: done
+    - date: "2026-08-17"
+      text: Shipped pricing, contact, privacy and terms pages, and replaced every mailto link with a booking link
+      url: https://growandclose.com/pricing
+      state: done
+    - date: "2026-08-17"
+      text: Deleted 1,343 lines of decorative diagram code from the site and wrote down what each page has to prove
+      url: https://growandclose.com/services
+      state: done
+    - date: "2026-08-17"
+      text: Open-sourced Pipeline Skills, ten free GTM skills for AI agents, grouped by reach, capture, convert and compound
+      url: https://github.com/vcxcvii/pipeline-skills
+      state: done
+    - text: Publish the first landing page teardowns and start the Grow & Close blog
+      state: open
