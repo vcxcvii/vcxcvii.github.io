@@ -35,7 +35,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 **Jan 2026 - Aug 2026** · [GTM Buddy](https://gtmbuddy.ai/) · Bangalore
 
-- Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies that sourced $2M+ in pipeline on a $500K annual marketing budget
+- Led an inherited team of 3 (Performance Marketer, Designer, SalesOps) and 4 agencies that sourced 4x the annual marketing budget in pipeline
 - Transformed the team to AI-first operations, integrating GitHub, Cursor, Claude, Codex, and Swan into daily work: automated sales signal detection, account research, and meeting prep
 - Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution, which became the single source of truth for investors and leadership
 - Launched Nucleus end-to-end: positioning, messaging, sales enablement, and go-to-market strategy, securing 20 customers in alpha
