@@ -72,5 +72,23 @@
       text: Open-sourced Pipeline Skills, ten free GTM skills for AI agents, grouped by reach, capture, convert and compound
       url: https://github.com/vcxcvii/pipeline-skills
       state: done
+    - date: "2026-08-18"
+      text: Rebuilt the booking page as a split screen with the calendar embedded in the page, instead of sending people off-site
+      url: https://growandclose.com/book-a-call
+      state: done
+    - date: "2026-08-18"
+      text: Published the rubric my own work is scored against, eight criteria, five of them blocking, after finding the site had promised it in six places without it existing anywhere
+      url: https://growandclose.com/rubric
+      state: done
+    - date: "2026-08-18"
+      text: Shipped three buyer pages, for founders, heads of marketing and CMOs, on one argument, that AI made production abundant so the decision became the scarce thing
+      url: https://growandclose.com/for/founders
+      state: done
+    - date: "2026-08-18"
+      text: Deleted a claim about what most clients do from the pricing page, because I do not have most clients yet
+      url: https://growandclose.com/pricing
+      state: done
     - text: Publish the first landing page teardowns and start the Grow & Close blog
+      state: open
+    - text: Audit 50 B2B SaaS sites for the AEO basics and publish the distribution, since the only published number I could find covers 100 companies and says under 2% have them
       state: open
