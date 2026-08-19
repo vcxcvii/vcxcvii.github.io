@@ -155,7 +155,11 @@ select {
   margin-bottom: 2.25rem;
   padding-bottom: .75rem;
   @extend %rule-bottom;
-  font-size: .875rem;
+  @extend %mono;
+  /* Monospace is wider per character than the sans it replaced, so the eight
+     navigation links need a smaller size and a tighter gap to still fill the
+     column exactly at 720px rather than wrapping to a second line. */
+  font-size: .75rem;
   font-weight: 700;
 }
 
@@ -175,7 +179,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: .25rem 1rem;
+  gap: .25rem .85rem;
 }
 
 .site-links a {
@@ -191,11 +195,17 @@ select {
   text-decoration: underline;
 }
 
+/* Headings, navigation, and every label on the page are monospace. Prose stays
+   proportional: these pages carry 700 to 1500 words of argument, and mono is
+   measurably slower to read at that length. The split is the whole type system,
+   so chrome reads as a terminal and the reading surface stays a publication. */
 h1,
 h2,
 h3,
 h4 {
-  line-height: 1.2;
+  @extend %mono;
+  line-height: 1.25;
+  letter-spacing: -.02em;
   scroll-margin-top: 1rem;
   text-wrap: balance;
 }
@@ -285,11 +295,35 @@ pre code {
 /* One muted mono line introducing the install command in the page header. The
    command block itself is a plain `pre`, so it inherits the border, surface and
    radius above and picks up the copy button from copy-code.js unchanged. */
+/* The install command is the loudest thing in the header, so it gets the mark
+   colour rather than the hairline every other surface uses. The label is an
+   overline: caps, tracked out, small, the way a terminal titles a block. */
 .command-lede {
-  margin: 1.25rem 0 .35rem;
+  margin: 2.25rem 0 .5rem;
   @extend %mono;
-  @extend %muted;
-  font-size: .75rem;
+  color: var(--color-mark);
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+/* The hero command wraps rather than scrolls. A command a reader has to drag
+   sideways to finish reading is not above the fold in any useful sense, and
+   this is the one block on the site whose whole job is to be read at a glance. */
+.command-block {
+  padding: 1rem 1.1rem;
+  border-color: var(--color-mark);
+  font-size: .8125rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* The chevron is generated, not typed, so `copy-code.js` reading textContent
+   never copies it into the reader's clipboard. */
+.command-block code::before {
+  content: "\276f  ";
+  color: var(--color-mark);
 }
 
 /* Wrapper is created by assets/js/copy-code.js, so nothing here applies until
@@ -776,10 +810,23 @@ td {
 }
 
 /* Light rules separate sections, matching the homepage rhythm. */
+/* Sections are numbered by the stylesheet, never typed into the Markdown, so a
+   writer reordering sections never has to renumber anything and the number can
+   be switched off in one place. */
+.prose {
+  counter-reset: section;
+}
+
 .prose > h2 {
-  margin-top: 2.75rem;
-  padding-top: 1.75rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
   @extend %rule-top;
+  counter-increment: section;
+}
+
+.prose > h2::before {
+  content: counter(section, decimal-leading-zero) "  ";
+  color: var(--color-mark);
 }
 
 .prose > h2:first-child,
@@ -947,7 +994,7 @@ td {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
-  margin-top: 1.25rem;
+  margin: 1.25rem 0 1.5rem;
 }
 
 /* Outranks a:visited. */

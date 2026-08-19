@@ -29,8 +29,18 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - Desktop padding: `3rem 1.25rem 2rem`.
 - Mobile padding: `1.5rem 1.25rem 2rem`.
 - Base typography: `16px / 1.55` using `"Helvetica Neue", Helvetica, Arial, sans-serif`.
-- Dates and code: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace`.
-- No downloaded fonts. No font preload.
+- Interface typography: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace`.
+- No downloaded fonts. No font preload. Both stacks are already on the reader's machine, which is why the site can have two voices for free.
+
+## Type split
+
+The page has two typefaces and a rule for which gets used: **monospace is the interface, proportional is the reading.**
+
+- Monospace: `h1` to `h4`, the primary navigation, breadcrumbs, dates, metadata, section numbers, labels, code, and the install command. Anything that names, locates, or labels.
+- Proportional: body paragraphs, list items, blockquotes. Anything that argues.
+- The reason is length. Quest pages and essays run 700 to 1500 words, and monospace is slower to read at that length. Setting the whole page in mono would buy an aesthetic and charge the reader for it on every paragraph.
+- Headings carry `letter-spacing: -.02em`. Monospace sets wide by construction, and at heading sizes the default tracking reads as gappy rather than deliberate.
+- Navigation is `.75rem` mono with a `.85rem` gap. Monospace is wider per character than the sans it replaced, and eight links still have to fill the column exactly at `720px` without wrapping. Adding a ninth link is still the thing that breaks it.
 
 ## Color
 
@@ -48,6 +58,19 @@ The page has three depths and no more: the ground, one tinted surface, and a hai
 - **Elevation inverts, and the token already knows.** `--color-surface` is darker than the page in light and beige, lighter in dark. That behaviour is defined once in the palettes; a component must never hard-code a tint of its own.
 - **One radius: `.375rem`.** It applies to `pre`, to `.quest-action`, and to the side-quest directory row that tints on hover. It stays a literal rather than a token because it repeats at exactly three sites, and in compressed CSS a token costs more than it saves until it repeats more than that.
 - **Borders are the hairline or nothing.** `--rule` is the only border weight on the page. A component that wants to look more important gets more space, not a heavier edge.
+
+## Terminal chrome
+
+The interface borrows a terminal's vocabulary, not its costume. The distinction is what the earlier "no nostalgia cosplay" rule was protecting, and it still holds: no fake window frames, no scanlines, no ASCII logos, no blinking cursors, no green-on-black.
+
+What is allowed, because each one carries information:
+
+- **A chevron before the install command.** It marks the line as something you run rather than something you read. Generated with `content` on `.command-block code::before`, never typed into the Markdown, so `copy-code.js` reads `textContent` and the chevron never reaches the reader's clipboard.
+- **Section numbers on `.prose > h2`.** A CSS counter, `decimal-leading-zero`, in the mark colour. Generated for the same reason: reordering sections never means renumbering anything, and switching the whole idea off is one rule.
+- **An overline label above the command.** Caps, tracked out at `.09em`, `.6875rem`, mark colour. It titles the block the way a terminal titles output.
+- **The mark colour carries all of it.** `#0057ff` for the command border, the label, the chevron, and the section numbers. The accent is never green: `#9be9a8` through `#216e39` belong to the GitHub contribution graph, and an interface accent inside that ramp would make the graph unreadable as a count.
+
+Everything here is decoration over content that already reads correctly. With CSS off, the command is still a `pre`, the headings are still headings, and nothing has lost its meaning.
 
 ## Interaction
 

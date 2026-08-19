@@ -34,7 +34,13 @@ REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
 # emitted twice, once for the system query and once for the stored choice, and
 # the theme swatches are on every page. The ceiling is deliberately close to
 # the current figure so the next feature has to justify itself the same way.
-CSS_BUDGET = 16_800
+# Raised from 16_800 when the terminal type system shipped: monospace headings
+# and navigation, the accent-bordered install block with its generated chevron,
+# and stylesheet-generated section numbers. The four placeholders harvested for
+# the command-first pages (%rule-top, %rule-bottom, %ground, %tabular) had
+# already been spent, so this feature is the first since dark mode that could
+# not pay for itself and had to move the ceiling instead.
+CSS_BUDGET = 17_400
 GITHUB_JS_BUDGET = 8_000
 # Every script the site is allowed to ship, with its own budget. An allowlist
 # rather than a count: a new file is a deliberate decision that shows up in a

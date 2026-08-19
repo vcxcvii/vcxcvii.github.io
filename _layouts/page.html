@@ -6,12 +6,19 @@ layout: default
   <header class="page-header">
     <h1>{{ page.title }}</h1>
     {% if page.intro %}<p class="intro-note">{{ page.intro }}</p>{% endif %}
-    {% if page.project %}
-      {% assign quest_updates = site.data.quest_releases[page.repo] %}
-      {% assign latest_quest_update = quest_updates | first %}
-      {% if latest_quest_update %}
-        {% include sync-engine.html timestamp=latest_quest_update.date %}
-      {% endif %}
+    {% comment %}
+      The install command belongs above the fold, not in a section a reader has
+      to scroll to. It lives in front matter rather than in each page's prose so
+      the five quest pages cannot drift apart, and it is a plain `pre` so
+      assets/js/copy-code.js gives it a copy button with no new script.
+
+      It sits directly under the standfirst, ahead of the action row and the
+      changelog banner. At 390px that banner runs six lines, and every one of
+      them was pushing the command off the first screen.
+    {% endcomment %}
+    {% if page.install_command %}
+    <p class="command-lede">{{ page.install_lede | default: "Install it:" }}</p>
+    <pre class="command-block"><code>{{ page.install_command | escape }}</code></pre>
     {% endif %}
     {% if page.repo_url %}
     <div class="quest-actions">
@@ -31,16 +38,15 @@ layout: default
       </a>
       {% endif %}
     </div>
-    {% comment %}
-      The install command belongs above the fold, not in a section a reader has
-      to scroll to. It lives in front matter rather than in each page's prose so
-      the five quest pages cannot drift apart, and it is a plain `pre` so
-      assets/js/copy-code.js gives it a copy button with no new script.
-    {% endcomment %}
-    {% if page.install_command %}
-    <p class="command-lede">{{ page.install_lede | default: "Install it:" }}</p>
-    <pre><code>{{ page.install_command | escape }}</code></pre>
     {% endif %}
+    {% if page.project %}
+      {% assign quest_updates = site.data.quest_releases[page.repo] %}
+      {% assign latest_quest_update = quest_updates | first %}
+      {% if latest_quest_update %}
+        {% include sync-engine.html timestamp=latest_quest_update.date %}
+      {% endif %}
+    {% endif %}
+    {% if page.repo_url %}
     <hr>
     {% endif %}
   </header>
