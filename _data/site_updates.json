@@ -1,7 +1,51 @@
 {
-  "last_processed_commit": "88119f553903f70fe75e4954b816f5b42804541a",
+  "last_processed_commit": "78a75016301568100db4e6aaa60585cfa7cc33f5",
   "updated_at": "2026-08-19",
   "updates": [
+    {
+      "id": "2026-08-19-4c11b60",
+      "date": "2026-08-19",
+      "title": "Employer figures on the public pages are now multiples",
+      "summary": "Three pages were publishing a former employer's absolute pipeline and marketing budget. The claim is unchanged and the arithmetic is the same, stated as a multiple instead.",
+      "benefits": [
+        {
+          "label": "Employer numbers stay private",
+          "text": "The proof still lands without putting someone else's internal numbers on a public page."
+        },
+        {
+          "label": "Same claim, same arithmetic",
+          "text": "The result now reads as 4x the annual marketing budget in pipeline."
+        }
+      ],
+      "commit_shas": [
+        "4c11b60a44c033e0dbec3fda5a311cb2944c3db0"
+      ],
+      "source": "git-trailer"
+    },
+    {
+      "id": "2026-08-19-78a7501",
+      "date": "2026-08-19",
+      "title": "Side quest pages now open with the install command",
+      "summary": "Every side quest page shows what it is and the one command that installs it before you scroll, instead of hiding the command under a heading a thousand words down. The pages are shorter, and the stylesheet is smaller than it was before the change.",
+      "benefits": [
+        {
+          "label": "Install above the fold",
+          "text": "The command that installs each side quest sits under the title, with a copy button."
+        },
+        {
+          "label": "Shorter pages",
+          "text": "Interview Recon dropped from nine sections to seven, and Master Shifu from eight to six."
+        },
+        {
+          "label": "Smaller stylesheet",
+          "text": "The inlined CSS fell from 16,754 to 16,724 bytes while gaining a radius and a hover tint."
+        }
+      ],
+      "commit_shas": [
+        "78a75016301568100db4e6aaa60585cfa7cc33f5"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-16-6a59aa5",
       "date": "2026-08-16",
