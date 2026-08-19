@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "78a75016301568100db4e6aaa60585cfa7cc33f5",
+  "last_processed_commit": "17e026ab01b74e0bab4f643cac60b5d1305f5c86",
   "updated_at": "2026-08-19",
   "updates": [
+    {
+      "id": "2026-08-19-ccd3d0d",
+      "date": "2026-08-19",
+      "title": "The site now reads like a terminal, without costing readability",
+      "summary": "Headings, navigation and labels are monospace, body text stays proportional, and the install command sits in an accent-bordered block with a prompt chevron. Sections are numbered by the stylesheet rather than by hand.",
+      "benefits": [
+        {
+          "label": "Interface reads as a tool",
+          "text": "Monospace chrome and numbered sections make the pages scan like documentation."
+        },
+        {
+          "label": "Prose stays readable",
+          "text": "Body paragraphs keep the proportional face, which is faster to read across 1500 words."
+        },
+        {
+          "label": "Command comes first",
+          "text": "On a phone the install command now sits on the first screen instead of below the changelog banner."
+        }
+      ],
+      "commit_shas": [
+        "ccd3d0d3fbcb44302af9d2707919bd84050f72dc"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-19-4c11b60",
       "date": "2026-08-19",
