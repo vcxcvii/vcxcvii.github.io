@@ -12,7 +12,8 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 ## Hard constraints
 
 - No React, Tailwind, shadcn, component framework, web font, icon library, client-side router, theme framework, or build-time JavaScript.
-- No cards, pills, badges, tab bars, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay. The selected theme swatch marks itself by thickening its own border, because `_scripts/qa.rb` treats `box-shadow` as a forbidden pattern and an outline there would be indistinguishable from the focus ring.
+- No cards, pills, tab bars, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay. The selected theme swatch marks itself by thickening its own border, because `_scripts/qa.rb` treats `box-shadow` as a forbidden pattern and an outline there would be indistinguishable from the focus ring.
+- A bordered, tinted surface is permitted for one thing: code. `pre`, `code`, and the install command block read as raised because they are a different kind of content, not because a box makes a page look designed. Lists stay rules-only. Nothing else gets a border and a fill.
 - Three grounds: light, beige, dark. With nothing stored, `prefers-color-scheme` decides between light and dark and no attribute is written, so a reader who never touches the swatches gets exactly the behaviour the site had with two palettes. The reader already told their operating system which one they want, and the default still answers that without asking.
 - The swatches are the only way to override it. A stored choice and a pre-paint inline script are both accepted now; that is the cost of letting the reader pick beige, which no operating system can tell us they want.
 - Ordinary pages load `assets/js/theme.js` and nothing else of their own. Homepage adds the dependency-free GitHub graph script. A utility page may use a tiny script only when native HTML cannot provide the function.
@@ -38,6 +39,22 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - GitHub graph: official contribution colors `#ebedf0`, `#9be9a8`, `#40c463`, `#30a14e`, `#216e39`.
 - Text never uses the GitHub palette. Green belongs to GitHub activity only.
 - Selection highlight: pale yellow `#fff2a8`.
+
+## Surface layering
+
+The page has three depths and no more: the ground, one tinted surface, and a hairline border between them. `--color-bg`, `--color-surface`, and `--rule` already carry all three, and every ground defines its own values, so a rule written once renders correctly on white, beige, and dark.
+
+- **Do not add a second surface token.** Anything that needs to read as raised uses `--color-surface`. A sheet with a subtle tint and a slightly-less-subtle tint is a sheet nobody can maintain, and each extra token is paid on every page view.
+- **Elevation inverts, and the token already knows.** `--color-surface` is darker than the page in light and beige, lighter in dark. That behaviour is defined once in the palettes; a component must never hard-code a tint of its own.
+- **One radius: `.375rem`.** It applies to `pre`, to `.quest-action`, and to the side-quest directory row that tints on hover. It stays a literal rather than a token because it repeats at exactly three sites, and in compressed CSS a token costs more than it saves until it repeats more than that.
+- **Borders are the hairline or nothing.** `--rule` is the only border weight on the page. A component that wants to look more important gets more space, not a heavier edge.
+
+## Interaction
+
+- Hover may tint, underline, or thicken. It may never be the only way to learn something. Side-quest directory rows tint on hover; the name, state, and description are ordinary text that a keyboard, a screen reader, and a crawler all reach without it.
+- `assets/js/copy-code.js` puts a copy button on every `pre` inside `#page-content`, on every page. The button is generated in JavaScript rather than in Liquid, so with scripting off the reader sees the code block that shipped before the file existed and no dead control. It reveals on hover or focus so it never covers the first line while reading.
+- Selecting and copying by hand still works everywhere the button does. The button is an accelerator for the install commands, not a replacement for text.
+- The only transition in the sheet is the copy button's `opacity`, and it is switched off under `prefers-reduced-motion: reduce`. Adding a second one means deleting this line first.
 
 ## Dark palette
 
@@ -121,7 +138,25 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - State is `Public`, `Private`, or `Retired`, enforced by `_scripts/qa.rb`. `Private` and `Retired` both mean there is no repository a visitor can open, so both may only link on-site. A `Retired` quest additionally cannot be featured on the homepage and cannot name a `repo:`, because the refresh script would resolve the name and publish another project's releases under it.
 - A retired project page drops `project: true`. That flag emits `SoftwareApplication` schema carrying a version and a feature list, which asserts software a reader can obtain. The write-up stays up when the reasoning in it is still worth reading; the claim that you can install it does not.
 - The row's description does not repeat the state. The label already says it.
+- Directory rows tint on hover using `--color-surface`. The tint bleeds past the text column through a negative inline margin, and the rule between rows still spans the full row.
 - No disclosure widgets, ASCII logos, feature inventories, or hand-maintained duplicate project markup.
+
+### Project page order
+
+A quest page answers "what is this and how do I get it" before it argues anything. The order is fixed:
+
+1. Title and `intro`.
+2. `.quest-actions`: the repository, npm where one exists, and the licence.
+3. The install command, in a `pre`, above the fold. It comes from `install_command` in front matter, not from prose, so the five pages cannot drift apart, and it is a plain code block so `copy-code.js` gives it a copy button with no new script. `install_lede` is the one muted mono line above it.
+4. The first line of prose is what to say to the agent once it is installed. That sentence used to sit a thousand words down the page, under an install heading, which is the reason this order exists.
+5. Then the argument: what you get, how it works, what to expect and what not to.
+6. `Latest meaningful changes`, then `Questions people ask`, then the closing question.
+
+`Questions people ask` is load-bearing, not editorial. `_includes/seo-schema.html` anchors the `FAQPage` at `#questions-people-ask`; renaming the heading breaks the schema silently.
+
+A `Retired` quest carries no `install_command`. It has nothing a reader can install, which is the same reason it drops `project: true`.
+
+There is no separate install section. The command is in the header, so a page keeps an install-shaped heading only when it has something the command does not say: Michealangelo's target matrix, Rainmaker's Codex and npm routes. Neither repeats the command already shown above.
 
 ## GitHub activity
 
@@ -175,7 +210,7 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 - The page emits an `ItemList` of the tools alongside its `FAQPage`, so assistants can answer tool questions without parsing the prose.
 - Side quests use grouped plain rows with simple horizontal rules, not cards or disclosure widgets.
 - `/changelog/` opens on the newest month and offers month-and-year, newer, and older controls. The controls require 44px targets, fit at 320px, preserve the selected month in the URL, and leave the complete chronology visible when JavaScript is unavailable.
-- MCP endpoint is presented as selectable code. Avoid custom copy UI when selecting and copying text already works.
+- MCP endpoint is presented as selectable code. It gets the same copy button every other code block gets, from `assets/js/copy-code.js`; nothing on the page ships a copy control of its own.
 
 ## Days
 
@@ -233,7 +268,9 @@ Homepage sections are separated by light `1px #dddddd` horizontal rules with gen
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `14,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. Currently `16,754`, against a ceiling raised from `14,000` when the page light shipped. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
+- Inline compiled CSS: hard ceiling `16,800` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. The ceiling was raised from `14,000` when the page light shipped: three grounds instead of two means the dark palette is emitted twice, once for the system query and once for the stored choice. Currently `16,724`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
+- The command-first side-quest pages paid for themselves the same way and then some, taking the sheet from `16,754` to `16,724` while adding a radius, a hover tint, and the `.command-lede` rule. Four more placeholders harvested 300 bytes: `%rule-top` and `%rule-bottom` fold 9 and 8 repeats of `border-top`/`border-bottom: var(--rule)`, `%ground` folds 4 of `background: var(--color-bg)`, and `%tabular` folds 4 of `font-variant-numeric: tabular-nums`. Deleting the `color` and `font-family` declarations on `h1, h2, h3, h4` paid the rest: headings inherit both from `html`, so the sheet was setting them twice.
+- `hr` is deliberately not extended. It reads `border: 0` and then `border-top: var(--rule)`, and `@extend` emits the grouped rule near the top of the sheet, so the shorthand would win and the rule would vanish. Before folding a declaration into a placeholder, check that nothing later in its own block sets the shorthand that contains it.
 - `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.
 - Homepage first-party JavaScript target: under `8KB` uncompressed; ordinary pages: `assets/js/theme.js` only, budgeted at `5,000` bytes in `_scripts/qa.rb`.
 - No render-blocking external stylesheet, font, or script.
