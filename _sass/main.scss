@@ -34,6 +34,22 @@
   color: var(--color-secondary);
 }
 
+%rule-top {
+  border-top: var(--rule);
+}
+
+%rule-bottom {
+  border-bottom: var(--rule);
+}
+
+%ground {
+  background: var(--color-bg);
+}
+
+%tabular {
+  font-variant-numeric: tabular-nums;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -43,7 +59,7 @@
 }
 
 html {
-  background: var(--color-bg);
+  @extend %ground;
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -111,7 +127,7 @@ select {
   left: .5rem;
   z-index: 10;
   padding: .5rem .75rem;
-  background: var(--color-bg);
+  @extend %ground;
   transform: translateY(-200%);
 }
 
@@ -138,7 +154,7 @@ select {
   gap: 1rem;
   margin-bottom: 2.25rem;
   padding-bottom: .75rem;
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
   font-size: .875rem;
   font-weight: 700;
 }
@@ -179,8 +195,6 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--color-text);
-  font-family: var(--font-sans);
   line-height: 1.2;
   scroll-margin-top: 1rem;
   text-wrap: balance;
@@ -253,6 +267,10 @@ pre {
   padding: .875rem 1rem;
   overflow-x: auto;
   border: var(--rule);
+  /* The one radius the sheet uses. A literal rather than a token: it repeats at
+     three sites, and in compressed output a token costs more than it saves
+     until it repeats more than that. */
+  border-radius: .375rem;
   background: var(--color-surface);
   font-size: .8125rem;
   line-height: 1.45;
@@ -262,6 +280,16 @@ pre {
 pre code {
   padding: 0;
   background: transparent;
+}
+
+/* One muted mono line introducing the install command in the page header. The
+   command block itself is a plain `pre`, so it inherits the border, surface and
+   radius above and picks up the copy button from copy-code.js unchanged. */
+.command-lede {
+  margin: 1.25rem 0 .35rem;
+  @extend %mono;
+  @extend %muted;
+  font-size: .75rem;
 }
 
 /* Wrapper is created by assets/js/copy-code.js, so nothing here applies until
@@ -281,7 +309,7 @@ pre code {
   right: .375rem;
   padding: .2rem .45rem;
   border: var(--rule);
-  background: var(--color-bg);
+  @extend %ground;
   @extend %muted;
   font-family: var(--font-sans);
   font-size: .6875rem;
@@ -339,7 +367,7 @@ td {
 .home-intro {
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
 }
 
 .home-portrait {
@@ -387,7 +415,7 @@ td {
 .mcp-callout {
   margin: 0 0 1.25rem;
   padding-bottom: .75rem;
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
   font-size: .9rem;
 }
 
@@ -398,7 +426,7 @@ td {
 .github-activity {
   margin: 0 0 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
 }
 
 .github-heading {
@@ -484,7 +512,7 @@ td {
 }
 
 .repo-list li + li {
-  border-top: var(--rule);
+  @extend %rule-top;
 }
 
 .repo-link,
@@ -527,7 +555,7 @@ td {
 }
 
 .uses-item + .uses-item {
-  border-top: var(--rule);
+  @extend %rule-top;
 }
 
 /* The mark is decoration and orientation, never the only carrier of meaning:
@@ -565,7 +593,7 @@ td {
 
 .essays {
   padding-bottom: 1.5rem;
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
 }
 
 .tag-list {
@@ -589,7 +617,7 @@ td {
   @extend %muted;
   @extend %mono;
   font-size: .75rem;
-  font-variant-numeric: tabular-nums;
+  @extend %tabular;
 }
 
 .essay-year {
@@ -611,7 +639,7 @@ td {
 .essay-row time {
   @extend %mono;
   font-size: .8125rem;
-  font-variant-numeric: tabular-nums;
+  @extend %tabular;
   white-space: nowrap;
 }
 
@@ -624,7 +652,7 @@ td {
   margin: 0;
   font-size: 3.5rem;
   line-height: 1;
-  font-variant-numeric: tabular-nums;
+  @extend %tabular;
 }
 
 /* .essay-row mutes the whole row because in an archive the linked title
@@ -751,7 +779,7 @@ td {
 .prose > h2 {
   margin-top: 2.75rem;
   padding-top: 1.75rem;
-  border-top: var(--rule);
+  @extend %rule-top;
 }
 
 .prose > h2:first-child,
@@ -774,7 +802,7 @@ td {
 .entry-meta {
   @extend %mono;
   font-size: .75rem;
-  font-variant-numeric: tabular-nums;
+  @extend %tabular;
 }
 
 .entry-tags {
@@ -797,7 +825,7 @@ td {
   gap: .75rem;
   margin: 2rem 0 0;
   padding: .625rem 0;
-  border-top: var(--rule);
+  @extend %rule-top;
 }
 
 .changelog-controls[hidden] {
@@ -815,7 +843,7 @@ td {
   padding: .5rem 0;
   border: 0;
   border-radius: 0;
-  background: var(--color-bg);
+  @extend %ground;
   color: var(--color-link);
   font-size: .875rem;
 }
@@ -839,11 +867,11 @@ td {
 
 .changelog-entry {
   padding: 2rem 0;
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
 }
 
 .changelog-entry:first-child {
-  border-top: var(--rule);
+  @extend %rule-top;
 }
 
 /* Section headings that open their own block, so the standard h2 top margin
@@ -871,7 +899,7 @@ td {
 .also-read {
   margin-top: 3rem;
   padding-top: 1.25rem;
-  border-top: var(--rule);
+  @extend %rule-top;
 }
 
 .also-read-heading {
@@ -900,6 +928,21 @@ td {
   font-size: .75rem;
 }
 
+/* Directory rows tint on hover. Decoration only: the row carries name, state and
+   description as ordinary text, so nothing here is the sole carrier of meaning
+   and the page reads identically to a keyboard or a crawler. The negative inline
+   margin lets the tint bleed past the text column while the rule above it still
+   spans the full row. */
+.quest-directory li {
+  margin-inline: -.5rem;
+  padding-inline: .5rem;
+  border-radius: .375rem;
+}
+
+.quest-directory li:hover {
+  background: var(--color-surface);
+}
+
 .quest-actions {
   display: flex;
   flex-wrap: wrap;
@@ -911,6 +954,7 @@ td {
 .quest-actions .quest-action {
   padding: .5rem .8rem;
   border: var(--rule);
+  border-radius: .375rem;
   color: var(--color-text);
   font-size: .8125rem;
   text-decoration: none;
@@ -955,11 +999,11 @@ td {
   grid-template-columns: 9rem minmax(0, 1fr);
   gap: 1rem;
   padding: .5rem 0;
-  border-top: var(--rule);
+  @extend %rule-top;
 }
 
 .mcp-tool:last-child {
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
 }
 
 .mcp-tool strong {
@@ -975,7 +1019,7 @@ td {
 #site-footer {
   margin-top: 5rem;
   padding-top: 2rem;
-  border-top: var(--rule);
+  @extend %rule-top;
   @extend %muted;
   font-size: .8125rem;
 }
@@ -1008,7 +1052,7 @@ td {
 .footer-ask {
   margin-bottom: 2.25rem;
   padding-bottom: 2rem;
-  border-bottom: var(--rule);
+  @extend %rule-bottom;
 }
 
 .footer-ai-links {
@@ -1049,7 +1093,7 @@ td {
 .footer-note {
   margin-top: 2rem !important;
   padding-top: 1.25rem;
-  border-top: var(--rule);
+  @extend %rule-top;
   font-size: .75rem;
 }
 

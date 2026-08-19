@@ -5,6 +5,8 @@ seo_title: Consulting frameworks for AI agents | Master Shifu
 description: Find root causes before recommendations with 32 free consulting frameworks for AI agents, covering profitability, pricing, market entry, M&A, and more.
 last_modified_at: 2026-07-27
 intro: Find the cause before proposing the fix. Give your AI agent 32 consulting frameworks, a question-first workflow, and recommendations you can defend.
+install_lede: "Install it:"
+install_command: "curl -fsSL https://raw.githubusercontent.com/vcxcvii/master-shifu/main/install.sh | bash"
 project: true
 project_name: Master Shifu
 repo: master-shifu
@@ -33,9 +35,11 @@ faqs:
     answer: No. It structures evidence and reasoning. It cannot know private context, validate weak inputs, or replace accountable human judgment.
 ---
 
+It works with Claude Code, Codex, Cursor, Windsurf, and other tools supporting the Agent Skills format. You can also install it with `npx skills add vcxcvii/master-shifu`. Then describe the problem: "our SaaS margins fell 12 percent this quarter."
+
 Master Shifu is a free pack of 32 consulting frameworks for AI agents. Describe a business problem and its router chooses the right frameworks, asks for missing evidence, analyses the problem through five business lenses, and produces a recommendation you can inspect, challenge, and defend.
 
-Most AI answers fail before the writing starts. The agent accepts the first framing, skips root-cause analysis, and produces a polished recommendation for the wrong problem. Master Shifu makes the reasoning happen before the answer.
+Most AI answers fail before the writing starts. The agent accepts the first framing, skips root-cause analysis, and produces a polished recommendation for the wrong problem. Master Shifu makes the reasoning happen before the answer. I built it after years of being told to be "more strategic" without anyone defining what that meant, then reading 19 casebooks and keeping the frameworks that repeatedly separated symptoms from causes. The related essay is ["You're not strategic enough", said Manager](/youre-not-strategic-enough-said-manager/), and the build story is in [I now have my own Master Shifu](/i-now-have-my-own-master-shifu/).
 
 ## What changes when I use Master Shifu?
 
@@ -52,28 +56,6 @@ Better structure does not guarantee the right decision. It gives you something c
 `/master-shifu` is the router. You describe the situation in plain language. It identifies useful frameworks, explains the order, and asks for the evidence each framework needs.
 
 The pack covers 32 recurring business problem shapes extracted from 19 MBA casebooks. Frameworks can run alone or chain together. A margin decline might begin with profitability, move into cost structure, and end with pricing. A market-entry question may need industry analysis before the entry framework is useful.
-
-## Why did I build it?
-
-I spent years being told to be "more strategic" without anyone defining what that meant. The useful answer was unglamorous: strategy is mostly structured decomposition, and structured decomposition can be learned.
-
-I read 19 casebooks and kept the frameworks that repeatedly helped separate symptoms from causes. Turning them into Agent Skills made them available under pressure, when memory usually reaches for the most familiar framework instead of the right one.
-
-The related essay is ["You're not strategic enough", said Manager](/youre-not-strategic-enough-said-manager/). The build story is in [I now have my own Master Shifu](/i-now-have-my-own-master-shifu/).
-
-## How do I install Master Shifu?
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/vcxcvii/master-shifu/main/install.sh | bash
-```
-
-Or:
-
-```bash
-npx skills add vcxcvii/master-shifu
-```
-
-It works with Claude Code, Codex, Cursor, Windsurf, and other tools supporting the Agent Skills format. Then describe the problem: "our SaaS margins fell 12 percent this quarter."
 
 ## What should I not expect?
 

@@ -5,6 +5,10 @@ seo_title: Free SEO agent for Codex and Claude Code | Rainmaker
 description: Rainmaker is a free, open-source SEO and AEO agent for Codex and Claude Code. Crawl your site, rank fixes by revenue impact, and prove what worked.
 last_modified_at: 2026-08-01
 intro: A free, open-source SEO and AEO agent that runs inside Codex, Claude Code, and compatible coding assistants. It crawls your site, finds the three fixes closest to revenue, and remembers whether they worked.
+install_lede: "Install the Claude Code plugin, then say: run rainmaker"
+install_command: |-
+  /plugin marketplace add vcxcvii/rainmaker
+  /plugin install rainmaker@vcxcvii
 project: true
 project_name: Rainmaker
 repo: rainmaker
@@ -79,15 +83,16 @@ Rainmaker starts there. It sorts every page into a simple revenue tier, computes
 
 That final step is the point. A plan becomes stale. A system that changes its mind when the evidence changes becomes more useful.
 
-## Install Rainmaker
+## How else can I install Rainmaker?
 
-Install the plugin for your assistant (below), open it in your website project, and say:
+The header command installs the Claude Code plugin. Claude Code gets the front-door workflow plus a session hook that notices unfinished Rainmaker work. Open it in your website project and say `run rainmaker`. That is the whole setup: the front-door skill asks for your site URL, sets the project up itself, crawls, and opens the conversation from what it found. You never drive the CLI by hand.
 
-```text
-run rainmaker
+For the native Codex plugin:
+
+```bash
+codex plugin marketplace add vcxcvii/rainmaker --ref main
+codex plugin add rainmaker@vcxcvii
 ```
-
-That is the whole setup. The front-door skill asks for your site URL, sets the project up itself, crawls, and opens the conversation from what it found. You never drive the CLI by hand.
 
 If your assistant has no plugin support, set the project up first and then say the same thing:
 
@@ -98,24 +103,6 @@ npx @vcxcvii/rainmaker init --site https://yoursite.com
 Run that in the folder for the site, not your home directory: it writes configuration, context and skill copies into the working directory, and refuses a home directory unless you pass `--force`.
 
 Rainmaker installs one front-door skill plus 26 decision skills. The front door resumes from the first incomplete step. It does not launch a second chatbot or ask for another model key.
-
-### Install the native Codex plugin
-
-```bash
-codex plugin marketplace add vcxcvii/rainmaker --ref main
-codex plugin add rainmaker@vcxcvii
-```
-
-Start a new Codex task in your website project and say `run rainmaker`.
-
-### Install the Claude Code plugin
-
-```text
-/plugin marketplace add vcxcvii/rainmaker
-/plugin install rainmaker@vcxcvii
-```
-
-Claude Code gets the same front-door workflow plus a session hook that notices unfinished Rainmaker work.
 
 ## Do I need API keys?
 

@@ -5,6 +5,8 @@ seo_title: Design skills for AI coding agents | Michealangelo
 description: Ship interfaces that stop looking AI-generated with 14 free design skills for AI coding agents, covering grids, colour, type, psychology, motion, and taste.
 last_modified_at: 2026-07-27
 intro: Ship interfaces that stop looking AI-generated. Give your coding agent design constraints, precise vocabulary, and a taste gate before release.
+install_lede: "Install for Claude Code:"
+install_command: "npx github:vcxcvii/michealangelo install --target claude"
 project: true
 project_name: Michealangelo
 repo: michealangelo
@@ -38,6 +40,8 @@ Michealangelo is a free pack of 14 design skills for AI coding agents. It gives 
 
 Ask an unconstrained agent for a landing page and familiar defaults appear: centred hero, three cards, gradient button, decorative motion. Michealangelo replaces that pattern matching with constraints you can inspect and reuse.
 
+I rebuilt this website with agents, and the first attempts looked like every other AI-generated site on the internet. I do not write code beyond basic HTML, so I could see the problem without being able to repair every detail by hand. What I could do was describe good design precisely enough for a machine to follow: Müller-Brockmann on grids, contrast math instead of colour vibes, and exact language for differences such as kerning versus tracking. The wider argument is in [How to design without AI slop](/how-to-design-without-ai-slop/).
+
 ## What improves when I use Michealangelo?
 
 - **Output stops looking interchangeable.** `taste-audit` identifies generic AI interface patterns before they ship.
@@ -56,19 +60,7 @@ The benefit is not a prettier first draft. It is a design process that remains a
 
 Supporting skills interrogate the brief, pair fonts, sharpen design vocabulary, write handoffs, and preserve design decisions across sessions.
 
-## Why did I build it?
-
-I rebuilt this website with agents. The first attempts looked like every other AI-generated site on the internet.
-
-I do not write code beyond basic HTML, so I could see the problem without being able to repair every detail by hand. What I could do was describe good design precisely enough for a machine to follow: Müller-Brockmann on grids, contrast math instead of colour vibes, and exact language for differences such as kerning versus tracking or affordance versus signifier.
-
-Michealangelo is that judgment turned into files. The wider argument is in [How to design without AI slop](/how-to-design-without-ai-slop/).
-
-## How do I install Michealangelo?
-
-```bash
-npx github:vcxcvii/michealangelo install --target claude
-```
+## Which agents can install Michealangelo?
 
 Choose `codex`, `agents`, or `all` instead of `claude` for another target. Install only selected skills with `--skills grid-systems,color-systems`.
 
