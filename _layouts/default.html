@@ -5,9 +5,8 @@
   </head>
   <body>
     <a class="skip-link" href="#page-content">Skip to content</a>
+    {% include nav.html %}
     <main id="wrapper">
-      {% include theme-picker.html %}
-      {% include nav.html %}
       {% include mcp-callout.html %}
       <div id="page-content" tabindex="-1">
         {{ content }}

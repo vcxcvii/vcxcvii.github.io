@@ -16,5 +16,8 @@
 # than an addition. uses-this stays reachable from the footer, under About.
 - label: days
   url: /days/
+# The right pole of the masthead bar, not part of the wayfinding group. One
+# action, set apart, the way Simon Willison's bar sets Subscribe apart.
 - label: contact
   url: /contact/
+  pole: right

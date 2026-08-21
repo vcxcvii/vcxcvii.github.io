@@ -19,17 +19,22 @@
   --rule:1px solid var(--color-border);
   --font-sans:"Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  /* The masthead ramp. Three stops rather than two because the bar reads flat
+     without a highlight at the very top, and one gradient token per stop is
+     what lets all three grounds share a single background declaration. The
+     midpoint sits at 30%, not halfway: white nav links measure 4.1:1 against
+     the top stop and 7.4:1 against the middle one, so the light band has to
+     finish above the text rather than behind it. */
+  --bar-a:#577dc6;
+  --bar-b:#39558a;
+  --bar-c:#34538f;
 }
 
-/* These two declarations repeat often enough that in compressed output they
-   cost more than the selectors naming them do. Sass folds every @extend into a
+/* These declarations repeat often enough that in compressed output they cost
+   more than the selectors naming them do. Sass folds every @extend into a
    single grouped rule, so the source below stays local and readable while the
    shipped sheet carries each declaration once. This is the harvest that paid
    for the density strip on /days/. */
-%mono {
-  font-family: var(--font-mono);
-}
-
 %muted {
   color: var(--color-secondary);
 }
@@ -121,11 +126,13 @@ select {
   padding: 3rem max(1.25rem, env(safe-area-inset-right)) 2rem max(1.25rem, env(safe-area-inset-left));
 }
 
+/* Above the bar's z-index, or the first thing a keyboard reader reaches on
+   every page renders behind the masthead. */
 .skip-link {
   position: fixed;
   top: .5rem;
   left: .5rem;
-  z-index: 10;
+  z-index: 40;
   padding: .5rem .75rem;
   @extend %ground;
   transform: translateY(-200%);
@@ -146,28 +153,86 @@ select {
   border: 0;
 }
 
+/* The masthead is the only full-bleed element on the site, which is why it
+   lives outside #wrapper in the layout rather than inside it. It is sticky
+   because it now carries the whole navigation, the contact action and the
+   page light: on a 1500-word essay all three were otherwise a scroll away.
+
+   env(safe-area-inset-top) belongs here rather than on #wrapper now that the
+   bar is what sits under the notch in landscape. */
 .site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  margin-bottom: 0;
+  padding-top: env(safe-area-inset-top);
+  background: linear-gradient(to bottom, var(--bar-a), var(--bar-b) 30%, var(--bar-c));
+  color: #fff;
+}
+
+/* The bar spans the window; its contents line up with the 46rem text column,
+   so the mark sits directly above the first character of every heading. Same
+   width and same horizontal padding as #wrapper, which is what keeps them
+   from drifting apart at any viewport. */
+.site-nav-inner {
   position: relative;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
-  margin-bottom: 2.25rem;
-  padding-bottom: .75rem;
-  @extend %rule-bottom;
-  @extend %mono;
-  /* Monospace is wider per character than the sans it replaced, so the eight
-     navigation links need a smaller size and a tighter gap to still fill the
-     column exactly at 720px rather than wrapping to a second line. */
-  font-size: .75rem;
+  width: min(100%, 46rem);
+  min-height: 2.75rem;
+  margin: 0 auto;
+  padding: .35rem max(1.25rem, env(safe-area-inset-right)) .35rem max(1.25rem, env(safe-area-inset-left));
+  font-size: .8125rem;
   font-weight: 700;
 }
 
+/* display:contents so the two groups are direct flex items of the bar on
+   desktop and there is no third box in the layout. Below 44rem the same
+   element becomes the dropdown panel, which is the whole reason it exists. */
+.site-menu {
+  display: contents;
+}
+
+/* Every link in the bar is white and unadorned. Grouped into one rule because
+   a:visited outranks a bare class, so each of them needs the pair spelled out
+   and three separate rules would ship the same two declarations three times. */
 .site-mark,
-.site-mark:visited {
-  color: var(--color-mark);
-  font-size: 1rem;
+.site-mark:visited,
+.site-contact,
+.site-contact:visited,
+.site-links a,
+.site-links a:visited {
+  color: #fff;
   text-decoration: none;
+}
+
+/* 700 is the heaviest genuine weight in every fallback of the sans stack:
+   Helvetica Neue and Helvetica both stop at Bold, Arial has nothing above it,
+   and the one 900 face macOS ships is Condensed Black, which would render the
+   mark narrow rather than heavy. Weight is already at the ceiling, so the
+   thickness comes from size, and the tracking pulls the two letters into one
+   shape instead of two. */
+.site-mark {
+  font-size: 1.375rem;
+  letter-spacing: -.03em;
+}
+
+/* contact and the page light are the right pole. margin-left:auto rather than
+   space-between on the parent: the links have to stay next to the mark, and
+   space-between would push them to the middle of the bar. */
+.site-actions {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-left: auto;
+}
+
+/* The focus ring is --color-link everywhere else on the page. Inside the bar
+   that is blue on blue, so it is white here and nowhere else. */
+.site-nav a:focus-visible,
+.site-nav button:focus-visible {
+  outline-color: #fff;
 }
 
 .nav-toggle,
@@ -178,35 +243,39 @@ select {
 .site-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: .25rem .85rem;
+  gap: 0 1rem;
 }
 
+/* Opacity rather than a dimmed colour token: the bar has three grounds and a
+   single opacity holds the same relationship on all of them, where three hex
+   values would have to be maintained in three palettes. At .8 over the middle
+   stop the links measure 5.3:1, clear of the 4.5:1 floor for text this size. */
 .site-links a {
-  min-height: 2rem;
   padding: .25rem 0;
-  @extend %muted;
-  text-decoration: none;
+  opacity: .8;
 }
 
 .site-links a:hover,
-.site-links a[aria-current="page"] {
-  color: var(--color-text);
+.site-links a[aria-current="page"],
+.site-contact:hover {
   text-decoration: underline;
+  opacity: 1;
 }
 
-/* Headings, navigation, and every label on the page are monospace. Prose stays
-   proportional: these pages carry 700 to 1500 words of argument, and mono is
-   measurably slower to read at that length. The split is the whole type system,
-   so chrome reads as a terminal and the reading surface stays a publication. */
+/* One typeface, everywhere except code. Hierarchy is carried by size, weight
+   and the rules between sections, not by a second face. The tracking stays:
+   Helvetica sets loose at heading sizes and -.02em is what makes a 1.75rem
+   line read as a title rather than as large body copy.
+
+   scroll-margin clears the sticky masthead. Without it every anchor link on
+   the site lands with its heading hidden behind the bar. */
 h1,
 h2,
 h3,
 h4 {
-  @extend %mono;
   line-height: 1.25;
   letter-spacing: -.02em;
-  scroll-margin-top: 1rem;
+  scroll-margin-top: 3.75rem;
   text-wrap: balance;
 }
 
@@ -261,9 +330,12 @@ blockquote {
   color: #444;
 }
 
+/* The only monospace left on the site. Code is the one content type where the
+   character grid carries meaning: indentation, column alignment, and telling
+   an l from a 1. Everywhere else the grid was decoration. */
 code,
 pre {
-  @extend %mono;
+  font-family: var(--font-mono);
 }
 
 code {
@@ -292,20 +364,15 @@ pre code {
   background: transparent;
 }
 
-/* One muted mono line introducing the install command in the page header. The
+/* One muted line introducing the install command in the page header. The
    command block itself is a plain `pre`, so it inherits the border, surface and
-   radius above and picks up the copy button from copy-code.js unchanged. */
-/* The install command is the loudest thing in the header, so it gets the mark
-   colour rather than the hairline every other surface uses. The label is an
-   overline: caps, tracked out, small, the way a terminal titles a block. */
+   radius above and picks up the copy button from copy-code.js unchanged. The
+   block already announces itself with the mark-coloured border and the
+   chevron; a tracked-out caps overline on top of that was saying it twice. */
 .command-lede {
   margin: 2.25rem 0 .5rem;
-  @extend %mono;
-  color: var(--color-mark);
-  font-size: .6875rem;
-  font-weight: 700;
-  letter-spacing: .09em;
-  text-transform: uppercase;
+  @extend %muted;
+  font-size: .8125rem;
 }
 
 /* The hero command wraps rather than scrolls. A command a reader has to drag
@@ -649,7 +716,6 @@ td {
 
 .tag-list span {
   @extend %muted;
-  @extend %mono;
   font-size: .75rem;
   @extend %tabular;
 }
@@ -671,7 +737,6 @@ td {
 }
 
 .essay-row time {
-  @extend %mono;
   font-size: .8125rem;
   @extend %tabular;
   white-space: nowrap;
@@ -737,7 +802,6 @@ td {
   display: flex;
   gap: 2px;
   margin: .3rem 0 0;
-  @extend %mono;
   font-size: .6875rem;
   @extend %muted;
 }
@@ -752,7 +816,6 @@ td {
   flex-wrap: wrap;
   gap: .5rem 1rem;
   margin-bottom: .4rem;
-  @extend %mono;
   font-size: .8125rem;
 }
 
@@ -795,7 +858,6 @@ td {
 }
 
 .breadcrumbs {
-  @extend %mono;
   font-size: .8rem;
   @extend %muted;
   margin-bottom: 1.25rem;
@@ -809,24 +871,13 @@ td {
   margin-bottom: 2rem;
 }
 
-/* Light rules separate sections, matching the homepage rhythm. */
-/* Sections are numbered by the stylesheet, never typed into the Markdown, so a
-   writer reordering sections never has to renumber anything and the number can
-   be switched off in one place. */
-.prose {
-  counter-reset: section;
-}
-
+/* Light rules separate sections, matching the homepage rhythm. The rule and
+   the space do the work; the sheet no longer numbers the sections. A counter
+   reads as a specification, and these pages are essays. */
 .prose > h2 {
   margin-top: 4rem;
   padding-top: 2rem;
   @extend %rule-top;
-  counter-increment: section;
-}
-
-.prose > h2::before {
-  content: counter(section, decimal-leading-zero) "  ";
-  color: var(--color-mark);
 }
 
 .prose > h2:first-child,
@@ -847,7 +898,6 @@ td {
 }
 
 .entry-meta {
-  @extend %mono;
   font-size: .75rem;
   @extend %tabular;
 }
@@ -1032,7 +1082,6 @@ td {
   overflow-x: auto;
   border: var(--rule);
   background: var(--color-surface);
-  @extend %mono;
   font-size: .75rem;
   white-space: nowrap;
 }
@@ -1054,7 +1103,6 @@ td {
 }
 
 .mcp-tool strong {
-  @extend %mono;
   font-size: .75rem;
 }
 
@@ -1146,19 +1194,12 @@ td {
 
 @media (max-width: 44rem) {
   #wrapper {
-    padding-top: max(1.5rem, env(safe-area-inset-top));
-  }
-
-  .site-nav {
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
   }
 
   .site-mark {
     display: inline-block;
-    min-height: 2.75rem;
-    padding: .55rem 0;
+    line-height: 2rem;
   }
 
   .nav-toggle {
@@ -1176,7 +1217,7 @@ td {
     width: 2.75rem;
     height: 2.75rem;
     margin-left: auto;
-    color: var(--color-secondary);
+    color: #fff;
     cursor: pointer;
   }
 
@@ -1192,7 +1233,10 @@ td {
     outline-offset: 3px;
   }
 
-  .site-links {
+  /* The wrapper stops being transparent and becomes the panel. It takes the
+     bottom stop of the ramp rather than a flat colour so the dropdown reads
+     as the bar continuing downward, not as a separate sheet. */
+  .site-menu {
     position: absolute;
     top: 100%;
     right: 0;
@@ -1201,19 +1245,37 @@ td {
     display: none;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0;
-    padding: .75rem 0;
-    border-bottom: var(--rule);
-    background: var(--color-bg);
+    padding: .5rem max(1.25rem, env(safe-area-inset-right)) .75rem max(1.25rem, env(safe-area-inset-left));
+    background: var(--bar-c);
   }
 
-  .nav-toggle:checked ~ .site-links {
+  .nav-toggle:checked ~ .site-menu {
     display: flex;
+  }
+
+  .site-links {
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   .site-links a {
     min-height: 2.75rem;
     padding: .6rem 0;
+    line-height: 1.55;
+  }
+
+  /* The right pole collapses into the panel. contact keeps the tap target the
+     links have; the swatches sit beside it rather than under it, because
+     three 1.35rem circles in a column is a lot of empty panel. */
+  .site-actions {
+    gap: 1rem;
+    margin: .25rem 0 0;
+  }
+
+  .site-contact {
+    min-height: 2.75rem;
+    padding: .6rem 0;
+    line-height: 1.55;
   }
 
   .social-links a {
@@ -1329,21 +1391,23 @@ svg.logo-wordmark {
    which is the same running order as the light palette. */
 /* The page light. Three swatches showing the grounds themselves, so the
    control is a sample of the thing it does rather than a symbol standing in
-   for it. Right-aligned above the masthead, in normal flow: a fixed control in
-   the top corner collides with the mobile menu button, and there is no gutter
-   on a 320px screen wide enough to hold three of these. */
+   for it. It lives in the masthead now, at the right pole past contact, which
+   is what makes it reachable at any scroll depth. Below 44rem it moves into
+   the dropdown with the links: the note that used to be here was right that a
+   control in the top corner collides with the menu button, and the dropdown
+   is the gutter a 320px screen does not have. */
 .theme-picker {
   display: flex;
-  justify-content: flex-end;
   gap: .3rem;
-  margin-bottom: .75rem;
 }
 
+/* Fixed border rather than --rule. The swatches sit on the bar in every
+   ground, and the dark palette's hairline is invisible against it. */
 .theme-swatch {
   width: 1.35rem;
   height: 1.35rem;
   padding: 0;
-  border: var(--rule);
+  border: 1px solid rgba(255, 255, 255, .5);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -1360,7 +1424,7 @@ svg.logo-wordmark {
    move. It also carries aria-pressed, so the state survives with this
    stylesheet switched off. */
 .theme-swatch[aria-pressed="true"] {
-  border-color: var(--color-mark);
+  border-color: #fff;
   border-width: 3px;
 }
 
@@ -1378,6 +1442,9 @@ svg.logo-wordmark {
   --color-accent:#669aff;
   --color-link:#669aff;
   --color-mark:#5b8cff;
+  --bar-a:#395181;
+  --bar-b:#25375a;
+  --bar-c:#22365d;
 
 ::selection {
   background: #3c4a1e;
@@ -1449,6 +1516,14 @@ blockquote {
   --color-text:#2b2620;
   --color-secondary:#665c50;
   --color-border:#d9cdb8;
+  /* Beige is the one ground that gets its own bar. The light ramp is a cool
+     262 degrees; against warm paper it reads as a foreign object rather than
+     as this page's masthead. Same lightness, hue pulled to 236 and chroma
+     down a fifth, so it belongs to the paper and still measures 7.3:1 under
+     white text. */
+  --bar-a:#4087af;
+  --bar-b:#275c79;
+  --bar-c:#1d5b7c;
 }
 
 /* The contribution grid's empty cell is #ebedf0, a cool grey that measures 1.0

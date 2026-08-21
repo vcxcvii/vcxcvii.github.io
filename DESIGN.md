@@ -12,7 +12,7 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 ## Hard constraints
 
 - No React, Tailwind, shadcn, component framework, web font, icon library, client-side router, theme framework, or build-time JavaScript.
-- No cards, pills, tab bars, gradients, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay. The selected theme swatch marks itself by thickening its own border, because `_scripts/qa.rb` treats `box-shadow` as a forbidden pattern and an outline there would be indistinguishable from the focus ring.
+- No cards, pills, tab bars, shadows, glass effects, decorative animation, fake browser chrome, CRT effects, or nostalgia cosplay. One gradient is permitted and it is the masthead bar; see **Masthead**. `radial-gradient` stays forbidden, and no gradient may appear inside the reading column. The selected theme swatch marks itself by thickening its own border, because `_scripts/qa.rb` treats `box-shadow` as a forbidden pattern and an outline there would be indistinguishable from the focus ring.
 - A bordered, tinted surface is permitted for one thing: code. `pre`, `code`, and the install command block read as raised because they are a different kind of content, not because a box makes a page look designed. Lists stay rules-only. Nothing else gets a border and a fill.
 - Three grounds: light, beige, dark. With nothing stored, `prefers-color-scheme` decides between light and dark and no attribute is written, so a reader who never touches the swatches gets exactly the behaviour the site had with two palettes. The reader already told their operating system which one they want, and the default still answers that without asking.
 - The swatches are the only way to override it. A stored choice and a pre-paint inline script are both accepted now; that is the cost of letting the reader pick beige, which no operating system can tell us they want.
@@ -29,18 +29,20 @@ Machine-readable rules for `varunchoraria.com`. Every page should feel like a se
 - Desktop padding: `3rem 1.25rem 2rem`.
 - Mobile padding: `1.5rem 1.25rem 2rem`.
 - Base typography: `16px / 1.55` using `"Helvetica Neue", Helvetica, Arial, sans-serif`.
-- Interface typography: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace`.
+- Code typography, and nothing else: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace`.
 - No downloaded fonts. No font preload. Both stacks are already on the reader's machine, which is why the site can have two voices for free.
 
 ## Type split
 
-The page has two typefaces and a rule for which gets used: **monospace is the interface, proportional is the reading.**
+**One typeface. Helvetica everywhere except code.**
 
-- Monospace: `h1` to `h4`, the primary navigation, breadcrumbs, dates, metadata, section numbers, labels, code, and the install command. Anything that names, locates, or labels.
-- Proportional: body paragraphs, list items, blockquotes. Anything that argues.
-- The reason is length. Quest pages and essays run 700 to 1500 words, and monospace is slower to read at that length. Setting the whole page in mono would buy an aesthetic and charge the reader for it on every paragraph.
-- Headings carry `letter-spacing: -.02em`. Monospace sets wide by construction, and at heading sizes the default tracking reads as gappy rather than deliberate.
-- Navigation is `.75rem` mono with a `.85rem` gap. Monospace is wider per character than the sans it replaced, and eight links still have to fill the column exactly at `720px` without wrapping. Adding a ninth link is still the thing that breaks it.
+- Helvetica: `h1` to `h4`, the masthead, breadcrumbs, dates, metadata, labels, prose, everything. Hierarchy is carried by size, weight and the rules between sections, not by a second face.
+- Monospace: `pre`, `code`, and the install command. Nowhere else. Code is the one content type where the character grid carries meaning: indentation, column alignment, telling an `l` from a `1`. A directory tree in a post collapses without it.
+- The rule for adding mono to anything new is that question. If the content would still read correctly in a proportional face, it is not code and it does not get the mono stack.
+- Headings keep `letter-spacing: -.02em`. Helvetica sets loose at heading sizes, and the tracking is what makes `1.75rem` read as a title rather than as large body copy.
+- Headings carry `scroll-margin-top: 3.75rem`. The masthead is sticky, so without it every anchor link on the site lands with its heading hidden behind the bar.
+- Masthead navigation is `.8125rem` at weight `700` with a `1rem` gap, and the seven wayfinding labels carry no `/` prefix. The prefix was terminal vocabulary and left with the mono system.
+- 700 is the ceiling. Helvetica Neue and Helvetica both stop at Bold, Arial has nothing above it, and the only `900` face macOS ships in the family is Condensed Black, which renders narrow rather than heavy. Anything that needs to look heavier gets a larger size, never a larger weight.
 
 ## Color
 
@@ -59,16 +61,28 @@ The page has three depths and no more: the ground, one tinted surface, and a hai
 - **One radius: `.375rem`.** It applies to `pre`, to `.quest-action`, and to the side-quest directory row that tints on hover. It stays a literal rather than a token because it repeats at exactly three sites, and in compressed CSS a token costs more than it saves until it repeats more than that.
 - **Borders are the hairline or nothing.** `--rule` is the only border weight on the page. A component that wants to look more important gets more space, not a heavier edge.
 
-## Terminal chrome
+## Masthead
 
-The interface borrows a terminal's vocabulary, not its costume. The distinction is what the earlier "no nostalgia cosplay" rule was protecting, and it still holds: no fake window frames, no scanlines, no ASCII logos, no blinking cursors, no green-on-black.
+One full-bleed sticky bar, the only element on the site that spans the window. It lives outside `#wrapper` in `_layouts/default.html`, because a bar cannot span the window from inside a `46rem` centred column and navigation was never main content. Its inner div re-establishes that column at the same width and the same horizontal padding, which is what keeps the mark aligned with the first character of every heading below it.
 
-What is allowed, because each one carries information:
+- **Two poles.** `VC` and the seven wayfinding links on the left; `contact` and the page light on the right, pushed there by `margin-left: auto` rather than `space-between`, which would strand the links in the middle. `_data/navigation.yml` decides which pole an item belongs to with `pole: right`.
+- **`VC` is white, `1.375rem`, `700`, tracked `-.03em`.** Not `#0057ff`: the mark colour is invisible on a blue bar. The tracking pulls two letters into one shape.
+- **Links are white at `opacity: .8`,** full opacity on hover and for the current page. Opacity rather than a dimmed colour token because the bar has three grounds, and one declaration holds the same relationship on all of them where three hex values would have to be maintained in three palettes.
+- **It is sticky.** The bar carries the whole navigation, the action and the page light, and on a 1500-word essay all three were otherwise a scroll away. `z-index: 30`, and `.skip-link` sits at `40` so a keyboard reader does not land behind it.
+- **The ramp is three stops per ground,** `--bar-a`, `--bar-b`, `--bar-c`. The midpoint sits at `30%`, not halfway: white text measures `4.1:1` against the top stop and `7.4:1` against the middle one, so the light band has to finish above the text rather than behind it.
+- **Beige gets its own ramp.** The light ramp is a cool `262°`; on warm paper it reads as a foreign object. Beige holds the same lightness at hue `236°` with chroma down a fifth.
+- **The focus ring is white inside the bar** and `--color-link` everywhere else, because the page ring is blue on blue here.
+- **Below `44rem` the bar keeps only the mark and the hamburger.** `.site-menu` stops being `display: contents` and becomes the dropdown panel, taking the bottom stop of the ramp so it reads as the bar continuing downward. Links, `contact` and the swatches all live in it. That is the answer to the old note about a fixed control colliding with the menu button: the panel is the gutter a 320px screen does not have.
+- **Browser chrome follows the bar, not the page.** `theme-color` in `_includes/head.html` and the `chrome` values in `assets/js/theme.js` are each ground's top stop.
 
-- **A chevron before the install command.** It marks the line as something you run rather than something you read. Generated with `content` on `.command-block code::before`, never typed into the Markdown, so `copy-code.js` reads `textContent` and the chevron never reaches the reader's clipboard.
-- **Section numbers on `.prose > h2`.** A CSS counter, `decimal-leading-zero`, in the mark colour. Generated for the same reason: reordering sections never means renumbering anything, and switching the whole idea off is one rule.
-- **An overline label above the command.** Caps, tracked out at `.09em`, `.6875rem`, mark colour. It titles the block the way a terminal titles output.
-- **The mark colour carries all of it.** `#0057ff` for the command border, the label, the chevron, and the section numbers. The accent is never green: `#9be9a8` through `#216e39` belong to the GitHub contribution graph, and an interface accent inside that ramp would make the graph unreadable as a count.
+## Install command
+
+The command block borrows a terminal's vocabulary, not its costume. No fake window frames, no scanlines, no ASCII logos, no blinking cursors, no green-on-black.
+
+- **A chevron before the command.** It marks the line as something you run rather than something you read. Generated with `content` on `.command-block code::before`, never typed into the Markdown, so `copy-code.js` reads `textContent` and the chevron never reaches the reader's clipboard.
+- **The mark colour carries the border and the chevron.** `#0057ff`, never green: `#9be9a8` through `#216e39` belong to the GitHub contribution graph, and an interface accent inside that ramp would make the graph unreadable as a count.
+- **The label above it is plain muted text.** It was an overline once, caps and tracked out at `.09em`. The block already announces itself with the mark-coloured border and the chevron; the overline was saying it a third time.
+- **Sections are not numbered.** The stylesheet used to generate `01`, `02` with a CSS counter. A counter reads as a specification and these pages are essays; the rule and the space between sections do the work.
 
 Everything here is decoration over content that already reads correctly. With CSS off, the command is still a `pre`, the headings are still headings, and nothing has lost its meaning.
 
@@ -100,9 +114,10 @@ Beige changes only the empty cell. `#ebedf0` is a cool grey that measures 1.0 ag
 
 ## Page light
 
-- Three swatches showing the grounds themselves, light, beige and dark, right-aligned above the masthead. The control is a sample of the thing it does rather than a symbol standing in for it.
+- Three swatches showing the grounds themselves, light, beige and dark, at the right pole of the masthead bar past `contact`. The control is a sample of the thing it does rather than a symbol standing in for it, and living in the bar makes it reachable at any scroll depth.
 - Swatch fills are fixed hex values, not tokens. Each has to show its own ground whichever ground the page is currently on, so they must not follow the palette.
-- It sits in normal flow, not fixed to the viewport. A fixed control in the top corner collides with the mobile menu button, and no gutter on a 320px screen is wide enough for three swatches.
+- Below `44rem` it moves into the dropdown panel with the links. A control in the top corner collides with the mobile menu button, and no gutter on a 320px screen is wide enough for three swatches; the panel is.
+- Swatch borders are a fixed `rgba(255,255,255,.5)` and the selected one thickens to white. `--rule` is invisible against the bar in the dark ground, and `--color-mark` is blue on blue.
 - `assets/js/theme.js` writes the markup. Without JavaScript nothing renders, because a control that cannot do anything should not occupy a tap target. The system setting still chooses the ground in that case.
 - Each swatch is a real `<button>` with a text label for assistive technology. The selected one is ringed and carries `aria-pressed`, so the state survives with the stylesheet off and never rests on colour alone.
 - There is no way back to following the system once a swatch is picked. That is a known gap, not an oversight; a fourth Auto swatch is the fix if it starts to matter.
@@ -170,7 +185,7 @@ A quest page answers "what is this and how do I get it" before it argues anythin
 
 1. Title and `intro`.
 2. `.quest-actions`: the repository, npm where one exists, and the licence.
-3. The install command, in a `pre`, above the fold. It comes from `install_command` in front matter, not from prose, so the five pages cannot drift apart, and it is a plain code block so `copy-code.js` gives it a copy button with no new script. `install_lede` is the one muted mono line above it.
+3. The install command, in a `pre`, above the fold. It comes from `install_command` in front matter, not from prose, so the five pages cannot drift apart, and it is a plain code block so `copy-code.js` gives it a copy button with no new script. `install_lede` is the one muted line above it.
 4. The first line of prose is what to say to the agent once it is installed. That sentence used to sit a thousand words down the page, under an install heading, which is the reason this order exists.
 5. Then the argument: what you get, how it works, what to expect and what not to.
 6. `Latest meaningful changes`, then `Questions people ask`, then the closing question.
@@ -196,7 +211,7 @@ There is no separate install section. The command is in the header, so a page ke
 - Shared markup lives in `_includes/essay-list.html`.
 - Group heading: four-digit year.
 - Each row: `DD Mon » linked title`.
-- Date uses monospace and muted gray; title uses blue, underlined link.
+- Date uses muted gray with `tabular-nums`; title uses blue, underlined link.
 - No excerpts, filters, tag pills, search, cards, pagination, or `View all` on homepage.
 - Homepage mobile rows use compact vertical rhythm and a narrower date column. Other archive surfaces keep `44px` tap rows.
 
@@ -291,7 +306,7 @@ There is no separate install section. The command is in the header, so a page ke
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `16,800` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. The ceiling was raised from `14,000` when the page light shipped: three grounds instead of two means the dark palette is emitted twice, once for the system query and once for the stored choice. Currently `16,724`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which fold 7 and 16 repeats into one grouped rule each.
+- Inline compiled CSS: hard ceiling `17,700` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. The ceiling was raised from `14,000` when the page light shipped, to `17,400` for the terminal type system, and to `17,700` for the masthead bar. Currently `17,546`. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which folded 7 and 16 repeats into one grouped rule each. `%mono` is gone: the masthead pass took mono down to `code, pre`, which is one rule, and a placeholder for a single call site costs more than it saves.
 - The command-first side-quest pages paid for themselves the same way and then some, taking the sheet from `16,754` to `16,724` while adding a radius, a hover tint, and the `.command-lede` rule. Four more placeholders harvested 300 bytes: `%rule-top` and `%rule-bottom` fold 9 and 8 repeats of `border-top`/`border-bottom: var(--rule)`, `%ground` folds 4 of `background: var(--color-bg)`, and `%tabular` folds 4 of `font-variant-numeric: tabular-nums`. Deleting the `color` and `font-family` declarations on `h1, h2, h3, h4` paid the rest: headings inherit both from `html`, so the sheet was setting them twice.
 - `hr` is deliberately not extended. It reads `border: 0` and then `border-top: var(--rule)`, and `@extend` emits the grouped rule near the top of the sheet, so the shorthand would win and the rule would vanish. Before folding a declaration into a placeholder, check that nothing later in its own block sets the shorthand that contains it.
 - `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.

@@ -41,8 +41,11 @@
      deliberately: a meta policy only governs what is parsed after it, so a
      script above it would run outside the policy its hash is listed in. -->
 <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='beige'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})();</script>
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16181a" media="(prefers-color-scheme: dark)">
+<!-- The masthead is pinned to the top of every page, so the browser chrome
+     matches the bar rather than the page behind it. Values are the top stop of
+     each ground's ramp in _sass/main.scss. -->
+<meta name="theme-color" content="#577dc6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#395181" media="(prefers-color-scheme: dark)">
 <meta name="google-site-verification" content="v48CxEycPMCjgwT_ovhFQKTQIt0tdSIvaFsj4oFuMec">
 {% if page.noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
 <title>{{ meta_title | escape }}</title>

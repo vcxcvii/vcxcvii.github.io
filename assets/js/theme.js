@@ -17,9 +17,11 @@
   // them hides t-light and t-beige from anything that greps the source,
   // including the unused-class check in _scripts/qa.rb.
   var THEMES = [
-    { id: 'light', label: 'Light', cls: 't-light', chrome: '#ffffff' },
-    { id: 'beige', label: 'Beige', cls: 't-beige', chrome: '#f3ecdf' },
-    { id: 'dark', label: 'Dark', cls: 't-dark', chrome: '#16181a' }
+    // chrome is the top stop of that ground's masthead ramp, not its page
+    // colour: the sticky bar is what sits under the browser chrome now.
+    { id: 'light', label: 'Light', cls: 't-light', chrome: '#577dc6' },
+    { id: 'beige', label: 'Beige', cls: 't-beige', chrome: '#4087af' },
+    { id: 'dark', label: 'Dark', cls: 't-dark', chrome: '#395181' }
   ];
   var root = document.documentElement;
 

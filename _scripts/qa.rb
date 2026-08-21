@@ -20,8 +20,13 @@ SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
 
 # ── Lightweight publication guardrails ───────────────────────────────
+# linear-gradient came off this list when the masthead bar shipped. It is the
+# one gradient on the site and it is chrome, not content: a full-bleed sticky
+# bar reading as a single surface rather than as a flat block of colour. The
+# rest stay forbidden, radial-gradient included, because nothing about that
+# decision argues for decorative fills inside the page.
 FORBIDDEN_PATTERNS = %w[
-  nav-root shadcn tailwind @font-face box-shadow linear-gradient radial-gradient
+  nav-root shadcn tailwind @font-face box-shadow radial-gradient
   backdrop-filter
 ].freeze
 FORBIDDEN_ASSETS = %w[
@@ -40,7 +45,13 @@ REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
 # the command-first pages (%rule-top, %rule-bottom, %ground, %tabular) had
 # already been spent, so this feature is the first since dark mode that could
 # not pay for itself and had to move the ceiling instead.
-CSS_BUDGET = 17_400
+# Raised again from 17_400 for the masthead bar. The type system it replaced
+# paid most of its own way back: %mono and its twelve call sites are gone, and
+# so is the section counter. The bar spends it on nine gradient stops, three
+# per ground, plus the sticky shell, the inner column and the dropdown panel
+# that the links, contact and the page light now share below 44rem. Grouping
+# every white link in the bar into one rule returned 43 of it.
+CSS_BUDGET = 17_700
 GITHUB_JS_BUDGET = 8_000
 # Every script the site is allowed to ship, with its own budget. An allowlist
 # rather than a count: a new file is a deliberate decision that shows up in a
@@ -186,7 +197,9 @@ def design_guardrails
   errs << "Design: blog must remain visible in navigation" unless nav.include?("site.data.navigation") && File.read("_data/navigation.yml").include?("url: /blog/")
   errs << "Design: side quests must remain visible in navigation" unless File.read("_data/navigation.yml").include?("url: /side-quests/")
   errs << "Design: mobile hamburger navigation missing" unless nav.include?('class="nav-toggle"') && nav.include?('class="menu-toggle"')
-  overlay_nav = css_source.include?(".nav-toggle:checked ~ .site-links") &&
+  # .site-menu, not .site-links: below 44rem the panel holds contact and the
+  # page light as well as the links, so the wrapper is what gets revealed.
+  overlay_nav = css_source.include?(".nav-toggle:checked ~ .site-menu") &&
                 css_source.include?("position: absolute") &&
                 css_source.include?("z-index: 20")
   errs << "Design: mobile navigation must overlay content" unless overlay_nav
