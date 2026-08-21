@@ -19,9 +19,9 @@
   var THEMES = [
     // chrome is the top stop of that ground's masthead ramp, not its page
     // colour: the sticky bar is what sits under the browser chrome now.
-    { id: 'light', label: 'Light', cls: 't-light', chrome: '#2f73ff' },
-    { id: 'beige', label: 'Beige', cls: 't-beige', chrome: '#3b76f0' },
-    { id: 'dark', label: 'Dark', cls: 't-dark', chrome: '#0040c4' }
+    { id: 'light', label: 'Light', cls: 't-light', chrome: '#0969da' },
+    { id: 'beige', label: 'Beige', cls: 't-beige', chrome: '#0969da' },
+    { id: 'dark', label: 'Dark', cls: 't-dark', chrome: '#1f6feb' }
   ];
   var root = document.documentElement;
 

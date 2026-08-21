@@ -19,22 +19,25 @@
   --rule:1px solid var(--color-border);
   --font-sans:"Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  /* The masthead ramp. Three stops rather than two because the bar reads flat
-     without a highlight at the very top, and one gradient token per stop is
-     what lets all three grounds share a single background declaration.
+  /* The masthead ramp: GitHub's own blue, steps 5, 6 and 7 of the Primer light
+     scale, read from the light token file in primer/primitives under
+     src/tokens/base/color. Do not write the file extension here: the unused
+     class check in _scripts/qa.rb scans this sheet for a dot followed by a
+     word and would read it as a selector.
+     #0969da is Primer's accent foreground, the blue every GitHub surface uses
+     for a link, so it is the one people recognise as GitHub blue.
 
-     Chroma sits at the edge of the sRGB gamut for each stop's lightness,
-     0.220, 0.218, 0.216 at hue 262.5. The first version of this ramp inherited
-     its chroma from the purple it was rotated out of, around 0.10, and a blue
-     at half the available saturation reads as grey-blue chrome rather than as
-     the site's blue. Lightness is unchanged, so nothing about the contrast
-     moved: white measures 4.19:1 on the top stop and 7.85:1 on the middle one.
+     Steps 4, 5 and 6 would have been the obvious ramp and they do not pass:
+     white nav links at opacity .8 measure 3.89:1 over #0969da as a midpoint.
+     Starting one step down puts the midpoint on #0550ae and the same links at
+     5.45:1, with white on the top stop at 5.19:1.
 
-     The midpoint sits at 30%, not halfway, for that reason: the nav links have
-     to sit over the middle stop, not the top one. */
-  --bar-a:#2f73ff;
-  --bar-b:#0043cc;
-  --bar-c:#0042c9;
+     Three stops rather than two because the bar reads flat without a highlight
+     at the top, and the midpoint sits at 30% rather than halfway so the links
+     sit over the middle stop instead of the lightest one. */
+  --bar-a:#0969da;
+  --bar-b:#0550ae;
+  --bar-c:#033d8b;
 }
 
 /* These declarations repeat often enough that in compressed output they cost
@@ -1449,9 +1452,11 @@ svg.logo-wordmark {
   --color-accent:#669aff;
   --color-link:#669aff;
   --color-mark:#5b8cff;
-  --bar-a:#0040c4;
-  --bar-b:#002b8a;
-  --bar-c:#002a89;
+  /* Primer's dark blue scale, same three steps. GitHub ships two scales and
+     so does the bar; the light one is too bright against #16181a. */
+  --bar-a:#1f6feb;
+  --bar-b:#1158c7;
+  --bar-c:#0d419d;
 
 ::selection {
   background: #3c4a1e;
@@ -1523,15 +1528,11 @@ blockquote {
   --color-text:#2b2620;
   --color-secondary:#665c50;
   --color-border:#d9cdb8;
-  /* Beige keeps its own ramp but not its own hue. Pulling it toward 236
-     degrees did soften it against warm paper, and it also capped the chroma:
-     the sRGB gamut is narrow there, 0.115 against 0.220 at 262.5, so the bar
-     came out teal and muted instead of blue. Same hue as the other two now,
-     chroma at 88% rather than the full width, which is the whole of the
-     concession warm paper gets. */
-  --bar-a:#3b76f0;
-  --bar-b:#1149be;
-  --bar-c:#1148bc;
+  /* Beige defines no bar tokens and inherits the light ramp. It had its own
+     for two revisions, first warmed toward 236 degrees and then re-hued back;
+     neither survived contact with the requirement that the bar read as GitHub
+     blue. GitHub publishes a light scale and a dark scale and nothing between,
+     and inventing a third would be this sheet's colour, not theirs. */
 }
 
 /* The contribution grid's empty cell is #ebedf0, a cool grey that measures 1.0
