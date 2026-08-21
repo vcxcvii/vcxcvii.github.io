@@ -27,17 +27,21 @@
      #0969da is Primer's accent foreground, the blue every GitHub surface uses
      for a link, so it is the one people recognise as GitHub blue.
 
-     Steps 4, 5 and 6 would have been the obvious ramp and they do not pass:
-     white nav links at opacity .8 measure 3.89:1 over #0969da as a midpoint.
-     Starting one step down puts the midpoint on #0550ae and the same links at
-     5.45:1, with white on the top stop at 5.19:1.
+     Steps 4, 5 and 6, which is one step lighter than this ramp shipped at
+     first, and it is the lightest the bar can go while the text on it is
+     white. The number that decides it is not the contrast against any one
+     stop, it is the contrast against the gradient where the glyphs actually
+     sit: on a 45px bar with .8125rem text the cap band runs from 33% to 67%
+     of the height, which is entirely past the midpoint. Measured across that
+     band the worst point is 5.27:1 for full-strength white. Steps 3, 4 and 5
+     put it at 3.47:1, so there is no lighter ramp that keeps white text.
 
      Three stops rather than two because the bar reads flat without a highlight
      at the top, and the midpoint sits at 30% rather than halfway so the links
      sit over the middle stop instead of the lightest one. */
-  --bar-a:#0969da;
-  --bar-b:#0550ae;
-  --bar-c:#033d8b;
+  --bar-a:#218bff;
+  --bar-b:#0969da;
+  --bar-c:#0550ae;
 }
 
 /* These declarations repeat often enough that in compressed output they cost
@@ -256,20 +260,18 @@ select {
   gap: 0 1rem;
 }
 
-/* Opacity rather than a dimmed colour token: the bar has three grounds and a
-   single opacity holds the same relationship on all of them, where three hex
-   values would have to be maintained in three palettes. At .8 over the middle
-   stop the links measure 5.3:1, clear of the 4.5:1 floor for text this size. */
+/* The links used to sit at opacity .8, which read as a hierarchy against the
+   mark. It cost 1.3 stops of contrast, and on the lighter ramp that is the
+   difference between 5.27:1 and 3.95:1. Full strength white, and the current
+   page is marked by its underline, which it already was. */
 .site-links a {
   padding: .25rem 0;
-  opacity: .8;
 }
 
 .site-links a:hover,
 .site-links a[aria-current="page"],
 .site-contact:hover {
   text-decoration: underline;
-  opacity: 1;
 }
 
 /* One typeface, everywhere except code. Hierarchy is carried by size, weight
@@ -1453,10 +1455,11 @@ svg.logo-wordmark {
   --color-link:#669aff;
   --color-mark:#5b8cff;
   /* Primer's dark blue scale, same three steps. GitHub ships two scales and
-     so does the bar; the light one is too bright against #16181a. */
-  --bar-a:#1f6feb;
-  --bar-b:#1158c7;
-  --bar-c:#0d419d;
+     so does the bar; the light one is too bright against #16181a. Worst point
+     under the text band is 4.71:1. */
+  --bar-a:#388bfd;
+  --bar-b:#1f6feb;
+  --bar-c:#1158c7;
 
 ::selection {
   background: #3c4a1e;
