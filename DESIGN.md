@@ -153,9 +153,9 @@ Beige changes only the empty cell. `#ebedf0` is a cool grey that measures 1.0 ag
 ## Header
 
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
-- First link is electric-blue `VC`, returning home.
-- Visible path links follow, in `_data/navigation.yml` order: `/about`, `/work`,
-  `/consulting`, `/blog`, `/speaking`, `/side-quests`, `/days`, `/contact`.
+- First item is `VC` at `1.0625rem` weight `700`, returning home. It is white or dark with the bar, never `#002f9e`: the mark colour would be the bar's own colour on the deep ramps this bar has worn.
+- Labels are Title Case, matching the reference nav: `About`, `Work`, `Consulting`, `Blog`, `Side Quests`, `Speaking`, `Days`, `Contact`. They were lowercase for the terminal type system and changed with it.
+- Everything but the mark is pushed right, in `_data/navigation.yml` order, with the page light last. `.site-links` carries `margin-left: auto`; `.site-actions` no longer does, or the two groups would separate.
 - Eight links is the ceiling. At `720px`, the narrowest desktop width before the
   hamburger takes over, they fill the column exactly. A ninth wraps, so adding
   one means removing one. `/days` was added by removing `/uses-this`, which
@@ -164,26 +164,30 @@ Beige changes only the empty cell. `#ebedf0` is a cool grey that measures 1.0 ag
   including for `/contact`: the header has one visual idiom and a single
   emphasised item would make every other link read as secondary.
 - Keep the primary navigation internal. External profiles belong in the homepage social links.
-- Header links are muted gray without underlines until hover, focus, or active state. Icon-only social links also omit underlines because they contain no visible text.
-- A `1px #dddddd` rule sits below the navigation.
-- No home pill, active background, or theme toggle.
+- Header links take `--bar-ink` without underlines until hover, focus, or the current page. Icon-only social links also omit underlines because they contain no visible text.
+- A `--rule` hairline sits below the navigation. It is not in the reference, which has a hero under its bar; this page has white paper under it, and a translucent white band on white has no edge.
+- No home pill, active background, or filled call to action. The page light is a control, not an emphasised link.
 - Desktop: single line where space permits.
-- Mobile: `VC` and a plain hamburger occupy the first line. Opening it reveals a right-aligned white link panel over the page content, never changing document flow or pushing content down. Each link retains at least `44px` touch height. The panel uses one light bottom rule, no shadow or animation.
+- Mobile: `VC` and a plain hamburger occupy the first line. Opening it reveals a right-aligned opaque panel over the page content, never changing document flow or pushing content down. Each link retains at least `44px` touch height. The panel uses one hairline, no shadow or animation.
+- Every icon in the bar states its width and height in CSS. The reset at the top of the sheet sets `height: auto` on every `svg`, which overrides the width and height attributes, so an icon that relies on them resolves its height from however its flex parent computes an auto cross size. Size icons in CSS, always.
 
 ## Homepage
 
 Order is fixed:
 
 1. Header.
-2. Short introduction with the prior circular portrait above the text: name, location, operating focus, writing topics.
-3. Internal MCP page link, calendar link, and compact links to LinkedIn, X, GitHub, and Letterboxd.
+2. Short introduction with the prior circular portrait above the text: name and initials in the `h1`, then one positioning line, then location, operating focus, writing topics.
+3. Internal MCP page link, calendar link, and compact links to LinkedIn, X, GitHub, npm, Cursor, and Letterboxd.
 4. GitHub contribution graph in official green.
 5. Linked `Essays` heading.
 6. Every essay, newest first, grouped by year.
 7. Linked `Side quests` heading and featured side-quest list.
 8. Footer.
 
-The introduction is not a marketing hero. It uses the existing `168x168` `hero-photo.jpg`, cropped into a circle above the text on every viewport, never beside it. No oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are five icon-only links with accessible names, no boxes, visible text, or external-arrow marks. The calendar link also omits an external-arrow mark.
+The introduction is not a marketing hero. It uses the existing `168x168` `hero-photo.jpg`, cropped into a circle above the text on every viewport, never beside it. No oversized CTA, animated keyword, career timeline, side-quest cards, or AI CTA band. Social profiles are six icon-only links with accessible names, no boxes, visible text, or external-arrow marks. The calendar link also omits an external-arrow mark.
+
+- **One positioning line sits under the name,** `.lede`, at `1.125rem` weight `700` with `text-wrap: balance`. The `h1` carries the initials, `Hi, I'm Varun Choraria (VC).`, which is what retired the `VC for short.` that used to open the first paragraph: the aside was doing work the heading could do for free. The line runs to two rows at desktop width, which is why it balances: headings get `balance` sitewide and this is a heading in everything but tag.
+- **It is a lede, not a subhead.** The reference sets a `28px` subhead against an `80px` headline; against a `1.75rem` `h1` that ratio lands below body size. One step up from body at heading weight is the most a line can take here without reading as a second `h1`.
 
 Homepage sections are separated by light `1px #dddddd` horizontal rules with generous whitespace. Rules clarify structure; they never become boxed sections.
 
@@ -265,7 +269,7 @@ There is no separate install section. The command is in the header, so a page ke
 - `/about` contains no portrait.
 - Long pages rely on headings, rules, lists, and links. Do not introduce a separate visual system.
 - `/uses-this/` renders from `_data/uses.yml`. Every entry carries a name, a one-line note, a destination, and one `logo` that must exist as `_includes/logos/<logo>.svg`. A row naming several products uses `name_md`, so each product carries its own link instead of the row linking only the first.
-- Each row is one `24px` monochrome mark in a fixed left gutter, then the linked name and its muted note as running prose. Rows are separated by the standard `1px #dddddd` rule. No cards, columns, grids, or icon library.
+- Each row is one `20px` brand-colour mark in a fixed left gutter, then the linked name and its muted note as running prose. The marks were monochrome for as long as the page had one; see **Brand marks**. Rows are separated by the standard `--rule` hairline. No cards, columns, grids, or icon library.
 - Marks use the real brand logo wherever one stays legible at `20px`, which is now every row whose product publishes a glyph, Apple hardware included. See **Brand marks** for where the paths and the colours come from, and for the two tests a mark has to pass.
 - Unused marks are deleted rather than kept for later. `_includes/logo.html` is generated from the directory listing, so a stale file becomes a stale branch in that case statement.
 - Icon marks carry no meaning on their own. Every row remains complete and readable with images or CSS disabled.
@@ -296,14 +300,15 @@ There is no separate install section. The command is in the header, so a page ke
 
 ## Footer
 
-- Thin top rule, small gray text, generous space between groups.
+- **A full-bleed band, not a rule.** `--color-surface` across the window, `12px` at `1.33`, with a `980px` inner container carrying the same safe-area padding the wrapper and the bar use. It lives outside `#wrapper` in `_layouts/default.html`, because a band cannot span the window from inside a `46rem` column. The band is its own separation, so the top hairline it used to carry is gone.
+- **Links are grey and undecorated,** `color: inherit` with an underline on hover. Only the group headings are dark. In a band of sixty links, blue is noise.
 - Six plain-language groups: `Work`, `Read`, `Free tools`, `AI`, `About`, and `Site`, plus `Ask`.
 - `days` sits under `Read`, with the blog and the feed. It is a reading surface, and naming it anything other than `days` made it unfindable for the person who asked for it.
 - `contact` sits under `About`, with the person, not under `Site` with the legal and meta pages.
-- Desktop uses a four-column grid, with `Ask` continuing onto the second row. Mobile uses two columns, then one below `30rem`. Links stack vertically without dot separators.
+- Desktop uses a four-column grid inside the `980px` container, with the fifth and sixth groups continuing onto the second row. Mobile uses two columns, then one below `30rem`. Links stack vertically without dot separators.
 - `site design` links to the readable canonical file in the public GitHub repository.
 - `Ask` uses recognizable 24px brand-color SVG logos for ChatGPT, Claude, and Perplexity, each inside an accessible 44px link target. No visible text links.
-- Final row sits below its own light rule: copyright and `Built with AI, supervised by a human.`
+- Final row sits below its own hairline and splits: copyright and `Built with AI, supervised by a human.` at one end, region at the other. `flex` with `space-between`, not the grid above it, because two items going to opposite ends is what `space-between` is for.
 - No buttons, avatars, or callout background.
 
 ## Responsive behavior
@@ -330,7 +335,7 @@ There is no separate install section. The command is in the header, so a page ke
 
 ## Performance budgets
 
-- Inline compiled CSS: hard ceiling `18,000` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. The ceiling was raised from `14,000` when the page light shipped, to `17,400` for the terminal type system, to `17,700` for the masthead bar, and to `18,100` for the footer band. It went to `18,600` for the five `@font-face` blocks of the Open Sauce revision and came straight back down with them. Currently `17,985`, after `svg.logo-wordmark` left with the npm wordmark. The footer raise bought `.footer-inner`, a `980px` container with the same safe-area padding the wrapper and the bar use, which is what a full-bleed band needs and cannot inherit, plus Apple's grey undecorated footer links. The Apple scrim before it paid for itself twice over against the cutting-mat grid it replaced, and the bar's hairline is folded into `%rule-bottom` rather than declared. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which folded 7 and 16 repeats into one grouped rule each. `%mono` is gone: the masthead pass took mono down to `code, pre`, which is one rule, and a placeholder for a single call site costs more than it saves.
+- Inline compiled CSS: hard ceiling `18,100` bytes compiled, enforced by `_scripts/qa.rb`, which compiles the sheet the same way the page inlines it. The ceiling was raised from `14,000` when the page light shipped, to `17,400` for the terminal type system, to `17,700` for the masthead bar, and to `18,100` for the footer band. It went to `18,600` for the five `@font-face` blocks of the Open Sauce revision and came straight back down with them. Currently `18,003`, after `svg.logo-wordmark` left with the npm wordmark and the positioning line arrived. The footer raise bought `.footer-inner`, a `980px` container with the same safe-area padding the wrapper and the bar use, which is what a full-bleed band needs and cannot inherit, plus Apple's grey undecorated footer links. The Apple scrim before it paid for itself twice over against the cutting-mat grid it replaced, and the bar's hairline is folded into `%rule-bottom` rather than declared. The sheet ships inside every page and is never cached, so a byte here is paid on every view. Adding to it means finding the bytes first: dark mode paid for itself by collapsing 24 repeated border declarations into the `--rule` token, and the `/days/` density strip paid for itself with the `%mono` and `%muted` placeholders, which folded 7 and 16 repeats into one grouped rule each. `%mono` is gone: the masthead pass took mono down to `code, pre`, which is one rule, and a placeholder for a single call site costs more than it saves.
 - The command-first side-quest pages paid for themselves the same way and then some, taking the sheet from `16,754` to `16,724` while adding a radius, a hover tint, and the `.command-lede` rule. Four more placeholders harvested 300 bytes: `%rule-top` and `%rule-bottom` fold 9 and 8 repeats of `border-top`/`border-bottom: var(--rule)`, `%ground` folds 4 of `background: var(--color-bg)`, and `%tabular` folds 4 of `font-variant-numeric: tabular-nums`. Deleting the `color` and `font-family` declarations on `h1, h2, h3, h4` paid the rest: headings inherit both from `html`, so the sheet was setting them twice.
 - `hr` is deliberately not extended. It reads `border: 0` and then `border-top: var(--rule)`, and `@extend` emits the grouped rule near the top of the sheet, so the shorthand would win and the rule would vanish. Before folding a declaration into a placeholder, check that nothing later in its own block sets the shorthand that contains it.
 - `@extend` emits its grouped rule where the placeholder is defined, near the top of the sheet, so an extended selector loses the source-order position it used to hold. Anything that depended on winning by order has to win by specificity instead. `.days-item .intro-note` exists for exactly that reason.
@@ -365,6 +370,28 @@ There is no separate install section. The command is in the header, so a page ke
 - `node --check assets/js/gh-graph.js assets/js/changelog.js assets/js/days.js assets/js/theme.js` is the dependency-free JavaScript lint gate.
 - Production build must pass after validation. GitHub Actions runs all gates before deployment.
 
+## Verifying a change
+
+Every item here cost time in the session that produced it. They are properties of this repository, not general advice.
+
+- **Render it. Do not read the sheet and conclude.** A rule in `_sass/main.scss` proves the rule exists. Only a screenshot proves it paints. The two diverge most often over inheritance and flex sizing, which is exactly where icons and the masthead live.
+- **The Content-Security-Policy blocks an injected inline `<script>`.** `head.html` pins `script-src` to four `sha256` hashes, so a probe pasted into a built page to read `getComputedStyle` silently never runs and the page looks unchanged. This wasted the better part of a debugging pass. Inline `<style>` is allowed by `style-src 'unsafe-inline'`, so probe with CSS: give the element `background: red !important`, or an `outline`, or set a `content` string on a pseudo-element, and screenshot it. Changing the inline theme snippet in `head.html` means recomputing its hash.
+- **Headless Chrome does not honour a small `--window-size`.** Asking for `420` lays the page out wider and clips it, which makes the mobile bar look like the hamburger has vanished when it renders correctly at any real `420px` viewport. Verify mobile at `600px`, which is comfortably under the `44rem` breakpoint and above whatever floor the browser is enforcing, and pass `--force-device-scale-factor=1` so screenshot pixels are CSS pixels.
+- **To see a sticky bar do its job, put content under it.** Injecting `#wrapper{margin-top:-150px}` pulls the page up beneath the masthead, which is the only way a screenshot shows a `backdrop-filter` doing anything. On a page scrolled to the top there is nothing behind the bar and the blur is invisible by definition.
+- **`jekyll serve --livereload` rebuilds on source edits and wipes `_site/`.** Anything hand-placed there, a mockup or a probe page, disappears on the next save. Keep the source of truth outside the repository and re-copy.
+- **The pre-push hook matches on filenames and false-positives on `_includes/logos/hubspot.svg`.** Read the diff, confirm it is a logo path, then `git push --no-verify`. Run `_scripts/qa.rb --all` first; the hook is not the gate, that is.
+
+### Finding bytes before raising the ceiling
+
+The ceiling has been raised five times and lowered twice. Raise it last, and only after these:
+
+- **A custom property can cost more than the literal it replaces.** `--bar-ink` read four times cost `56` bytes more than writing `#fff` four times. A token pays for itself somewhere around six reads, or as soon as a second palette has to redefine it.
+- **Colour a brand mark inside its own SVG.** Inline SVG ships in the HTML, not the sheet, so baking `fill="#cb3837"` into `npm.svg` is free where a `.social-links .s-npm{color:…}` rule is not. This is how the whole social row went full-colour at zero cost to the budget.
+- **`#0000` instead of `transparent`** wherever every stop is a hard edge and nothing interpolates: identical rendering, `6` bytes each.
+- **`@extend` an existing placeholder instead of declaring the pair again.** `.site-nav`'s hairline is `%rule-bottom`, which adds a selector to a rule that already ships rather than a new declaration block.
+- **Drop a `:visited` pair when source order already settles it.** `a:visited` and `.footer-links a` are both one class and one element, so the later rule wins and the pair is dead weight.
+- **A markup change can orphan CSS, and `_scripts/qa.rb` will say so.** `svg.logo-wordmark` existed solely for the npm wordmark; the moment npm went to its square mark the unused-class check failed the build. That is the check working, not a nuisance: delete the rule.
+
 ## Content rules
 
 - First person. Direct sentences. Specific claims.
@@ -375,4 +402,4 @@ There is no separate install section. The command is in the header, so a page ke
 - Essays get no visible summary block on purpose. The titles are already outcome-first and the pieces turn on a reveal, so a standfirst restating the conclusion removes the reason to read the next paragraph.
 - Search metadata uses concise, unique titles and descriptions without changing an essay's editorial headline. Duplicate archive aliases point canonically to `/blog/` and remain out of the sitemap.
 - Structured data identifies Varun as the author, the site as a `WebSite`, `/about/` as a `ProfilePage`, archives as `CollectionPage`, and essays as `BlogPosting`.
-- Favicon is a stable white square with electric-blue `VC`; SVG and 180px PNG use the same design.
+- Favicon is a stable white square with cutting-mat blue `#002f9e` `VC`; SVG and 180px PNG use the same design. `_scripts/qa.rb` asserts the fill, so changing the site blue means changing it there too.
