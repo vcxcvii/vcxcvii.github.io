@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "2ee909a632b34f1a83cf44cf4a0d1a7a24ae60d0",
+  "last_processed_commit": "30b7b399179763faf57bec82a4cd4cd323090a31",
   "updated_at": "2026-08-31",
   "updates": [
+    {
+      "id": "2026-08-31-30b7b39",
+      "date": "2026-08-31",
+      "title": "The design system now documents the site that actually ships",
+      "summary": "The written design system had drifted from the site on four sections at once, and now matches it. It also gains a section on how to verify a change here, covering the content policy that silently blocks debug scripts and the headless browser behaviour that made a working mobile menu look broken.",
+      "benefits": [
+        {
+          "label": "Accurate doc",
+          "text": "Header, homepage, footer and the tools list are described as they ship rather than as they were two revisions ago."
+        },
+        {
+          "label": "Fewer repeats",
+          "text": "The traps that cost this session time are written down, so the next one does not pay for them again."
+        }
+      ],
+      "commit_shas": [
+        "30b7b399179763faf57bec82a4cd4cd323090a31"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-31-2ee909a",
       "date": "2026-08-31",
