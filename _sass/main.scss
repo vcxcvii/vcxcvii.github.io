@@ -19,43 +19,23 @@
   --rule:1px solid var(--color-border);
   --font-sans:"Helvetica Neue", helvetica, sans-serif;
   --font-mono:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  /* The masthead is the cutting mat. Both stops are the mat's own blue,
-     #002f9e, read out of cutting-mat-50x35.svg where it is the board colour,
-     and a darker step of it: hold oklch hue 262.9 and chroma .184, drop
-     lightness from .369 to .28, and #000a81 is what comes back. One hue, two
-     lightnesses, which is why the bar reads as one object rather than two.
+  /* The masthead, read off apple.com's #globalnav rather than invented. Their
+     light scrim is rgba(250, 250, 252, .8) over saturate(180%) blur(20px),
+     their dark one rgba(22, 22, 23, .8), their ink rgba(0, 0, 0, .8) going to
+     solid black on hover and the mirror of that on dark, and the bar is 44px.
+     Those are the values here.
 
-     It went pale for one revision, #90caf9 with the grid cut into it in blue,
-     on the argument that a light board shows its grid the way a real mat does.
-     It does, and it looked wrong: a pale band is a banner, and this is a
-     masthead. Back to the board, with the grid in the mat's own guide colour.
+     Two tokens, not the ramp there used to be. A translucent bar has no ramp:
+     what is behind it supplies the variation, which is the whole idea. The
+     cutting-mat board and its grid are gone with it, and so is --mat-grid.
 
-     White on #002f9e is 11.05:1 and on #000a81 it is 15.44:1, against 5.27:1
-     at the worst point of the Primer ramp this replaced, which is the headroom
-     that lets the bar carry weight 400 text.
-
-     There is no --bar-ink token. The bar carried one while it was pale and the
-     ink had to be dark; back on the board the ink is #fff, and a custom
-     property read four times costs 56 bytes more than the literal does.
-
-     #0000 rather than transparent in the gap stops: both are transparent black
-     and every stop here is a hard edge, so nothing interpolates between them
-     and the shorter one renders identically for 18 bytes less.
-
-     --mat-line and --mat-rule are the grid, #EDEEFD in the file, held down to
-     a tenth and a fifth so the bar reads as a board with a grid on it rather
-     than as graph paper. --mat-grid is the three layers as one value, because
-     the dropdown panel below 44rem has to carry the same grid and a custom
-     property is the only way to write the layer list once. The grid never
-     leaves those two surfaces; the reading column stays paper. */
-  --bar-a:#002f9e;
-  --bar-b:#000a81;
-  --mat-line:rgba(237, 238, 253, .1);
-  --mat-rule:rgba(237, 238, 253, .2);
-  --mat-grid:
-    repeating-linear-gradient(to right, var(--mat-rule) 0 1px, #0000 1px 5rem),
-    repeating-linear-gradient(to right, var(--mat-line) 0 1px, #0000 1px 1rem),
-    repeating-linear-gradient(to bottom, var(--mat-line) 0 1px, #0000 1px 1rem);
+     --bar-ink is a token again because a translucent bar has to follow the
+     ground underneath it. That is the opposite of the mat, which was opaque
+     and therefore the same on every ground; here light and beige take Apple's
+     near-white over black ink, and dark takes their near-black over white. */
+  --bar-bg:rgba(250, 250, 252, .8);
+  --bar-ink:rgba(0, 0, 0, .8);
+  --bar-ink-strong:#000;
 }
 
 /* These declarations repeat often enough that in compressed output they cost
@@ -187,31 +167,40 @@ select {
    page light: on a 1500-word essay all three were otherwise a scroll away.
 
    env(safe-area-inset-top) belongs here rather than on #wrapper now that the
-   bar is what sits under the notch in landscape. */
+   bar is what sits under the notch in landscape.
+
+   The hairline is not Apple's. Their nav sits over a hero that is usually
+   coloured or dark, so the blur alone gives it an edge; this page is white
+   under the bar at scroll-top and a translucent white band on white paper has
+   no edge at all. --rule is the same hairline the rest of the site uses. */
 .site-nav {
   position: sticky;
   top: 0;
   z-index: 30;
   margin-bottom: 0;
   padding-top: env(safe-area-inset-top);
-  background: var(--mat-grid), linear-gradient(to bottom, var(--bar-a), var(--bar-b));
-  color: #fff;
+  @extend %rule-bottom;
+  background: var(--bar-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  color: var(--bar-ink);
 }
 
-/* The bar spans the window; its contents line up with the 46rem text column,
-   so the mark sits directly above the first character of every heading. Same
-   width and same horizontal padding as #wrapper, which is what keeps them
-   from drifting apart at any viewport. */
+/* The bar spans the window; its contents sit in apple.com's 980px container,
+   not the 46rem text column. That is a deliberate break with the rule this
+   comment used to state: the mark no longer lines up with the first character
+   of every heading, because Apple's nav is wider than any column it sits over
+   and the whole point of copying it was to copy that. If the alignment matters
+   more than the resemblance, this one value is the revert. */
 .site-nav-inner {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  width: min(100%, 46rem);
-  min-height: 4.5rem;
+  gap: 2rem;
+  width: min(100%, 980px);
+  min-height: 2.75rem;
   margin: 0 auto;
   padding: .35rem max(1.25rem, env(safe-area-inset-right)) .35rem max(1.25rem, env(safe-area-inset-left));
-  font-size: .8125rem;
+  font-size: .75rem;
 }
 
 /* display:contents so the two groups are direct flex items of the bar on
@@ -231,7 +220,7 @@ select {
 .site-contact:visited,
 .site-links a,
 .site-links a:visited {
-  color: #fff;
+  color: var(--bar-ink);
   text-decoration: none;
 }
 
@@ -239,11 +228,14 @@ select {
    in the Helvetica Neue stack at the body weight with no tracking at all: the
    title there is font-weight: normal and nothing in the header touches
    letter-spacing. So the nav no longer declares 700, it inherits 400 from
-   body, and the mark no longer pulls its two letters together. Size is what
-   separates the mark from the links now, and it is the only thing that does,
-   which is the same hierarchy the reference bar uses. */
+   body, and the mark no longer pulls its two letters together. The mark keeps
+   700, because size alone was not enough separation once the bar went pale and
+   the ink dropped to rgba(0, 0, 0, .8): a heavier wordmark is also what Apple
+   does with the Apple logo slot, which sits at 600 against 400 links. The
+   tracking stays off, which is the part that came from simonwillison.net. */
 .site-mark {
-  font-size: 1.375rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
 }
 
 /* contact and the page light are the right pole. margin-left:auto rather than
@@ -252,8 +244,7 @@ select {
 .site-actions {
   display: flex;
   align-items: center;
-  gap: .75rem;
-  margin-left: auto;
+  gap: 1.25rem;
 }
 
 /* The focus ring is --color-link everywhere else on the page, which on the
@@ -261,7 +252,7 @@ select {
    rings in its own ink instead. */
 .site-nav a:focus-visible,
 .site-nav button:focus-visible {
-  outline-color: #fff;
+  outline-color: var(--bar-ink-strong);
 }
 
 .nav-toggle,
@@ -272,7 +263,8 @@ select {
 .site-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 1rem;
+  gap: 0 2rem;
+  margin-left: auto;
 }
 
 /* The links used to sit at opacity .8, which read as a hierarchy against the
@@ -283,9 +275,13 @@ select {
   padding: .25rem 0;
 }
 
+/* Apple takes the ink from rgba(0, 0, 0, .8) to solid on hover. The underline
+   was already here and stays: it is what marks the current page, and colour
+   alone was never going to carry that. */
 .site-links a:hover,
 .site-links a[aria-current="page"],
 .site-contact:hover {
+  color: var(--bar-ink-strong);
   text-decoration: underline;
 }
 
@@ -310,7 +306,7 @@ h3,
 h4 {
   line-height: 1.25;
   letter-spacing: -.02em;
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 3.75rem;
   text-wrap: balance;
 }
 
@@ -537,13 +533,27 @@ td {
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  color: var(--color-link);
+  color: var(--color-text);
   text-decoration: none;
 }
 
+/* Smaller than the 1.65rem they were. These are real brand marks now, in
+   their own colours, and six of those at 26px is a badge wall. At 20px they
+   read as a row of profiles, which is what they are. The 2.75rem tap target
+   on the anchor does not move. */
 .social-links svg {
-  width: 1.65rem;
-  height: 1.65rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* The positioning line, straight under the name. Apple sets its subhead at
+   28px against an 80px headline; that ratio does not survive a 1.75rem h1, so
+   this reads as a lede instead: one size up from body, at the heading weight,
+   which is the most a line can be given here without becoming a second h1. */
+.lede {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 /* Sitewide invitation to read the site through an MCP client. Sits directly
@@ -1155,12 +1165,27 @@ td {
   font-size: .8125rem;
 }
 
+/* apple.com's footer: a full-bleed band in the surface tint, 12px at 1.33, a
+   column grid, and a legal row split left and right. It leaves #wrapper in
+   _layouts/default.html for the same reason the masthead does, because a band
+   cannot span the window from inside a 46rem column.
+
+   --color-surface rather than Apple's #f5f5f7. Against this sheet's #f7f7f7
+   that is a difference nobody can see, and reading the token gets beige and
+   dark right for free, which Apple has no values for. The band replaces the
+   top hairline: it is its own separation now. */
 #site-footer {
   margin-top: 5rem;
-  padding-top: 2rem;
-  @extend %rule-top;
+  background: var(--color-surface);
   @extend %muted;
-  font-size: .8125rem;
+  font-size: .75rem;
+  line-height: 1.33;
+}
+
+.footer-inner {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 2.5rem max(1.25rem, env(safe-area-inset-right)) 2.5rem max(1.25rem, env(safe-area-inset-left));
 }
 
 #site-footer p {
@@ -1181,11 +1206,25 @@ td {
   font-weight: 700;
 }
 
+/* Apple's footer links are grey, not blue: only the group headings are dark,
+   and the links sit at the secondary colour and underline on hover. In a band
+   of sixty links, blue is noise. */
 .footer-links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: .5rem;
+}
+
+/* No :visited pair here. `a:visited` and `.footer-links a` are both one class
+   and one element, so source order decides, and this rule is later. */
+.footer-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
 .footer-ask {
@@ -1229,11 +1268,16 @@ td {
   height: 1.875rem;
 }
 
+/* Apple's legal row: copyright at one end, region at the other, a hairline
+   above it. flex rather than the grid above, because two items that go to
+   opposite ends is what space-between is for. */
 .footer-note {
-  margin-top: 2rem !important;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
   padding-top: 1.25rem;
   @extend %rule-top;
-  font-size: .75rem;
 }
 
 @media (max-width: 44rem) {
@@ -1261,7 +1305,7 @@ td {
     width: 2.75rem;
     height: 2.75rem;
     margin-left: auto;
-    color: #fff;
+    color: var(--bar-ink);
     cursor: pointer;
   }
 
@@ -1285,11 +1329,18 @@ td {
     outline-offset: 3px;
   }
 
-  /* The wrapper stops being transparent and becomes the panel. It carries the
-     same grid as the bar over the bottom stop of the ramp, so the dropdown
-     reads as the mat continuing downward rather than as a separate sheet. The
-     vertical rules line up because both boxes are full-bleed from x=0; the
-     horizontal ones restart, which is the seam where the bar ends. */
+  /* The wrapper stops being transparent and becomes the panel, and the panel
+     is opaque. That is Apple's own behaviour, not a compromise: their
+     collapsed bar blurs, and the moment the menu opens .globalnav-content
+     takes a solid #fafafc, or #161617 on dark. The reason is legibility, and
+     it shows immediately here without it. Forty-four pixels of translucency
+     over the top of a page is a scrim; four hundred of it over body copy is
+     two texts fighting for the same pixels.
+
+     --color-bg rather than a token of Apple's greys. #fafafc against #fff and
+     #161617 against #16181a are differences nobody can see, and reading the
+     page's own ground gets beige right for free, which Apple has no value
+     for. The hairline stays: the panel needs a bottom edge. */
   .site-menu {
     position: absolute;
     top: 100%;
@@ -1300,7 +1351,8 @@ td {
     flex-direction: column;
     align-items: flex-end;
     padding: .5rem max(1.25rem, env(safe-area-inset-right)) .75rem max(1.25rem, env(safe-area-inset-left));
-    background: var(--mat-grid), var(--bar-b);
+    border-bottom: var(--rule);
+    background: var(--color-bg);
   }
 
   .nav-toggle:checked ~ .site-menu {
@@ -1419,14 +1471,6 @@ td {
   }
 }
 
-/* Wordmarks are wide and short: a square box renders them a third the height
-   of a glyph mark. Size by width, let height follow the artwork. Placed last
-   so it outranks the square .social-links svg and .quest-action svg rules. */
-svg.logo-wordmark {
-  width: 1.55rem;
-  height: auto;
-}
-
 /* Dark palette. Follows the operating system setting; there is no toggle and
    no JavaScript, so nothing is stored and nothing can disagree with the OS.
    Only tokens and the handful of literals that never made it into the token
@@ -1472,7 +1516,7 @@ svg.logo-wordmark {
   padding: 0;
   border: 0;
   background: none;
-  color: #fff;
+  color: var(--bar-ink);
   cursor: pointer;
 }
 
@@ -1500,6 +1544,12 @@ svg.logo-wordmark {
   --color-accent:#4d86fa;
   --color-link:#4d86fa;
   --color-mark:#4d86fa;
+  /* apple.com's dark #globalnav scrim and its ink, mirrored from the light
+     values above. The bar follows the ground now because it is translucent:
+     what shows through it is this page, not the light one. */
+  --bar-bg:rgba(22, 22, 23, .8);
+  --bar-ink:rgba(255, 255, 255, .8);
+  --bar-ink-strong:#fff;
 
 
 ::selection {

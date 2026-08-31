@@ -1,23 +1,23 @@
 # Ordered by what a first-time visitor should do, not alphabetically. Who I am
 # first, then money pages, proof, and utility.
-- label: about
+- label: About
   url: /about/
-- label: work
+- label: Work
   url: /work/
-- label: consulting
+- label: Consulting
   url: /consulting/
-- label: blog
+- label: Blog
   url: /blog/
-- label: side-quests
+- label: Side Quests
   url: /side-quests/
-- label: speaking
+- label: Speaking
   url: /speaking/
 # Took the slot uses-this held. Eight is the ceiling, so this was a swap rather
 # than an addition. uses-this stays reachable from the footer, under About.
-- label: days
+- label: Days
   url: /days/
 # The right pole of the masthead bar, not part of the wayfinding group. One
 # action, set apart, the way Simon Willison's bar sets Subscribe apart.
-- label: contact
+- label: Contact
   url: /contact/
   pole: right

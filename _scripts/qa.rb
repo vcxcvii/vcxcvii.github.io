@@ -23,15 +23,15 @@ AEO_WORD_MIN   = 100
 # linear-gradient came off this list when the masthead bar shipped. It is the
 # one gradient on the site and it is chrome, not content: a full-bleed sticky
 # bar reading as a single surface rather than as a flat block of colour. The
-# repeating-linear-gradients that draw the cutting-mat grid ride on that same
-# bar and on the dropdown panel that continues it, and go no further. The rest
-# stay forbidden, radial-gradient included, because nothing about that decision
-# argues for decorative fills inside the page. @font-face is back on the list:
-# the site left Open Sauce One and returned to the Helvetica and Georgia stacks
-# that are already on the reader's machine, so nothing is downloaded.
+# gradient is gone with it: the bar is a translucent scrim now, and what varies
+# across it is the page showing through. backdrop-filter left this list to make
+# that possible, and it is allowed on the masthead and the dropdown panel that
+# continues it, nowhere else. The rest stay forbidden, radial-gradient
+# included, because nothing about that decision argues for decorative fills
+# inside the page. @font-face is back on the list: the site left Open Sauce One
+# and returned to the Helvetica stack already on the reader's machine.
 FORBIDDEN_PATTERNS = %w[
   nav-root shadcn tailwind @font-face box-shadow radial-gradient
-  backdrop-filter
 ].freeze
 FORBIDDEN_ASSETS = %w[
   assets/js/analytics.js assets/js/clarity.js assets/js/nav.js
@@ -55,7 +55,7 @@ REQUIRED_COLORS = %w[#002f9e #4d86fa #9be9a8 #40c463 #30a14e #216e39].freeze
 # per ground, plus the sticky shell, the inner column and the dropdown panel
 # that the links, contact and the page light now share below 44rem. Grouping
 # every white link in the bar into one rule returned 43 of it.
-CSS_BUDGET = 17_700
+CSS_BUDGET = 18_100
 GITHUB_JS_BUDGET = 8_000
 # Every script the site is allowed to ship, with its own budget. An allowlist
 # rather than a count: a new file is a deliberate decision that shows up in a

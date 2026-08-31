@@ -1,11 +1,10 @@
 /* The page light: one control, three grounds.
 
-   It was three swatches, which is three tap targets in a bar that already has
-   to fit seven links and an action at 320px. One button cycles light, beige,
-   dark and back, and the icon reports which is showing: an empty disc, a half
-   disc, a filled disc. That reads as a brightness control in every interface a
-   reader has already used, and it survives at 20px where three coloured
-   circles were only ever legible as a group.
+   It was three swatches, three tap targets in a bar that already has to fit
+   seven links and an action at 320px. One button cycles light, beige, dark and
+   back, and the icon reports which is showing: an empty disc, a half disc, a
+   filled disc. That reads as a brightness control everywhere, and it survives
+   at 20px where three coloured circles only ever read as a group.
 
    Picking writes data-theme on <html> and stores it. With nothing stored the
    system setting decides, as it did before this file existed. The markup is
@@ -16,8 +15,7 @@
   var mount = document.querySelector('[data-theme-picker]');
   if (!mount) return;
 
-  // The order is the cycle, light to dark and back, so the button always
-  // moves the page one step darker. One direction to learn.
+  // The order is the cycle, light to dark and back: one direction to learn.
   var THEMES = [
     { id: 'light', label: 'Light' },
     { id: 'beige', label: 'Beige' },
@@ -77,8 +75,13 @@
      only while nothing is stored. Once a ground is chosen they can disagree
      with the page, so a tag with no media query goes in front: browsers take
      the first theme-color whose media matches, and one without always does. */
-  function paintChrome() {
+  function paintChrome(theme) {
     if (!root.getAttribute('data-theme')) return;
+    var colour = '';
+    for (var i = 0; i < THEMES.length; i++) {
+      if (THEMES[i].id === theme) colour = THEMES[i].chrome;
+    }
+    if (!colour) return;
     var tag = document.querySelector('meta[name="theme-color"][data-theme-chrome]');
     if (!tag) {
       tag = document.createElement('meta');
@@ -88,12 +91,12 @@
       if (first && first.parentNode) first.parentNode.insertBefore(tag, first);
       else document.head.appendChild(tag);
     }
-    tag.setAttribute('content', CHROME);
+    tag.setAttribute('content', colour);
   }
 
   function mark() {
     var now = current();
-    paintChrome();
+    paintChrome(now);
     icon.innerHTML = ICON[now];
     // The name says both halves, what is showing and what the button does. A
     // control that names only its state leaves a reader guessing the cycle.
