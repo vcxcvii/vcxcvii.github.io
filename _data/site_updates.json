@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "831d183b5a81d04f9d56681d7b12b72f84413081",
+  "last_processed_commit": "0b7d3ae195189ba6ecf3c990b67daa8517c7d02e",
   "updated_at": "2026-08-31",
   "updates": [
+    {
+      "id": "2026-08-31-0b7d3ae",
+      "date": "2026-08-31",
+      "title": "The mobile menu and footer are fixed on a real phone",
+      "summary": "The menu panel filled only the right half of the screen and made each link a target the width of its own word; rows are now full width and left aligned at a readable size. The footer stacked into a single column of six groups on a phone, which ran to a screen and a half, and now holds two columns at every width.",
+      "benefits": [
+        {
+          "label": "Easier to tap",
+          "text": "Each menu row spans the sheet, so the target is the row rather than the four characters in the word."
+        },
+        {
+          "label": "Shorter footer",
+          "text": "Two columns at every width instead of one long stack of six groups."
+        }
+      ],
+      "commit_shas": [
+        "0b7d3ae195189ba6ecf3c990b67daa8517c7d02e"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-31-831d183",
       "date": "2026-08-31",
