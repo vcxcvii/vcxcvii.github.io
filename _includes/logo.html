@@ -2,14 +2,10 @@
 {% assign label = include.label | default: tool.name | default: include.name %}
 {% assign logo_name = include.logo | default: tool.logo | default: include.name %}
 {% case logo_name %}
-{% when "anthropic" %}
-  {% include logos/anthropic.svg %}
 {% when "apple" %}
   {% include logos/apple.svg %}
 {% when "base44" %}
   {% include logos/base44.svg %}
-{% when "book" %}
-  {% include logos/book.svg %}
 {% when "broom" %}
   {% include logos/broom.svg %}
 {% when "bun" %}
@@ -22,8 +18,6 @@
   {% include logos/cursor.svg %}
 {% when "database" %}
   {% include logos/database.svg %}
-{% when "earbuds" %}
-  {% include logos/earbuds.svg %}
 {% when "figma" %}
   {% include logos/figma.svg %}
 {% when "gauge" %}
@@ -42,8 +36,6 @@
   {% include logos/jekyll.svg %}
 {% when "keyboard" %}
   {% include logos/keyboard.svg %}
-{% when "laptop" %}
-  {% include logos/laptop.svg %}
 {% when "letterboxd" %}
   {% include logos/letterboxd.svg %}
 {% when "microphone" %}
@@ -60,8 +52,6 @@
   {% include logos/opencode.svg %}
 {% when "perplexity" %}
   {% include logos/perplexity.svg %}
-{% when "phone" %}
-  {% include logos/phone.svg %}
 {% when "plug" %}
   {% include logos/plug.svg %}
 {% when "record" %}
@@ -70,30 +60,20 @@
   {% include logos/semrush.svg %}
 {% when "slack" %}
   {% include logos/slack.svg %}
-{% when "speaker" %}
-  {% include logos/speaker.svg %}
 {% when "superset" %}
   {% include logos/superset.svg %}
 {% when "swan" %}
   {% include logos/swan.svg %}
-{% when "tablet" %}
-  {% include logos/tablet.svg %}
 {% when "terminal" %}
   {% include logos/terminal.svg %}
-{% when "tv" %}
-  {% include logos/tv.svg %}
 {% when "underarmour" %}
   {% include logos/underarmour.svg %}
 {% when "veed" %}
   {% include logos/veed.svg %}
-{% when "watch" %}
-  {% include logos/watch.svg %}
 {% when "waveform" %}
   {% include logos/waveform.svg %}
 {% when "webflow" %}
   {% include logos/webflow.svg %}
-{% when "website" %}
-  {% include logos/website.svg %}
 {% when "youtube" %}
   {% include logos/youtube.svg %}
 {% when "zoom" %}
