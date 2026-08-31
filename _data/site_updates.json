@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "7368f75c5c56bdd39933854e97e7cf52914f241a",
+  "last_processed_commit": "510038a2b3dea96a968e8c78ac48d923892f9aa2",
   "updated_at": "2026-08-31",
   "updates": [
+    {
+      "id": "2026-08-31-510038a",
+      "date": "2026-08-31",
+      "title": "Apple's masthead and footer, and every brand logo made exact",
+      "summary": "The bar at the top of every page is now a translucent scrim with a blur behind it, the same one apple.com uses, and the footer is a full-bleed band to match. Every product logo on the site is the exact mark its owner publishes, in that brand's own colour, and the row on the homepage sits smaller than it did.",
+      "benefits": [
+        {
+          "label": "Real logos",
+          "text": "Every mark is the geometry the brand publishes, in its own colour, rather than a redrawn approximation of it."
+        },
+        {
+          "label": "Legible bar",
+          "text": "The masthead blurs the page moving under it and holds its text at four stops above the contrast floor."
+        },
+        {
+          "label": "One line up top",
+          "text": "The homepage says what the work is directly under the name, and drops the aside that used to open the paragraph."
+        }
+      ],
+      "commit_shas": [
+        "510038a2b3dea96a968e8c78ac48d923892f9aa2"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-31-7368f75",
       "date": "2026-08-31",
