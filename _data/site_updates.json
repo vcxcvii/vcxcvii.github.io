@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "30b7b399179763faf57bec82a4cd4cd323090a31",
+  "last_processed_commit": "43b0eab66608837b75eb567c71c9e55353aaa4c9",
   "updated_at": "2026-08-31",
   "updates": [
+    {
+      "id": "2026-08-31-43b0eab",
+      "date": "2026-08-31",
+      "title": "A tighter line under the name, and the logo set cleaned out",
+      "summary": "The line under the name now says the same thing in one row rather than two. Ten logo files that nothing referenced are gone, and the lookup that renders them is regenerated from what is actually on disk, so the two cannot drift apart.",
+      "benefits": [
+        {
+          "label": "One line",
+          "text": "The positioning line reads as a claim rather than a description, and holds a single row at desktop width."
+        },
+        {
+          "label": "No dead files",
+          "text": "Ten unreferenced marks removed, and nothing on the site falls through to a letter placeholder."
+        }
+      ],
+      "commit_shas": [
+        "43b0eab66608837b75eb567c71c9e55353aaa4c9"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-31-30b7b39",
       "date": "2026-08-31",
