@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "cecf15aac0b70a71216d636c0a2641fa0b2b1a99",
+  "last_processed_commit": "7368f75c5c56bdd39933854e97e7cf52914f241a",
   "updated_at": "2026-08-31",
   "updates": [
+    {
+      "id": "2026-08-31-7368f75",
+      "date": "2026-08-31",
+      "title": "The masthead is a cutting mat and the page light is one button",
+      "summary": "The bar at the top of every page now carries the blue and the grid of a cutting mat, and it is taller so the grid reads as a board rather than a stripe. Every blue on the site is that same blue, taken from the mat itself. The three theme swatches became a single button that cycles light, beige and dark.",
+      "benefits": [
+        {
+          "label": "One blue",
+          "text": "Links, the chevron, the favicon and the masthead all read one value now, taken from the cutting mat rather than picked."
+        },
+        {
+          "label": "Page light",
+          "text": "A single button in the bar cycles light, beige and dark, and its icon fills up to show which ground is on."
+        },
+        {
+          "label": "Readable bar",
+          "text": "White on the new bar measures 11 to 1, so the navigation could drop to a normal weight and stop shouting."
+        }
+      ],
+      "commit_shas": [
+        "7368f75c5c56bdd39933854e97e7cf52914f241a"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-19-ccd3d0d",
       "date": "2026-08-19",
