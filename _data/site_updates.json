@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "43b0eab66608837b75eb567c71c9e55353aaa4c9",
+  "last_processed_commit": "831d183b5a81d04f9d56681d7b12b72f84413081",
   "updated_at": "2026-08-31",
   "updates": [
+    {
+      "id": "2026-08-31-831d183",
+      "date": "2026-08-31",
+      "title": "The line under the name says what the operation actually is",
+      "summary": "The homepage now leads with the operating model rather than a description of the job title, in one row directly under the name. The paragraph that used to make the same point in different words has been cut back to the part the new line does not already say.",
+      "benefits": [
+        {
+          "label": "Says the thing",
+          "text": "The claim under the name is the one nobody else on a marketing site can make."
+        },
+        {
+          "label": "No repetition",
+          "text": "The paragraph that restated it now carries only the open-source point."
+        }
+      ],
+      "commit_shas": [
+        "831d183b5a81d04f9d56681d7b12b72f84413081"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-31-43b0eab",
       "date": "2026-08-31",
