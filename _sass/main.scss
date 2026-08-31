@@ -1350,7 +1350,7 @@ td {
     z-index: 20;
     display: none;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: stretch;
     padding: .5rem max(1.25rem, env(safe-area-inset-right)) .75rem max(1.25rem, env(safe-area-inset-left));
     border-bottom: var(--rule);
     background: var(--color-bg);
@@ -1360,29 +1360,39 @@ td {
     display: flex;
   }
 
+  /* margin-left:auto is what pushes the group to the right pole on desktop. In
+     the panel it shrink-wraps the list to the right edge and defeats the
+     stretch, which is why the sheet had an empty left half. */
   .site-links {
     flex-direction: column;
-    align-items: flex-end;
+    align-items: stretch;
+    margin-left: 0;
   }
 
-  .site-links a {
+  /* Full-width rows, not right-aligned ones. Hugging the right edge left the
+     whole left half of the sheet empty, and it meant the tap target was only
+     as wide as the word: `Blog` gave four characters to hit. Stretched, the
+     row is the target, which is the behaviour every mobile menu has.
+
+     1rem, not the bar's .75rem. Twelve pixels is a size for a dense desktop
+     bar, not for a list that is the only thing on the screen. */
+  .site-links a,
+  .site-contact {
+    display: flex;
+    align-items: center;
     min-height: 2.75rem;
-    padding: .6rem 0;
-    line-height: 1.55;
+    padding: 0;
+    font-size: 1rem;
   }
 
   /* The right pole collapses into the panel. contact keeps the tap target the
      links have; the swatches sit beside it rather than under it, because
      three 1.35rem circles in a column is a lot of empty panel. */
+  /* contact keeps the row; the page light sits after it rather than beside it
+     at the far edge, where it read as a stray dot with no label near it. */
   .site-actions {
+    justify-content: space-between;
     gap: 1rem;
-    margin: .25rem 0 0;
-  }
-
-  .site-contact {
-    min-height: 2.75rem;
-    padding: .6rem 0;
-    line-height: 1.55;
   }
 
   .social-links a {
@@ -1404,6 +1414,14 @@ td {
   .footer-main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem 1.5rem;
+  }
+
+  /* The legal row stops being a row. space-between needs the desktop width;
+     below it, the copyright and the region squeeze into two thin columns and
+     both wrap. */
+  .footer-note {
+    flex-direction: column;
+    gap: .5rem;
   }
 
   .tag-list {
@@ -1439,10 +1457,14 @@ td {
     grid-template-columns: 3.9rem .65rem minmax(0, 1fr);
   }
 
+  /* Two columns, not one. Six groups of five links in a single column is a
+     screen and a half of footer on a phone, which is what it was. The links
+     are short enough to hold half of a 320px screen. */
   .footer-main {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2rem 1.25rem;
   }
+
+
 
   .mcp-tool {
     grid-template-columns: 1fr;
