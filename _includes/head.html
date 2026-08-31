@@ -42,10 +42,11 @@
      script above it would run outside the policy its hash is listed in. -->
 <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='beige'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})();</script>
 <!-- The masthead is pinned to the top of every page, so the browser chrome
-     matches the bar rather than the page behind it. Values are the top stop of
-     each ground's ramp in _sass/main.scss. -->
-<meta name="theme-color" content="#218bff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#388bfd" media="(prefers-color-scheme: dark)">
+     matches the bar rather than the page behind it. One value, not one per
+     scheme: the bar is the cutting mat on every ground now, so there is only
+     one top stop. assets/js/theme.js writes the same colour into a tag of its
+     own once a ground has actually been chosen. -->
+<meta name="theme-color" content="#002f9e">
 <meta name="google-site-verification" content="v48CxEycPMCjgwT_ovhFQKTQIt0tdSIvaFsj4oFuMec">
 {% if page.noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
 <title>{{ meta_title | escape }}</title>

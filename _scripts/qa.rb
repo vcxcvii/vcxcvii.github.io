@@ -23,8 +23,12 @@ AEO_WORD_MIN   = 100
 # linear-gradient came off this list when the masthead bar shipped. It is the
 # one gradient on the site and it is chrome, not content: a full-bleed sticky
 # bar reading as a single surface rather than as a flat block of colour. The
-# rest stay forbidden, radial-gradient included, because nothing about that
-# decision argues for decorative fills inside the page.
+# repeating-linear-gradients that draw the cutting-mat grid ride on that same
+# bar and on the dropdown panel that continues it, and go no further. The rest
+# stay forbidden, radial-gradient included, because nothing about that decision
+# argues for decorative fills inside the page. @font-face is back on the list:
+# the site left Open Sauce One and returned to the Helvetica and Georgia stacks
+# that are already on the reader's machine, so nothing is downloaded.
 FORBIDDEN_PATTERNS = %w[
   nav-root shadcn tailwind @font-face box-shadow radial-gradient
   backdrop-filter
@@ -33,7 +37,7 @@ FORBIDDEN_ASSETS = %w[
   assets/js/analytics.js assets/js/clarity.js assets/js/nav.js
   assets/js/redesign.js assets/css/nav.css _includes/theme-init.js
 ].freeze
-REQUIRED_COLORS = %w[#0000ee #0057ff #9be9a8 #40c463 #30a14e #216e39].freeze
+REQUIRED_COLORS = %w[#002f9e #4d86fa #9be9a8 #40c463 #30a14e #216e39].freeze
 # Compiled bytes, which is what every page inlines. Raised from 14_000 when the
 # page light shipped: three grounds instead of two means the dark palette is
 # emitted twice, once for the system query and once for the stored choice, and
@@ -182,7 +186,7 @@ def design_guardrails
   end
 
   favicon = read_file("assets/favicon.svg").downcase
-  valid_favicon = favicon.include?('fill="#ffffff"') && favicon.include?('fill="#0057ff"') && favicon.include?("<desc>")
+  valid_favicon = favicon.include?('fill="#ffffff"') && favicon.include?('fill="#002f9e"') && favicon.include?("<desc>")
   errs << "SEO: favicon must remain white with accessible electric-blue VC description" unless valid_favicon
 
   %w[archive/index.md notes/index.md].each do |path|

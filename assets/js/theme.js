@@ -1,28 +1,41 @@
-/* The page light: three grounds, shown as the grounds themselves.
+/* The page light: one control, three grounds.
 
-   A swatch each for light, beige and dark. Picking one writes data-theme on
-   <html> and stores it. With nothing stored, no attribute is written and the
-   reader's system setting decides, exactly as the site behaved before this
-   file existed.
+   It was three swatches, which is three tap targets in a bar that already has
+   to fit seven links and an action at 320px. One button cycles light, beige,
+   dark and back, and the icon reports which is showing: an empty disc, a half
+   disc, a filled disc. That reads as a brightness control in every interface a
+   reader has already used, and it survives at 20px where three coloured
+   circles were only ever legible as a group.
 
-   The markup is built here rather than in the include because a control that
-   cannot do anything should not occupy a tap target. No JavaScript, no picker.
-   Applying the stored choice is a separate inline snippet in the document
-   head, which has to run before first paint; this file only handles picking. */
+   Picking writes data-theme on <html> and stores it. With nothing stored the
+   system setting decides, as it did before this file existed. The markup is
+   built here because a control that cannot do anything should not occupy a tap
+   target. Applying a stored choice is a separate inline snippet in the head,
+   which has to run before first paint; this file only picks. */
 (function () {
   var mount = document.querySelector('[data-theme-picker]');
   if (!mount) return;
 
-  // Class names are written out rather than built from the id. Concatenating
-  // them hides t-light and t-beige from anything that greps the source,
-  // including the unused-class check in _scripts/qa.rb.
+  // The order is the cycle, light to dark and back, so the button always
+  // moves the page one step darker. One direction to learn.
   var THEMES = [
-    // chrome is the top stop of that ground's masthead ramp, not its page
-    // colour: the sticky bar is what sits under the browser chrome now.
-    { id: 'light', label: 'Light', cls: 't-light', chrome: '#218bff' },
-    { id: 'beige', label: 'Beige', cls: 't-beige', chrome: '#218bff' },
-    { id: 'dark', label: 'Dark', cls: 't-dark', chrome: '#388bfd' }
+    { id: 'light', label: 'Light' },
+    { id: 'beige', label: 'Beige' },
+    { id: 'dark', label: 'Dark' }
   ];
+
+  // The mat is the masthead on every ground, so the chrome is one colour: the
+  // top stop of the bar's ramp.
+  var CHROME = '#002f9e';
+
+  // One disc, three fills. The half is the right half, so the control fills
+  // up as the page darkens.
+  var ICON = {
+    light: '<circle cx="12" cy="12" r="8"/>',
+    beige: '<circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"/>',
+    dark: '<circle cx="12" cy="12" r="8" fill="currentColor"/>'
+  };
+
   var root = document.documentElement;
 
   function current() {
@@ -36,30 +49,36 @@
       : 'light';
   }
 
-  var html = '<span class="visually-hidden" id="theme-picker-label">Page light</span>';
-  for (var i = 0; i < THEMES.length; i++) {
-    html += '<button class="theme-swatch ' + THEMES[i].cls + '" type="button"' +
-      ' data-theme-set="' + THEMES[i].id + '" title="' + THEMES[i].label + '">' +
-      '<span class="visually-hidden">' + THEMES[i].label + '</span></button>';
+  function next(id) {
+    for (var i = 0; i < THEMES.length; i++) {
+      if (THEMES[i].id === id) return THEMES[(i + 1) % THEMES.length];
+    }
+    return THEMES[0];
   }
-  mount.innerHTML = html;
-  mount.setAttribute('aria-labelledby', 'theme-picker-label');
+
+  function labelFor(id) {
+    for (var i = 0; i < THEMES.length; i++) {
+      if (THEMES[i].id === id) return THEMES[i].label;
+    }
+    return id;
+  }
+
+  mount.innerHTML = '<button class="theme-toggle" type="button">' +
+    '<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"' +
+    ' fill="none" stroke="currentColor" stroke-width="2"></svg>' +
+    '<span class="visually-hidden"></span></button>';
   mount.hidden = false;
 
-  var buttons = mount.querySelectorAll('[data-theme-set]');
+  var button = mount.querySelector('.theme-toggle');
+  var icon = button.querySelector('svg');
+  var text = button.querySelector('.visually-hidden');
 
-  /* head.html ships two theme-color tags keyed to prefers-color-scheme, which
-     is the right answer only while nothing is stored. Once a ground is chosen
-     they can disagree with the page, so a tag with no media query goes in
-     front of them: browsers take the first theme-color whose media matches,
-     and one without a media query always matches. */
-  function paintChrome(theme) {
+  /* head.html ships theme-color tags keyed to prefers-color-scheme, right
+     only while nothing is stored. Once a ground is chosen they can disagree
+     with the page, so a tag with no media query goes in front: browsers take
+     the first theme-color whose media matches, and one without always does. */
+  function paintChrome() {
     if (!root.getAttribute('data-theme')) return;
-    var colour = '';
-    for (var i = 0; i < THEMES.length; i++) {
-      if (THEMES[i].id === theme) colour = THEMES[i].chrome;
-    }
-    if (!colour) return;
     var tag = document.querySelector('meta[name="theme-color"][data-theme-chrome]');
     if (!tag) {
       tag = document.createElement('meta');
@@ -69,37 +88,36 @@
       if (first && first.parentNode) first.parentNode.insertBefore(tag, first);
       else document.head.appendChild(tag);
     }
-    tag.setAttribute('content', colour);
+    tag.setAttribute('content', CHROME);
   }
 
   function mark() {
     var now = current();
-    paintChrome(now);
-    for (var i = 0; i < buttons.length; i++) {
-      var on = buttons[i].getAttribute('data-theme-set') === now;
-      // aria-pressed rather than colour: the active swatch is also outlined,
-      // but the state has to survive with the stylesheet off.
-      buttons[i].setAttribute('aria-pressed', on ? 'true' : 'false');
-    }
+    paintChrome();
+    icon.innerHTML = ICON[now];
+    // The name says both halves, what is showing and what the button does. A
+    // control that names only its state leaves a reader guessing the cycle.
+    var name = 'Page light: ' + labelFor(now) + '. Switch to ' + next(now).label + '.';
+    button.setAttribute('aria-label', name);
+    button.setAttribute('title', name);
+    text.textContent = name;
   }
 
   mark();
 
-  for (var j = 0; j < buttons.length; j++) {
-    buttons[j].addEventListener('click', function () {
-      var pick = this.getAttribute('data-theme-set');
-      root.setAttribute('data-theme', pick);
-      try {
-        localStorage.setItem('theme', pick);
-      } catch (e) {
-        // Private browsing refuses writes. The choice still holds for this page.
-      }
-      mark();
-    });
-  }
+  button.addEventListener('click', function () {
+    var pick = next(current()).id;
+    root.setAttribute('data-theme', pick);
+    try {
+      localStorage.setItem('theme', pick);
+    } catch (e) {
+      // Private browsing refuses writes. The choice still holds for this page.
+    }
+    mark();
+  });
 
   // A system change only matters while nothing is stored; once it is, the
-  // reader has overruled the system and the marked swatch must not drift.
+  // reader has overruled the system and the icon must not drift.
   if (window.matchMedia) {
     var query = window.matchMedia('(prefers-color-scheme: dark)');
     if (query.addEventListener) {

@@ -34,7 +34,7 @@ TEMPLATE = """<!doctype html><html><head><meta charset="utf-8"><style>
   .eyebrow {{
     font-family: ui-monospace, "SF Mono", Menlo, monospace;
     font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: #0057ff; font-weight: 600;
+    color: #002f9e; font-weight: 600;
   }}
   h1 {{
     font-size: {size}px; line-height: 1.08; letter-spacing: -0.025em;

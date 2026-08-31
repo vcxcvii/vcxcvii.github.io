@@ -11,37 +11,51 @@
   --color-secondary:#666;
   --color-border:#ddd;
   --color-surface:#f7f7f7;
-  --color-accent:#0000ee;
-  --color-link:#0000ee;
-  --color-mark:#0057ff;
+  --color-accent:#002f9e;
+  --color-link:#002f9e;
+  --color-mark:#002f9e;
   --color-claude:#d97757;
   --color-perplexity:#20808d;
   --rule:1px solid var(--color-border);
-  --font-sans:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans:"Helvetica Neue", helvetica, sans-serif;
   --font-mono:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  /* The masthead ramp: GitHub's own blue, steps 5, 6 and 7 of the Primer light
-     scale, read from the light token file in primer/primitives under
-     src/tokens/base/color. Do not write the file extension here: the unused
-     class check in _scripts/qa.rb scans this sheet for a dot followed by a
-     word and would read it as a selector.
-     #0969da is Primer's accent foreground, the blue every GitHub surface uses
-     for a link, so it is the one people recognise as GitHub blue.
+  /* The masthead is the cutting mat. Both stops are the mat's own blue,
+     #002f9e, read out of cutting-mat-50x35.svg where it is the board colour,
+     and a darker step of it: hold oklch hue 262.9 and chroma .184, drop
+     lightness from .369 to .28, and #000a81 is what comes back. One hue, two
+     lightnesses, which is why the bar reads as one object rather than two.
 
-     Steps 4, 5 and 6, which is one step lighter than this ramp shipped at
-     first, and it is the lightest the bar can go while the text on it is
-     white. The number that decides it is not the contrast against any one
-     stop, it is the contrast against the gradient where the glyphs actually
-     sit: on a 45px bar with .8125rem text the cap band runs from 33% to 67%
-     of the height, which is entirely past the midpoint. Measured across that
-     band the worst point is 5.27:1 for full-strength white. Steps 3, 4 and 5
-     put it at 3.47:1, so there is no lighter ramp that keeps white text.
+     It went pale for one revision, #90caf9 with the grid cut into it in blue,
+     on the argument that a light board shows its grid the way a real mat does.
+     It does, and it looked wrong: a pale band is a banner, and this is a
+     masthead. Back to the board, with the grid in the mat's own guide colour.
 
-     Three stops rather than two because the bar reads flat without a highlight
-     at the top, and the midpoint sits at 30% rather than halfway so the links
-     sit over the middle stop instead of the lightest one. */
-  --bar-a:#218bff;
-  --bar-b:#0969da;
-  --bar-c:#0550ae;
+     White on #002f9e is 11.05:1 and on #000a81 it is 15.44:1, against 5.27:1
+     at the worst point of the Primer ramp this replaced, which is the headroom
+     that lets the bar carry weight 400 text.
+
+     There is no --bar-ink token. The bar carried one while it was pale and the
+     ink had to be dark; back on the board the ink is #fff, and a custom
+     property read four times costs 56 bytes more than the literal does.
+
+     #0000 rather than transparent in the gap stops: both are transparent black
+     and every stop here is a hard edge, so nothing interpolates between them
+     and the shorter one renders identically for 18 bytes less.
+
+     --mat-line and --mat-rule are the grid, #EDEEFD in the file, held down to
+     a tenth and a fifth so the bar reads as a board with a grid on it rather
+     than as graph paper. --mat-grid is the three layers as one value, because
+     the dropdown panel below 44rem has to carry the same grid and a custom
+     property is the only way to write the layer list once. The grid never
+     leaves those two surfaces; the reading column stays paper. */
+  --bar-a:#002f9e;
+  --bar-b:#000a81;
+  --mat-line:rgba(237, 238, 253, .1);
+  --mat-rule:rgba(237, 238, 253, .2);
+  --mat-grid:
+    repeating-linear-gradient(to right, var(--mat-rule) 0 1px, #0000 1px 5rem),
+    repeating-linear-gradient(to right, var(--mat-line) 0 1px, #0000 1px 1rem),
+    repeating-linear-gradient(to bottom, var(--mat-line) 0 1px, #0000 1px 1rem);
 }
 
 /* These declarations repeat often enough that in compressed output they cost
@@ -117,7 +131,7 @@ button:focus-visible {
 a,
 button {
   touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(0, 0, 238, .18);
+  -webkit-tap-highlight-color: rgba(0, 47, 158, .18);
 }
 
 img,
@@ -180,7 +194,7 @@ select {
   z-index: 30;
   margin-bottom: 0;
   padding-top: env(safe-area-inset-top);
-  background: linear-gradient(to bottom, var(--bar-a), var(--bar-b) 30%, var(--bar-c));
+  background: var(--mat-grid), linear-gradient(to bottom, var(--bar-a), var(--bar-b));
   color: #fff;
 }
 
@@ -194,11 +208,10 @@ select {
   align-items: center;
   gap: 1rem;
   width: min(100%, 46rem);
-  min-height: 2.75rem;
+  min-height: 4.5rem;
   margin: 0 auto;
   padding: .35rem max(1.25rem, env(safe-area-inset-right)) .35rem max(1.25rem, env(safe-area-inset-left));
   font-size: .8125rem;
-  font-weight: 700;
 }
 
 /* display:contents so the two groups are direct flex items of the bar on
@@ -208,9 +221,10 @@ select {
   display: contents;
 }
 
-/* Every link in the bar is white and unadorned. Grouped into one rule because
-   a:visited outranks a bare class, so each of them needs the pair spelled out
-   and three separate rules would ship the same two declarations three times. */
+/* Every link in the bar takes the bar's ink and no decoration. Grouped into
+   one rule because a:visited outranks a bare class, so each of them needs the
+   pair spelled out and three separate rules would ship the same two
+   declarations three times. */
 .site-mark,
 .site-mark:visited,
 .site-contact,
@@ -221,15 +235,15 @@ select {
   text-decoration: none;
 }
 
-/* 700 is the heaviest genuine weight in every fallback of the sans stack:
-   Helvetica Neue and Helvetica both stop at Bold, Arial has nothing above it,
-   and the one 900 face macOS ships is Condensed Black, which would render the
-   mark narrow rather than heavy. Weight is already at the ceiling, so the
-   thickness comes from size, and the tracking pulls the two letters into one
-   shape instead of two. */
+/* The bar took its type from simonwillison.net, which sets its whole masthead
+   in the Helvetica Neue stack at the body weight with no tracking at all: the
+   title there is font-weight: normal and nothing in the header touches
+   letter-spacing. So the nav no longer declares 700, it inherits 400 from
+   body, and the mark no longer pulls its two letters together. Size is what
+   separates the mark from the links now, and it is the only thing that does,
+   which is the same hierarchy the reference bar uses. */
 .site-mark {
   font-size: 1.375rem;
-  letter-spacing: -.03em;
 }
 
 /* contact and the page light are the right pole. margin-left:auto rather than
@@ -242,8 +256,9 @@ select {
   margin-left: auto;
 }
 
-/* The focus ring is --color-link everywhere else on the page. Inside the bar
-   that is blue on blue, so it is white here and nowhere else. */
+/* The focus ring is --color-link everywhere else on the page, which on the
+   dark ground is the lifted #4d86fa and near-invisible on pale blue. The bar
+   rings in its own ink instead. */
 .site-nav a:focus-visible,
 .site-nav button:focus-visible {
   outline-color: #fff;
@@ -275,9 +290,17 @@ select {
 }
 
 /* One typeface, everywhere except code. Hierarchy is carried by size, weight
-   and the rules between sections, not by a second face. The tracking stays:
-   Helvetica sets loose at heading sizes and -.02em is what makes a 1.75rem
-   line read as a title rather than as large body copy.
+   and the rules between sections, not by a second face. Headings inherit the
+   sans stack from html rather than declaring it, which is where the sheet
+   saved the bytes for it twice over.
+
+   simonwillison.net splits its two faces the other way, georgia, serif on
+   div.entry h2, div.entry h4, div#secondary h3 and div#bighead h1 over a
+   Helvetica body. That is his site. This one is pure Helvetica and the rule
+   above is why.
+
+   The tracking stays: Helvetica sets loose at heading sizes and -.02em is what
+   makes a 1.75rem line read as a title rather than as large body copy.
 
    scroll-margin clears the sticky masthead. Without it every anchor link on
    the site lands with its heading hidden behind the bar. */
@@ -287,7 +310,7 @@ h3,
 h4 {
   line-height: 1.25;
   letter-spacing: -.02em;
-  scroll-margin-top: 3.75rem;
+  scroll-margin-top: 5.5rem;
   text-wrap: balance;
 }
 
@@ -524,12 +547,21 @@ td {
 }
 
 /* Sitewide invitation to read the site through an MCP client. Sits directly
-   under the nav on every page, so it must stay quiet: a rule, a line, no box. */
+   under the nav on every page, so it must stay quiet: a rule, a line, no box.
+
+   The default line has to stay one line in the 46rem column. It dropped to
+   .85rem while the site was set in Open Sauce One, which runs about a tenth
+   wider than Helvetica and pushed the sentence onto a second row with
+   `copy-paste.` stranded under it. Helvetica fits it at .9rem again.
+   text-wrap: pretty stays: the copy is per-audience via mcp_note in front
+   matter and can be any length, and when a longer one does wrap it will not
+   wrap to an orphan. */
 .mcp-callout {
   margin: 0 0 1.25rem;
   padding-bottom: .75rem;
   @extend %rule-bottom;
   font-size: .9rem;
+  text-wrap: pretty;
 }
 
 .mcp-callout p {
@@ -1080,8 +1112,8 @@ td {
 }
 
 .quest-primary:hover {
-  border-color: #0000b3;
-  background: #0000b3;
+  border-color: #000a81;
+  background: #000a81;
 }
 
 .mcp-hero {
@@ -1233,7 +1265,15 @@ td {
     cursor: pointer;
   }
 
+  /* Sized in CSS rather than left to the width and height attributes. The
+     reset at the top of this sheet sets height:auto on every svg, which
+     overrides the attribute, so the icon's height depends on how the flex
+     parent resolves an auto cross size. Every other icon on the site states
+     both dimensions; this one was the exception and no longer is. */
   .menu-toggle svg {
+    width: 1.375rem;
+    height: 1.375rem;
+    flex: 0 0 auto;
     fill: none;
     stroke: currentColor;
     stroke-linecap: round;
@@ -1245,9 +1285,11 @@ td {
     outline-offset: 3px;
   }
 
-  /* The wrapper stops being transparent and becomes the panel. It takes the
-     bottom stop of the ramp rather than a flat colour so the dropdown reads
-     as the bar continuing downward, not as a separate sheet. */
+  /* The wrapper stops being transparent and becomes the panel. It carries the
+     same grid as the bar over the bottom stop of the ramp, so the dropdown
+     reads as the mat continuing downward rather than as a separate sheet. The
+     vertical rules line up because both boxes are full-bleed from x=0; the
+     horizontal ones restart, which is the seam where the bar ends. */
   .site-menu {
     position: absolute;
     top: 100%;
@@ -1258,7 +1300,7 @@ td {
     flex-direction: column;
     align-items: flex-end;
     padding: .5rem max(1.25rem, env(safe-area-inset-right)) .75rem max(1.25rem, env(safe-area-inset-left));
-    background: var(--bar-c);
+    background: var(--mat-grid), var(--bar-b);
   }
 
   .nav-toggle:checked ~ .site-menu {
@@ -1397,47 +1439,51 @@ svg.logo-wordmark {
    Values are derived rather than picked: the ground sits 10 degrees off the
    brand hue instead of being a neutral grey, the code surface is lighter than
    the page rather than darker (dark mode inverts elevation), and the link is
-   step two of the tonal ramp generated from #0057ff, so both modes are the
-   same blue read from opposite ends of one ramp. Contrast against the real
-   canvas: text 14.0:1, blockquote 8.6:1, link 6.5:1, dates 5.8:1, mark 5.6:1,
-   which is the same running order as the light palette. */
-/* The page light. Three swatches showing the grounds themselves, so the
-   control is a sample of the thing it does rather than a symbol standing in
-   for it. It lives in the masthead now, at the right pole past contact, which
-   is what makes it reachable at any scroll depth. Below 44rem it moves into
-   the dropdown with the links: the note that used to be here was right that a
-   control in the top corner collides with the menu button, and the dropdown
-   is the gutter a 320px screen does not have. */
+   the cutting-mat blue lifted along its own hue until it clears the floor on
+   this ground. #002f9e measures 1.6:1 against #16181a and is unreadable here;
+   holding oklch hue 262.9 and chroma .184 and raising lightness to .64 gives
+   #4d86fa at 5.2:1. It is the same blue, read from the other end of one ramp.
+   Contrast against the real canvas: text 14.0:1, blockquote 8.6:1, link
+   5.2:1, dates 5.8:1, which is the same running order as the light palette.
+   The bar keeps the light ramp: a cutting mat does not change colour when the
+   lights in the room do, so the dark palette defines no bar tokens. */
+/* The page light. One button that cycles the three grounds and shows which
+   one is on: an empty disc, a half disc, a filled disc. It was three swatches,
+   each a sample of the ground it selected, which is the better idea and the
+   worse control: three tap targets in a bar that already carries seven links
+   and an action, and at 320px they only ever read as a group.
+
+   It lives at the right pole past contact, reachable at any scroll depth.
+   Below 44rem it moves into the dropdown with the links, which is the gutter a
+   320px screen does not have. */
 .theme-picker {
   display: flex;
-  gap: .3rem;
 }
 
-/* Fixed border rather than --rule. The swatches sit on the bar in every
-   ground, and the dark palette's hairline is invisible against it. */
-.theme-swatch {
-  width: 1.35rem;
-  height: 1.35rem;
+/* Same 2.75rem target as the menu button, which is exactly the height of the
+   bar, so the control does not grow it. The disc is drawn in currentColor and
+   the bar sets that to white, so the icon needs no colour of its own. */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, .5);
-  border-radius: 50%;
+  border: 0;
+  background: none;
+  color: #fff;
   cursor: pointer;
 }
 
-/* Fixed values, not tokens. Each swatch has to show its own ground whichever
-   ground the page is currently on, so these must not follow the palette. */
-.t-light { background: #fff; }
-.t-beige { background: #f3ecdf; }
-.t-dark { background: #16181a; }
-
-/* The selected one thickens its own border rather than growing a shadow: the
-   sheet has no shadows, and an outline here would be indistinguishable from
-   the focus ring. box-sizing is border-box sitewide, so the circle does not
-   move. It also carries aria-pressed, so the state survives with this
-   stylesheet switched off. */
-.theme-swatch[aria-pressed="true"] {
-  border-color: #fff;
-  border-width: 3px;
+/* Sized here rather than left to the width and height attributes. The reset
+   at the top of this sheet sets height:auto on every svg, which overrides the
+   attribute and collapses the icon to nothing inside a flex parent. Every
+   other icon on the site is sized in CSS for the same reason. */
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
 }
 
 /* Dark lives in a mixin because it now has two triggers: the reader's system
@@ -1451,15 +1497,10 @@ svg.logo-wordmark {
   --color-text:#e4e4e4;
   --color-secondary:#8f9398;
   --color-border:#33383d;
-  --color-accent:#669aff;
-  --color-link:#669aff;
-  --color-mark:#5b8cff;
-  /* Primer's dark blue scale, same three steps. GitHub ships two scales and
-     so does the bar; the light one is too bright against #16181a. Worst point
-     under the text band is 4.71:1. */
-  --bar-a:#388bfd;
-  --bar-b:#1f6feb;
-  --bar-c:#1158c7;
+  --color-accent:#4d86fa;
+  --color-link:#4d86fa;
+  --color-mark:#4d86fa;
+
 
 ::selection {
   background: #3c4a1e;
@@ -1467,7 +1508,7 @@ svg.logo-wordmark {
 
 a,
 button {
-  -webkit-tap-highlight-color: rgba(102, 154, 255, .18);
+  -webkit-tap-highlight-color: rgba(77, 134, 250, .18);
 }
 
 blockquote {
@@ -1475,8 +1516,8 @@ blockquote {
 }
 
 .quest-primary:hover {
-  border-color: #9dbcff;
-  background: #9dbcff;
+  border-color: #71acff;
+  background: #71acff;
 }
 
 .github-heading h2 a,

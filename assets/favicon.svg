@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <title>VC favicon</title>
-  <desc>White square with electric-blue VC initials.</desc>
+  <desc>White square with cutting-mat blue VC initials.</desc>
   <rect width="32" height="32" rx="7" fill="#ffffff"/>
-  <text x="16" y="21.5" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0057ff">VC</text>
+  <text x="16" y="21.5" text-anchor="middle" font-family="'Helvetica Neue', helvetica, sans-serif" font-size="14" font-weight="700" fill="#002f9e">VC</text>
 </svg>
