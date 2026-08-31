@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "510038a2b3dea96a968e8c78ac48d923892f9aa2",
+  "last_processed_commit": "2ee909a632b34f1a83cf44cf4a0d1a7a24ae60d0",
   "updated_at": "2026-08-31",
   "updates": [
+    {
+      "id": "2026-08-31-2ee909a",
+      "date": "2026-08-31",
+      "title": "Every logo on the site is now the mark its owner publishes",
+      "summary": "The Letterboxd mark was rebuilt to the proportions Letterboxd publishes rather than the ones it was drawn with, and the tools page no longer splits into a grey hardware list and a colour software list. Apple hardware carries the Apple mark, and the two brands that publish only a wordmark keep a glyph, because a wordmark is unreadable at twenty pixels.",
+      "benefits": [
+        {
+          "label": "Correct mark",
+          "text": "Letterboxd sits at the 15.2% circle overlap its own logo file uses, not the 39% that read as one blob."
+        },
+        {
+          "label": "One page",
+          "text": "The tools list uses real brand marks throughout instead of grey glyphs above and colour below."
+        }
+      ],
+      "commit_shas": [
+        "2ee909a632b34f1a83cf44cf4a0d1a7a24ae60d0"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-31-510038a",
       "date": "2026-08-31",
