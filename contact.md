@@ -9,7 +9,7 @@ mcp_note: >-
 ---
 ## Start on LinkedIn
 
-[LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best place for speaking invitations, media requests, podcast guesting, corrections, and questions about this site. I'm Group Manager, Product Marketing at HCLTech, and views here are my own.
+[LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best place for speaking invitations, media requests, podcast guesting, corrections, and questions about this site.
 
 ## Open-source tools
 
