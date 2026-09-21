@@ -2,7 +2,7 @@
 layout: page
 title: Lazarus Pit
 seo_title: Lazarus Pit, a retired self-healing UX agent
-description: Retired. A self-healing UX agent that read Microsoft Clarity data, diagnosed friction, and filed GitHub issues with a proposed fix. What it did, and what it taught me about diagnosing on small traffic.
+description: Retired. A self-healing UX agent that read Microsoft Clarity data, found friction, and filed GitHub issues with fixes. What it taught me about small traffic.
 last_modified_at: 2026-08-16
 intro: Retired. A self-healing UX agent that read this site's Clarity sessions every week, diagnosed friction, and filed a GitHub issue with a proposed fix. A human still merged.
 state: Retired

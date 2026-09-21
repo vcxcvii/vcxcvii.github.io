@@ -17,7 +17,9 @@
       "url": "{{ site.url }}/about/",
       "image": "{{ '/assets/images/varun-choraria-about.jpeg' | prepend: site.url }}",
       "jobTitle": "Group Manager, Product Marketing",
-      "worksFor": { "@type": "Organization", "name": "HCLTech", "url": "https://www.hcltech.com/" },
+      "worksFor": { "@type": "Organization", "name": "HCL Tech", "url": "https://www.hcltech.com/" },
+      "homeLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Bangalore", "addressCountry": "IN" } },
+      "knowsAbout": ["Product marketing", "Go-to-market strategy", "B2B SaaS", "Product-led growth", "AI agents", "Answer engine optimisation"],
       "description": {{ site.author_description | jsonify }},
       "sameAs": [
         "https://www.linkedin.com/in/varunchoraria/",
@@ -49,21 +51,7 @@
       "mainEntity": { "@id": "{{ canonical_url }}#tools" }{% elsif page.url == '/' %},
       "about": { "@id": "{{ site.url }}/#person" }{% endif %}{% if page.faqs %},
       "hasPart": { "@id": "{{ canonical_url }}#faq" }{% endif %}
-    }{% if page.service %},
-    {
-      "@type": "Service",
-      "@id": "{{ canonical_url }}#service",
-      "name": {{ page.service_name | default: page.title | jsonify }},
-      "serviceType": {{ page.service_type | default: page.title | jsonify }},
-      "description": {{ meta_description | jsonify }},
-      "url": "{{ canonical_url }}",
-      "provider": { "@id": "{{ site.url }}/#person" },
-      "areaServed": "Worldwide",
-      "audience": {
-        "@type": "BusinessAudience",
-        "audienceType": "B2B SaaS founders and marketing leaders"
-      }
-    }{% endif %}{% if page.project %},
+    }{% if page.project %},
     {
       "@type": "SoftwareApplication",
       "@id": "{{ canonical_url }}#software",
