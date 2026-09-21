@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "53d91e1ebbbdf5015182e0415d3120c1b8a9bcb4",
+  "last_processed_commit": "23a2604ad23aa9cfbb673add72557c991cc2b6bb",
   "updated_at": "2026-09-21",
   "updates": [
+    {
+      "id": "2026-09-21-23a2604",
+      "date": "2026-09-21",
+      "title": "About is shorter, without the FAQ block at the end",
+      "summary": "Removed the question-and-answer section from About. It repeated the page above it and had no links, so the page now ends with the personal section.",
+      "benefits": [
+        {
+          "label": "Less repetition",
+          "text": "About no longer restates itself in a Q&A."
+        },
+        {
+          "label": "Cleaner ending",
+          "text": "The page now ends on the personal section."
+        }
+      ],
+      "commit_shas": [
+        "23a2604ad23aa9cfbb673add72557c991cc2b6bb"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-09-21-e97fc3a",
       "date": "2026-09-21",
