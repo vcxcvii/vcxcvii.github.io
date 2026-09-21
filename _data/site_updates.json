@@ -1,5 +1,5 @@
 {
-  "last_processed_commit": "984b9b234a6f7ef57d9c79136cfde7f93d13760c",
+  "last_processed_commit": "6e0cec1020f976506a8a15768662f5179e612d0b",
   "updated_at": "2026-09-21",
   "updates": [
     {
@@ -43,18 +43,38 @@
       "source": "git-trailer"
     },
     {
+      "id": "2026-09-21-5458b72",
+      "date": "2026-09-21",
+      "title": "Every page now has a summary for AI assistants",
+      "summary": "Pages without a visible intro, like About, now fall back to their description in the machine-readable feed, so an AI assistant connected through MCP always sees what the page is.",
+      "benefits": [
+        {
+          "label": "Complete summaries",
+          "text": "Every page in the MCP feed carries a one-line description."
+        },
+        {
+          "label": "Better AI answers",
+          "text": "Assistants describe About accurately instead of guessing."
+        }
+      ],
+      "commit_shas": [
+        "5458b722ea79a272f03c38b7f16058e1f88f6593"
+      ],
+      "source": "manual"
+    },
+    {
       "id": "2026-09-21-e97fc3a",
       "date": "2026-09-21",
       "title": "Search and AI answers now reflect my current role",
-      "summary": "Updated page titles, descriptions and structured data so search engines and AI assistants report my current role at HCL Tech. Added an About FAQ that AI answers can quote, and refreshed llms.txt.",
+      "summary": "Updated page titles, descriptions and structured data so search engines and AI assistants report my current role at HCL Tech, and refreshed llms.txt.",
       "benefits": [
         {
           "label": "Accurate answers",
           "text": "Search and AI assistants describe my current role correctly."
         },
         {
-          "label": "Quotable FAQ",
-          "text": "About now answers the common questions about me in plain text."
+          "label": "Richer profile data",
+          "text": "The structured data now names my employer, my city and the topics I work on."
         }
       ],
       "commit_shas": [
@@ -89,8 +109,8 @@
     {
       "id": "2026-09-21-4815c14",
       "date": "2026-09-21",
-      "title": "Now Group Manager, Product Marketing at HCLTech",
-      "summary": "Updated the homepage, About, Work and Contact pages for my new role at HCLTech. Removed the consulting pages and hiring calls to action, which no longer apply.",
+      "title": "Now Group Manager, Product Marketing at HCL Tech",
+      "summary": "Updated the homepage, About, Work and Contact pages for my new role at HCL Tech. Removed the consulting pages and hiring calls to action, which no longer apply.",
       "benefits": [
         {
           "label": "Current role",
