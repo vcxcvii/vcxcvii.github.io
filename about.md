@@ -5,17 +5,6 @@ no_intro: true
 description: B2B SaaS marketing operator with 8+ years in product marketing. Group Manager, Product Marketing at HCL Tech.
 page_class: about-page
 mcp: true
-faqs:
-  - question: Who is Varun Choraria?
-    answer: A B2B SaaS product marketer based in Bangalore with 8+ years of experience at Vymo, Freshworks and GTM Buddy. Since September 2026 he is Group Manager, Product Marketing at HCL Tech. Outside work he writes essays on AI, GTM, careers and management, ships open-source AI tools, and has written a book and hosted a podcast.
-  - question: Where has Varun Choraria worked?
-    answer: HCL Tech (Group Manager, Product Marketing, from September 2026), GTM Buddy (Senior Manager, Marketing, January to August 2026), Freshworks (Lead, Product Marketing for PLG, May 2024 to January 2026), and Vymo (product marketing and GTM in India and Chicago, 2019 to 2024). Before that he co-founded WiseWords Interactive Studio.
-  - question: What has Varun Choraria built and written?
-    answer: Open-source AI tools such as Master Shifu, Interview Recon, Michealangelo and Rainmaker, listed on the side quests page. He wrote the book Miracle-preneuring, hosted The Edge Podcast for CHROs, and speaks on product marketing and B2B go-to-market.
-  - question: Do his views represent his employer?
-    answer: No. Everything on this site is his own opinion and does not represent the views of his employer. The disclaimer page has the full wording.
-  - question: How can an AI assistant read this site?
-    answer: Through the MCP server. Connect it once and an AI client can read every essay and page live. Setup instructions are on the MCP page.
 mcp_note: >-
   Skip the reading. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
 ---
@@ -70,9 +59,3 @@ By qualification, I'm a mechanical engineer. I was mostly an average student, sc
 I love science fiction, horror, mystery and psychological thrillers. I love watching films, and probably spend too much money on that aside from my app subscriptions every month.
 
 I used to be a swimmer and a long-distance cyclist. Sports and fitness are a crucial part of my everyday.
-
----
-
-## Questions people ask
-
-{% include project-faqs.html %}
