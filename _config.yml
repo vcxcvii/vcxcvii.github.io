@@ -27,6 +27,9 @@ exclude:
   - AGENTS.md
   - CLAUDE.md
   - DESIGN.md
+  # Notes for coding assistants (issue tracker, triage labels, domain docs).
+  # They carry no frontmatter, so unlisted they would publish as raw files.
+  - docs
   - FEEDBACK.md
   - RAINMAKER.md
   - README.md

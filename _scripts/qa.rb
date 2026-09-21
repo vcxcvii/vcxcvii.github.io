@@ -14,7 +14,7 @@ VALID_LAYOUTS  = %w[default page home entry listing archive tag_archive side-que
 # private/ holds password-gated pages built by _scripts/build-private.mjs. They
 # are AES-GCM ciphertext plus a decrypt shim, not content: no frontmatter to
 # lint, no prose to check, and they are noindex by design.
-NON_CONTENT_PATHS = %w[.agents/ api/ _site/ _includes/ _layouts/ _scripts/ private/].freeze
+NON_CONTENT_PATHS = %w[.agents/ api/ _site/ _includes/ _layouts/ _scripts/ private/ docs/].freeze
 SEO_TITLE_MAX  = 60
 SEO_DESC_MAX   = 160
 AEO_WORD_MIN   = 100
