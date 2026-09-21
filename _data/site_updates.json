@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "4815c140703b3df00b86439491f71f490bf6f5c6",
+  "last_processed_commit": "b9588cf8280d1fe0af869d841fe0a1d97694443c",
   "updated_at": "2026-09-21",
   "updates": [
+    {
+      "id": "2026-09-21-b76ce7a",
+      "date": "2026-09-21",
+      "title": "Days grid, refreshed About and Uses This, real logos",
+      "summary": "The Days page now shows a GitHub-style activity grid. About and Uses This are reorganised newest first, with the correct Google, Salesforce and Paper logos and new Mac specs. Copy is now consistently British English.",
+      "benefits": [
+        {
+          "label": "Activity grid",
+          "text": "Each day of the year is one cell, shaded by how much shipped."
+        },
+        {
+          "label": "Correct logos",
+          "text": "Tools on Uses This now show their real brand marks."
+        },
+        {
+          "label": "Newest first",
+          "text": "About now reads from the current role back to university."
+        }
+      ],
+      "commit_shas": [
+        "b76ce7a53375997a883de53aba3992b98ecdded5"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-09-21-4815c14",
       "date": "2026-09-21",
