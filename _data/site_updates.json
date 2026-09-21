@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "b9588cf8280d1fe0af869d841fe0a1d97694443c",
+  "last_processed_commit": "e97fc3a6eada223a712b35b0e1f596de18862312",
   "updated_at": "2026-09-21",
   "updates": [
+    {
+      "id": "2026-09-21-e97fc3a",
+      "date": "2026-09-21",
+      "title": "Search and AI answers now reflect my current role",
+      "summary": "Updated page titles, descriptions and structured data so search engines and AI assistants report my current role at HCL Tech. Added an About FAQ that AI answers can quote, and refreshed llms.txt.",
+      "benefits": [
+        {
+          "label": "Accurate answers",
+          "text": "Search and AI assistants describe my current role correctly."
+        },
+        {
+          "label": "Quotable FAQ",
+          "text": "About now answers the common questions about me in plain text."
+        }
+      ],
+      "commit_shas": [
+        "e97fc3a6eada223a712b35b0e1f596de18862312"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-09-21-b76ce7a",
       "date": "2026-09-21",
