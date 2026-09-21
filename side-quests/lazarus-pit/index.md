@@ -84,4 +84,4 @@ The parts worth copying are described on this page, which is why the page outliv
 
 ## Want to see what it caught?
 
-Its findings outlived it: [browse the open and closed issues](https://github.com/vcxcvii/vcxcvii.github.io/issues?q=label%3Alazarus-pit) it filed against this site. If you are building something similar and want to compare thresholds, [book 30 minutes](https://cal.com/varun-choraria/30min).
+Its findings outlived it: [browse the open and closed issues](https://github.com/vcxcvii/vcxcvii.github.io/issues?q=label%3Alazarus-pit) it filed against this site.

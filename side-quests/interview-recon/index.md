@@ -80,6 +80,6 @@ Interview Recon cannot see private company information, replace your judgment, o
 
 ## Want to improve the next interview kit?
 
-[Open an issue on GitHub]({{ page.repo_url }}) with a missing source, broken workflow, or output that did not help. For a longer conversation, [book 30 minutes](https://cal.com/varun-choraria/30min).
+[Open an issue on GitHub]({{ page.repo_url }}) with a missing source, broken workflow, or output that did not help.
 
 Interview Recon is MIT licensed. Fork it, adapt it, and keep your research. If you also need case-interview frameworks, [Master Shifu](/side-quests/master-shifu/) chains into it.

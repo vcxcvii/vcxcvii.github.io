@@ -1,3 +1,8 @@
+- period: "2026 - present"
+  company: HCLTech
+  company_url: https://www.hcltech.com/
+  title: Group Manager, Product Marketing
+  summary: ""
 - period: "Jan 2026 - Aug 2026"
   company: GTM Buddy
   company_url: https://gtmbuddy.ai/
@@ -18,10 +23,3 @@
   company_url: https://web.archive.org/web/20180826201555/https://wisewordspro.com/
   title: Co-founder & CEO
   summary: "Student founder at 19. Grew a design and content studio serving 25+ brands, from freelance gigs on Fiverr to enterprise clients."
-- period: someday
-  company: "Your company?"
-  title: ""
-  summary: "If you're building something cool in AI or B2B, let me help you market the sh*t out of it."
-  cal: true
-  open: true
-  pulse: true

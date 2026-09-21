@@ -52,7 +52,7 @@ faqs:
 
 Rainmaker is a free SEO and AEO agent that works inside your coding assistant. Point it at a website and it will crawl the pages, work out which problems sit closest to revenue, and give you three things worth doing next. It keeps a permanent record, so it can later tell you what improved and what did nothing.
 
-[View the source on GitHub]({{ page.repo_url }}) or [book 30 minutes with me](https://cal.com/varun-choraria/30min) if you want help applying it to a real site.
+[View the source on GitHub]({{ page.repo_url }}).
 
 ## What problem does it solve?
 
@@ -155,8 +155,6 @@ Rainmaker is strongest at repeatable analysis, prioritization, and memory. It is
 
 {% include project-faqs.html %}
 
-## Want the system plus human judgment?
+## Want to improve it?
 
-Rainmaker handles the repeatable work. I can help with the parts that need an experienced operator: positioning, prioritization, buyer nuance, content judgment, and getting a team to act on the evidence.
-
-[Book a 30-minute call with me](https://cal.com/varun-choraria/30min), [open an issue]({{ page.repo_url }}/issues), or fork the MIT-licensed project and make it disagree with me in public.
+[Open an issue]({{ page.repo_url }}/issues) or fork the MIT-licensed project and make it disagree with me in public.

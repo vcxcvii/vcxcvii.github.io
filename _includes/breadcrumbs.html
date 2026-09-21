@@ -1,15 +1,12 @@
 {% comment %}
 Breadcrumbs: visible trail + BreadcrumbList schema.
-Posts sit under Blog. Service pages sit under Consulting. Tag pages sit under Topics.
+Posts sit under Blog. Tag pages sit under Topics.
 Everything else is a direct child of Home.
 {% endcomment %}
 {% assign crumb_parent_name = false %}
 {% if page.layout == 'entry' %}
   {% assign crumb_parent_name = 'Blog' %}
   {% assign crumb_parent_url = '/blog/' %}
-{% elsif page.url contains '-consultant' or page.url contains '/consulting/' and page.url != '/consulting/' %}
-  {% assign crumb_parent_name = 'Consulting' %}
-  {% assign crumb_parent_url = '/consulting/' %}
 {% elsif page.url contains '/side-quests/' and page.url != '/side-quests/' %}
   {% assign crumb_parent_name = 'Side Quests' %}
   {% assign crumb_parent_url = '/side-quests/' %}

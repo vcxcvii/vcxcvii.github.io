@@ -2,14 +2,17 @@
 layout: page
 title: Work
 seo_title: B2B SaaS marketing work | Varun Choraria
-intro: Roles, responsibilities, and selected consulting work.
-description: See Varun Choraria's B2B SaaS marketing work across pipeline, positioning, product marketing, AI systems, category creation, and consulting outcomes.
+intro: Roles, responsibilities, and selected past consulting work.
+description: See Varun Choraria's B2B SaaS marketing work across pipeline, positioning, product marketing, AI systems, category creation, and past consulting outcomes.
+redirect_from:
+  - /consulting/
+  - /consulting/first-30-days/
 page_class: work-page
 mcp: true
 mcp_note: >-
-  Hiring managers: you're going to skim this. Everyone does. <a href="/mcp/">Connect my MCP server</a> instead and let your AI read the whole thing, then ask it whether I can actually do the job.
+  You're going to skim this. Everyone does. <a href="/mcp/">Connect my MCP server</a> instead and let your AI read the whole thing.
 ---
-**This page is the full record: roles, scope, teams, and outcomes.** I'm open to senior full-time roles anywhere in the world, and [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to start that conversation. If you'd rather hire the work than the person, [here's how I run engagements](/consulting/).
+**This page is the full record: roles, scope, teams, and outcomes.** [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me.
 
 Outcomes are stated as rates, multiples, and adoption rather than as a former employer's revenue. The absolute figures are on my resume, which I'm happy to share.
 
@@ -19,13 +22,9 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 ## Current
 
-### B2B SaaS Marketing Consultant
+### Group Manager, Product Marketing
 
-**2026-present**
-
-- Advising B2B SaaS companies on growth strategy, pipeline, positioning, product marketing, and AI
-- Running workshops, defined projects, and ongoing marketing leadership
-- Building AI-first marketing systems with small teams and agents
+**2026-present** · [HCLTech](https://www.hcltech.com/)
 
 ---
 

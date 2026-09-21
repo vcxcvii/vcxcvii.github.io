@@ -155,7 +155,7 @@ Beige changes only the empty cell. `#ebedf0` is a cool grey that measures 1.0 ag
 
 - Pure HTML in `_includes/nav.html`; data comes from `_data/navigation.yml`.
 - First item is `VC` at `1.0625rem` weight `700`, returning home. It is white or dark with the bar, never `#002f9e`: the mark colour would be the bar's own colour on the deep ramps this bar has worn.
-- Labels are Title Case, matching the reference nav: `About`, `Work`, `Consulting`, `Blog`, `Side Quests`, `Speaking`, `Days`, `Contact`. They were lowercase for the terminal type system and changed with it.
+- Labels are Title Case, matching the reference nav: `About`, `Work`, `Blog`, `Side Quests`, `Speaking`, `Days`, `Contact`. They were lowercase for the terminal type system and changed with it.
 - Everything but the mark is pushed right, in `_data/navigation.yml` order, with the page light last. `.site-links` carries `margin-left: auto`; `.site-actions` no longer does, or the two groups would separate.
 - Eight links is the ceiling. At `720px`, the narrowest desktop width before the
   hamburger takes over, they fill the column exactly. A ninth wraps, so adding
@@ -266,10 +266,8 @@ There is no separate install section. The command is in the header, so a page ke
 
 ## Supporting pages
 
-- `/about`, `/work`, `/consulting`, the two consulting detail pages, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, `/days`, and `/mcp` use the same page shell and typography.
-- `/consulting` is the umbrella offer. AI marketing and product marketing pages are specialist branches of the same B2B SaaS marketing consulting practice.
-- Every consulting page uses the same three engagement shapes: workshop, defined project, and ongoing consulting or fractional leadership.
-- The shared provider title is `B2B SaaS Marketing Consultant`. AI is a specialist capability and delivery method, not the umbrella job title.
+- `/about`, `/work`, `/blog`, `/fun`, `/uses-this`, `/side-quests`, `/tags`, `/feed`, `/days`, and `/mcp` use the same page shell and typography.
+- `/consulting/` and `/consulting/first-30-days/` are retired and redirect to `/work/`.
 - `/about` contains no portrait.
 - Long pages rely on headings, rules, lists, and links. Do not introduce a separate visual system.
 - `/uses-this/` renders from `_data/uses.yml`. Every entry carries a name, a one-line note, a destination, and one `logo` that must exist as `_includes/logos/<logo>.svg`. A row naming several products uses `name_md`, so each product carries its own link instead of the row linking only the first.

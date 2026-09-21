@@ -43,8 +43,6 @@ Everything I still pay for earns its place or gets cut. I run a one-person marke
 {% endfor %}
 <hr>
 
-This is also the stack I run client work on. If you want it pointed at your pipeline, [here is how I consult]({{ '/consulting/' | relative_url }}).
-
 ## Questions people ask
 
 {% include project-faqs.html %}

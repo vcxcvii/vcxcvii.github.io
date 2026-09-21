@@ -71,6 +71,6 @@ Master Shifu cannot know your business, repair missing data, or rescue a conclus
 
 ## Used it on a real problem?
 
-[Open an issue on GitHub]({{ page.repo_url }}) with the problem shape, chosen framework, and where the reasoning broke. For a longer conversation, [book 30 minutes](https://cal.com/varun-choraria/30min).
+[Open an issue on GitHub]({{ page.repo_url }}) with the problem shape, chosen framework, and where the reasoning broke.
 
 Master Shifu is MIT licensed. Pair it with [Interview Recon](/side-quests/interview-recon/) when a company-specific interview needs both research and case frameworks.

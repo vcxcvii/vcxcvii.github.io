@@ -85,6 +85,6 @@ Michealangelo cannot make you a designer or rescue a brief nobody has thought th
 
 ## Found a design decision that still feels wrong?
 
-[Open an issue on GitHub]({{ page.repo_url }}) with the brief, output, and correction you expected. That gap is useful input for the skill set. For a longer conversation, [book 30 minutes](https://cal.com/varun-choraria/30min).
+[Open an issue on GitHub]({{ page.repo_url }}) with the brief, output, and correction you expected. That gap is useful input for the skill set.
 
 Michealangelo is MIT licensed. Fork it, remove what you do not need, and disagree with it in public.

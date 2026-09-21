@@ -1,8 +1,8 @@
 ---
 title: About
 seo_title: About Varun Choraria | Background, work and current focus
-intro: B2B SaaS marketing operator. 8+ years of pipeline, positioning and product marketing, now built with agents.
-description: B2B SaaS marketing operator. I decide what marketing should do next, ship the work, and measure it in pipeline or revenue. 8+ years in, currently consulting.
+intro: B2B SaaS marketing operator. 8+ years of pipeline, positioning and product marketing, now built with agents. Group Manager, Product Marketing at HCLTech.
+description: B2B SaaS marketing operator. I decide what marketing should do next, ship the work, and measure it in pipeline or revenue. 8+ years in, currently Group Manager, Product Marketing at HCLTech.
 page_class: about-page
 mcp: true
 mcp_note: >-
@@ -14,9 +14,7 @@ I'm a marketing professional and I have worked in the B2B SaaS space for 8+ year
 
 ## Now
 
-I'm a B2B SaaS marketing operator. I help teams decide what marketing should do next, ship the work, and measure the result in pipeline, revenue, or another business outcome. I work across growth strategy, product marketing, and AI. Most recently, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A) through August 2026, helping create the Revenue Activation category. The [full history is here](/work/).
-
-**I'm open to both full-time roles and consulting engagements.** If you're building something in AI or B2B and want help marketing it, [here's how I work](/consulting/).
+I'm a B2B SaaS marketing operator. I help teams decide what marketing should do next, ship the work, and measure the result in pipeline, revenue, or another business outcome. I work across growth strategy, product marketing, and AI. Right now, I'm Group Manager, Product Marketing at [HCLTech](https://www.hcltech.com/). Before that, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A) through August 2026, helping create the Revenue Activation category. The [full history is here](/work/).
 
 I'm all-in on Agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents. I'm building that way of working now.
 

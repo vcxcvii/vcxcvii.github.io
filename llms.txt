@@ -1,12 +1,10 @@
 # Varun Choraria
 
-> B2B SaaS marketing consultant and operator. Essays on go-to-market strategy, management, careers, AI, product marketing, and building useful things.
+> B2B SaaS marketing operator. Essays on go-to-market strategy, management, careers, AI, product marketing, and building useful things.
 
 ## About
 
-Varun Choraria is an AI-native B2B SaaS marketing consultant with about a decade of experience across growth strategy, pipeline, product marketing, and AI. He works solo, running a swarm of agents, so strategy and shipped execution come from the same person. He works through workshops, defined projects, and ongoing marketing leadership. He led marketing at GTM Buddy from January to August 2026, was Lead Product Marketing at Freshworks (2024-2026), and was a founding product marketer at Vymo (2019-2024).
-
-**Availability: open to both full-time roles and consulting engagements.**
+Varun Choraria is a B2B SaaS marketing operator with 8+ years of experience across growth strategy, pipeline, product marketing, and AI. He is Group Manager, Product Marketing at HCLTech (2026-present). He led marketing at GTM Buddy from January to August 2026, was Lead Product Marketing at Freshworks (2024-2026), and was a founding product marketer at Vymo (2019-2024).
 
 ## Writing
 
@@ -18,10 +16,6 @@ Varun Choraria is an AI-native B2B SaaS marketing consultant with about a decade
 
 - [/work/](/work/): professional background and current work
 - [/about/](/about/): biography, experience, and current focus
-
-## Consulting
-
-- [/consulting/](/consulting/): solo, AI-native consulting across positioning, product marketing, pipeline, launches, sales enablement, AI systems, and fractional marketing leadership
 
 ## Side Projects
 
@@ -43,7 +37,6 @@ Varun Choraria is an AI-native B2B SaaS marketing consultant with about a decade
 
 ## Contact
 
-- Cal.com: https://cal.com/varun-choraria/30min
 - LinkedIn: https://www.linkedin.com/in/varunchoraria/
 - GitHub: https://github.com/vcxcvii
 
