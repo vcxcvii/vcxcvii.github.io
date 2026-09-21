@@ -69,7 +69,7 @@ fails the build if this ever falls out of step with sitemap.xml.
       "title": {{ page.title | jsonify }},
       "slug": {{ slug | jsonify }},
       "url": {{ page.url | absolute_url | jsonify }},
-      "intro": {{ page.intro | default: "" | jsonify }},
+      "intro": {{ page.intro | default: page.description | default: "" | jsonify }},
       "listing": {{ is_listing | jsonify }},
       "content": {{ body | jsonify }}
     }{% unless forloop.last %},{% endunless %}
