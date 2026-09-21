@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "19fe71fcd27059b57efa3bb5c35fbc640121bb40",
+  "last_processed_commit": "06a81ae7687563d1df3acc77c282868a85ba1cf8",
   "updated_at": "2026-09-21",
   "updates": [
+    {
+      "id": "2026-09-21-06a81ae",
+      "date": "2026-09-21",
+      "title": "One description of me across every page and feed",
+      "summary": "About, Work and the machine-readable feeds now all call me a B2B SaaS product marketer and spell my employer HCL Tech the same way, where some pages still said marketing operator or HCLTech.",
+      "benefits": [
+        {
+          "label": "Consistent wording",
+          "text": "Every page describes my role the same way."
+        },
+        {
+          "label": "Consistent AI answers",
+          "text": "Search and AI assistants now read the same description everywhere."
+        }
+      ],
+      "commit_shas": [
+        "06a81ae7687563d1df3acc77c282868a85ba1cf8"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-09-21-984b9b2",
       "date": "2026-09-21",
