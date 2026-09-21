@@ -2,13 +2,13 @@
 title: About
 seo_title: About Varun Choraria | Background and current role
 no_intro: true
-description: B2B SaaS marketing operator with 8+ years in product marketing. Group Manager, Product Marketing at HCL Tech.
+description: B2B SaaS product marketer with 8+ years across Vymo, Freshworks and GTM Buddy. Group Manager, Product Marketing at HCL Tech.
 page_class: about-page
 mcp: true
 mcp_note: >-
   Skip the reading. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
 ---
-**In short:** I'm a B2B SaaS marketing operator, with 8+ years spent across B2B SaaS AI product companies as a product marketer. As of Sept 2026, I'm a Group Manager, Product Marketing at HCL Tech.
+**In short:** I'm a B2B SaaS product marketer, with 8+ years spent across B2B SaaS AI product companies. As of Sept 2026, I'm a Group Manager, Product Marketing at HCL Tech.
 
 I sometimes do [speaking gigs](/speaking/#speaking), I've [written a book](/speaking/#book), [hosted a podcast](/speaking/#podcast). Besides that I'm actively into bodybuilding and also a 1st Dan Black Belt in Tae Kwon Do.
 
