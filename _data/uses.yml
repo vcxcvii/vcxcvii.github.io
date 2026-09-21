@@ -8,10 +8,10 @@
   title: Hardware
   schema_type: Product
   items:
-    - name: "MacBook Air, 13-inch, M2, 8 GB RAM, 256 GB storage"
+    - name: "MacBook Air, 13-inch, M5, 24 GB RAM, 512 GB storage"
       logo: apple
       url: "https://www.apple.com/macbook-air/"
-      note: "Personal computer, and still a beast even in 2026."
+      note: "Personal computer, and a beast for terminal agents, Figma, and back-to-back calls."
     - name: "Samsung M8 Monitor"
       logo: monitor
       url: "https://www.samsung.com/in/monitors/smart-monitor/"
@@ -75,7 +75,7 @@
     - name: "Obsidian"
       logo: obsidian
       url: "https://obsidian.md/"
-      note: "This is the age of AI and Markdown files. I prefer software that I can truly own, customize, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud."
+      note: "This is the age of AI and Markdown files. I prefer software that I can truly own, customise, and that is mostly open source or free. Obsidian has been my daily driver for 5+ years. I sync everything via iCloud."
     - name: "Quartr"
       logo: waveform
       url: "https://quartr.com/"
@@ -92,7 +92,7 @@
     - name: "Letterboxd"
       logo: letterboxd
       url: "https://letterboxd.com/vcxcvii/"
-      note: "Huge movie buff, so I catalog my movies there."
+      note: "Huge movie buff, so I catalogue my movies there."
     - name: "YouTube Premium"
       logo: youtube
       url: "https://www.youtube.com/premium"
@@ -111,15 +111,26 @@
       logo: figma
       url: "https://www.figma.com/"
       note: "Designing. Daily driver for 7+ years now."
+    - name: "Paper"
+      logo: paper
+      url: "https://paper.design/"
+      note: "Design tool I use alongside Figma, wired into my AI agents over MCP."
     - name: "Screen Studio"
       logo: record
       url: "https://screen.studio/"
       note: "To create GIFs and do quick video recording."
-    - name: "Google Analytics, Google Tag Manager, and Google Search Console"
+    - name: "Google Analytics"
       logo: googleanalytics
       url: "https://analytics.google.com/"
-      name_md: "[Google Analytics](https://analytics.google.com/), [Google Tag Manager](https://tagmanager.google.com/), and [Google Search Console](https://search.google.com/search-console)"
-      note: "Website traffic, tagging, SEO, AEO, and GEO."
+      note: "Website traffic."
+    - name: "Google Tag Manager"
+      logo: googletagmanager
+      url: "https://tagmanager.google.com/"
+      note: "Tagging."
+    - name: "Google Search Console"
+      logo: googlesearchconsole
+      url: "https://search.google.com/search-console"
+      note: "SEO, AEO, and GEO."
     - name: "MCPs and skills"
       logo: mcp
       url: "/mcp/"
@@ -145,6 +156,10 @@
       logo: hubspot
       url: "https://www.hubspot.com/"
       note: "CRM and social media scheduling."
+    - name: "Salesforce"
+      logo: salesforce
+      url: "https://www.salesforce.com/"
+      note: "CRM."
     - name: "SwanAI"
       logo: swan
       url: "https://www.getswan.com/"

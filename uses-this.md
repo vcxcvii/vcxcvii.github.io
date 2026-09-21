@@ -19,11 +19,11 @@ faqs:
   - question: What runs varunchoraria.com?
     answer: Jekyll, hosted free on GitHub Pages, with an MCP server at /mcp/ so AI assistants can read the site directly rather than scraping it. Google Analytics and Search Console handle measurement. There is no build pipeline, no framework, and no JavaScript on this page.
   - question: What laptop do you use?
-    answer: A 13-inch MacBook Air with the M2 chip, 8 GB of RAM, and 256 GB of storage. It handles a full day of terminal agents, Figma, and calls in 2026. I had a 24 GB M4 for work and it throttled on long Zoom calls, so the constraint was never the memory.
+    answer: A 13-inch MacBook Air with the M5 chip, 24 GB of RAM, and 512 GB of storage. It handles a full day of terminal agents, Figma, and calls without breaking a sweat.
 ---
 Inspired by [Uses This](https://usesthis.com/), this page documents the tools and software I use to get things done. Last reviewed {{ site.time | date: "%B %-d, %Y" }}.
 
-Everything I still pay for earns its place or gets cut. I run a one-person marketing stack on an 8 GB MacBook Air: terminal agents, Markdown files, and tools I can own or swap out in an afternoon. The GTM stack further down is a separate list, because knowing a tool and being subscribed to it this month are different claims.
+Everything I still pay for earns its place or gets cut. I run a one-person marketing stack on a MacBook Air: terminal agents, Markdown files, and tools I can own or swap out in an afternoon.
 
 {% for section in site.data.uses %}
 <h2 id="{{ section.id }}">{{ section.title }}</h2>

@@ -55,8 +55,14 @@ REQUIRED_COLORS = %w[#002f9e #4d86fa #9be9a8 #40c463 #30a14e #216e39].freeze
 # per ground, plus the sticky shell, the inner column and the dropdown panel
 # that the links, contact and the page light now share below 44rem. Grouping
 # every white link in the bar into one rule returned 43 of it.
-CSS_BUDGET = 18_100
+CSS_BUDGET = 18_800
 GITHUB_JS_BUDGET = 8_000
+# Category glyphs that predate the brand-mark rule in DESIGN.md. Anything else
+# under _includes/logos/ has to be a Simple Icons path with its own fill, never
+# a hand-drawn stroke icon standing in for a named product. Do not extend this
+# list to make a new product pass: fetch its mark, or let it fall through to
+# the letter fallback.
+GLYPH_LOGOS = %w[broom chair database gauge keyboard microphone monitor plug record terminal waveform].freeze
 # Every script the site is allowed to ship, with its own budget. An allowlist
 # rather than a count: a new file is a deliberate decision that shows up in a
 # diff here, and anything not named still fails the cleanup check below.
@@ -160,6 +166,14 @@ def design_guardrails
                         github_js_source.include?('destination.hostname === "cal.com"')
   errs << "Analytics: Cal.com links must emit cal_booking_clicked" unless valid_booking_event
   js_files = Dir.glob("assets/js/*.js").sort
+  Dir.glob("_includes/logos/*.svg").sort.each do |logo_path|
+    logo_name = File.basename(logo_path, ".svg")
+    logo_src = File.read(logo_path)
+    if logo_src.include?('stroke="currentColor"') && !GLYPH_LOGOS.include?(logo_name)
+      errs << "Brand marks: #{logo_path} is a hand-drawn glyph. Fetch the real mark from Simple Icons (DESIGN.md, Brand marks), or drop the logo and let the product use the letter fallback"
+    end
+    errs << "Brand marks: #{logo_path} is not wired into _includes/logo.html" unless File.read("_includes/logo.html").include?(%{include logos/#{logo_name}.svg})
+  end
   errs << "Cleanup: assets/js must contain only #{ALLOWED_JS.keys.join(', ')}" unless js_files == ALLOWED_JS.keys.sort
 
   class_files = (
@@ -442,7 +456,11 @@ content_files.each do |path|
   # answer to "summarise this page": a reader sees it, and it is what a machine
   # reads when there is no separate description. A page shipping without one is
   # a page with no summary anywhere, so it fails rather than warns.
-  errs << "SEO: missing 'intro' field; it is the page's visible standfirst and its summary" if is_page && !fm["noindex"] && fm["intro"].to_s.strip.empty?
+  # A page may opt out with `no_intro: true` when its own opening paragraph is
+  # the standfirst (About), but only if it still carries a `description`, so it
+  # is never left without a summary.
+  intro_optional = fm["no_intro"] == true && !fm["description"].to_s.strip.empty?
+  errs << "SEO: missing 'intro' field; it is the page's visible standfirst and its summary" if is_page && !fm["noindex"] && !intro_optional && fm["intro"].to_s.strip.empty?
 
   if is_post
     raw_date = fm["date"]

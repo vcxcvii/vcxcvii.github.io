@@ -68,7 +68,7 @@ With a Firecrawl key, it can use faster scraping. It announces a credit budget b
 
 ## What should I not expect?
 
-Interview Recon cannot see private company information, replace your judgment, or make you sound like someone you are not. It turns public evidence into better preparation. You still decide what is true, relevant, and worth saying.
+Interview Recon cannot see private company information, replace your judgement, or make you sound like someone you are not. It turns public evidence into better preparation. You still decide what is true, relevant, and worth saying.
 
 ## Latest meaningful changes
 

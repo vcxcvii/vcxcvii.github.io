@@ -825,57 +825,97 @@ td {
   @extend %muted;
 }
 
-/* Year density row. One cell per week, oldest left, each an anchor to its week
-   further down the page. Ink, not the GitHub ramp: green carries contribution
-   counts elsewhere on this site and must not mean two things. Every cell also
-   carries its date and count as visually hidden text, so the shade is a
-   summary of the page rather than the only place the information exists. */
-.days-strip {
-  display: flex;
-  gap: 2px;
-  margin: 0;
-}
+/* Year density grid, shaped like the GitHub graph on the home page: a column
+   per week, a row per weekday, a cell per day. The site accent, not the GitHub
+   ramp: green carries contribution counts elsewhere on this site and must not
+   mean two things. An empty day is a quiet ink tint, and busier days mix
+   --color-accent into transparent rather than using opacity, so the hover
+   tooltip below is not dimmed with the cell that carries it.
 
-/* Anchors are the flex items directly. A wrapping list element would need its
-   own flex rule for nothing the reader can see.
-
-   The ground is the ink colour, not currentColor: these are anchors, so
-   currentColor resolved to the link blue and the ramp quietly became brand
-   blue in both palettes. Reading --color-text keeps it ink, and it still
-   inverts with the ground on its own. */
-.days-cell {
-  flex: 1;
-  height: 1.5rem;
-  background: var(--color-text);
-  opacity: .1;
-}
-
-/* Month ticks under the strip. Positioned by the same flex ratio as the cells,
-   so a label sits over the first week of its month however many weeks the year
-   has so far. */
-.days-months {
-  display: flex;
-  gap: 2px;
-  margin: .3rem 0 0;
+   The month ticks and the cells share one column template: a fixed label
+   column, then a week per column that grows to 1.25rem and shrinks to fit. */
+.days-cols {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1.9rem;
+  grid-auto-columns: minmax(0, 1.25rem);
+  gap: 3px;
   font-size: .6875rem;
+  line-height: 1;
   @extend %muted;
 }
 
-.days-months span {
-  overflow: hidden;
+.days-months {
+  margin-top: .75rem;
+}
+
+.days-grid {
+  grid-template-rows: repeat(7, auto);
+  margin-top: .4rem;
+}
+
+.days-cell {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+.days-cell.l1 {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+.days-cell.l2 {
+  background: color-mix(in srgb, var(--color-accent) 65%, transparent);
+}
+
+.days-cell.l3 {
+  background: var(--color-accent);
+}
+
+a.days-cell:hover {
+  outline: 1px solid var(--color-text);
+  outline-offset: 1px;
+}
+
+/* Pure CSS tooltip. Cells in the last six columns anchor it to their right
+   edge, so it cannot run off the page on a full year. */
+a.days-cell:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + .5rem);
+  left: 50%;
+  z-index: 2;
+  padding: .35rem .55rem;
+  border-radius: 4px;
+  background: var(--color-text);
+  color: var(--color-bg);
   white-space: nowrap;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+a.days-cell.e:hover::after {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+.days-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1rem;
 }
 
 .days-years {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem 1rem;
-  margin-bottom: .4rem;
   font-size: .8125rem;
 }
 
-/* The caption explains the three rows above it, so it needs air between itself
-   and the legend rather than sitting on top of it. */
 .days-caption {
   margin-top: 1.1rem;
 }
@@ -887,29 +927,18 @@ td {
 .days-legend {
   display: flex;
   align-items: center;
-  gap: .3rem;
-  margin: .6rem 0 0;
+  gap: 3px;
+  margin: 0;
   font-size: .75rem;
   @extend %muted;
 }
 
+.days-legend span {
+  margin: 0 .25rem;
+}
+
 .days-legend i {
-  width: 1.1rem;
-  height: .7rem;
-  background: var(--color-text);
-  opacity: .1;
-}
-
-.days-cell.l1 {
-  opacity: .3;
-}
-
-.days-cell.l2 {
-  opacity: .55;
-}
-
-.days-cell.l3 {
-  opacity: .85;
+  width: .9rem;
 }
 
 .breadcrumbs {

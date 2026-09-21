@@ -25,7 +25,7 @@ These are the service providers and subprocessors that can handle site or visito
 
 - **GitHub Pages** hosts and serves the site.
 - **Google Analytics** measures traffic and on-site events.
-- **Microsoft Clarity** provides behavioral analytics, heatmaps, and session replays.
+- **Microsoft Clarity** provides behavioural analytics, heatmaps, and session replays.
 - **Cal.com** handles scheduling only after you choose an external booking link.
 - **LinkedIn, GitHub, and other linked sites** apply their own privacy terms after you leave this domain.
 

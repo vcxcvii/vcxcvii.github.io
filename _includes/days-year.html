@@ -47,6 +47,7 @@ arithmetic.
 {% assign release_total = 0 %}
 {% assign logged_weeks = 0 %}
 {% assign seen_releases = "" %}
+{% assign day_hits = "," %}
 
 {% for step in (0..week_max) %}
   {% assign wk = step | times: week_seconds | plus: year_first %}
@@ -56,11 +57,15 @@ arithmetic.
   {% assign count = 0 %}
 
   {% if wk_data.items %}{% assign count = count | plus: wk_data.items.size %}{% endif %}
+  {% for item in wk_data.items %}
+    {% if item.date %}{% assign item_key = item.date | date: "%Y-%m-%d" %}{% assign day_hits = day_hits | append: item_key | append: "," %}{% endif %}
+  {% endfor %}
 
   {% for post in site.posts %}
     {% assign pk = post.date | date: "%Y-%m-%d" %}
     {% if pk >= wk_key and pk <= wk_end %}
       {% assign count = count | plus: 1 %}
+      {% assign day_hits = day_hits | append: pk | append: "," %}
       {% assign essay_total = essay_total | plus: 1 %}
     {% endif %}
   {% endfor %}
@@ -74,6 +79,7 @@ arithmetic.
       {% if rk >= wk_key and rk <= wk_end %}
         {% assign seen_releases = seen_releases | append: release.url | append: " " %}
         {% assign count = count | plus: 1 %}
+        {% assign day_hits = day_hits | append: rk | append: "," %}
         {% assign release_total = release_total | plus: 1 %}
       {% endif %}
     {% endfor %}
@@ -98,14 +104,18 @@ arithmetic.
 </ul>
 
 {% comment %}
-Density row, one cell per week, oldest on the left. Each cell links to its week
-below, so it navigates the page rather than filtering it: nothing here is the
-only route to anything. The count is also written into the link text for screen
-readers and repeated as a heading further down, so the ink level is never the
-only carrier of the information.
+Density grid, the same shape as the GitHub graph on the home page: one column
+per week, oldest on the left, one row per weekday, Monday on top. Each cell is
+one day and links to its week below, so it navigates the page rather than
+filtering it: nothing here is the only route to anything. The whole grid is
+hidden from assistive tech because the summary above and the week list below
+carry every date and count in text.
+
+Undated items belong to a week rather than a day, so they count in the summary
+and the week list but colour no cell.
 {% endcomment %}
 {%- comment -%}
-Years sit directly above the band, so the row labels which year the cells cover
+Years sit directly above the grid, so the row labels which year the cells cover
 and switches between them in the same place. A closed year moves to its own
 URL, /days/<year>/, an eight-line page that sets days_year in front matter and
 calls this include; the list finds it by that field, so adding a year needs no
@@ -114,6 +124,7 @@ of nowhere in January is worse than one that was visibly waiting.
 {%- endcomment -%}
 {%- assign year_pages = site.pages | where_exp: "p", "p.days_year" | sort: "days_year" | reverse -%}
 
+<div class="days-head">
 <nav class="days-years" aria-label="Days by year">
   <span aria-current="page">{{ include.year }}</span>
   {%- for yp in year_pages -%}
@@ -123,27 +134,18 @@ of nowhere in January is worse than one that was visibly waiting.
   {%- endfor -%}
 </nav>
 
-<nav class="days-strip" aria-label="Weeks in {{ include.year }}, oldest first">
-  {%- for key in week_key_list -%}
-    {%- assign n = week_count_list[forloop.index0] | plus: 0 -%}
-    {%- comment -%}
-    Bands are 1, 2 to 3, and 4 or more. A normal week here lands one or two
-    things, so wider bands render almost every week at the same strength and
-    the row carries no information.
-    {%- endcomment -%}
-    {%- if n == 0 -%}{%- assign level = "" -%}
-    {%- elsif n == 1 -%}{%- assign level = " l1" -%}
-    {%- elsif n < 4 -%}{%- assign level = " l2" -%}
-    {%- else -%}{%- assign level = " l3" -%}{%- endif -%}
-    {%- assign label = key | date: "%-d %b" | prepend: "Week of " | append: ", " | append: n | append: " logged" -%}
-    <a class="days-cell{{ level }}" href="#w-{{ key }}" title="{{ label }}"><span class="visually-hidden">{{ label }}</span></a>
-  {%- endfor -%}
-</nav>
+  <p class="days-legend">
+    <span>Quiet</span>
+    <i class="days-cell"></i><i class="days-cell l1"></i><i class="days-cell l2"></i><i class="days-cell l3"></i>
+    <span>Busy</span>
+  </p>
+</div>
 
 {%- comment -%}
-Month ticks. Each label spans as many flex units as the month has weeks in this
-year, so it lines up with its own run of cells without a second grid or any
-measurement in JavaScript.
+Month ticks. Each label spans as many grid columns as the month has weeks in
+this year, so it sits over its own run of cells. Both grids share one column
+template, so they line up without measurement in JavaScript. A month with a
+single week gets no label: three letters do not fit in one cell.
 {%- endcomment -%}
 {%- assign month_runs = "" -%}
 {%- assign run_month = "" -%}
@@ -160,23 +162,54 @@ measurement in JavaScript.
 {%- endfor -%}
 {%- if run_length > 0 -%}{%- assign month_runs = month_runs | append: run_month | append: ":" | append: run_length | append: "," -%}{%- endif -%}
 
-<p class="days-months" aria-hidden="true">
+<div class="days-months days-cols" aria-hidden="true">
+  <span></span>
   {%- assign month_list = month_runs | split: "," -%}
   {%- for pair in month_list -%}
     {%- assign parts = pair | split: ":" -%}
-    <span style="flex:{{ parts[1] }}">{{ parts[0] }}</span>
+    <span style="grid-column:span {{ parts[1] }}">{% if parts[1] != "1" %}{{ parts[0] }}{% endif %}</span>
   {%- endfor -%}
-</p>
+</div>
 
-<p class="days-legend">
-  <span>Quiet</span>
-  <i></i><i style="opacity:.3"></i><i style="opacity:.55"></i><i style="opacity:.85"></i>
-  <span>Busy</span>
-</p>
+<div class="days-grid days-cols" aria-hidden="true">
+  <span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span><span></span>
+  {%- for key in week_key_list -%}
+    {%- assign week_s = key | date: "%s" | plus: 0 -%}
+    {%- assign edge = "" -%}
+    {%- assign from_end = week_total | minus: forloop.index -%}
+    {%- if from_end < 6 -%}{%- assign edge = " e" -%}{%- endif -%}
+    {%- for d in (0..6) -%}
+      {%- assign day_key = d | times: 86400 | plus: week_s | date: "%Y-%m-%d" -%}
+      {%- if day_key > today_date -%}
+        <i></i>
+      {%- else -%}
+        {%- assign n = day_hits | split: day_key | size | minus: 1 -%}
+        {%- comment -%}
+        Bands are 1, 2, and 3 or more. A normal day here lands one thing, so a
+        wider band would render almost every busy day at the same strength.
+        {%- endcomment -%}
+        {%- if n == 0 -%}{%- assign level = "" -%}
+        {%- elsif n == 1 -%}{%- assign level = " l1" -%}
+        {%- elsif n == 2 -%}{%- assign level = " l2" -%}
+        {%- else -%}{%- assign level = " l3" -%}{%- endif -%}
+        <a class="days-cell{{ level }}{{ edge }}" href="#w-{{ key }}" tabindex="-1" data-tip="{{ day_key | date: '%a %-d %b %Y' }} · {{ n }} logged"></a>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+</div>
 
-<p class="intro-note days-caption">One cell per week of {{ include.year }}, oldest on the left. Stronger means more landed. Pick one to jump to it, or hover for the date and the count.</p>
+<p class="intro-note days-caption">One cell per day of {{ include.year }}, one column per week, oldest on the left. Stronger means more landed. Pick a cell to jump to its week.</p>
 
 <hr>
+
+<h2 id="log">Week by week</h2>
+
+<ul>
+  <li>Every week appears, whether or not anything happened in it.</li>
+  <li>A week can carry a stated intention, and under it the things that landed, dated.</li>
+  <li>Essays and side-quest releases add themselves. Everything else I write down by hand.</li>
+  <li>Finished work is struck through, unfinished work stays open after the week ends, and killed work says so.</li>
+</ul>
 
 {% for step in (0..week_max) %}
   {% assign back = week_max | minus: step %}

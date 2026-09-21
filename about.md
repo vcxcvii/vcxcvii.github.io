@@ -1,34 +1,36 @@
 ---
 title: About
 seo_title: About Varun Choraria | Background, work and current focus
-intro: B2B SaaS marketing operator. 8+ years of pipeline, positioning and product marketing, now built with agents. Group Manager, Product Marketing at HCLTech.
-description: B2B SaaS marketing operator. I decide what marketing should do next, ship the work, and measure it in pipeline or revenue. 8+ years in, currently Group Manager, Product Marketing at HCLTech.
+no_intro: true
+description: B2B SaaS marketing operator with 8+ years in product marketing. Group Manager, Product Marketing at HCL Tech.
 page_class: about-page
 mcp: true
 mcp_note: >-
-  Or skip it. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
+  Skip the reading. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
 ---
-I'm a marketing professional and I have worked in the B2B SaaS space for 8+ years now. I'm also a speaker, author, ex-host of a podcast, bodybuilder, and martial artist. I moonlight as a cat dad.
+**In short:** I'm a B2B SaaS marketing operator, with 8+ years spent across B2B SaaS AI product companies as a product marketer. As of Sept 2026, I'm a Group Manager, Product Marketing at HCL Tech.
+
+I sometimes do [speaking gigs](/speaking/#speaking), I've [written a book](/speaking/#book), [hosted a podcast](/speaking/#podcast). Besides that I'm actively into bodybuilding and also a 1st Dan Black Belt in Tae Kwon Do.
 
 ---
 
 ## Now
 
-I'm a B2B SaaS marketing operator. I help teams decide what marketing should do next, ship the work, and measure the result in pipeline, revenue, or another business outcome. I work across growth strategy, product marketing, and AI. Right now, I'm Group Manager, Product Marketing at [HCLTech](https://www.hcltech.com/). Before that, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A) through August 2026, helping create the Revenue Activation category. The [full history is here](/work/).
+I'm a Group Manager, Product Marketing at [HCL Tech](https://www.hcltech.com/), since September 2026. The [full history is here](/work/).
 
-I'm all-in on Agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents. I'm building that way of working now.
+I'm all-in on agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents. I'm building that way of working on the side, through [open-source tools](/side-quests/) and experiments at [Grow and Close](https://growandclose.com/).
 
 ---
 
 ## What I've done
 
-### Uni days
+### Recent past
 
-I founded my first agency when I was 19, and worked with enterprise clients. During the 3 years that I ran the agency, we offered services like website, design, video, content and digital marketing.
+Most recently, I led marketing at [GTM Buddy](https://gtmbuddy.ai/) (Series A), from January to August 2026. I managed a team of 3 and 4 agencies, moved the function to AI-first ways of working, and helped create Revenue Activation, a new category.
 
-During that time, I also spoke at events across various universities, wrote a book, gave talks at various marketing conferences. I also built a no-code MBA bot on Facebook Messenger that taught the core frameworks of business in an interactive manner. It got 1K+ users in <24 hours.
+Before that, I was at [Freshworks](https://www.freshworks.com/), which I joined after Vymo. I took up the job because I wanted to explore something net new. I also wanted to see how things worked at scale. I picked up the PLG charter and set up the new business and expansion PLG motion from scratch, opening up a whole new revenue channel with $0 marketing spend.
 
-By qualification, I'm a mechanical engineer. I was mostly an average student, scraping by in academics. However, my final year project was funded by the State Govt. of Karnataka. To this day, I don't know why.
+Not many side quests here, work kept me incredibly occupied. I did speak at another marketing conference about setting up PLG motions, and did some consulting work.
 
 ### Early years
 
@@ -42,11 +44,13 @@ On the side, I consulted and freelanced with multiple startups to help them buil
 
 One side quest I took up was running my CHRO podcast during the COVID years. I spoke to 30+ leaders from GoJek, Oracle, Infosys, MetLife, Razorpay and more.
 
-### Recent past
+### Uni days
 
-I joined [Freshworks](https://www.freshworks.com/) after Vymo. I took up the job because I wanted to explore something net new. I also wanted to see how things worked at scale. I picked up the PLG charter and set up the new business and expansion PLG motion from scratch, opening up a whole new revenue channel with $0 marketing spend.
+I founded my first agency when I was 19, and worked with enterprise clients. During the 3 years that I ran the agency, we offered services like website, design, video, content and digital marketing.
 
-Not many side quests here, work kept me incredibly occupied. I did speak at another marketing conference about setting up PLG motions, and did some consulting work.
+During that time, I also spoke at events across various universities, wrote a book, gave talks at various marketing conferences. I also built a no-code MBA bot on Facebook Messenger that taught the core frameworks of business in an interactive manner. It got 1K+ users in <24 hours.
+
+By qualification, I'm a mechanical engineer. I was mostly an average student, scraping by in academics. However, my final year project was funded by the State Govt. of Karnataka. To this day, I don't know why.
 
 ---
 
@@ -54,4 +58,4 @@ Not many side quests here, work kept me incredibly occupied. I did speak at anot
 
 I love science fiction, horror, mystery and psychological thrillers. I love watching films, and probably spend too much money on that aside from my app subscriptions every month.
 
-For fun, I'm into bodybuilding. I used to be a swimmer, a long-distance cyclist and I also have a black belt in Tae Kwon Do. Sports and fitness are a crucial part of my everyday.
+I used to be a swimmer and a long-distance cyclist. Sports and fitness are a crucial part of my everyday.

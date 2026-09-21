@@ -10,10 +10,13 @@
   url: /side-quests/
 - label: Speaking
   url: /speaking/
-# Took the slot uses-this held. Eight is the ceiling, so this was a swap rather
-# than an addition. uses-this stays reachable from the footer, under About.
+# Uses This is back in the bar, in the slot Consulting freed. Eight is the
+# ceiling, and Contact counts as the eighth. It is also linked from the footer,
+# under About.
 - label: Days
   url: /days/
+- label: Uses This
+  url: /uses-this/
 # The right pole of the masthead bar, not part of the wayfinding group. One
 # action, set apart, the way Simon Willison's bar sets Subscribe apart.
 - label: Contact

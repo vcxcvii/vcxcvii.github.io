@@ -88,7 +88,3 @@
       text: Deleted a claim about what most clients do from the pricing page, because I do not have most clients yet
       url: https://growandclose.com/pricing
       state: done
-    - text: Publish the first landing page teardowns and start the Grow & Close blog
-      state: open
-    - text: Audit 50 B2B SaaS sites for the AEO basics and publish the distribution, since the only published number I could find covers 100 companies and says under 2% have them
-      state: open

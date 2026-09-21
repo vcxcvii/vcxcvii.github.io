@@ -39,7 +39,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 - Designed and built a company-wide GTM data dashboard unifying pipeline, campaign performance, and revenue attribution, which became the single source of truth for investors and leadership
 - Launched Nucleus end-to-end: positioning, messaging, sales enablement, and go-to-market strategy, securing 20 customers in alpha
 - Redesigned the website and brand identity, which became the #1 lead generation channel with a 65% increase in branded search traffic
-- Built automated GTM workflows via Swan: website deanonymization into automated AE first-touch, pipeline health monitoring on Slack, and account research and meeting-prep automation
+- Built automated GTM workflows via Swan: website deanonymisation into automated AE first-touch, pipeline health monitoring on Slack, and account research and meeting-prep automation
 - Created and filed a trademark for Revenue Activation, a new category at the intersection of revenue operations and customer activation
 - Founded the SDR motion from scratch, generating 2 qualified meetings in the first month
 - Managed founder brand: 35+ podcast appearances in one quarter (800K+ combined views), LinkedIn grown to 200K+ impressions, and a Forbes feature placement

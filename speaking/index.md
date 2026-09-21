@@ -35,13 +35,13 @@ YouTube promos:
 ### Product Marketing
 
 - [(Wynter) Building a Cohesive Powerhouse for B2B Enterprise SaaS](https://www.youtube.com/watch?v=EG65TZ_Itz4&t=647s)
-- [GTM-101 For B2B Startups — AIC Prestige, AIM, Niti Aayog, Microsoft For Startups](https://www.youtube.com/watch?v=yNDnIpA3WYA)
+- [GTM-101 For B2B Startups: AIC Prestige, AIM, Niti Aayog, Microsoft For Startups](https://www.youtube.com/watch?v=yNDnIpA3WYA)
 - [Growth hacking product marketing](https://youtu.be/KWClyMaIC20?si=3zI4DlLa2xUmoRlp)
 - Product Marketing Alliance: "What Good Looks Like: The Research Inputs Behind High-Performing PLG Funnels" at the Customer & Market Research Summit
 
 ### Career
 
-- [Artha Series E3 — Career Frameworks at Jai Hind College, Mumbai](https://www.youtube.com/watch?v=enSvK4A01JA&t=2950s)
+- [Artha Series E3: Career Frameworks at Jai Hind College, Mumbai](https://www.youtube.com/watch?v=enSvK4A01JA&t=2950s)
 - [Keynote at BIT](https://www.youtube.com/watch?v=A0a-WjeKr5E&list=PL8UKaHt0PXy4dpqYDpzHxpQ00nDdc45ZA)
 
 ### Judging
@@ -54,7 +54,7 @@ YouTube promos:
 
 ### [The Edge Podcast for CHROs](https://www.youtube.com/@theedgepodcastforchros3212)
 
-**2021** — co-hosted two seasons exploring the future of work, with guests from GoJek, Infosys, Oracle, MetLife, Ather Energy, Razorpay, Zoho, Doist, and others.
+**2021**: co-hosted two seasons exploring the future of work, with guests from GoJek, Infosys, Oracle, MetLife, Ather Energy, Razorpay, Zoho, Doist, and others.
 
 **Start here.** Eight episodes worth your time, by the company the guest came from:
 
@@ -67,11 +67,11 @@ YouTube promos:
 - **Doist**: [Rethinking organisational culture, remote or not](https://www.youtube.com/watch?v=e-rOTNROIAo), with Andrew Gobran, People Ops
 - **Zoho**: [Welcoming employees back to work](https://www.youtube.com/watch?v=RoGngO63990), with Praval Singh, VP Marketing
 
-**Season 1** focused on return to work and remote work — [full playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gLyxP9ezKm1TBWWsvYHj2Ov)
+**Season 1** focused on return to work and remote work ([full playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gLyxP9ezKm1TBWWsvYHj2Ov))
 
-**Season 2** focused on deep dives into specific topics like compensation — [full playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gK_fWVv0-ixaCBGXWI8e6Cw)
+**Season 2** focused on deep dives into specific topics like compensation ([full playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gK_fWVv0-ixaCBGXWI8e6Cw))
 
-Three formats: seasonal themes, quick takes ([playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gJux_Y8no_EDXz9VNT_Qzyt)), and Seeing Beyond — futuristic trends ([playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gIWqCTeV0k7vBvZPEfQgYu-)).
+Three formats: seasonal themes, quick takes ([playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gJux_Y8no_EDXz9VNT_Qzyt)), and Seeing Beyond: futuristic trends ([playlist](https://www.youtube.com/playlist?list=PL8OJ-OTWd9gIWqCTeV0k7vBvZPEfQgYu-)).
 
 ### Moneycontrol
 

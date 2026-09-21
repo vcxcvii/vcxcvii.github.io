@@ -32,7 +32,7 @@ faqs:
   - question: Does Master Shifu choose the framework for me?
     answer: Yes. The master-shifu router matches the problem to suitable frameworks, asks for missing evidence, and chains multiple frameworks when needed.
   - question: Can it replace a consultant or operator?
-    answer: No. It structures evidence and reasoning. It cannot know private context, validate weak inputs, or replace accountable human judgment.
+    answer: No. It structures evidence and reasoning. It cannot know private context, validate weak inputs, or replace accountable human judgement.
 ---
 
 It works with Claude Code, Codex, Cursor, Windsurf, and other tools supporting the Agent Skills format. You can also install it with `npx skills add vcxcvii/master-shifu`. Then describe the problem: "our SaaS margins fell 12 percent this quarter."

@@ -2,7 +2,7 @@
 layout: page
 title: Days
 permalink: /days/
-intro: A running count of the days this site has been live, and a week-by-week log of what I actually got done in them.
+intro: 'A running count of the days this site has been live, and a week-by-week log of what I actually got done in them. Borrowed from <a href="https://days.ramp.com/" target="_blank" rel="noopener noreferrer">days.ramp.com</a>, which counts the days since Ramp was founded. <a href="/day-91/">Here is why I built mine</a>.'
 seo_title: Days | Varun Choraria
 description: A live day counter since varunchoraria.com went live on 17 May 2026, plus a weekly log of shipped work, open items, and the ones I dropped.
 mcp: true
@@ -22,8 +22,6 @@ because a number baked at build time is wrong from the next midnight onward.
 
 <p class="days-count" data-days-count data-days-epoch="{{ days_epoch }}">{{ days_live }}</p>
 
-<p class="intro-note">days since this site went live, on <time datetime="{{ days_epoch }}">17 May 2026</time>. Borrowed from <a href="https://days.ramp.com/" target="_blank" rel="noopener noreferrer">days.ramp.com</a>, which counts the days since Ramp was founded so nobody forgets that tomorrow is already too late. <a href="{{ '/day-91/' | relative_url }}">Here is why I built mine</a>.</p>
-
-<p>Every week of the year appears below, whether or not anything happened in it. Each one can carry a stated intention, and under it the things that landed, dated. Essays and side-quest releases add themselves, because they are already published and dated elsewhere on this site. Everything else I write down by hand. Finished work is struck through, work I did not finish stays open after the week ends, and work I killed says so.</p>
+<p class="intro-note">days since this site went live, on <time datetime="{{ days_epoch }}">17 May 2026</time>.</p>
 
 {% include days-year.html year=current_year %}

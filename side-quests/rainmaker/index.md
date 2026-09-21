@@ -26,7 +26,7 @@ feature_list:
   - Host-native Rainmaker skill triggered by run rainmaker
   - Built-in website crawler that needs no paid provider
   - Revenue tiering that ranks every URL by distance to money
-  - Three recommended fixes instead of an unprioritized issue dump
+  - Three recommended fixes instead of an unprioritised issue dump
   - Live SERP verdicts that reject weak content targets
   - Search Console, GA4, Clarity, and optional provider connections
   - Append-only ledger that records what shipped and what changed
@@ -43,7 +43,7 @@ faqs:
   - question: Does Rainmaker use Firecrawl automatically if it finds my key?
     answer: No, and it does not quietly ignore the key either. The built-in crawler is the default. When a Firecrawl or context.dev key is present, Rainmaker reads your live credit balance, tells you what you have, and asks which crawler you want before the first crawl. The answer is saved as crawl.provider in rainmaker.config.yml and honoured afterwards, so you are asked once rather than once per crawl. A crawl projected to exceed your remaining balance is refused.
   - question: Is Rainmaker a replacement for Ahrefs, Semrush, or an experienced SEO agency?
-    answer: It replaces repetitive crawling, prioritization, and measurement, not every kind of judgment. Ahrefs and Semrush remain useful data sources. An experienced operator is still better at stakeholder alignment, customer nuance, creative positioning, and decisions where the evidence is incomplete.
+    answer: It replaces repetitive crawling, prioritisation, and measurement, not every kind of judgement. Ahrefs and Semrush remain useful data sources. An experienced operator is still better at stakeholder alignment, customer nuance, creative positioning, and decisions where the evidence is incomplete.
   - question: Will Rainmaker publish content or change my live site by itself?
     answer: No. It can draft, edit local files, and file issues. Publishing, outreach, redirects, deletions, and other externally visible actions require human approval.
 ---
@@ -65,7 +65,7 @@ Rainmaker starts there. It sorts every page into a simple revenue tier, computes
 ## What do I get?
 
 - **A first audit with no paid account.** The built-in crawler works without Firecrawl, Ahrefs, Semrush, or a model API key.
-- **Three prioritized fixes.** Each recommendation explains the evidence, likely impact, effort, and consequence of doing nothing.
+- **Three prioritised fixes.** Each recommendation explains the evidence, likely impact, effort, and consequence of doing nothing.
 - **A grounded interview.** Rainmaker crawls first, then asks one question at a time using facts from your site.
 - **SEO and AEO in one workflow.** It covers technical problems, search demand, live SERPs, site structure, answer-engine citations, and content quality.
 - **Memory across sessions.** An append-only ledger records what Rainmaker believed, what changed, what shipped, and what moved.
@@ -77,7 +77,7 @@ Rainmaker starts there. It sorts every page into a simple revenue tier, computes
 |---|---|---|
 | 1. Crawl | The built-in crawler reads the site before asking business questions. | A factual diagnosis, even with zero credentials. |
 | 2. Understand | Your assistant asks one evidence-based question at a time about buyers, conversions, competitors, and value. | Shared business context instead of generic SEO advice. |
-| 3. Prioritize | Code ranks findings by distance to revenue, opportunity, severity, confidence, and effort. | Three fixes worth considering now. |
+| 3. Prioritise | Code ranks findings by distance to revenue, opportunity, severity, confidence, and effort. | Three fixes worth considering now. |
 | 4. Implement | You choose a fix. The assistant drafts the change or creates the work item. | A reviewable diff or issue, not a silent production change. |
 | 5. Prove | Rainmaker checks the relevant metric after its verification window. | A record of what worked, regressed, or did nothing. |
 
@@ -135,9 +135,9 @@ It works for a thirty-page personal site, an ecommerce catalogue, a local busine
 | Ahrefs or Semrush | Large search, backlink, and competitor datasets | A decision layer that ranks work by business value and remembers outcomes |
 | Site audit crawler | Finding technical defects | Revenue tiers, buyer context, implementation, and verification |
 | Folder of SEO skills | Giving an assistant specialist prompts | One shared strategy, deterministic scoring, and one owner per decision |
-| Experienced agency | Nuance, stakeholder work, creative judgment, and accountability | A transparent local system the agency or in-house team can inspect and reuse |
+| Experienced agency | Nuance, stakeholder work, creative judgement, and accountability | A transparent local system the agency or in-house team can inspect and reuse |
 
-Rainmaker is strongest at repeatable analysis, prioritization, and memory. It is weaker where the answer lives in customer politics, company context, taste, or judgment that has not yet become evidence. That is deliberate, not hidden.
+Rainmaker is strongest at repeatable analysis, prioritisation, and memory. It is weaker where the answer lives in customer politics, company context, taste, or judgement that has not yet become evidence. That is deliberate, not hidden.
 
 ## What will Rainmaker never do quietly?
 
