@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "938ae30cb0591c37f4b009d0d55214f26bc88516",
+  "last_processed_commit": "4815c140703b3df00b86439491f71f490bf6f5c6",
   "updated_at": "2026-09-21",
   "updates": [
+    {
+      "id": "2026-09-21-4815c14",
+      "date": "2026-09-21",
+      "title": "Now Group Manager, Product Marketing at HCLTech",
+      "summary": "Updated the homepage, About, Work and Contact pages for my new role at HCLTech. Removed the consulting pages and hiring calls to action, which no longer apply.",
+      "benefits": [
+        {
+          "label": "Current role",
+          "text": "Every page now shows where I work today."
+        },
+        {
+          "label": "Simpler navigation",
+          "text": "Consulting and booking links are gone, so Contact points to LinkedIn."
+        }
+      ],
+      "commit_shas": [
+        "4815c140703b3df00b86439491f71f490bf6f5c6"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-08-31-0b7d3ae",
       "date": "2026-08-31",
