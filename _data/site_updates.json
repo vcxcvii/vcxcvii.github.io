@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "23a2604ad23aa9cfbb673add72557c991cc2b6bb",
+  "last_processed_commit": "984b9b234a6f7ef57d9c79136cfde7f93d13760c",
   "updated_at": "2026-09-21",
   "updates": [
+    {
+      "id": "2026-09-21-984b9b2",
+      "date": "2026-09-21",
+      "title": "Contact now points straight to LinkedIn and GitHub",
+      "summary": "Removed the line about my current role and views from the Contact page. It already says where to reach me, and the disclaimer covers the views.",
+      "benefits": [
+        {
+          "label": "Simpler contact page",
+          "text": "The page only says how to reach me."
+        },
+        {
+          "label": "One disclaimer",
+          "text": "Views are covered once, on the disclaimer page."
+        }
+      ],
+      "commit_shas": [
+        "984b9b234a6f7ef57d9c79136cfde7f93d13760c"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-09-21-23a2604",
       "date": "2026-09-21",
