@@ -18,7 +18,7 @@ I sometimes do [speaking gigs](/speaking/#speaking), I've [written a book](/spea
 
 I'm a Group Manager, Product Marketing at [HCLTech](https://www.hcltech.com/), since September 2026. The [full history is here](/work/).
 
-I'm all-in on agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents. I'm building that way of working on the side, through [open-source tools](/side-quests/) and experiments at [Grow and Close](https://growandclose.com/).
+I'm all-in on agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents. I'm building that way of working on the side, through [open-source tools](/side-quests/).
 
 ---
 
