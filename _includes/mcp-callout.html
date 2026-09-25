@@ -3,6 +3,14 @@ Sitewide invitation to read this site through an AI client instead of by hand.
 Copy is per-audience via `mcp_note` in a page's front matter; anything without
 one gets the generic line. Skipped on the MCP page itself, which is the
 destination, and on pages that opt out with `mcp_callout: false`.
+
+Every page ends the line with a quip pointing at the Ask row: its own
+`ask_quip` from front matter, else one per page type below. The homepage
+rotates through _data/ask_quips.yml (assets/js/quips.js).
+
+The Ask row under it opens the same question in six assistants. Essays get a
+prompt about the essay; every other page asks about VC, anchored to the page's
+own URL so the assistant reads the site instead of guessing from its name.
 {%- endcomment -%}
 {%- if page.url != '/mcp/' and page.mcp_callout != false -%}
 <aside class="mcp-callout">
@@ -11,7 +19,33 @@ destination, and on pages that opt out with `mcp_callout: false`.
       {{ page.mcp_note }}
     {%- else -%}
       Skip the copy-paste. <a href="{{ '/mcp/' | relative_url }}">Connect my MCP server</a> and ask your AI.
+    {%- endif %}
+    {% if page.url == '/' -%}
+      {%- assign quips = site.data.ask_quips -%}
+      {%- assign day = site.time | date: '%j' | plus: 0 -%}
+      {%- assign quip_i = day | modulo: quips.size -%}
+      Or tap one below. <span data-quips="{{ quips | jsonify | escape }}">{{ quips[quip_i] }}</span>
+    {%- elsif page.ask_quip -%}
+      {{ page.ask_quip }}
+    {%- elsif page.collection == 'posts' -%}
+      Or tap one below. It'll tell you if this was worth the read, which is more than I would.
+    {%- elsif page.project -%}
+      Or tap one below and ask whether you actually need it.
+    {%- else -%}
+      Or tap one below. They've read more of this site than my family has.
     {%- endif -%}
   </p>
+  {%- assign ask_url = page.url | absolute_url -%}
+  {%- if page.collection == 'posts' -%}
+    {%- capture ask_prompt -%}Read {{ ask_url }} and summarise this essay by Varun Choraria: the argument, the key points, and where I might push back.{%- endcapture -%}
+  {%- else -%}
+    {%- capture ask_prompt -%}Read {{ ask_url }} and tell me who Varun Choraria is, what he has worked on, and what he writes about. Cite the pages you use.{%- endcapture -%}
+  {%- endif -%}
+  {%- assign ask_q = ask_prompt | url_encode %}
+  <div class="ask-ai">
+    {%- for ai in site.data.ask_ai %}
+    <a href="{{ ai.url }}{{ ask_q }}" target="_blank" rel="noopener noreferrer" aria-label="Ask {{ ai.name }} about this page" title="{{ ai.name }}">{% include logo.html name=ai.logo %}</a>
+    {%- endfor %}
+  </div>
 </aside>
 {%- endif -%}

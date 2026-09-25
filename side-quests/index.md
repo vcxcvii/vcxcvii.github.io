@@ -7,6 +7,7 @@ description: Explore open-source AI skills, interview research tools, design sys
 mcp: true
 mcp_note: >-
   Before you install any of these: <a href="/mcp/">connect my MCP server</a> and let your coding agent tell you what they actually do.
+ask_quip: "Or tap one below and ask which one deserves a GitHub star."
 ---
 
 {% assign quest_groups = "Personal,Experiments,Work" | split: "," %}

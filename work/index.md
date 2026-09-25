@@ -11,6 +11,7 @@ page_class: work-page
 mcp: true
 mcp_note: >-
   You're going to skim this. Everyone does. <a href="/mcp/">Connect my MCP server</a> instead and let your AI read the whole thing.
+ask_quip: "Or tap one below and ask it to find the weak spots. Recruiters will anyway."
 ---
 **This page is the full record: roles, scope, teams, and outcomes.** [LinkedIn](https://www.linkedin.com/in/varunchoraria/) is the best way to reach me.
 

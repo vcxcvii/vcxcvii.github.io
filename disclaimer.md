@@ -4,6 +4,7 @@ seo_title: Website disclaimer and terms | Varun Choraria
 intro: Because the world takes things too literally these days
 description: Website disclaimer covering personal views, external links, accuracy, and the informational nature of Varun Choraria's essays and notes.
 mcp: true
+ask_quip: "Or tap one below. That isn't legal advice either."
 ---
 ## Website Disclaimer
 

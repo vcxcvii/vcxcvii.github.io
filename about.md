@@ -7,6 +7,7 @@ page_class: about-page
 mcp: true
 mcp_note: >-
   Skip the reading. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
+ask_quip: "Or tap one below. None of them will ask about my five-year plan."
 ---
 **In short:** I'm a B2B SaaS product marketer, with 8+ years spent across B2B SaaS AI product companies. As of Sept 2026, I'm a Group Manager, Product Marketing at HCLTech.
 

@@ -7,4 +7,5 @@ description: Read every essay by Varun Choraria on AI, B2B go-to-market strategy
 mcp: true
 mcp_note: >-
   These run long. <a href="/mcp/">Connect my MCP server</a>, let your AI read all of them, and argue with it instead of me.
+ask_quip: "Or tap one below. They read faster than you and won't leave a comment."
 ---

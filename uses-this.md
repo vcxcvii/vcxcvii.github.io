@@ -20,6 +20,7 @@ faqs:
     answer: Jekyll, hosted free on GitHub Pages, with an MCP server at /mcp/ so AI assistants can read the site directly rather than scraping it. Google Analytics and Search Console handle measurement. There is no build pipeline, no framework, and no JavaScript on this page.
   - question: What laptop do you use?
     answer: A 13-inch MacBook Air with the M5 chip, 24 GB of RAM, and 512 GB of storage. It handles a full day of terminal agents, Figma, and calls without breaking a sweat.
+ask_quip: "Or tap one below and ask which of these I pay for and never open."
 ---
 Inspired by [Uses This](https://usesthis.com/), this page documents the tools and software I use to get things done. Last reviewed {{ site.time | date: "%B %-d, %Y" }}.
 

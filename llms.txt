@@ -51,9 +51,9 @@ Varun Choraria is a B2B SaaS product marketer with 8+ years of experience across
 
 ## Ask an AI
 
-- Ask ChatGPT: https://chatgpt.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
-- Ask Claude: https://claude.ai/new?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
-- Ask Perplexity: https://www.perplexity.ai/search?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
-- Ask Gemini: https://gemini.google.com/app?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
-- Ask Grok: https://grok.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
-- Ask Copilot: https://copilot.microsoft.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
+- Ask ChatGPT: https://chatgpt.com/?hints=search&q=Read+https%3A%2F%2Fwww.varunchoraria.com%2F+and+tell+me+who+Varun+Choraria+is%2C+what+he+has+worked+on%2C+and+what+he+writes+about.+Cite+the+pages+you+use.
+- Ask Claude: https://claude.ai/new?q=Read+https%3A%2F%2Fwww.varunchoraria.com%2F+and+tell+me+who+Varun+Choraria+is%2C+what+he+has+worked+on%2C+and+what+he+writes+about.+Cite+the+pages+you+use.
+- Ask Perplexity: https://www.perplexity.ai/search?q=Read+https%3A%2F%2Fwww.varunchoraria.com%2F+and+tell+me+who+Varun+Choraria+is%2C+what+he+has+worked+on%2C+and+what+he+writes+about.+Cite+the+pages+you+use.
+- Ask Gemini (Google AI Mode): https://www.google.com/search?udm=50&q=Read+https%3A%2F%2Fwww.varunchoraria.com%2F+and+tell+me+who+Varun+Choraria+is%2C+what+he+has+worked+on%2C+and+what+he+writes+about.+Cite+the+pages+you+use.
+- Ask Grok: https://grok.com/?q=Read+https%3A%2F%2Fwww.varunchoraria.com%2F+and+tell+me+who+Varun+Choraria+is%2C+what+he+has+worked+on%2C+and+what+he+writes+about.+Cite+the+pages+you+use.
+- Ask Copilot (Bing Copilot Search): https://www.bing.com/copilotsearch?q=Read+https%3A%2F%2Fwww.varunchoraria.com%2F+and+tell+me+who+Varun+Choraria+is%2C+what+he+has+worked+on%2C+and+what+he+writes+about.+Cite+the+pages+you+use.

@@ -1,0 +1,22 @@
+# The Ask row in the MCP callout. `url` is everything before the encoded
+# prompt. ChatGPT carries `hints=search` so it reads the live page instead of
+# answering from memory; Gemini and Copilot go to their search surfaces
+# (Google AI Mode, Bing Copilot Search), the two that reliably take `q=`.
+- logo: openai
+  name: ChatGPT
+  url: "https://chatgpt.com/?hints=search&q="
+- logo: claude
+  name: Claude
+  url: "https://claude.ai/new?q="
+- logo: perplexity
+  name: Perplexity
+  url: "https://www.perplexity.ai/search?q="
+- logo: gemini
+  name: Gemini
+  url: "https://www.google.com/search?udm=50&q="
+- logo: grok
+  name: Grok
+  url: "https://grok.com/?q="
+- logo: copilot
+  name: Copilot
+  url: "https://www.bing.com/copilotsearch?q="

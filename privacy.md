@@ -4,6 +4,7 @@ seo_title: Privacy and analytics | Varun Choraria
 intro: What this site measures, which services touch the data, and what I do not collect.
 description: Read how varunchoraria.com uses Google Analytics and Microsoft Clarity, which external services process data, and how to ask a privacy question.
 mcp: true
+ask_quip: "Or tap one below. Ironically, the less private option."
 ---
 Last updated: 27 July 2026
 

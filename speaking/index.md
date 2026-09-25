@@ -10,6 +10,7 @@ redirect_from:
 mcp: true
 mcp_note: >-
   Organisers: <a href="/mcp/">connect my MCP server</a> and ask your AI what I talk about, so you don't have to email me to find out.
+ask_quip: "Or tap one below. It's cheaper than a speaker fee."
 ---
 
 ## Book

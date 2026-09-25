@@ -6,6 +6,7 @@ description: Contact Varun Choraria about B2B SaaS product marketing, AI, speaki
 mcp: true
 mcp_note: >-
   Before you write the email, <a href="/mcp/">connect my MCP server</a> and ask your AI. It probably already knows.
+ask_quip: "Or tap one below. It replies faster than I do."
 ---
 ## Start on LinkedIn
 

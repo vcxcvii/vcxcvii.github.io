@@ -4,6 +4,7 @@ seo_title: Website changelog | Varun Choraria
 description: "Visitor-relevant updates to varunchoraria.com: clearer pages, better navigation, useful tools, accessibility, search, privacy, and what each change improves."
 intro: "Only changes worth noticing: what became easier to find, understand, use, or trust, and why I changed it."
 mcp: true
+ask_quip: "Or tap one below. It'll find the bug I shipped before you do."
 ---
 
 {% assign latest_site_update = site.data.site_updates.updates | first %}

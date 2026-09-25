@@ -71,6 +71,7 @@ ALLOWED_JS = {
   "assets/js/copy-code.js" => 3_000,
   "assets/js/changelog.js" => 3_000,
   "assets/js/days.js" => 2_000,
+  "assets/js/quips.js" => 1_000,
   "assets/js/theme.js" => 5_000,
 }.freeze
 
@@ -260,9 +261,11 @@ def design_guardrails
   errs << "Design: footer must link to the dedicated tag index" unless footer.include?("'/tags/' | relative_url")
   errs << "Design: footer must link to the canonical DESIGN.md" unless footer.include?("blob/main/DESIGN.md")
   errs << "Design: footer must not embed the complete tag index" if footer.include?("include tag-list.html")
-  footer_ai_icons = %w[openai claude perplexity gemini grok copilot].all? { |name| footer.include?(%{logo.html name="#{name}"}) }
-  errs << "Design: footer Ask AI links must use six accessible logos" unless footer_ai_icons && footer.scan(/aria-label="Ask /).size == 6
-  %w[Work Read AI Site Ask].each do |heading|
+  ask_ai = YAML.safe_load(read_file("_data/ask_ai.yml")) || []
+  ask_logos = ask_ai.map { |ai| ai["logo"] }
+  errs << "Design: Ask row must carry six assistants with a real mark each" unless ask_ai.size == 6 && ask_logos.all? { |name| File.exist?("_includes/logos/#{name}.svg") }
+  errs << "Design: Ask row must live in the MCP callout, not the footer" unless read_file("_includes/mcp-callout.html").include?("site.data.ask_ai") && !footer.include?("ask_ai")
+  %w[Work Read AI Site].each do |heading|
     errs << "Design: footer section '#{heading}' missing" unless footer.include?(%{class="footer-heading">#{heading}</p>})
   end
   errs << "Trust: footer contact link missing" unless footer.include?("'/contact/' | relative_url")
