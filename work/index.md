@@ -24,7 +24,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 
 ### Group Manager, Product Marketing
 
-**2026-present** · [HCL Tech](https://www.hcltech.com/)
+**2026-present** · [HCLTech](https://www.hcltech.com/)
 
 ---
 

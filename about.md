@@ -2,13 +2,13 @@
 title: About
 seo_title: About Varun Choraria | Background and current role
 no_intro: true
-description: B2B SaaS product marketer with 8+ years across Vymo, Freshworks and GTM Buddy. Group Manager, Product Marketing at HCL Tech.
+description: B2B SaaS product marketer with 8+ years across Vymo, Freshworks and GTM Buddy. Group Manager, Product Marketing at HCLTech.
 page_class: about-page
 mcp: true
 mcp_note: >-
   Skip the reading. <a href="/mcp/">Connect my MCP server</a> and let your AI summarise me, which is what most people do anyway.
 ---
-**In short:** I'm a B2B SaaS product marketer, with 8+ years spent across B2B SaaS AI product companies. As of Sept 2026, I'm a Group Manager, Product Marketing at HCL Tech.
+**In short:** I'm a B2B SaaS product marketer, with 8+ years spent across B2B SaaS AI product companies. As of Sept 2026, I'm a Group Manager, Product Marketing at HCLTech.
 
 I sometimes do [speaking gigs](/speaking/#speaking), I've [written a book](/speaking/#book), [hosted a podcast](/speaking/#podcast). Besides that I'm actively into bodybuilding and also a 1st Dan Black Belt in Tae Kwon Do.
 
@@ -16,7 +16,7 @@ I sometimes do [speaking gigs](/speaking/#speaking), I've [written a book](/spea
 
 ## Now
 
-I'm a Group Manager, Product Marketing at [HCL Tech](https://www.hcltech.com/), since September 2026. The [full history is here](/work/).
+I'm a Group Manager, Product Marketing at [HCLTech](https://www.hcltech.com/), since September 2026. The [full history is here](/work/).
 
 I'm all-in on agentic AI. I believe the future will be one-person marketing teams, running a swarm of agents. GTM motions will be shipped in < 1 day, and scaled and managed with the help of agents. I'm building that way of working on the side, through [open-source tools](/side-quests/) and experiments at [Grow and Close](https://growandclose.com/).
 
