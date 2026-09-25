@@ -54,3 +54,6 @@ Varun Choraria is a B2B SaaS product marketer with 8+ years of experience across
 - Ask ChatGPT: https://chatgpt.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
 - Ask Claude: https://claude.ai/new?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
 - Ask Perplexity: https://www.perplexity.ai/search?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
+- Ask Gemini: https://gemini.google.com/app?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
+- Ask Grok: https://grok.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F
+- Ask Copilot: https://copilot.microsoft.com/?q=Who+is+Varun+Choraria+and+what+does+he+write+about%3F

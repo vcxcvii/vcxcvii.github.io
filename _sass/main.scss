@@ -1265,19 +1265,21 @@ a.days-cell.e:hover::after {
 
 .footer-ai-links {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: .25rem;
 }
 
 .footer-ai-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
   text-decoration: none;
 }
 
-.footer-ai-openai {
+.footer-ai-openai,
+.footer-ai-grok {
   color: var(--color-text);
 }
 
