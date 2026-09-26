@@ -105,5 +105,5 @@ window.addEventListener('load',function(){
 <script defer src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% if page.url == '/changelog/' %}<script defer src="{{ '/assets/js/changelog.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
 {% if page.url == '/days/' %}<script defer src="{{ '/assets/js/days.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
-{% if page.url == '/' %}<script defer src="{{ '/assets/js/quips.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
+<script defer src="{{ '/assets/js/quips.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% if page.url == '/' %}<script defer src="{{ '/assets/js/hi.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}

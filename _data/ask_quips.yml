@@ -1,7 +1,10 @@
-# Homepage only. The build picks one by day of year so a reader without
-# JavaScript still sees it change; assets/js/quips.js then picks a fresh one
-# per visit, never the same one twice in a row. Each line follows
-# "Or tap one below." and has to make sense after it.
+# Rotates on every page that doesn't set its own `ask_quip` in front matter.
+# The build picks one by day of year so a reader without JavaScript still
+# sees it change; assets/js/quips.js then picks a fresh one per visit,
+# never the same one twice in a row. Each line follows "Or tap one below."
+# and has to make sense after it on any page, so nothing here can name a
+# specific page type (essay, project, day). Nothing jokes about an
+# employer.
 - They've read more of this site than my family has.
 - They'll be nicer about me than my LinkedIn recommendations.
 - They've agreed to say nice things. Mostly.
@@ -22,3 +25,26 @@
 - One of them will call me "a thought leader". Please ignore that one.
 - It's the TL;DR, with citations.
 - Go on, find out what the internet thinks of me.
+- One click, six opinions, no calendar invites.
+- They'll do the reading, and the caveats.
+- No emails, no small talk, no scheduling.
+- They've indexed the site so you don't have to.
+- Faster than my LinkedIn tagline promises.
+- They'll tell you what I'd say, minus the qualifiers.
+- Same site, six lenses on it.
+- A shortcut through the archive, with citations.
+- They'll surface something even I forgot I wrote.
+- Skip the biography, keep the receipts.
+- They'll answer while I'm still lifting.
+- They've read every essay. You haven't. Fair enough.
+- Consensus of six strangers, kinder than most team reviews.
+- A supervised résumé skim.
+- Six-way plagiarism check on my personality.
+- If any of them refuses, that's the interesting one.
+- The nice thing about six of them is one is bound to disagree.
+- It replies faster than I do.
+- None of them will ask about my five-year plan.
+- They read faster than you and won't leave a comment.
+- Cheaper than a speaker fee, quieter than a webinar.
+- They'll join the dots I keep meaning to write up.
+- The panel I never assembled, on tap.

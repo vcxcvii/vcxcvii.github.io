@@ -20,19 +20,13 @@ own URL so the assistant reads the site instead of guessing from its name.
     {%- else -%}
       Skip the copy-paste. <a href="{{ '/mcp/' | relative_url }}">Connect my MCP server</a> and ask your AI.
     {%- endif %}
-    {% if page.url == '/' -%}
+    {% if page.ask_quip -%}
+      {{ page.ask_quip }}
+    {%- else -%}
       {%- assign quips = site.data.ask_quips -%}
       {%- assign day = site.time | date: '%j' | plus: 0 -%}
       {%- assign quip_i = day | modulo: quips.size -%}
       Or tap one below. <span data-quips="{{ quips | jsonify | escape }}">{{ quips[quip_i] }}</span>
-    {%- elsif page.ask_quip -%}
-      {{ page.ask_quip }}
-    {%- elsif page.collection == 'posts' -%}
-      Or tap one below. It'll tell you if this was worth the read, which is more than I would.
-    {%- elsif page.project -%}
-      Or tap one below and ask whether you actually need it.
-    {%- else -%}
-      Or tap one below. They've read more of this site than my family has.
     {%- endif -%}
   </p>
   {%- assign ask_url = page.url | absolute_url -%}
