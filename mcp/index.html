@@ -41,7 +41,7 @@ mcp: true
       "name": "Does it stay up to date on its own?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The server does not crawl and does not hold a copy of the site. Every publish rebuilds a feed at /api/site.json containing the full text of every post and page, and the server reads that feed live, refreshing at least every five minutes. A check in the site's build pipeline fails the deploy if any public URL is missing from the feed or exposes no content, so new pages cannot quietly go unreadable."
+        "text": "Yes. The server does not crawl and does not hold a copy of the site. Every publish rebuilds a feed at /api/site.json containing the full text of every post and page, and the server reads that feed live, refreshing at least every 5 minutes. A check in the site's build pipeline fails the deploy if any public URL is missing from the feed or exposes no content, so new pages cannot quietly go unreadable."
       }
     },
     {
@@ -116,7 +116,7 @@ mcp: true
 
 <h2>How it stays current</h2>
 
-<p>There is no crawler and no copy of this site sitting in a database somewhere. Every publish rebuilds a single feed at <a href="/api/site.json">/api/site.json</a> holding the full text of every post and page, and the server reads that feed live, refreshing at least every five minutes. Publish something now and an agent can read it within the same coffee break.</p>
+<p>There is no crawler and no copy of this site sitting in a database somewhere. Every publish rebuilds a single feed at <a href="/api/site.json">/api/site.json</a> holding the full text of every post and page, and the server reads that feed live, refreshing at least every 5 minutes. Publish something now and an agent can read it within the same coffee break.</p>
 
 <p>The failure mode I actually worried about was quieter: a new page that forgets to opt in, still visible to humans, invisible to agents. So the build compares the sitemap against the feed and fails the deploy if any public URL is missing or exposes no content. If you can reach a page in a browser, an AI client can read it.</p>
 

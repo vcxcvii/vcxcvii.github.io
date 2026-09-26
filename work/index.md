@@ -69,7 +69,7 @@ If you want to know how I think before we talk, start with [the essays](/blog/) 
 - Led solution packaging and product launches with solution engineers, sales, and product, driving 85% adoption across 400K+ end users in 7 countries
 - Defined ICP and GTM verticalisation, helping Vymo launch into multiple lines of business across 75+ enterprise deployments
 - Led competitive intelligence: Vymo named a Strong Performer in the Q3 2022 Forrester Wave, and featured in the Gartner Market Guide for Sales Enablement 2023
-- Won the FY23 Annual Award for product marketing work behind the first multi-million dollar deal win in the USA
+- Won the FY23 Annual Award for product marketing work behind the first $1M+ deal win in the USA
 
 ### Associate, Product Marketing & GTM, India & SEA
 

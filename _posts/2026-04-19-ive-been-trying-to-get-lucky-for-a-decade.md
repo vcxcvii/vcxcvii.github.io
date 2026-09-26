@@ -29,7 +29,7 @@ So if you were to plot "Do" and "Tell" on an X-Y axis, the slope of it is luck: 
 In my world, doing and telling has gotten me some pretty interesting roles to work in. The latest one involves managing a team and helping build a product category. So if I look back at the career bets I made:
 
 - job #1: Series C startup -> founding product marketing team member -> scaled it across India and the US. First touch with enablement, no-code tools, design, and product.
-- job #2: IPO company -> started the PLG motion -> scaled it to half a million dollars -> learnt the nuances of scale and company politics.
+- job #2: IPO company -> started the PLG motion -> scaled it to $500K -> learnt the nuances of scale and company politics.
 - job #3: Series A startup -> helping build category -> managing a team -> increasing ACV, win rates, pipeline volume and quality, and founder brand.
 
 The point of telling you this is simple: I've never posted much online, but I do a lot of doing and telling internally, and that has helped me get into whispered roles, the kind that don't really have job postings. So you do not necessarily have to be a social butterfly to increase the slope, or the surface area, of luck in your life.
