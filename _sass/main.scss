@@ -17,11 +17,14 @@
   --rule:1px solid var(--color-border);
   --font-sans:"Helvetica Neue", helvetica, sans-serif;
   --font-mono:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  /* The masthead, read off apple.com's #globalnav rather than invented. Their
-     light scrim is rgba(250, 250, 252, .8) over saturate(180%) blur(20px),
-     their dark one rgba(22, 22, 23, .8), their ink rgba(0, 0, 0, .8) going to
-     solid black on hover and the mirror of that on dark, and the bar is 44px.
-     Those are the values here.
+  /* The masthead, read off apple.com's #globalnav and then pushed toward the
+     Liquid Glass treatment Apple shipped in the platforms after it: a
+     lower-alpha scrim over a heavier blur, so what shows through is closer to
+     the page underneath refracted through a pane than to a frosted panel over
+     it. Alpha dropped from .8 to .55; blur went from 20px to 30px; saturation
+     went from 180% to 200% to keep colour behind the bar from washing out at
+     the wider blur radius. Ink stays on Apple's near-solid values so the bar
+     copy still reads as one weight at any position on any ground.
 
      Two tokens, not the ramp there used to be. A translucent bar has no ramp:
      what is behind it supplies the variation, which is the whole idea. The
@@ -31,7 +34,7 @@
      ground underneath it. That is the opposite of the mat, which was opaque
      and therefore the same on every ground; here light and beige take Apple's
      near-white over black ink, and dark takes their near-black over white. */
-  --bar-bg:rgba(250, 250, 252, .8);
+  --bar-bg:rgba(250, 250, 252, .55);
   --bar-ink:rgba(0, 0, 0, .8);
   --bar-ink-strong:#000;
 }
@@ -179,8 +182,19 @@ select {
   padding-top: env(safe-area-inset-top);
   @extend %rule-bottom;
   background: var(--bar-bg);
-  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(200%) blur(30px);
+  backdrop-filter: saturate(200%) blur(30px);
   color: var(--bar-ink);
+}
+
+/* Browsers without backdrop-filter (older Firefox and WebKit builds) do not
+   get the blur, so the .55 scrim is too transparent for the bar copy to read
+   over arbitrary content. Fall back to a near-solid ground, which is what the
+   bar looked like before Liquid Glass. */
+@supports not (backdrop-filter: blur(1px)) {
+  .site-nav {
+    background: var(--color-bg);
+  }
 }
 
 /* The bar spans the window; its contents sit in apple.com's 980px container,
@@ -1580,10 +1594,11 @@ a.days-cell.e:hover::after {
   --color-accent:#4d86fa;
   --color-link:#4d86fa;
   --color-mark:#4d86fa;
-  /* apple.com's dark #globalnav scrim and its ink, mirrored from the light
-     values above. The bar follows the ground now because it is translucent:
-     what shows through it is this page, not the light one. */
-  --bar-bg:rgba(22, 22, 23, .8);
+  /* Mirror of the Liquid Glass scrim from the light ground: alpha at .55
+     over saturate(200%) blur(30px), ink near-solid. The bar follows the
+     ground because it is translucent: what shows through it is this page,
+     not the light one. */
+  --bar-bg:rgba(22, 22, 23, .55);
   --bar-ink:rgba(255, 255, 255, .8);
   --bar-ink-strong:#fff;
 
