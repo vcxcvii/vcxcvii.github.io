@@ -72,6 +72,7 @@ ALLOWED_JS = {
   "assets/js/changelog.js" => 3_000,
   "assets/js/days.js" => 2_000,
   "assets/js/quips.js" => 1_000,
+  "assets/js/hi.js" => 1_000,
   "assets/js/theme.js" => 5_000,
 }.freeze
 

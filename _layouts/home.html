@@ -4,7 +4,10 @@ layout: default
 <header class="home-intro">
   <img class="home-portrait" src="{{ '/assets/images/hero-photo.jpg' | relative_url }}" alt="Portrait of Varun Choraria" width="168" height="168" decoding="async" fetchpriority="high">
   <div class="home-intro-copy">
-    <h1>Hi, I'm Varun Choraria (VC).</h1>
+    {%- assign his = site.data.hi -%}
+    {%- assign day = site.time | date: '%j' | plus: 0 -%}
+    {%- assign hi_i = day | modulo: his.size -%}
+    <h1><span data-hi="{{ his | jsonify | escape }}"><bdi>{{ his[hi_i] }}</bdi></span>, I'm Varun Choraria (VC).</h1>
     <p>I'm a Group Manager, Product Marketing at <a href="https://www.hcltech.com/" target="_blank" rel="noopener noreferrer">HCLTech</a> (<a href="https://www.nseindia.com/get-quotes/equity?symbol=HCLTECH" target="_blank" rel="noopener noreferrer">NSE: HCLTECH</a>). Before this, I spent 8+ years as a product marketer in the B2B SaaS space, at <a href="https://gtmbuddy.ai/" target="_blank" rel="noopener noreferrer">GTM Buddy</a> (Series A), <a href="https://www.freshworks.com/" target="_blank" rel="noopener noreferrer">Freshworks</a> (<a href="https://www.nasdaq.com/market-activity/stocks/frsh" target="_blank" rel="noopener noreferrer">NASDAQ: FRSH</a>) and <a href="https://vymo.com/" target="_blank" rel="noopener noreferrer">Vymo</a> (Series C).</p>
     <p>On the side, I'm into bodybuilding, I ship <a href="{{ '/side-quests/' | relative_url }}">open source tools</a>. I also keep a public notebook: <a href="{{ '/blog/' | relative_url }}">essays</a> on AI, GTM, careers, and management, plus a <a href="{{ '/days/' | relative_url }}">running log</a> of what I ship each week. AI agents can read it too, via the <a href="{{ '/mcp/' | relative_url }}">MCP page</a>.</p>
     <p><small>All views on this website are my own, and do not represent the views of my employer. All content on this website is 100% grass-fed, free range and organic. See the <a href="{{ '/disclaimer/' | relative_url }}">disclaimer</a>.</small></p>

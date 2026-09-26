@@ -1,0 +1,39 @@
+# Homepage only. Cycles the h1's opening word through greetings across
+# languages, with the English translation in parentheses. The build picks
+# one by day of year so a reader without JavaScript still sees it change;
+# assets/js/hi.js then picks a fresh one per visit and never repeats the
+# last one in the tab. The rest of the h1 (`, I'm Varun Choraria (VC).`)
+# is fixed, so every line has to read correctly with a comma directly
+# after it. English is one of the lines and stays plain, without the
+# translation parenthetical.
+- Hi
+- Namaste (Hi)
+- Bonjour (Hi)
+- Hola (Hi)
+- Ciao (Hi)
+- Hallo (Hi)
+- Olá (Hi)
+- Hej (Hi)
+- Salut (Hi)
+- Merhaba (Hi)
+- Aloha (Hi)
+- Kia ora (Hi)
+- Salām (Hi)
+- Shalom (Hi)
+- Xin chào (Hi)
+- Jambo (Hi)
+- Sawubona (Hi)
+- Sawasdee (Hi)
+- Vanakkam (Hi)
+- Sat Sri Akaal (Hi)
+- Kem cho (Hi)
+- こんにちは (Hi)
+- 你好 (Hi)
+- 안녕 (Hi)
+- Привет (Hi)
+- مرحبا (Hi)
+- नमस्ते (Hi)
+- வணக்கம் (Hi)
+- ਸਤ ਸ੍ਰੀ ਅਕਾਲ (Hi)
+- שלום (Hi)
+- สวัสดี (Hi)
