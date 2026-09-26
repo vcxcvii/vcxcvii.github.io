@@ -242,7 +242,7 @@ There is no separate install section. The command is in the header, so a page ke
 
 - Plain section, never a card.
 - `GitHub` heading links to `github.com/vcxcvii`; contribution count sits opposite it on wide screens.
-- `assets/js/gh-graph.js` fetches the last year from `github-contributions-api.jogruber.de`, caches for six hours, and draws inline SVG.
+- `assets/js/gh-graph.js` fetches the last year from `github-contributions-api.jogruber.de`, caches for 6 hours, and draws inline SVG.
 - Desktop shows up to the full year. Narrow screens show the most recent weeks that fit without horizontal scrolling.
 - Month labels remain visible when they fit.
 - Failed requests leave a normal text link. Page never shows a broken or empty framed widget.
@@ -270,6 +270,7 @@ There is no separate install section. The command is in the header, so a page ke
 - Header remains unchanged.
 - Page begins with title, exact published date, linked author byline, optional updated date, then plain tag links.
 - Prose width is no wider than `42rem`.
+- **Essay paragraphs are justified.** `.prose--essay p` sets `text-align: justify` with `hyphens: auto` so long words break cleanly instead of leaving river-sized gaps at the 42rem column. `_scripts/qa.rb` enforces both the CSS rule and the `prose--essay` class on `_layouts/entry.html` — either one alone paints ragged-right. About, contact, side-quests and other `.prose` pages keep ragged-right because they carry lists, headings and short blocks where justification looks worse than it helps.
 - Images use natural color and scale down to viewport width.
 - Code blocks and tables may scroll horizontally; the page itself must never scroll horizontally.
 - After prose: `Related essays`, up to three dated links selected only through existing tag relationships. Rows use the same single-line date, separator, and linked-title treatment as the homepage archive.
@@ -298,7 +299,7 @@ There is no separate install section. The command is in the header, so a page ke
 - Item state is `done`, `open`, or `dropped`, carried by `<del>` plus the literal words `(open)` and `(dropped)`. Never by colour, and never by the glyph alone, which is `aria-hidden`. The page reads correctly with the stylesheet off.
 - Unfinished items stay visible after their week ends. The page is a record, not a highlight reel, so removing a miss is not an available edit.
 - A week with no items renders its heading and `Nothing logged this week.` Gaps are never skipped or collapsed: a quiet week is the information.
-- `/days/` shows the current year only. A closed year moves to `/days/<year>/`, an eight-line page whose front matter sets `days_year` and whose body is one `{% include days-year.html year=page.days_year %}`. `/days/` finds those pages by `days_year` and lists them under `Earlier years`, so adding a year needs no edit anywhere else. Ten years of weeks in one document is a page nobody reads and every visitor downloads.
+- `/days/` shows the current year only. A closed year moves to `/days/<year>/`, an eight-line page whose front matter sets `days_year` and whose body is one `{% include days-year.html year=page.days_year %}`. `/days/` finds those pages by `days_year` and lists them under `Earlier years`, so adding a year needs no edit anywhere else. 10 years of weeks in one document is a page nobody reads and every visitor downloads.
 - `_includes/days-year.html` renders a whole year: summary, density strip, and week list. A week belongs to the year of its Monday, so no week appears on two pages.
 - The year summary counts essays, releases, and weeks logged out of weeks elapsed. The coverage ratio is the only figure that can look bad, which is why it is there. It is the same rule as keeping dropped items visible.
 - The density grid is shaped like the home-page GitHub graph: one column per week, oldest left, one row per weekday with Monday on top, one cell per day. Each cell is an anchor to its week further down the same page, with `tabindex="-1"` so 140 cells do not become 140 tab stops. It navigates, it never filters: nothing on the page is reachable only through it. Undated items count in the summary and week list but colour no cell.

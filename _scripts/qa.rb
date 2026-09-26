@@ -85,6 +85,19 @@ MAGNITUDE_PHRASES = [
   /\b(?:double|triple|quadruple)[ -]digits?\b/i,
 ].freeze
 
+# Numbers are figures, never words. "9/10 hiring managers" reads at a glance;
+# "nine of ten hiring managers" reads like a paragraph pretending to be
+# careful. Same for time counts and enumerable objects: "3 months",
+# "4 offers", not "three months" and "four offers". Money is the same rule,
+# with the currency symbol carrying the unit: "$100K", not "one hundred
+# thousand dollars". Applies to every file the site ships, posts included,
+# because the rule is voice and voice is uniform across the site.
+NUMBER_PHRASING = [
+  /\b(?:one|two|three|four|five|six|seven|eight|nine|ten) of (?:one|two|three|four|five|six|seven|eight|nine|ten)\b/i,
+  /\b(?:two|three|four|five|six|seven|eight|nine|ten) (?:years?|months?|weeks?|hours?|minutes?|rounds?|offers?|jobs?|companies|interviews?)\b/i,
+  /\b(?:one|two|three|four|five|six|seven|eight|nine|ten|twenty|thirty|forty|fifty|hundred|thousand|million|billion) (?:dollars?|rupees?|cents?|paise)\b/i,
+].freeze
+
 def magnitude_phrasing_errors
   errs = []
   files = `git ls-files -- '*.md' '*.html'`.split("\n").reject { |f| f.start_with?("_posts/") }
@@ -96,6 +109,23 @@ def magnitude_phrasing_errors
         next unless (hit = line[pattern])
 
         errs << "Voice: #{f}:#{number} says '#{hit}' — write the figure instead, e.g. $100K+"
+      end
+    end
+  end
+  errs
+end
+
+def number_phrasing_errors
+  errs = []
+  files = `git ls-files -- '*.md' '*.html'`.split("\n")
+  files.each do |f|
+    next unless File.exist?(f)
+
+    File.read(f).each_line.with_index(1) do |line, number|
+      NUMBER_PHRASING.each do |pattern|
+        next unless (hit = line[pattern])
+
+        errs << "Voice: #{f}:#{number} says '#{hit}' — write the number as a figure, e.g. 9/10, 3 months, $100"
       end
     end
   end
@@ -339,7 +369,26 @@ def design_guardrails
   errs << "Content: every side quest needs a Public, Private, or Retired label: #{unlabelled_quests.map { |quest| quest["name"] }.join(', ')}" unless unlabelled_quests.empty?
 
   errs.concat(magnitude_phrasing_errors)
+  errs.concat(number_phrasing_errors)
+  errs.concat(essay_justify_errors)
 
+  errs
+end
+
+# Essays justify their prose. Two things have to line up for it to paint:
+# _sass/main.scss carries a `.prose--essay p` rule with `text-align: justify`
+# and `hyphens: auto`, and _layouts/entry.html wraps the post body in a
+# `.prose.prose--essay` div. Either one alone paints ragged-right.
+def essay_justify_errors
+  errs = []
+  scss = read_file("_sass/main.scss")
+  unless scss =~ /\.prose--essay\s+p\s*\{[^}]*text-align:\s*justify[^}]*hyphens:\s*auto/m
+    errs << "Design: essay prose must be justified — `.prose--essay p { text-align: justify; hyphens: auto }` missing from _sass/main.scss"
+  end
+  entry = read_file("_layouts/entry.html")
+  unless entry.include?("prose--essay")
+    errs << "Design: essay layout must add the `prose--essay` class to its .prose wrapper so justified prose paints"
+  end
   errs
 end
 

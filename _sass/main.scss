@@ -1039,6 +1039,17 @@ a.days-cell.e:hover::after {
   margin-top: 0;
 }
 
+/* Essays justify their prose paragraphs. The column is 42rem, so the last
+   line of a paragraph rarely leaves a river-sized gap, and `hyphens: auto`
+   handles the words that would. Applied through .prose--essay (set in
+   _layouts/entry.html) so about, contact, side-quests and other .prose
+   pages keep ragged-right — those pages carry lists, headings and short
+   blocks where justification would look worse than it helps. */
+.prose--essay p {
+  text-align: justify;
+  hyphens: auto;
+}
+
 .changelog-controls {
   display: flex;
   align-items: center;
