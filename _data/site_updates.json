@@ -3,6 +3,48 @@
   "updated_at": "2026-10-02",
   "updates": [
     {
+      "id": "2026-10-02-cfbe94c",
+      "date": "2026-10-02",
+      "title": "The homepage greeting now shows what each hello actually means",
+      "summary": "The h1 cycles through greetings in dozens of languages, and every one used to end with a parenthetical that just said Hi. It now carries a short English rendering of what the greeting actually means: a bow for Namaste, love for Aloha, peace for Shalom. Words that are genuinely just hello in their language stay as hello instead of inventing a root.",
+      "benefits": [
+        {
+          "label": "Cultural root",
+          "text": "Namaste shows as a bow, Aloha as love, Shalom as peace, with the gesture or wish the word carries."
+        },
+        {
+          "label": "Honest hellos",
+          "text": "Hola, Hej and Halò stay hello because that is what they mean in their own language, not an invented root."
+        }
+      ],
+      "commit_shas": [
+        "438fed474a2d7b9c08a82fab0cf09de9f5a5f67c",
+        "260626a6b71a63c033a22272803ff38bfec97adc",
+        "cfbe94c75056b851c303a66ee9aaff3ead35eb37"
+      ],
+      "source": "manual"
+    },
+    {
+      "id": "2026-10-02-6c82819",
+      "date": "2026-10-02",
+      "title": "Essays now invite you to discuss the piece, not just read with an AI",
+      "summary": "The label on the row of AI marks under each essay used to read Read with. It now reads Or, discuss this article with, because tapping any of the marks opens the essay in that assistant with a prompt written to start a conversation about the piece, not to summarise and move on.",
+      "benefits": [
+        {
+          "label": "Clearer invitation",
+          "text": "Discuss sets up a conversation, not another step of reading something you have already read."
+        },
+        {
+          "label": "Matches the action",
+          "text": "The prompt behind the row asks the assistant to discuss, so the label above it now says so too."
+        }
+      ],
+      "commit_shas": [
+        "6c82819122a9553938050e1fb1b874828603e93e"
+      ],
+      "source": "manual"
+    },
+    {
       "id": "2026-10-02-da3a188",
       "date": "2026-10-02",
       "title": "Essays now have a Read with row for ChatGPT, Claude and more",
