@@ -13,7 +13,7 @@ Summarise the core argument in a few tight bullets, then offer to go deeper.{%- 
   <span>Read with</span>
   <div class="ask-ai">
     {%- for ai in site.data.ask_ai %}
-    <a class="rw-{{ ai.logo }}" href="{{ ai.url }}{{ rw_q }}" target="_blank" rel="noopener noreferrer" aria-label="Read with {{ ai.name }}" title="{{ ai.name }}">{% include logo.html name=ai.logo %}</a>
+    <a{% if ai.logo == 'openai' %} class="rw-openai"{% endif %} href="{{ ai.url }}{{ rw_q }}" target="_blank" rel="noopener noreferrer" aria-label="Read with {{ ai.name }}" title="{{ ai.name }}">{% include logo.html name=ai.logo %}</a>
     {%- endfor %}
   </div>
   <button type="button" class="rw-copy" data-copy-prompt="{{ rw_prompt | escape }}" hidden>{% include logo.html name="terminal" %}<span>Copy for agent</span></button>
