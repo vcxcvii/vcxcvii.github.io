@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "66291f29518cf05520aa3cfb95512d9e9715a79a",
+  "last_processed_commit": "da3a188e1daf8987b1985e22c985c5b35508d0cd",
   "updated_at": "2026-10-02",
   "updates": [
+    {
+      "id": "2026-10-02-da3a188",
+      "date": "2026-10-02",
+      "title": "Essays now have a Read with row for ChatGPT, Claude and more",
+      "summary": "Every essay has a Read with row under the title. Tap ChatGPT, Claude, Perplexity, Gemini, Grok or Copilot to open the essay in that assistant with a ready summary prompt, or copy the same prompt for your own agent.",
+      "benefits": [
+        {
+          "label": "One-tap summaries",
+          "text": "Open any essay in your preferred AI with the prompt already written."
+        },
+        {
+          "label": "Copy for agents",
+          "text": "Copy the prompt and URL in one click to paste into any agent."
+        },
+        {
+          "label": "Six assistants",
+          "text": "ChatGPT, Claude, Perplexity, Gemini, Grok and Copilot are all one tap away."
+        }
+      ],
+      "commit_shas": [
+        "da3a188e1daf8987b1985e22c985c5b35508d0cd"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-09-21-06a81ae",
       "date": "2026-09-21",
