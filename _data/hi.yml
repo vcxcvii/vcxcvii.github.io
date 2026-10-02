@@ -1,18 +1,21 @@
 # Homepage only. Cycles the h1's opening word through greetings across
-# languages, with the literal English meaning in parentheses — "I bow
-# to you" rather than "Hi" — so the greeting carries its root instead
-# of being flattened to one word. The build picks one by day of year so
-# a reader without JavaScript still sees it change; assets/js/hi.js
-# then picks a fresh one per visit and never repeats the last one in
-# the tab. The rest of the h1 (`, I'm Varun Choraria (VC).`) is fixed,
-# so every line has to read correctly with a comma directly after it.
-# English is one of the lines and stays plain, without the parenthetical.
+# languages, with a short English rendering in parentheses that reads
+# as a greeting word, not a sentence: "A bow", "Peace", "Welcome",
+# "Good day", "Hello" — never a first-person verb like "I bow to you"
+# or "Your servant", because the h1 continues with ", I'm Varun
+# Choraria (VC)." and the parenthetical sits right next to that
+# comma. Where the native word's cultural root nominalises cleanly
+# ("A bow" for Namaste), use it; where it doesn't, use "Hello" or
+# "Greetings". The build picks one by day of year so a reader without
+# JavaScript still sees it change; assets/js/hi.js then picks a fresh
+# one per visit and never repeats the last one in the tab. English is
+# one of the lines and stays plain, without the parenthetical.
 - Hi
-- Namaste (I bow to you)
-- Namaskar (I bow)
+- Namaste (A bow)
+- Namaskar (A bow)
 - Bonjour (Good day)
 - Hola (Hello)
-- Ciao (Your servant)
+- Ciao (Hello)
 - Hallo (Hello)
 - Hoi (Hey)
 - Guten Tag (Good day)
@@ -38,40 +41,40 @@
 - Aloha (Love)
 - Kia ora (Be well)
 - Bula (Life)
-- Talofa (Love to you)
+- Talofa (Love)
 - Yá'át'ééh (It is good)
 - Salām (Peace)
 - Shalom (Peace)
-- Xin chào (Please, greetings)
+- Xin chào (Greetings)
 - Halo (Hello)
 - Kamusta (How are you)
 - Jambo (No worries)
-- Sawubona (We see you)
-- Molo (I greet you)
+- Sawubona (I see you)
+- Molo (Greetings)
 - Sawasdee (Well-being)
-- Vanakkam (I bow)
+- Vanakkam (A bow)
 - Sat Sri Akaal (God is truth)
 - Kem cho (How are you)
 - Ohayō (It is early)
 - こんにちは (Good day)
-- 你好 (You, well)
+- 你好 (You, good)
 - 안녕 (Peace)
 - 안녕하세요 (Are you at peace)
 - Привет (Greetings)
 - Здравствуйте (Be in good health)
 - مرحبا (Welcome)
 - ሰላም (Peace)
-- नमस्ते (I bow to you)
-- नमस्कार (I bow)
+- नमस्ते (A bow)
+- नमस्कार (A bow)
 - হ্যালো (Hello)
-- வணக்கம் (I bow)
+- வணக்கம் (A bow)
 - ஹலோ (Hello)
-- ನಮಸ್ಕಾರ (I bow)
-- నమస్తే (I bow to you)
+- ನಮಸ್ಕಾರ (A bow)
+- నమస్తే (A bow)
 - ഹലോ (Hello)
 - ਸਤ ਸ੍ਰੀ ਅਕਾਲ (God is truth)
 - שלום (Peace)
 - สวัสดี (Well-being)
 - မင်္ဂလာပါ (May you be blessed)
-- ជំរាបសួរ (I offer a greeting)
+- ជំរាបសួរ (A greeting)
 - ສະບາຍດີ (Well-being)
