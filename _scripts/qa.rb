@@ -55,7 +55,10 @@ REQUIRED_COLORS = %w[#002f9e #4d86fa #9be9a8 #40c463 #30a14e #216e39].freeze
 # per ground, plus the sticky shell, the inner column and the dropdown panel
 # that the links, contact and the page light now share below 44rem. Grouping
 # every white link in the bar into one rule returned 43 of it.
-CSS_BUDGET = 18_800
+# Raised again from 18_800 for the Read with row on essays: a rules-only strip
+# (label, the .ask-ai marks, a text-style copy button) with its button reset,
+# hidden-attribute override and ChatGPT's brand green.
+CSS_BUDGET = 19_200
 GITHUB_JS_BUDGET = 8_000
 # Category glyphs that predate the brand-mark rule in DESIGN.md. Anything else
 # under _includes/logos/ has to be a Simple Icons path with its own fill, never
@@ -72,6 +75,7 @@ ALLOWED_JS = {
   "assets/js/changelog.js" => 3_000,
   "assets/js/days.js" => 2_000,
   "assets/js/quips.js" => 1_000,
+  "assets/js/copy-prompt.js" => 1_000,
   "assets/js/hi.js" => 1_000,
   "assets/js/theme.js" => 5_000,
 }.freeze

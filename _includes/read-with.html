@@ -1,0 +1,20 @@
+{%- comment -%}
+"Read with" row on essays: one label, every assistant in _data/ask_ai.yml as an
+icon mark (reusing .ask-ai), and one quiet text button to copy the prompt. Every mark and the button carry the same prompt, anchored to the essay's own URL so the
+assistant reads the live page instead of answering from memory. The copy button
+is hidden until assets/js/copy-prompt.js unhides it, so there is never a dead
+control without JavaScript.
+{%- endcomment -%}
+{%- assign rw_url = page.url | absolute_url -%}
+{%- capture rw_prompt -%}Read this essay by Varun Choraria: {{ rw_url }}
+Summarise the core argument in a few tight bullets, then offer to go deeper.{%- endcapture -%}
+{%- assign rw_q = rw_prompt | url_encode -%}
+<div class="read-with">
+  <span>Read with</span>
+  <div class="ask-ai">
+    {%- for ai in site.data.ask_ai %}
+    <a class="rw-{{ ai.logo }}" href="{{ ai.url }}{{ rw_q }}" target="_blank" rel="noopener noreferrer" aria-label="Read with {{ ai.name }}" title="{{ ai.name }}">{% include logo.html name=ai.logo %}</a>
+    {%- endfor %}
+  </div>
+  <button type="button" class="rw-copy" data-copy-prompt="{{ rw_prompt | escape }}" hidden>{% include logo.html name="terminal" %}<span>Copy for agent</span></button>
+</div>

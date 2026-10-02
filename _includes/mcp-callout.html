@@ -8,9 +8,10 @@ Every page ends the line with a quip pointing at the Ask row: its own
 `ask_quip` from front matter, else one per page type below. The homepage
 rotates through _data/ask_quips.yml (assets/js/quips.js).
 
-The Ask row under it opens the same question in six assistants. Essays get a
-prompt about the essay; every other page asks about VC, anchored to the page's
-own URL so the assistant reads the site instead of guessing from its name.
+The Ask row under it opens the same question in six assistants, anchored to the
+page's own URL so the assistant reads the site instead of guessing from its
+name. Essays skip both the quip and the row: the Read with row under the essay
+title (_includes/read-with.html) carries the same six marks there.
 {%- endcomment -%}
 {%- if page.url != '/mcp/' and page.mcp_callout != false -%}
 <aside class="mcp-callout">
@@ -20,7 +21,8 @@ own URL so the assistant reads the site instead of guessing from its name.
     {%- else -%}
       Skip the copy-paste. <a href="{{ '/mcp/' | relative_url }}">Connect my MCP server</a> and ask your AI.
     {%- endif %}
-    {% if page.ask_quip -%}
+    {%- if page.collection == 'posts' -%}
+    {%- elsif page.ask_quip -%}
       {{ page.ask_quip }}
     {%- else -%}
       {%- assign quips = site.data.ask_quips -%}
@@ -29,17 +31,15 @@ own URL so the assistant reads the site instead of guessing from its name.
       Or tap one below. <span data-quips="{{ quips | jsonify | escape }}">{{ quips[quip_i] }}</span>
     {%- endif -%}
   </p>
+  {%- if page.collection != 'posts' -%}
   {%- assign ask_url = page.url | absolute_url -%}
-  {%- if page.collection == 'posts' -%}
-    {%- capture ask_prompt -%}Read {{ ask_url }} and summarise this essay by Varun Choraria: the argument, the key points, and where I might push back.{%- endcapture -%}
-  {%- else -%}
-    {%- capture ask_prompt -%}Read {{ ask_url }} and tell me who Varun Choraria is, what he has worked on, and what he writes about. Cite the pages you use.{%- endcapture -%}
-  {%- endif -%}
+  {%- capture ask_prompt -%}Read {{ ask_url }} and tell me who Varun Choraria is, what he has worked on, and what he writes about. Cite the pages you use.{%- endcapture -%}
   {%- assign ask_q = ask_prompt | url_encode %}
   <div class="ask-ai">
     {%- for ai in site.data.ask_ai %}
     <a href="{{ ai.url }}{{ ask_q }}" target="_blank" rel="noopener noreferrer" aria-label="Ask {{ ai.name }} about this page" title="{{ ai.name }}">{% include logo.html name=ai.logo %}</a>
     {%- endfor %}
   </div>
+  {%- endif %}
 </aside>
 {%- endif -%}
