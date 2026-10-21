@@ -720,7 +720,7 @@ td {
 
 .repo-link svg,
 .quest-action svg,
-.entry-downloads svg {
+.entry-downloads :is(svg, img) {
   width: 1rem;
   height: 1rem;
   flex: 0 0 auto;
@@ -1376,12 +1376,14 @@ a.days-cell.e:hover::after {
 
 /* No :visited pair here. `a:visited` and `.footer-links a` are both one class
    and one element, so source order decides, and this rule is later. */
-.footer-links a {
+.footer-links a,
+.footer-disclaimer a {
   color: inherit;
   text-decoration: none;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-disclaimer a:hover {
   text-decoration: underline;
 }
 
@@ -1395,6 +1397,13 @@ a.days-cell.e:hover::after {
   margin-top: 2rem;
   padding-top: 1.25rem;
   @extend %rule-top;
+}
+
+/* Sits under the legal row, inside the same block below the hairline. The
+   margin needs !important for the same reason .footer-heading's does: it is a
+   class against `#site-footer p`, and an id wins on specificity. */
+.footer-disclaimer {
+  margin-top: 1rem !important;
 }
 
 @media (max-width: 44rem) {

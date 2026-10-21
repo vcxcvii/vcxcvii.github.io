@@ -65,7 +65,14 @@ REQUIRED_COLORS = %w[#002f9e #4d86fa #9be9a8 #40c463 #30a14e #216e39].freeze
 # common, and the row's marks joined the existing `.repo-link svg` sizing rule
 # instead of declaring their own. The sheet sits at 19,381. The ceiling stays
 # close to the figure, as before.
-CSS_BUDGET = 19_400
+# Raised again to 19_500 for the footer disclaimer. The line itself inherits
+# the band's colour, size and leading and declares one thing, its separation
+# from the legal row above it. The rest of the raise is its link, which joins
+# the existing grey undecorated footer-link rules rather than declaring its
+# own: a blue underlined link is exactly what those rules exist to prevent,
+# and the band has no second treatment for a link outside the nav groups.
+# The sheet sits at 19,484.
+CSS_BUDGET = 19_500
 GITHUB_JS_BUDGET = 8_000
 # Category glyphs that predate the brand-mark rule in DESIGN.md. Anything else
 # under _includes/logos/ has to be a Simple Icons path with its own fill, never
@@ -310,6 +317,8 @@ def design_guardrails
   %w[Work Read AI Site].each do |heading|
     errs << "Design: footer section '#{heading}' missing" unless footer.include?(%{class="footer-heading">#{heading}</p>})
   end
+  errs << "Trust: footer must carry the site-wide views-are-my-own disclaimer" unless footer.include?("footer-disclaimer") && footer.include?("do not represent the views of my employer")
+  errs << "Trust: footer disclaimer must link to the disclaimer page" unless footer.include?("'/disclaimer/' | relative_url")
   errs << "Trust: footer contact link missing" unless footer.include?("'/contact/' | relative_url")
   errs << "Trust: footer privacy link missing" unless footer.include?("'/privacy/' | relative_url")
 
@@ -419,10 +428,13 @@ def essay_downloads_errors
 
   row = read_file("_includes/downloads.html")
   errs << "Design: download row must name the file from the published URL, not the slug" unless row.include?('page.url | split: "/" | last')
-  %w[epub acrobat].each do |mark|
-    errs << "Brand marks: download row needs the real #{mark} mark at _includes/logos/#{mark}.svg" unless File.exist?("_includes/logos/#{mark}.svg")
-    errs << "Design: download row must show the #{mark} mark" unless row.include?(%{name="#{mark}"})
-  end
+  errs << "Brand marks: download row needs the real acrobat mark at _includes/logos/acrobat.svg" unless File.exist?("_includes/logos/acrobat.svg")
+  errs << "Design: download row must show the acrobat mark" unless row.include?(%{name="acrobat"})
+  # The one raster mark on the site, and the only reason it is allowed is that
+  # Amazon publishes the Kindle icon as artwork and nothing else. If it ever
+  # stops being referenced from the row it should leave with it.
+  errs << "Brand marks: download row needs Amazon's Kindle icon at assets/images/kindle.png" unless File.exist?("assets/images/kindle.png")
+  errs << "Design: download row must show the Kindle icon with fixed dimensions" unless row.include?("kindle.png") && row.include?(%{width="16" height="16"})
 
   # Both file names, not the directory: check-built-site.rb already proves the
   # files exist at the hrefs, so what is worth pinning here is the shape the
