@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "fdca42d2d132fe46e9f5dad1ba547d0daaafc040",
+  "last_processed_commit": "c4e6cb5149fcab94ef54ed17aa92fc1890d163ff",
   "updated_at": "2026-10-21",
   "updates": [
+    {
+      "id": "2026-10-21-c4e6cb5",
+      "date": "2026-10-21",
+      "title": "The essay action row now groups AI actions apart from downloads",
+      "summary": "Under each essay, everything you can hand to an AI now sits together on the left, with a thin line separating it from the ePub and PDF downloads. Copy for agent moved back beside the assistant marks, which is what it is, rather than sitting at the far end of the row.",
+      "benefits": [
+        {
+          "label": "Easier to parse",
+          "text": "One glance tells you which half is for an AI and which half is for you."
+        },
+        {
+          "label": "Nothing stranded",
+          "text": "The copy action sits with the assistants it copies for, not at the opposite end of the line."
+        }
+      ],
+      "commit_shas": [
+        "c4e6cb5149fcab94ef54ed17aa92fc1890d163ff"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-10-21-fdca42d",
       "date": "2026-10-21",
