@@ -46,6 +46,14 @@ layout: default
   "articleSection": {{ page.tags | first | jsonify }}{% endif %}
 }
 </script>
+{%- comment -%}
+Reading time at 200 words a minute, the figure most reading-time counters use,
+rounded up so a short note reads "1 min" rather than rounding to nothing.
+Counted off the rendered prose
+with its markup stripped, so tags are not counted as words.
+{%- endcomment -%}
+{%- assign reading_words = content | strip_html | number_of_words -%}
+{%- assign reading_minutes = reading_words | plus: 199 | divided_by: 200 -%}
 <article class="page-shell">
   {% include breadcrumbs.html %}
   <header class="page-header">
@@ -54,6 +62,7 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
       &middot; by <a rel="author" href="{{ '/about/' | relative_url }}">Varun Choraria</a>{% if page.last_modified_at %}
       &middot; updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>{% endif %}
+      &middot; Reading time: {{ reading_minutes }} min
     </p>
     {% if page.tags and page.tags.size > 0 %}
       <ul class="entry-tags" aria-label="Tags">
@@ -63,6 +72,7 @@ layout: default
         {% endfor %}
       </ul>
     {% endif %}
+    {% include downloads.html %}
   </header>
 
   {% include read-with.html %}

@@ -2,6 +2,8 @@
 {% assign label = include.label | default: tool.name | default: include.name %}
 {% assign logo_name = include.logo | default: tool.logo | default: include.name %}
 {% case logo_name %}
+{% when "acrobat" %}
+  {% include logos/acrobat.svg %}
 {% when "apple" %}
   {% include logos/apple.svg %}
 {% when "base44" %}
@@ -20,6 +22,8 @@
   {% include logos/cursor.svg %}
 {% when "database" %}
   {% include logos/database.svg %}
+{% when "epub" %}
+  {% include logos/epub.svg %}
 {% when "figma" %}
   {% include logos/figma.svg %}
 {% when "gauge" %}

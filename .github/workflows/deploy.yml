@@ -65,6 +65,8 @@ jobs:
         run: |
           node --check assets/js/gh-graph.js
           node --check assets/js/changelog.js
+      - name: Test downloads build
+        run: python3 _scripts/test_generate_downloads.py
       - name: Validate posts
         run: ruby _scripts/validate-posts.rb
       - name: Run site QA
@@ -73,6 +75,17 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      # pandoc and Google Chrome both ship on the runner image. The guard is
+      # for the day one of them does not: a missing converter would otherwise
+      # surface as 46 broken download links in the link check below.
+      - name: Install ePub converter
+        run: command -v pandoc || { sudo apt-get update && sudo apt-get install -y pandoc; }
+      # After Jekyll and before the link check, deliberately: the essay layout
+      # links these files, check-built-site.rb resolves every internal href,
+      # and that is what proves the generator ran. The files are never
+      # committed; they ride out inside the Pages artifact.
+      - name: Build essay downloads
+        run: python3 _scripts/generate_downloads.py
       - name: Check built HTML, schema, images, and links
         run: ruby _scripts/check-built-site.rb
       - name: Upload artifact

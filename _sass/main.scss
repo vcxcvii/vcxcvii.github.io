@@ -719,7 +719,8 @@ td {
 }
 
 .repo-link svg,
-.quest-action svg {
+.quest-action svg,
+.entry-downloads svg {
   width: 1rem;
   height: 1rem;
   flex: 0 0 auto;
@@ -1025,14 +1026,39 @@ a.days-cell.e:hover::after {
   @extend %tabular;
 }
 
-.entry-tags {
+/* Tags and the download row are the same object: a wrapping row of small
+   links hung under the meta line. They share everything but their gap. */
+.entry-tags,
+.entry-downloads {
   display: flex;
   flex-wrap: wrap;
-  gap: .25rem .75rem;
   margin: .75rem 0 0;
+  font-size: .8125rem;
+}
+
+.entry-tags {
+  gap: .25rem .75rem;
   padding: 0;
   list-style: none;
-  font-size: .8125rem;
+}
+
+/* The two formats an essay is also published in, under its meta line. Plain
+   links with their real marks and no rules of its own: the Read with row
+   directly below already draws one, and two strips under one title reads as
+   chrome rather than as information. */
+.entry-downloads {
+  align-items: center;
+  gap: .5rem;
+}
+
+.entry-downloads a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.entry-downloads span {
+  @extend %muted;
 }
 
 .prose > :first-child {

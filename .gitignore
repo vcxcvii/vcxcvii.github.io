@@ -4,6 +4,11 @@ vendor/bundle/
 _site/
 .jekyll-cache/
 .DS_Store
+
+# The _scripts tests import their subject by path, which leaves bytecode next
+# to it. Jekyll ignores _scripts/ so it never reaches the build, but it has no
+# business in the diff either.
+_scripts/__pycache__/
 frontend/node_modules/
 frontend/dist/
 

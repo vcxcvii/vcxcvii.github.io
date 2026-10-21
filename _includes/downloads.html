@@ -1,0 +1,20 @@
+{%- comment -%}
+The two formats every essay is also published in, under the meta line. Both
+files are built after Jekyll by _scripts/generate_downloads.py and ship inside
+the Pages artifact, so they are never committed and never go stale against the
+prose. check-built-site.rb resolves every internal href, which is what proves
+the generator ran: a missing file fails the build instead of shipping a dead
+link. Marks are the real ones, the EPUB logo and Adobe's Acrobat Reader mark,
+both public domain and both flat (DESIGN.md, Brand marks).
+
+The file is named for the last segment of the published URL, never the slug:
+a post that sets its own `permalink` has a slug that points at a redirect
+stub, and generate_downloads.py keys off the same URL so the two cannot drift.
+{%- endcomment -%}
+{%- assign dl_name = page.url | split: "/" | last -%}
+{%- assign dl_base = "/downloads/" | append: dl_name | append: "/" | append: dl_name -%}
+<p class="entry-downloads">
+  <a href="{{ dl_base | append: '.epub' | relative_url }}" download>{% include logo.html name="epub" %}ePub (Kindle)</a>
+  <span aria-hidden="true">&middot;</span>
+  <a href="{{ dl_base | append: '.pdf' | relative_url }}" download>{% include logo.html name="acrobat" %}Printable PDF</a>
+</p>

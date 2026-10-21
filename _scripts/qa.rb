@@ -58,7 +58,14 @@ REQUIRED_COLORS = %w[#002f9e #4d86fa #9be9a8 #40c463 #30a14e #216e39].freeze
 # Raised again from 18_800 for the Read with row on essays: a rules-only strip
 # (label, the .ask-ai marks, a text-style copy button) with its button reset,
 # hidden-attribute override and ChatGPT's brand green.
-CSS_BUDGET = 19_200
+# Raised again from 19_200 for the download row on essays, and only by 186
+# compiled bytes: the row carries no rules, no border and no button reset, and
+# it paid most of its own way by folding into what was already there. Tags and
+# the download row now share one block for the four declarations they had in
+# common, and the row's marks joined the existing `.repo-link svg` sizing rule
+# instead of declaring their own. The sheet sits at 19,381. The ceiling stays
+# close to the figure, as before.
+CSS_BUDGET = 19_400
 GITHUB_JS_BUDGET = 8_000
 # Category glyphs that predate the brand-mark rule in DESIGN.md. Anything else
 # under _includes/logos/ has to be a Simple Icons path with its own fill, never
@@ -375,6 +382,7 @@ def design_guardrails
   errs.concat(magnitude_phrasing_errors)
   errs.concat(number_phrasing_errors)
   errs.concat(essay_justify_errors)
+  errs.concat(essay_downloads_errors)
 
   errs
 end
@@ -392,6 +400,36 @@ def essay_justify_errors
   entry = read_file("_layouts/entry.html")
   unless entry.include?("prose--essay")
     errs << "Design: essay layout must add the `prose--essay` class to its .prose wrapper so justified prose paints"
+  end
+  errs
+end
+
+# Every essay offers itself as an ePub and a printable PDF. Three things have
+# to line up for a reader to get one: the layout renders the row, the row's
+# href is keyed off the published URL rather than the slug (a post with its own
+# `permalink` has a slug directory holding only a redirect stub), and the
+# generator writes to the matching path. The third is covered by
+# check-built-site.rb, which resolves every internal href and so fails the
+# build when a file is missing. These are the first two.
+def essay_downloads_errors
+  errs = []
+  entry = read_file("_layouts/entry.html")
+  errs << "Design: essay layout must render the download row — `{% include downloads.html %}` missing from _layouts/entry.html" unless entry.include?("include downloads.html")
+  errs << "Design: essay meta line must carry reading time" unless entry.include?("Reading time:") && entry.include?("reading_minutes")
+
+  row = read_file("_includes/downloads.html")
+  errs << "Design: download row must name the file from the published URL, not the slug" unless row.include?('page.url | split: "/" | last')
+  %w[epub acrobat].each do |mark|
+    errs << "Brand marks: download row needs the real #{mark} mark at _includes/logos/#{mark}.svg" unless File.exist?("_includes/logos/#{mark}.svg")
+    errs << "Design: download row must show the #{mark} mark" unless row.include?(%{name="#{mark}"})
+  end
+
+  # Both file names, not the directory: check-built-site.rb already proves the
+  # files exist at the hrefs, so what is worth pinning here is the shape the
+  # two sides agreed on rather than a path that check would catch anyway.
+  generator = read_file("_scripts/generate_downloads.py")
+  %w[epub pdf].each do |format|
+    errs << "Design: generator must write <name>.#{format} so the essay layout's href resolves" unless generator.include?(%({name}.#{format}))
   end
   errs
 end
