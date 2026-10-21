@@ -1,5 +1,5 @@
 {%- comment -%}
-The two formats every essay is also published in, under the meta line. Both
+The two formats every essay is also published in, inside the Read with row. Both
 files are built after Jekyll by _scripts/generate_downloads.py and ship inside
 the Pages artifact, so they are never committed and never go stale against the
 prose. check-built-site.rb resolves every internal href, which is what proves
@@ -11,11 +11,16 @@ raster mark on the site and it is deliberate; the reasons are in DESIGN.md.
 The file is named for the last segment of the published URL, never the slug:
 a post that sets its own `permalink` has a slug that points at a redirect
 stub, and generate_downloads.py keys off the same URL so the two cannot drift.
+
+The labels are the format and nothing else, because the marks already say the
+rest: the Kindle icon is what makes "ePub" mean a Kindle, and the Acrobat mark
+is what makes "PDF" mean a printable one. Spelled out, the row ran past 46rem
+and pushed "Copy for agent" onto a second line, which is the two strips this
+merge removed. aria-label carries the full phrase for anyone not seeing marks.
 {%- endcomment -%}
 {%- assign dl_name = page.url | split: "/" | last -%}
 {%- assign dl_base = "/downloads/" | append: dl_name | append: "/" | append: dl_name -%}
 <p class="entry-downloads">
-  <a href="{{ dl_base | append: '.epub' | relative_url }}" download><img src="{{ '/assets/images/kindle.png' | relative_url }}" width="16" height="16" alt="" loading="lazy">ePub (Kindle)</a>
-  <span aria-hidden="true">&middot;</span>
-  <a href="{{ dl_base | append: '.pdf' | relative_url }}" download>{% include logo.html name="acrobat" %}Printable PDF</a>
+  <a href="{{ dl_base | append: '.epub' | relative_url }}" download aria-label="Download this essay as an ePub for Kindle"><img src="{{ '/assets/images/kindle.png' | relative_url }}" width="16" height="16" alt="" loading="lazy">ePub</a>
+  <a href="{{ dl_base | append: '.pdf' | relative_url }}" download aria-label="Download this essay as a printable PDF">{% include logo.html name="acrobat" %}PDF</a>
 </p>

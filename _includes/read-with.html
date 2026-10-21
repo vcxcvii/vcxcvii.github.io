@@ -1,6 +1,9 @@
 {%- comment -%}
 "Read with" row on essays: one label, every assistant in _data/ask_ai.yml as an
-icon mark (reusing .ask-ai), and one quiet text button to copy the prompt. Every mark and the button carry the same prompt, anchored to the essay's own URL so the
+icon mark (reusing .ask-ai), the two download formats, and one quiet text
+button to copy the prompt. One strip rather than two: the downloads sat on
+their own line under the tags first, and a second rule under the same title
+read as chrome. Every mark and the button carry the same prompt, anchored to the essay's own URL so the
 assistant reads the live page instead of answering from memory. The copy button
 is hidden until assets/js/copy-prompt.js unhides it, so there is never a dead
 control without JavaScript.
@@ -16,5 +19,6 @@ Summarise the core argument in a few tight bullets, then offer to go deeper.{%- 
     <a{% if ai.logo == 'openai' %} class="rw-openai"{% endif %} href="{{ ai.url }}{{ rw_q }}" target="_blank" rel="noopener noreferrer" aria-label="Discuss this article with {{ ai.name }}" title="{{ ai.name }}">{% include logo.html name=ai.logo %}</a>
     {%- endfor %}
   </div>
+  {% include downloads.html %}
   <button type="button" class="rw-copy" data-copy-prompt="{{ rw_prompt | escape }}" hidden>{% include logo.html name="terminal" %}<span>Copy for agent</span></button>
 </div>

@@ -423,7 +423,8 @@ end
 def essay_downloads_errors
   errs = []
   entry = read_file("_layouts/entry.html")
-  errs << "Design: essay layout must render the download row — `{% include downloads.html %}` missing from _layouts/entry.html" unless entry.include?("include downloads.html")
+  errs << "Design: the Read with row must carry the download links — `{% include downloads.html %}` missing from _includes/read-with.html" unless read_file("_includes/read-with.html").include?("include downloads.html")
+  errs << "Design: the download links belong in the Read with row, not on their own line under the meta" if entry.include?("include downloads.html")
   errs << "Design: essay meta line must carry reading time" unless entry.include?("Reading time:") && entry.include?("reading_minutes")
 
   row = read_file("_includes/downloads.html")

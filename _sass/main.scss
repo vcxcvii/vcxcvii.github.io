@@ -1026,39 +1026,31 @@ a.days-cell.e:hover::after {
   @extend %tabular;
 }
 
-/* Tags and the download row are the same object: a wrapping row of small
-   links hung under the meta line. They share everything but their gap. */
-.entry-tags,
-.entry-downloads {
+.entry-tags {
   display: flex;
   flex-wrap: wrap;
+  gap: .25rem .75rem;
   margin: .75rem 0 0;
+  padding: 0;
+  list-style: none;
   font-size: .8125rem;
 }
 
-.entry-tags {
-  gap: .25rem .75rem;
-  padding: 0;
-  list-style: none;
-}
-
-/* The two formats an essay is also published in, under its meta line. Plain
-   links with their real marks and no rules of its own: the Read with row
-   directly below already draws one, and two strips under one title reads as
-   chrome rather than as information. */
+/* The two formats an essay is also published in. It sits inside the Read with
+   row rather than on a line of its own: one strip under a title is the whole
+   point of that row, and a second one reads as chrome. Size and colour are
+   the row's; this declares only its own arrangement. */
 .entry-downloads {
+  display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .75rem;
+  margin: 0;
 }
 
 .entry-downloads a {
   display: inline-flex;
   align-items: center;
   gap: .4rem;
-}
-
-.entry-downloads span {
-  @extend %muted;
 }
 
 .prose > :first-child {
@@ -1236,11 +1228,12 @@ a.days-cell.e:hover::after {
 }
 
 .read-with .ask-ai {
-  margin: 0 auto 0 .5rem;
+  margin: 0 .5rem;
 }
 
 .rw-copy {
   display: inline-flex;
+  margin-left: auto;
   gap: .4rem;
   align-items: center;
   padding: 0;
