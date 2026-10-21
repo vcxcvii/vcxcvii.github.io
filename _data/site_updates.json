@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "27fb61e887818539a2950842475266675251c0da",
+  "last_processed_commit": "8090b416f8bac1825ea3b7f4bd0e2816fda30a74",
   "updated_at": "2026-10-21",
   "updates": [
+    {
+      "id": "2026-10-21-8090b41",
+      "date": "2026-10-21",
+      "title": "A disclaimer line now runs along the bottom of every page",
+      "summary": "The footer now carries the line that the views here are the author's own and not an employer's, on every page rather than only on the disclaimer page, with a link through to the full version. Essays also show Amazon's own Kindle icon on their ePub link instead of the generic format mark.",
+      "benefits": [
+        {
+          "label": "Clear where it counts",
+          "text": "The views-are-my-own line is on the page you are reading, not one click away."
+        },
+        {
+          "label": "Know what you are downloading",
+          "text": "The Kindle icon says what the ePub link opens without you having to read the label."
+        }
+      ],
+      "commit_shas": [
+        "8090b416f8bac1825ea3b7f4bd0e2816fda30a74"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-10-21-27fb61e",
       "date": "2026-10-21",
