@@ -1039,18 +1039,16 @@ a.days-cell.e:hover::after {
 /* The two formats an essay is also published in. It sits inside the Read with
    row rather than on a line of its own: one strip under a title is the whole
    point of that row, and a second one reads as chrome. Size and colour are
-   the row's; this declares only its own arrangement. */
+   the row's; this declares its own arrangement and the hairline that divides
+   it from the agent actions, which is the site's own divider rather than a
+   pipe character borrowed from a terminal. */
 .entry-downloads {
   display: flex;
   align-items: center;
   gap: .75rem;
   margin: 0;
-}
-
-.entry-downloads a {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
+  padding-left: .75rem;
+  border-left: var(--rule);
 }
 
 .prose > :first-child {
@@ -1217,6 +1215,7 @@ a.days-cell.e:hover::after {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: .75rem;
   margin: 1.25rem 0 1.5rem;
   font-size: .8125rem;
   @extend %rule-top;
@@ -1224,18 +1223,26 @@ a.days-cell.e:hover::after {
 }
 
 .read-with > span {
-  color: var(--color-secondary);
+  @extend %muted;
 }
 
 .read-with .ask-ai {
-  margin: 0 .5rem;
+  margin: 0;
 }
 
-.rw-copy {
+/* The copy action and the two download links are the same object: a mark and
+   a word, set inline. Only the weight and the button reset differ, so only
+   those stay below. */
+.rw-copy,
+.entry-downloads a {
   display: inline-flex;
-  margin-left: auto;
   gap: .4rem;
   align-items: center;
+}
+
+/* The button reset and the weight are the copy action's alone. Folded in
+   above, they made the download links bold and took their link colour. */
+.rw-copy {
   padding: 0;
   border: 0;
   background: none;
@@ -1400,6 +1407,13 @@ a.days-cell.e:hover::after {
 }
 
 @media (max-width: 44rem) {
+  /* The row wraps here, and a divider at the start of a wrapped line divides
+     nothing. It reads as a stray mark, so it goes. */
+  .entry-downloads {
+    padding-left: 0;
+    border-left: 0;
+  }
+
   #wrapper {
     padding-top: 1.5rem;
   }
