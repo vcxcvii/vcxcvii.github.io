@@ -1,7 +1,31 @@
 {
-  "last_processed_commit": "3b90c05b6380e612769247045462b146fd9f9cf5",
+  "last_processed_commit": "27fb61e887818539a2950842475266675251c0da",
   "updated_at": "2026-10-21",
   "updates": [
+    {
+      "id": "2026-10-21-27fb61e",
+      "date": "2026-10-21",
+      "title": "Every essay now downloads as an ePub or a printable PDF",
+      "summary": "Under the date on every essay there are now two links: the same piece as an ePub for a Kindle or any e-reader, and as a printable PDF. Both are rebuilt on every deploy from the live text, so a download is never an older version of what is on the page. The meta line also shows how long the essay takes to read.",
+      "benefits": [
+        {
+          "label": "Read it anywhere",
+          "text": "Send an essay to a Kindle or an e-reader and read it offline."
+        },
+        {
+          "label": "Print it cleanly",
+          "text": "The PDF is laid out for A4 paper, with none of the site's navigation around it."
+        },
+        {
+          "label": "Know the length first",
+          "text": "The meta line says how many minutes an essay takes before you start it."
+        }
+      ],
+      "commit_shas": [
+        "27fb61e887818539a2950842475266675251c0da"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-10-02-cfbe94c",
       "date": "2026-10-02",
