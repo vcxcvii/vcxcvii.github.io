@@ -72,7 +72,13 @@ REQUIRED_COLORS = %w[#002f9e #4d86fa #9be9a8 #40c463 #30a14e #216e39].freeze
 # own: a blue underlined link is exactly what those rules exist to prevent,
 # and the band has no second treatment for a link outside the nav groups.
 # The sheet sits at 19,484.
-CSS_BUDGET = 19_500
+# Raised again to 19,530 for the preferred-sources control on essays. The
+# rule is margin-top on .preferred-source. Google paints the button. The
+# sheet sits at 19,515.
+# Raised again to 19,990 for the preferred-sources button on the title row:
+# the heading becomes a flex row, and the control gains a border, padding and
+# a visited state that outranks a:visited. The sheet sits at 19,969.
+CSS_BUDGET = 19_990
 GITHUB_JS_BUDGET = 8_000
 # Category glyphs that predate the brand-mark rule in DESIGN.md. Anything else
 # under _includes/logos/ has to be a Simple Icons path with its own fill, never
@@ -92,6 +98,7 @@ ALLOWED_JS = {
   "assets/js/copy-prompt.js" => 1_000,
   "assets/js/hi.js" => 1_000,
   "assets/js/theme.js" => 5_000,
+  "assets/js/preferred-source.js" => 2_100,
 }.freeze
 
 # Money is written as figures, never as magnitude words. "six figures in

@@ -1015,6 +1015,22 @@ a.days-cell.e:hover::after {
   margin-bottom: .5rem;
 }
 
+/* Title takes the row. The preferred-sources button sits at the far end and
+   drops under the title when the heading needs the full measure. */
+.entry-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+  margin-bottom: .5rem;
+}
+
+.entry-heading h1 {
+  flex: 1 1 12rem;
+  margin-bottom: 0;
+}
+
 .intro-note,
 .entry-meta,
 .mcp-tagline {
@@ -1234,7 +1250,8 @@ a.days-cell.e:hover::after {
    a word, set inline. Only the weight and the button reset differ, so only
    those stay below. */
 .rw-copy,
-.entry-downloads a {
+.entry-downloads a,
+.preferred-source {
   display: inline-flex;
   gap: .4rem;
   align-items: center;
@@ -1256,9 +1273,29 @@ a.days-cell.e:hover::after {
   display: none;
 }
 
-.rw-copy svg {
+.rw-copy svg,
+.preferred-source img {
   width: 1rem;
   height: 1rem;
+}
+
+/* a:visited outranks a bare class, so the visited state is named too.
+   The border is the button. Google's own pill is twice this height. */
+.preferred-source,
+.preferred-source:visited {
+  flex-shrink: 0;
+  padding: .35rem .65rem;
+  border: var(--rule);
+  border-radius: .375rem;
+  color: var(--color-text);
+  font-size: .8125rem;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.preferred-source:hover {
+  border-color: var(--color-text);
 }
 
 .rw-copy:hover {

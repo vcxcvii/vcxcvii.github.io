@@ -57,7 +57,10 @@ with its markup stripped, so tags are not counted as words.
 <article class="page-shell">
   {% include breadcrumbs.html %}
   <header class="page-header">
-    <h1>{{ page.title }}</h1>
+    <div class="entry-heading">
+      <h1>{{ page.title }}</h1>
+      {% include preferred-source.html %}
+    </div>
     <p class="entry-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
       &middot; by <a rel="author" href="{{ '/about/' | relative_url }}">Varun Choraria</a>{% if page.last_modified_at %}
