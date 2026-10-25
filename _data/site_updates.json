@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "872f7757452cacafb0865d6d5f5d46757d6ad7a9",
+  "last_processed_commit": "16da33497694694d3805cde89ba98c3dc93a6837",
   "updated_at": "2026-10-25",
   "updates": [
+    {
+      "id": "2026-10-25-dbf7ae1",
+      "date": "2026-10-25",
+      "title": "Essay titles now use sentence case",
+      "summary": "The archive mixed title case and sentence case, so the list looked uneven. Every essay title is sentence case now. Names and acronyms stay capped, including AI, GitHub, Google, Butler, Alfred, Detroit, Claude, and MCP. Share cards match the new titles. The addresses did not change.",
+      "benefits": [
+        {
+          "label": "Scan the list",
+          "text": "The archive lines now follow one rule."
+        },
+        {
+          "label": "Keep the addresses",
+          "text": "URLs stay put. Only the visible title casing changed."
+        }
+      ],
+      "commit_shas": [
+        "dbf7ae1a63c8ff971edebd30e90100d0d62e095f"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-10-25-c43cbc4",
       "date": "2026-10-25",
