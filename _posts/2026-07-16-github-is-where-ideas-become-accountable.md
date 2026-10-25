@@ -1,5 +1,5 @@
 ---
-title: "Github-ing"
+title: "GitHub-ing"
 seo_title: Why GitHub matters beyond engineering | Varun Choraria
 date: 2026-07-16 00:00:00 +0530
 permalink: /github-ing/

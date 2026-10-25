@@ -1,5 +1,5 @@
 ---
-title: "Hunting Season for the Rest of Us"
+title: "Hunting season for the rest of us"
 date: 2026-07-24 00:00:00 +0530
 redirect_from:
   - /hunting-season-2026/

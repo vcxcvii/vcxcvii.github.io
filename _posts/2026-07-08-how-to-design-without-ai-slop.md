@@ -1,5 +1,5 @@
 ---
-title: "How to design without AI Slop"
+title: "How to design without AI slop"
 seo_title: How to design without generic AI slop | Varun Choraria
 date: 2026-07-08 00:00:00 +0530
 description: "Killing generic AI-slop design isn't a prompt problem. Curate taste like a swipe file, then encode it as guardrails a pre-push gate actually enforces."

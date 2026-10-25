@@ -1,6 +1,6 @@
 ---
-title: "The Detroit Mistake"
-seo_title: "The Detroit Mistake: faster is not the return"
+title: "The Detroit mistake"
+seo_title: "The Detroit mistake: faster is not the return"
 date: 2026-10-25 00:00:00 +0530
 description: "GM's market fell nearly 10% in 10 years after the automation push. I made the same mistake with AI spend, then started measuring cost per task."
 last_modified_at: 2026-10-25 00:00:00 +0530

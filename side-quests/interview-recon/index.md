@@ -39,7 +39,7 @@ Open Claude Code and say, "prep me for my interview at [company]." For another A
 
 Interview Recon is a free AI interview research skill for candidates using Claude Code, Codex, Cursor, or another Agent Skills-compatible agent. It turns a job description and public company sources into a reusable dossier: JD-mapped talking points, a grounded 90-day plan, credible questions, and citations you can verify before the call.
 
-Most candidates skim a company website the night before. Real research takes days, so everyone arrives repeating the same surface-level facts. Interview Recon compresses that work into an afternoon while keeping the evidence attached. I built it during my own 2026 job hunt, when I was running several interview processes at once, losing the source behind useful facts, and repeating research before every round. The full build story, with screenshots, is in [Hunting Season for the Rest of Us](/hunting-season-for-the-rest-of-us/).
+Most candidates skim a company website the night before. Real research takes days, so everyone arrives repeating the same surface-level facts. Interview Recon compresses that work into an afternoon while keeping the evidence attached. I built it during my own 2026 job hunt, when I was running several interview processes at once, losing the source behind useful facts, and repeating research before every round. The full build story, with screenshots, is in [Hunting season for the rest of us](/hunting-season-for-the-rest-of-us/).
 
 ## What will I walk into the interview with?
 
