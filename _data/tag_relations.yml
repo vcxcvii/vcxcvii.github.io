@@ -2,6 +2,10 @@ ai:
   - frameworks
   - strategy
   - management
+agents:
+  - ai
+  - strategy
+  - frameworks
 analytics:
   - product
   - growth
