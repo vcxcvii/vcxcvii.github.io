@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "74cfaf46e1d34c07c3a354fcd82696eb412e3d7f",
+  "last_processed_commit": "872f7757452cacafb0865d6d5f5d46757d6ad7a9",
   "updated_at": "2026-10-25",
   "updates": [
+    {
+      "id": "2026-10-25-c43cbc4",
+      "date": "2026-10-25",
+      "title": "The Detroit Mistake now separates speed from demand",
+      "summary": "I published The Detroit Mistake, dated 25 October 2026. Making more, faster, is not the same as demand. The essay uses GM's automation years, and a team that spent on AI tools and forgot the customer. Butler AI now shows Friday 16 October 2026. The address stays /butler-ai/.",
+      "benefits": [
+        {
+          "label": "Read the argument",
+          "text": "The essay tracks cost per task, a written spec, and the low-value work worth automating."
+        },
+        {
+          "label": "Date Butler AI",
+          "text": "Butler AI now shows Friday 16 October 2026, and the address stays /butler-ai/."
+        }
+      ],
+      "commit_shas": [
+        "c43cbc4ca1f7c665e4f5756aa4b421e7858225b0"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-10-25-74cfaf4",
       "date": "2026-10-25",
