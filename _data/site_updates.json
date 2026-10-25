@@ -1,7 +1,27 @@
 {
-  "last_processed_commit": "c9ba5418990f53c3f2a79348d91922b52074533f",
+  "last_processed_commit": "74cfaf46e1d34c07c3a354fcd82696eb412e3d7f",
   "updated_at": "2026-10-25",
   "updates": [
+    {
+      "id": "2026-10-25-74cfaf4",
+      "date": "2026-10-25",
+      "title": "Butler AI now explains what a personal agent should ignore",
+      "summary": "I published Butler AI, about the small team of agents I run on a shared Notion brain. It covers when they act, stay quiet, or hand a decision back, and how a complaint becomes a rule the whole team reads. Diagrams and screenshots show the setup, including the handoff from chat into this site.",
+      "benefits": [
+        {
+          "label": "Read the rules",
+          "text": "The essay spells out when an agent acts, stays quiet, or hands the decision back."
+        },
+        {
+          "label": "See the handoff",
+          "text": "Screenshots show the team, the memory loop, and the chat that opened this pull request."
+        }
+      ],
+      "commit_shas": [
+        "74cfaf46e1d34c07c3a354fcd82696eb412e3d7f"
+      ],
+      "source": "git-trailer"
+    },
     {
       "id": "2026-10-24-1b68a44",
       "date": "2026-10-24",
