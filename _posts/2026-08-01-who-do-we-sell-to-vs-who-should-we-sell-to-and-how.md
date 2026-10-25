@@ -1,5 +1,5 @@
 ---
-title: "Who do we sell to vs. Who SHOULD we sell to (and how)."
+title: "Who do we sell to vs. who SHOULD we sell to (and how)."
 seo_title: "How to continuously sharpen your ideal customer profile"
 date: 2026-08-01 00:00:00 +0530
 description: "A field guide to sharpening your ICP: win-loss evidence that produces criteria instead of blame, intent signals, and what to do with no customers yet."

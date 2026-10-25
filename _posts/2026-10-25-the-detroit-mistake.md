@@ -1,6 +1,6 @@
 ---
-title: "The Detroit Mistake"
-seo_title: "The Detroit Mistake: faster is not the return"
+title: "The Detroit mistake"
+seo_title: "The Detroit mistake: faster is not the return"
 date: 2026-10-25 00:00:00 +0530
 description: "GM's market fell nearly 10% in 10 years after the automation push. I made the same mistake with AI spend, then started measuring cost per task."
 last_modified_at: 2026-10-25 00:00:00 +0530
@@ -25,7 +25,7 @@ That's automation. AI is the means to an end.
 
 ## The Detroit mistake
 
-Half the internet is talking about building more complex systems, or more efficient ones. The other half is still trying to find the business return on a ChatGPT project they set up two years ago.
+Half the internet is talking about building more complex systems, or more efficient ones. The other half is still trying to find the business return on a ChatGPT project they set up 2 years ago.
 
 I found an article that names the thing: slop. I've read a lot about Toyota and Ford's shop-floor automations, built to produce more cars, faster. More cars meant more sales. That only holds if the demand was already there to justify making more cars.
 
@@ -47,7 +47,7 @@ At work I use Notion as my agent database. IT didn't block it. I run a set of Cl
 
 1. Map the political landmines and help me draft responses. The org is a giant matrix, with more dotted lines than I can keep in my head.
 2. Map the key departmental contacts and build the rolodex. Read the email trails, and work out who to reach first and whom to cc.
-3. Every morning, ingest the last two weeks of Teams and Outlook messages, log them, and build the day's worklist as tickets. Tag each ticket and update it with the latest action items and an audit trail, so nothing gets dropped.
+3. Every morning, ingest the last 2 weeks of Teams and Outlook messages, log them, and build the day's worklist as tickets. Tag each ticket and update it with the latest action items and an audit trail, so nothing gets dropped.
 4. Write a weekly email to my reporting manager: what got done, what to watch, and what's next.
 
 There's more than that. I have a $500 budget on the enterprise plan each month. Most of the execution, a lot of API calls every day and still inside Notion's free-tier limits, costs me $70 a month. That's a fraction of a virtual assistant, and I'm not drowning in sticky notes or fishing through Outlook. The Outlook UX is horrendous. Most of the task execution runs on Sonnet 5.5 extra.
